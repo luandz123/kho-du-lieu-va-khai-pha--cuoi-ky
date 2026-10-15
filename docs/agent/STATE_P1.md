@@ -6,7 +6,7 @@ Phiên bản **P1-S02-v2**, 15/10/2026, Asia/Bangkok. Workspace `D:/kho-du-lieu-
 
 - S00 APPROVED R-P1-00; S01 APPROVED R-P1-01 “Duyệt”. Python3.12 chung/main đã chốt.
 - G0 APPROVED R-P1-G0 “Duyệt và đẩy g0”; PR#1 MERGED/main `eff54aee4a61f1a2dd6bad69cf3b6a713083b17e` đã xác minh. Giữ nhánh p1-g0-contract.
-- Bước hiện tại **2-P1**, nhánh **p1-s02-env** (không codex/), trạng thái chức năng **APPROVED** theo R-P1-S02 “duyệt và đẩy bước2”; đang công bố commit/push/PR, chưa MERGED; SQL theo.env hiện tại **SELECT_1_PASS/17.11/exit0 từ cả Windows và container**; không sửa.env/tạoDB. Các lỗiSQL trước là lịch sử. Đã có quyền commit/push/PR môi trường, chưa có quyền merge.
+- Bước hiện tại **2-P1**, nhánh **p1-s02-env** (không codex/), trạng thái chức năng **APPROVED** theo R-P1-S02 “duyệt và đẩy bước2”; đã commit/push và mở **PR#3 OPEN, chưa MERGED**; SQL theo.env hiện tại **SELECT_1_PASS/17.11/exit0 từ cả Windows và container**; không sửa.env/tạoDB. Các lỗiSQL trước là lịch sử. Đã công bố commit6ef3a95/merge origin-main f761497, upstream origin/p1-s02-env. PR https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/3 đã OPEN; chưa có quyền merge.
 - Contract2 không đổi. P1 đã xác nhận; chưa nhận xác nhận P2. Không chờ P2 để thiết lập P1; không tự làm EDA/4-P1.
 
 ## Đã thực hiện
@@ -29,8 +29,8 @@ Bốn view dw.v_ml_* NOT_CREATED; dedicated_dw_read_role_verified=false. UI logi
 
 Hướng dẫn README/docs/P1/environment.md/dashboard/superset/README.md; checker tests/warehouse/check_environment.py và check_superset.py; báo cáo thực results/warehouse/environment_check.json, superset_environment_check.json, setup_summary.json. Mã lỗi cụ thể, không exception/URI/password thô.
 
-Ignore đã kiểm secret2file/venv/raw/processed/dump; template root/nested được phép; tracked list chưa có dữ liệu/bí mật, không cần bỏ theo dõi. git diff --check đạt. Chưa stage/commit/push. Chưa user UI login/chart/dashboard/export/import, rebuild máy sạch, benchmark hoặc tái lập P2. Rubric/tên-MSSV/máy bảo vệ còn chưa xác minh.
+Ignore đã kiểm secret2file/venv/raw/processed/dump; template root/nested được phép; tracked list chưa có dữ liệu/bí mật, không cần bỏ theo dõi. git diff --check đạt. Đã stage/commit/push phần P1 có chọn lọc, không secret/data; PR#3 OPEN. Chưa user UI login/chart/dashboard/export/import, rebuild máy sạch, benchmark hoặc tái lập P2. Rubric/tên-MSSV/máy bảo vệ còn chưa xác minh.
 
 ## Mốc tiếp theo
 
-Đang thực hiện lệnh Đẩy S02 sau duyệt thật: commit/push/PR p1-s02-env; tích hợp nguyên vẹn main ff87081 có PR#2/P2 mới. Dừng trước merge và bước tiếp.
+Đẩy S02 đã xong: PR#3 OPEN vào main, chưa MERGED. Đã tích hợp nguyên main ff87081/P2, kiểm9file P2 byte-for-byte trùng remote. Chờ review/xác nhận merge cụ thể; chưa chuyển bước. Commit cập nhật hồ sơ công bố thuộc cùng PR, không thay code/phạm vi.

@@ -81,3 +81,13 @@ Hai báo cáo môi trường và setup_summary cập nhật kết quả thật; 
 Ngày15/10/2026, người dùng nguyên văn **“duyệt và đẩy bước2”**. Phạm vi P1-S02-v2: runtime/dependency, SQL host/container PASS, Superset service và giới hạn đã bàn giao. S02 chức năng **APPROVED**; cho phép commit/push nhánh p1-s02-env và mở PR main. Không phải xác nhận merge hoặc cho phép bước tiếp. DW view/roleBI/UI/dashboard chưa được nghiệm thu, giữ nguyên giới hạn.
 
 Kiểm lại trước đẩy: pipcheck PASS, host/container SELECT1_PASS17.11/exit0, health/login200. Fetch thấy main có PR#2 môi trường P2 đã merge (ff87081); chỉ bổ sung file P2, không trùng thay đổi P1. Sẽ tích hợp origin/main và giữ nguyên P2; không tự duyệt nội dung P2.
+
+## Công bố P1-S02-v2 thành công — 15/10/2026
+
+Người dùng nguyên văn “duyệt và đẩy bước2”, R-P1-S02. Commit nội dung môi trường **6ef3a95** gồm27file P1 (config/checker/requirements/bằng chứng/hồ sơ), không secret/data/P2. Có2dòng prompt chứa khoảng trắng cuối dòng được chuẩn hóa trước commit; giữ nguyên nội dung lời duyệt. Diffcheck/compile/allowlist và kiểm secret mẫu đạt.
+
+Tích hợp origin/main có PR#2/P2 tại ff87081 bằng merge commit **f76149720a917419c15922127d1c74157dc53ac8**, không conflict; kiểm cả9file P2 bằng HEAD so origin/main trùng byte-for-byte. Không sửa/chạy hoặc tự duyệt ML P2.
+
+Push -u origin p1-s02-env exit0, xác minh remote SHA khớp. Mở **PR#3** vào main: https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/3, GitHub API xác nhận OPEN/merged=false. PR đã gắn vào chat. Commit cập nhật hồ sơ công bố này tiếp tục cùng PR, không thay code/secret hoặc phạm vi.
+
+Chức năng S02 APPROVED; GitHub PR OPEN, chưa MERGED. Dừng chờ review/xác nhận merge cụ thể, không tự merge hoặc chuyển bước4. Các nhãn WAITING_REVIEW/chưa đẩy trước đây là lịch sử. DW view/roleBI/UI/dashboard và tái lập sạch vẫn giữ giới hạn đã nêu.

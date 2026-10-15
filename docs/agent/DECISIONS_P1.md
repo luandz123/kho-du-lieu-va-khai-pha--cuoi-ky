@@ -55,3 +55,5 @@ P1-D24: nested.env.example được allowlist, secret.env vẫn ignore. Không c
 P1-D25: S02-v2 sau user báo đã sửa, cả host/container SELECT1_PASS17.11/exit0 theo.env thật. Khởi động lại hai container dự án đã dừng, giữ volume/key. Các lỗiSQL trước đã giải quyết; view/roleBI/UI/dashboard còn chưa nghiệm thu. Chờ duyệt S02, không tự chuyển bước/đẩy.
 
 P1-D26: người dùng “duyệt và đẩy bước2” duyệt P1-S02-v2, cấp quyền commit/push/PR, không merge. Fetch trước đẩy thấy origin/main ff87081 đã gộp PR#2/P2, chỉ thêm file P2 không trùng; tích hợp nguyên vẹn sau commit phần P1, không sửa/chạy hoặc tự duyệt sản phẩm P2. Từ S02 đưa hồ sơ P1/tiền đề G0-S00-S01 vào Git để lưu dấu vết; giới hạn8tệp chỉ áp dụng bootstrap G0, không gom file môi trường/dữ liệu/bí mật.
+
+P1-D27: công bố S02-v2 qua commit6ef3a95, tích hợp nguyên main/P2 bằng f761497 không conflict,9file P2 giữ nguyên. Push thành công/mở PR#3 OPEN, chưa MERGED. Commit chỉ cập nhật hồ sơ công bố tiếp theo thuộc cùng mốc; giữ giới hạn DW/BI/ML và dừng trước merge/bước tiếp.
