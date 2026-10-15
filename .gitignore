@@ -1,0 +1,79 @@
+# Local credentials and environment (only the root template is reviewed for Git)
+.env
+.env.*
+!/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.pgpass
+pgpass.conf
+credentials*.json
+*service-account*.json
+secrets/
+.secrets/
+
+# Per-machine datasets, exports and backups
+/data/raw/
+/data/processed/
+*.dat
+*.csv
+*.parquet
+*.feather
+*.arrow
+*.zip
+*.gz
+*.7z
+*.dump
+*.backup
+*.bak
+*.sql.gz
+/backups/
+/dumps/
+
+# User-level mining artifacts and large models
+/results/mining/handoff/
+**/user_cluster*
+**/recommendations*
+**/user_features*
+**/features/
+**/predictions/
+*.pkl
+*.pickle
+*.joblib
+*.npz
+*.npy
+/models/
+
+# Private runtime, caches and logs
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+*.log
+/output/
+/tmp/
+
+# Superset metadata, persistent volumes and connection exports
+**/superset_home/
+**/superset_metadata/
+**/volumes/
+**/metadata/
+*.db
+*.sqlite
+*.sqlite3
+**/connections*.yaml
+**/connections*.yml
+**/connections*.json
+**/database_export*
+
+# Generated data is denied by default; aggregate CSV exceptions need review.
+# Manifests, source_manifest.json, source code and SQL remain eligible for Git.
+.DS_Store
+Thumbs.db
