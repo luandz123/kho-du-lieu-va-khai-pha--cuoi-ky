@@ -6,8 +6,8 @@
 - **Hệ điều hành**: Linux Ubuntu 24.04.1 LTS (Kernel `6.14.0-37-generic`, x86_64)
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
-- **Nhánh Git hiện tại**: `codex/p2-s02-env`
-- **Thời điểm cập nhật**: 2026-10-15 16:46:00 +07:00
+- **Nhánh Git hiện tại**: `p2-s03-eda`
+- **Thời điểm cập nhật**: 2026-10-15 17:34:00 +07:00
 
 ---
 
@@ -16,9 +16,10 @@
 | Bước | Mô tả nội dung | Trạng thái | Ghi chú / Tiền đề |
 | :--- | :--- | :--- | :--- |
 | **Bước 0** | Khảo sát hiện trạng máy Người 2 | `APPROVED` | Duyệt lúc 16:42:29 ngày 15/10/2026. Lời duyệt lưu tại REVIEWS_P2.md. |
-| **Bước 1** | Chuẩn bị Hợp đồng dữ liệu & Mốc nền G0 | *P1 sở hữu* | P1 tạo `docs/shared/data_contract.md/.json`. P2 chờ nhận trước Bước 3. |
-| **Bước 2-P2** | Thiết lập môi trường độc lập cho P2 | `WAITING_REVIEW` (Merge PR) | Duyệt chức năng lúc 17:21:25. Đã mở PR [#2](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/2) (commit `afc005d`). Đang chờ review & merge. |
-| **Bước 3** | Tải dữ liệu nguồn & Kiểm tra EDA Canonical | `NOT_STARTED` | Chờ Hợp đồng dữ liệu v2 từ P1 được duyệt và chuyển sang. |
+| **Bước 1** | Chuẩn bị Hợp đồng dữ liệu & Mốc nền G0 | *P1 sở hữu* | P1 đã đưa G0 lên `main` (commit `5c31e80`, PR #1 `eff54ae`). |
+| **Bước 2-P2** | Thiết lập môi trường độc lập cho P2 | `MERGED` | PR [#2](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/2) đã merge vào `main` (commit `ff87081`). |
+| **Bước 3A-P2**| Nhận mốc G0 & Xác nhận hợp đồng dữ liệu v2 | `WAITING_REVIEW` | Nhánh `p2-s03-eda`. Đã đối chiếu toàn diện contract v2 MD/JSON, kiểm tra .gitignore. Chờ duyệt. |
+| **Bước 3B-P2**| Tải dữ liệu nguồn & Kiểm tra EDA Canonical | `NOT_STARTED` | Chờ duyệt Bước 3A-P2 để tải MovieLens 1M và xuất canonical CSV. |
 | **Bước 4-P2** | Khai phá dữ liệu Q1: Phân cụm K-Means | `NOT_STARTED` | Chờ Bước 3 hoàn thành. |
 | **Bước 5-P2** | Khai phá dữ liệu Q2: Item-based CF & Baseline | `NOT_STARTED` | Chờ Bước 4-P2 hoàn thành. |
 

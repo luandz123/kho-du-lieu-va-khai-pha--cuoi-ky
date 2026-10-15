@@ -37,3 +37,10 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 ### [DEC-P2-005] Xử lý sự cố dung lượng đĩa khả dụng
 - **Bối cảnh**: Dung lượng đĩa khả dụng ban đầu chỉ có ~771MB do 33GB tệp đã xóa bị giữ trong `~/.local/share/Trash`.
 - **Quyết định**: Được người dùng phê duyệt trực tiếp qua câu hỏi tương tác, tiến hành làm rỗng Thùng rác để giải phóng 33GB thực tế, nâng dung lượng trống lên ~34GB, loại bỏ hoàn toàn rủi ro thiếu đĩa.
+
+---
+
+### [DEC-P2-006] Quy ước đặt tên nhánh Git mới không có tiền tố `codex/`
+- **Bối cảnh**: Ban đầu tài liệu hướng dẫn mẫu có dùng ví dụ nhánh dạng `codex/p2-s08-clusters` hoặc `codex/p2-s02-env`. Nhóm đã họp và chốt quy ước thống nhất cho toàn bộ các mốc từ Bước 3 trở đi: tên nhánh mới KHÔNG có tiền tố `codex/` (ví dụ `p2-s03-eda`).
+- **Quyết định**: Áp dụng quy ước tên nhánh mới không tiền tố `codex/` (cụ thể nhánh Bước 3 là `p2-s03-eda`) cho toàn bộ công việc của P2, đảm bảo tính đồng bộ với Người 1 và kho mã nguồn chung.
+
