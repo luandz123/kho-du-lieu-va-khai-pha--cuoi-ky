@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-15T13:22:40.943118+00:00",
+  "health": 200,
+  "login/": 200,
+  "container": {
+    "superset_version": "6.1.0",
+    "postgresql_driver": "2.9.13",
+    "windows_postgresql_tcp": "PASS",
+    "host_sql": "SELECT_1_PASS",
+    "dw_views": {
+      "dw.v_ml_users": "NOT_CREATED",
+      "dw.v_ml_movies": "NOT_CREATED",
+      "dw.v_ml_movie_genres": "NOT_CREATED",
+      "dw.v_ml_ratings": "NOT_CREATED"
+    },
+    "host_server_version": "17.11",
+    "dedicated_dw_read_role_verified": false
+  },
+  "user_ui_login_verified": false,
+  "dashboard_created": false,
+  "service_exit_code": 0,
+  "exit_code": 0
+}
