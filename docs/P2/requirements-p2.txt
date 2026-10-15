@@ -1,0 +1,8 @@
+# Requirements for P2 (Data Mining & EDA)
+# Python 3.12 verified
+numpy>=1.26.4,<2.1.0
+pandas>=2.2.2,<3.0.0
+scipy>=1.13.0,<1.15.0
+scikit-learn>=1.4.2,<1.6.0
+pytest>=8.1.1,<9.0.0
+requests>=2.31.0,<3.0.0
