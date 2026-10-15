@@ -2,8 +2,10 @@
 
 - **Mã bước**: `P2-S02`
 - **Nhánh Git**: `codex/p2-s02-env`
-- **Thời gian thực hiện**: 2026-10-15 16:45:00 +07:00
-- **Trạng thái**: `WAITING_REVIEW`
+- **Commit SHA**: `afc005d`
+- **Pull Request**: [#2](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/2)
+- **Thời gian thực hiện**: 2026-10-15 17:23:28 +07:00
+- **Trạng thái**: `WAITING_REVIEW` (Đã duyệt chức năng, đang chờ review và merge PR #2 vào `main`)
 
 ---
 

@@ -17,7 +17,7 @@
 | :--- | :--- | :--- | :--- |
 | **Bước 0** | Khảo sát hiện trạng máy Người 2 | `APPROVED` | Duyệt lúc 16:42:29 ngày 15/10/2026. Lời duyệt lưu tại REVIEWS_P2.md. |
 | **Bước 1** | Chuẩn bị Hợp đồng dữ liệu & Mốc nền G0 | *P1 sở hữu* | P1 tạo `docs/shared/data_contract.md/.json`. P2 chờ nhận trước Bước 3. |
-| **Bước 2-P2** | Thiết lập môi trường độc lập cho P2 | `APPROVED` (Đang đẩy PR) | Duyệt chức năng lúc 17:21:25 ngày 15/10/2026. Nhánh `codex/p2-s02-env`. Đang mở PR, đặt WAITING_REVIEW chờ merge. |
+| **Bước 2-P2** | Thiết lập môi trường độc lập cho P2 | `WAITING_REVIEW` (Merge PR) | Duyệt chức năng lúc 17:21:25. Đã mở PR [#2](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/2) (commit `afc005d`). Đang chờ review & merge. |
 | **Bước 3** | Tải dữ liệu nguồn & Kiểm tra EDA Canonical | `NOT_STARTED` | Chờ Hợp đồng dữ liệu v2 từ P1 được duyệt và chuyển sang. |
 | **Bước 4-P2** | Khai phá dữ liệu Q1: Phân cụm K-Means | `NOT_STARTED` | Chờ Bước 3 hoàn thành. |
 | **Bước 5-P2** | Khai phá dữ liệu Q2: Item-based CF & Baseline | `NOT_STARTED` | Chờ Bước 4-P2 hoàn thành. |
