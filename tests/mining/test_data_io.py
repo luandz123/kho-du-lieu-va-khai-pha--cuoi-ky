@@ -10,11 +10,15 @@ Validates:
 - DW view query interface and graceful connection error handling
 """
 
+from datetime import datetime, timezone, timedelta
 import importlib.util
 import json
+import os
 from pathlib import Path
 import sqlite3
+import subprocess
 import sys
+from unittest.mock import MagicMock, patch
 
 import pandas as pd
 import pytest
@@ -33,6 +37,8 @@ load_raw_data = data_io.load_raw_data
 load_dw_data = data_io.load_dw_data
 verify_raw_csv_equivalence = data_io.verify_raw_csv_equivalence
 compute_canonical_hash = data_io.compute_canonical_hash
+_normalize_and_validate_ratings = data_io._normalize_and_validate_ratings
+_normalize_rated_at_val = data_io._normalize_rated_at_val
 TABLE_SCHEMAS = data_io.TABLE_SCHEMAS
 DWConnectionError = data_io.DWConnectionError
 CANONICAL_MANIFEST_PATH = data_io.CANONICAL_MANIFEST_PATH
@@ -221,4 +227,166 @@ def test_dw_mock_interface_with_connection():
         assert list(dw_tables[tbl].columns) == cols
 
     conn.close()
+
+
+def test_dw_ratings_timezone_aware_and_timestamp_validation():
+    """
+    Verify rated_at from DW with timezone-aware datetimes (as returned by PostgreSQL TIMESTAMPTZ)
+    is accurately normalized to UTC ISO 8601 YYYY-MM-DDTHH:MM:SSZ and timestamp equivalence is checked.
+    """
+    tz_plus7 = timezone(timedelta(hours=7))
+    aware_dt = datetime(2000, 4, 26, 6, 5, 32, tzinfo=tz_plus7)
+    expected_epoch = 956703932
+    expected_iso_utc = "2000-04-25T23:05:32Z"
+
+    # Test normalization function directly
+    iso_res, epoch_res = _normalize_rated_at_val(aware_dt)
+    assert iso_res == expected_iso_utc
+    assert epoch_res == expected_epoch
+
+    # Test DataFrame validation with aware datetime
+    mock_df = pd.DataFrame({
+        "user_id": [1],
+        "movie_id": [1],
+        "rating": [5],
+        "timestamp": [expected_epoch],
+        "rated_at": [aware_dt],
+    })
+    validated_df = _normalize_and_validate_ratings(mock_df)
+    assert validated_df["rated_at"].iloc[0] == expected_iso_utc
+
+    # Test through load_dw_data query mock
+    mock_engine = MagicMock()
+    def fake_read_sql(sql, conn):
+        if "v_ml_users" in sql:
+            return pd.DataFrame({"user_id": [1], "gender": ["M"], "age_group": ["18-24"], "occupation": [4]})
+        elif "v_ml_movies" in sql:
+            return pd.DataFrame({"movie_id": [1], "title": ["Toy Story (1995)"], "release_year": [1995]})
+        elif "v_ml_movie_genres" in sql:
+            return pd.DataFrame({"movie_id": [1], "genre_name": ["Animation"]})
+        elif "v_ml_ratings" in sql:
+            return pd.DataFrame({
+                "user_id": [1], "movie_id": [1], "rating": [5],
+                "timestamp": [expected_epoch],
+                "rated_at": [aware_dt]
+            })
+        raise ValueError("unexpected sql")
+
+    with patch("pandas.read_sql", side_effect=fake_read_sql):
+        dw_tables = load_dw_data(connection_or_engine=mock_engine)
+        assert dw_tables["ratings"]["rated_at"].iloc[0] == expected_iso_utc
+
+    # Verify that timestamp mismatch raises ValueError
+    mismatched_df = pd.DataFrame({
+        "user_id": [1],
+        "movie_id": [1],
+        "rating": [5],
+        "timestamp": [expected_epoch + 100],  # Mismatched timestamp
+        "rated_at": [aware_dt],
+    })
+    with pytest.raises(ValueError) as exc_info:
+        _normalize_and_validate_ratings(mismatched_df)
+    assert "Timestamp mismatch" in str(exc_info.value)
+
+
+def test_dw_exception_does_not_leak_credentials(monkeypatch):
+    """Verify that credentials and fake secret URIs are NEVER leaked in DW exceptions."""
+    secret_pass = "super_secret_pw_999xyz"
+    fake_uri = f"postgresql://dw_admin:{secret_pass}@localhost:5432/fake_dw"
+    monkeypatch.setenv("PGPASSWORD", secret_pass)
+    monkeypatch.setenv("PGHOST", "invalid_dw_host_never_resolves")
+
+    with pytest.raises(DWConnectionError) as exc_info:
+        load_data(source="dw")
+
+    msg = str(exc_info.value)
+    assert secret_pass not in msg
+    assert fake_uri not in msg
+    assert "dw_admin" not in msg
+
+    # Also test when a custom connection raises an error containing a raw URI
+    class LeakyEngine:
+        def connect(self):
+            raise RuntimeError(f"Connection to {fake_uri} failed")
+
+    with pytest.raises(DWConnectionError) as exc_info2:
+        load_dw_data(connection_or_engine=LeakyEngine())
+
+    msg2 = str(exc_info2.value)
+    assert secret_pass not in msg2
+    assert fake_uri not in msg2
+
+
+def test_cli_exit_code_and_output_on_dw_failure():
+    """Verify CLI returns exit code != 0 when DW is offline, and suppresses credentials in process output."""
+    secret_pass = "my_cli_top_secret_pw_888"
+    env = os.environ.copy()
+    env["PGPASSWORD"] = secret_pass
+    env["PYTHONPATH"] = str(REPO_ROOT)
+
+    res = subprocess.run(
+        [sys.executable, "-m", "mining.data_io", "--source", "dw"],
+        cwd=REPO_ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert res.returncode != 0
+    assert secret_pass not in res.stdout
+    assert secret_pass not in res.stderr
+    assert "[ERROR] DW access failed:" in res.stderr
+
+
+def test_cli_exit_code_on_verify_equivalence():
+    """Verify CLI returns exit code 0 when equivalence passes."""
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT)
+
+    res = subprocess.run(
+        [sys.executable, "-m", "mining.data_io", "--verify-equivalence"],
+        cwd=REPO_ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert res.returncode == 0
+    assert "Overall Equivalence: PASSED" in res.stdout
+
+
+def test_cli_exit_code_on_verify_equivalence_failure(tmp_path):
+    """Verify CLI returns exit code != 0 when equivalence fails."""
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(REPO_ROOT)
+
+    corrupted_dir = tmp_path / "processed"
+    corrupted_dir.mkdir()
+    # Copy processed files except ratings
+    for f in (REPO_ROOT / "data" / "processed").glob("*.csv"):
+        corrupted_dir.joinpath(f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
+
+    # Corrupt ratings.csv by appending an invalid row
+    with open(corrupted_dir / "ratings.csv", "a", encoding="utf-8") as f:
+        f.write("9999,9999,5,999999999,2001-01-01T00:00:00Z\n")
+
+    script = f"""
+import sys
+from pathlib import Path
+from mining.data_io import verify_raw_csv_equivalence
+
+rep = verify_raw_csv_equivalence(processed_dir=Path(r'{corrupted_dir}'))
+if rep.get('overall_equivalence'):
+    sys.exit(0)
+else:
+    print('Overall Equivalence: FAILED', file=sys.stderr)
+    sys.exit(1)
+"""
+    res = subprocess.run(
+        [sys.executable, "-c", script],
+        cwd=REPO_ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+    assert res.returncode == 1
+    assert "Overall Equivalence: FAILED" in res.stderr
 

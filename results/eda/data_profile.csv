@@ -19,7 +19,6 @@ users_activity,q95_ratings_per_user,556.0,ratings,95th percentile ratings per us
 users_activity,q99_ratings_per_user,906.7,ratings,99th percentile ratings per user
 users_activity,max_ratings_per_user,2314,ratings,Maximum ratings provided by a single user
 users_activity,users_without_rating_ge_4_count,2,users,Users with 0 positive ratings (insufficient evidence in Q1)
-users_activity,users_without_rating_ge_4_ids,3598;4486,user_id list,User IDs with status 'insufficient_evidence'
 movies_catalog,rated_movies_count,3706,movies,Movies with at least 1 rating in ratings table
 movies_catalog,unrated_movies_count,177,movies,Movies in catalog with 0 ratings
 movies_catalog,min_ratings_per_rated_movie,1,ratings,Minimum ratings for a rated movie
