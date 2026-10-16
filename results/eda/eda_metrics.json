@@ -1,0 +1,85 @@
+{
+  "contract_version": 2,
+  "users": {
+    "total_count": 6040,
+    "gender_distribution": {
+      "M": 4331,
+      "F": 1709
+    },
+    "age_distribution": {
+      "Under 18": 222,
+      "18-24": 1103,
+      "25-34": 2096,
+      "35-44": 1193,
+      "45-49": 550,
+      "50-55": 496,
+      "56+": 380
+    },
+    "unique_occupations": 21
+  },
+  "movies": {
+    "total_count": 3883,
+    "distinct_genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children's",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Film-Noir",
+      "Horror",
+      "Musical",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "genre_pair_count": 6408,
+    "genre_distribution": {
+      "Animation": 105,
+      "Children's": 251,
+      "Comedy": 1200,
+      "Adventure": 283,
+      "Fantasy": 68,
+      "Romance": 471,
+      "Drama": 1603,
+      "Action": 503,
+      "Crime": 211,
+      "Thriller": 492,
+      "Horror": 343,
+      "Sci-Fi": 276,
+      "Documentary": 127,
+      "War": 143,
+      "Musical": 114,
+      "Mystery": 106,
+      "Film-Noir": 44,
+      "Western": 68
+    },
+    "release_year_range": [
+      1919,
+      2000
+    ]
+  },
+  "ratings": {
+    "total_count": 1000209,
+    "rating_distribution": {
+      "1": 56174,
+      "2": 107557,
+      "3": 261197,
+      "4": 348971,
+      "5": 226310
+    },
+    "duplicate_user_movie_pairs": 0,
+    "business_key_confirmed_unique": true,
+    "min_timestamp": 956703932,
+    "max_timestamp": 1046454590,
+    "min_rated_at_utc": "2000-04-25T23:05:32Z",
+    "max_rated_at_utc": "2003-02-28T17:49:50Z",
+    "mean_rating": 3.5816
+  }
+}

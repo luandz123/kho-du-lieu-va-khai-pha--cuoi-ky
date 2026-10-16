@@ -1,0 +1,59 @@
+section,metric,value,unit_or_range,description
+dataset,dataset_name,MovieLens 1M,string,Official GroupLens MovieLens 1M dataset
+dataset,contract_version,2,integer,Common Data Contract Version 2
+dataset,total_users,6040,records,Total unique user profiles
+dataset,total_movies,3883,records,Total movie catalog records
+dataset,total_movie_genre_pairs,6408,records,Movie-genre normalized associations
+dataset,total_ratings,1000209,records,Total rating feedback events
+dataset,distinct_genres,18,genres,Distinct original genres (A-Z ordering per DEC-P2-007)
+dataset,temporal_start_utc,2000-04-25T23:05:32Z,ISO 8601 UTC,Earliest rating timestamp in dataset
+dataset,temporal_end_utc,2003-02-28T17:49:50Z,ISO 8601 UTC,Latest rating timestamp in dataset
+dataset,business_key_duplicates,0,records,"Duplicate (user_id, movie_id) pairs in ratings"
+users_activity,min_ratings_per_user,20,ratings,Minimum ratings provided by any user (guaranteed >= 20)
+users_activity,q25_ratings_per_user,44.0,ratings,25th percentile ratings per user
+users_activity,median_ratings_per_user,96.0,ratings,Median ratings per user
+users_activity,mean_ratings_per_user,165.60,ratings,Mean ratings per user
+users_activity,q75_ratings_per_user,208.0,ratings,75th percentile ratings per user
+users_activity,q90_ratings_per_user,400.0,ratings,90th percentile ratings per user
+users_activity,q95_ratings_per_user,556.0,ratings,95th percentile ratings per user
+users_activity,q99_ratings_per_user,906.7,ratings,99th percentile ratings per user
+users_activity,max_ratings_per_user,2314,ratings,Maximum ratings provided by a single user
+users_activity,users_without_rating_ge_4_count,2,users,Users with 0 positive ratings (insufficient evidence in Q1)
+users_activity,users_without_rating_ge_4_ids,3598;4486,user_id list,User IDs with status 'insufficient_evidence'
+movies_catalog,rated_movies_count,3706,movies,Movies with at least 1 rating in ratings table
+movies_catalog,unrated_movies_count,177,movies,Movies in catalog with 0 ratings
+movies_catalog,min_ratings_per_rated_movie,1,ratings,Minimum ratings for a rated movie
+movies_catalog,q25_ratings_per_rated_movie,33.0,ratings,25th percentile ratings per rated movie
+movies_catalog,median_ratings_per_rated_movie,123.5,ratings,Median ratings per rated movie
+movies_catalog,mean_ratings_per_rated_movie,269.89,ratings,Mean ratings per rated movie
+movies_catalog,q75_ratings_per_rated_movie,350.0,ratings,75th percentile ratings per rated movie
+movies_catalog,max_ratings_per_rated_movie,3428,ratings,Maximum ratings for a single movie (American Beauty)
+movies_catalog,single_genre_movies_count,2025,movies,Movies associated with exactly 1 genre
+movies_catalog,multi_genre_movies_count,1858,movies,Movies associated with >1 genres (up to 6)
+rating_distribution,rating_1_stars_count,56174,ratings,Number of 1-star ratings (5.62%)
+rating_distribution,rating_2_stars_count,107557,ratings,Number of 2-star ratings (10.75%)
+rating_distribution,rating_3_stars_count,261197,ratings,Number of 3-star ratings (26.11%)
+rating_distribution,rating_4_stars_count,348971,ratings,Number of 4-star ratings (34.89%)
+rating_distribution,rating_5_stars_count,226310,ratings,Number of 5-star ratings (22.63%)
+rating_distribution,mean_rating_score,3.5816,1..5 stars,Average rating score across entire dataset
+quarterly_activity,quarter_2000Q2_ratings_count,133319,ratings,Ratings submitted in 2000Q2 UTC (13.33%)
+quarterly_activity,quarter_2000Q3_ratings_count,324864,ratings,Ratings submitted in 2000Q3 UTC (32.48%)
+quarterly_activity,quarter_2000Q4_ratings_count,446574,ratings,Ratings submitted in 2000Q4 UTC (44.65%)
+quarterly_activity,quarter_2001Q1_ratings_count,32223,ratings,Ratings submitted in 2001Q1 UTC (3.22%)
+quarterly_activity,quarter_2001Q2_ratings_count,15091,ratings,Ratings submitted in 2001Q2 UTC (1.51%)
+quarterly_activity,quarter_2001Q3_ratings_count,12296,ratings,Ratings submitted in 2001Q3 UTC (1.23%)
+quarterly_activity,quarter_2001Q4_ratings_count,8448,ratings,Ratings submitted in 2001Q4 UTC (0.84%)
+quarterly_activity,quarter_2002Q1_ratings_count,8166,ratings,Ratings submitted in 2002Q1 UTC (0.82%)
+quarterly_activity,quarter_2002Q2_ratings_count,6385,ratings,Ratings submitted in 2002Q2 UTC (0.64%)
+quarterly_activity,quarter_2002Q3_ratings_count,5309,ratings,Ratings submitted in 2002Q3 UTC (0.53%)
+quarterly_activity,quarter_2002Q4_ratings_count,4186,ratings,Ratings submitted in 2002Q4 UTC (0.42%)
+quarterly_activity,quarter_2003Q1_ratings_count,3348,ratings,Ratings submitted in 2003Q1 UTC (0.33%)
+demographics,gender_male_count,4331,users,Male users count (71.71%)
+demographics,gender_female_count,1709,users,Female users count (28.29%)
+demographics,age_group_Under 18_count,222,users,Users in age group 'Under 18' (3.68%)
+demographics,age_group_18-24_count,1103,users,Users in age group '18-24' (18.26%)
+demographics,age_group_25-34_count,2096,users,Users in age group '25-34' (34.70%)
+demographics,age_group_35-44_count,1193,users,Users in age group '35-44' (19.75%)
+demographics,age_group_45-49_count,550,users,Users in age group '45-49' (9.11%)
+demographics,age_group_50-55_count,496,users,Users in age group '50-55' (8.21%)
+demographics,age_group_56+_count,380,users,Users in age group '56+' (6.29%)
