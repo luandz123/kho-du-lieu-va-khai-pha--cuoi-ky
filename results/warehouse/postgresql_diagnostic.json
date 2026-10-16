@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-15T10:44:06.808500+00:00",
+  "configured_database_status": "DATABASE_NOT_FOUND",
+  "diagnostic_database": "postgres",
+  "env_modified": false,
+  "database_created": false,
+  "diagnostic_sql": "SELECT_1_PASS",
+  "server_version": "17.11"
+}

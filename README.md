@@ -6,7 +6,31 @@ MovieLens 1M → PostgreSQL staging/DW → Python ETL → 6 OLAP → K-Means và
 
 Bước 1 đã được người dùng duyệt. **Python 3.12** là dòng phiên bản chung; P2 báo đã có môi trường 3.12.3/Linux, P1 chưa thiết lập 3.12 trong checkout này. `main` là nhánh mặc định. Nhánh G0: `p1-g0-contract`; các nhánh mới không có tiền tố `codex/` theo quyết định nhóm ngày15/10/2026.
 
-G0 đang chuẩn bị cục bộ/chờ duyệt, chưa commit/push/PR/merge. Tài liệu nền không chứng minh ETL, mô hình hoặc dashboard đã chạy. Không cài Docker hoặc làm ETL trong G0.
+G0 đã MERGED qua PR #1, main tại `eff54aee`. Bước 2-P1 đã được người dùng duyệt chức năng (P1-S02-v2) và giao đẩy nhánh `p1-s02-env`; merge cần xác nhận riêng. SELECT1 từ Windows và container đều đạt17.11; health/login Superset200. View DW/roleBI chỉ đọc, đăng nhập UI và dashboard chưa nghiệm thu. ETL, mô hình và dashboard nghiệp vụ chưa triển khai ở bước này.
+
+## Môi trường P1 tại Bước 2
+
+Đã tạo `.venv` **Python 3.12.14**, cài và kiểm chứng thư viện P1; khóa phiên bản tại [requirements P1](docs/P1/requirements-p1.txt). [requirements.txt](requirements.txt) hiện chỉ dẫn vào bộ P1; hợp nhất dependency P2 ở12A sau kiểm chứng. Không coi báo cáo môi trường P2 là kết quả chạy P1 hoặc ngược lại.
+
+Runtime nền dùng bản3.12.14 có sẵn tại `C:/Users/ASUS/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe`, không cài toàn hệ thống. `.venv` tách site-packages nhưng còn phụ thuộc runtime nền; nếu cache này thay đổi/mất phải tạo lại bằng Python3.12 đã kiểm chứng. Không chép `.venv` sang máy khác.
+
+Từ PowerShell tại thư mục dự án:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python --version
+python -m pip check
+python tests/warehouse/check_environment.py --db --env-file .env --report results/warehouse/environment_check.json
+python tests/warehouse/check_superset.py --env-file .env
+```
+
+Nếu chính sách PowerShell chặn kích hoạt, không cần đổi policy toàn hệ thống: dùng trực tiếp `.\.venv\Scripts\python.exe` thay `python`. Tạo lại môi trường trên máy đã có Python3.12: chạy runtime3.12 với `-m venv .venv`, rồi `.\.venv\Scripts\python.exe -m pip install -r requirements.txt`.
+
+`.env` gốc đã được tạo cục bộ bằng mẫu. Người dùng tự điền tên database **đang tồn tại**, user được phép kết nối và mật khẩu vào POSTGRES_DB/POSTGRES_USER/POSTGRES_PASSWORD; không gửi chat/commit. Bước2 không tự tạo database hoặc đoán account. Checker chỉ đọc tệp được chỉ định rõ, không in cấu hình/exception thô, không tạo bảng. Exit0: kiểm tra yêu cầu đạt; exit2: thiếu cấu hình SQL; exit3: kết nối SQL lỗi; exit1: môi trường/dịch vụ lỗi. SELECT1 trong SQLite hoặc metadata Superset không thay bằng chứng SELECT1 PostgreSQL Windows.
+
+Superset dự án6.1.0 đã khởi động tại http://127.0.0.1:8089/login/; health/login trả200, metadata riêng healthy. [Hướng dẫn Superset](dashboard/superset/README.md) và [hồ sơ môi trường P1](docs/P1/environment.md). Trang login mở được chưa chứng minh user đăng nhập hoặc quyền đọc DW. Giữ nguyên Superset cũ8088/dịch vụ khác. Chi tiết kiểm tra không bí mật tại results/warehouse/; thiếu SQL đăng nhập hiện tại không được đánh dấu đạt.
+
+Môi trường ảo là nơi chứa thư viện riêng của dự án; dependency là các thư viện cần chạy chương trình, được khóa phiên bản để tái lập. Biến môi trường/cấu hình cục bộ cung cấp thông tin kết nối; chúng không thay thế quyền truy cập thật trên database.
 
 ## Tài liệu cần đọc
 
@@ -33,7 +57,7 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
-`.env.example` chỉ là mẫu không bí mật, chưa dùng để kết nối hoặc tạo database. Việc tạo `.env`/`.venv`, cài dependency và kiểm tra SQL thuộc bước thiết lập được giao sau. Không chuyển nguyên `.venv` giữa máy/checkouts.
+`.env.example` là mẫu không bí mật. `.env` gốc phục vụ PostgreSQL Windows; `dashboard/superset/.env` phục vụ metadata/admin Superset và giữ key cũ khi kế thừa volume. Hai file này và `.venv` chỉ nằm cục bộ, không đưa lên Git. Không chuyển nguyên `.venv` giữa máy/checkouts.
 
 Mỗi máy tự tải MovieLens từ nguồn chính thức và đối soát hash theo contract. Không đưa raw/processed, dữ liệu theo user, gói cụm, mô hình lớn, dump, metadata/volume Superset hoặc export có connection URI lên Git/Release/Artifact. `.gitignore` mặc định chặn CSV/ZIP; kết quả tổng hợp và export dashboard chỉ được cho phép có chọn lọc sau rà soát ở mốc liên quan.
 

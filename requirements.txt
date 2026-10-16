@@ -1,0 +1,3 @@
+# P1 environment only at S02; P2 pins stay in docs/P2/requirements-p2.txt.
+# Combined runtime will be reviewed at integration 12A.
+-r docs/P1/requirements-p1.txt

@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-10-15T13:22:39.730112+00:00",
+  "python": "3.12.14",
+  "executable": "D:\\kho-du-lieu-va-khai-pha--cuoi-ky\\.venv\\Scripts\\python.exe",
+  "base_prefix": "C:\\Users\\ASUS\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+  "venv_correct": true,
+  "python_312": true,
+  "dependencies": {
+    "numpy": {
+      "version": "2.0.2",
+      "import": "PASS"
+    },
+    "pandas": {
+      "version": "2.3.3",
+      "import": "PASS"
+    },
+    "SQLAlchemy": {
+      "version": "2.0.43",
+      "import": "PASS"
+    },
+    "psycopg2-binary": {
+      "version": "2.9.10",
+      "import": "PASS"
+    },
+    "python-dotenv": {
+      "version": "1.1.1",
+      "import": "PASS"
+    }
+  },
+  "database": "SELECT_1_PASS",
+  "server_version": "17.11",
+  "exit_code": 0
+}

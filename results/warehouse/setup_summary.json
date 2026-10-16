@@ -1,0 +1,57 @@
+{
+  "host_environment": {
+    "exit_code": 0,
+    "database": "SELECT_1_PASS",
+    "server_version": "17.11"
+  },
+  "superset": {
+    "service_exit_code": 0,
+    "exit_code": 0,
+    "host_sql": "SELECT_1_PASS",
+    "host_server_version": "17.11",
+    "dw_views": {
+      "dw.v_ml_users": "NOT_CREATED",
+      "dw.v_ml_movies": "NOT_CREATED",
+      "dw.v_ml_movie_genres": "NOT_CREATED",
+      "dw.v_ml_ratings": "NOT_CREATED"
+    },
+    "dedicated_dw_read_role_verified": false
+  },
+  "isolated_venv": {
+    "python": "3.12.14",
+    "prefix": "D:\\kho-du-lieu-va-khai-pha--cuoi-ky\\.venv",
+    "include_system_site_packages": false,
+    "module_origins_checked": true,
+    "pip_check": "PASS"
+  },
+  "superset_metadata_sql": {
+    "result": 1,
+    "database": "superset_metadata",
+    "separate_from_windows_dw": true
+  },
+  "git_ignore": {
+    "sensitive_paths_ignored": true,
+    "safe_templates_allowed": true,
+    "forbidden_tracked_files": false
+  },
+  "checked_at_utc": "2026-10-15T13:22:40.943118+00:00",
+  "scope": {
+    "business_tables_created": false,
+    "source_data_downloaded": false,
+    "etl_run": false,
+    "ml_run": false,
+    "dashboard_created": false,
+    "other_services_modified": false
+  },
+  "postgresql_diagnostic": {
+    "checked_at_utc": "2026-10-15T10:44:06.808500+00:00",
+    "configured_database_status": "DATABASE_NOT_FOUND",
+    "diagnostic_database": "postgres",
+    "env_modified": false,
+    "database_created": false,
+    "diagnostic_sql": "SELECT_1_PASS",
+    "server_version": "17.11"
+  },
+  "postgresql_diagnostic_is_historical": true,
+  "current_result": "HOST_AND_CONTAINER_SELECT_1_PASS"
+}
