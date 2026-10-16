@@ -129,15 +129,13 @@ Tài liệu này cung cấp kết quả khảo sát toàn diện bộ dữ liệ
   * Trung bình (Mean): 165.60 đánh giá
   * Phân vị 75% ($Q_3$): 208.0 đánh giá
   * Phân vị 90%: 400.0 đánh giá
-  * Phân vị 95%: 582.0 đánh giá
-  * Phân vị 99%: 1,123.0 đánh giá
-  * Max: 2,314 đánh giá (User ID 4169)
+  * Phân vị 95%: 556.0 đánh giá
+  * Phân vị 99%: 906.7 đánh giá (chính xác: 906.66)
+  * Max: 2,314 đánh giá
 
 ### 4.2. Phát hiện 2 người dùng thiếu bằng chứng tích cực (Insufficient Evidence)
 * Bài toán phân cụm K-Means (Bước 8) xây dựng vector sở thích dựa trên các phim có đánh giá tích cực (rating $\ge$ 4).
-* Qua khảo sát, có chính xác **2 người dùng** không có bất kỳ đánh giá nào $\ge 4$:
-  1. **User ID 3598**: Có 65 đánh giá (64 đánh giá 1 sao, 1 đánh giá 2 sao). Điểm tối đa là 2.
-  2. **User ID 4486**: Có 51 đánh giá (49 đánh giá 1 sao, 1 đánh giá 2 sao, 1 đánh giá 3 sao). Điểm tối đa là 3.
+* Qua khảo sát, có chính xác **2 người dùng** trong toàn bộ tập dữ liệu không có bất kỳ đánh giá nào $\ge 4$ (toàn bộ đánh giá đều từ 1 đến 3 sao): một người dùng có 65 đánh giá (điểm tối đa 2 sao) và một người dùng có 51 đánh giá (điểm tối đa 3 sao). Để tuân thủ quy định bảo vệ dữ liệu người dùng, danh sách User ID cụ thể được lưu trữ trong hồ sơ kiểm chứng cục bộ và không đưa lên Git.
 * **Xử lý theo Hợp đồng v2**: Hai người dùng này được gán trạng thái `status = 'insufficient_evidence'`, `cluster_id = NULL`, không chia cho 0 và không đưa vector rỗng vào K-Means. 6,038 người dùng còn lại có `status = 'assigned'`.
 
 ### 4.3. Xu hướng hoạt động theo quý UTC (Temporal Activity)
