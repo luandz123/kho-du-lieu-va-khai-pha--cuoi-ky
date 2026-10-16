@@ -1,0 +1,42 @@
+{
+  "dataset_version": "MovieLens 1M",
+  "source_url": "https://files.grouplens.org/datasets/movielens/ml-1m.zip",
+  "download_date_utc": "2026-10-15T10:40:34Z",
+  "archive": {
+    "relative_path": "data/raw/ml-1m.zip",
+    "size_bytes": 5917549,
+    "sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20"
+  },
+  "encoding": "Latin-1",
+  "delimiter": "::",
+  "files": {
+    "users.dat": {
+      "relative_path": "data/raw/ml-1m/users.dat",
+      "size_bytes": 134368,
+      "line_count": 6040,
+      "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "encoding": "Latin-1"
+    },
+    "movies.dat": {
+      "relative_path": "data/raw/ml-1m/movies.dat",
+      "size_bytes": 171308,
+      "line_count": 3883,
+      "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "encoding": "Latin-1"
+    },
+    "ratings.dat": {
+      "relative_path": "data/raw/ml-1m/ratings.dat",
+      "size_bytes": 24594131,
+      "line_count": 1000209,
+      "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "encoding": "Latin-1"
+    },
+    "README": {
+      "relative_path": "data/raw/ml-1m/README",
+      "size_bytes": 5577,
+      "line_count": 170,
+      "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+      "encoding": "Latin-1"
+    }
+  }
+}

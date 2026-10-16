@@ -38,3 +38,26 @@ Tài liệu này lưu trữ nguyên văn mọi phản hồi, phê duyệt từ N
   - Cập nhật commit SHA và PR link vào `S02_env_setup.md`.
   - Đặt trạng thái `WAITING_REVIEW` cho việc merge PR và dừng.
 
+---
+
+## 3. Duyệt Bước 3A-P2: Nhận mốc G0 và xác nhận Hợp đồng dữ liệu v2
+
+- **Thời điểm**: 2026-10-15 17:38:48 +07:00
+- **Trạng thái**: `APPROVED`
+- **Lời duyệt nguyên văn**:
+> "Tôi đã kiểm tra và duyệt Bước 3A, hợp đồng dữ liệu v2 đã được P2 xác nhận. Ghi nguyên văn lời duyệt này vào REVIEWS_P2.md, cập nhật 3A thành APPROVED trong STATE_P2.md.
+> 
+> Chuyển sang Bước 3B-P2: tải nguồn, source_manifest và EDA, trên nhánh p2-s03-eda. Chỉ làm 3B, không tự chuyển bước.
+> 
+> A. Tải MovieLens 1M từ GroupLens vào data/raw (không commit). Tính SHA-256 và số dòng từng tệp. Tạo data/source_manifest.json: dataset_version, URL nguồn, ngày tải UTC, encoding, SHA-256, số dòng.
+> 
+> B. EDA theo hợp đồng v2: ID duy nhất của users/movies, khóa (movie_id, genre_name), trùng (user_id, movie_id) trong ratings, rating thuộc 1..5, khóa tham chiếu tồn tại, parse release_year, ánh xạ age_group, rated_at theo UTC ISO 8601.
+> Nếu phát hiện trùng hoặc lỗi nguồn: DỪNG, báo cáo, không tự chọn chính sách làm sạch.
+> 
+> C. Nếu dữ liệu sạch: xuất bốn bảng chuẩn ra data/processed theo đúng quy tắc tuần tự hóa và thứ tự sắp xếp; tạo results/eda/canonical_manifest.json (contract_version, schema, row_count, hash bốn bảng, tập mã nguồn). Mã trong mining/, test trong tests/mining/, kết quả tổng hợp trong results/eda/.
+> 
+> D. Ghi quyết định "genre_order theo thứ tự A–Z" vào DECISIONS_P2.md. Ghi hồ sơ S03B, cập nhật STATE_P2. Bàn giao: việc đã làm, file, cách chạy, kiểm tra và bằng chứng thật, lỗi và giới hạn, 3–5 ý bảo vệ, nội dung cần duyệt. Đặt WAITING_REVIEW và dừng."
+- **Hành động tiếp theo**:
+  - Cập nhật Bước 3A thành `APPROVED` trong `STATE_P2.md`.
+  - Bổ sung quyết định `[DEC-P2-007]` vào `DECISIONS_P2.md`.
+  - Triển khai Bước 3B-P2 trên nhánh `p2-s03-eda`.

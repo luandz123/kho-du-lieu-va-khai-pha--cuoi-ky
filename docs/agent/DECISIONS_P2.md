@@ -44,3 +44,10 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 - **Bối cảnh**: Ban đầu tài liệu hướng dẫn mẫu có dùng ví dụ nhánh dạng `codex/p2-s08-clusters` hoặc `codex/p2-s02-env`. Nhóm đã họp và chốt quy ước thống nhất cho toàn bộ các mốc từ Bước 3 trở đi: tên nhánh mới KHÔNG có tiền tố `codex/` (ví dụ `p2-s03-eda`).
 - **Quyết định**: Áp dụng quy ước tên nhánh mới không tiền tố `codex/` (cụ thể nhánh Bước 3 là `p2-s03-eda`) cho toàn bộ công việc của P2, đảm bảo tính đồng bộ với Người 1 và kho mã nguồn chung.
 
+---
+
+### [DEC-P2-007] Thứ tự thể loại `genre_order` theo bảng chữ cái A–Z
+- **Bối cảnh**: Hợp đồng dữ liệu v2 quy định gói handoff phân cụm (`cluster_genre_profile.csv` và `manifest.json`) phải chứa danh mục thể loại và `genre_order` thống nhất, xuất đủ $K \times \text{genres}$ dòng gồm cả tỷ lệ 0.
+- **Quyết định**: Cố định thứ tự thể loại (`genre_order`) theo thứ tự bảng chữ cái tiếng Anh (alphabetical order A–Z) của 18 thể loại gốc trong MovieLens 1M: `Action`, `Adventure`, `Animation`, `Children's`, `Comedy`, `Crime`, `Documentary`, `Drama`, `Fantasy`, `Film-Noir`, `Horror`, `Musical`, `Mystery`, `Romance`, `Sci-Fi`, `Thriller`, `War`, `Western`. Thứ tự này được áp dụng xuyên suốt trong trích xuất đặc trưng vector, ma trận hồ sơ thể loại và manifest.
+
+
