@@ -109,7 +109,6 @@ def generate_eda_figures_and_profile():
     profile_rows.append(["users_activity", "q99_ratings_per_user", f"{u_q99:.1f}", "ratings", "99th percentile ratings per user"])
     profile_rows.append(["users_activity", "max_ratings_per_user", str(u_max), "ratings", "Maximum ratings provided by a single user"])
     profile_rows.append(["users_activity", "users_without_rating_ge_4_count", str(len(users_without_pos)), "users", "Users with 0 positive ratings (insufficient evidence in Q1)"])
-    profile_rows.append(["users_activity", "users_without_rating_ge_4_ids", ";".join(map(str, users_without_pos)), "user_id list", "User IDs with status 'insufficient_evidence'"])
 
     # Movie catalog profile
     profile_rows.append(["movies_catalog", "rated_movies_count", str(len(rated_mids)), "movies", "Movies with at least 1 rating in ratings table"])

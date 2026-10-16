@@ -1,7 +1,7 @@
 {
   "contract_version": 2,
   "generated_at_utc": "2026-10-15T10:42:20Z",
-  "source_code_commit": "020ec90b0c781961aef54b81cba2c4ee22d17f3c",
+  "source_code_commit": "7a284b9f2913e1c6670868f7b7cf72d2eef29c62",
   "source_hashes": {
     "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
     "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
@@ -44,6 +44,71 @@
     "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
     "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
   },
+  "source_code_sets": {
+    "gender": [
+      "F",
+      "M"
+    ],
+    "age_groups": {
+      "1": "Under 18",
+      "18": "18-24",
+      "25": "25-34",
+      "35": "35-44",
+      "45": "45-49",
+      "50": "50-55",
+      "56": "56+"
+    },
+    "occupations": {
+      "0": "other/not specified",
+      "1": "academic/educator",
+      "2": "artist",
+      "3": "clerical/admin",
+      "4": "college/grad student",
+      "5": "customer service",
+      "6": "doctor/health care",
+      "7": "executive/managerial",
+      "8": "farmer",
+      "9": "homemaker",
+      "10": "K-12 student",
+      "11": "lawyer",
+      "12": "programmer",
+      "13": "retired",
+      "14": "sales/marketing",
+      "15": "scientist",
+      "16": "self-employed",
+      "17": "technician/engineer",
+      "18": "tradesman/craftsman",
+      "19": "unemployed",
+      "20": "writer"
+    },
+    "genres": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children's",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Film-Noir",
+      "Horror",
+      "Musical",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "ratings": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
   "serialization": {
     "encoding": "UTF-8",
     "bom": false,
@@ -51,5 +116,17 @@
     "lineterminator": "LF",
     "null_value": "",
     "integer_format": "no .0"
+  },
+  "provenance": {
+    "original_generation_script": "mining/eda_canonical.py",
+    "original_generation_script_sha256": "94ebfea0f319974fb59f591f39d3c67a5820b1d7a1251d06502f545061f44da5",
+    "original_commit_g1": "7a284b9f108dd64b030305cf51b8614b770a2296",
+    "current_adapter_script": "mining/data_io.py",
+    "current_adapter_script_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+    "current_profile_script": "mining/eda_figures_and_profile.py",
+    "current_profile_script_sha256": "311a9276b6ea62d296d360eccc9b4e73af57d27adb5bc4fe92269ec4fb86e8c9",
+    "fixes_branch": "p2-s03-g1-fixes",
+    "python_runtime": "3.12.3",
+    "environment": "Linux x86_64"
   }
 }

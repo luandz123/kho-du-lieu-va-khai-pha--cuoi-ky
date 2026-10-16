@@ -66,6 +66,60 @@ class DWConnectionError(RuntimeError):
     pass
 
 
+def _normalize_rated_at_val(val: Any) -> Tuple[str, int]:
+    """
+    Normalize a single rated_at value to (canonical_utc_iso_str, epoch_seconds).
+    Handles:
+    - datetime / pd.Timestamp (timezone-aware or naive assumed UTC)
+    - string ISO 8601 (with Z or timezone offset)
+    """
+    if isinstance(val, (datetime, pd.Timestamp)):
+        if getattr(val, "tzinfo", None) is not None and val.tzinfo is not None:
+            dt_utc = val.astimezone(timezone.utc)
+        else:
+            dt_utc = val.replace(tzinfo=timezone.utc)
+        epoch = int(dt_utc.timestamp())
+        return dt_utc.strftime("%Y-%m-%dT%H:%M:%SZ"), epoch
+
+    val_str = str(val).strip()
+    if val_str.endswith("Z"):
+        dt = datetime.fromisoformat(val_str[:-1] + "+00:00")
+    else:
+        dt = datetime.fromisoformat(val_str)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        else:
+            dt = dt.astimezone(timezone.utc)
+    epoch = int(dt.timestamp())
+    return dt.strftime("%Y-%m-%dT%H:%M:%SZ"), epoch
+
+
+def _normalize_and_validate_ratings(df_ratings: pd.DataFrame) -> pd.DataFrame:
+    """
+    Normalize rated_at to canonical UTC format YYYY-MM-DDTHH:MM:SSZ and verify
+    strict equivalence with the timestamp (epoch seconds) column.
+    """
+    df = df_ratings.copy()
+    df["user_id"] = df["user_id"].astype(int)
+    df["movie_id"] = df["movie_id"].astype(int)
+    df["rating"] = df["rating"].astype(int)
+    df["timestamp"] = df["timestamp"].astype("int64")
+
+    normalized_strings = []
+    ts_values = df["timestamp"].to_numpy()
+
+    for i, val in enumerate(df["rated_at"]):
+        iso_utc, epoch = _normalize_rated_at_val(val)
+        if epoch != ts_values[i]:
+            raise ValueError(
+                f"Timestamp mismatch at row {i}: timestamp={ts_values[i]} vs rated_at={val} (epoch={epoch})"
+            )
+        normalized_strings.append(iso_utc)
+
+    df["rated_at"] = normalized_strings
+    return df
+
+
 def serialize_df_to_canonical_csv_bytes(table_name: str, df: pd.DataFrame) -> bytes:
     """
     Serialize a logical DataFrame to standard canonical CSV bytes according to Contract v2.
@@ -90,6 +144,9 @@ def serialize_df_to_canonical_csv_bytes(table_name: str, df: pd.DataFrame) -> by
         for val in row:
             if pd.isna(val) or val is None:
                 formatted_row.append("")
+            elif isinstance(val, (datetime, pd.Timestamp)):
+                iso_utc, _ = _normalize_rated_at_val(val)
+                formatted_row.append(iso_utc)
             elif isinstance(val, (int, np.integer)):
                 formatted_row.append(int(val))
             elif isinstance(val, (float, np.floating)):
@@ -315,10 +372,12 @@ def load_dw_data(connection_or_engine: Optional[Any] = None) -> Dict[str, pd.Dat
             )
             close_conn = True
         except Exception as e:
+            err_type = type(e).__name__
             raise DWConnectionError(
-                "DW connection not available. DW views dw.v_ml_* require Person 1 (P1) milestone G2. "
-                "Use source='csv' or source='raw' for current mining workflows."
-            ) from e
+                f"DW connection not available ({err_type}). DW views dw.v_ml_* require Person 1 (P1) milestone G2. "
+                "Use source='csv' or source='raw' for current mining workflows. "
+                "Raw credentials and connection details are suppressed for security."
+            ) from None
 
     results = {}
     try:
@@ -353,16 +412,18 @@ def load_dw_data(connection_or_engine: Optional[Any] = None) -> Dict[str, pd.Dat
         # 4. ratings (without joining genres)
         sql_ratings = "SELECT user_id, movie_id, rating, timestamp, rated_at FROM dw.v_ml_ratings ORDER BY user_id ASC, movie_id ASC, timestamp ASC, rating ASC"
         df_ratings = _query(sql_ratings)
-        df_ratings["user_id"] = df_ratings["user_id"].astype(int)
-        df_ratings["movie_id"] = df_ratings["movie_id"].astype(int)
-        df_ratings["rating"] = df_ratings["rating"].astype(int)
-        df_ratings["timestamp"] = df_ratings["timestamp"].astype("int64")
+        df_ratings = _normalize_and_validate_ratings(df_ratings)
         results["ratings"] = df_ratings[TABLE_SCHEMAS["ratings"]]
 
     except Exception as e:
+        if isinstance(e, DWConnectionError):
+            raise
+        err_type = type(e).__name__
         raise DWConnectionError(
-            f"Failed to query DW views dw.v_ml_*. Note: DW views require Person 1 (P1) milestone G2. Details: {e}"
-        ) from e
+            f"Failed to query DW views dw.v_ml_* ({err_type}). "
+            "Note: DW views require Person 1 (P1) milestone G2. "
+            "Raw credentials and connection details are suppressed for security."
+        ) from None
     finally:
         if close_conn and conn is not None and hasattr(conn, "close"):
             try:
@@ -455,7 +516,7 @@ def verify_raw_csv_equivalence(
     return report
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="MovieLens 1M Data I/O Adapter (Contract v2)")
     parser.add_argument("--source", choices=["raw", "csv", "dw"], default="csv", help="Data source to load")
     parser.add_argument("--verify-equivalence", action="store_true", help="Verify raw and csv source equivalence")
@@ -469,8 +530,12 @@ def main():
             status = "PASS" if info["equivalent"] else "FAIL"
             print(f"[{status}] Table '{tbl}': rows={info['raw_rows']}, hash={info['raw_hash'][:16]}...")
         overall = rep.get("overall_equivalence")
-        print(f"Overall Equivalence: {'PASSED' if overall else 'FAILED'}")
-        return
+        if overall:
+            print("Overall Equivalence: PASSED")
+            return 0
+        else:
+            print("Overall Equivalence: FAILED", file=sys.stderr)
+            return 1
 
     print(f"Loading data from source: {args.source}...")
     try:
@@ -478,9 +543,15 @@ def main():
         for tbl, df in tables.items():
             print(f"  - Table {tbl}: {df.shape[0]} rows, columns={list(df.columns)}")
         print("Load successful.")
+        return 0
     except DWConnectionError as e:
-        print(f"[NOTE] DW connection error (expected before G2 DW deployment): {e}")
+        print(f"[ERROR] DW access failed: {e}", file=sys.stderr)
+        return 2
+    except Exception as e:
+        print(f"[ERROR] Loading data failed ({type(e).__name__})", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    sys.exit(main())

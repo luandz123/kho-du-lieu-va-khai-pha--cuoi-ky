@@ -44,11 +44,28 @@ def test_canonical_manifest_structure(manifest):
     assert "canonical_hashes" in manifest
     assert "row_counts" in manifest
     assert "schemas" in manifest
+    assert "source_code_sets" in manifest
+    assert "provenance" in manifest
 
     for tbl in ["users", "movies", "movie_genres", "ratings"]:
         assert tbl in manifest["canonical_hashes"]
         assert tbl in manifest["row_counts"]
         assert tbl in manifest["schemas"]
+
+    # Verify source code sets
+    scs = manifest["source_code_sets"]
+    assert scs["gender"] == ["F", "M"]
+    assert len(scs["age_groups"]) == 7
+    assert len(scs["occupations"]) == 21
+    assert len(scs["genres"]) == 18
+    assert scs["ratings"] == [1, 2, 3, 4, 5]
+
+    # Verify provenance
+    prov = manifest["provenance"]
+    assert "original_generation_script" in prov
+    assert Path(prov["original_generation_script"]).exists()
+    assert "current_adapter_script" in prov
+    assert Path(prov["current_adapter_script"]).exists()
 
 
 def test_users_table(manifest):
