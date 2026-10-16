@@ -1035,7 +1035,7 @@
   "artifacts_sha256": {
     "database/data_dictionary.md": "b69ebd3692cb1e0ae8918ed6a76654a8c6921ad3d464ed1419d64a34ac4d5f69",
     "database/erd.md": "d3c8a3ac7eb312d5942c5b01e84740e3d068c5ee394aceabbb3a28ed25e503d7",
-    "database/README.md": "f0665a1ca5735cbe133cbc21fdb6aed3d1ea5a0dd2fad44771a1cf1ffcfd2b8e",
+    "database/README.md": "9db351bcc23e0e55f4db0b27215b0359fb71b2360c556c417ccdaa43d9d0242c",
     "database/refresh_and_reconciliation.md": "c95359b5731a1ba1cc7a6fed74cd8f1c5a312c6de5afa4bcacfdfa84bbd314fb",
     "database/schema.sql": "80f025990129bdc963dfc7fb13689ac963bfc62e84f77efa38fa19fc8047015f",
     "database/source_to_target.md": "018fd7d3b96818244e34b1c8520d597a8247d438d35bae38b00ba21c5c6e6e23",

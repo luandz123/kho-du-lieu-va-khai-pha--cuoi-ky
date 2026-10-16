@@ -2,13 +2,15 @@
 
 ## Hiện hành — công bố S04 v2
 
-**S04 APPROVED ở mức thiết kế theo điều phối; công bố IN_PROGRESS. Chưa kiểm thử PostgreSQL hoặc triển khai.** Nguồn ghi nhận: **Điều phối chấp nhận S04 v2 ở mức thiết kế**; không phải lời duyệt nguyên văn của người dùng. Các trạng thái WAITING_REVIEW v2/v1 bên dưới là lịch sử trước thông báo chấp nhận.
+**S04 APPROVED ở mức thiết kế theo điều phối; PR #6 OPEN, WAITING_REVIEW PR, chưa MERGED. Chưa kiểm thử PostgreSQL hoặc triển khai.** Nguồn ghi nhận: **Điều phối chấp nhận S04 v2 ở mức thiết kế**; không phải lời duyệt nguyên văn của người dùng. Các trạng thái WAITING_REVIEW v2/v1 bên dưới là lịch sử trước thông báo chấp nhận.
 
 Được giao commit, push nhánh p1-s04-schema và mở PR vào main; **chưa merge**. Giữ checkpoint aeb41d1 nguyên lịch sử, rà cả checkpoint và diff PR. Không đưa kế hoạch untracked ngoài phạm vi vào Git. Chưa thực thi DDL/staging/ETL; Bước 5 chỉ sau PR S04 được chốt và lệnh tiếp theo.
 
 Giữ các quyết định kỹ thuật đã review, không thay DDL. 37/37 là kiểm tĩnh v2 đã chạy ở lượt thiết kế, không tự ghi chạy lại trong công bố; kiểm công bố/hash và kết quả Git được ghi riêng theo kết quả thật. Commit/PR/HEAD công bố bổ sung sau khi thực hiện và xác minh.
 
 Đã commit chọn lọc 16 file bằng `a4f0cb9`, trước fetch. Fetch xác nhận origin/main `a8d2615df1e5aa522b2cceaaa073336d61013b83`; tích hợp bằng merge `c7743ab75ba36b9e2fc44d8315d3c6f75cd94204`, không conflict. Checkpoint aeb41d1 vẫn là ancestor. Diff dự kiến PR gồm 21 file P1 (kể cả checkpoint), không file P2 hoặc kế hoạch ngoài phạm vi. Kiểm công bố trước commit 15/15 đạt; đồng bộ/hash và push/PR được xác minh riêng tiếp theo.
+
+Đã kiểm sau đồng bộ 12/12 đạt, cập nhật hash và commit hồ sơ `68af045cde1582be367dec95c10ffc8c782e0d0a`. Push -u thành công, remote SHA khớp; mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/6, API OPEN/merged=false, base main/a8d2615, head lúc mở 68af045. Rà API đủ 21 file và blob từng file khớp local; không P2/data/secret, checkpoint giữ nguyên. Commit hồ sơ công bố tiếp theo thuộc cùng PR, không thay DDL. Chỉ còn kế hoạch untracked ngoài phạm vi; không stage. Dừng chờ review PR, không merge/S05.
 
 ## Hiện hành — 16/10/2026, P1-S04-draft-v2
 

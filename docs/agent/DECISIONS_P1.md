@@ -2,6 +2,8 @@
 
 ## Công bố S04 v2 — sau review của điều phối
 
+P1-D42: Đẩy/mở PR #6 thành công trên p1-s04-schema → main; API xác minh OPEN/merged=false và 21 blob khớp local ở head công bố 68af045. Giữ checkpoint, không thay DDL hoặc sửa P2. Commit hồ sơ công bố tiếp theo thuộc cùng mốc; PR vẫn chờ review, chưa merge/S05. Kiểm công bố và hash đã cập nhật, không chạy lại 37 kiểm thiết kế hoặc PostgreSQL.
+
 P1-D40: Nguồn ghi nhận **Điều phối chấp nhận S04 v2 ở mức thiết kế**; không gán thành lời duyệt nguyên văn của người dùng. Các phương án D31–D35/D38–D39 được chấp nhận ở phạm vi thiết kế theo danh sách điều phối, không thay DDL trong lượt công bố. Tên database/quyền thực thi và kiểm PostgreSQL thật còn thuộc bước sau.
 
 P1-D41: Được commit/push/mở PR main trên p1-s04-schema, giữ checkpoint aeb41d1 không rewrite, commit phần đang dở trước đồng bộ origin/main. Rà toàn diff kể cả checkpoint; kế hoạch untracked ngoài phạm vi không stage. Không merge PR hoặc thực thi DDL. Lưu kết quả/hashes theo thực tế, không biến 37 kiểm cũ thành lần chạy mới.

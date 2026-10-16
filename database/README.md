@@ -4,6 +4,8 @@
 
 Nguồn ghi nhận: **Điều phối chấp nhận S04 v2 ở mức thiết kế**, theo thông báo/giao đẩy của điều phối. Đây không phải lời duyệt nguyên văn của người dùng. Chấp nhận grain, UNIQUE user–movie theo EDA, bốn dimension/bridge, view UTC-Z, registry cho hai bảng cụm, full refresh nguyên tử/đối soát cùng connection và tỷ trọng gán genre. Giữ nguyên DDL; PR S04 là bước review công bố riêng, chưa có quyền merge hoặc thực thi SQL.
 
+Đã công bố [PR #6 — S04](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/6), nhánh p1-s04-schema → main; **OPEN, chưa MERGED**. Đã rà toàn bộ 21 file, gồm checkpoint; lịch sử kiểm công bố nằm tại docs/P1/s04_publication_checks.json. Không chạy DDL.
+
 <a id="cap-nhat-v2"></a>
 
 ## Cập nhật v2 — kế thừa v1, không tạo lại thiết kế

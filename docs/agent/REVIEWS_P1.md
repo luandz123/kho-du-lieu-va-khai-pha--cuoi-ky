@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Công bố S04 — PR #6 OPEN, chưa merge
+
+Đã push nhánh p1-s04-schema và mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/6. API xác nhận OPEN/merged=false, base main/a8d2615, head lúc mở 68af045; đủ 21 file và từng blob khớp local, gồm checkpoint aeb41d1. Kiểm công bố mới 15/15 trước commit và 12/12 sau merge main đạt; 37 kiểm thiết kế là lịch sử. APPROVED chỉ ở mức thiết kế theo điều phối, PR chờ review. Chưa merge hoặc thực thi SQL; không coi PR OPEN là nghiệm thu PostgreSQL hoặc cấp quyền S05.
+
 ## R-P1-S04-design — điều phối chấp nhận và giao công bố
 
 Nguồn: thông báo review và giao việc của điều phối trong lệnh công bố S04. Nội dung ghi nhận **“Điều phối chấp nhận S04 v2 ở mức thiết kế”** là cách ghi nguồn, **không phải lời duyệt nguyên văn của người dùng**. Phạm vi APPROVED: grain nguồn, UNIQUE user–movie theo EDA, bốn dimension/bridge, UTC-Z view đúng contract, registry quản lý hai bảng cụm, full refresh nguyên tử/đối soát cùng connection, tỷ trọng gán genre.
