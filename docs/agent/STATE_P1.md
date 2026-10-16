@@ -1,6 +1,6 @@
 # Trạng thái P1
 
-Phiên bản **P1-S02-v2**, 15/10/2026, Asia/Bangkok. Workspace `D:/kho-du-lieu-va-khai-pha--cuoi-ky`; bản cũ `D:/BTL_Kho_Du_Lieu` giữ nguyên, chưa ánh xạ hồ sơ chung.
+Phiên bản **P1-S04-v0**, 15/10/2026, Asia/Bangkok. Workspace `D:/kho-du-lieu-va-khai-pha--cuoi-ky`; bản cũ `D:/BTL_Kho_Du_Lieu` giữ nguyên, chưa ánh xạ hồ sơ chung.
 
 ## Tiền đề và bước hiện tại
 
@@ -34,3 +34,12 @@ Ignore đã kiểm secret2file/venv/raw/processed/dump; template root/nested đ�
 ## Mốc tiếp theo
 
 Đẩy S02 đã xong: PR#3 OPEN vào main, chưa MERGED. Đã tích hợp nguyên main ff87081/P2, kiểm9file P2 byte-for-byte trùng remote. Chờ review/xác nhận merge cụ thể; chưa chuyển bước. Commit cập nhật hồ sơ công bố thuộc cùng PR, không thay code/phạm vi.
+
+
+## Yêu cầu Bước4 và trạng thái hiện hành
+
+Bước đang được giao **S04 — BLOCKED** vì thiếu G1/EDA. Kiểm fetch origin/main ff87081... chưa có docs/agent/steps/P2/S03.md, docs/P2/data_understanding.md, results/eda/data_profile.csv, data/source_manifest.json, results/eda/canonical_manifest.json. Không có duyệt S03/contract xác nhận P2 từ đầu vào bàn giao. S02-P1 APPROVED nhưng PR#3 vẫn OPEN/merged=false theo API; chưa có lệnh tự merge.
+
+Giữ nhánh p1-s02-env, chỉ thêm hồ sơ S04/STATE/DECISIONS/PROMPTS cục bộ chưa commit/push vào PR#3. Không tạo nhánh/schema/DDL hoặc tải nguồn trước khi đủ G1 để đối chiếu. Đọc steps/P1/S04.md để biết kiểm tra/missing inputs. Các mục “bước hiện tại2-P1” phía trên là lịch sử công bố môi trường; S04 hiện BLOCKED, không tự duyệt P2.
+
+Mốc tiếp: nhận/xác minh PR G1 EDA đã duyệt/merge đủ5file và merge P1 môi trường trước thiết kế; không tự thay EDA hoặc đoán khóa/kiểu. Chưa tạo thiết kế để duyệt.

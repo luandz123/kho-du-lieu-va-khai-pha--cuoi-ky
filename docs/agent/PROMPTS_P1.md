@@ -119,3 +119,9 @@ Kiểm tra20:17–20:18 ngày15/10: host/container SELECT1_PASS. Không là duy�
 duyệt và đẩy bước2
 
 Cho phép commit/push/PR p1-s02-env; chưa merge hoặc chuyển bước.
+
+## P-P1-14 Giao Bước4 — tóm tắt có phân biệt tiền đề
+
+Người dùng giao S04: đọc STATE/spec/acceptance/contract2 và S03/P2/data_understanding/data_profile; chỉ tiếp khi2-P1/3 đã duyệt, G1 EDA đã merge đủ source_manifest/canonical_manifest/profile/understanding. Thiết kế staging/dw/analytics,6bảngDW/ERD/PK-FK/1:N/index/từ điển/ánh xạ/UTC/full-refresh,4view chuẩn không nhân rating theo genre và2bảng cụm; schema.sql chỉ nháp, không chạyDDL. P1 tự tải chính thức/soSHA256, không chép raw/docs P2. Bàn giao và cập nhật S04/DECISIONS/STATE rồi dừng. Đây là tóm tắt lệnh, không lời duyệt S03 hoặc quyền merge.
+
+Kiểm tra thực tế: G1/5file chưa có trên local/main; PR#3 chưa merge. Chỉ ghi BLOCKED, chưa thiết kế.
