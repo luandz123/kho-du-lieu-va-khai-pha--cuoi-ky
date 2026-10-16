@@ -81,6 +81,63 @@
       ],
       "passed": 15,
       "total": 15
+    },
+    {
+      "phase": "after-main-merge",
+      "checked_head": "c7743ab75ba36b9e2fc44d8315d3c6f75cd94204",
+      "base": "a8d2615df1e5aa522b2cceaaa073336d61013b83",
+      "checks": [
+        {
+          "check": "base_is_merged_pr5",
+          "passed": true
+        },
+        {
+          "check": "base_ancestor_of_s04",
+          "passed": true
+        },
+        {
+          "check": "checkpoint_unchanged_and_retained",
+          "passed": true
+        },
+        {
+          "check": "p2_files_exactly_origin_main",
+          "passed": true
+        },
+        {
+          "check": "full_diff_21_files_only_p1",
+          "passed": true
+        },
+        {
+          "check": "approved_sql_still_byte_identical",
+          "passed": true
+        },
+        {
+          "check": "canonical_hashes_match_pr5_snapshot",
+          "passed": true
+        },
+        {
+          "check": "full_diff_no_secret_or_user_dataset_paths",
+          "passed": true
+        },
+        {
+          "check": "entire_candidate_content_scan",
+          "passed": true
+        },
+        {
+          "check": "unrelated_plan_unchanged",
+          "passed": true
+        },
+        {
+          "check": "artifact_hashes_refreshed",
+          "passed": true
+        },
+        {
+          "check": "diff_whitespace",
+          "passed": true
+        }
+      ],
+      "passed": 12,
+      "total": 12
     }
   ],
   "candidate_files": [
@@ -120,5 +177,51 @@
     "No P2 tests rerun",
     "DW adapter validation awaits G2"
   ],
-  "status": "LOCAL_READY_NOT_PUSHED"
+  "status": "SYNCHRONIZED_READY_TO_PUSH",
+  "full_pr_file_list": [
+    "database/README.md",
+    "database/data_dictionary.md",
+    "database/erd.md",
+    "database/refresh_and_reconciliation.md",
+    "database/schema.sql",
+    "database/source_to_target.md",
+    "docs/P1/g1_intake_checklist.md",
+    "docs/P1/g1_pytest_9299268.txt",
+    "docs/P1/g1_review_2026-10-16.md",
+    "docs/P1/g1_verification_9299268.json",
+    "docs/P1/pr3_environment_review_2026-10-16.md",
+    "docs/P1/s04_design_checks.json",
+    "docs/P1/s04_design_checks_v2.json",
+    "docs/P1/s04_inputs_pr5.json",
+    "docs/P1/s04_publication_checks.json",
+    "docs/P1/s04_review_v2.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S04.md"
+  ],
+  "git_text_note": "Working-tree byte hashes may differ from Git LF text blobs; portable SHA-256 of committed LF blobs recorded separately below. CSV canonical hash rules unchanged.",
+  "lf_text_sha256_excluding_this_report": {
+    "database/README.md": "6696bef95b7b2287df5078dd770e1a99a39ee2a6322e2b088654680cac4a39b1",
+    "database/data_dictionary.md": "b69ebd3692cb1e0ae8918ed6a76654a8c6921ad3d464ed1419d64a34ac4d5f69",
+    "database/erd.md": "08f2e654dcf76c6d1a0934e96ac2cbf5212c771f64d58501e791283b80230292",
+    "database/refresh_and_reconciliation.md": "c95359b5731a1ba1cc7a6fed74cd8f1c5a312c6de5afa4bcacfdfa84bbd314fb",
+    "database/schema.sql": "80f025990129bdc963dfc7fb13689ac963bfc62e84f77efa38fa19fc8047015f",
+    "database/source_to_target.md": "2a0c07a0f63faa6e4c73839ab423650a84aac1a28d7ac0b93c248dd7f15ef53f",
+    "docs/P1/g1_intake_checklist.md": "e4752a73ae48c9c488aec93fbede997906419dfb6677041851514f477f988178",
+    "docs/P1/g1_pytest_9299268.txt": "b05cf3b259c480ad09ad36cbc2c5764dcd42faf65fd48cb0b56c4718d289bbab",
+    "docs/P1/g1_review_2026-10-16.md": "de6c47e724d39f01b6110c1b1546a5c0ea9f931678d7a955de37bfba4faeecbe",
+    "docs/P1/g1_verification_9299268.json": "78db3c352df60aeecc60208f6be9e930dabe4b8ca8be83df54a7496f067f8af9",
+    "docs/P1/pr3_environment_review_2026-10-16.md": "47c3de5589fd9a9ab7a944c97346a0509aac00cc6fb731fc774197acb16f298d",
+    "docs/P1/s04_design_checks.json": "5507e5e94db5d23cd950bb5362e6a39aaee5d15e5963a49869e9000059f4220a",
+    "docs/P1/s04_design_checks_v2.json": "013727917561e773e5b8f048316a30b6f5309cd8cb740f656313621e3d505586",
+    "docs/P1/s04_inputs_pr5.json": "df0f6c9339c4fd6b18797e85385a902d37c4ede320895e4d00478221f90d7425",
+    "docs/P1/s04_review_v2.md": "86a70bebb91746e1079281abd935a96089a9cf8ef1f4aad7df148f0fb47245f9",
+    "docs/agent/DECISIONS_P1.md": "e6750ba45efe9c287fea6754c77d18a168c77521ee0cb24c0debdcfcde9acdb3",
+    "docs/agent/PROMPTS_P1.md": "bbec32d1562954e33c6dd1dc45d1c7bd7e9bb5425d38707d5e0d7e8b8da94922",
+    "docs/agent/REVIEWS_P1.md": "6df85755fe974fea567e29d1ec130affceb12d2301dd5b5744bd62755194e0e8",
+    "docs/agent/STATE_P1.md": "31df83c24605725ddeb5e047dfe7d17bc7101c37f7ae08f3c29b064e60e62bbe",
+    "docs/agent/steps/P1/S04.md": "d4c2a5e64b036781729e6ec48cfe87c4829fd642283fa32d99c82495daffd869"
+  }
 }

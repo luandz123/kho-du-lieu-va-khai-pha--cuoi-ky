@@ -8,6 +8,8 @@
 
 Giữ các quyết định kỹ thuật đã review, không thay DDL. 37/37 là kiểm tĩnh v2 đã chạy ở lượt thiết kế, không tự ghi chạy lại trong công bố; kiểm công bố/hash và kết quả Git được ghi riêng theo kết quả thật. Commit/PR/HEAD công bố bổ sung sau khi thực hiện và xác minh.
 
+Đã commit chọn lọc 16 file bằng `a4f0cb9`, trước fetch. Fetch xác nhận origin/main `a8d2615df1e5aa522b2cceaaa073336d61013b83`; tích hợp bằng merge `c7743ab75ba36b9e2fc44d8315d3c6f75cd94204`, không conflict. Checkpoint aeb41d1 vẫn là ancestor. Diff dự kiến PR gồm 21 file P1 (kể cả checkpoint), không file P2 hoặc kế hoạch ngoài phạm vi. Kiểm công bố trước commit 15/15 đạt; đồng bộ/hash và push/PR được xác minh riêng tiếp theo.
+
 ## Hiện hành — 16/10/2026, P1-S04-draft-v2
 
 **S04 WAITING_REVIEW bản thiết kế hoàn thiện; chưa APPROVED và chưa triển khai.** Tiếp tục đúng lệnh điều phối mới, kế thừa sáu file database của v1; không tạo lại mô hình hoặc ghi đè bằng bản khác. Phần v1 và v0 dưới đây là lịch sử.

@@ -1082,6 +1082,8 @@
       "working_tree_final",
       "git_operations_this_turn"
     ],
-    "historical_fields_scope": "Prior design-v2 verification run; publication results are separate in s04_publication_checks.json"
+    "historical_fields_scope": "Prior design-v2 verification run; publication results are separate in s04_publication_checks.json",
+    "after_sync_base": "a8d2615df1e5aa522b2cceaaa073336d61013b83",
+    "hash_basis": "Physical working-tree bytes; canonical CSV hashes are separate, unchanged; historical 37 checks not rerun."
   }
 }
