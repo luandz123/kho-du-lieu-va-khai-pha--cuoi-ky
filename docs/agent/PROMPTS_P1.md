@@ -1,5 +1,27 @@
 # Nguồn prompt P1
 
+## P-P1-17 — Điều phối giao công bố S04
+
+Tóm tắt lệnh mới: điều phối đã review/chấp nhận S04 v2 ở mức thiết kế và giao commit/push/mở PR, chưa merge hoặc thực thi SQL. Xác minh repo/remote/nhánh, giữ checkpoint aeb41d1, rà toàn bộ diff trước push; không stage kế hoạch untracked hoặc dữ liệu/bí mật. Ghi đúng nguồn chấp nhận, làm rõ lịch sử PR sửa G1 trong README, giữ DDL đã review. Commit công việc trước fetch/merge main an toàn, xử lý theo quyền sở hữu, cập nhật hash bị ảnh hưởng và không giả đã chạy lại 37 kiểm. Bàn giao PR/HEAD/base/file/check/worktree rồi chờ review PR; chưa tự sang Bước 5.
+
+Cách ghi nguồn được yêu cầu: “Điều phối chấp nhận S04 v2 ở mức thiết kế”; không ghi thành lời duyệt nguyên văn của người dùng.
+
+## P-P1-16 — Tiếp tục hoàn thiện S04, 16/10/2026
+
+Tóm tắt lệnh điều phối: kế thừa bản nháp, bảo toàn dirty tree, không reset/chép đè hoặc sửa P2. PR #3/#4/#5 đã merge; điều phối kiểm độc lập và 23/23 đạt, canonical checksum không đổi. P2 sửa một SHA metadata và làm 8A, không chặn thiết kế; adapter DW thật chờ G2. Hoàn thiện schema/ERD/dictionary/mapping/index/full refresh/đối soát và hồ sơ, tự kiểm cả tên/kiểu/khóa/quan hệ. Bàn giao lý do, kết quả/giới hạn/điểm chốt, 3–5 ý bảo vệ và Git thực tế.
+
+Nguyên văn giới hạn: “Chỉ hoàn thiện thiết kế S04. Chưa chạy DDL, tạo bảng/view thật, nạp staging, ETL hoặc dashboard. Chưa commit/push/mở PR; đặt WAITING_REVIEW và dừng để điều phối kiểm tra.” Đây không phải lời duyệt S04 hoặc mốc đẩy.
+
+## P-P1-15 — Điều phối giao S04 nháp, 16/10/2026
+
+Tóm tắt lệnh mới (không phải nguyên văn toàn bộ): bảo toàn từng file dở, được checkpoint commit P1 cục bộ nếu cần nhưng chưa push; đồng bộ main an toàn và tạo p1-s04-schema. Đọc contract v2, manifest/EDA và kiểm nhận P1, ghi commit căn cứ. Soạn staging/dw/analytics, SQL nháp, ERD, từ điển/mapping/index/full refresh/đối soát, bốn view chuẩn và hai bảng cụm quản lý phiên bản. Chỉ thiết kế, chưa DDL/kết nối/nạp/ETL, không bật Superset; cập nhật hồ sơ P1, chờ review, không mở PR S04.
+
+Trích nguyên văn điều chỉnh tiền đề: “Đây là cho phép thiết kế nháp song song, chưa xác nhận G1 đã nghiệm thu toàn bộ. Ghi rõ điều chỉnh thứ tự này trong hồ sơ P1, không tạo lời duyệt thay người dùng.”
+
+Trích nguyên văn giới hạn: “Chỉ viết thiết kế và SQL nháp. Không kết nối để chạy DDL, tạo schema/bảng/view, nạp staging hoặc ETL. Không cần bật Superset cho lượt thiết kế.”
+
+Căn cứ do điều phối cung cấp: PR #3/#4 đã merge, bốn nguồn và bốn canonical đã hash độc lập, khóa/FK/rating/UTC đạt; P2 còn PR sửa adapter/hồ sơ G1, không đổi count/hash. Đã đối chiếu với API và bằng chứng được bảo toàn; không ghi đây là duyệt G1 toàn bộ hoặc S04. Ghi nhận các lượt giao khảo sát/checklist/kiểm nhận trước đây trong tài liệu P1 tương ứng, không tự tạo lời duyệt bị thiếu.
+
 Bản lưu hiển thị đã bỏ khoảng trắng cuối dòng; giữ nguyên nội dung câu và nguyên văn lời duyệt.
 
 Ngày15/10/2026. Lệnh trực tiếp trong chat có ưu tiên; tài liệu tham chiếu không tự cấp quyền bước tiếp.

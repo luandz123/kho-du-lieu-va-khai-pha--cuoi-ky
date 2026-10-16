@@ -1,0 +1,215 @@
+{
+  "version": "P1-S04-draft-v1",
+  "date_local": "2026-10-16",
+  "branch": "p1-s04-schema",
+  "head_checkpoint": "aeb41d1fab5aa2760d69220e2eaefc401723eb0c",
+  "main_basis": "b71d439fa2cc3ee84c40f4a28dc6fe00c8326d42",
+  "g1_reviewed_head": "9299268278900814f939e0e4214d23a31e09ef64",
+  "scope": "Static file/design checks only. No DB connection, DDL execution, data load, source download, or PostgreSQL parser. No P2 tests rerun.",
+  "checks": [
+    {
+      "check": "sql_parentheses_balanced_lexical_only",
+      "passed": true
+    },
+    {
+      "check": "schema_tables",
+      "passed": true,
+      "details": {
+        "staging.users_raw": 5,
+        "staging.movies_raw": 4,
+        "staging.ratings_raw": 5,
+        "dw.dim_user": 5,
+        "dw.dim_movie": 4,
+        "dw.dim_date": 6,
+        "dw.dim_genre": 2,
+        "dw.bridge_movie_genre": 2,
+        "dw.fact_rating": 8,
+        "analytics.model_registry": 14,
+        "analytics.user_cluster": 4,
+        "analytics.cluster_genre_profile": 5
+      }
+    },
+    {
+      "check": "view_columns_dw.v_ml_users",
+      "passed": true,
+      "details": {
+        "expected": [
+          "user_id",
+          "gender",
+          "age_group",
+          "occupation"
+        ],
+        "actual": [
+          "user_id",
+          "gender",
+          "age_group",
+          "occupation"
+        ]
+      }
+    },
+    {
+      "check": "view_columns_dw.v_ml_movies",
+      "passed": true,
+      "details": {
+        "expected": [
+          "movie_id",
+          "title",
+          "release_year"
+        ],
+        "actual": [
+          "movie_id",
+          "title",
+          "release_year"
+        ]
+      }
+    },
+    {
+      "check": "view_columns_dw.v_ml_movie_genres",
+      "passed": true,
+      "details": {
+        "expected": [
+          "movie_id",
+          "genre_name"
+        ],
+        "actual": [
+          "movie_id",
+          "genre_name"
+        ]
+      }
+    },
+    {
+      "check": "view_columns_dw.v_ml_ratings",
+      "passed": true,
+      "details": {
+        "expected": [
+          "user_id",
+          "movie_id",
+          "rating",
+          "timestamp",
+          "rated_at"
+        ],
+        "actual": [
+          "user_id",
+          "movie_id",
+          "rating",
+          "timestamp",
+          "rated_at"
+        ]
+      }
+    },
+    {
+      "check": "ratings_no_genre_or_analytics_join",
+      "passed": true
+    },
+    {
+      "check": "views_expose_original_ids",
+      "passed": true
+    },
+    {
+      "check": "utc_projection_and_epoch_date_integrity",
+      "passed": true
+    },
+    {
+      "check": "dictionary_all_sql_columns_documented",
+      "passed": true,
+      "details": {
+        "columns": 64,
+        "missing": []
+      }
+    },
+    {
+      "check": "erd_all_dw_analytics_columns",
+      "passed": true,
+      "details": {
+        "missing": []
+      }
+    },
+    {
+      "check": "canonical_evidence_matches_manifests",
+      "passed": true
+    },
+    {
+      "check": "source_evidence_matches_manifest_metadata",
+      "passed": true
+    },
+    {
+      "check": "business_key_evidence",
+      "passed": true,
+      "details": {
+        "evidence_commit": "9299268278900814f939e0e4214d23a31e09ef64",
+        "note": "Evidence cross-reference only; source files not rehashed this turn."
+      }
+    },
+    {
+      "check": "model_version_and_status_guard",
+      "passed": true
+    },
+    {
+      "check": "initial_install_guard_and_no_drop",
+      "passed": true
+    },
+    {
+      "check": "p2_and_contract_unchanged_vs_main",
+      "passed": true
+    },
+    {
+      "check": "database_relative_links_exist",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "new_design_no_credential_patterns",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "diff_and_new_design_whitespace",
+      "passed": true,
+      "details": {
+        "new_trailing_files": []
+      }
+    }
+  ],
+  "passed": 20,
+  "total": 20,
+  "all_passed": true,
+  "not_verified": [
+    "PostgreSQL syntax and execution",
+    "Actual column types/rows from DW views",
+    "Raw/CSV/DW canonical equivalence on PostgreSQL",
+    "Refresh rollback, locks and performance",
+    "P2 R1-R6 fixes and full G1 acceptance",
+    "G3 package/model and BI"
+  ],
+  "artifacts": {
+    "database/data_dictionary.md": "3cd17c096aec438e9e381749c92a67bd6a2a09a6b804a4d41bdecc9c131ebf8e",
+    "database/erd.md": "0222c82b6fb8efd64fecaa8ecd5248e31bbc1e52bc6ec084bc7ad034af27cb32",
+    "database/README.md": "5bc3421d171166b2be039af807a4509ebd800b9cc477b51b68547f08d4d9003b",
+    "database/refresh_and_reconciliation.md": "2199175ff9a657d775a42e1ab7770779c29c2335500df7b67cca1a219b732eed",
+    "database/schema.sql": "72625e7312c645fafdbcebea1c331b67e2f274bdfa2429e838a30872e11e419d",
+    "database/source_to_target.md": "3ec569873bfb763381377b97e5b4738e86ad364d27b64ad442a625c3fc8074f8"
+  },
+  "final_worktree": {
+    "modified_p1_records": [
+      "docs/agent/STATE_P1.md",
+      "docs/agent/DECISIONS_P1.md",
+      "docs/agent/REVIEWS_P1.md",
+      "docs/agent/PROMPTS_P1.md",
+      "docs/agent/steps/P1/S04.md"
+    ],
+    "new_design_files": [
+      "database/data_dictionary.md",
+      "database/erd.md",
+      "database/README.md",
+      "database/refresh_and_reconciliation.md",
+      "database/schema.sql",
+      "database/source_to_target.md"
+    ],
+    "new_evidence_file": "docs/P1/s04_design_checks.json",
+    "preserved_unrelated_untracked": "docs/KE_HOACH_BTL_MOVIELENS.md",
+    "staged_files": [],
+    "design_commit_created": false,
+    "pushed": false,
+    "s04_pr_created": false
+  }
+}

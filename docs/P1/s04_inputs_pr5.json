@@ -1,0 +1,211 @@
+{
+  "pr5_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/5",
+  "pr5_head": "b73c8e2bc3bc98ff8576f75c02416cf2582bdc73",
+  "pr5_merge": "a8d2615df1e5aa522b2cceaaa073336d61013b83",
+  "pr5_merged_at": "2026-10-16T14:24:00Z",
+  "canonical_manifest": {
+    "contract_version": 2,
+    "generated_at_utc": "2026-10-15T10:42:20Z",
+    "source_code_commit": "7a284b9f2913e1c6670868f7b7cf72d2eef29c62",
+    "source_hashes": {
+      "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+    },
+    "schemas": {
+      "users": [
+        "user_id int",
+        "gender text",
+        "age_group text",
+        "occupation int"
+      ],
+      "movies": [
+        "movie_id int",
+        "title text",
+        "release_year int nullable"
+      ],
+      "movie_genres": [
+        "movie_id int",
+        "genre_name text"
+      ],
+      "ratings": [
+        "user_id int",
+        "movie_id int",
+        "rating int",
+        "timestamp int64",
+        "rated_at UTC"
+      ]
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "source_code_sets": {
+      "gender": [
+        "F",
+        "M"
+      ],
+      "age_groups": {
+        "1": "Under 18",
+        "18": "18-24",
+        "25": "25-34",
+        "35": "35-44",
+        "45": "45-49",
+        "50": "50-55",
+        "56": "56+"
+      },
+      "occupations": {
+        "0": "other/not specified",
+        "1": "academic/educator",
+        "2": "artist",
+        "3": "clerical/admin",
+        "4": "college/grad student",
+        "5": "customer service",
+        "6": "doctor/health care",
+        "7": "executive/managerial",
+        "8": "farmer",
+        "9": "homemaker",
+        "10": "K-12 student",
+        "11": "lawyer",
+        "12": "programmer",
+        "13": "retired",
+        "14": "sales/marketing",
+        "15": "scientist",
+        "16": "self-employed",
+        "17": "technician/engineer",
+        "18": "tradesman/craftsman",
+        "19": "unemployed",
+        "20": "writer"
+      },
+      "genres": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Children's",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Fantasy",
+        "Film-Noir",
+        "Horror",
+        "Musical",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Thriller",
+        "War",
+        "Western"
+      ],
+      "ratings": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "serialization": {
+      "encoding": "UTF-8",
+      "bom": false,
+      "delimiter": ",",
+      "lineterminator": "LF",
+      "null_value": "",
+      "integer_format": "no .0"
+    },
+    "provenance": {
+      "original_generation_script": "mining/eda_canonical.py",
+      "original_generation_script_sha256": "94ebfea0f319974fb59f591f39d3c67a5820b1d7a1251d06502f545061f44da5",
+      "original_commit_g1": "7a284b9f108dd64b030305cf51b8614b770a2296",
+      "current_adapter_script": "mining/data_io.py",
+      "current_adapter_script_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+      "current_profile_script": "mining/eda_figures_and_profile.py",
+      "current_profile_script_sha256": "311a9276b6ea62d296d360eccc9b4e73af57d27adb5bc4fe92269ec4fb86e8c9",
+      "fixes_branch": "p2-s03-g1-fixes",
+      "python_runtime": "3.12.3",
+      "environment": "Linux x86_64"
+    }
+  },
+  "source_manifest": {
+    "dataset_version": "MovieLens 1M",
+    "source_url": "https://files.grouplens.org/datasets/movielens/ml-1m.zip",
+    "download_date_utc": "2026-10-15T10:40:34Z",
+    "archive": {
+      "relative_path": "data/raw/ml-1m.zip",
+      "size_bytes": 5917549,
+      "sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20"
+    },
+    "encoding": "Latin-1",
+    "delimiter": "::",
+    "files": {
+      "users.dat": {
+        "relative_path": "data/raw/ml-1m/users.dat",
+        "size_bytes": 134368,
+        "line_count": 6040,
+        "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+        "encoding": "Latin-1"
+      },
+      "movies.dat": {
+        "relative_path": "data/raw/ml-1m/movies.dat",
+        "size_bytes": 171308,
+        "line_count": 3883,
+        "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+        "encoding": "Latin-1"
+      },
+      "ratings.dat": {
+        "relative_path": "data/raw/ml-1m/ratings.dat",
+        "size_bytes": 24594131,
+        "line_count": 1000209,
+        "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+        "encoding": "Latin-1"
+      },
+      "README": {
+        "relative_path": "data/raw/ml-1m/README",
+        "size_bytes": 5577,
+        "line_count": 170,
+        "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+        "encoding": "Latin-1"
+      }
+    }
+  },
+  "reported_test_result": "======================== 23 passed in 158.31s (0:02:38) ========================",
+  "input_file_sha256": {
+    "results/eda/canonical_manifest.json": "845da53351005608e5ddfa3ecf21c8cfdd9be12160918e5fac5d7debdfdd2131",
+    "data/source_manifest.json": "5a9c0f1e8ae02ced154490a47d2103bb0d376e57f419e16589b27bafcb6041b0",
+    "results/eda/test_evidence.txt": "81b28cfe65f2a9a4418021674e6b73b554f1cf20b275e2521c052c35efe5b8d4",
+    "docs/P2/data_understanding.md": "d3653a25437b1901d2fa6f0408e0f1346b495dae79c6672a014ff88313be7bcf",
+    "results/eda/data_profile.csv": "f564a4e550335893b4833dd344fed388f634735959bc15b4ce9cb41ad2c6f8ad",
+    "mining/data_io.py": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+    "mining/eda_canonical.py": "94ebfea0f319974fb59f591f39d3c67a5820b1d7a1251d06502f545061f44da5",
+    "mining/eda_figures_and_profile.py": "311a9276b6ea62d296d360eccc9b4e73af57d27adb5bc4fe92269ec4fb86e8c9"
+  },
+  "script_provenance_checks": {
+    "mining/eda_canonical.py": {
+      "expected": "94ebfea0f319974fb59f591f39d3c67a5820b1d7a1251d06502f545061f44da5",
+      "actual": "94ebfea0f319974fb59f591f39d3c67a5820b1d7a1251d06502f545061f44da5",
+      "matches": true
+    },
+    "mining/data_io.py": {
+      "expected": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+      "actual": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+      "matches": true
+    },
+    "mining/eda_figures_and_profile.py": {
+      "expected": "311a9276b6ea62d296d360eccc9b4e73af57d27adb5bc4fe92269ec4fb86e8c9",
+      "actual": "311a9276b6ea62d296d360eccc9b4e73af57d27adb5bc4fe92269ec4fb86e8c9",
+      "matches": true
+    }
+  },
+  "known_original_g1_commit": "7a284b9f108dd64b030305cf51b8614b770a2296",
+  "metadata_sha_consistent": false,
+  "coordinator_report": "Independent source/canonical checks and 23/23 tests pass; a metadata SHA is being corrected. Not rerun by P1 in this design-only turn."
+}

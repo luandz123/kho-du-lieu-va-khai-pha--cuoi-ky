@@ -1,0 +1,124 @@
+{
+  "scope": "Publication checks, not a rerun of the historical 37 design checks or any PostgreSQL/P2 test",
+  "checkpoint": "aeb41d1fab5aa2760d69220e2eaefc401723eb0c",
+  "checkpoint_reviewed_files": [
+    "docs/P1/g1_intake_checklist.md",
+    "docs/P1/g1_pytest_9299268.txt",
+    "docs/P1/g1_review_2026-10-16.md",
+    "docs/P1/g1_verification_9299268.json",
+    "docs/P1/pr3_environment_review_2026-10-16.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S04.md"
+  ],
+  "head_before_publication": "aeb41d1fab5aa2760d69220e2eaefc401723eb0c",
+  "approved_sql_sha256": "80f025990129bdc963dfc7fb13689ac963bfc62e84f77efa38fa19fc8047015f",
+  "runs": [
+    {
+      "phase": "pre-commit",
+      "checks": [
+        {
+          "check": "branch_p1_s04_schema",
+          "passed": true
+        },
+        {
+          "check": "checkpoint_retained_as_ancestor",
+          "passed": true
+        },
+        {
+          "check": "approved_sql_byte_unchanged",
+          "passed": true
+        },
+        {
+          "check": "v2_artifact_hashes_current",
+          "passed": true
+        },
+        {
+          "check": "readme_g1_history_explicit",
+          "passed": true
+        },
+        {
+          "check": "coordinator_approval_source_not_user_verbatim",
+          "passed": true
+        },
+        {
+          "check": "historical_37_checks_not_claimed_rerun",
+          "passed": true
+        },
+        {
+          "check": "all_publication_json_valid",
+          "passed": true
+        },
+        {
+          "check": "checkpoint_and_full_candidate_content_no_credential_signatures",
+          "passed": true
+        },
+        {
+          "check": "candidate_paths_no_runtime_or_raw_data",
+          "passed": true
+        },
+        {
+          "check": "candidate_sizes_under_5mb",
+          "passed": true
+        },
+        {
+          "check": "unrelated_plan_unchanged",
+          "passed": true
+        },
+        {
+          "check": "tracked_diff_whitespace",
+          "passed": true
+        },
+        {
+          "check": "candidate_whitespace",
+          "passed": true
+        },
+        {
+          "check": "candidate_markdown_links",
+          "passed": true
+        }
+      ],
+      "passed": 15,
+      "total": 15
+    }
+  ],
+  "candidate_files": [
+    "database/README.md",
+    "database/data_dictionary.md",
+    "database/erd.md",
+    "database/refresh_and_reconciliation.md",
+    "database/schema.sql",
+    "database/source_to_target.md",
+    "docs/P1/g1_intake_checklist.md",
+    "docs/P1/g1_pytest_9299268.txt",
+    "docs/P1/g1_review_2026-10-16.md",
+    "docs/P1/g1_verification_9299268.json",
+    "docs/P1/pr3_environment_review_2026-10-16.md",
+    "docs/P1/s04_design_checks.json",
+    "docs/P1/s04_design_checks_v2.json",
+    "docs/P1/s04_inputs_pr5.json",
+    "docs/P1/s04_review_v2.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S04.md"
+  ],
+  "artifact_hashes": {
+    "database/data_dictionary.md": "b69ebd3692cb1e0ae8918ed6a76654a8c6921ad3d464ed1419d64a34ac4d5f69",
+    "database/erd.md": "d3c8a3ac7eb312d5942c5b01e84740e3d068c5ee394aceabbb3a28ed25e503d7",
+    "database/README.md": "f0665a1ca5735cbe133cbc21fdb6aed3d1ea5a0dd2fad44771a1cf1ffcfd2b8e",
+    "database/refresh_and_reconciliation.md": "c95359b5731a1ba1cc7a6fed74cd8f1c5a312c6de5afa4bcacfdfa84bbd314fb",
+    "database/schema.sql": "80f025990129bdc963dfc7fb13689ac963bfc62e84f77efa38fa19fc8047015f",
+    "database/source_to_target.md": "018fd7d3b96818244e34b1c8520d597a8247d438d35bae38b00ba21c5c6e6e23",
+    "docs/P1/s04_inputs_pr5.json": "df0f6c9339c4fd6b18797e85385a902d37c4ede320895e4d00478221f90d7425",
+    "docs/P1/s04_review_v2.md": "86a70bebb91746e1079281abd935a96089a9cf8ef1f4aad7df148f0fb47245f9"
+  },
+  "known_limits": [
+    "No PostgreSQL parser/DDL execution",
+    "No P2 tests rerun",
+    "DW adapter validation awaits G2"
+  ],
+  "status": "LOCAL_READY_NOT_PUSHED"
+}

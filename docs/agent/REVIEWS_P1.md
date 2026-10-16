@@ -1,5 +1,21 @@
 # Hồ sơ duyệt P1
 
+## R-P1-S04-design — điều phối chấp nhận và giao công bố
+
+Nguồn: thông báo review và giao việc của điều phối trong lệnh công bố S04. Nội dung ghi nhận **“Điều phối chấp nhận S04 v2 ở mức thiết kế”** là cách ghi nguồn, **không phải lời duyệt nguyên văn của người dùng**. Phạm vi APPROVED: grain nguồn, UNIQUE user–movie theo EDA, bốn dimension/bridge, UTC-Z view đúng contract, registry quản lý hai bảng cụm, full refresh nguyên tử/đối soát cùng connection, tỷ trọng gán genre.
+
+Được commit/push p1-s04-schema và mở PR main, chưa merge hoặc chạy SQL. 37/37 kiểm tĩnh của v2 khác kiểm thử PostgreSQL (chưa thực hiện). Giữ DDL đã review. Các mục chưa duyệt S04 bên dưới là lịch sử, không còn là trạng thái thiết kế hiện hành.
+
+## Giao hoàn thiện S04 v2 — 16/10/2026, không phải duyệt
+
+Nguyên văn điều phối: “Chưa commit/push/mở PR; đặt WAITING_REVIEW và dừng để điều phối kiểm tra.” Giữ S04-draft-v2 WAITING_REVIEW, chưa APPROVED. PR #3/#4/#5 MERGED đã xác minh API; 23/23 test bản sửa và đối soát độc lập là thông tin điều phối, log P2 tương ứng đã đọc. Không tạo lời duyệt toàn bộ G1 hoặc 3B từ trạng thái merge/test; SHA metadata còn sửa không chặn thiết kế theo lệnh mới. Adapter/view DW thật chưa kiểm đến G2.
+
+## Ghi nhận giao thiết kế nháp S04 — 16/10/2026, chưa có review duyệt
+
+Đây là ghi nhận phạm vi lệnh, **không phải mã duyệt mới**. Người dùng/điều phối nguyên văn: “Đây là cho phép thiết kế nháp song song, chưa xác nhận G1 đã nghiệm thu toàn bộ. Ghi rõ điều chỉnh thứ tự này trong hồ sơ P1, không tạo lời duyệt thay người dùng.”
+
+P1-S04-draft-v1 **WAITING_REVIEW**. Đề xuất schema/ERD/từ điển/full refresh/registry cần review; chưa có APPROVED chức năng S04 hoặc PR S04. API xác nhận PR #3 MERGED 9846219, #4 MERGED b71d439; trạng thái GitHub không thay duyệt chức năng. Báo cáo G1 còn R1–R6 cần sửa/kiểm lại, không ghi 3B hoặc toàn bộ G1 APPROVED. Giữ nguyên các lời duyệt lịch sử ở dưới.
+
 ## R-P1-00
 
 - Ngày ghi nhận 15/10/2026, Asia/Bangkok; không đoán giờ gửi tin.
