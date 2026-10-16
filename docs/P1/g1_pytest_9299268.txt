@@ -1,0 +1,26 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-8.4.2, pluggy-1.7.0 -- C:\Users\ASUS\AppData\Local\Temp\codex-g1-review-9299268\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\ASUS\AppData\Local\Temp\codex-g1-review-9299268\source\luandz123-kho-du-lieu-va-khai-pha--cuoi-ky-9299268
+collecting ... collected 18 items
+
+tests/mining/test_canonical_data.py::test_canonical_manifest_structure PASSED [  5%]
+tests/mining/test_canonical_data.py::test_users_table PASSED             [ 11%]
+tests/mining/test_canonical_data.py::test_movies_table PASSED            [ 16%]
+tests/mining/test_canonical_data.py::test_movie_genres_table PASSED      [ 22%]
+tests/mining/test_canonical_data.py::test_ratings_table PASSED           [ 27%]
+tests/mining/test_data_io.py::test_table_schemas_and_columns PASSED      [ 33%]
+tests/mining/test_data_io.py::test_raw_csv_byte_equivalence PASSED       [ 38%]
+tests/mining/test_data_io.py::test_id_uniqueness_and_foreign_keys PASSED [ 44%]
+tests/mining/test_data_io.py::test_rated_at_utc_formatting PASSED        [ 50%]
+tests/mining/test_data_io.py::test_multi_genre_movies_do_not_multiply_ratings PASSED [ 55%]
+tests/mining/test_data_io.py::test_dw_error_handling_when_offline PASSED [ 61%]
+tests/mining/test_data_io.py::test_dw_mock_interface_with_connection PASSED [ 66%]
+tests/mining/test_env.py::test_python_version PASSED                     [ 72%]
+tests/mining/test_env.py::test_core_libraries_imported PASSED            [ 77%]
+tests/mining/test_env.py::test_sparse_matrix_and_similarity PASSED       [ 83%]
+tests/mining/test_env.py::test_kmeans_execution PASSED                   [ 88%]
+tests/mining/test_source_manifest.py::test_source_manifest_structure PASSED [ 94%]
+tests/mining/test_source_manifest.py::test_raw_files_checksums_and_counts PASSED [100%]
+
+======================= 18 passed in 108.25s (0:01:48) ========================

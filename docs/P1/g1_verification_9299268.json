@@ -1,0 +1,65 @@
+{
+  "commit": "9299268278900814f939e0e4214d23a31e09ef64",
+  "source": {
+    "users.dat": {
+      "hash_match": true,
+      "line_count": 6040
+    },
+    "movies.dat": {
+      "hash_match": true,
+      "line_count": 3883
+    },
+    "ratings.dat": {
+      "hash_match": true,
+      "line_count": 1000209
+    },
+    "README": {
+      "hash_match": true,
+      "line_count": 170
+    }
+  },
+  "canonical": {
+    "users": {
+      "rows": 6040,
+      "sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "hash_match": true
+    },
+    "movies": {
+      "rows": 3883,
+      "sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "hash_match": true
+    },
+    "movie_genres": {
+      "rows": 6408,
+      "sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "hash_match": true
+    },
+    "ratings": {
+      "rows": 1000209,
+      "sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+      "hash_match": true
+    }
+  },
+  "checks": {
+    "duplicate_pairs": 0,
+    "bad_rating": 0,
+    "orphan_users": 0,
+    "orphan_movies": 0,
+    "orphan_genres": 0,
+    "null_year": 0,
+    "utc_all_match": true,
+    "user_q95": 556.0,
+    "user_q99": 906.659999999998,
+    "insufficient_count": 2,
+    "insufficient_matches_report": true,
+    "utc_method": "pd.to_datetime(rated_at,utc=True) == pd.to_datetime(timestamp,unit=s,utc=True), all 1000209 rows"
+  },
+  "equivalence": true,
+  "dw_timestamp_probe": {
+    "canonical_matches": false,
+    "serialized": "user_id,movie_id,rating,timestamp,rated_at\n1,1,5,956703932,2000-04-25 23:05:32+00:00\n"
+  },
+  "exception_probe": {
+    "raw_exception_exposed": true
+  }
+}

@@ -1,5 +1,38 @@
 # Quyết định P1
 
+## Công bố S04 v2 — sau review của điều phối
+
+P1-D42: Đẩy/mở PR #6 thành công trên p1-s04-schema → main; API xác minh OPEN/merged=false và 21 blob khớp local ở head công bố 68af045. Giữ checkpoint, không thay DDL hoặc sửa P2. Commit hồ sơ công bố tiếp theo thuộc cùng mốc; PR vẫn chờ review, chưa merge/S05. Kiểm công bố và hash đã cập nhật, không chạy lại 37 kiểm thiết kế hoặc PostgreSQL.
+
+P1-D40: Nguồn ghi nhận **Điều phối chấp nhận S04 v2 ở mức thiết kế**; không gán thành lời duyệt nguyên văn của người dùng. Các phương án D31–D35/D38–D39 được chấp nhận ở phạm vi thiết kế theo danh sách điều phối, không thay DDL trong lượt công bố. Tên database/quyền thực thi và kiểm PostgreSQL thật còn thuộc bước sau.
+
+P1-D41: Được commit/push/mở PR main trên p1-s04-schema, giữ checkpoint aeb41d1 không rewrite, commit phần đang dở trước đồng bộ origin/main. Rà toàn diff kể cả checkpoint; kế hoạch untracked ngoài phạm vi không stage. Không merge PR hoặc thực thi DDL. Lưu kết quả/hashes theo thực tế, không biến 37 kiểm cũ thành lần chạy mới.
+
+## S04-draft-v2 — 16/10/2026 (đề xuất chờ review)
+
+| Mã | Nội dung | Căn cứ/trạng thái |
+|---|---|---|
+| P1-D36 | Kế thừa v1, tiếp tục hoàn thiện theo đầu vào PR #5 đã merge; không chờ SHA metadata hoặc 8A để thiết kế | Lệnh điều phối mới; không thay lời duyệt G1/3B/S04. Định nghĩa DDL giữ nguyên |
+| P1-D37 | Giữ nguyên checkout p1-s04-schema/aeb41d1, đọc snapshot PR #5 qua API/URL commit cố định | Bảo toàn dirty tree, không commit/fetch/pull/merge/reset/stash; không chép hoặc sửa P2 |
+| P1-D38 | Đối soát trước commit phải dùng cùng connection/transaction nạp; kiểm adapter P2 trên DW đã commit ở G2 riêng | Bổ sung thiết kế, chưa chạy. Không dùng connection mới để chứng minh dữ liệu chưa commit |
+| P1-D39 | Năm không khớp→NULL, không 0; numeric SUM/COUNT; reload full snapshot, PK/UQ chặn trùng; mất kết nối khi commit phải xác minh lại | Bổ sung cách triển khai/đối soát tương lai, không DML hoặc ETL ở S04 |
+
+23/23 là báo cáo điều phối và log bàn giao đã đọc, không phải test P1 chạy mới. Source/canonical checksum không đổi, code sets đủ, ba script hash khớp; source_code_commit còn một SHA sai cần P2 sửa. WAITING_REVIEW thiết kế, chưa quyền áp dụng hoặc đẩy.
+
+## S04-draft-v1 — 16/10/2026 (cập nhật mới; lịch sử giữ nguyên)
+
+| Mã | Nội dung | Trạng thái/căn cứ |
+|---|---|---|
+| P1-D29 | Điều phối cho viết thiết kế nháp song song khi G1 còn PR sửa adapter/hồ sơ | Lệnh mới có phạm vi; thay việc chờ thiết kế tại D28, không duyệt G1 toàn bộ hoặc S04 |
+| P1-D30 | Bảo toàn riêng chín file P1 bằng 2385a7d, main fast-forward b71d439, nhánh p1-s04-schema, kế thừa checkpoint aeb41d1 | Đã thực hiện cục bộ; không reset/stash/ghi P2/push; kế hoạch untracked ngoài phạm vi giữ nguyên |
+| P1-D31 | UNIQUE fact user_key–movie_key; bốn dimension, bridge; surrogate nội bộ | Đề xuất cần review, dựa duplicate_pairs=0 và FK/miền/count trong bằng chứng 9299268, không suy từ báo cáo sạch |
+| P1-D32 | Fact TIMESTAMPTZ + Unix, ngày UTC generated/FK ghép; view xuất TEXT UTC-Z đúng contract | Đề xuất cần review; không thay contract, không bỏ yêu cầu P2 sửa/test adapter datetime R1 |
+| P1-D33 | Hai bảng cụm theo model_version + registry kỹ thuật và hai view active; kiểm toàn gói trước activate | Đề xuất cần review, tối đa một active, thiếu bằng chứng dùng NULL; không tự tạo model hoặc đổi giao diện P2 |
+| P1-D34 | Full refresh transaction trong DB dự án riêng; vô hiệu hóa/xóa kết quả cụm, giữ metadata registry, nạp lại sau đối soát hash | Đề xuất cần review; không DROP/CASCADE, lỗi rollback, không hứa DB và file manifest atomic cùng nhau |
+| P1-D35 | Tỷ trọng genre BI mặc định theo lượt gán đánh giá–genre; mean rating roll-up bằng SUM/COUNT | Đề xuất cần review, không cộng genre thành số rating duy nhất và không thay công thức vector ML của P2 |
+
+S04 chỉ **WAITING_REVIEW bản nháp**. PR #3/#4 merge đã xác minh; R1–R6 chưa có kết quả sửa được kiểm nhận. Chưa chạy SQL, tạo DB/schema/view, load/ETL, bật Superset, push hoặc PR S04. Quyền viết nháp không phải quyền thực thi.
+
 Phiên bản P1-S01-v1 ngày 15/10/2026. Không thay thế hồ sơ duyệt; đề xuất chưa phải quyết định nhóm đã duyệt.
 
 | Mã | Nội dung và tác động | Trạng thái/căn cứ |
@@ -57,3 +90,5 @@ P1-D25: S02-v2 sau user báo đã sửa, cả host/container SELECT1_PASS17.11/e
 P1-D26: người dùng “duyệt và đẩy bước2” duyệt P1-S02-v2, cấp quyền commit/push/PR, không merge. Fetch trước đẩy thấy origin/main ff87081 đã gộp PR#2/P2, chỉ thêm file P2 không trùng; tích hợp nguyên vẹn sau commit phần P1, không sửa/chạy hoặc tự duyệt sản phẩm P2. Từ S02 đưa hồ sơ P1/tiền đề G0-S00-S01 vào Git để lưu dấu vết; giới hạn8tệp chỉ áp dụng bootstrap G0, không gom file môi trường/dữ liệu/bí mật.
 
 P1-D27: công bố S02-v2 qua commit6ef3a95, tích hợp nguyên main/P2 bằng f761497 không conflict,9file P2 giữ nguyên. Push thành công/mở PR#3 OPEN, chưa MERGED. Commit chỉ cập nhật hồ sơ công bố tiếp theo thuộc cùng mốc; giữ giới hạn DW/BI/ML và dừng trước merge/bước tiếp.
+
+P1-D28: khi nhận bước4, fetch/API cho thấy PR#3 vẫn OPEN và G1/5file EDA chưa có trên main/local. Ghi S04 BLOCKED vì thiếu đầu vào; không đoán UNIQUE/kiểu, không tạoDDL/thiết kế/tải nguồn khi chưa manifest đối chiếu. Không coi lệnh S04 là duyệt S03 hoặc cho phép merge PR. Chỉ cập nhật hồ sơ cục bộ, không đưa S04 vào PR môi trường đang chờ.

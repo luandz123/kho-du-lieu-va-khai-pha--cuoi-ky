@@ -1,0 +1,1089 @@
+{
+  "version": "P1-S04-draft-v2",
+  "date_local": "2026-10-16",
+  "scope": "New static design checks only. No PostgreSQL parser, DB connection, SQL execution, DDL, ETL, source download, canonical recomputation or P2 pytest run. Inferred SQL types are not engine-observed.",
+  "branch": "p1-s04-schema",
+  "head": "aeb41d1fab5aa2760d69220e2eaefc401723eb0c",
+  "local_main_basis": "b71d439fa2cc3ee84c40f4a28dc6fe00c8326d42",
+  "remote_input_basis": "a8d2615df1e5aa522b2cceaaa073336d61013b83",
+  "checks": [
+    {
+      "check": "table_set_and_columns",
+      "passed": true
+    },
+    {
+      "check": "all_primary_keys_have_existing_columns",
+      "passed": true
+    },
+    {
+      "check": "foreign_keys_valid_targets_and_types",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "dictionary_64_columns_and_types",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "dictionary_nullability_and_generated_distinction",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "dictionary_pk_fk_unique_annotations",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "erd_all_dw_analytics_columns_types",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "erd_pk_fk_tags",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "erd_nine_one_to_many_relations_match_fks",
+      "passed": true,
+      "details": {
+        "count": 9
+      }
+    },
+    {
+      "check": "contract_view_dw.v_ml_users",
+      "passed": true,
+      "details": {
+        "columns": [
+          "user_id",
+          "gender",
+          "age_group",
+          "occupation"
+        ],
+        "types_inferred_from_sql": [
+          "integer",
+          "text",
+          "text",
+          "integer"
+        ],
+        "nullable_inferred": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "check": "contract_view_dw.v_ml_movies",
+      "passed": true,
+      "details": {
+        "columns": [
+          "movie_id",
+          "title",
+          "release_year"
+        ],
+        "types_inferred_from_sql": [
+          "integer",
+          "text",
+          "integer"
+        ],
+        "nullable_inferred": [
+          false,
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "check": "contract_view_dw.v_ml_movie_genres",
+      "passed": true,
+      "details": {
+        "columns": [
+          "movie_id",
+          "genre_name"
+        ],
+        "types_inferred_from_sql": [
+          "integer",
+          "text"
+        ],
+        "nullable_inferred": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "check": "contract_view_dw.v_ml_ratings",
+      "passed": true,
+      "details": {
+        "columns": [
+          "user_id",
+          "movie_id",
+          "rating",
+          "timestamp",
+          "rated_at"
+        ],
+        "types_inferred_from_sql": [
+          "integer",
+          "integer",
+          "integer",
+          "bigint",
+          "text"
+        ],
+        "nullable_inferred": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "check": "view_ratings_no_genre_join",
+      "passed": true
+    },
+    {
+      "check": "views_use_original_ids",
+      "passed": true
+    },
+    {
+      "check": "utc_epoch_and_composite_day_fk",
+      "passed": true
+    },
+    {
+      "check": "index_columns_exist",
+      "passed": true,
+      "details": {
+        "count": 8
+      }
+    },
+    {
+      "check": "all_explicit_indexes_documented",
+      "passed": true
+    },
+    {
+      "check": "fact_unique_supported_by_evidence",
+      "passed": true
+    },
+    {
+      "check": "model_version_keys_and_status",
+      "passed": true
+    },
+    {
+      "check": "at_most_one_valid_active_model",
+      "passed": true
+    },
+    {
+      "check": "refresh_plan_fk_closed_and_all_tables_listed",
+      "passed": true
+    },
+    {
+      "check": "refresh_same_connection_and_no_chunk_commit_documented",
+      "passed": true
+    },
+    {
+      "check": "year_null_and_no_integer_division_documented",
+      "passed": true
+    },
+    {
+      "check": "transaction_guard_no_business_dml_or_drop",
+      "passed": true
+    },
+    {
+      "check": "sql_v1_ddl_unchanged",
+      "passed": true
+    },
+    {
+      "check": "pr5_canonical_counts_hashes_same_as_independent_evidence",
+      "passed": true
+    },
+    {
+      "check": "pr5_source_manifest_hashes_same_as_previous",
+      "passed": true
+    },
+    {
+      "check": "pr5_code_sets_match_contract_and_design",
+      "passed": true
+    },
+    {
+      "check": "pr5_three_provenance_script_byte_hashes",
+      "passed": true
+    },
+    {
+      "check": "p2_and_contract_unchanged_vs_head",
+      "passed": true
+    },
+    {
+      "check": "unrelated_plan_and_v1_evidence_preserved",
+      "passed": true,
+      "details": {
+        "docs/KE_HOACH_BTL_MOVIELENS.md": true,
+        "docs/P1/s04_design_checks.json": true
+      }
+    },
+    {
+      "check": "design_review_local_links",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "git_diff_whitespace",
+      "passed": true
+    },
+    {
+      "check": "new_design_whitespace",
+      "passed": true
+    },
+    {
+      "check": "no_private_key_token_or_credential_uri_patterns",
+      "passed": true
+    },
+    {
+      "check": "branch_head_and_staging_preserved",
+      "passed": true
+    }
+  ],
+  "passed": 37,
+  "total": 37,
+  "all_passed": true,
+  "sql_inventory": {
+    "staging.users_raw": {
+      "columns": {
+        "source_line": {
+          "type": "bigint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "user_id_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "gender_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "age_code_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "occupation_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "source_line"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [],
+      "constraints": [
+        "source_line bigint PRIMARY KEY CHECK (source_line > 0)"
+      ]
+    },
+    "staging.movies_raw": {
+      "columns": {
+        "source_line": {
+          "type": "bigint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "movie_id_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "title_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "genres_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "source_line"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [],
+      "constraints": [
+        "source_line bigint PRIMARY KEY CHECK (source_line > 0)"
+      ]
+    },
+    "staging.ratings_raw": {
+      "columns": {
+        "source_line": {
+          "type": "bigint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "user_id_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "movie_id_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "rating_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "timestamp_raw": {
+          "type": "text",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "source_line"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [],
+      "constraints": [
+        "source_line bigint PRIMARY KEY CHECK (source_line > 0)"
+      ]
+    },
+    "dw.dim_user": {
+      "columns": {
+        "user_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": true
+        },
+        "user_id": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "gender": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "age_group": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "occupation": {
+          "type": "smallint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "user_key"
+      ],
+      "unique_keys": [
+        [
+          "user_id"
+        ]
+      ],
+      "foreign_keys": [],
+      "constraints": [
+        "user_id integer NOT NULL UNIQUE CHECK (user_id > 0)",
+        "gender text NOT NULL CHECK (gender IN ('F', 'M'))",
+        "age_group text NOT NULL CHECK (\n        age_group IN ('Under 18', '18-24', '25-34', '35-44', '45-49', '50-55', '56+')\n    )",
+        "occupation smallint NOT NULL CHECK (occupation BETWEEN 0 AND 20)"
+      ]
+    },
+    "dw.dim_movie": {
+      "columns": {
+        "movie_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": true
+        },
+        "movie_id": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "title": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "release_year": {
+          "type": "smallint",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "movie_key"
+      ],
+      "unique_keys": [
+        [
+          "movie_id"
+        ]
+      ],
+      "foreign_keys": [],
+      "constraints": [
+        "movie_id integer NOT NULL UNIQUE CHECK (movie_id > 0)",
+        "release_year smallint CHECK (release_year BETWEEN 0 AND 9999)"
+      ]
+    },
+    "dw.dim_date": {
+      "columns": {
+        "date_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": true
+        },
+        "full_date": {
+          "type": "date",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "calendar_year": {
+          "type": "smallint",
+          "nullable_sql": true,
+          "generated": true,
+          "identity": false
+        },
+        "quarter_number": {
+          "type": "smallint",
+          "nullable_sql": true,
+          "generated": true,
+          "identity": false
+        },
+        "month_number": {
+          "type": "smallint",
+          "nullable_sql": true,
+          "generated": true,
+          "identity": false
+        },
+        "day_of_month": {
+          "type": "smallint",
+          "nullable_sql": true,
+          "generated": true,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "date_key"
+      ],
+      "unique_keys": [
+        [
+          "full_date"
+        ],
+        [
+          "date_key",
+          "full_date"
+        ]
+      ],
+      "foreign_keys": [],
+      "constraints": [
+        "CONSTRAINT uq_dim_date_key_day UNIQUE (date_key, full_date)",
+        "CONSTRAINT ck_dim_date_quarter CHECK (quarter_number BETWEEN 1 AND 4)",
+        "CONSTRAINT ck_dim_date_month CHECK (month_number BETWEEN 1 AND 12)",
+        "CONSTRAINT ck_dim_date_day CHECK (day_of_month BETWEEN 1 AND 31)"
+      ]
+    },
+    "dw.dim_genre": {
+      "columns": {
+        "genre_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": true
+        },
+        "genre_name": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "genre_key"
+      ],
+      "unique_keys": [
+        [
+          "genre_name"
+        ]
+      ],
+      "foreign_keys": [],
+      "constraints": []
+    },
+    "dw.bridge_movie_genre": {
+      "columns": {
+        "movie_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "genre_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "movie_key",
+        "genre_key"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [
+        {
+          "columns": [
+            "movie_key"
+          ],
+          "target": "dw.dim_movie",
+          "target_columns": [
+            "movie_key"
+          ]
+        },
+        {
+          "columns": [
+            "genre_key"
+          ],
+          "target": "dw.dim_genre",
+          "target_columns": [
+            "genre_key"
+          ]
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (movie_key, genre_key)"
+      ]
+    },
+    "dw.fact_rating": {
+      "columns": {
+        "rating_key": {
+          "type": "bigint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": true
+        },
+        "user_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "movie_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "date_key": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "rating": {
+          "type": "smallint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "rating_timestamp": {
+          "type": "bigint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "rated_at": {
+          "type": "timestamptz",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "rated_date": {
+          "type": "date",
+          "nullable_sql": true,
+          "generated": true,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "rating_key"
+      ],
+      "unique_keys": [
+        [
+          "user_key",
+          "movie_key"
+        ]
+      ],
+      "foreign_keys": [
+        {
+          "columns": [
+            "user_key"
+          ],
+          "target": "dw.dim_user",
+          "target_columns": [
+            "user_key"
+          ]
+        },
+        {
+          "columns": [
+            "movie_key"
+          ],
+          "target": "dw.dim_movie",
+          "target_columns": [
+            "movie_key"
+          ]
+        },
+        {
+          "columns": [
+            "date_key",
+            "rated_date"
+          ],
+          "target": "dw.dim_date",
+          "target_columns": [
+            "date_key",
+            "full_date"
+          ]
+        }
+      ],
+      "constraints": [
+        "rating smallint NOT NULL CHECK (rating BETWEEN 1 AND 5)",
+        "CONSTRAINT uq_fact_rating_user_movie UNIQUE (user_key, movie_key)",
+        "CONSTRAINT ck_fact_rating_epoch CHECK (EXTRACT(EPOCH FROM rated_at) = rating_timestamp)",
+        "CONSTRAINT fk_fact_rating_utc_day FOREIGN KEY (date_key, rated_date)\n        REFERENCES dw.dim_date (date_key, full_date)"
+      ]
+    },
+    "analytics.model_registry": {
+      "columns": {
+        "model_version": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "contract_version": {
+          "type": "smallint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "source_hashes": {
+          "type": "jsonb",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "canonical_hashes": {
+          "type": "jsonb",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "k": {
+          "type": "smallint",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "seed": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "preprocessing": {
+          "type": "jsonb",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "genre_order": {
+          "type": "text[]",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "libraries": {
+          "type": "jsonb",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "training_config_hash": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "model_created_at": {
+          "type": "timestamptz",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "registered_at": {
+          "type": "timestamptz",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "is_valid_for_dw": {
+          "type": "boolean",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "is_active": {
+          "type": "boolean",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "model_version"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [],
+      "constraints": [
+        "model_version text PRIMARY KEY CHECK (length(btrim(model_version)) > 0)",
+        "contract_version smallint NOT NULL CHECK (contract_version = 2)",
+        "source_hashes jsonb NOT NULL CHECK (\n        jsonb_typeof(source_hashes) = 'object'\n        AND source_hashes ?& ARRAY['users.dat', 'movies.dat', 'ratings.dat', 'README']\n    )",
+        "canonical_hashes jsonb NOT NULL CHECK (\n        jsonb_typeof(canonical_hashes) = 'object'\n        AND canonical_hashes ?& ARRAY['users', 'movies', 'movie_genres', 'ratings']\n    )",
+        "k smallint NOT NULL CHECK (k BETWEEN 2 AND 8)",
+        "genre_order text[] NOT NULL CHECK (\n        cardinality(genre_order) > 0 AND array_ndims(genre_order) = 1\n        AND array_position(genre_order, NULL) IS NULL\n    )",
+        "libraries jsonb NOT NULL CHECK (jsonb_typeof(libraries) = 'object')",
+        "training_config_hash text NOT NULL CHECK (training_config_hash ~ '^[0-9a-f]{64}$')",
+        "CONSTRAINT ck_active_model_valid CHECK (NOT is_active OR is_valid_for_dw)"
+      ]
+    },
+    "analytics.user_cluster": {
+      "columns": {
+        "model_version": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "user_id": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "cluster_id": {
+          "type": "integer",
+          "nullable_sql": true,
+          "generated": false,
+          "identity": false
+        },
+        "status": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "model_version",
+        "user_id"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [
+        {
+          "columns": [
+            "model_version"
+          ],
+          "target": "analytics.model_registry",
+          "target_columns": [
+            "model_version"
+          ]
+        },
+        {
+          "columns": [
+            "user_id"
+          ],
+          "target": "dw.dim_user",
+          "target_columns": [
+            "user_id"
+          ]
+        }
+      ],
+      "constraints": [
+        "PRIMARY KEY (model_version, user_id)",
+        "CONSTRAINT ck_user_cluster_status CHECK (\n        (status = 'assigned' AND cluster_id IS NOT NULL AND cluster_id >= 0)\n        OR (status = 'insufficient_evidence' AND cluster_id IS NULL)\n    )"
+      ]
+    },
+    "analytics.cluster_genre_profile": {
+      "columns": {
+        "model_version": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "cluster_id": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "genre_name": {
+          "type": "text",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "mean_preference": {
+          "type": "double precision",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        },
+        "n_users": {
+          "type": "integer",
+          "nullable_sql": false,
+          "generated": false,
+          "identity": false
+        }
+      },
+      "primary_key": [
+        "model_version",
+        "cluster_id",
+        "genre_name"
+      ],
+      "unique_keys": [],
+      "foreign_keys": [
+        {
+          "columns": [
+            "model_version"
+          ],
+          "target": "analytics.model_registry",
+          "target_columns": [
+            "model_version"
+          ]
+        },
+        {
+          "columns": [
+            "genre_name"
+          ],
+          "target": "dw.dim_genre",
+          "target_columns": [
+            "genre_name"
+          ]
+        }
+      ],
+      "constraints": [
+        "cluster_id integer NOT NULL CHECK (cluster_id >= 0)",
+        "mean_preference double precision NOT NULL CHECK (mean_preference BETWEEN 0 AND 1)",
+        "n_users integer NOT NULL CHECK (n_users >= 0)",
+        "PRIMARY KEY (model_version, cluster_id, genre_name)"
+      ]
+    }
+  },
+  "index_inventory": [
+    {
+      "name": "ix_fact_rating_movie",
+      "table": "dw.fact_rating",
+      "columns": [
+        "movie_key"
+      ],
+      "unique": false
+    },
+    {
+      "name": "ix_fact_rating_date_movie",
+      "table": "dw.fact_rating",
+      "columns": [
+        "date_key",
+        "movie_key"
+      ],
+      "unique": false
+    },
+    {
+      "name": "ix_fact_rating_rated_at",
+      "table": "dw.fact_rating",
+      "columns": [
+        "rated_at"
+      ],
+      "unique": false
+    },
+    {
+      "name": "ix_bridge_genre_movie",
+      "table": "dw.bridge_movie_genre",
+      "columns": [
+        "genre_key",
+        "movie_key"
+      ],
+      "unique": false
+    },
+    {
+      "name": "uq_model_registry_one_active",
+      "table": "analytics.model_registry",
+      "columns": [
+        "is_active"
+      ],
+      "unique": true
+    },
+    {
+      "name": "ix_user_cluster_version_cluster",
+      "table": "analytics.user_cluster",
+      "columns": [
+        "model_version",
+        "cluster_id"
+      ],
+      "unique": false
+    },
+    {
+      "name": "ix_user_cluster_source_user",
+      "table": "analytics.user_cluster",
+      "columns": [
+        "user_id"
+      ],
+      "unique": false
+    },
+    {
+      "name": "ix_cluster_profile_genre",
+      "table": "analytics.cluster_genre_profile",
+      "columns": [
+        "genre_name"
+      ],
+      "unique": false
+    }
+  ],
+  "contract_view_types_inferred": {
+    "dw.v_ml_users": [
+      "integer",
+      "text",
+      "text",
+      "integer"
+    ],
+    "dw.v_ml_movies": [
+      "integer",
+      "text",
+      "integer"
+    ],
+    "dw.v_ml_movie_genres": [
+      "integer",
+      "text"
+    ],
+    "dw.v_ml_ratings": [
+      "integer",
+      "integer",
+      "integer",
+      "bigint",
+      "text"
+    ]
+  },
+  "known_input_issue": {
+    "source_code_commit": "7a284b9f2913e1c6670868f7b7cf72d2eef29c62",
+    "original_commit_g1": "7a284b9f108dd64b030305cf51b8614b770a2296",
+    "matches": false,
+    "owner": "P2",
+    "blocks_design": false,
+    "authorization": "Coordinator latest message"
+  },
+  "reported_p2_tests": {
+    "result": "======================== 23 passed in 158.31s (0:02:38) ========================",
+    "source": "PR5 log and coordinator; not rerun by P1 this turn"
+  },
+  "not_verified": [
+    "PostgreSQL parsing/execution and actual catalog types",
+    "DW view/raw/csv byte equivalence on PostgreSQL (G2)",
+    "Refresh/reload/rollback, lock behavior and performance",
+    "DW read-only role and BI",
+    "G3 package/8A/model results"
+  ],
+  "preservation_checks": {
+    "docs/KE_HOACH_BTL_MOVIELENS.md": true,
+    "docs/P1/s04_design_checks.json": true
+  },
+  "artifacts_sha256": {
+    "database/data_dictionary.md": "b69ebd3692cb1e0ae8918ed6a76654a8c6921ad3d464ed1419d64a34ac4d5f69",
+    "database/erd.md": "d3c8a3ac7eb312d5942c5b01e84740e3d068c5ee394aceabbb3a28ed25e503d7",
+    "database/README.md": "9db351bcc23e0e55f4db0b27215b0359fb71b2360c556c417ccdaa43d9d0242c",
+    "database/refresh_and_reconciliation.md": "c95359b5731a1ba1cc7a6fed74cd8f1c5a312c6de5afa4bcacfdfa84bbd314fb",
+    "database/schema.sql": "80f025990129bdc963dfc7fb13689ac963bfc62e84f77efa38fa19fc8047015f",
+    "database/source_to_target.md": "018fd7d3b96818244e34b1c8520d597a8247d438d35bae38b00ba21c5c6e6e23",
+    "docs/P1/s04_inputs_pr5.json": "df0f6c9339c4fd6b18797e85385a902d37c4ede320895e4d00478221f90d7425",
+    "docs/P1/s04_review_v2.md": "86a70bebb91746e1079281abd935a96089a9cf8ef1f4aad7df148f0fb47245f9"
+  },
+  "git_operations_this_turn": {
+    "commit": false,
+    "fetch": false,
+    "pull": false,
+    "merge": false,
+    "branch_switch": false,
+    "push": false,
+    "pr_created": false
+  },
+  "working_tree_final": {
+    "modified": [
+      "docs/agent/DECISIONS_P1.md",
+      "docs/agent/PROMPTS_P1.md",
+      "docs/agent/REVIEWS_P1.md",
+      "docs/agent/STATE_P1.md",
+      "docs/agent/steps/P1/S04.md"
+    ],
+    "untracked": [
+      "database/README.md",
+      "database/data_dictionary.md",
+      "database/erd.md",
+      "database/refresh_and_reconciliation.md",
+      "database/schema.sql",
+      "database/source_to_target.md",
+      "docs/KE_HOACH_BTL_MOVIELENS.md",
+      "docs/P1/s04_design_checks.json",
+      "docs/P1/s04_design_checks_v2.json",
+      "docs/P1/s04_inputs_pr5.json",
+      "docs/P1/s04_review_v2.md"
+    ],
+    "staged": []
+  },
+  "artifact_hash_refresh_for_publication": {
+    "reason": "README history/approval source and P1 handoff text updated; approved DDL unchanged",
+    "original_37_checks_rerun": false,
+    "historical_fields": [
+      "head",
+      "working_tree_final",
+      "git_operations_this_turn"
+    ],
+    "historical_fields_scope": "Prior design-v2 verification run; publication results are separate in s04_publication_checks.json",
+    "after_sync_base": "a8d2615df1e5aa522b2cceaaa073336d61013b83",
+    "hash_basis": "Physical working-tree bytes; canonical CSV hashes are separate, unchanged; historical 37 checks not rerun."
+  }
+}
