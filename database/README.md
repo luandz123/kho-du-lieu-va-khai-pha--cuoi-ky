@@ -1,5 +1,7 @@
 # Thiết kế kho MovieLens — nháp S04
 
+**Cập nhật S05:** PR #6 đã merge; DDL này đã được thực thi trên database riêng movielens_btl trong phạm vi Bước 5, catalog khớp thiết kế. Chỉ staging được nạp; DW và analytics vẫn rỗng. Xem [bàn giao S05](../docs/P1/s05_handoff.md). Các nhãn “chưa chạy DDL” bên dưới mô tả lịch sử S04 tại thời điểm review, không phải trạng thái hiện tại của S05. SQL/thiết kế giữ nguyên.
+
 **P1-S04-draft-v2, 16/10/2026: điều phối chấp nhận ở mức thiết kế. Chưa chạy DDL.**
 
 Nguồn ghi nhận: **Điều phối chấp nhận S04 v2 ở mức thiết kế**, theo thông báo/giao đẩy của điều phối. Đây không phải lời duyệt nguyên văn của người dùng. Chấp nhận grain, UNIQUE user–movie theo EDA, bốn dimension/bridge, view UTC-Z, registry cho hai bảng cụm, full refresh nguyên tử/đối soát cùng connection và tỷ trọng gán genre. Giữ nguyên DDL; PR S04 là bước review công bố riêng, chưa có quyền merge hoặc thực thi SQL.

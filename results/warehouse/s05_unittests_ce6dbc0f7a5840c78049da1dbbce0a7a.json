@@ -1,0 +1,11 @@
+{
+  "run_id": "ce6dbc0f7a5840c78049da1dbbce0a7a",
+  "command": "python -m unittest discover -s tests/warehouse -p test_s05_staging.py -v",
+  "exit_code": 0,
+  "tests": 9,
+  "status": "PASS",
+  "output": "test_blank_line_rejected (test_s05_staging.ExtractTests.test_blank_line_rejected) ... ok\ntest_error_message_does_not_echo_row (test_s05_staging.ExtractTests.test_error_message_does_not_echo_row) ... ok\ntest_hash_and_line_count_must_both_match (test_s05_staging.ExtractTests.test_hash_and_line_count_must_both_match) ... ok\ntest_malformed_line_stops_instead_of_skip (test_s05_staging.ExtractTests.test_malformed_line_stops_instead_of_skip) ... ok\ntest_nul_field_rejected (test_s05_staging.ExtractTests.test_nul_field_rejected) ... ok\ntest_source_lines_and_crlf (test_s05_staging.ExtractTests.test_source_lines_and_crlf) ... ok\ntest_title_latin1_quotes_commas_spaces_preserved (test_s05_staging.ExtractTests.test_title_latin1_quotes_commas_spaces_preserved) ... ok\ntest_users_zip_discarded_without_trimming (test_s05_staging.ExtractTests.test_users_zip_discarded_without_trimming) ... ok\ntest_utf8_bytes_not_accepted_as_known_latin1_source (test_s05_staging.ExtractTests.test_utf8_bytes_not_accepted_as_known_latin1_source) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.050s\n\nOK\n",
+  "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+  "test_sha256": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1",
+  "data_fixture": "invented only; no DB connection"
+}

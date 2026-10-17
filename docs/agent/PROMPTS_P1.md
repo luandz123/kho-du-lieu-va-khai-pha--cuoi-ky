@@ -1,5 +1,15 @@
 # Nguồn prompt P1
 
+## P-P1-19 — Chốt bằng chứng và công bố S05, 17/10/2026
+
+Tóm tắt lệnh điều phối: code S05 đã review, điều phối chạy lại 9/9 test đạt, chưa lỗi chặn PR. Giữ báo cáo c122ce2/0f24c3a, chạy thêm một load không đổi code rồi so với 0f24c3a: cùng code SHA, count/retained-row hash, mọi field/source_line và chín target rỗng; nếu thất bại dừng chưa push. Ghi cặp cùng phiên bản, thứ tự/thời điểm/thời gian nhất quán, giữ FAIL/lịch sử và cập nhật artifact hash. Ghi đúng nguồn điều phối, giới hạn chưa DW/G2/BI/backup. Stage đúng phạm vi P1/S05, không kế hoạch/raw/processed/user data/.env/secret, commit trước đồng bộ main an toàn, push/mở PR main và chỉ ghi thành công sau xác minh. Bàn giao PR/HEAD/cặp run/check/worktree, chưa merge/6A/OLAP/dashboard.
+
+## P-P1-18 — Điều phối giao Bước 5
+
+Tóm tắt lệnh: PR #6 đã merge, bảo toàn hiện trạng, đồng bộ main và tạo p1-s05-staging. Dùng database riêng đã chốt; nếu chưa có, điều phối chọn movielens_btl và cho phép tạo khi tên chưa tồn tại/đủ quyền. Database có dữ liệu không rõ nguồn phải giữ nguyên; không postgres/template cho nghiệp vụ hoặc tự cấp quyền/đổi credential. Thực thi schema.sql đã duyệt và so catalog, lỗi rollback không tự đổi mô hình. Xác minh nguồn độc lập/bốn canonical hash; nạp ba staging một transaction, giữ raw/title/source_line, không ZIP hoặc bỏ lỗi. Kiểm hai lần không trùng, đối soát từng trường và rollback bằng fixture tách biệt; DW/analytics còn rỗng. Bàn giao code/hướng dẫn/bằng chứng/giới hạn/3–5 ý bảo vệ, STATE/S05 WAITING_REVIEW.
+
+Giới hạn nguyên văn: “Chưa transform/nạp dimension, bridge hoặc fact; chưa làm 6A, OLAP hoặc dashboard. Chưa commit/push/mở PR trong lượt này. Dừng sau bàn giao Bước 5.”
+
 ## P-P1-17 — Điều phối giao công bố S04
 
 Tóm tắt lệnh mới: điều phối đã review/chấp nhận S04 v2 ở mức thiết kế và giao commit/push/mở PR, chưa merge hoặc thực thi SQL. Xác minh repo/remote/nhánh, giữ checkpoint aeb41d1, rà toàn bộ diff trước push; không stage kế hoạch untracked hoặc dữ liệu/bí mật. Ghi đúng nguồn chấp nhận, làm rõ lịch sử PR sửa G1 trong README, giữ DDL đã review. Commit công việc trước fetch/merge main an toàn, xử lý theo quyền sở hữu, cập nhật hash bị ảnh hưởng và không giả đã chạy lại 37 kiểm. Bàn giao PR/HEAD/base/file/check/worktree rồi chờ review PR; chưa tự sang Bước 5.

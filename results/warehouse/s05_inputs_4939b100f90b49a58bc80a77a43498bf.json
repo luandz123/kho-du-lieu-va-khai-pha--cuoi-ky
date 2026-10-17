@@ -1,0 +1,65 @@
+{
+  "step": "S05",
+  "action": "inputs",
+  "run_id": "4939b100f90b49a58bc80a77a43498bf",
+  "started_at_utc": "2026-10-16T16:02:13.795654+00:00",
+  "target_database": "movielens_btl",
+  "code_base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_sha256": "c8aaeb3f5da80eb5e74e0aa3ffb1efa0bc007eccd6f37a1031a445f9de2638f9",
+  "data_rows_in_report": false,
+  "result": {
+    "source": {
+      "users.dat": {
+        "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+        "line_count": 6040,
+        "matches": true
+      },
+      "movies.dat": {
+        "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+        "line_count": 3883,
+        "matches": true
+      },
+      "ratings.dat": {
+        "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+        "line_count": 1000209,
+        "matches": true
+      },
+      "README": {
+        "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+        "line_count": 170,
+        "matches": true
+      }
+    },
+    "canonical": {
+      "users": {
+        "rows": 6040,
+        "sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "matches": true
+      },
+      "movies": {
+        "rows": 3883,
+        "sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "matches": true
+      },
+      "movie_genres": {
+        "rows": 6408,
+        "sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "matches": true
+      },
+      "ratings": {
+        "rows": 1000209,
+        "sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+        "matches": true
+      }
+    },
+    "reviewed_adapter_git_blob_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+    "adapter_checkout_note": "Windows CRLF only; normalized checkout equals reviewed LF Git blob. Source/data hashes are never normalized.",
+    "adapter_sha256": "12997a0afa0471006e76f3e1ad3b3ca24391c288568c6863811ae514c5201533",
+    "serializer_sha256": "12997a0afa0471006e76f3e1ad3b3ca24391c288568c6863811ae514c5201533",
+    "adapter_git_commit": "b73c8e2bc3bc98ff8576f75c02416cf2582bdc73",
+    "manifest_metadata_note": "source_code_commit field is historical; use observed adapter commit/hash above"
+  },
+  "status": "PASS",
+  "duration_seconds": 25.39,
+  "exit_code": 0
+}

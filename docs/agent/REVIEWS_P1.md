@@ -1,5 +1,15 @@
 # Hồ sơ duyệt P1
 
+## Review điều phối và giao công bố S05 — 17/10/2026
+
+Nguồn: điều phối báo đã review code, đối chiếu bằng chứng và chạy lại 9/9 unit test đạt; chưa phát hiện lỗi code chặn PR. Không ghi thành lời duyệt nguyên văn của người dùng. Quyền được giao: thêm một lượt load cùng phiên bản rồi commit/push/mở PR S05 nếu đối chiếu đạt, chưa merge/6A.
+
+P1 đã chạy run mới f5f11bcd, so với 0f24c3a cùng code 04cb9c6: PASS code/count/hash/mọi field/source_line và chín bảng DW/analytics rỗng. Giữ lịch sử c122ce2 khác phiên bản và các báo cáo FAIL. Đây là bằng chứng staging, chưa xác nhận ETL DW/G2, quyền BI hoặc phục hồi backup. S05 WAITING_REVIEW phần PR; không tự tạo xác nhận merge.
+
+## S05 — chưa có lời duyệt
+
+Điều phối giao Bước 5 sau PR #6 merged, cho phép tạo movielens_btl và thực thi cấu trúc/nạp staging trong phạm vi nêu rõ. Đây là quyền triển khai S05, **không phải APPROVED kết quả S05**. Trạng thái **WAITING_REVIEW** sau bàn giao DDL/catalog, source/canonical, hai lượt nạp, unit và rollback. Chưa được giao commit/push/PR S05 hoặc transform/nạp DW. Không tạo lời duyệt mới từ test đạt hoặc S04 đã được chấp nhận.
+
 ## Công bố S04 — PR #6 OPEN, chưa merge
 
 Đã push nhánh p1-s04-schema và mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/6. API xác nhận OPEN/merged=false, base main/a8d2615, head lúc mở 68af045; đủ 21 file và từng blob khớp local, gồm checkpoint aeb41d1. Kiểm công bố mới 15/15 trước commit và 12/12 sau merge main đạt; 37 kiểm thiết kế là lịch sử. APPROVED chỉ ở mức thiết kế theo điều phối, PR chờ review. Chưa merge hoặc thực thi SQL; không coi PR OPEN là nghiệm thu PostgreSQL hoặc cấp quyền S05.

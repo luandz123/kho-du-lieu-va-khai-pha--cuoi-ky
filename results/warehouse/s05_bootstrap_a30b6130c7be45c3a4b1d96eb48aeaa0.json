@@ -1,0 +1,19 @@
+{
+  "step": "S05",
+  "action": "bootstrap",
+  "run_id": "a30b6130c7be45c3a4b1d96eb48aeaa0",
+  "started_at_utc": "2026-10-16T16:03:00.682319+00:00",
+  "target_database": "movielens_btl",
+  "code_base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_sha256": "c8aaeb3f5da80eb5e74e0aa3ffb1efa0bc007eccd6f37a1031a445f9de2638f9",
+  "data_rows_in_report": false,
+  "endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432
+  },
+  "status": "FAIL",
+  "error_category": "LOCAL_OPERATION_ERROR",
+  "sqlstate": null,
+  "duration_seconds": 2.094,
+  "exit_code": 3
+}

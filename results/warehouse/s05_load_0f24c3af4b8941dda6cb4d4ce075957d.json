@@ -1,0 +1,98 @@
+{
+  "step": "S05",
+  "action": "load",
+  "run_id": "0f24c3af4b8941dda6cb4d4ce075957d",
+  "started_at_utc": "2026-10-16T16:04:50.909826+00:00",
+  "target_database": "movielens_btl",
+  "code_base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+  "data_rows_in_report": false,
+  "endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432
+  },
+  "result": {
+    "transaction": "COMMITTED",
+    "source": {
+      "users.dat": {
+        "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+        "line_count": 6040,
+        "matches": true
+      },
+      "movies.dat": {
+        "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+        "line_count": 3883,
+        "matches": true
+      },
+      "ratings.dat": {
+        "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+        "line_count": 1000209,
+        "matches": true
+      },
+      "README": {
+        "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+        "line_count": 170,
+        "matches": true
+      }
+    },
+    "staging": {
+      "users_raw": {
+        "rows": 6040,
+        "min_source_line": 1,
+        "max_source_line": 6040,
+        "source_staging_all_fields_exact": true,
+        "retained_row_csv_sha256": "0c7877a3896f0f42af671abbc81fda5f7c1726d36962268d7475a2273192b3ee"
+      },
+      "movies_raw": {
+        "rows": 3883,
+        "min_source_line": 1,
+        "max_source_line": 3883,
+        "source_staging_all_fields_exact": true,
+        "retained_row_csv_sha256": "67ceb94ef43b79b585df1a92cca10c971351343b202ea60a26a1d6bb394f1513",
+        "special_title_counts": {
+          "non_ascii": 50,
+          "quote": 0,
+          "comma": 993
+        }
+      },
+      "ratings_raw": {
+        "rows": 1000209,
+        "min_source_line": 1,
+        "max_source_line": 1000209,
+        "source_staging_all_fields_exact": true,
+        "retained_row_csv_sha256": "8715003874297323f06699e8cc214c489beec2c7c8af35ce36e3392eb721e80c"
+      }
+    },
+    "counters": {
+      "users_raw": {
+        "read": 6040,
+        "loaded": 6040,
+        "errors": 0
+      },
+      "movies_raw": {
+        "read": 3883,
+        "loaded": 3883,
+        "errors": 0
+      },
+      "ratings_raw": {
+        "read": 1000209,
+        "loaded": 1000209,
+        "errors": 0
+      }
+    },
+    "non_staging_counts": {
+      "dw.dim_user": 0,
+      "dw.dim_movie": 0,
+      "dw.dim_date": 0,
+      "dw.dim_genre": 0,
+      "dw.bridge_movie_genre": 0,
+      "dw.fact_rating": 0,
+      "analytics.model_registry": 0,
+      "analytics.user_cluster": 0,
+      "analytics.cluster_genre_profile": 0
+    }
+  },
+  "status": "PASS",
+  "duration_seconds": 10.078,
+  "exit_code": 0
+}

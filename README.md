@@ -57,6 +57,8 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
+S05 đã tạo cấu trúc được duyệt tại database riêng `movielens_btl` và nạp raw staging, đang WAITING_REVIEW. Xem [hướng dẫn S05](etl/README.md), [bàn giao](docs/P1/s05_handoff.md) và [bằng chứng tổng hợp](results/warehouse/s05_summary.json). Chưa nạp dimension/bridge/fact, chưa G2; các hướng dẫn/mốc trước trong README là lịch sử tương ứng, không cấp quyền tự chạy bước tiếp.
+
 `.env.example` là mẫu không bí mật. `.env` gốc phục vụ PostgreSQL Windows; `dashboard/superset/.env` phục vụ metadata/admin Superset và giữ key cũ khi kế thừa volume. Hai file này và `.venv` chỉ nằm cục bộ, không đưa lên Git. Không chuyển nguyên `.venv` giữa máy/checkouts.
 
 Mỗi máy tự tải MovieLens từ nguồn chính thức và đối soát hash theo contract. Không đưa raw/processed, dữ liệu theo user, gói cụm, mô hình lớn, dump, metadata/volume Superset hoặc export có connection URI lên Git/Release/Artifact. `.gitignore` mặc định chặn CSV/ZIP; kết quả tổng hợp và export dashboard chỉ được cho phép có chọn lọc sau rà soát ở mốc liên quan.

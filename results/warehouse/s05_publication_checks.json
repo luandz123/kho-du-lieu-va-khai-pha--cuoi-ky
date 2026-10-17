@@ -1,0 +1,178 @@
+{
+  "step": "S05_PUBLICATION",
+  "date_local": "2026-10-17",
+  "same_code_reload": {
+    "run_ids_chronological": [
+      "0f24c3af4b8941dda6cb4d4ce075957d",
+      "f5f11bcd42314042b34bfa1ff66e1f56"
+    ],
+    "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+    "counts_equal": true,
+    "retained_row_hashes_equal": true,
+    "all_fields_source_line_exact": true,
+    "nine_targets_empty": true,
+    "code_unchanged_between_pair": true,
+    "excluded_cross_version_run": "c122ce2fb93946a09cc02d47f65a8973",
+    "report_paths": [
+      "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+      "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json"
+    ]
+  },
+  "historical_reports_sha256_immutable": {
+    "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json": "0b9500a53c666fd647581b4a0eb2ce1f9f3d82340024cccfa487575ccc73e5cd",
+    "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json": "6e36b359adccd579600c63ea2d6052415d5d57e4e6c68354fcf6663702b6d06e",
+    "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json": "519904fea2316085a320b0c93e0766e0e4545885fe20e80a14f9b0f3c3013c90",
+    "results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json": "8ee03201f2d6c0b8d15eebd0584bcc9b1678f73809c51c0f36375fd3ea6c85f0",
+    "results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json": "a1b737f4b705ac0ed2a0fa31e108b7f865f762bd122c0e7706ab49b8b9e12010",
+    "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json": "015cd00b566b69cfa0ab15cc09e2a4b8348add7f30a63fbbf240a2d5f0d7f318",
+    "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json": "e01f839c6475ca0985325e476f88c1af28aff21a985a868ab3df3e88e3c1292e",
+    "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json": "f2e414692b82ba2be8a86ac0a2460d71c7b15fa23837ecafd14038d894977099",
+    "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "dd705bd0d02b754df1d9a615e28dbbbde001c76c29cdf342066078575b3f66ee"
+  },
+  "unrelated_plan_sha256": "da37e4a262541ad9f7957ded381cd1347a8e657709f8367fa2ec5ee4cd51d7c7",
+  "checks": [
+    {
+      "phase": "before_commit",
+      "passed": 19,
+      "total": 19,
+      "results": [
+        {
+          "check": "same_code_pair_and_current_module",
+          "passed": true
+        },
+        {
+          "check": "pair_counts_hashes_fields_equal",
+          "passed": true
+        },
+        {
+          "check": "expected_counts",
+          "passed": true
+        },
+        {
+          "check": "nine_targets_still_empty",
+          "passed": true
+        },
+        {
+          "check": "read_loaded_errors_counters",
+          "passed": true
+        },
+        {
+          "check": "historical_nine_reports_byte_unchanged",
+          "passed": true
+        },
+        {
+          "check": "chronology_and_durations_unambiguous",
+          "passed": true
+        },
+        {
+          "check": "branch",
+          "passed": true
+        },
+        {
+          "check": "p2_and_source_manifest_unchanged",
+          "passed": true
+        },
+        {
+          "check": "approved_ddl_unchanged",
+          "passed": true
+        },
+        {
+          "check": "unrelated_plan_preserved",
+          "passed": true
+        },
+        {
+          "check": "raw_env_venv_ignored",
+          "passed": true
+        },
+        {
+          "check": "only_allowed_candidate_paths",
+          "passed": true
+        },
+        {
+          "check": "json_files_parse",
+          "passed": true
+        },
+        {
+          "check": "candidate_secret_signature_scan",
+          "passed": true
+        },
+        {
+          "check": "candidate_no_raw_or_user_dataset_file_paths",
+          "passed": true
+        },
+        {
+          "check": "whitespace",
+          "passed": true
+        },
+        {
+          "check": "summary_artifact_hashes_current",
+          "passed": true
+        },
+        {
+          "check": "two_old_failures_retained",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "candidate_files": [
+    "README.md",
+    "database/README.md",
+    "docs/P1/s05_handoff.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S05.md",
+    "etl/README.md",
+    "etl/__init__.py",
+    "etl/s05_staging.py",
+    "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json",
+    "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json",
+    "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json",
+    "results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json",
+    "results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json",
+    "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+    "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json",
+    "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json",
+    "results/warehouse/s05_publication_checks.json",
+    "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json",
+    "results/warehouse/s05_summary.json",
+    "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json",
+    "tests/warehouse/check_s05_rollback.py",
+    "tests/warehouse/test_s05_staging.py"
+  ],
+  "working_tree_file_sha256": {
+    "docs/agent/REVIEWS_P1.md": "87c860d4ba0c053a81c435307407e44151a0eacde760b4b2ce1b3330473b06ff",
+    "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json": "519904fea2316085a320b0c93e0766e0e4545885fe20e80a14f9b0f3c3013c90",
+    "etl/s05_staging.py": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+    "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json": "015cd00b566b69cfa0ab15cc09e2a4b8348add7f30a63fbbf240a2d5f0d7f318",
+    "docs/agent/steps/P1/S05.md": "0a21b88e47f7bf47ed0a189fe6c25aeed2f9fb662dba588137330de04634ed5d",
+    "docs/agent/PROMPTS_P1.md": "68baf659d0f0b7087b3d3ac72dfbe1e6fdb9d281bb467e87f6b8baa18b17eac0",
+    "results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json": "a1b737f4b705ac0ed2a0fa31e108b7f865f762bd122c0e7706ab49b8b9e12010",
+    "results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json": "8ee03201f2d6c0b8d15eebd0584bcc9b1678f73809c51c0f36375fd3ea6c85f0",
+    "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json": "6e36b359adccd579600c63ea2d6052415d5d57e4e6c68354fcf6663702b6d06e",
+    "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1",
+    "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json": "e01f839c6475ca0985325e476f88c1af28aff21a985a868ab3df3e88e3c1292e",
+    "etl/__init__.py": "d3586936894dc1862471f2ddcbc7c60305d5a6291cc98654b4ba76cf0683ade7",
+    "README.md": "ff6bf6c645ccd4b8fb1354486679bd3befdad9be82ff236d3450aeb8aa8a9c8f",
+    "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "dd705bd0d02b754df1d9a615e28dbbbde001c76c29cdf342066078575b3f66ee",
+    "docs/agent/DECISIONS_P1.md": "0e4aeec380a9643e0b238a302eee239a3f1c0619a4fa68eb575a59ffe3f03dbb",
+    "database/README.md": "25008faa205815ca2013ca293e30678ba1cee6aaac39f5e311724fc1434f8d99",
+    "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json": "0b9500a53c666fd647581b4a0eb2ce1f9f3d82340024cccfa487575ccc73e5cd",
+    "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json": "0ef6e254b6b5017f800bcc5dff9ec0e67a32fd3a372c853d72fdde94767c695e",
+    "docs/agent/STATE_P1.md": "7dc265b0795d0630521586837356894775bda798d5f09da61b75de04731d57a9",
+    "docs/P1/s05_handoff.md": "aa6a5d16d5974b644b42248b56f3050c733082c12071029bd8521da0c9d00df4",
+    "results/warehouse/s05_summary.json": "035925b2ac5931445ffb530046f87638cb585afeb763fb60078146ed9d62f029",
+    "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
+    "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json": "f2e414692b82ba2be8a86ac0a2460d71c7b15fa23837ecafd14038d894977099",
+    "etl/README.md": "ad75af1832b16e2cf522cde17f978b82f580bdca74f655a6f341e427b82b9483"
+  },
+  "status": "READY_TO_COMMIT",
+  "limits": [
+    "No DW ETL/G2",
+    "No BI permission verification",
+    "No backup restore",
+    "No merge or 6A authorized"
+  ]
+}
