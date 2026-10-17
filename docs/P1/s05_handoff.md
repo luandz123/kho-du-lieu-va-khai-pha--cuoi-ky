@@ -2,6 +2,8 @@
 
 Cập nhật công bố ngày **17/10/2026, Asia/Bangkok**: điều phối đã review code/đối chiếu bằng chứng, báo chạy lại 9/9 unit test đạt và chưa phát hiện lỗi code chặn PR. Đây là ghi nhận **review của điều phối**, không tạo lời duyệt nguyên văn của người dùng hoặc tự suy nghiệm thu G2. Được giao thêm một lượt load cùng phiên bản rồi commit/push/mở PR; chưa merge/6A. Cặp cùng phiên bản đã đạt, không sửa code giữa hai run.
 
+Đã mở [PR #7 — S05](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7), nhánh p1-s05-staging → main; **OPEN, chưa MERGED**. Push và 25 file/blob đã xác minh thực tế ở head mở 2417416. Công bố có 19/19 kiểm trước commit và 8/8 sau fetch; chưa kiểm ETL DW/G2, quyền BI hoặc phục hồi backup.
+
 ## Phạm vi và căn cứ
 
 Theo lệnh điều phối Bước 5 sau PR #6 MERGED, merge c3e4f998b3d8a0248770aeefada7200471fb3037. Đã đọc STATE/S04, SQL/ERD/dictionary/mapping/refresh; đồng bộ main bằng fast-forward và tạo p1-s05-staging. Giữ kế hoạch untracked ngoài phạm vi. Không commit/push/mở PR, không sửa file P2 hoặc manifest/source.

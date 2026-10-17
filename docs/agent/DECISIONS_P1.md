@@ -2,6 +2,8 @@
 
 ## Chốt bằng chứng và công bố S05 — 17/10/2026
 
+P1-D51: Push nhánh p1-s05-staging và PR #7 vào main đã thành công, API xác minh OPEN/merged=false ở head mở 2417416/base c3e4f998. Đủ 25 file/blob khớp local, 19+8 kiểm công bố đạt. Giữ code và mọi run cũ; cập nhật hồ sơ kết quả tiếp tục cùng PR. Chưa merge, chưa ETL DW/G2/6A/quyền BI/backup restore.
+
 P1-D48: Điều phối báo review code/bằng chứng và chạy lại 9/9 unit test đạt, chưa phát hiện lỗi chặn PR; giao thêm một load cùng code rồi commit/push/mở PR, chưa merge/6A. Ghi đúng nguồn điều phối, không tạo lời duyệt nguyên văn của người dùng.
 
 P1-D49: Chọn cặp **0f24c3a → f5f11bcd**, cùng code_sha256 04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f; 10.078s → 9.281s, count/hash/field/source_line khớp, chín target rỗng. c122ce2/16.844s là run lịch sử khác code, không bằng chứng cùng phiên bản. Không sửa code giữa cặp run, không sửa báo cáo cũ; summary/handoff sắp theo started_at_utc.

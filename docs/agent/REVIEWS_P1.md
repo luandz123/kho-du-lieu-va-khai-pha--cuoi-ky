@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Công bố S05 — PR #7 OPEN, chưa merge
+
+Sau review của điều phối và bổ sung cặp cùng code 0f24c3a/f5f11bcd đạt, đã commit/push/mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7. API OPEN/merged=false, base main/c3e4f998, head lúc mở 2417416; 25 blob khớp local. Kiểm công bố 19/19 trước commit và 8/8 sau fetch đạt, giữ nguyên run cũ. Ghi đúng nguồn review điều phối, không lời duyệt nguyên văn người dùng. Chưa merge hoặc chuyển 6A; ETL DW/G2, quyền BI và phục hồi backup chưa kiểm.
+
 ## Review điều phối và giao công bố S05 — 17/10/2026
 
 Nguồn: điều phối báo đã review code, đối chiếu bằng chứng và chạy lại 9/9 unit test đạt; chưa phát hiện lỗi code chặn PR. Không ghi thành lời duyệt nguyên văn của người dùng. Quyền được giao: thêm một lượt load cùng phiên bản rồi commit/push/mở PR S05 nếu đối chiếu đạt, chưa merge/6A.

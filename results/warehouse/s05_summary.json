@@ -131,8 +131,8 @@
     "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1",
     "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
     "etl/README.md": "ad75af1832b16e2cf522cde17f978b82f580bdca74f655a6f341e427b82b9483",
-    "docs/P1/s05_handoff.md": "b80f777a63b5b3786d4a15fc73929e1ed4819d289e7b349a92f4f1da04931fdd",
-    "docs/agent/steps/P1/S05.md": "f511b42d8cf66ed781857444aa3c42c60825a0633202a469bd1ff6464f78a4f9",
+    "docs/P1/s05_handoff.md": "a276e18797d4f423a2ac58aef245bc159a4fec20e034183d8b0a9da80a598bf5",
+    "docs/agent/steps/P1/S05.md": "535753249b1d6b5a99cb60fe579153f397ab96770fed82de2bbaa697beee734d",
     "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json": "0b9500a53c666fd647581b4a0eb2ce1f9f3d82340024cccfa487575ccc73e5cd",
     "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json": "6e36b359adccd579600c63ea2d6052415d5d57e4e6c68354fcf6663702b6d06e",
     "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json": "519904fea2316085a320b0c93e0766e0e4545885fe20e80a14f9b0f3c3013c90",
@@ -144,9 +144,9 @@
     "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "dd705bd0d02b754df1d9a615e28dbbbde001c76c29cdf342066078575b3f66ee",
     "README.md": "ff6bf6c645ccd4b8fb1354486679bd3befdad9be82ff236d3450aeb8aa8a9c8f",
     "database/README.md": "25008faa205815ca2013ca293e30678ba1cee6aaac39f5e311724fc1434f8d99",
-    "docs/agent/STATE_P1.md": "9bede3078575d67000f5ea3875e3bedbf389d60530167444ca34b35ba3989524",
-    "docs/agent/DECISIONS_P1.md": "0e4aeec380a9643e0b238a302eee239a3f1c0619a4fa68eb575a59ffe3f03dbb",
-    "docs/agent/REVIEWS_P1.md": "87c860d4ba0c053a81c435307407e44151a0eacde760b4b2ce1b3330473b06ff",
+    "docs/agent/STATE_P1.md": "8144699391cc0aaa1a8a33d1e36ea92c9260840d81ec8048e3f0a7c17be3fd2a",
+    "docs/agent/DECISIONS_P1.md": "30a0d620afbfd4c48a1cda5aeab3946dfcf868c4971afd579a08f30f9d280fd9",
+    "docs/agent/REVIEWS_P1.md": "a6ee43d87ff6675922bb1ca7c860cbee8a9c67fc6780c5be51ca988b4604ee9a",
     "docs/agent/PROMPTS_P1.md": "68baf659d0f0b7087b3d3ac72dfbe1e6fdb9d281bb467e87f6b8baa18b17eac0",
     "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json": "0ef6e254b6b5017f800bcc5dff9ec0e67a32fd3a372c853d72fdde94767c695e"
   },
@@ -214,8 +214,8 @@
     "no_commit_or_push_this_step": true
   },
   "publication": {
-    "phase": "SYNCHRONIZED_READY_TO_PUSH",
-    "status": "IN_PROGRESS",
+    "phase": "PR_OPEN_WAITING_REVIEW",
+    "status": "OPEN_NOT_MERGED",
     "same_code_load_passed": true,
     "new_load_run_id": "f5f11bcd42314042b34bfa1ff66e1f56",
     "limits": [
@@ -225,7 +225,11 @@
     ],
     "content_commit": "7981844ed2f4b50ed0705db5c04562d7e8fcf028",
     "base_after_fetch": "c3e4f998b3d8a0248770aeefada7200471fb3037",
-    "merge_needed": false
+    "merge_needed": false,
+    "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7",
+    "head_at_open": "2417416aee976440d4fce4dd1b512a22bd703dd3",
+    "base_at_open": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+    "all_25_remote_blobs_match_local": true
   },
   "git_status_at_publication_refresh": [
     " M README.md",
