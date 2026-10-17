@@ -1,0 +1,284 @@
+{
+  "step": "S05",
+  "status": "WAITING_REVIEW",
+  "branch": "p1-s05-staging",
+  "base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_state": "COMMITTED_ON_P1_S05_BRANCH",
+  "code_sha256": {
+    "etl/__init__.py": "d3586936894dc1862471f2ddcbc7c60305d5a6291cc98654b4ba76cf0683ade7",
+    "etl/s05_staging.py": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+    "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1",
+    "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab"
+  },
+  "database": {
+    "name": "movielens_btl",
+    "server_version": "17.11",
+    "address": "127.0.0.1/32",
+    "port": 5432,
+    "session_timezone": "UTC",
+    "preflight_observed_target_existed": false,
+    "created_with_existing_role_permissions": true,
+    "ddl_unchanged_from_s04": true,
+    "fixture_schemas_remaining": 0
+  },
+  "source_acquisition": {
+    "method": "Reuse independently downloaded P1 GroupLens snapshot from G1 inspection; rehash then copy into previously empty P1 raw directory",
+    "official_url": "https://files.grouplens.org/datasets/movielens/ml-1m.zip",
+    "local_raw_directory": "data/raw/p1_s05/ml-1m",
+    "copied_from_p2": false,
+    "source_manifest_modified": false
+  },
+  "source_and_canonical_verification_report": "results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json",
+  "bootstrap_report": "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json",
+  "final_catalog_report": "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json",
+  "catalog": {
+    "tables": 12,
+    "columns": 64,
+    "views": 6,
+    "foreign_keys": 9,
+    "check_constraints": 27,
+    "explicit_indexes": 8,
+    "columns_match": true,
+    "keys_match": true,
+    "constraints_validated": true
+  },
+  "load_reports": [
+    "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json",
+    "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+    "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json"
+  ],
+  "staging": {
+    "users_raw": {
+      "rows": 6040,
+      "min_source_line": 1,
+      "max_source_line": 6040,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "0c7877a3896f0f42af671abbc81fda5f7c1726d36962268d7475a2273192b3ee"
+    },
+    "movies_raw": {
+      "rows": 3883,
+      "min_source_line": 1,
+      "max_source_line": 3883,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "67ceb94ef43b79b585df1a92cca10c971351343b202ea60a26a1d6bb394f1513",
+      "special_title_counts": {
+        "non_ascii": 50,
+        "quote": 0,
+        "comma": 993
+      }
+    },
+    "ratings_raw": {
+      "rows": 1000209,
+      "min_source_line": 1,
+      "max_source_line": 1000209,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "8715003874297323f06699e8cc214c489beec2c7c8af35ce36e3392eb721e80c"
+    }
+  },
+  "reload_counts_and_content_hashes_identical": true,
+  "load_durations_seconds": [
+    16.844,
+    10.078,
+    9.281
+  ],
+  "non_staging_counts": {
+    "dw.dim_user": 0,
+    "dw.dim_movie": 0,
+    "dw.dim_date": 0,
+    "dw.dim_genre": 0,
+    "dw.bridge_movie_genre": 0,
+    "dw.fact_rating": 0,
+    "analytics.model_registry": 0,
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0
+  },
+  "unit_tests": {
+    "report": "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json",
+    "passed": 9,
+    "total": 9
+  },
+  "rollback": {
+    "report": "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json",
+    "status": "PASS",
+    "fixture_restored_exactly": true,
+    "production_staging_unchanged_exactly": true,
+    "production_targets_unchanged": true,
+    "fixture_schema_removed": true
+  },
+  "failed_attempts_kept": [
+    {
+      "report": "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json",
+      "category": "LOCAL_OPERATION_ERROR",
+      "resolution": "Catalog cursor checker corrected; DDL rolled back, empty newly created DB preserved, approved SQL unchanged"
+    },
+    {
+      "report": "results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json",
+      "category": "ADAPTER_DIFFERS_FROM_REVIEWED_VERSION",
+      "resolution": "Git LF blob pin for code only; data bytes never normalized"
+    }
+  ],
+  "preservation": {
+    "p2_tracked_files_unchanged": true,
+    "source_manifest_unchanged": true,
+    "approved_schema_unchanged": true,
+    "unrelated_plan_sha256": "da37e4a262541ad9f7957ded381cd1347a8e657709f8367fa2ec5ee4cd51d7c7",
+    "credentials_read_in_memory_only": true,
+    "raw_venv_env_ignored_not_tracked": true
+  },
+  "artifact_sha256": {
+    "etl/__init__.py": "d3586936894dc1862471f2ddcbc7c60305d5a6291cc98654b4ba76cf0683ade7",
+    "etl/s05_staging.py": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+    "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1",
+    "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
+    "etl/README.md": "ad75af1832b16e2cf522cde17f978b82f580bdca74f655a6f341e427b82b9483",
+    "docs/P1/s05_handoff.md": "a276e18797d4f423a2ac58aef245bc159a4fec20e034183d8b0a9da80a598bf5",
+    "docs/agent/steps/P1/S05.md": "535753249b1d6b5a99cb60fe579153f397ab96770fed82de2bbaa697beee734d",
+    "results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json": "0b9500a53c666fd647581b4a0eb2ce1f9f3d82340024cccfa487575ccc73e5cd",
+    "results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json": "6e36b359adccd579600c63ea2d6052415d5d57e4e6c68354fcf6663702b6d06e",
+    "results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json": "519904fea2316085a320b0c93e0766e0e4545885fe20e80a14f9b0f3c3013c90",
+    "results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json": "8ee03201f2d6c0b8d15eebd0584bcc9b1678f73809c51c0f36375fd3ea6c85f0",
+    "results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json": "a1b737f4b705ac0ed2a0fa31e108b7f865f762bd122c0e7706ab49b8b9e12010",
+    "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json": "015cd00b566b69cfa0ab15cc09e2a4b8348add7f30a63fbbf240a2d5f0d7f318",
+    "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json": "e01f839c6475ca0985325e476f88c1af28aff21a985a868ab3df3e88e3c1292e",
+    "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json": "f2e414692b82ba2be8a86ac0a2460d71c7b15fa23837ecafd14038d894977099",
+    "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "dd705bd0d02b754df1d9a615e28dbbbde001c76c29cdf342066078575b3f66ee",
+    "README.md": "ff6bf6c645ccd4b8fb1354486679bd3befdad9be82ff236d3450aeb8aa8a9c8f",
+    "database/README.md": "25008faa205815ca2013ca293e30678ba1cee6aaac39f5e311724fc1434f8d99",
+    "docs/agent/STATE_P1.md": "8144699391cc0aaa1a8a33d1e36ea92c9260840d81ec8048e3f0a7c17be3fd2a",
+    "docs/agent/DECISIONS_P1.md": "30a0d620afbfd4c48a1cda5aeab3946dfcf868c4971afd579a08f30f9d280fd9",
+    "docs/agent/REVIEWS_P1.md": "a6ee43d87ff6675922bb1ca7c860cbee8a9c67fc6780c5be51ca988b4604ee9a",
+    "docs/agent/PROMPTS_P1.md": "68baf659d0f0b7087b3d3ac72dfbe1e6fdb9d281bb467e87f6b8baa18b17eac0",
+    "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json": "0ef6e254b6b5017f800bcc5dff9ec0e67a32fd3a372c853d72fdde94767c695e"
+  },
+  "not_done": [
+    "Dimension/bridge/fact/analytics loading",
+    "6A and G2 DW adapter equivalence",
+    "OLAP/dashboard/Superset startup",
+    "All DW constraint violation cases, disconnection/power-loss/backup restore",
+    "Commit/push/PR S05"
+  ],
+  "load_run_chronology": [
+    {
+      "run_id": "c122ce2fb93946a09cc02d47f65a8973",
+      "report": "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json",
+      "started_at_utc": "2026-10-16T16:03:45.575768+00:00",
+      "started_at_local": "2026-10-16T23:03:45.575768+07:00",
+      "duration_seconds": 16.844,
+      "code_sha256": "b9cf2df91c8d972adbc7493fe2e1b79e7f6a090eff01d0a8fdbd2c56acd8d434"
+    },
+    {
+      "run_id": "0f24c3af4b8941dda6cb4d4ce075957d",
+      "report": "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+      "started_at_utc": "2026-10-16T16:04:50.909826+00:00",
+      "started_at_local": "2026-10-16T23:04:50.909826+07:00",
+      "duration_seconds": 10.078,
+      "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f"
+    },
+    {
+      "run_id": "f5f11bcd42314042b34bfa1ff66e1f56",
+      "report": "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json",
+      "started_at_utc": "2026-10-17T14:41:09.503758+00:00",
+      "started_at_local": "2026-10-17T21:41:09.503758+07:00",
+      "duration_seconds": 9.281,
+      "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f"
+    }
+  ],
+  "same_version_reload_evidence": {
+    "run_ids_chronological": [
+      "0f24c3af4b8941dda6cb4d4ce075957d",
+      "f5f11bcd42314042b34bfa1ff66e1f56"
+    ],
+    "code_sha256": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
+    "counts_equal": true,
+    "retained_row_hashes_equal": true,
+    "all_fields_source_line_exact": true,
+    "nine_targets_empty": true,
+    "code_unchanged_between_pair": true,
+    "excluded_cross_version_run": "c122ce2fb93946a09cc02d47f65a8973",
+    "report_paths": [
+      "results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+      "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json"
+    ]
+  },
+  "review_source": {
+    "source": "Coordinator instruction 2026-10-17",
+    "reported": "Code/evidence reviewed; 9/9 unit tests rerun by coordinator; no code issue blocking PR",
+    "not_a_verbatim_user_approval": true,
+    "publication_authorized": true,
+    "merge_authorized": false
+  },
+  "initial_delivery_checks": {
+    "tracked_diff_whitespace": true,
+    "staging_index_empty": true,
+    "branch": "p1-s05-staging",
+    "no_commit_or_push_this_step": true
+  },
+  "publication": {
+    "phase": "PR_OPEN_WAITING_REVIEW",
+    "status": "OPEN_NOT_MERGED",
+    "same_code_load_passed": true,
+    "new_load_run_id": "f5f11bcd42314042b34bfa1ff66e1f56",
+    "limits": [
+      "DW ETL/G2 not verified",
+      "BI permissions not verified",
+      "Backup restore not verified"
+    ],
+    "content_commit": "7981844ed2f4b50ed0705db5c04562d7e8fcf028",
+    "base_after_fetch": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+    "merge_needed": false,
+    "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7",
+    "head_at_open": "2417416aee976440d4fce4dd1b512a22bd703dd3",
+    "base_at_open": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+    "all_25_remote_blobs_match_local": true
+  },
+  "git_status_at_publication_refresh": [
+    " M README.md",
+    " M database/README.md",
+    " M docs/agent/DECISIONS_P1.md",
+    " M docs/agent/PROMPTS_P1.md",
+    " M docs/agent/REVIEWS_P1.md",
+    " M docs/agent/STATE_P1.md",
+    "?? docs/KE_HOACH_BTL_MOVIELENS.md",
+    "?? docs/P1/s05_handoff.md",
+    "?? docs/agent/steps/P1/S05.md",
+    "?? etl/",
+    "?? results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json",
+    "?? results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json",
+    "?? results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json",
+    "?? results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json",
+    "?? results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json",
+    "?? results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+    "?? results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json",
+    "?? results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json",
+    "?? results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json",
+    "?? results/warehouse/s05_summary.json",
+    "?? results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json",
+    "?? tests/warehouse/check_s05_rollback.py",
+    "?? tests/warehouse/test_s05_staging.py"
+  ],
+  "code_content_commit": "7981844ed2f4b50ed0705db5c04562d7e8fcf028",
+  "initial_delivery_git_status": [
+    " M README.md",
+    " M database/README.md",
+    " M docs/agent/DECISIONS_P1.md",
+    " M docs/agent/PROMPTS_P1.md",
+    " M docs/agent/REVIEWS_P1.md",
+    " M docs/agent/STATE_P1.md",
+    "?? docs/KE_HOACH_BTL_MOVIELENS.md",
+    "?? docs/P1/s05_handoff.md",
+    "?? docs/agent/steps/P1/S05.md",
+    "?? etl/",
+    "?? results/warehouse/s05_bootstrap_9af5db647ee94bf0af989784656e2b62.json",
+    "?? results/warehouse/s05_bootstrap_a30b6130c7be45c3a4b1d96eb48aeaa0.json",
+    "?? results/warehouse/s05_catalog_dd3d0d9bb49143dfa2efc66e67665b6f.json",
+    "?? results/warehouse/s05_inputs_4939b100f90b49a58bc80a77a43498bf.json",
+    "?? results/warehouse/s05_inputs_ab4ebb2b88fd47f0a083d39b1d2de94a.json",
+    "?? results/warehouse/s05_load_0f24c3af4b8941dda6cb4d4ce075957d.json",
+    "?? results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json",
+    "?? results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json",
+    "?? results/warehouse/s05_summary.json",
+    "?? results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json",
+    "?? tests/warehouse/check_s05_rollback.py",
+    "?? tests/warehouse/test_s05_staging.py"
+  ]
+}

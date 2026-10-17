@@ -1,0 +1,70 @@
+{
+  "run_id": "c0a86d3a91ef48a59759f19e72e74be2",
+  "fixture": "INVENTED_NOT_MOVIELENS_ROWS",
+  "schema": "s05_test_c0a86d3a91ef",
+  "code_sha256": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
+  "status": "PASS",
+  "expected_error": "MALFORMED_FIELD_COUNT",
+  "failure_counters_before_rollback": {
+    "users_raw": {
+      "read": 1,
+      "loaded": 1,
+      "errors": 0
+    },
+    "movies_raw": {
+      "read": 1,
+      "loaded": 1,
+      "errors": 0
+    },
+    "ratings_raw": {
+      "read": 0,
+      "loaded": 0,
+      "errors": 1
+    }
+  },
+  "fixture_tables_restored_exactly": true,
+  "production_dw_analytics_unchanged": true,
+  "production_staging_unchanged_exactly": true,
+  "inserted_users_movies_before_failure": true,
+  "fixture_baseline": {
+    "users_raw": {
+      "rows": 1,
+      "min_source_line": 1,
+      "max_source_line": 1,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "18f26bc300e8194b5a94f43d2fe5618d71fb2bc04cadf5209e961e2555f94fdd"
+    },
+    "movies_raw": {
+      "rows": 1,
+      "min_source_line": 1,
+      "max_source_line": 1,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "5ce7403eb71eb91c5987cd1a9acea7f06657fada7ff8b2684ef2fe2b75f0c629",
+      "special_title_counts": {
+        "non_ascii": 1,
+        "quote": 1,
+        "comma": 1
+      }
+    },
+    "ratings_raw": {
+      "rows": 1,
+      "min_source_line": 1,
+      "max_source_line": 1,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "eb6062286e2bf6679447baaf0bb4f5f6c084413134058e6b955290e339eeeacd"
+    }
+  },
+  "target_counts": {
+    "dw.dim_user": 0,
+    "dw.dim_movie": 0,
+    "dw.dim_date": 0,
+    "dw.dim_genre": 0,
+    "dw.bridge_movie_genre": 0,
+    "dw.fact_rating": 0,
+    "analytics.model_registry": 0,
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0
+  },
+  "fixture_schema_removed": true,
+  "duration_seconds": 5.391
+}

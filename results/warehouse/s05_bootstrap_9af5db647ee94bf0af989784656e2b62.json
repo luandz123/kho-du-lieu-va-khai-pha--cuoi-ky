@@ -1,0 +1,381 @@
+{
+  "step": "S05",
+  "action": "bootstrap",
+  "run_id": "9af5db647ee94bf0af989784656e2b62",
+  "started_at_utc": "2026-10-16T16:03:35.233093+00:00",
+  "target_database": "movielens_btl",
+  "code_base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_sha256": "b9cf2df91c8d972adbc7493fe2e1b79e7f6a090eff01d0a8fdbd2c56acd8d434",
+  "data_rows_in_report": false,
+  "endpoint": {
+    "host": "127.0.0.1",
+    "port": 5432
+  },
+  "result": {
+    "database_created": false,
+    "ddl": "EXECUTED_CATALOG_VERIFIED_COMMITTED",
+    "schema_sha256": "ebef448cd245c54cc50e2b02b34d382471daccb29e8a933b7078c19304f68250",
+    "catalog": {
+      "tables": 12,
+      "columns": 64,
+      "foreign_keys": 9,
+      "check_constraints": 27,
+      "explicit_indexes": 8,
+      "columns_match": true,
+      "keys_match": true,
+      "constraints_validated": true,
+      "view_columns_and_types": {
+        "dw.v_ml_users": [
+          [
+            "user_id",
+            "integer"
+          ],
+          [
+            "gender",
+            "text"
+          ],
+          [
+            "age_group",
+            "text"
+          ],
+          [
+            "occupation",
+            "integer"
+          ]
+        ],
+        "dw.v_ml_movies": [
+          [
+            "movie_id",
+            "integer"
+          ],
+          [
+            "title",
+            "text"
+          ],
+          [
+            "release_year",
+            "integer"
+          ]
+        ],
+        "dw.v_ml_movie_genres": [
+          [
+            "movie_id",
+            "integer"
+          ],
+          [
+            "genre_name",
+            "text"
+          ]
+        ],
+        "dw.v_ml_ratings": [
+          [
+            "user_id",
+            "integer"
+          ],
+          [
+            "movie_id",
+            "integer"
+          ],
+          [
+            "rating",
+            "integer"
+          ],
+          [
+            "timestamp",
+            "bigint"
+          ],
+          [
+            "rated_at",
+            "text"
+          ]
+        ]
+      },
+      "constraint_definitions": [
+        {
+          "table": "staging.users_raw",
+          "type": "c",
+          "definition": "CHECK ((source_line > 0))"
+        },
+        {
+          "table": "staging.users_raw",
+          "type": "p",
+          "definition": "PRIMARY KEY (source_line)"
+        },
+        {
+          "table": "staging.movies_raw",
+          "type": "c",
+          "definition": "CHECK ((source_line > 0))"
+        },
+        {
+          "table": "staging.movies_raw",
+          "type": "p",
+          "definition": "PRIMARY KEY (source_line)"
+        },
+        {
+          "table": "staging.ratings_raw",
+          "type": "c",
+          "definition": "CHECK ((source_line > 0))"
+        },
+        {
+          "table": "staging.ratings_raw",
+          "type": "p",
+          "definition": "PRIMARY KEY (source_line)"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "c",
+          "definition": "CHECK ((user_id > 0))"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "c",
+          "definition": "CHECK ((gender = ANY (ARRAY['F'::text, 'M'::text])))"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "u",
+          "definition": "UNIQUE (full_date)"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "u",
+          "definition": "UNIQUE (date_key, full_date)"
+        },
+        {
+          "table": "dw.dim_genre",
+          "type": "p",
+          "definition": "PRIMARY KEY (genre_key)"
+        },
+        {
+          "table": "dw.dim_genre",
+          "type": "u",
+          "definition": "UNIQUE (genre_name)"
+        },
+        {
+          "table": "dw.bridge_movie_genre",
+          "type": "p",
+          "definition": "PRIMARY KEY (movie_key, genre_key)"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "c",
+          "definition": "CHECK ((age_group = ANY (ARRAY['Under 18'::text, '18-24'::text, '25-34'::text, '35-44'::text, '45-49'::text, '50-55'::text, '56+'::text])))"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "c",
+          "definition": "CHECK (((occupation >= 0) AND (occupation <= 20)))"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "p",
+          "definition": "PRIMARY KEY (user_key)"
+        },
+        {
+          "table": "dw.dim_user",
+          "type": "u",
+          "definition": "UNIQUE (user_id)"
+        },
+        {
+          "table": "dw.dim_movie",
+          "type": "c",
+          "definition": "CHECK ((movie_id > 0))"
+        },
+        {
+          "table": "dw.dim_movie",
+          "type": "c",
+          "definition": "CHECK (((release_year >= 0) AND (release_year <= 9999)))"
+        },
+        {
+          "table": "dw.dim_movie",
+          "type": "p",
+          "definition": "PRIMARY KEY (movie_key)"
+        },
+        {
+          "table": "dw.dim_movie",
+          "type": "u",
+          "definition": "UNIQUE (movie_id)"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "c",
+          "definition": "CHECK (((quarter_number >= 1) AND (quarter_number <= 4)))"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "c",
+          "definition": "CHECK (((month_number >= 1) AND (month_number <= 12)))"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "c",
+          "definition": "CHECK (((day_of_month >= 1) AND (day_of_month <= 31)))"
+        },
+        {
+          "table": "dw.dim_date",
+          "type": "p",
+          "definition": "PRIMARY KEY (date_key)"
+        },
+        {
+          "table": "dw.bridge_movie_genre",
+          "type": "f",
+          "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+        },
+        {
+          "table": "dw.bridge_movie_genre",
+          "type": "f",
+          "definition": "FOREIGN KEY (genre_key) REFERENCES dw.dim_genre(genre_key)"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "c",
+          "definition": "CHECK (((rating >= 1) AND (rating <= 5)))"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "c",
+          "definition": "CHECK ((EXTRACT(epoch FROM rated_at) = (rating_timestamp)::numeric))"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "p",
+          "definition": "PRIMARY KEY (rating_key)"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "u",
+          "definition": "UNIQUE (user_key, movie_key)"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "f",
+          "definition": "FOREIGN KEY (user_key) REFERENCES dw.dim_user(user_key)"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "f",
+          "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+        },
+        {
+          "table": "dw.fact_rating",
+          "type": "f",
+          "definition": "FOREIGN KEY (date_key, rated_date) REFERENCES dw.dim_date(date_key, full_date)"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK ((length(btrim(model_version)) > 0))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK ((contract_version = 2))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK (((jsonb_typeof(source_hashes) = 'object'::text) AND (source_hashes ?& ARRAY['users.dat'::text, 'movies.dat'::text, 'ratings.dat'::text, 'README'::text])))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK (((jsonb_typeof(canonical_hashes) = 'object'::text) AND (canonical_hashes ?& ARRAY['users'::text, 'movies'::text, 'movie_genres'::text, 'ratings'::text])))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK (((k >= 2) AND (k <= 8)))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK (((cardinality(genre_order) > 0) AND (array_ndims(genre_order) = 1) AND (array_position(genre_order, NULL::text) IS NULL)))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK ((jsonb_typeof(libraries) = 'object'::text))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK ((training_config_hash ~ '^[0-9a-f]{64}$'::text))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "c",
+          "definition": "CHECK (((NOT is_active) OR is_valid_for_dw))"
+        },
+        {
+          "table": "analytics.model_registry",
+          "type": "p",
+          "definition": "PRIMARY KEY (model_version)"
+        },
+        {
+          "table": "analytics.user_cluster",
+          "type": "c",
+          "definition": "CHECK ((((status = 'assigned'::text) AND (cluster_id IS NOT NULL) AND (cluster_id >= 0)) OR ((status = 'insufficient_evidence'::text) AND (cluster_id IS NULL))))"
+        },
+        {
+          "table": "analytics.user_cluster",
+          "type": "p",
+          "definition": "PRIMARY KEY (model_version, user_id)"
+        },
+        {
+          "table": "analytics.user_cluster",
+          "type": "f",
+          "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+        },
+        {
+          "table": "analytics.user_cluster",
+          "type": "f",
+          "definition": "FOREIGN KEY (user_id) REFERENCES dw.dim_user(user_id)"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "c",
+          "definition": "CHECK ((cluster_id >= 0))"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "c",
+          "definition": "CHECK (((mean_preference >= (0)::double precision) AND (mean_preference <= (1)::double precision)))"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "c",
+          "definition": "CHECK ((n_users >= 0))"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "p",
+          "definition": "PRIMARY KEY (model_version, cluster_id, genre_name)"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "f",
+          "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+        },
+        {
+          "table": "analytics.cluster_genre_profile",
+          "type": "f",
+          "definition": "FOREIGN KEY (genre_name) REFERENCES dw.dim_genre(genre_name)"
+        }
+      ]
+    },
+    "non_staging_counts": {
+      "dw.dim_user": 0,
+      "dw.dim_movie": 0,
+      "dw.dim_date": 0,
+      "dw.dim_genre": 0,
+      "dw.bridge_movie_genre": 0,
+      "dw.fact_rating": 0,
+      "analytics.model_registry": 0,
+      "analytics.user_cluster": 0,
+      "analytics.cluster_genre_profile": 0
+    }
+  },
+  "status": "PASS",
+  "duration_seconds": 0.313,
+  "exit_code": 0
+}

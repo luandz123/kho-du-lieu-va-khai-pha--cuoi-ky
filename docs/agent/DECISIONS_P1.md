@@ -1,5 +1,27 @@
 # Quyết định P1
 
+## Chốt bằng chứng và công bố S05 — 17/10/2026
+
+P1-D51: Push nhánh p1-s05-staging và PR #7 vào main đã thành công, API xác minh OPEN/merged=false ở head mở 2417416/base c3e4f998. Đủ 25 file/blob khớp local, 19+8 kiểm công bố đạt. Giữ code và mọi run cũ; cập nhật hồ sơ kết quả tiếp tục cùng PR. Chưa merge, chưa ETL DW/G2/6A/quyền BI/backup restore.
+
+P1-D48: Điều phối báo review code/bằng chứng và chạy lại 9/9 unit test đạt, chưa phát hiện lỗi chặn PR; giao thêm một load cùng code rồi commit/push/mở PR, chưa merge/6A. Ghi đúng nguồn điều phối, không tạo lời duyệt nguyên văn của người dùng.
+
+P1-D49: Chọn cặp **0f24c3a → f5f11bcd**, cùng code_sha256 04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f; 10.078s → 9.281s, count/hash/field/source_line khớp, chín target rỗng. c122ce2/16.844s là run lịch sử khác code, không bằng chứng cùng phiên bản. Không sửa code giữa cặp run, không sửa báo cáo cũ; summary/handoff sắp theo started_at_utc.
+
+P1-D50: Công bố đúng phạm vi S05/P1 sau đối chiếu bổ sung thành công; bảo toàn kế hoạch untracked, code và raw/P2. Hash artifact làm mới, lịch sử FAIL giữ nguyên. Chưa nghiệm thu ETL DW/G2/quyền BI/backup restore hoặc cho phép merge/chuyển bước.
+
+## S05 — staging, chờ review
+
+P1-D43: Theo lệnh điều phối mới, database riêng **movielens_btl** được chọn/cho phép tạo nếu chưa có và đủ quyền. Đã xác minh target chưa tồn tại, role hiện có được CREATE DATABASE; không đổi credential/quyền quản trị, không dùng postgres chứa nghiệp vụ. Database đã có mà không xác minh marker nguồn gốc thì script dừng giữ nguyên.
+
+P1-D44: Sau xác minh PR #6 MERGED/c3e4f998, fast-forward main và tạo p1-s05-staging, giữ kế hoạch untracked và không sửa P2. S05 chưa được commit/push/PR; code được nhận diện bằng hash working tree và HEAD nền riêng biệt.
+
+P1-D45: Áp dụng nguyên DDL S04 với guard; hoãn COMMIT cuối để so catalog trong cùng transaction. Không đổi mô hình hoặc thêm IF NOT EXISTS. Kiểm lỗi catalog ban đầu rollback toàn DDL; CREATE DATABASE riêng còn rỗng, không drop. Checker đã sửa và catalog thực khớp.
+
+P1-D46: Nguồn độc lập P1 hash lại đúng byte; phiên bản code adapter đối chiếu Git blob LF và xác nhận checkout chỉ khác CRLF. Đây chỉ là nhận diện code, không đổi hash byte nguồn/canonical. Staging giữ source_line và raw text, loại ZIP, ba bảng nạp một transaction và so mọi field trước commit; không full refresh/nạp DW.
+
+P1-D47: Hai lần staging cùng count/hash; fixture malformed tách biệt chứng minh rollback sau đã COPY users/movies. Chỉ dọn bảng/schema fixture vừa tạo, không CASCADE. S05 WAITING_REVIEW; không suy kiểm này thành G2, quyền BI hoặc chấp nhận chức năng ETL DW.
+
 ## Công bố S04 v2 — sau review của điều phối
 
 P1-D42: Đẩy/mở PR #6 thành công trên p1-s04-schema → main; API xác minh OPEN/merged=false và 21 blob khớp local ở head công bố 68af045. Giữ checkpoint, không thay DDL hoặc sửa P2. Commit hồ sơ công bố tiếp theo thuộc cùng mốc; PR vẫn chờ review, chưa merge/S05. Kiểm công bố và hash đã cập nhật, không chạy lại 37 kiểm thiết kế hoặc PostgreSQL.

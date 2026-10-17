@@ -1,0 +1,16 @@
+{
+  "step": "S05",
+  "action": "inputs",
+  "run_id": "ab4ebb2b88fd47f0a083d39b1d2de94a",
+  "started_at_utc": "2026-10-16T16:01:44.813139+00:00",
+  "target_database": "movielens_btl",
+  "code_base_commit": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+  "code_sha256": "2c3297f0e7a6bc731461236ab96d9f38c7d39be0c982ca05844062997b64a9a0",
+  "data_rows_in_report": false,
+  "status": "FAIL",
+  "error_category": "ADAPTER_DIFFERS_FROM_REVIEWED_VERSION",
+  "file": null,
+  "source_line": null,
+  "duration_seconds": 0.141,
+  "exit_code": 2
+}

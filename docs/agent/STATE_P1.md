@@ -1,5 +1,31 @@
 # Trạng thái P1
 
+## Hiện hành — công bố S05, 17/10/2026
+
+S05 **WAITING_REVIEW** phần PR; **PR #7 OPEN, chưa MERGED**. Nguồn: điều phối báo đã review code/đối chiếu bằng chứng, chạy lại 9/9 unit test đạt, chưa thấy lỗi code chặn PR; giao chốt bằng chứng rồi commit/push/mở PR. Đây không phải lời duyệt nguyên văn của người dùng và không suy thành nghiệm thu ETL DW/G2. Chưa merge/6A.
+
+Đã chạy thêm đúng một lần staging trên movielens_btl bằng code hiện tại, không sửa code. Cặp bằng chứng cùng phiên bản: **0f24c3af4b8941dda6cb4d4ce075957d → f5f11bcd42314042b34bfa1ff66e1f56**, cùng SHA-256 **04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f**. Count 6040/3883/1000209, ba hash retained-row và mọi field/source_line giống nhau; chín bảng DW/analytics đều rỗng. Run mới 17/10/2026 14:41:09.503758Z (21:41:09.503758+07), 9.281s; mốc A 16/10 16:04:50.909826Z, 10.078s. Run c122ce2/16.844s khác code là lịch sử, không dùng làm cặp cùng phiên bản. Giữ nguyên chín báo cáo cũ và các FAIL.
+
+Nhánh p1-s05-staging, HEAD trước công bố c3e4f998. Chỉ stage S05/P1; kế hoạch untracked ngoài phạm vi, raw/processed/.env/venv không đưa lên Git. Commit công việc trước fetch/đồng bộ nếu cần, không reset/force hoặc sửa P2. Summary/handoff đã thống nhất thứ tự run theo thời điểm; hash artifact cập nhật sau chỉnh hồ sơ. Commit/push/URL PR ghi sau xác minh, không ghi trước. Chưa kiểm ETL DW/G2, quyền BI hoặc phục hồi backup.
+
+Các mục S05 “chưa được giao đẩy” bên dưới là lịch sử của lượt ban đầu.
+
+Đã kiểm công bố trước commit **19/19 đạt**, stage chọn lọc đúng 25 file S05/P1; commit nội dung `7981844ed2f4b50ed0705db5c04562d7e8fcf028`. Sau tracked tree sạch mới fetch; origin/main vẫn c3e4f998, đã là ancestor, không cần merge. Code và chín báo cáo lịch sử giữ nguyên, kế hoạch ngoài phạm vi không stage. Tài liệu/summary/hash cập nhật trạng thái code đã commit, không sửa run cũ; push/PR còn chờ thực hiện/xác minh ở mốc công bố.
+
+Đã kiểm sau fetch **8/8 đạt**, commit hồ sơ/hashes `2417416aee976440d4fce4dd1b512a22bd703dd3`; push -u thành công, remote SHA khớp. Đã mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7, API OPEN/merged=false, base main/c3e4f998, head lúc mở 2417416. Rà đủ 25 file và từng blob remote khớp local. Cập nhật hồ sơ công bố này tiếp tục cùng PR, giữ code 04cb9c6 và các run cũ. Tracked tree sẽ kiểm sạch sau push hồ sơ cuối, chỉ giữ kế hoạch untracked ngoài phạm vi. Dừng chờ review PR, chưa merge hoặc sang 6A.
+
+## Hiện hành — S05 WAITING_REVIEW
+
+Điều phối giao Bước 5 sau S04 PR #6 đã merge. API xác nhận merge `c3e4f998b3d8a0248770aeefada7200471fb3037`; main đã fast-forward, nhánh **p1-s05-staging**, HEAD nền c3e4f998. Tracked tree sạch trước đổi nhánh, kế hoạch untracked ngoài phạm vi giữ nguyên. Không commit/push/PR trong lượt S05. Các mục S04 OPEN bên dưới là lịch sử trước merge.
+
+Điều phối chọn database **movielens_btl** khi chưa có tên riêng, cho phép tạo mới bằng quyền hiện có. Khảo sát xác nhận target chưa tồn tại; đã tạo trên PostgreSQL 17.11, 127.0.0.1:5432, không đổi credential/role. Database postgres chỉ là kết nối quản trị, không nhận dữ liệu nghiệp vụ. DDL S04 giữ nguyên, thực thi có guard đúng target; catalog đã kiểm thực **12 bảng/64 cột/9 FK/27 CHECK/8 index tường minh/6 view**. Chỉ 3 bảng staging có dữ liệu; chín bảng DW/analytics vẫn 0 dòng.
+
+Nguồn P1 tự tải trước đây được hash lại và sao chép riêng vào data/raw/p1_s05/ml-1m; bốn source hash/line_count và bốn canonical hash/count khớp manifest P2. Dùng adapter đã review, xác minh Git blob đúng LF và checkout chỉ khác CRLF; không sửa manifest/P2 hoặc chuẩn hóa byte nguồn để ép khớp. Một SHA metadata P2 còn lệch được ghi riêng bằng commit/hash adapter thực.
+
+Hai lần nạp staging **6040 users / 3883 movies / 1000209 ratings**, cùng hash trường/source_line, so toàn bộ nội dung nguồn; không nhân đôi. 9/9 unit tests và fixture rollback thật trong schema tách biệt PASS; seed fixture phục hồi đúng, staging thật/DW/analytics không đổi, schema thử đã dọn. Lỗi đầu kiểm phiên bản CRLF và lỗi checker catalog đã xử lý, giữ báo cáo FAIL; DDL lỗi checker được rollback, database mới rỗng giữ nguyên rồi kiểm/nạp lại, không đổi mô hình.
+
+Code/hướng dẫn `etl/s05_staging.py`, `etl/README.md`; test trong tests/warehouse; bàn giao `docs/P1/s05_handoff.md`; tổng hợp kết quả/hash từng run `results/warehouse/s05_summary.json`; hồ sơ `steps/P1/S05.md`. Phiên bản S05 là **working tree chưa commit**, dùng SHA-256 code trong bằng chứng, không gán code S05 cho commit nền. Không nạp dimension/bridge/fact hoặc làm 6A/G2/OLAP/dashboard, không bật Superset. **S05 WAITING_REVIEW**, dừng chờ điều phối, chưa tự chuyển bước.
+
 ## Hiện hành — công bố S04 v2
 
 **S04 APPROVED ở mức thiết kế theo điều phối; PR #6 OPEN, WAITING_REVIEW PR, chưa MERGED. Chưa kiểm thử PostgreSQL hoặc triển khai.** Nguồn ghi nhận: **Điều phối chấp nhận S04 v2 ở mức thiết kế**; không phải lời duyệt nguyên văn của người dùng. Các trạng thái WAITING_REVIEW v2/v1 bên dưới là lịch sử trước thông báo chấp nhận.
