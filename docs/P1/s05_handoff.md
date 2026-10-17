@@ -13,7 +13,7 @@ Database điều phối chọn **movielens_btl**. Khảo sát mới: Windows Pos
 - [etl/s05_staging.py](../../etl/s05_staging.py): inputs, bootstrap, load, catalog; [hướng dẫn PowerShell](../../etl/README.md).
 - [test_s05_staging.py](../../tests/warehouse/test_s05_staging.py): unit fixtures; [check_s05_rollback.py](../../tests/warehouse/check_s05_rollback.py): integration rollback tách biệt.
 - Dùng nguyên [database/schema.sql](../../database/schema.sql), không đổi mô hình/DDL được duyệt. Bằng chứng chi tiết trong [s05_summary.json](../../results/warehouse/s05_summary.json), liên kết từng run và hash code thực chạy.
-- Hồ sơ S05/STATE/DECISIONS/REVIEWS/PROMPTS P1 cập nhật; module chưa commit có hash byte để nhận diện phiên bản, không nói HEAD đã chứa code S05.
+- Hồ sơ S05/STATE/DECISIONS/REVIEWS/PROMPTS P1 cập nhật; code đã commit tại 7981844ed2f4b50ed0705db5c04562d7e8fcf028. Các run vẫn giữ HEAD nền/hash byte **đúng lúc chạy chưa commit**; không sửa báo cáo cũ để gán lại phiên bản.
 
 ## Kết quả thực tế
 
@@ -63,4 +63,4 @@ SHA source_code_commit trong metadata P2 còn lệch provenance; S05 lưu commit
 4. Một transaction cho ba staging bảo đảm lỗi cuối tệp không để users/movies mới đi cùng ratings cũ.
 5. Refresh staging thay snapshot và PK source_line chống lặp; fixture tách biệt chứng minh rollback mà không sửa nguồn thật.
 
-Nhánh p1-s05-staging; HEAD nền trước công bố c3e4f998b3d8a0248770aeefada7200471fb3037. Các mô tả chưa commit ở trên ghi thời điểm bàn giao S05 ban đầu. Công bố theo lệnh mới, commit/PR chỉ ghi sau xác minh; trạng thái cuối tại STATE_P1 và báo cáo công bố. Chưa merge, không tự chuyển 6A.
+Nhánh p1-s05-staging; HEAD nền trước công bố c3e4f998b3d8a0248770aeefada7200471fb3037, commit nội dung S05 7981844ed2f4b50ed0705db5c04562d7e8fcf028. Đã commit trước fetch; origin/main vẫn c3e4f998, không cần merge. Kế hoạch untracked ngoài phạm vi giữ nguyên. Trạng thái push/PR cuối tại STATE_P1 và báo cáo công bố sau xác minh thật. Chưa merge, không tự chuyển 6A.

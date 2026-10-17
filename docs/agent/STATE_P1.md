@@ -10,6 +10,8 @@ Nhánh p1-s05-staging, HEAD trước công bố c3e4f998. Chỉ stage S05/P1; k�
 
 Các mục S05 “chưa được giao đẩy” bên dưới là lịch sử của lượt ban đầu.
 
+Đã kiểm công bố trước commit **19/19 đạt**, stage chọn lọc đúng 25 file S05/P1; commit nội dung `7981844ed2f4b50ed0705db5c04562d7e8fcf028`. Sau tracked tree sạch mới fetch; origin/main vẫn c3e4f998, đã là ancestor, không cần merge. Code và chín báo cáo lịch sử giữ nguyên, kế hoạch ngoài phạm vi không stage. Tài liệu/summary/hash cập nhật trạng thái code đã commit, không sửa run cũ; push/PR còn chờ thực hiện/xác minh ở mốc công bố.
+
 ## Hiện hành — S05 WAITING_REVIEW
 
 Điều phối giao Bước 5 sau S04 PR #6 đã merge. API xác nhận merge `c3e4f998b3d8a0248770aeefada7200471fb3037`; main đã fast-forward, nhánh **p1-s05-staging**, HEAD nền c3e4f998. Tracked tree sạch trước đổi nhánh, kế hoạch untracked ngoài phạm vi giữ nguyên. Không commit/push/PR trong lượt S05. Các mục S04 OPEN bên dưới là lịch sử trước merge.
