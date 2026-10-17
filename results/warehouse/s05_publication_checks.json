@@ -184,12 +184,12 @@
   "working_tree_file_sha256": {
     "README.md": "ff6bf6c645ccd4b8fb1354486679bd3befdad9be82ff236d3450aeb8aa8a9c8f",
     "database/README.md": "25008faa205815ca2013ca293e30678ba1cee6aaac39f5e311724fc1434f8d99",
-    "docs/P1/s05_handoff.md": "b80f777a63b5b3786d4a15fc73929e1ed4819d289e7b349a92f4f1da04931fdd",
-    "docs/agent/DECISIONS_P1.md": "0e4aeec380a9643e0b238a302eee239a3f1c0619a4fa68eb575a59ffe3f03dbb",
+    "docs/P1/s05_handoff.md": "a276e18797d4f423a2ac58aef245bc159a4fec20e034183d8b0a9da80a598bf5",
+    "docs/agent/DECISIONS_P1.md": "30a0d620afbfd4c48a1cda5aeab3946dfcf868c4971afd579a08f30f9d280fd9",
     "docs/agent/PROMPTS_P1.md": "68baf659d0f0b7087b3d3ac72dfbe1e6fdb9d281bb467e87f6b8baa18b17eac0",
-    "docs/agent/REVIEWS_P1.md": "87c860d4ba0c053a81c435307407e44151a0eacde760b4b2ce1b3330473b06ff",
-    "docs/agent/STATE_P1.md": "9bede3078575d67000f5ea3875e3bedbf389d60530167444ca34b35ba3989524",
-    "docs/agent/steps/P1/S05.md": "f511b42d8cf66ed781857444aa3c42c60825a0633202a469bd1ff6464f78a4f9",
+    "docs/agent/REVIEWS_P1.md": "a6ee43d87ff6675922bb1ca7c860cbee8a9c67fc6780c5be51ca988b4604ee9a",
+    "docs/agent/STATE_P1.md": "8144699391cc0aaa1a8a33d1e36ea92c9260840d81ec8048e3f0a7c17be3fd2a",
+    "docs/agent/steps/P1/S05.md": "535753249b1d6b5a99cb60fe579153f397ab96770fed82de2bbaa697beee734d",
     "etl/README.md": "ad75af1832b16e2cf522cde17f978b82f580bdca74f655a6f341e427b82b9483",
     "etl/__init__.py": "d3586936894dc1862471f2ddcbc7c60305d5a6291cc98654b4ba76cf0683ade7",
     "etl/s05_staging.py": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
@@ -202,12 +202,12 @@
     "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json": "e01f839c6475ca0985325e476f88c1af28aff21a985a868ab3df3e88e3c1292e",
     "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json": "0ef6e254b6b5017f800bcc5dff9ec0e67a32fd3a372c853d72fdde94767c695e",
     "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json": "f2e414692b82ba2be8a86ac0a2460d71c7b15fa23837ecafd14038d894977099",
-    "results/warehouse/s05_summary.json": "0d44960ceefa3ea0119c728499338918ae780a9892c6edb21061a90410913200",
+    "results/warehouse/s05_summary.json": "12f856bb396d088d7e6275057c2a3d3edf87e1dd9f400eaa1f99cfe9de59fc0c",
     "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "dd705bd0d02b754df1d9a615e28dbbbde001c76c29cdf342066078575b3f66ee",
     "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
     "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1"
   },
-  "status": "READY_TO_PUSH",
+  "status": "PR_OPEN_WAITING_REVIEW_NOT_MERGED",
   "limits": [
     "No DW ETL/G2",
     "No BI permission verification",
@@ -219,12 +219,12 @@
   "git_lf_sha256_excluding_this_report": {
     "README.md": "b520442429a5ecdcac8f7c3ab72a8ce0f1fe04103a937c94433376c808943e89",
     "database/README.md": "9d36df5cfc66f63972cfe017c0dd7b26b89ad65d1035cd45dc5fb7d3f89686ee",
-    "docs/P1/s05_handoff.md": "b80f777a63b5b3786d4a15fc73929e1ed4819d289e7b349a92f4f1da04931fdd",
-    "docs/agent/DECISIONS_P1.md": "784c6cc29aac3663a268d7e8d1351903d16166aa56528e605d4ad56f161a7bf8",
+    "docs/P1/s05_handoff.md": "a276e18797d4f423a2ac58aef245bc159a4fec20e034183d8b0a9da80a598bf5",
+    "docs/agent/DECISIONS_P1.md": "d464e0d4a4040950f4ee39ff40ee867ef628dedbaf111c2018e908891c9d6594",
     "docs/agent/PROMPTS_P1.md": "520c6dfc1f495b6752acda4caf62c389bb0551238bf61cdac090abe2b845b886",
-    "docs/agent/REVIEWS_P1.md": "2dbfb550cc8fc5712a12f5e6b98356dc6ba4e7c07a7334e1988149d4fdebecc2",
-    "docs/agent/STATE_P1.md": "224b8481e2fc09397b4bf30ce79eb46460122041cbb073567cc890a9d02e8c75",
-    "docs/agent/steps/P1/S05.md": "f511b42d8cf66ed781857444aa3c42c60825a0633202a469bd1ff6464f78a4f9",
+    "docs/agent/REVIEWS_P1.md": "204933ac4a81ed3d7835604003fc2f3bc4f3ff0fc1c931b6fc815aa441fd4697",
+    "docs/agent/STATE_P1.md": "8cef3459cfb7544db70f0f3e4543d7c6355b2b126cded18b0d04195ef6c3ca86",
+    "docs/agent/steps/P1/S05.md": "535753249b1d6b5a99cb60fe579153f397ab96770fed82de2bbaa697beee734d",
     "etl/README.md": "ad75af1832b16e2cf522cde17f978b82f580bdca74f655a6f341e427b82b9483",
     "etl/__init__.py": "d3586936894dc1862471f2ddcbc7c60305d5a6291cc98654b4ba76cf0683ade7",
     "etl/s05_staging.py": "04cb9c6082bbe6224d4c2e7e4d33f312140f25dce52c4a8fbc54d2aebdf8e92f",
@@ -237,10 +237,20 @@
     "results/warehouse/s05_load_c122ce2fb93946a09cc02d47f65a8973.json": "26d5ec5777c9d3a2a2081615a1ccc87dd36d29a0ac6caa64fdddddf7d00fcbc1",
     "results/warehouse/s05_load_f5f11bcd42314042b34bfa1ff66e1f56.json": "b04400abc5cac3c8d48336d0070028d5ab694b36169b37a3bf39eebc943fd597",
     "results/warehouse/s05_rollback_c0a86d3a91ef48a59759f19e72e74be2.json": "590c5576d330169f73f11e7fe0fee692a71981055b957ed5dac99627d1b9dcca",
-    "results/warehouse/s05_summary.json": "6c1b58d2798ca343d887d1c18259dab52afa4df745cf8e5e7308bc643b86b5a9",
+    "results/warehouse/s05_summary.json": "ed21635dcd7176ef863b803f38249c4b742914999078bd5fe7f0171ea2663368",
     "results/warehouse/s05_unittests_ce6dbc0f7a5840c78049da1dbbce0a7a.json": "9dd8d5c53965233af76142230da5462bd8a1b30ce3983cc5955d4f2c6e9cb89f",
     "tests/warehouse/check_s05_rollback.py": "4f1d8eff71613211fede13da4692d15aaedcf0e8c8c9e699a039e91664d7d6ab",
     "tests/warehouse/test_s05_staging.py": "e7b7c9b86a85adae95b581efc2a002c30287db6dff08e52d7db2a05e47c92de1"
   },
-  "hash_scope_note": "Working-tree and Git LF blobs distinguished. Run reports immutable; this report excludes its own self-referential hash."
+  "hash_scope_note": "Working-tree and Git LF blobs distinguished. Run reports immutable; this report excludes its own self-referential hash.",
+  "pr": {
+    "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7",
+    "state": "open",
+    "merged": false,
+    "head_at_initial_full_review": "2417416aee976440d4fce4dd1b512a22bd703dd3",
+    "base_at_review": "c3e4f998b3d8a0248770aeefada7200471fb3037",
+    "file_count": 25,
+    "all_remote_blobs_match_local": true
+  },
+  "final_note": "PR opening/full diff verified before follow-up publication-record commit; final remote HEAD rechecked in chat. This report excludes its own hash. No code or immutable run report changes."
 }
