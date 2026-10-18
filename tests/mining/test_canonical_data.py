@@ -14,6 +14,7 @@ from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
+import re
 import pytest
 
 MANIFEST_PATH = Path("results/eda/canonical_manifest.json")
@@ -60,12 +61,16 @@ def test_canonical_manifest_structure(manifest):
     assert len(scs["genres"]) == 18
     assert scs["ratings"] == [1, 2, 3, 4, 5]
 
-    # Verify provenance
+    # Verify provenance and commit consistency
     prov = manifest["provenance"]
     assert "original_generation_script" in prov
     assert Path(prov["original_generation_script"]).exists()
     assert "current_adapter_script" in prov
     assert Path(prov["current_adapter_script"]).exists()
+    assert "source_code_commit" in manifest
+    assert manifest["source_code_commit"] == prov.get("original_commit_g1")
+    assert len(manifest["source_code_commit"]) == 40
+    assert re.match(r"^[0-9a-f]{40}$", manifest["source_code_commit"])
 
 
 def test_users_table(manifest):
