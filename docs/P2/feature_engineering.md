@@ -8,7 +8,7 @@ Tài liệu này đặc tả quy trình và công thức trích xuất vector đ
 
 1. **Phạm vi Q1:**
    - Vector đặc trưng được trích xuất trên toàn bộ lịch sử tương tác để phục vụ phân cụm mô tả (descriptive clustering) người dùng.
-   - **Tuyệt đối không rò rỉ (No Data Leakage):** Không đưa đặc trưng phân cụm này hay nhãn cụm ($cluster\_id$) vào tập dữ liệu huấn luyện hoặc đánh giá của bài toán Q2 (Collaborative Filtering / Matrix Factorization).
+   - **Tuyệt đối không rò rỉ (No Data Leakage):** Không đưa đặc trưng phân cụm này hay nhãn cụm ($cluster\_id$) vào tập dữ liệu huấn luyện hoặc đánh giá của bài toán Q2 (Item-based Collaborative Filtering - Item-based CF).
 2. **Không phân biệt đối xử (Fairness & Content-First):**
    - Vector đặc trưng chỉ chứa phân phối sở thích thể loại phim dựa trên đánh giá tích cực.
    - **Tuyệt đối không đưa thuộc tính nhân khẩu học** (`age_group`, `gender`, `occupation`, `zip_code`) vào vector đặc trưng phân cụm.

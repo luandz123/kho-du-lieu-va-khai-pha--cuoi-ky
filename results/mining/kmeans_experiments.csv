@@ -1,0 +1,15 @@
+k,preprocessing,inertia,silhouette_sample2000,min_cluster_size,max_cluster_size,cluster_sizes,runtime_sec,interpretability_notes
+2,raw,217.7719,0.2233,2798,3240,"[2798, 3240]",0.183,Silhouette cao hơn (0.22) nhưng phân chia còn thô (chủ yếu tách Drama vs Action/Comedy)
+3,raw,181.0233,0.2211,1250,2534,"[2254, 1250, 2534]",0.234,Silhouette cao hơn (0.22) nhưng phân chia còn thô (chủ yếu tách Drama vs Action/Comedy)
+4,raw,162.9874,0.186,760,2478,"[2478, 1393, 760, 1407]",0.224,"Cấu hình đề xuất: Phân tách rõ 4 chủ đề thể loại, quy mô cân đối (12.6%-41.0%), độ ổn định cao (ARI>0.97)"
+5,raw,152.1376,0.1674,524,1604,"[1153, 1298, 524, 1604, 1459]",0.338,Cấu hình so sánh thử nghiệm
+6,raw,141.7432,0.1723,103,1902,"[1207, 860, 103, 685, 1902, 1281]",0.399,Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)
+7,raw,132.012,0.1729,101,1340,"[619, 1310, 1340, 1021, 101, 460, 1187]",0.47,Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)
+8,raw,125.504,0.1721,101,1308,"[1308, 1220, 450, 984, 183, 1175, 617, 101]",0.313,Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)
+2,standard_scaler,95141.1138,0.1472,2360,3678,"[3678, 2360]",0.133,Cấu hình so sánh thử nghiệm
+3,standard_scaler,86041.2338,0.1398,1475,2642,"[1475, 2642, 1921]",0.241,Cấu hình so sánh thử nghiệm
+4,standard_scaler,80502.6686,0.1238,460,1982,"[460, 1743, 1982, 1853]",0.272,Cấu hình so sánh thử nghiệm
+5,standard_scaler,76187.4511,0.1199,350,2336,"[2336, 350, 1868, 1020, 464]",0.413,Cấu hình so sánh thử nghiệm
+6,standard_scaler,72188.2324,0.1302,100,2335,"[469, 342, 1758, 1034, 100, 2335]",0.512,Cấu hình so sánh thử nghiệm
+7,standard_scaler,69077.4174,0.1055,97,1970,"[1039, 904, 1313, 420, 1970, 97, 295]",0.548,"StandardScaler chia theo độ lệch chuẩn làm tăng trọng số thể loại hiếm, tạo cụm quy mô nhỏ (<100 user)"
+8,standard_scaler,65742.1832,0.1018,5,1960,"[1960, 1047, 302, 5, 855, 415, 1355, 99]",0.503,"StandardScaler chia theo độ lệch chuẩn làm tăng trọng số thể loại hiếm, tạo cụm quy mô nhỏ (<100 user)"

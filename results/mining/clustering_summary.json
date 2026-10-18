@@ -1,0 +1,268 @@
+{
+  "chosen_k": 4,
+  "chosen_preprocessing": "raw",
+  "chosen_seed": 42,
+  "model_version": "kmeans_k4_seed42",
+  "cluster_names": {
+    "0": "Nhóm người dùng đánh giá đa dạng / Cân bằng các thể loại",
+    "1": "Nhóm người dùng đánh giá tập trung Drama & Tình cảm",
+    "2": "Nhóm người dùng đánh giá tập trung Hài kịch (Comedy)",
+    "3": "Nhóm người dùng đánh giá tập trung Hành động, Viễn tưởng & Giật gân"
+  },
+  "stability_ari": {
+    "seed_42_vs_seed_0": 0.9949,
+    "seed_42_vs_seed_7": 0.9763
+  },
+  "experiment_metadata": {
+    "sample_size": 2000,
+    "sample_hash": "afc27da1977cf28e45417b7eaf9ff27faa6028dc4e670367a223c758078db485",
+    "total_assigned_users": 6038,
+    "random_state": 42,
+    "n_init": 10,
+    "user_order_hash": "37eaa087e5d9b6be9a17e61d773a58ee39234e793409294fa0d98cf402f1c24a",
+    "genre_order_hash": "bcf3f11af93e4d9392d5ed9072917b784a1d19fdb365092c85c41acd5e5b4665"
+  },
+  "experiments_summary": [
+    {
+      "k": 2,
+      "preprocessing": "raw",
+      "inertia": 217.7719,
+      "silhouette_sample2000": 0.2233,
+      "min_cluster_size": 2798,
+      "max_cluster_size": 3240,
+      "cluster_sizes": "[2798, 3240]",
+      "runtime_sec": 0.183,
+      "interpretability_notes": "Silhouette cao hơn (0.22) nhưng phân chia còn thô (chủ yếu tách Drama vs Action/Comedy)"
+    },
+    {
+      "k": 3,
+      "preprocessing": "raw",
+      "inertia": 181.0233,
+      "silhouette_sample2000": 0.2211,
+      "min_cluster_size": 1250,
+      "max_cluster_size": 2534,
+      "cluster_sizes": "[2254, 1250, 2534]",
+      "runtime_sec": 0.234,
+      "interpretability_notes": "Silhouette cao hơn (0.22) nhưng phân chia còn thô (chủ yếu tách Drama vs Action/Comedy)"
+    },
+    {
+      "k": 4,
+      "preprocessing": "raw",
+      "inertia": 162.9874,
+      "silhouette_sample2000": 0.186,
+      "min_cluster_size": 760,
+      "max_cluster_size": 2478,
+      "cluster_sizes": "[2478, 1393, 760, 1407]",
+      "runtime_sec": 0.224,
+      "interpretability_notes": "Cấu hình đề xuất: Phân tách rõ 4 chủ đề thể loại, quy mô cân đối (12.6%-41.0%), độ ổn định cao (ARI>0.97)"
+    },
+    {
+      "k": 5,
+      "preprocessing": "raw",
+      "inertia": 152.1376,
+      "silhouette_sample2000": 0.1674,
+      "min_cluster_size": 524,
+      "max_cluster_size": 1604,
+      "cluster_sizes": "[1153, 1298, 524, 1604, 1459]",
+      "runtime_sec": 0.338,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 6,
+      "preprocessing": "raw",
+      "inertia": 141.7432,
+      "silhouette_sample2000": 0.1723,
+      "min_cluster_size": 103,
+      "max_cluster_size": 1902,
+      "cluster_sizes": "[1207, 860, 103, 685, 1902, 1281]",
+      "runtime_sec": 0.399,
+      "interpretability_notes": "Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)"
+    },
+    {
+      "k": 7,
+      "preprocessing": "raw",
+      "inertia": 132.012,
+      "silhouette_sample2000": 0.1729,
+      "min_cluster_size": 101,
+      "max_cluster_size": 1340,
+      "cluster_sizes": "[619, 1310, 1340, 1021, 101, 460, 1187]",
+      "runtime_sec": 0.47,
+      "interpretability_notes": "Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)"
+    },
+    {
+      "k": 8,
+      "preprocessing": "raw",
+      "inertia": 125.504,
+      "silhouette_sample2000": 0.1721,
+      "min_cluster_size": 101,
+      "max_cluster_size": 1308,
+      "cluster_sizes": "[1308, 1220, 450, 984, 183, 1175, 617, 101]",
+      "runtime_sec": 0.313,
+      "interpretability_notes": "Bắt đầu phân mảnh thành các cụm phụ quy mô nhỏ (<200 user)"
+    },
+    {
+      "k": 2,
+      "preprocessing": "standard_scaler",
+      "inertia": 95141.1138,
+      "silhouette_sample2000": 0.1472,
+      "min_cluster_size": 2360,
+      "max_cluster_size": 3678,
+      "cluster_sizes": "[3678, 2360]",
+      "runtime_sec": 0.133,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 3,
+      "preprocessing": "standard_scaler",
+      "inertia": 86041.2338,
+      "silhouette_sample2000": 0.1398,
+      "min_cluster_size": 1475,
+      "max_cluster_size": 2642,
+      "cluster_sizes": "[1475, 2642, 1921]",
+      "runtime_sec": 0.241,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 4,
+      "preprocessing": "standard_scaler",
+      "inertia": 80502.6686,
+      "silhouette_sample2000": 0.1238,
+      "min_cluster_size": 460,
+      "max_cluster_size": 1982,
+      "cluster_sizes": "[460, 1743, 1982, 1853]",
+      "runtime_sec": 0.272,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 5,
+      "preprocessing": "standard_scaler",
+      "inertia": 76187.4511,
+      "silhouette_sample2000": 0.1199,
+      "min_cluster_size": 350,
+      "max_cluster_size": 2336,
+      "cluster_sizes": "[2336, 350, 1868, 1020, 464]",
+      "runtime_sec": 0.413,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 6,
+      "preprocessing": "standard_scaler",
+      "inertia": 72188.2324,
+      "silhouette_sample2000": 0.1302,
+      "min_cluster_size": 100,
+      "max_cluster_size": 2335,
+      "cluster_sizes": "[469, 342, 1758, 1034, 100, 2335]",
+      "runtime_sec": 0.512,
+      "interpretability_notes": "Cấu hình so sánh thử nghiệm"
+    },
+    {
+      "k": 7,
+      "preprocessing": "standard_scaler",
+      "inertia": 69077.4174,
+      "silhouette_sample2000": 0.1055,
+      "min_cluster_size": 97,
+      "max_cluster_size": 1970,
+      "cluster_sizes": "[1039, 904, 1313, 420, 1970, 97, 295]",
+      "runtime_sec": 0.548,
+      "interpretability_notes": "StandardScaler chia theo độ lệch chuẩn làm tăng trọng số thể loại hiếm, tạo cụm quy mô nhỏ (<100 user)"
+    },
+    {
+      "k": 8,
+      "preprocessing": "standard_scaler",
+      "inertia": 65742.1832,
+      "silhouette_sample2000": 0.1018,
+      "min_cluster_size": 5,
+      "max_cluster_size": 1960,
+      "cluster_sizes": "[1960, 1047, 302, 5, 855, 415, 1355, 99]",
+      "runtime_sec": 0.503,
+      "interpretability_notes": "StandardScaler chia theo độ lệch chuẩn làm tăng trọng số thể loại hiếm, tạo cụm quy mô nhỏ (<100 user)"
+    }
+  ],
+  "handoff_manifest": {
+    "contract_version": 2,
+    "model_version": "kmeans_k4_seed42",
+    "generated_at_utc": "2026-10-18T14:05:28.062347+00:00",
+    "algorithm": "KMeans",
+    "training_config": {
+      "k": 4,
+      "preprocessing": "raw",
+      "seed": 42,
+      "n_init": 10,
+      "genre_order": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Children's",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Fantasy",
+        "Film-Noir",
+        "Horror",
+        "Musical",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Thriller",
+        "War",
+        "Western"
+      ],
+      "genre_order_hash": "bcf3f11af93e4d9392d5ed9072917b784a1d19fdb365092c85c41acd5e5b4665",
+      "user_order_hash": "37eaa087e5d9b6be9a17e61d773a58ee39234e793409294fa0d98cf402f1c24a",
+      "total_assigned_users": 6038
+    },
+    "training_config_hash": "8fc755ef7234422a556c5fa725520ddd985a3aeeaef92cbb4362d9e21c2c0786",
+    "libraries": {
+      "scikit-learn": "1.5.2",
+      "numpy": "2.0.2",
+      "pandas": "2.3.3",
+      "python": "3.12.3"
+    },
+    "source_hashes": {
+      "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+    },
+    "canonical_hashes_manifest": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "actual_canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "code_provenance": {
+      "g1_canonical_code_commit": "7a284b9f108dd64b030305cf51b8614b770a2296",
+      "features_code_sha256": "e02851f985a0ce15dd6871b3bf04e0b8b96725b7a55e9fc5f6a6d2562582f8e6",
+      "clustering_code_sha256": "f2892f2f49767d2e380924cc32e2bb4b6cdc91275367dceb026f8f573da01b8f"
+    },
+    "data_summary": {
+      "total_users": 6040,
+      "assigned_users": 6038,
+      "insufficient_evidence_users": 2,
+      "num_clusters": 4,
+      "cluster_sizes": {
+        "0": 2478,
+        "3": 1407,
+        "1": 1393,
+        "2": 760
+      }
+    },
+    "files": {
+      "user_cluster.csv": {
+        "row_count": 6040,
+        "sha256": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93"
+      },
+      "cluster_genre_profile.csv": {
+        "row_count": 72,
+        "sha256": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+      }
+    }
+  }
+}
