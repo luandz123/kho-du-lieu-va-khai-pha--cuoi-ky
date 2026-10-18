@@ -1,5 +1,7 @@
 # Thiết kế kho MovieLens — nháp S04
 
+**Cập nhật6C:** fact/view ratings **1000209**, bốn hash chuẩn đúng; staging/dimension/surrogate/bridge giữ nguyên, analytics rỗng. [Bàn giao6C](../docs/P1/s06c_handoff.md), WAITING_REVIEW; 6B được điều phối chấp nhận. DDL giữ nguyên. Hậu kiểm dùng tests/warehouse/check_warehouse.py; không chạy loader cũ/6C hoặc checker6B đòi factrỗng. Chưafullrefresh6D/G2/OLAP/dashboard; các mục dưới giữ lịch sử.
+
 **Cập nhật 6B:** bridge đã nạp **6408** cặp, hash canonical khớp, staging/dimension giữ nguyên; fact/analytics rỗng, chưa6C/6D/G2. [Bàn giao6B](../docs/P1/s06b_handoff.md), WAITING_REVIEW. 6A đã được điều phối chấp nhận. DDL giữ nguyên; không chạy lại loadS05/6A/6B hoặc checker6A cũ yêu cầu bridge rỗng. Các mục dưới mô tả lịch sử.
 
 **Cập nhật 6A:** chỉ bốn dimension đã được nạp từ staging, 6040/3883/18/1040 dòng; staging giữ nguyên, bridge/fact/ba analytics vẫn rỗng. Hai view user/movie đã khớp canonical; chưa G2 đủ bốn view. DDL giữ nguyên, không bootstrap lại. [Bàn giao 6A](../docs/P1/s06a_handoff.md), WAITING_REVIEW. Không chạy lại load S05 hoặc coi full refresh6D đã có. Các cập nhật S05/S04 dưới đây giữ lịch sử từng thời điểm.

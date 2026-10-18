@@ -1,5 +1,11 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận 6B và giao riêng 6C — 18/10/2026
+
+Nguồn: điều phối thông báo chấp nhận 6B sau review code, chạy lại 15/15 unit test và kiểm bằng chứng/hash bàn giao. Ghi **6B APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Được checkpoint cục bộ phần 6B đã review; sau rà diff, allowlist 19 file P1 và hash artifact, đã commit **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe** trên p1-s06-etl. Giữ report PASS/FAIL, nguồn và kế hoạch untracked ngoài phạm vi; chưa push/PR hoặc thay nhánh.
+
+Lệnh mới chỉ nạp fact 6C và kiểm chứng; chưa chấp nhận kết quả 6C, chưa 6D/G2/OLAP/dashboard/analytics. Kết quả kiểm tra của agent không tự trở thành lời duyệt. Report/hồ sơ 6B trong checkpoint là lịch sử tại thời điểm bàn giao; cập nhật hiện hành được ghi riêng, không sửa report cũ.
+
 ## Điều phối chấp nhận 6A, giao riêng 6B — 18/10/2026
 
 Nguồn là thông báo điều phối: chấp nhận6A sau review code, kiểm bằng chứng và chạy lại13/13 unit test đạt. Ghi **6A APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Cho phép checkpoint local phần6A đãreview; đã thực hiện cfed2c848e196bee73fcb61ec5fd017cc9dbaf98, giữ reportPASS/FAIL/hashcode cũ. Không push/PR, không suy thành G2/merge S06.

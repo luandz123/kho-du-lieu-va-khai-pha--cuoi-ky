@@ -1,5 +1,15 @@
 # Quyết định P1
 
+## S06 — riêng 6C, 18/10/2026
+
+P1-D61: Điều phối chấp nhận6B và giao6C; rà/stage đúng19fileP1 rồi checkpoint local d698d8e trên p1-s06-etl. Không push/PR/chuyểnnhánh, không kế hoạch/data/secret; giữ nguyên report/hash và helper6A/6B/DDL/manifest/P2.
+
+P1-D62: Chỉ insert fact qua mapping user/movie/ngày UTC kiểm duy nhất và đầy đủ; parse nghiêm ngặt ID/rating1..5/timestamp int64 và tính duy nhất user–movie xuyên lô. Không join genre, inner join bỏ khóa, upsert hoặc bỏ dòng. Instant có timezone UTC và ngày generated trong DB, không phụ thuộc timezone máy; một transaction/khóa snapshot chung và kiểm trước commit bằng cùng connection.
+
+P1-D63: Đối soát mọi trường logic streaming theo contract sort, serializer G1 theochunk với mộtheader cótestbyteequivalence. Kiểm factPK/FK/UQ/rating/epoch/ngày, tổngđiểm/phân bốsao/user-phim/UTC và bốn canonicalhash; fingerprints dimension gồm surrogate so6B và bridge/staging trước/sau. Không coi4hash sau6C là đãxuất/kiểmnhậnG2 hoặc tíchhợp6D.
+
+P1-D64: Hậu kiểm6C riêng readonly/repeatableread; tests/warehouse/check_warehouse.py cốđịnh verify, không dùng checker6B rỗngfact và không sửa bằng chứngcũ. Fixture7ca lỗi sau1000insert rollback0 cùng code18ce72f9; dữ liệu giả/schema táchbiệt đãdọn. 6CWAITING_REVIEW, khôngrerunloadercũ/6C/xóadữliệu, chưa6D/G2/OLAP/dashboard/analytics/push/PR.
+
 ## S06 — riêng 6B, 18/10/2026
 
 P1-D57: Điều phối chấp nhận6A và giao6B, cho phép checkpoint local6A; cfed2c8 chỉ local trên p1-s06-etl, chưa push/PR. Bảo toàn cả reportPASS/FAIL/hashcode6A, kế hoạch untracked ngoài phạm vi và fileP2; ghi cập nhật review riêng, không sửa lịch sử.

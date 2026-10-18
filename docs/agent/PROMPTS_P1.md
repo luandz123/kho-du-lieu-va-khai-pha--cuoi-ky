@@ -1,5 +1,11 @@
 # Nguồn prompt P1
 
+## P-P1-22 — Điều phối chấp nhận 6B, giao riêng 6C, 18/10/2026
+
+Tóm tắt lệnh: điều phối báo chấp nhận 6B sau review, chạy lại 15/15 unit và kiểm hash/bằng chứng. Giữ p1-s06-etl, được checkpoint local 6B sau rà/stage đúng P1; bảo toàn report PASS/FAIL, nguồn và kế hoạch ngoài phạm vi, chưa push/PR. Kiểm movielens_btl/marker/catalog/staging S05/dimension gồm surrogate/bridge đúng và fact/analytics rỗng. Nạp riêng fact qua mapping user/movie/ngày UTC đầy đủ duy nhất; parse đúng rating/int64, không inner join bỏ khóa/genre join/upsert hoặc bỏ dòng. Transaction và khóa snapshot chung, kiểm cùng connection trước commit, rollback lỗi. Đối soát toàn trường, số dòng/tổng điểm/phân bố sao/user-phim có rating/UTC/khóa và bốn canonical hash; bảo toàn staging/dimension/bridge, analytics rỗng. Fixture lỗi mapping/miền/trùng/biên UTC/đa genre/rollback sau insert một phần, hậu kiểm chỉ đọc phù hợp; cập nhật S06/STATE WAITING_REVIEW và dừng.
+
+Giới hạn nguyên văn: “Không chạy lại checker 6B có điều kiện fact rỗng sau khi đã nạp 6C; dùng kiểm bảo toàn phù hợp, giữ bằng chứng cũ.” Và: “Chưa làm 6D, xuất gói G2, OLAP, dashboard hoặc nạp cụm analytics. Chưa push/mở PR. Dừng sau bàn giao 6C.” Đây là lệnh phạm vi, không phải lời duyệt kết quả 6C. Đã đọc lại đoạn 6C trong Word P1; dùng tên nhánh không codex/ theo chỉ thị nhóm.
+
 ## P-P1-21 — Điều phối chấp nhận6A, giao riêng6B, 18/10/2026
 
 Tóm tắt lệnh: điều phối báo chấp nhận6A và chạy lại13/13unit đạt. Giữ p1-s06-etl; được checkpoint local6A sau rà diff/stage đúng P1, giữ mọi report/hash, không plan/data/secret; chưa push/PR. Kiểm movielens_btl/marker/catalog/staging snapshotS05/dimension6A/haihash/genre/lịch và targetrỗng. Nạp riêngbridge qua mapping đầy đủ/duynhất, không bỏ khóa hoặcdedup, transaction/khóa snapshot chung, kiểm cùngconnection trướccommit. Đối soát6408cặp/hashgenre/PK/FK/từngphim/bảo toàn staging&dimension; fact/analytics vẫn0. Fixture thiếu mapping/cặptrùng/đa genre/rollback. Cập nhật hồ sơ6B WAITING_REVIEW, bàn giao và dừng.

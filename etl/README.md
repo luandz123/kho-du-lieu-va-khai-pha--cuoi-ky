@@ -1,5 +1,11 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Hiện hành: 6C đã nạp fact, chờ review
+
+6B đã được điều phối chấp nhận, checkpoint local d698d8e. Fact/view ratings **1000209**, tổng điểm **3582313**, bốn view canonical hash đúng; staging/dimension gồm surrogate/bridge không đổi, analytics rỗng. [Bàn giao6C](../docs/P1/s06c_handoff.md), [summary6C](../results/warehouse/s06c_summary.json). Chưa full refresh6D/G2; chưa commit6C/push/PR.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env` hoặc `python -m etl.s06c_fact verify --env-file .env`. Unit: `python -m unittest discover -s tests/warehouse -p test_s06c_fact.py -v`. Lệnh đã dùng khi factrỗng: `python -m etl.s06c_fact preflight --env-file .env`, rồi `python -m etl.s06c_fact load --env-file .env`; **không chạy lại loader S05/6A/6B/6C hoặc checker6B rỗngfact**, không xóa để vượtguard. Checker6C kiểm bảo toàn phù hợp với fact đã nạp. Fixture check_s06c_rollback.py chỉ chạy có chủ đích, không phải hậu kiểm chỉ đọc. Các hướng dẫn dưới là lịch sử từng mốc.
+
 ## Hiện hành: 6B đã nạp bridge, chờ review
 
 6A đã được điều phối chấp nhận; checkpoint local cfed2c8. Bridge **6408**, ba view users/movies/movie_genres khớp canonical, staging/dimension không đổi; fact/v_ml_ratings/analytics vẫn rỗng. [Bàn giao6B](../docs/P1/s06b_handoff.md), [summary6B](../results/warehouse/s06b_summary.json). Chưa G2/6C/6D; không push/PR.

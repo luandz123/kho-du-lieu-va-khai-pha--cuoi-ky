@@ -1,0 +1,213 @@
+{
+  "step": "6C",
+  "status": "WAITING_REVIEW",
+  "date_local": "2026-10-18",
+  "review_source": "Coordinator accepts 6B after code review, 15/15 unit tests and evidence/hash check; no fabricated verbatim user approval",
+  "branch": "p1-s06-etl",
+  "base_commit": "d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe",
+  "checkpoint_6b_local_only": true,
+  "code_state": "UNCOMMITTED_WORKING_TREE_6C",
+  "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1",
+  "database": "movielens_btl",
+  "preflight_run_id": "c0c750144d8a420ab25fefcab3b5433e",
+  "load_run_id": "bba59cc0f59b45b0897144a5268e111f",
+  "load_started_at_utc": "2026-10-18T12:52:33.606883+00:00",
+  "load_duration_seconds": 149.016,
+  "transaction": "COMMITTED",
+  "fact": {
+    "rows": 1000209,
+    "duplicate_user_movie_pairs": 0,
+    "orphan_fks": 0,
+    "invalid_rating": 0,
+    "timestamp_rated_at_date_mismatches": 0,
+    "surrogate_keys_unique_positive": true,
+    "view_rows": 1000209,
+    "all_logical_fields_match_source": true,
+    "rating_sum": 3582313,
+    "star_counts": {
+      "1": 56174,
+      "2": 107557,
+      "3": 261197,
+      "4": 348971,
+      "5": 226310
+    },
+    "users_with_ratings": 6040,
+    "movies_with_ratings": 3706,
+    "min_timestamp": 956703932,
+    "max_timestamp": 1046454590,
+    "min_rated_at_utc": "2000-04-25T23:05:32Z",
+    "max_rated_at_utc": "2003-02-28T17:49:50Z",
+    "canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    "source_canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    "canonical_hash_matches": true
+  },
+  "four_canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "staging_dimensions_surrogates_bridge_unchanged": true,
+  "dimension_fingerprints": {
+    "dim_user": {
+      "rows": 6040,
+      "all_fields_sha256": "7051aa154b60d57134a668d3285146d3aca13d6aba3f665e4279a44071576d7d"
+    },
+    "dim_movie": {
+      "rows": 3883,
+      "all_fields_sha256": "137e1af3e8f792114efae6213c24a0f69522084a1fe185209c5c0adeef4b26ad"
+    },
+    "dim_genre": {
+      "rows": 18,
+      "all_fields_sha256": "e1dca814e9ec835ebf3d482989bcca6861431fc03f4b167132a8df1a54649f2d"
+    },
+    "dim_date": {
+      "rows": 1040,
+      "all_fields_sha256": "5dcf2f754b2412abb9631f7fc8007e0715b9771986a31826acefc84022d8c9c9"
+    }
+  },
+  "bridge_physical_sha256": "7b20b9c51ce599f9bc74793a378c04282e703e97d741e06fd4272627cb796319",
+  "analytics_counts": {
+    "analytics.model_registry": 0,
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0
+  },
+  "unit_tests_passed": 17,
+  "fixture_run_id": "db3ea77cfc7d4daebc471e8aa2354c16",
+  "rollback_cases": [
+    {
+      "fault": "MISSING_USER_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "MISSING_MOVIE_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "MISSING_DATE_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "OUT_OF_RANGE_RATING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "DUPLICATE_SOURCE_USER_MOVIE",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "check",
+      "sqlstate": "23514",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "unique",
+      "sqlstate": "23505",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    }
+  ],
+  "fixture_schema_removed": true,
+  "readonly_verify_run_id": "0dd850a11b604999ae9ff1f87d3cd317",
+  "readonly_verify_duration_seconds": 58.453,
+  "same_loader_hash_all_runs": true,
+  "g2_complete": false,
+  "full_refresh_complete": false,
+  "reports": {
+    "results/warehouse/s06c_fixture_db3ea77cfc7d4daebc471e8aa2354c16.json": {
+      "status": "PASS",
+      "run_id": "db3ea77cfc7d4daebc471e8aa2354c16",
+      "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1"
+    },
+    "results/warehouse/s06c_load_bba59cc0f59b45b0897144a5268e111f.json": {
+      "status": "PASS",
+      "run_id": "bba59cc0f59b45b0897144a5268e111f",
+      "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1"
+    },
+    "results/warehouse/s06c_preflight_c0c750144d8a420ab25fefcab3b5433e.json": {
+      "status": "PASS",
+      "run_id": "c0c750144d8a420ab25fefcab3b5433e",
+      "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1"
+    },
+    "results/warehouse/s06c_unit_39e473d3dbf7404d9c271d0e511748a5.json": {
+      "status": "PASS",
+      "run_id": "39e473d3dbf7404d9c271d0e511748a5",
+      "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1"
+    },
+    "results/warehouse/s06c_verify_0dd850a11b604999ae9ff1f87d3cd317.json": {
+      "status": "PASS",
+      "run_id": "0dd850a11b604999ae9ff1f87d3cd317",
+      "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1"
+    }
+  },
+  "failures_this_step": [],
+  "preservation": {
+    "old_pass_fail_reports_and_helpers_unchanged": true,
+    "old_ledger_scope": "6A/6B historical physical artifact hashes at their checkpoints; updated P1 docs have fresh hashes below, old JSON untouched.",
+    "p2_source_manifest_contract_schema_unchanged": true,
+    "plan_untracked_sha256": "da37e4a262541ad9f7957ded381cd1347a8e657709f8367fa2ec5ee4cd51d7c7"
+  },
+  "limits": [
+    "No 6D integration or integrated rerun proof",
+    "No G2 export/full adapter DW acceptance",
+    "No OLAP/dashboard/analytics/BI/backup restore",
+    "No 6C commit or push/PR/merge",
+    "No rerun old loaders/6C; do not use 6B checker requiring empty fact"
+  ],
+  "final_checks": {
+    "git_diff_check": true,
+    "no_staged_files": true,
+    "secret_signature_scan_new_artifacts": true,
+    "env_raw_venv_ignored_not_tracked": true,
+    "fixture_schemas_remaining": 0,
+    "handoff_links_resolve": true,
+    "artifact_hashes_checked": true
+  },
+  "files_changed_this_turn_after_checkpoint": [
+    "README.md",
+    "database/README.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S06.md",
+    "etl/README.md",
+    "docs/P1/s06c_handoff.md",
+    "etl/s06c_fact.py",
+    "results/warehouse/s06c_fixture_db3ea77cfc7d4daebc471e8aa2354c16.json",
+    "results/warehouse/s06c_load_bba59cc0f59b45b0897144a5268e111f.json",
+    "results/warehouse/s06c_preflight_c0c750144d8a420ab25fefcab3b5433e.json",
+    "results/warehouse/s06c_unit_39e473d3dbf7404d9c271d0e511748a5.json",
+    "results/warehouse/s06c_verify_0dd850a11b604999ae9ff1f87d3cd317.json",
+    "tests/warehouse/check_s06c_rollback.py",
+    "tests/warehouse/check_warehouse.py",
+    "tests/warehouse/test_s06c_fact.py",
+    "results/warehouse/s06c_summary.json"
+  ],
+  "artifact_sha256": {
+    "README.md": "94f9180aaac002cff215877d42e9434b9a817bf2bfc4cb7d84501543fcdebac4",
+    "database/README.md": "2d023760bfd75a1dd2de8fba192060d74f005e94de8c1b6739a035455a5afaa4",
+    "docs/agent/DECISIONS_P1.md": "a9bb7fc10896d128dcabc86e25bcfb06f715ecd783f7deb44ed6d7f56c00329b",
+    "docs/agent/PROMPTS_P1.md": "7c0260aa57071a592250ba7174789f0ef92273e118b4e2c94cb90c72fdd83744",
+    "docs/agent/REVIEWS_P1.md": "4e5d3c648b30c1723efd84087a47b8666f5459450d050c825a4cb8bebd8bf773",
+    "docs/agent/STATE_P1.md": "e0cb3a4d92720f5f665e33bfb67eddd77485246b66aa05263f42a2f7b7597103",
+    "docs/agent/steps/P1/S06.md": "8d0b7ae28678ec95b24563ffbb62b725d8c2aaaabb1d8f2b91f58ee1ec4e40f3",
+    "etl/README.md": "e418e420d17587ecd881033f5c3e6019eee6fb3c1d6584673aaf967d5bd7320c",
+    "docs/P1/s06c_handoff.md": "219bfe9ee0a8b028c2e0d0473fcf0c9038065b76ab094768cdb1edab50e7f83f",
+    "etl/s06c_fact.py": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1",
+    "results/warehouse/s06c_fixture_db3ea77cfc7d4daebc471e8aa2354c16.json": "abf37486bd64609051c75ec77c243e0718303885be96bb7278ec666c8d69492b",
+    "results/warehouse/s06c_load_bba59cc0f59b45b0897144a5268e111f.json": "cd389d5f31fadc90ee5803195cba0bbc3e4fa1e7237bbef7108337494f1a07df",
+    "results/warehouse/s06c_preflight_c0c750144d8a420ab25fefcab3b5433e.json": "7ee6bbef167e788dd77aa8c85e48130f6fa15640ddb3b70e3b921bf3a233e804",
+    "results/warehouse/s06c_unit_39e473d3dbf7404d9c271d0e511748a5.json": "d8580298aee018a2f5df14854da384c78d70aa2e877e69130dc72a33407e36ea",
+    "results/warehouse/s06c_verify_0dd850a11b604999ae9ff1f87d3cd317.json": "ccd3cbdc2a68a70a6aa5a37870657df75fd396fa9995ca0e5880e545e10085be",
+    "tests/warehouse/check_s06c_rollback.py": "a15324f81a2e3637eb2a126846a55c9e8d179fc20113ede13d47db4d5fb7b3dd",
+    "tests/warehouse/check_warehouse.py": "f92e3cba36b88699c02823e7139fe69217d2e44dd13ba9c145d8322334870e0a",
+    "tests/warehouse/test_s06c_fact.py": "bd3245a7f2f18f5c6fb70c03528b21cd72e6c018ef045fa1352a5d42dfea45a1"
+  }
+}

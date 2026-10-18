@@ -57,6 +57,8 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
+Hiện hành **6C WAITING_REVIEW**, 6B đã được điều phối chấp nhận: fact/view ratings **1000209** dòng, tổng điểm **3582313**, bốn hash canonical khớp; staging/dimension/bridge giữ nguyên, analytics rỗng. [Bàn giao6C](docs/P1/s06c_handoff.md), [summary6C](results/warehouse/s06c_summary.json). Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env`. Không chạy lại loader cũ/6C hoặc checker6B đòi fact rỗng; chưa6D/G2/OLAP/dashboard. Các đoạn dưới là lịch sử từng mốc.
+
 Hiện hành **6B WAITING_REVIEW**, 6A đã được điều phối chấp nhận: bridge có **6408 cặp**, staging/dimension giữ nguyên, fact/analytics rỗng. Xem [bàn giao 6B](docs/P1/s06b_handoff.md) và [summary](results/warehouse/s06b_summary.json). Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 -m etl.s06b_bridge verify --env-file .env`. Không chạy lại load S05/6A/6B hoặc checker6A cũ đòi bridge rỗng; chưa 6C/6D/G2. Các đoạn hiện hành cũ bên dưới giữ lịch sử từng mốc.
 
 Hiện hành 6A: bốn dimension đã nạp và đang WAITING_REVIEW; xem [bàn giao 6A](docs/P1/s06a_handoff.md) và [bằng chứng](results/warehouse/s06a_summary.json). Staging giữ nguyên, bridge/fact/analytics vẫn rỗng; **không chạy lại load S05 sau 6A**, chưa full refresh tích hợp/G2. Đoạn S05 dưới đây là lịch sử trước khi nạp dimension.

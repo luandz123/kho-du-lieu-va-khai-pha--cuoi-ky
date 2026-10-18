@@ -1,0 +1,66 @@
+{
+  "step": "6C_FIXTURE",
+  "run_id": "db3ea77cfc7d4daebc471e8aa2354c16",
+  "status": "PASS",
+  "fixture": "INVENTED_ONLY",
+  "schema": "s06c_test_db3ea77cfc7d",
+  "started_at_utc": "2026-10-18T12:51:46.016540+00:00",
+  "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1",
+  "test_code_sha256": "a15324f81a2e3637eb2a126846a55c9e8d179fc20113ede13d47db4d5fb7b3dd",
+  "base_commit": "d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe",
+  "fixture_schema_removed": true,
+  "rollback_cases": [
+    {
+      "fault": "MISSING_USER_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "MISSING_MOVIE_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "MISSING_DATE_MAPPING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "OUT_OF_RANGE_RATING",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "DUPLICATE_SOURCE_USER_MOVIE",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "check",
+      "sqlstate": "23514",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    },
+    {
+      "fault": "unique",
+      "sqlstate": "23505",
+      "inserted_before_error": 1000,
+      "after_rollback": 0
+    }
+  ],
+  "valid_fixture": {
+    "rows": 1000,
+    "duplicate_user_movie_pairs": 0,
+    "orphan_fks": 0,
+    "invalid_rating": 0,
+    "timestamp_rated_at_date_mismatches": 0,
+    "surrogate_keys_unique_positive": true
+  },
+  "fixture_session_timezone": "Asia/Bangkok",
+  "utc_boundary_days_each_500": true,
+  "one_movie_two_genres_source_ratings": 1000,
+  "one_movie_two_genres_fact_rows": 1000,
+  "dim_movie_rows_unchanged": 1,
+  "production_unchanged": true,
+  "duration_seconds": 10.75
+}

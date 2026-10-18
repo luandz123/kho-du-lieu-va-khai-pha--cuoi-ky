@@ -1,5 +1,15 @@
 # Trạng thái P1
 
+## Hiện hành — 6C WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận6B sau review, chạy lại15/15unit và kiểm hash/bằng chứng; ghi **6B APPROVED theo điều phối**, không lời duyệt nguyên văn tự tạo. Nhánh p1-s06-etl; checkpoint6B/HEAD **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe**. Đã rà/stage đúng19file6B trước commit local, giữ nguồn/reportPASS/FAIL/hashcode và kế hoạch untracked. Chưa push/PR hoặc đồng bộ/chuyển nhánh; phần6C chưa commit.
+
+6C đã kiểm preflight rồi nạp riêng fact trên movielens_btl: **1000209** đánh giá, tổng điểm **3582313**, user/phim có rating **6040/3706**. Không trùnguser–movie/FKorphan/rating sai/UTC lệch; toàn trường logic và bốn hash view khớp canonical, ratings **06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf**. Transaction/khóa snapshot chung, kiểm cùng connection trướccommit, khônggenrejoin/upsert/bỏ dòng. Staging/mọi trườngdimension/surrogate/bridge giữ nguyên; ba analytics vẫn0.
+
+Run **bba59cc0f59b45b0897144a5268e111f** COMMITTED **149.016s**, loader SHA **18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1**. Unit17/fixturedb3ea77c/load/hậu kiểm cùng loader. Fixture7ca lỗi sau1000insert rollback0, biênUTC trong sessionBangkok và phimđa genre không nhânrating đềuđạt; schema thử đãdọn. Hậu kiểm chỉ đọc mới dùng tests/warehouse/check_warehouse.py, khôngchecker6Bđòi factrỗng; bằng chứng vàrun trong results/warehouse/s06c_summary.json. Bàn giao docs/P1/s06c_handoff.md; hồ sơ S06.
+
+**6C WAITING_REVIEW**, 6D NOT_STARTED, G2 chưahoànthành. Không chạy lại loadS05/6A/6B/6C hoặc xóa dữ liệu đểvượtguard. Không đổiDDL/helpercũ/P2/nguồn/manifest/report6A6B; chưa fullrefresh/reruntoànpipeline, góiG2/adapterDW đầyđủ, OLAP/dashboard/nạpcụm/BI/backup. Dừng chờreview6C, chưapush/PR.
+
 ## Hiện hành — 6B WAITING_REVIEW, 18/10/2026
 
 Điều phối chấp nhận 6A sau review code/bằng chứng và báo chạy lại13/13 unit test đạt; ghi đúng nguồn điều phối, không lời duyệt nguyên văn tự tạo. **6A APPROVED theo điều phối**, đã lưu checkpoint local **cfed2c848e196bee73fcb61ec5fd017cc9dbaf98**, giữ nguyên23file/report/hash6A. Nhánh p1-s06-etl/HEADcfed2c8; chưa push/PR, không fetch/merge/switch, plan untracked giữ nguyên.

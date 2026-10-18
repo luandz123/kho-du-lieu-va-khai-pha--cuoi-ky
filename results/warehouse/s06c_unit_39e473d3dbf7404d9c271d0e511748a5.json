@@ -1,0 +1,13 @@
+{
+  "step": "6C_UNIT",
+  "run_id": "39e473d3dbf7404d9c271d0e511748a5",
+  "started_at_utc": "2026-10-18T12:51:37.418973+00:00",
+  "status": "PASS",
+  "tests_run": 17,
+  "failures": 0,
+  "errors": 0,
+  "code_sha256": "18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1",
+  "test_code_sha256": "bd3245a7f2f18f5c6fb70c03528b21cd72e6c018ef045fa1352a5d42dfea45a1",
+  "base_commit": "d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe",
+  "duration_seconds": 0.578
+}
