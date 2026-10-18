@@ -61,4 +61,15 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   4. Đọc phiên bản `scikit-learn` động từ môi trường runtime thay vì ghi cứng.
   5. Bỏ mọi assertion ép cứng ngưỡng ARI trong unit tests, chỉ kiểm tính hợp lệ toán học $[-1.0, 1.0]$ và self-comparison bằng 1.0.
 
+---
+
+### [DEC-P2-009] Xuất bản nguyên tử (Atomic Publication) và bảo toàn gói G3 chống phá hủy khi kiểm tra thất bại
+- **Bối cảnh**: Điều phối viên phát hiện lỗi thứ tự trong `export_g3_handoff_package`: hai tệp CSV được ghi trực tiếp vào thư mục đích trước khi kiểm tra hash đóng băng. Khi truyền nhãn hoán vị, hàm ném `ValueError` nhưng hai CSV đích đã bị thay thế, làm mất tính toàn vẹn và phá hỏng gói cũ.
+- **Quyết định**:
+  1. Toàn bộ quá trình tạo DataFrame, chuyển đổi sang chuỗi byte CSV, tính băm SHA-256 và dựng cấu trúc `manifest` được thực hiện 100% trong bộ nhớ trước khi chạm vào bất kỳ tệp nào của gói đích.
+  2. Thực hiện nghiêm ngặt kiểm tra tính nhất quán nội bộ của gói đã tồn tại trên đĩa (tồn tại đầy đủ CSV + manifest, parse JSON hợp lệ, checksum trên đĩa khớp với manifest). Tuyệt đối không âm thầm bỏ qua manifest hỏng để ghi đè.
+  3. Kiểm tra chống tái sử dụng version: cùng `model_version` nhưng payload (mã băm CSV dự kiến) hoặc `canonical_hashes` khác biệt với gói đang có phải bị từ chối ngay lập tức trước khi ghi.
+  4. Chỉ công bố (publish) khi mọi kiểm tra contract, fingerprint và checksum đều đạt: ghi các tệp vào thư mục tạm trung gian (`tempfile.TemporaryDirectory`) rồi thay thế nguyên tử (`os.replace`). Nếu kiểm tra thất bại ở bất kỳ khâu nào, gói cũ trên đĩa giữ nguyên 100% từng byte, và thư mục chưa tồn tại không để lại bất kỳ tệp dở dang nào.
+
+
 

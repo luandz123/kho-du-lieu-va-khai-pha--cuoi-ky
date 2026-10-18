@@ -16,6 +16,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import shutil
 import sys
 import numpy as np
 import pandas as pd
@@ -466,4 +467,240 @@ def test_figures_exist():
         fig_path = RESULTS_DIR / fig_name
         assert fig_path.exists(), f"Missing figure {fig_name}"
         assert fig_path.stat().st_size > 10000, f"Figure {fig_name} is too small / empty"
+
+
+def test_export_preserves_existing_package_on_fingerprint_mismatch(tmp_path, prepared_features):
+    """
+    Regression test:
+    Copies an existing valid G3 handoff package into tmp_path and records SHA-256 for all 3 files.
+    Then attempts to export using the same model_version ('kmeans_k4_seed42') but with permuted labels
+    (conflicting payload / fingerprint mismatch).
+    Must raise ValueError and ensure all 3 existing files retain their exact original bytes.
+    """
+    feat_matrix, user_status_df, _, tables = prepared_features
+    copy_dir = tmp_path / "valid_g3_copy"
+    copy_dir.mkdir(parents=True, exist_ok=True)
+
+    # 1. Copy existing valid package
+    for fname in ["user_cluster.csv", "cluster_genre_profile.csv", "manifest.json"]:
+        shutil.copy2(HANDOFF_DIR / fname, copy_dir / fname)
+
+    # 2. Record initial SHA-256 byte hashes
+    h_uc_before = compute_file_sha256(copy_dir / "user_cluster.csv")
+    h_prof_before = compute_file_sha256(copy_dir / "cluster_genre_profile.csv")
+    h_manifest_before = compute_file_sha256(copy_dir / "manifest.json")
+
+    # 3. Fit standard KMeans to get labels, then permute labels to generate conflicting payload
+    km = sklearn.cluster.KMeans(n_clusters=4, random_state=42, n_init=10)
+    labels = km.fit_predict(feat_matrix.values)
+    permuted_labels = (labels + 1) % 4  # Permute cluster assignments
+
+    # 4. Attempt export under frozen model_version with permuted labels
+    with pytest.raises(ValueError) as exc_info:
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_matrix,
+            labels=permuted_labels,
+            canonical_hashes=clustering_mod.FROZEN_G3_FINGERPRINT["canonical_hashes"],
+            model_version=clustering_mod.FROZEN_G3_MODEL_VERSION,
+            output_dir=copy_dir,
+        )
+
+    # Check error message indicates mismatch
+    err_msg = str(exc_info.value)
+    assert "hash mismatch" in err_msg or "conflicting payload" in err_msg
+
+    # 5. Verify that all 3 files on disk retain their exact byte content without modification
+    h_uc_after = compute_file_sha256(copy_dir / "user_cluster.csv")
+    h_prof_after = compute_file_sha256(copy_dir / "cluster_genre_profile.csv")
+    h_manifest_after = compute_file_sha256(copy_dir / "manifest.json")
+
+    assert h_uc_after == h_uc_before, "user_cluster.csv was mutated during failed export!"
+    assert h_prof_after == h_prof_before, "cluster_genre_profile.csv was mutated during failed export!"
+    assert h_manifest_after == h_manifest_before, "manifest.json was mutated during failed export!"
+
+
+def test_export_leaves_no_incomplete_package_when_validation_fails(tmp_path, prepared_features):
+    """
+    Regression test:
+    When exporting to a new/unborn directory, if validation fails (e.g. permuted labels),
+    it must NOT leave behind an incomplete or seemingly complete package.
+    """
+    feat_matrix, user_status_df, _, _ = prepared_features
+    target_dir = tmp_path / "unborn_handoff_package"
+    assert not target_dir.exists()
+
+    km = sklearn.cluster.KMeans(n_clusters=4, random_state=42, n_init=10)
+    labels = km.fit_predict(feat_matrix.values)
+    permuted_labels = (labels + 1) % 4
+
+    with pytest.raises(ValueError):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_matrix,
+            labels=permuted_labels,
+            canonical_hashes=clustering_mod.FROZEN_G3_FINGERPRINT["canonical_hashes"],
+            model_version=clustering_mod.FROZEN_G3_MODEL_VERSION,
+            output_dir=target_dir,
+        )
+
+    # Must not contain any partial or seemingly complete handoff files
+    if target_dir.exists():
+        assert not (target_dir / "user_cluster.csv").exists()
+        assert not (target_dir / "cluster_genre_profile.csv").exists()
+        assert not (target_dir / "manifest.json").exists()
+
+
+def test_export_rejects_corrupted_existing_package_without_modifying(tmp_path):
+    """
+    Regression test:
+    Verifies that existing packages are strictly validated for internal consistency:
+    - Incomplete package (CSV without manifest) is rejected.
+    - Corrupted JSON manifest is rejected.
+    - Checksum mismatch between disk CSV and manifest is rejected.
+    """
+    user_status_df = pd.DataFrame([{"user_id": 1, "status": "assigned"}])
+    feat_df = pd.DataFrame(np.ones((1, 18)) / 18.0, index=[1], columns=GENRE_COLUMNS)
+    labels = np.array([0])
+    hashes = {"users": "h1", "movies": "h2", "movie_genres": "h3", "ratings": "h4"}
+
+    # Case 1: CSV exists but manifest is missing
+    corrupt_dir_1 = tmp_path / "corrupt_pkg_1"
+    corrupt_dir_1.mkdir(parents=True)
+    (corrupt_dir_1 / "user_cluster.csv").write_text("dummy,content\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="CSV file.*exist but.*manifest.json.*missing"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels,
+            canonical_hashes=hashes,
+            model_version="custom_v1",
+            output_dir=corrupt_dir_1,
+        )
+
+    # Case 2: Manifest exists but is invalid JSON
+    corrupt_dir_2 = tmp_path / "corrupt_pkg_2"
+    corrupt_dir_2.mkdir(parents=True)
+    (corrupt_dir_2 / "user_cluster.csv").write_text("dummy\n", encoding="utf-8")
+    (corrupt_dir_2 / "cluster_genre_profile.csv").write_text("dummy\n", encoding="utf-8")
+    (corrupt_dir_2 / "manifest.json").write_text("{broken_json", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalid JSON"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels,
+            canonical_hashes=hashes,
+            model_version="custom_v1",
+            output_dir=corrupt_dir_2,
+        )
+
+    # Case 3: Manifest records a hash, but disk file was tampered with (checksum mismatch)
+    corrupt_dir_3 = tmp_path / "corrupt_pkg_3"
+    corrupt_dir_3.mkdir(parents=True)
+    (corrupt_dir_3 / "user_cluster.csv").write_text("tampered content\n", encoding="utf-8")
+    (corrupt_dir_3 / "cluster_genre_profile.csv").write_text("dummy\n", encoding="utf-8")
+    bad_manifest = {
+        "model_version": "custom_v1",
+        "files": {
+            "user_cluster.csv": {"sha256": "expected_different_sha256_hash"},
+            "cluster_genre_profile.csv": {"sha256": compute_file_sha256(corrupt_dir_3 / "cluster_genre_profile.csv")},
+        },
+    }
+    with open(corrupt_dir_3 / "manifest.json", "w", encoding="utf-8") as f:
+        json.dump(bad_manifest, f)
+
+    with pytest.raises(ValueError, match="checksum mismatch for 'user_cluster.csv'"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels,
+            canonical_hashes=hashes,
+            model_version="custom_v1",
+            output_dir=corrupt_dir_3,
+        )
+
+
+def test_export_reproduce_yields_exact_frozen_csv_hashes(tmp_path, prepared_features):
+    """
+    Regression test:
+    Verifies that reproducing the finalized model in an isolated tmp_path
+    produces the exact two finalized CSV hashes for user_cluster.csv and cluster_genre_profile.csv.
+    """
+    feat_matrix, user_status_df, _, _ = prepared_features
+    reproduce_dir = tmp_path / "reproduce_isolated"
+
+    km = sklearn.cluster.KMeans(n_clusters=4, random_state=42, n_init=10)
+    labels = km.fit_predict(feat_matrix.values)
+
+    manifest = export_g3_handoff_package(
+        user_status_df=user_status_df,
+        feat_matrix=feat_matrix,
+        labels=labels,
+        canonical_hashes=clustering_mod.FROZEN_G3_FINGERPRINT["canonical_hashes"],
+        model_version=clustering_mod.FROZEN_G3_MODEL_VERSION,
+        output_dir=reproduce_dir,
+    )
+
+    uc_path = reproduce_dir / "user_cluster.csv"
+    prof_path = reproduce_dir / "cluster_genre_profile.csv"
+
+    assert uc_path.exists()
+    assert prof_path.exists()
+
+    expected_csv_hashes = clustering_mod.FROZEN_G3_FINGERPRINT["expected_csv_hashes"]
+    assert compute_file_sha256(uc_path) == expected_csv_hashes["user_cluster.csv"]
+    assert compute_file_sha256(prof_path) == expected_csv_hashes["cluster_genre_profile.csv"]
+    assert manifest["files"]["user_cluster.csv"]["sha256"] == expected_csv_hashes["user_cluster.csv"]
+    assert manifest["files"]["cluster_genre_profile.csv"]["sha256"] == expected_csv_hashes["cluster_genre_profile.csv"]
+
+
+def test_export_rejects_conflicting_payload_under_custom_model_version(tmp_path):
+    """
+    Regression test:
+    Under a custom model_version, exporting a conflicting payload (different labels/data)
+    into an existing package directory must be rejected before modifying files, preserving old bytes.
+    """
+    user_status_df = pd.DataFrame([
+        {"user_id": 1, "status": "assigned"},
+        {"user_id": 2, "status": "assigned"},
+    ])
+    feat_df = pd.DataFrame(np.ones((2, 18)) / 18.0, index=[1, 2], columns=GENRE_COLUMNS)
+    labels_v1 = np.array([0, 0])
+    hashes = {"users": "h1", "movies": "h2", "movie_genres": "h3", "ratings": "h4"}
+
+    target_dir = tmp_path / "custom_payload_pkg"
+
+    # Export initial valid package
+    export_g3_handoff_package(
+        user_status_df=user_status_df,
+        feat_matrix=feat_df,
+        labels=labels_v1,
+        canonical_hashes=hashes,
+        model_version="custom_payload_v1",
+        output_dir=target_dir,
+    )
+
+    h_uc_before = compute_file_sha256(target_dir / "user_cluster.csv")
+    h_prof_before = compute_file_sha256(target_dir / "cluster_genre_profile.csv")
+    h_manifest_before = compute_file_sha256(target_dir / "manifest.json")
+
+    # Attempt export with different labels (conflicting payload) under same version
+    labels_v2 = np.array([0, 1])
+    with pytest.raises(ValueError, match="Cannot reuse model_version 'custom_payload_v1' with conflicting payload"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_v2,
+            canonical_hashes=hashes,
+            model_version="custom_payload_v1",
+            output_dir=target_dir,
+        )
+
+    # Confirm all 3 files remain byte-identical
+    assert compute_file_sha256(target_dir / "user_cluster.csv") == h_uc_before
+    assert compute_file_sha256(target_dir / "cluster_genre_profile.csv") == h_prof_before
+    assert compute_file_sha256(target_dir / "manifest.json") == h_manifest_before
+
 
