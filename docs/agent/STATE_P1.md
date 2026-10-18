@@ -1,5 +1,14 @@
 # Trạng thái P1
 
+## Quan sát GitHub sau công bố — PR9 đã được merge bên ngoài thao tác agent
+
+API xác minh PR#9 CLOSED/MERGED lúc **2026-10-18T13:56:29Z**, actor GitHub **hungvu205**, merge commit/main **ad51ba6536d0468c05b833ac05be9f18e9d9d87f**. Agent không gửi lệnh/API merge và không tự coi quan sát này là lời duyệt người dùng hoặc P2 đã nhậnG2. PR đã được mở OPEN trước đó đúng lệnh; các trạng thái OPEN phía dưới là lịch sử.
+
+HEAD được merge là **11a3d7367bbdbfad4267570d04863d22ee490d1c**; commit code tái tạo **4fa9cf17aa41e5ff84d4490886eeac27971e46f6** nằm trong PR. Sau đó commit chỉ cập nhật11file hồ sơ **500b29347bfe1834434a401bc5e32cf23c3f6c03** đã push trên p1-s06-etl, chưa thuộc PR đã merge/main. Không khác pipeline code giữa hai HEAD. Không force/reset/tự ghép hoặc mở PR mới để đưa hồ sơ vào main.
+
+Đã dừng thao tác Git ghi sau phát hiện; chỉ đọc kiểm PR/main/branch và65blob của PR đãmerge. Ghi nhận API và hash hồ sơ quan sát tại docs/P1/g2_post_merge_observation.json, giữ cục bộ chưa commit/push. P2intake NOT_CONFIRMED và dedicated_read_only_account_verified=false giữ nguyên; không sửa quyền/firewall/chia sẻcredential, chưa OLAP/dashboard/G3. Cần điều phối chốt riêng cách nhận commit hồ sơ500b293; không tự chuyển bước.
+
+
 ## Hiện hành — công bố ETL/G2, 6D đã được điều phối chấp nhận
 
 Nguồn: điều phối thông báo chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, đềuCOMMITTED. **6D APPROVED theo điều phối ở mức kiểm nhận cục bộ**; không tạo lời duyệt nguyên văn người dùng. Được giao commit/push p1-s06-etl và mở PRmain, chưa merge. Trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
