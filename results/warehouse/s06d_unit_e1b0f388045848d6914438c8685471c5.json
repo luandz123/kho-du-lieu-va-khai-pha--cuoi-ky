@@ -1,0 +1,24 @@
+{
+  "step": "6D_REGRESSION_UNIT",
+  "run_id": "e1b0f388045848d6914438c8685471c5",
+  "started_at_utc": "2026-10-18T13:15:28.651439+00:00",
+  "status": "PASS",
+  "tests_run": 62,
+  "failures": 0,
+  "errors": 0,
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "850902d9e0adef541e57a592b7a3f995c44fe8eb03e3a8ca54d4cf2f3cb7bea0",
+    "file_sha256": {
+      "etl/run_etl.py": "6f4d9d47d88db71438c62667b27539de3b7f6c02480eb3ab209f073a9007e8cd",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "duration_seconds": 0.75,
+  "scope": "P1 warehouse S05/6A/6B/6C/6D unit tests only"
+}

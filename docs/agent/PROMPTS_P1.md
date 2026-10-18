@@ -1,5 +1,35 @@
 # Nguồn prompt P1
 
+## P-P1-24 — Điều phối giao công bố PR ETL/G2
+
+Điều phối báo chấp nhận6D sau review, chạy lại65unit và đối chiếu29artifact. Giao rà toàn bộ gói từmain kể cả checkpoint6A/B/C; giữ reportPASS/FAIL/hash runtime, code và quyền truy cập đã kiểm. Stage từng đường dẫnP1/commit6D, phân biệt commit công bố với base_commit và working-tree hash thực chạy. Chỉ chuẩn hóa LF/CRLF để so code với Git blob, không chuẩn hóa byte raw/canonical. Cập nhật ledger hash khi sửa tài liệu/metadata, không rerun fullrefresh vì cập nhật hồ sơ. Khi an toàn fetch/tích hợp origin/main, kiểm tác động nếu adapter/contract/serializer đổi; không reset/force/ghiđèP2/ours-theirs hàng loạt. Push nhánh p1-s06-etl và mởPRmain, bàn giao URL/HEAD/commit code/filelist/checks/workingtree/manifestrun và đầu vào truy cậpP2 còn thiếu.
+
+Giới hạn nguyên văn: “Giữ dedicated_read_only_account_verified=false và p2_intake_status=NOT_CONFIRMED đến khi có bằng chứng thật.” Và: “Không gửi credential quản trị cho P2, không mở PostgreSQL công khai hoặc thay firewall trong lượt này.” Dừng sau PRG2, chưa merge/OLAP/dashboard/G3. Đây là lệnh công bố và thông tin review điều phối, không phải lời duyệt nguyên văn do agent tạo.
+
+## P-P1-23 — Điều phối chấp nhận 6C, giao riêng6D, 18/10/2026
+
+Tóm tắt lệnh: điều phối báo chấp nhận6C sau review/chạy lại17unit/đối chiếuhash. Cho checkpoint local6C sau rà/stage đúngP1; giữ reportnguồn/kế hoạchngoàiphạmvi, khôngpush/PR. Tích hợp etl/run_etl.py cùngconnection/transaction/khóachung trênmovielens_btl, khôngbootstrap/đổiDDL; kiểmnguồn/config/catalog trướcghi. Vô hiệu hóaregistry, mộtTRUNCATE đúng11bảng RESTARTIDENTITY, giữregistrymetadata, khôngCASCADE/DROP/bảngngoài. Nạp staging→dimension→bridge→fact, kiểmtrướccommit cùngconnection; khôngnốiCLI cácbước cũ. Bỏ phụthuộc guard rỗng/fingerprinttiểubước trong hậu kiểmtíchhợp, thay bằng kiểm logicnguồn/khóa/UTC/hash/model. Chạy2lần cùngcode/config; fixturetáchbiệt chứngminh snapshotcũ vàflagsmodel phục hồi khi parse/mappingFK/rating/trùng/checksum lỗi. COMMIT mấtkếtnối ghi chưa xácđịnh và reconnectkiểm. Kiểm adapterP2 đọcDWthật/rawCSV; không sửaP2; phânbiệtsessionreadonly/tàikhoảnchỉđọc. Manifest/báocáo sauCOMMIT ghifiletạm/thaytên, lỗighi tệp khôngđược gọilàrollbackDB. CSVchỉcục bộ. CậpnhậtS06/STATE6DWAITING_REVIEW, dừng.
+
+Giới hạn nguyên văn: “Chưa push/mở PR, chưa tuyên bố G2 đã được P2 kiểm nhận, chưa làm OLAP/dashboard hoặc nạp cụm. Dừng để điều phối review 6D; sau đó mới giao công bố PR G2.” Và: “Không gọi nối tiếp các CLI S05/6A/6B/6C có connection/commit riêng rồi gọi đó là full refresh nguyên tử.” Đây là lệnh phạm vi, không phải lời duyệt6D. Đã đọc S04/contract/S06 và phần6D của promptWordP1 để kế thừa thiết kế.
+
+## P-P1-22 — Điều phối chấp nhận 6B, giao riêng 6C, 18/10/2026
+
+Tóm tắt lệnh: điều phối báo chấp nhận 6B sau review, chạy lại 15/15 unit và kiểm hash/bằng chứng. Giữ p1-s06-etl, được checkpoint local 6B sau rà/stage đúng P1; bảo toàn report PASS/FAIL, nguồn và kế hoạch ngoài phạm vi, chưa push/PR. Kiểm movielens_btl/marker/catalog/staging S05/dimension gồm surrogate/bridge đúng và fact/analytics rỗng. Nạp riêng fact qua mapping user/movie/ngày UTC đầy đủ duy nhất; parse đúng rating/int64, không inner join bỏ khóa/genre join/upsert hoặc bỏ dòng. Transaction và khóa snapshot chung, kiểm cùng connection trước commit, rollback lỗi. Đối soát toàn trường, số dòng/tổng điểm/phân bố sao/user-phim có rating/UTC/khóa và bốn canonical hash; bảo toàn staging/dimension/bridge, analytics rỗng. Fixture lỗi mapping/miền/trùng/biên UTC/đa genre/rollback sau insert một phần, hậu kiểm chỉ đọc phù hợp; cập nhật S06/STATE WAITING_REVIEW và dừng.
+
+Giới hạn nguyên văn: “Không chạy lại checker 6B có điều kiện fact rỗng sau khi đã nạp 6C; dùng kiểm bảo toàn phù hợp, giữ bằng chứng cũ.” Và: “Chưa làm 6D, xuất gói G2, OLAP, dashboard hoặc nạp cụm analytics. Chưa push/mở PR. Dừng sau bàn giao 6C.” Đây là lệnh phạm vi, không phải lời duyệt kết quả 6C. Đã đọc lại đoạn 6C trong Word P1; dùng tên nhánh không codex/ theo chỉ thị nhóm.
+
+## P-P1-21 — Điều phối chấp nhận6A, giao riêng6B, 18/10/2026
+
+Tóm tắt lệnh: điều phối báo chấp nhận6A và chạy lại13/13unit đạt. Giữ p1-s06-etl; được checkpoint local6A sau rà diff/stage đúng P1, giữ mọi report/hash, không plan/data/secret; chưa push/PR. Kiểm movielens_btl/marker/catalog/staging snapshotS05/dimension6A/haihash/genre/lịch và targetrỗng. Nạp riêngbridge qua mapping đầy đủ/duynhất, không bỏ khóa hoặcdedup, transaction/khóa snapshot chung, kiểm cùngconnection trướccommit. Đối soát6408cặp/hashgenre/PK/FK/từngphim/bảo toàn staging&dimension; fact/analytics vẫn0. Fixture thiếu mapping/cặptrùng/đa genre/rollback. Cập nhật hồ sơ6B WAITING_REVIEW, bàn giao và dừng.
+
+Giới hạn nguyên văn từ lệnh hiện tại: “Sau 6B, checker 6A có điều kiện bridge rỗng sẽ không còn phù hợp để chạy nguyên trạng. Dùng kiểm tra bảo toàn dimension riêng; không sửa bằng chứng 6A cũ để che thay đổi trạng thái.” Và: “Không chạy lại load S05/6A, không truncate dimension, chưa làm 6C/6D, OLAP hoặc dashboard. Chưa push/mở PR. Dừng sau bàn giao 6B.” Đây là lệnh phạm vi, không phải lời duyệt kết quả6B.
+
+## P-P1-20 — Điều phối giao riêng 6A, 18/10/2026
+
+Tóm tắt lệnh: điều phối chấp nhận S05, PR #7 MERGED/8de1c7b đã xác minh. Bảo toàn hiện trạng, đọc hồ sơ/thiết kế/contract/manifest, đồng bộ main và nhánh p1-s06-etl. Đọc kiểm movielens_btl/marker/catalog/staging toàn nội dung/source/hash và targets rỗng; bất thường phải kiểm nguồn gốc, không truncate. Nạp user/movie/genre/date từ staging, giữ ID/title, map tuổi/nghề/genre, năm NULL và lịch liên tục UTC; một transaction/khóa chung, kiểm miền/NULL/unique/code sets trước commit, không im lặng bỏ dòng. Kiểm count, hai canonical view hash, tập genre/lịch/generated, fixture mapping/NULL/special title/biên UTC/rollback; bridge/fact/analytics vẫn rỗng. Bàn giao code/test/evidence/version/lệnh/giới hạn/3–5 ý bảo vệ, STATE/S06 6A WAITING_REVIEW.
+
+Nguyên văn giới hạn: “Sau khi dimension đã có dữ liệu, không tự chạy lại lệnh load S05: lệnh đó được thiết kế yêu cầu DW/analytics rỗng. Chưa tuyên bố pipeline full refresh chạy lại được; phần tích hợp thuộc 6D.” Và: “Chưa nạp bridge 6B, fact 6C, chạy 6D, OLAP hoặc dashboard. Chưa commit/push/mở PR trong lượt này. Dừng sau bàn giao 6A.”
+
 ## P-P1-19 — Chốt bằng chứng và công bố S05, 17/10/2026
 
 Tóm tắt lệnh điều phối: code S05 đã review, điều phối chạy lại 9/9 test đạt, chưa lỗi chặn PR. Giữ báo cáo c122ce2/0f24c3a, chạy thêm một load không đổi code rồi so với 0f24c3a: cùng code SHA, count/retained-row hash, mọi field/source_line và chín target rỗng; nếu thất bại dừng chưa push. Ghi cặp cùng phiên bản, thứ tự/thời điểm/thời gian nhất quán, giữ FAIL/lịch sử và cập nhật artifact hash. Ghi đúng nguồn điều phối, giới hạn chưa DW/G2/BI/backup. Stage đúng phạm vi P1/S05, không kế hoạch/raw/processed/user data/.env/secret, commit trước đồng bộ main an toàn, push/mở PR main và chỉ ghi thành công sau xác minh. Bàn giao PR/HEAD/cặp run/check/worktree, chưa merge/6A/OLAP/dashboard.

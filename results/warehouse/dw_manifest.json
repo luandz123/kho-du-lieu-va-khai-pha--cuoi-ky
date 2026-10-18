@@ -1,0 +1,70 @@
+{
+  "contract_version": 2,
+  "run_id": "6501a547065246869b98b6ab6531190e",
+  "generated_at_utc": "2026-10-18T13:22:17.220812+00:00",
+  "database": "movielens_btl",
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "row_counts": {
+    "users": 6040,
+    "movies": 3883,
+    "movie_genres": 6408,
+    "ratings": 1000209
+  },
+  "rating_sum": 3582313,
+  "star_counts": {
+    "1": 56174,
+    "2": 107557,
+    "3": 261197,
+    "4": 348971,
+    "5": 226310
+  },
+  "min_rated_at_utc": "2000-04-25T23:05:32Z",
+  "max_rated_at_utc": "2003-02-28T17:49:50Z",
+  "source_hashes": {
+    "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+    "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+    "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+    "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+  },
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422",
+    "file_sha256": {
+      "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "nonsecret_config_sha256": "e2b56ec949d873a395b4af4d9ff351967b2f3d48984dbb8b08922fcb0e114dfd",
+  "model_state": {
+    "registry_rows": 0,
+    "active": 0,
+    "valid": 0,
+    "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "p2_intake_status": "NOT_CONFIRMED",
+  "g2_status": "PREPARED_FOR_REVIEW",
+  "local_adapter_verification": {
+    "status": "PASS",
+    "report": "results/warehouse/s06d_adapter_c75f9cb0ceb04d74bfa36e140d812754.json",
+    "run_id": "c75f9cb0ceb04d74bfa36e140d812754",
+    "raw_csv_dw_all_cells_equal": true,
+    "session_read_only_verified": true,
+    "dedicated_read_only_account_verified": false,
+    "p2_remote_connectivity_verified": false
+  },
+  "integrated_readonly_verification": {
+    "status": "PASS",
+    "report": "results/warehouse/s06d_verify_21f0d343d42543c2ab176c3ac554841e.json",
+    "run_id": "21f0d343d42543c2ab176c3ac554841e"
+  }
+}

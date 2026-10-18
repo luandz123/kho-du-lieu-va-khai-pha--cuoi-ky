@@ -1,0 +1,185 @@
+{
+  "step": "6A",
+  "status": "WAITING_REVIEW",
+  "date_local": "2026-10-18",
+  "branch": "p1-s06-etl",
+  "base_commit": "52dd682920e0587f3a474fe284b9bf5635ab6aac",
+  "code_state": "UNCOMMITTED_WORKING_TREE",
+  "code_sha256": "77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2",
+  "s05_merge_verified": "8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6",
+  "review_source": "Coordinator accepts S05 and assigns only 6A; no fabricated verbatim user approval",
+  "inherited_main_note": "Base also contains merged PR8/P2; no P2 edits or self-approval",
+  "database": "movielens_btl",
+  "preflight_report": "results/warehouse/s06a_preflight.json",
+  "successful_load_report": "results/warehouse/s06a_load_3b6f0cda57a5454ba52bc8674c18b953.json",
+  "successful_load_duration_seconds": 4.625,
+  "unit_report": "results/warehouse/s06a_unit_7c1ebdfb10814a228c4eb406517e0a6b.json",
+  "unit_tests_passed": 13,
+  "fixture_report": "results/warehouse/s06a_fixture_428e7cb459e74eeca7bc62a6b0644e41.json",
+  "readonly_verification_report": "results/warehouse/s06a_verify_ab5b5c852b7a43238e8ddcc9b7ded893.json",
+  "same_loader_hash_for_unit_fixture_load_verify": true,
+  "dimensions": {
+    "dim_user": {
+      "rows": 6040,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_movie": {
+      "rows": 3883,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_genre": {
+      "rows": 18,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_date": {
+      "rows": 1040,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true,
+      "generated_calendar_columns_exact": true,
+      "no_missing_or_duplicate_dates": true,
+      "min_timestamp": 956703932,
+      "max_timestamp": 1046454590,
+      "min_rated_at": "2000-04-25T23:05:32Z",
+      "max_rated_at": "2003-02-28T17:49:50Z",
+      "first_date": "2000-04-25",
+      "last_date": "2003-02-28",
+      "inclusive_days": 1040
+    }
+  },
+  "canonical_two_views": {
+    "views": {
+      "users": {
+        "rows": 6040,
+        "sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "canonical_hash_matches": true
+      },
+      "movies": {
+        "rows": 3883,
+        "sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "canonical_hash_matches": true
+      }
+    },
+    "serializer_git_blob_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+    "g2_complete": false
+  },
+  "unloaded_target_counts": {
+    "dw.bridge_movie_genre": 0,
+    "dw.fact_rating": 0,
+    "analytics.model_registry": 0,
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0
+  },
+  "empty_remaining_views": {
+    "dw.v_ml_movie_genres": 0,
+    "dw.v_ml_ratings": 0
+  },
+  "staging_matches_s05_snapshot": true,
+  "genre_set_matches_manifest_and_source": true,
+  "g2_complete": false,
+  "rollback_fixture": {
+    "sqlstate": "23505",
+    "three_dimensions_inserted_before_failure": {
+      "dim_user": 7,
+      "dim_movie": 2,
+      "dim_genre": 2
+    },
+    "after_rollback_counts": {
+      "dim_user": 0,
+      "dim_movie": 0,
+      "dim_genre": 0,
+      "dim_date": 0
+    },
+    "fixture_schema_removed": true,
+    "production_unchanged": true,
+    "identity_sequence_gaps_are_allowed": true
+  },
+  "failed_production_reports_kept": [
+    {
+      "report": "results/warehouse/s06a_load_ab42f286f1ab40a5ae3d51a59bb82def.json",
+      "code_sha256": "c231e8c5ee345448ec8f36e5ca6961497b3ffc5a52d8aa6780a42cd25b71cdf4",
+      "error_category": "DIMENSION_CANONICAL_VIEW_MISMATCH",
+      "transaction": "ROLLED_BACK",
+      "resolution": "Contract ordering added to P1 view hash caller; no source/DDL/expected hash change; full data rollback confirmed before retry"
+    }
+  ],
+  "earlier_test_versions_kept": [
+    "s06a_fixture_5c40ed25036f445c870d4bd716401599.json",
+    "s06a_unit_e62eeea8e04745a8a98ee8f5784f5bf5.json"
+  ],
+  "manifest_metadata_source_code_commit_observed": "7a284b9f108dd64b030305cf51b8614b770a2296",
+  "serializer_git_blob_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+  "limits": [
+    "No bridge6B/fact6C/full-refresh6D",
+    "Only two view hashes; no complete G2",
+    "No OLAP/dashboard/BI permission/backup restore",
+    "Do not rerun S05 load or clear targets to rerun6A",
+    "No commit/push/PR S06"
+  ],
+  "artifact_sha256": {
+    "etl/s06a_dimensions.py": "77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2",
+    "tests/warehouse/test_s06a_dimensions.py": "986db65cd32ac7f8e1c5480b49f15fa4b476aad6b57919e32f29795b351a6f78",
+    "tests/warehouse/check_s06a_rollback.py": "1554f06ec796698e02b718783c5938bfde2e46c9080347d6ced8b698eaa62bdc",
+    "tests/warehouse/check_s06a_dimensions.py": "24db17db6aa576635a1db80afed81b217d32d006b12aa5083bf793cd4e9c6c57",
+    "docs/P1/s06a_handoff.md": "f580e25f46be7030d1379755c60503b8784aba2545f5a26d30409994db5ec0ed",
+    "docs/agent/steps/P1/S06.md": "c06896a3b60eabdecdfe79a6388d86999b6d5573885f3d0995a27e2e0a759ad8",
+    "etl/README.md": "f0c174ac1a3a1bdcb599e800eb3a92dca580b08104e2bf1b3b5a7bf551196a7e",
+    "README.md": "729e6cdf272fd4d6c6373819361ced171d25fac6f98a7d20b6570a10e3b5d34e",
+    "database/README.md": "2870dc4a085bc9928963b902669efa27e9482958346c7b22ac6fd0a1214ca916",
+    "docs/agent/STATE_P1.md": "77e355a23f649c3ffc4271bf2d0fb82ada4ed385617ebe6d78b114966052cedd",
+    "docs/agent/DECISIONS_P1.md": "70213139e323081ac9e38d35c588afab1f122c4c8aa4c17b647f9c01d5a62bfe",
+    "docs/agent/REVIEWS_P1.md": "598d76d827a9a6c5bcc345b414be342ec24b4fdd83fb8c429dbc97d9ca64aa21",
+    "docs/agent/PROMPTS_P1.md": "67a760ae4577ab6558277c7226b70fa3bb32a9aa637f9e71b4f64347ec22ad85",
+    "results/warehouse/s06a_fixture_428e7cb459e74eeca7bc62a6b0644e41.json": "d09a55f15016b028352d7d9458b1b450030492bf27124499b725437bfa57c942",
+    "results/warehouse/s06a_fixture_5c40ed25036f445c870d4bd716401599.json": "0143a9f3f05c26561733f47e32e6d05bd2f1995a6d3f5e70f3887b48be42daa7",
+    "results/warehouse/s06a_load_3b6f0cda57a5454ba52bc8674c18b953.json": "09dc9788cf2f43e883500f38450cfd64a2cf4a9530e4c05d7e39a863e8c2f5ec",
+    "results/warehouse/s06a_load_ab42f286f1ab40a5ae3d51a59bb82def.json": "f1a860a9479ebc0eb66e6903f03cd6d178b36980c15dd732be4c7214335af292",
+    "results/warehouse/s06a_postcheck.json": "195b5258942e372c1df1922bea74bc2a1c345a148e413674a9253f981119a6bc",
+    "results/warehouse/s06a_preflight.json": "a40e249be3f493012d9a31852ffaf75e7fa0616303401b6744c62c0369d74652",
+    "results/warehouse/s06a_unit_7c1ebdfb10814a228c4eb406517e0a6b.json": "7d64a4cef508093645a78be974c07cab28d317ef627dbcfe587427bb4611580c",
+    "results/warehouse/s06a_unit_e62eeea8e04745a8a98ee8f5784f5bf5.json": "d234d53734e0978d9c9466883e2f8a36d26165d4c2f00cbcf0a106c43c8d4726",
+    "results/warehouse/s06a_verify_ab5b5c852b7a43238e8ddcc9b7ded893.json": "881ca741d976909606079767a3bdeeac2dfbfd43b214c7cd6737c57e3bbba331"
+  },
+  "preservation": {
+    "ddl_s05_helper_contract_p2_and_sources_not_modified": true,
+    "historical_s05_reports_unchanged": true,
+    "unrelated_plan_preserved": true,
+    "no_secrets_or_user_data_rows_logged": true,
+    "staged_files": []
+  },
+  "git_status_at_handoff": [
+    " M README.md",
+    " M database/README.md",
+    " M docs/agent/DECISIONS_P1.md",
+    " M docs/agent/PROMPTS_P1.md",
+    " M docs/agent/REVIEWS_P1.md",
+    " M docs/agent/STATE_P1.md",
+    " M etl/README.md",
+    "?? docs/KE_HOACH_BTL_MOVIELENS.md",
+    "?? docs/P1/s06a_handoff.md",
+    "?? docs/agent/steps/P1/S06.md",
+    "?? etl/s06a_dimensions.py",
+    "?? results/warehouse/s06a_fixture_428e7cb459e74eeca7bc62a6b0644e41.json",
+    "?? results/warehouse/s06a_fixture_5c40ed25036f445c870d4bd716401599.json",
+    "?? results/warehouse/s06a_load_3b6f0cda57a5454ba52bc8674c18b953.json",
+    "?? results/warehouse/s06a_load_ab42f286f1ab40a5ae3d51a59bb82def.json",
+    "?? results/warehouse/s06a_postcheck.json",
+    "?? results/warehouse/s06a_preflight.json",
+    "?? results/warehouse/s06a_summary.json",
+    "?? results/warehouse/s06a_unit_7c1ebdfb10814a228c4eb406517e0a6b.json",
+    "?? results/warehouse/s06a_unit_e62eeea8e04745a8a98ee8f5784f5bf5.json",
+    "?? results/warehouse/s06a_verify_ab5b5c852b7a43238e8ddcc9b7ded893.json",
+    "?? tests/warehouse/check_s06a_dimensions.py",
+    "?? tests/warehouse/check_s06a_rollback.py",
+    "?? tests/warehouse/test_s06a_dimensions.py"
+  ],
+  "final_checks": {
+    "artifact_hashes_match": true,
+    "handoff_links_resolve": true,
+    "same_loader_hash_for_final_tests_load_postcheck": true,
+    "staging_index_empty": true,
+    "no_commit_push_pr_this_turn": true
+  }
+}

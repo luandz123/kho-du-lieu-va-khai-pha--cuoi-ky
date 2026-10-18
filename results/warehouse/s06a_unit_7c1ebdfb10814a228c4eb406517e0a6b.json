@@ -1,0 +1,11 @@
+{
+  "step": "6A_UNIT",
+  "run_id": "7c1ebdfb10814a228c4eb406517e0a6b",
+  "status": "PASS",
+  "tests": 13,
+  "exit_code": 0,
+  "fixture": "INVENTED_ONLY_NO_DATABASE",
+  "output": "test_absent_or_nonfour_digit_or_trailing_year_is_null (test_s06a_dimensions.DimensionTransforms.test_absent_or_nonfour_digit_or_trailing_year_is_null) ... ok\ntest_all_seven_age_labels_and_occupation_retained (test_s06a_dimensions.DimensionTransforms.test_all_seven_age_labels_and_occupation_retained) ... ok\ntest_canonical_view_client_sorts_rows_and_preserves_nullable_integer (test_s06a_dimensions.DimensionTransforms.test_canonical_view_client_sorts_rows_and_preserves_nullable_integer) ... ok\ntest_duplicate_user_or_movie_rejected (test_s06a_dimensions.DimensionTransforms.test_duplicate_user_or_movie_rejected) ... ok\ntest_final_parenthesized_year_only (test_s06a_dimensions.DimensionTransforms.test_final_parenthesized_year_only) ... ok\ntest_genre_global_grain_one_row_each (test_s06a_dimensions.DimensionTransforms.test_genre_global_grain_one_row_each) ... ok\ntest_integer_and_timestamp_domain (test_s06a_dimensions.DimensionTransforms.test_integer_and_timestamp_domain) ... ok\ntest_invalid_user_codes_rejected (test_s06a_dimensions.DimensionTransforms.test_invalid_user_codes_rejected) ... ok\ntest_leap_day_continuous_calendar (test_s06a_dimensions.DimensionTransforms.test_leap_day_continuous_calendar) ... ok\ntest_negative_epoch_is_utc (test_s06a_dimensions.DimensionTransforms.test_negative_epoch_is_utc) ... ok\ntest_title_special_characters_preserved (test_s06a_dimensions.DimensionTransforms.test_title_special_characters_preserved) ... ok\ntest_unknown_or_duplicate_movie_genre_rejected (test_s06a_dimensions.DimensionTransforms.test_unknown_or_duplicate_movie_genre_rejected) ... ok\ntest_utc_midnight_not_machine_timezone (test_s06a_dimensions.DimensionTransforms.test_utc_midnight_not_machine_timezone) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.089s\n\nOK\n",
+  "loader_code_sha256": "77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2",
+  "test_sha256": "986db65cd32ac7f8e1c5480b49f15fa4b476aad6b57919e32f29795b351a6f78"
+}

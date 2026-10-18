@@ -1,5 +1,35 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận6D, giao công bố PR ETL/G2
+
+Nguồn: thông báo điều phối chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu hash29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, COMMITTED. Ghi **6D APPROVED theo điều phối ở mức cục bộ**, không tạo lời duyệt nguyên văn người dùng và không coi là PR đãmerge/P2 đãnhậnG2.
+
+Quyền lần này: rà toàn bộ gói từmain gồm checkpoint6A/B/C, commit6D, fetch/tích hợp main an toàn, push p1-s06-etl và mởPRmain. Không merge, fullrefresh mới/OLAP/dashboard/G3 hoặc thay role/firewall/credential. P2intake NOT_CONFIRMED và dedicated_read_only_account_verified=false tiếp tục giữ đến bằng chứng thật. Bằng chứng công bố ghi riêng, report runtime cũ không được gán commit mới.
+
+## Điều phối chấp nhận 6C và giao riêng 6D — 18/10/2026
+
+Nguồn: điều phối thông báo chấp nhận 6C sau review code, chạy lại17/17 unit test và đối chiếu bằng chứng/hash. Ghi **6C APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Đã rà diff/hash và stage đúng19file P1 của 6C rồi checkpoint local **c143f5d7081da041aad38c0a97c0a8ac0ef721cb**, giữ nhánh p1-s06-etl và kế hoạch untracked ngoài phạm vi; chưa push/PR.
+
+Lệnh mới chỉ full refresh6D, kiểm chạy lại/rollback, hậu kiểm tích hợp và chuẩn bị metadataG2. Không coi kết quả kiểm của agent là duyệt6D, PR đãmerge hoặc P2 đã nhậnG2. ReportPASS/FAIL cũ giữ nguyên; helper được refactor có hash mới ghi riêng trong version bundle6D, không sửa hash thực chạy trong report6A/B/C.
+
+## Điều phối chấp nhận 6B và giao riêng 6C — 18/10/2026
+
+Nguồn: điều phối thông báo chấp nhận 6B sau review code, chạy lại 15/15 unit test và kiểm bằng chứng/hash bàn giao. Ghi **6B APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Được checkpoint cục bộ phần 6B đã review; sau rà diff, allowlist 19 file P1 và hash artifact, đã commit **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe** trên p1-s06-etl. Giữ report PASS/FAIL, nguồn và kế hoạch untracked ngoài phạm vi; chưa push/PR hoặc thay nhánh.
+
+Lệnh mới chỉ nạp fact 6C và kiểm chứng; chưa chấp nhận kết quả 6C, chưa 6D/G2/OLAP/dashboard/analytics. Kết quả kiểm tra của agent không tự trở thành lời duyệt. Report/hồ sơ 6B trong checkpoint là lịch sử tại thời điểm bàn giao; cập nhật hiện hành được ghi riêng, không sửa report cũ.
+
+## Điều phối chấp nhận 6A, giao riêng 6B — 18/10/2026
+
+Nguồn là thông báo điều phối: chấp nhận6A sau review code, kiểm bằng chứng và chạy lại13/13 unit test đạt. Ghi **6A APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Cho phép checkpoint local phần6A đãreview; đã thực hiện cfed2c848e196bee73fcb61ec5fd017cc9dbaf98, giữ reportPASS/FAIL/hashcode cũ. Không push/PR, không suy thành G2/merge S06.
+
+6B **WAITING_REVIEW** sau load691f5ae7,15unit/fixture/hậu kiểm PASS; các kiểm tra không tự trở thành duyệt6B. Chỉbridge6408/hashđúng, khôngfact6C/fullrefresh6D hoặcOLAP/dashboard; chờ review riêng6B. Chi tiết và lỗi fixture lịch sử trong bàn giao6B.
+
+## Điều phối chấp nhận S05 và giao 6A — 18/10/2026
+
+Nguồn: thông báo điều phối chấp nhận S05 sau review code/bằng chứng; API xác minh PR #7 MERGED đúng8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Ghi APPROVED S05 theo nguồn điều phối, không lời duyệt nguyên văn của người dùng. Quyền mới chỉ 6A: nạp bốn dimension trên movielens_btl, kiểm transaction/hash/fixture rồi bàn giao. Không bootstrap/thayDDL, bridge/fact/integrated refresh hoặc commit/push/PR S06.
+
+6A **WAITING_REVIEW**, chưa có xác nhận duyệt kết quả. 13 unit + fixture + load code77d3450b PASS và read-only hậu kiểm không tự tạo lời duyệt, không xác nhận G2 hoặc cho phép 6B. Giữ FAIL/snapshot phiên bản đầu và giới hạn BI/backup.
+
 ## Công bố S05 — PR #7 OPEN, chưa merge
 
 Sau review của điều phối và bổ sung cặp cùng code 0f24c3a/f5f11bcd đạt, đã commit/push/mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7. API OPEN/merged=false, base main/c3e4f998, head lúc mở 2417416; 25 blob khớp local. Kiểm công bố 19/19 trước commit và 8/8 sau fetch đạt, giữ nguyên run cũ. Ghi đúng nguồn review điều phối, không lời duyệt nguyên văn người dùng. Chưa merge hoặc chuyển 6A; ETL DW/G2, quyền BI và phục hồi backup chưa kiểm.

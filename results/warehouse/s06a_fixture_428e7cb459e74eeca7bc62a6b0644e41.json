@@ -1,0 +1,61 @@
+{
+  "step": "6A_FIXTURE",
+  "run_id": "428e7cb459e74eeca7bc62a6b0644e41",
+  "status": "PASS",
+  "fixture": "INVENTED_ONLY",
+  "schema": "s06a_test_428e7cb459e7",
+  "test_code_sha256": "1554f06ec796698e02b718783c5938bfde2e46c9080347d6ced8b698eaa62bdc",
+  "loader_code_sha256": "77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2",
+  "expected_sqlstate": "23505",
+  "inserted_before_date_failure": {
+    "dim_user": 7,
+    "dim_movie": 2,
+    "dim_genre": 2
+  },
+  "after_rollback_counts": {
+    "dim_user": 0,
+    "dim_movie": 0,
+    "dim_genre": 0,
+    "dim_date": 0
+  },
+  "all_four_rolled_back": true,
+  "production_staging_and_targets_unchanged": true,
+  "successful_fixture_dimensions": {
+    "dim_user": {
+      "rows": 7,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_movie": {
+      "rows": 2,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_genre": {
+      "rows": 2,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true
+    },
+    "dim_date": {
+      "rows": 2,
+      "all_logical_fields_exact": true,
+      "surrogate_unique_positive": true,
+      "generated_calendar_columns_exact": true,
+      "no_missing_or_duplicate_dates": true,
+      "min_timestamp": 946684799,
+      "max_timestamp": 946684800,
+      "min_rated_at": "1999-12-31T23:59:59Z",
+      "max_rated_at": "2000-01-01T00:00:00Z",
+      "first_date": "1999-12-31",
+      "last_date": "2000-01-01",
+      "inclusive_days": 2
+    }
+  },
+  "fixture_timezone": "Asia/Bangkok",
+  "seven_age_labels_verified": true,
+  "null_year_and_special_title_exact": true,
+  "utc_midnight_and_generated_calendar_verified": true,
+  "identity_sequence_gaps_are_allowed": true,
+  "fixture_schema_removed": true,
+  "duration_seconds": 8.891
+}

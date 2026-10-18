@@ -1,0 +1,15 @@
+{
+  "step": "6B_FIXTURE",
+  "run_id": "9ac28776dc4f48c48b231767d61d0526",
+  "status": "FAIL",
+  "fixture": "INVENTED_ONLY",
+  "schema": "s06b_test_9ac28776dc4f",
+  "started_at_utc": "2026-10-18T12:26:27.835242+00:00",
+  "base_commit": "cfed2c848e196bee73fcb61ec5fd017cc9dbaf98",
+  "code_sha256": "6ef72d126c2274780c3638744a95d58ffedf0a35d38c30d1cd4ae2b99ddcecd5",
+  "test_code_sha256": "e7ea807a8cd36aea7c5a994d31de2823ee9bba76cbb05bf99dfa126c82c33a76",
+  "error_category": "CATALOG_TABLE_SET_MISMATCH",
+  "sqlstate": null,
+  "fixture_schema_removed": true,
+  "duration_seconds": 4.329
+}

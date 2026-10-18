@@ -1,5 +1,57 @@
 # Quyết định P1
 
+## Công bố ETL/G2
+
+P1-D71: Điều phối chấp nhận6D cục bộ và giao commit/push/mở PR, không merge. Rà toàn bộ gói từmain gồm checkpoint6A/B/C và6D; giữ report thực chạy/hash/nguồn nguyên vẹn, không stage kế hoạch/data/secret. Bằng chứng công bố và commit tái tạo ghi riêng, không sửa runtime report để gán commit mới.
+
+P1-D72: Ledger6D là snapshot29artifact lúc bàn giao. Các hồ sơ mới được cập nhật review/công bố có hash riêng trong g2_publication.json, không viết lại ledger/run lịch sử. So Git code LF với Windows CRLF bằng normalize khi đối chiếu; không chạm byte raw/canonical. G2 chưa P2 nhận, session readonly không đổi thành tài khoản chỉ đọc. Chuẩn bị read-only account/đường kết nối hoặc DW cục bộ P2 là phương án, chưa được thực thi trong lượt công bố.
+
+## S06 — tích hợp 6D, 18/10/2026
+
+P1-D65: Điều phối chấp nhận 6C sau review và chạy lại 17 unit test, giao riêng 6D. Checkpoint cục bộ c143f5d giữ 19 file 6C đã review; tiếp tục p1-s06-etl, không push/PR, không stage kế hoạch ngoài phạm vi hoặc dữ liệu cá nhân.
+
+P1-D66: Full refresh dùng một connection/transaction và advisory lock (20261027,1). Kiểm marker/catalog/nguồn trước ghi, vô hiệu hóa registry, một TRUNCATE tường minh 11 bảng RESTART IDENTITY, giữ metadata registry. Không CASCADE/DROP/bảng ngoài danh sách; nạp và đối soát bằng cùng connection trước COMMIT, không nối các CLI riêng.
+
+P1-D67: Tái sử dụng quy tắc parse/transform/mapping/insert/serializer. S05 tách copy_staging khỏi TRUNCATE để 6D không truncate thêm lần nữa; guard namespace insert 6A/B/C chỉ mở thêm schema fixture6D. Guard tiểu bước vẫn giữ trong các công cụ lịch sử. Hậu kiểm tích hợp dùng nguồn, PK/FK/miền/UTC/hash/model, không dựa fingerprint surrogate cũ hoặc fact rỗng. 65 unit test hồi quy và fixture cả pipeline đã chạy; version bundle ghi hash mới, không sửa report cũ.
+
+P1-D68: Fixture tự tạo giữ đầy đủ constraints từ DDL đã duyệt trong schema riêng. Sáu nhóm lỗi sau invalidate/TRUNCATE/nạp một phần phải phục hồi snapshot cũ của 12 bảng, identity và model active/valid cùng kết quả cụm; không chỉ kiểm dữ liệu mới về rỗng. Model fixture ghi rõ không phải mô hình thật/G3. Production không được nạp model giả.
+
+P1-D69: Mất kết nối COMMIT giữ trạng thái chưa xác định, reconnect kiểm snapshot/model nhưng không suy ra commit thành công nếu snapshot tương đương trước/sau. Unit kiểm đường xử lý này bằng mô phỏng; không cắt kết nối thật. Ghi manifest/report sau COMMIT qua file tạm và thay tên; lỗi filesystem giữ DB đã commit và G2 chưa bàn giao, không gọi là rollback DB.
+
+P1-D70: G2 chỉ chuẩn bị metadata và hướng dẫn để review; kiểm adapter P2 bằng PostgreSQL thật tại máy P1, raw/CSV/DW cùng serializer. Không sửa file P2, CSV chỉ cục bộ ngoài Git. Session readonly không thay tài khoản chỉ đọc hoặc chứng minh P2 kết nối từ xa; ghi phần quyền còn thiếu riêng. Chưa có xác nhận P2 nhận G2, chưa OLAP/dashboard/nạp G3 hoặc push/PR.
+
+## S06 — riêng 6C, 18/10/2026
+
+P1-D61: Điều phối chấp nhận6B và giao6C; rà/stage đúng19fileP1 rồi checkpoint local d698d8e trên p1-s06-etl. Không push/PR/chuyểnnhánh, không kế hoạch/data/secret; giữ nguyên report/hash và helper6A/6B/DDL/manifest/P2.
+
+P1-D62: Chỉ insert fact qua mapping user/movie/ngày UTC kiểm duy nhất và đầy đủ; parse nghiêm ngặt ID/rating1..5/timestamp int64 và tính duy nhất user–movie xuyên lô. Không join genre, inner join bỏ khóa, upsert hoặc bỏ dòng. Instant có timezone UTC và ngày generated trong DB, không phụ thuộc timezone máy; một transaction/khóa snapshot chung và kiểm trước commit bằng cùng connection.
+
+P1-D63: Đối soát mọi trường logic streaming theo contract sort, serializer G1 theochunk với mộtheader cótestbyteequivalence. Kiểm factPK/FK/UQ/rating/epoch/ngày, tổngđiểm/phân bốsao/user-phim/UTC và bốn canonicalhash; fingerprints dimension gồm surrogate so6B và bridge/staging trước/sau. Không coi4hash sau6C là đãxuất/kiểmnhậnG2 hoặc tíchhợp6D.
+
+P1-D64: Hậu kiểm6C riêng readonly/repeatableread; tests/warehouse/check_warehouse.py cốđịnh verify, không dùng checker6B rỗngfact và không sửa bằng chứngcũ. Fixture7ca lỗi sau1000insert rollback0 cùng code18ce72f9; dữ liệu giả/schema táchbiệt đãdọn. 6CWAITING_REVIEW, khôngrerunloadercũ/6C/xóadữliệu, chưa6D/G2/OLAP/dashboard/analytics/push/PR.
+
+## S06 — riêng 6B, 18/10/2026
+
+P1-D57: Điều phối chấp nhận6A và giao6B, cho phép checkpoint local6A; cfed2c8 chỉ local trên p1-s06-etl, chưa push/PR. Bảo toàn cả reportPASS/FAIL/hashcode6A, kế hoạch untracked ngoài phạm vi và fileP2; ghi cập nhật review riêng, không sửa lịch sử.
+
+P1-D58: Bridge ánh xạ từng IDphim/têngenre sang surrogate hiện có, kiểm duy nhất/đủ, không innerjoin làm mất dữ liệu, không deduplicate hoặc dùng IDnguồn như surrogate. Chỉ insertbridge rỗng trong transaction/khóa snapshot chung; toàncặp/PK/FK/sốgenrephim/hash và bảo toàn dimension/staging kiểm cùng connection trướccommit.
+
+P1-D59: Hậu kiểm6B riêng dùng readonly+repeatableread, đối chiếu fingerprints mọi trường dimension gồm surrogate với baseline trong loadreport. Không dùng checker6A nguyên trạng khi bridge đã nạp, không sửa bằng chứng6A để che trạng thái mới. Loader/check6A vàS05 giữ nguyên; ledger6A là snapshot tại checkpoint.
+
+P1-D60: 6BWAITING_REVIEW sau6408cặp/hashđúng/unit15/fixture/hậukiểmPASS; chỉ ba view có dữ liệu, G2 chưa hoànthành. Không rerunloadS05/6A/6B, không6C/6D/OLAP/dashboard hoặcpush/PR. Lỗi scriptfixture kiểm catalog trướccleanup đã sửa thứ tự, giữFAIL; không nới catalogguard hoặc đổiDDL/loader.
+
+## S06 — riêng 6A, 18/10/2026
+
+P1-D52: Điều phối chấp nhận S05 và giao riêng 6A; PR #7 MERGED đúng8de1c7b đã xác minh. Main52dd682 còn PR #8/P2, chỉ kế thừa, không sửa/chạy/duyệt P2. Nhánh p1-s06-etl, không commit/push/PR ở lượt này.
+
+P1-D53: Insert bốn dimension vào target rỗng trong một transaction/khóa advisory chung; khóa staging chống đổi snapshot và target chống ghi cạnh tranh, kiểm toàn field/source/code sets/hashes trước commit. Không truncate/delete/upsert/bootstrap/DDL hoặc nạp bridge/fact/analytics. Trạng thái khác dự kiến thì dừng kiểm nguồn gốc.
+
+P1-D54: Tính hash view phải ORDER BY/stable sort theo contract vì serializer không tự sort. Lần đầu thiếu sort rollback hoàn toàn; giữ FAIL, sửa caller và regression test, không đổi nguồn/DDL/hash kỳ vọng. Loader cuối77d3450b có unit13/fixture/load cùng hash.
+
+P1-D55: Date lịch UTC continuous 1040 ngày lấy min/max Unix giây, generated calendar kiểm từng ngày; NULL năm vẫn giữ. Surrogate chỉ nội bộ, có thể gap sau rollback, không reset hoặc giả bằng ID nguồn. Hai view users/movies đúng không thay G2 đủ bốn view.
+
+P1-D56: Sau 6A không gọi lại load S05 (đòi DW/analytics rỗng), không tự xóa để rerun6A hoặc tuyên bố integrated full refresh. 6D được giao riêng sau các tiền đề. 6A WAITING_REVIEW; 6B/C/D chưa làm.
+
 ## Chốt bằng chứng và công bố S05 — 17/10/2026
 
 P1-D51: Push nhánh p1-s05-staging và PR #7 vào main đã thành công, API xác minh OPEN/merged=false ở head mở 2417416/base c3e4f998. Đủ 25 file/blob khớp local, 19+8 kiểm công bố đạt. Giữ code và mọi run cũ; cập nhật hồ sơ kết quả tiếp tục cùng PR. Chưa merge, chưa ETL DW/G2/6A/quyền BI/backup restore.

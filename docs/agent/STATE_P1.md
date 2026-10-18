@@ -1,5 +1,57 @@
 # Trạng thái P1
 
+## Hiện hành — công bố ETL/G2, 6D đã được điều phối chấp nhận
+
+Nguồn: điều phối thông báo chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, đềuCOMMITTED. **6D APPROVED theo điều phối ở mức kiểm nhận cục bộ**; không tạo lời duyệt nguyên văn người dùng. Được giao commit/push p1-s06-etl và mở PRmain, chưa merge. Trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
+
+Đã xác minh repository luandz123/kho-du-lieu-va-khai-pha--cuoi-ky, main mặc định và quyềnpush hiện có; chưa có PRnhánhETL lúc kiểm. Giữ checkpoint6A/B/C, reportPASS/FAIL và hash thực chạy. Code6D vẫn cùng bundleb858a879; không chạy lại fullrefresh vì cập nhật hồ sơ. Commit code công bố, base đồng bộ và PR/HEAD sẽ ghi sau thao tác thành công trong docs/P1/g2_publication.json/.md.
+
+P2 intake **NOT_CONFIRMED**, dedicated_read_only_account_verified **false**; account kiểm tạiP1 có quyền quản trị/ghi dù session READONLY=on. Chưa tạo role/cấp quyền, mở PostgreSQL công khai/thay firewall hoặc gửi credential. Có thể chuẩn bị tài khoản chỉ đọc và đường kết nối riêng, hoặc để P2 tái tạo DW cục bộ theo hướng dẫn; chưa coi phương án là truy cập đã thành công. Không OLAP/dashboard/G3.
+
+## Hiện hành — 6D WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận 6C sau review, chạy lại 17 unit test và đối chiếu bằng chứng/hash; **6C APPROVED theo điều phối**, không tự tạo lời duyệt nguyên văn. Giữ p1-s06-etl; checkpoint cục bộ 6C/HEAD **c143f5d7081da041aad38c0a97c0a8ac0ef721cb**, rà/stage đúng 19 file trước commit. Phần 6D chưa commit/push/PR; không fetch/merge/reset/stash/switch. Giữ kế hoạch untracked ngoài phạm vi, P2/nguồn/contract/DDL và report cũ.
+
+6D tích hợp trên movielens_btl: cùng connection/transaction/advisory lock, UPDATE registry inactive/invalid, một TRUNCATE tường minh 11 bảng RESTART IDENTITY, giữ metadata registry; nạp staging→dimension→bridge→fact và kiểm cùng connection trước COMMIT. Refactor COPY S05 và namespace fixture được chạy regression; không thay quy tắc chuẩn hóa hoặc guard tiểu bước lịch sử. Hậu kiểm tích hợp không phụ thuộc surrogate/fact rỗng của các bước cũ.
+
+Hai run **16421c84a7a244b5ad4b60f4ce4dfbc6 / 6501a547065246869b98b6ab6531190e**, PASS/COMMITTED **151.047 / 164.672s**. Cùng bundle **b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422** và nonsecret-config **e2b56ec949d873a395b4af4d9ff351967b2f3d48984dbb8b08922fcb0e114dfd**. Toàn bộ checks logic bằng nhau, bốn count6040/3883/6408/1000209 và hash đúng, tổng rating3582313, user/phim có rating6040/3706, PK/FK/miền/UTC đúng. Registry production0/active0/valid0; result tables và active views0. Không nạp G3 hoặc model giả.
+
+65 unit hồi quy PASS46211bbe; fixture5c9c5534 cùng bundle PASS sáu nhóm lỗi phục hồi snapshot cũ của12bảng/identity/model flags và results; schema đã dọn. COMMIT-loss/lỗi xuất file chỉ unit mô phỏng, không cắt mạng thật. AdapterP2 c75f9cb0 PASS50.453s, raw/CSV/DW mọi cell bằng nhau; CSV chỉ cục bộ ngoài Git. Hậu kiểm chỉ đọc21f0d34 PASS58.313s. Account hiện tại có superuser/quyền ghi: **chưa tài khoản chỉ đọc chuyên dụng hoặc P2 remote được xác minh**, dù session readonly=on.
+
+Manifest sau COMMIT trỏ run2 và thêm metadata adapter/hậu kiểm bằng file tạm+replace; lỗi xuất giữ DB đã commit/G2 chưa bàn giao theo code/unit. [Bàn giao6D](../P1/s06d_handoff.md), [gói DW](../P1/dw_handoff.md), index results/warehouse/s06d_summary.json và hồ sơS06. **6D WAITING_REVIEW**, metadataG2 PREPARED_FOR_REVIEW, P2 intake NOT_CONFIRMED. Chưa công bố PRG2/merge/OLAP/dashboard/analytics/BI/backup; dừng chờ điều phối, không tự chuyển bước.
+
+## Hiện hành — 6C WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận6B sau review, chạy lại15/15unit và kiểm hash/bằng chứng; ghi **6B APPROVED theo điều phối**, không lời duyệt nguyên văn tự tạo. Nhánh p1-s06-etl; checkpoint6B/HEAD **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe**. Đã rà/stage đúng19file6B trước commit local, giữ nguồn/reportPASS/FAIL/hashcode và kế hoạch untracked. Chưa push/PR hoặc đồng bộ/chuyển nhánh; phần6C chưa commit.
+
+6C đã kiểm preflight rồi nạp riêng fact trên movielens_btl: **1000209** đánh giá, tổng điểm **3582313**, user/phim có rating **6040/3706**. Không trùnguser–movie/FKorphan/rating sai/UTC lệch; toàn trường logic và bốn hash view khớp canonical, ratings **06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf**. Transaction/khóa snapshot chung, kiểm cùng connection trướccommit, khônggenrejoin/upsert/bỏ dòng. Staging/mọi trườngdimension/surrogate/bridge giữ nguyên; ba analytics vẫn0.
+
+Run **bba59cc0f59b45b0897144a5268e111f** COMMITTED **149.016s**, loader SHA **18ce72f9f9a53a3dae078f2174a5014368dd4a5d7c88de82e2b698e6378ba5e1**. Unit17/fixturedb3ea77c/load/hậu kiểm cùng loader. Fixture7ca lỗi sau1000insert rollback0, biênUTC trong sessionBangkok và phimđa genre không nhânrating đềuđạt; schema thử đãdọn. Hậu kiểm chỉ đọc mới dùng tests/warehouse/check_warehouse.py, khôngchecker6Bđòi factrỗng; bằng chứng vàrun trong results/warehouse/s06c_summary.json. Bàn giao docs/P1/s06c_handoff.md; hồ sơ S06.
+
+**6C WAITING_REVIEW**, 6D NOT_STARTED, G2 chưahoànthành. Không chạy lại loadS05/6A/6B/6C hoặc xóa dữ liệu đểvượtguard. Không đổiDDL/helpercũ/P2/nguồn/manifest/report6A6B; chưa fullrefresh/reruntoànpipeline, góiG2/adapterDW đầyđủ, OLAP/dashboard/nạpcụm/BI/backup. Dừng chờreview6C, chưapush/PR.
+
+## Hiện hành — 6B WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận 6A sau review code/bằng chứng và báo chạy lại13/13 unit test đạt; ghi đúng nguồn điều phối, không lời duyệt nguyên văn tự tạo. **6A APPROVED theo điều phối**, đã lưu checkpoint local **cfed2c848e196bee73fcb61ec5fd017cc9dbaf98**, giữ nguyên23file/report/hash6A. Nhánh p1-s06-etl/HEADcfed2c8; chưa push/PR, không fetch/merge/switch, plan untracked giữ nguyên.
+
+6B đã kiểm preflight chỉ đọc rồi nạp riêng dw.bridge_movie_genre: **6408 cặp / 3883 phim**, cặp trùng/FKorphan0, đầy đủ nguồn và số genre/phim. Hash view **9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf** khớp canonical. Một transaction/khóa chung, snapshot staging/target được khóa, kiểm cùng connection trước commit. Toàn bộ staging và trường dimension gồm surrogate giữ nguyên, hai hash users/movies/lịch UTC đúng. Fact, v_ml_ratings và ba analytics vẫn rỗng; chưa G2.
+
+15/15 unit PASS; fixture mapping thiếu/cặp trùng bị từ chối, phim2genre không tăng dim_movie, FK23503/PK23505 rollback toàn bộ bridge thử, schema thử đã dọn. Giữ fixture FAIL do thứ tự kiểm catalog/cleanup và report PASS sau sửa script fixture; loader không đổi. Runload691f5ae7935d43988ca05254cd5ba5f1 COMMITTED10.719s, code6B SHA6ef72d126c2274780c3638744a95d58ffedf0a35d38c30d1cd4ae2b99ddcecd5; readonlyverify03911484 PASS. Code6B chưa commit. Bàn giao docs/P1/s06b_handoff.md, summary results/warehouse/s06b_summary.json, hồ sơ S06.
+
+**6B WAITING_REVIEW**, 6C/6D NOT_STARTED. Không chạy lại loadS05/6A/6B, không checker6A nguyên trạng vì bridge nay có dữ liệu; dùng `python -m etl.s06b_bridge verify --env-file .env` kiểm chỉ đọc và bảo toàn dimension. Không thay DDL/P2/nguồn/manifest hoặc bằng chứng6A cũ; chưa tích hợp full refresh/G2/OLAP/dashboard/BI/backup, dừng chờ review6B.
+
+## Hiện hành — 6A WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận S05 sau review code/bằng chứng và giao riêng 6A. Ghi đúng nguồn điều phối, không tạo lời duyệt nguyên văn người dùng. S05 APPROVED theo điều phối; PR #7 API xác minh MERGED/8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Các trạng thái OPEN/chờ duyệt S05 bên dưới là lịch sử.
+
+Đã bảo toàn plan untracked, tracked sạch trước fetch/switch. Main mới còn có PR #8/P2; nhánh **p1-s06-etl**, HEAD nền **52dd682920e0587f3a474fe284b9bf5635ab6aac**. Không sửa P2 hoặc tự duyệt 8A, không commit/push/PR S06. DDL và module S05 giữ nguyên, không bootstrap.
+
+Read-only preflight xác minh movielens_btl/marker/catalog, nguồn và toàn bộ trường/source_line staging đúng snapshot S05, chín target rỗng. Nạp bốn dimension một transaction/khóa chung: **6040 user, 3883 movie, 18 genre, 1040 date**; ngày liên tục 2000-04-25..2003-02-28 UTC, cột lịch generated đúng. Hash v_ml_users/v_ml_movies khớp canonical. Bridge/fact/3 analytics và hai view còn lại vẫn rỗng, chưa G2.
+
+Code thực chạy cuối SHA-256 **77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2**, working tree chưa commit. Unit13/fixture428e7cb4/load3b6f0cda cùng loader hash; read-only sau commit PASS, staging giữ nguyên. Fixture unique-date lỗi ở dimension cuối rollback cả bốn bảng thử, không đổi production. Lần đầu thiếu sort khi hash view đã rollback toàn bộ, có report FAIL và sửa caller/test hồi quy, không đổi DDL/nguồn/hash kỳ vọng. Identity có thể nhảy sau rollback; không reset hoặc dùng surrogate như ID nguồn.
+
+Bàn giao docs/P1/s06a_handoff.md; code etl/s06a_dimensions.py; test/check trong tests/warehouse; bằng chứng results/warehouse/s06a_summary.json và các run. Hồ sơ steps/P1/S06.md. **6A WAITING_REVIEW**, 6B/6C/6D NOT_STARTED. Không chạy lại load S05 sau khi dimension có dữ liệu; chưa pipeline full refresh tích hợp/chạy lại, chưa OLAP/dashboard/BI/backup. Dừng, không tự chuyển 6B.
+
 ## Hiện hành — công bố S05, 17/10/2026
 
 S05 **WAITING_REVIEW** phần PR; **PR #7 OPEN, chưa MERGED**. Nguồn: điều phối báo đã review code/đối chiếu bằng chứng, chạy lại 9/9 unit test đạt, chưa thấy lỗi code chặn PR; giao chốt bằng chứng rồi commit/push/mở PR. Đây không phải lời duyệt nguyên văn của người dùng và không suy thành nghiệm thu ETL DW/G2. Chưa merge/6A.

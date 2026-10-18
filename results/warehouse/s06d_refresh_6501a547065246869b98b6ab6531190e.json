@@ -1,0 +1,233 @@
+{
+  "step": "6D",
+  "action": "refresh",
+  "run_id": "6501a547065246869b98b6ab6531190e",
+  "started_at_utc": "2026-10-18T13:19:32.541688+00:00",
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422",
+    "file_sha256": {
+      "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "personal_rows_in_report": false,
+  "database_committed": true,
+  "config": {
+    "nonsecret_settings": {
+      "host": "127.0.0.1",
+      "port": 5432,
+      "database": "movielens_btl",
+      "timezone": "UTC",
+      "refresh_targets": [
+        "analytics.user_cluster",
+        "analytics.cluster_genre_profile",
+        "dw.fact_rating",
+        "dw.bridge_movie_genre",
+        "dw.dim_user",
+        "dw.dim_movie",
+        "dw.dim_date",
+        "dw.dim_genre",
+        "staging.users_raw",
+        "staging.movies_raw",
+        "staging.ratings_raw"
+      ],
+      "schema_sha256": "ebef448cd245c54cc50e2b02b34d382471daccb29e8a933b7078c19304f68250",
+      "contract_sha256": "751371f9db0b85804751f6a65e5d188ce2b975f0d4b43b0c7febec41b3130e6f",
+      "source_manifest_sha256": "680df21aa92b8f9c56766bc1b4f04b215e03be0c63ceee412cd6039f90629757",
+      "canonical_manifest_sha256": "e639f81e076de2f69830c6cabd76f7c174d3c431a059f08a7ab704495049ad08"
+    },
+    "nonsecret_config_sha256": "e2b56ec949d873a395b4af4d9ff351967b2f3d48984dbb8b08922fcb0e114dfd",
+    "credentials_excluded": true
+  },
+  "result": {
+    "transaction": "COMMITTED",
+    "loaded": {
+      "staging_counters": {
+        "users_raw": {
+          "read": 6040,
+          "loaded": 6040,
+          "errors": 0
+        },
+        "movies_raw": {
+          "read": 3883,
+          "loaded": 3883,
+          "errors": 0
+        },
+        "ratings_raw": {
+          "read": 1000209,
+          "loaded": 1000209,
+          "errors": 0
+        }
+      },
+      "bridge_rows": 6408,
+      "fact_rows": 1000209
+    },
+    "checks": {
+      "catalog_matches": true,
+      "source": {
+        "users.dat": {
+          "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+          "line_count": 6040,
+          "matches": true
+        },
+        "movies.dat": {
+          "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+          "line_count": 3883,
+          "matches": true
+        },
+        "ratings.dat": {
+          "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+          "line_count": 1000209,
+          "matches": true
+        },
+        "README": {
+          "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+          "line_count": 170,
+          "matches": true
+        }
+      },
+      "staging": {
+        "users_raw": {
+          "rows": 6040,
+          "min_source_line": 1,
+          "max_source_line": 6040,
+          "source_staging_all_fields_exact": true,
+          "retained_row_csv_sha256": "0c7877a3896f0f42af671abbc81fda5f7c1726d36962268d7475a2273192b3ee"
+        },
+        "movies_raw": {
+          "rows": 3883,
+          "min_source_line": 1,
+          "max_source_line": 3883,
+          "source_staging_all_fields_exact": true,
+          "retained_row_csv_sha256": "67ceb94ef43b79b585df1a92cca10c971351343b202ea60a26a1d6bb394f1513",
+          "special_title_counts": {
+            "non_ascii": 50,
+            "quote": 0,
+            "comma": 993
+          }
+        },
+        "ratings_raw": {
+          "rows": 1000209,
+          "min_source_line": 1,
+          "max_source_line": 1000209,
+          "source_staging_all_fields_exact": true,
+          "retained_row_csv_sha256": "8715003874297323f06699e8cc214c489beec2c7c8af35ce36e3392eb721e80c"
+        }
+      },
+      "dimensions": {
+        "dim_user": {
+          "rows": 6040,
+          "all_logical_fields_exact": true,
+          "surrogate_unique_positive": true
+        },
+        "dim_movie": {
+          "rows": 3883,
+          "all_logical_fields_exact": true,
+          "surrogate_unique_positive": true
+        },
+        "dim_genre": {
+          "rows": 18,
+          "all_logical_fields_exact": true,
+          "surrogate_unique_positive": true
+        },
+        "dim_date": {
+          "rows": 1040,
+          "all_logical_fields_exact": true,
+          "surrogate_unique_positive": true,
+          "generated_calendar_columns_exact": true,
+          "no_missing_or_duplicate_dates": true,
+          "min_timestamp": 956703932,
+          "max_timestamp": 1046454590,
+          "min_rated_at": "2000-04-25T23:05:32Z",
+          "max_rated_at": "2003-02-28T17:49:50Z",
+          "first_date": "2000-04-25",
+          "last_date": "2003-02-28",
+          "inclusive_days": 1040
+        }
+      },
+      "bridge": {
+        "rows": 6408,
+        "duplicate_pairs": 0,
+        "orphan_fks": 0,
+        "all_source_pairs_exact": true,
+        "per_movie_genre_counts_exact": true,
+        "movies": 3883,
+        "multi_genre_movies": 1858
+      },
+      "ratings": {
+        "rows": 1000209,
+        "duplicate_user_movie_pairs": 0,
+        "orphan_fks": 0,
+        "invalid_rating": 0,
+        "timestamp_rated_at_date_mismatches": 0,
+        "surrogate_keys_unique_positive": true,
+        "view_rows": 1000209,
+        "all_logical_fields_match_source": true,
+        "rating_sum": 3582313,
+        "star_counts": {
+          "1": 56174,
+          "2": 107557,
+          "3": 261197,
+          "4": 348971,
+          "5": 226310
+        },
+        "users_with_ratings": 6040,
+        "movies_with_ratings": 3706,
+        "min_timestamp": 956703932,
+        "max_timestamp": 1046454590,
+        "min_rated_at_utc": "2000-04-25T23:05:32Z",
+        "max_rated_at_utc": "2003-02-28T17:49:50Z",
+        "canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+        "source_canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+        "canonical_hash_matches": true
+      },
+      "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "row_counts": {
+        "users": 6040,
+        "movies": 3883,
+        "movie_genres": 6408,
+        "ratings": 1000209
+      },
+      "models": {
+        "registry_rows": 0,
+        "active": 0,
+        "valid": 0,
+        "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "analytics_results": {
+        "analytics.user_cluster": 0,
+        "analytics.cluster_genre_profile": 0,
+        "analytics.v_active_user_cluster": 0,
+        "analytics.v_active_cluster_genre_profile": 0
+      },
+      "all_four_views_match_contract": true,
+      "ratings_not_multiplied_by_genres": true
+    },
+    "model_before": {
+      "registry_rows": 0,
+      "active": 0,
+      "valid": 0,
+      "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "model_after": {
+      "registry_rows": 0,
+      "active": 0,
+      "valid": 0,
+      "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "truncate_statements": 1
+  },
+  "status": "PASS",
+  "duration_seconds": 164.672
+}

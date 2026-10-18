@@ -1,0 +1,133 @@
+{
+  "step": "6D_ROLLBACK_FIXTURE",
+  "run_id": "5c9c553454e54e81953fded2d524877c",
+  "status": "PASS",
+  "fixture": "INVENTED_DATA_AND_MODEL_ONLY",
+  "started_at_utc": "2026-10-18T13:16:17.399874+00:00",
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422",
+    "file_sha256": {
+      "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "test_code_sha256": "d490d33bab5c6bb5b415652b41ca262d6c07c07cf583bc079b5c607ed15bc944",
+  "schema": "s06d_test_5c9c553454e5",
+  "rollback_cases": [
+    {
+      "fault": "parse",
+      "category": "MALFORMED_FIELD_COUNT",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "mapping",
+      "category": "MISSING_USER_MAPPING",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "fk",
+      "category": "REFRESH_SQL_OR_LOCAL_ERROR",
+      "sqlstate": "23503",
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "rating",
+      "category": "OUT_OF_RANGE_RATING",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "duplicate",
+      "category": "DUPLICATE_SOURCE_USER_MOVIE",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "checksum",
+      "category": "FIXTURE_CANONICAL_CHECKSUM_MISMATCH",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    }
+  ],
+  "seeded_snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b",
+  "seeded_fact_rows": 1,
+  "seeded_cluster_rows": 1,
+  "seeded_profile_rows": 2,
+  "all_12_seeded_tables_and_identity_state_checked": true,
+  "successful_fixture_refresh": {
+    "transaction": "COMMITTED",
+    "loaded": {
+      "staging_rows": {
+        "users_raw": 1,
+        "movies_raw": 1,
+        "ratings_raw": 1
+      },
+      "fact_rows": 1
+    },
+    "checks": {
+      "canonical_hashes": {
+        "users": "2c93ca427e7246477f933b1f03ae59fe293351dd609fbce61d87c1a56d3ac4fb",
+        "movies": "22d4355107a3b0bda2efc1201ca1cc1081b031a8f9b03fe4d301d47be861800c",
+        "movie_genres": "e9be487e1bd424cb1d75ffcdc4371c78bd03eafc2ae0fe001db30655ba3950fb",
+        "ratings": "46688242f32b1ec91757bac70b4bab8f79e0b3ec12d0c151ebdc1fb2b1146c33"
+      },
+      "fact": {
+        "rows": 1,
+        "duplicate_user_movie_pairs": 0,
+        "orphan_fks": 0,
+        "invalid_rating": 0,
+        "timestamp_rated_at_date_mismatches": 0,
+        "surrogate_keys_unique_positive": true
+      }
+    },
+    "model_before": {
+      "registry_rows": 1,
+      "active": 1,
+      "valid": 1,
+      "metadata_except_flags_sha256": "eea7ec61a9fc6b548725a98aba79a4eb44c7a4e663e5f5c3653852b144d48557"
+    },
+    "model_after": {
+      "registry_rows": 1,
+      "active": 0,
+      "valid": 0,
+      "metadata_except_flags_sha256": "eea7ec61a9fc6b548725a98aba79a4eb44c7a4e663e5f5c3653852b144d48557"
+    },
+    "truncate_statements": 1
+  },
+  "old_model_retained_inactive_invalid": true,
+  "fixture_schema_removed": true,
+  "production_signature_unchanged": true,
+  "duration_seconds": 1.813
+}

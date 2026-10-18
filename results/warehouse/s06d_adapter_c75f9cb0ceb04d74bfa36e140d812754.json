@@ -1,0 +1,124 @@
+{
+  "step": "G2_ADAPTER_LOCAL_VERIFICATION",
+  "run_id": "c75f9cb0ceb04d74bfa36e140d812754",
+  "status": "PASS",
+  "started_at_utc": "2026-10-18T13:23:10.168521+00:00",
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422",
+    "file_sha256": {
+      "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "check_code_sha256": "5da25cb006c121b001fb9bd88c571461232baaadc3d352fe8cc6153a9fde1e3f",
+  "p2_intake_confirmed": false,
+  "personal_rows_in_report": false,
+  "csv_committed_to_git": false,
+  "verified_source": {
+    "users.dat": {
+      "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "line_count": 6040,
+      "matches": true
+    },
+    "movies.dat": {
+      "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "line_count": 3883,
+      "matches": true
+    },
+    "ratings.dat": {
+      "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "line_count": 1000209,
+      "matches": true
+    },
+    "README": {
+      "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+      "line_count": 170,
+      "matches": true
+    }
+  },
+  "p2_adapter_git_blob_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+  "connection_privileges": {
+    "session_read_only": true,
+    "role_superuser": true,
+    "role_can_create_database": true,
+    "role_can_create_role": true,
+    "role_has_project_table_write_privileges": true,
+    "dedicated_read_only_account_verified": false,
+    "p2_remote_connectivity_verified": false
+  },
+  "tables": {
+    "users": {
+      "rows": 6040,
+      "columns": [
+        "user_id",
+        "gender",
+        "age_group",
+        "occupation"
+      ],
+      "sha256": {
+        "raw": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "csv": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "dw": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f"
+      },
+      "all_cells_raw_csv_dw_equal": true,
+      "local_csv_sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f"
+    },
+    "movies": {
+      "rows": 3883,
+      "columns": [
+        "movie_id",
+        "title",
+        "release_year"
+      ],
+      "sha256": {
+        "raw": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "csv": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "dw": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b"
+      },
+      "all_cells_raw_csv_dw_equal": true,
+      "local_csv_sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b"
+    },
+    "movie_genres": {
+      "rows": 6408,
+      "columns": [
+        "movie_id",
+        "genre_name"
+      ],
+      "sha256": {
+        "raw": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "csv": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "dw": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf"
+      },
+      "all_cells_raw_csv_dw_equal": true,
+      "local_csv_sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf"
+    },
+    "ratings": {
+      "rows": 1000209,
+      "columns": [
+        "user_id",
+        "movie_id",
+        "rating",
+        "timestamp",
+        "rated_at"
+      ],
+      "sha256": {
+        "raw": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+        "csv": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+        "dw": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "all_cells_raw_csv_dw_equal": true,
+      "local_csv_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    }
+  },
+  "local_csv_directory": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754",
+  "adapter_p2_files_modified": false,
+  "views_read_directly_on_postgresql": true,
+  "dw_manifest_run_id": "6501a547065246869b98b6ab6531190e",
+  "duration_seconds": 50.453
+}

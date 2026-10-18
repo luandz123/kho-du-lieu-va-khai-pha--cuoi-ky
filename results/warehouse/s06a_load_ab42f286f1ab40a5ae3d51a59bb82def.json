@@ -1,0 +1,23 @@
+{
+  "step": "6A",
+  "run_id": "ab42f286f1ab40a5ae3d51a59bb82def",
+  "started_at_utc": "2026-10-18T12:01:18.660980+00:00",
+  "database": "movielens_btl",
+  "base_commit": "52dd682920e0587f3a474fe284b9bf5635ab6aac",
+  "code_state": "WORKING_TREE_HASH_AT_RUN",
+  "code_sha256": "c231e8c5ee345448ec8f36e5ca6961497b3ffc5a52d8aa6780a42cd25b71cdf4",
+  "s05_helper_sha256": "d88eec9925d54c9209c9c23a5834cda99eb6b0abc7583cfcc914273755b04953",
+  "personal_data_rows_in_report": false,
+  "status": "FAIL",
+  "error_category": "DIMENSION_CANONICAL_VIEW_MISMATCH",
+  "sqlstate": null,
+  "transaction": "ROLLED_BACK",
+  "insert_attempts": {
+    "dim_user": 6040,
+    "dim_movie": 3883,
+    "dim_genre": 18,
+    "dim_date": 1040
+  },
+  "duration_seconds": 3.953,
+  "exit_code": 2
+}

@@ -1,0 +1,46 @@
+{
+  "step": "6B_FIXTURE",
+  "run_id": "a88cc39467f4409f9345785b168a455b",
+  "status": "PASS",
+  "fixture": "INVENTED_ONLY",
+  "schema": "s06b_test_a88cc39467f4",
+  "started_at_utc": "2026-10-18T12:26:53.723703+00:00",
+  "base_commit": "cfed2c848e196bee73fcb61ec5fd017cc9dbaf98",
+  "code_sha256": "6ef72d126c2274780c3638744a95d58ffedf0a35d38c30d1cd4ae2b99ddcecd5",
+  "test_code_sha256": "a2bbd6afb5a4dfd9f4076d88c53f6cac6249f36aff4c3e7f2fa456a07f775b5c",
+  "fixture_schema_removed": true,
+  "mapping_and_source_rejections": [
+    "MISSING_MOVIE_MAPPING",
+    "MISSING_GENRE_MAPPING",
+    "DUPLICATE_SOURCE_MOVIE_GENRE"
+  ],
+  "rollback_cases": [
+    {
+      "fault": "foreign_key",
+      "sqlstate": "23503",
+      "inserted_before_error": 3,
+      "after_rollback": 0
+    },
+    {
+      "fault": "duplicate_pair",
+      "sqlstate": "23505",
+      "inserted_before_error": 3,
+      "after_rollback": 0
+    }
+  ],
+  "valid_multigenre_fixture": {
+    "rows": 3,
+    "duplicate_pairs": 0,
+    "orphan_fks": 0,
+    "all_source_pairs_exact": true,
+    "per_movie_genre_counts_exact": true,
+    "movies": 2,
+    "multi_genre_movies": 1
+  },
+  "fixture_dim_movie_rows_before": 2,
+  "fixture_dim_movie_rows_after": 2,
+  "fixture_surrogates_differ_from_source_ids": true,
+  "production_staging_and_dimensions_unchanged": true,
+  "production_target_counts_unchanged": true,
+  "duration_seconds": 12.5
+}

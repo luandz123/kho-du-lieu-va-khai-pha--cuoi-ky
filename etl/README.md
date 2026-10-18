@@ -1,5 +1,31 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Hiện hành: full refresh 6D và metadata G2
+
+Lệnh tái tạo có ghi trong phạm vi được giao6D: `.\.venv\Scripts\python.exe -X utf8 -m etl.run_etl refresh --env-file .env`. Kiểm marker/catalog/nguồn, một transaction/connection/advisory lock, UPDATE registry inactive/invalid và một TRUNCATE đúng11bảng RESTART IDENTITY, nạp staging→dimension→bridge→fact, kiểm trước commit. Giữ registry metadata, không CASCADE/DROP/bootstrap; không nối CLI tiểu bước.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env` hoặc `python -m etl.run_etl verify --env-file .env`. Checker tích hợp không dùng guard rỗng/fingerprint surrogate của 6A/B/C, kiểm snapshot logical và model sau refresh. Khi được giao G3 phải bổ sung kiểm model phù hợp, không tự bỏ guard. Không dùng loader/checker tiểu bước cũ cho pipeline.
+
+Hai run16421c84/6501a547 cùng bundle/config/hash/count đạt;65unit hồi quy và fixture seeded snapshot/model rollback đạt; adapter P2 trực tiếp PostgreSQL/raw/CSV PASS. [Bàn giao6D](../docs/P1/s06d_handoff.md), [gói DW](../docs/P1/dw_handoff.md), [manifest](../results/warehouse/dw_manifest.json). File report/manifest xuất nguyên tử sau COMMIT, lỗi xuất không phải rollback DB. CSV đối chiếu chỉ cục bộ dưới data/processed, không commit. Chưa P2 nhậnG2/push/PR/OLAP/dashboard/G3; các đoạn dưới giữ lịch sử từng tiểu bước.
+
+## Hiện hành: 6C đã nạp fact, chờ review
+
+6B đã được điều phối chấp nhận, checkpoint local d698d8e. Fact/view ratings **1000209**, tổng điểm **3582313**, bốn view canonical hash đúng; staging/dimension gồm surrogate/bridge không đổi, analytics rỗng. [Bàn giao6C](../docs/P1/s06c_handoff.md), [summary6C](../results/warehouse/s06c_summary.json). Chưa full refresh6D/G2; chưa commit6C/push/PR.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env` hoặc `python -m etl.s06c_fact verify --env-file .env`. Unit: `python -m unittest discover -s tests/warehouse -p test_s06c_fact.py -v`. Lệnh đã dùng khi factrỗng: `python -m etl.s06c_fact preflight --env-file .env`, rồi `python -m etl.s06c_fact load --env-file .env`; **không chạy lại loader S05/6A/6B/6C hoặc checker6B rỗngfact**, không xóa để vượtguard. Checker6C kiểm bảo toàn phù hợp với fact đã nạp. Fixture check_s06c_rollback.py chỉ chạy có chủ đích, không phải hậu kiểm chỉ đọc. Các hướng dẫn dưới là lịch sử từng mốc.
+
+## Hiện hành: 6B đã nạp bridge, chờ review
+
+6A đã được điều phối chấp nhận; checkpoint local cfed2c8. Bridge **6408**, ba view users/movies/movie_genres khớp canonical, staging/dimension không đổi; fact/v_ml_ratings/analytics vẫn rỗng. [Bàn giao6B](../docs/P1/s06b_handoff.md), [summary6B](../results/warehouse/s06b_summary.json). Chưa G2/6C/6D; không push/PR.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 -m etl.s06b_bridge verify --env-file .env`. Unit: `.\.venv\Scripts\python.exe -X utf8 -m unittest discover -s tests/warehouse -p test_s06b_bridge.py -v`. Lệnh đã dùng để nạp lúc bridge rỗng: `python -m etl.s06b_bridge load --env-file .env`; không chạy lại loadS05/6A/6B hoặc xóa để vượt guard. Checker6A bên dưới là lịch sử, nay đòi bridge rỗng nên không phù hợp; verifier6B kiểm bảo toàn dimension riêng. Xem bàn giao để chạy fixture có chủ đích; fixture không phải hậu kiểm chỉ đọc.
+
+## Hiện hành: 6A đã nạp dimension, chờ review
+
+Xem [bàn giao 6A](../docs/P1/s06a_handoff.md) và [summary 6A](../results/warehouse/s06a_summary.json). Chỉ 4 dimension đã nạp: 6040 user/3883 movie/18 genre/1040 date; bridge/fact/analytics còn rỗng. **Không chạy lại load S05 hoặc load6A** trên trạng thái đã nạp; không tự truncate/xóa để vượt guard. Chưa pipeline full refresh6D/chạy lại tích hợp. Mục S05 dưới đây là hướng dẫn của bước trước.
+
+Kiểm an toàn chỉ đọc sau6A: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_s06a_dimensions.py --env-file .env`. Lệnh đã dùng để nạp6A: `python -m etl.s06a_dimensions --env-file .env`; lệnh này từ chối target không rỗng, không dùng làm checker. Chưa commit/push/PR S06 hoặc tự sang6B.
+
 Chỉ bootstrap DDL S04, kiểm đầu vào và nạp ba bảng staging. Không transform/nạp dimension, bridge, fact hoặc kết quả cụm. Database dự án **movielens_btl**, được điều phối chọn và cho phép tạo ở S05; không dùng postgres/template0/template1 để chứa dữ liệu nghiệp vụ.
 
 ## Chạy trên PowerShell từ thư mục dự án
