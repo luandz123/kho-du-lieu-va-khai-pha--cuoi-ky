@@ -2,77 +2,36 @@
 platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
 cachedir: .pytest_cache
 rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
-collecting ... collected 34 items
+collecting ... collected 11 items
 
-tests/mining/test_canonical_data.py::test_canonical_manifest_structure PASSED [  2%]
-tests/mining/test_canonical_data.py::test_users_table PASSED             [  5%]
-tests/mining/test_canonical_data.py::test_movies_table PASSED            [  8%]
-tests/mining/test_canonical_data.py::test_movie_genres_table PASSED      [ 11%]
-tests/mining/test_canonical_data.py::test_ratings_table PASSED           [ 14%]
-tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [ 17%]
-tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [ 20%]
-tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [ 23%]
-tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 26%]
-tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 29%]
-tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 32%]
-tests/mining/test_clustering.py::test_figures_exist PASSED               [ 35%]
-tests/mining/test_data_io.py::test_table_schemas_and_columns PASSED      [ 38%]
-tests/mining/test_data_io.py::test_raw_csv_byte_equivalence PASSED       [ 41%]
-tests/mining/test_data_io.py::test_id_uniqueness_and_foreign_keys PASSED [ 44%]
-tests/mining/test_data_io.py::test_rated_at_utc_formatting PASSED        [ 47%]
-tests/mining/test_data_io.py::test_multi_genre_movies_do_not_multiply_ratings PASSED [ 50%]
-tests/mining/test_data_io.py::test_dw_error_handling_when_offline PASSED [ 52%]
-tests/mining/test_data_io.py::test_dw_mock_interface_with_connection PASSED [ 55%]
-tests/mining/test_data_io.py::test_dw_ratings_timezone_aware_and_timestamp_validation PASSED [ 58%]
-tests/mining/test_data_io.py::test_dw_exception_does_not_leak_credentials PASSED [ 61%]
-tests/mining/test_data_io.py::test_cli_exit_code_and_output_on_dw_failure PASSED [ 64%]
-tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence PASSED [ 67%]
-tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence_failure PASSED [ 70%]
-tests/mining/test_env.py::test_python_version PASSED                     [ 73%]
-tests/mining/test_env.py::test_core_libraries_imported PASSED            [ 76%]
-tests/mining/test_env.py::test_sparse_matrix_and_similarity PASSED       [ 79%]
-tests/mining/test_env.py::test_kmeans_execution PASSED                   [ 82%]
-tests/mining/test_features.py::test_hand_calculated_synthetic_fixture PASSED [ 85%]
-tests/mining/test_features.py::test_full_dataset_feature_matrix_properties PASSED [ 88%]
-tests/mining/test_features.py::test_zero_division_guard_edge_case PASSED [ 91%]
-tests/mining/test_features.py::test_raw_csv_feature_extraction_equivalence PASSED [ 94%]
-tests/mining/test_source_manifest.py::test_source_manifest_structure PASSED [ 97%]
-tests/mining/test_source_manifest.py::test_raw_files_checksums_and_counts PASSED [100%]
+tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [  9%]
+tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [ 18%]
+tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [ 27%]
+tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe PASSED [ 36%]
+tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table PASSED [ 45%]
+tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package PASSED [ 54%]
+tests/mining/test_clustering.py::test_version_reuse_protection PASSED    [ 63%]
+tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 72%]
+tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 81%]
+tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 90%]
+tests/mining/test_clustering.py::test_figures_exist PASSED               [100%]
 
 ==================================== PASSES ====================================
+___________ test_cli_rejects_mutated_data_without_exporting_package ____________
+----------------------------- Captured stdout call -----------------------------
+=== Step 8B: K-Means Clustering & Profiling (Source: csv, Mode: reproduce) ===
+----------------------------- Captured stderr call -----------------------------
+FATAL: Input data integrity verification failed: Canonical hash mismatch for table 'ratings' in loaded data! Actual in-memory hash=3bce6bee0b14d448bd10784bf67b5479bb8d59aed9fa55d05437459ef7988baf != Expected manifest hash=06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf
 =========================== short test summary info ============================
-PASSED tests/mining/test_canonical_data.py::test_canonical_manifest_structure
-PASSED tests/mining/test_canonical_data.py::test_users_table
-PASSED tests/mining/test_canonical_data.py::test_movies_table
-PASSED tests/mining/test_canonical_data.py::test_movie_genres_table
-PASSED tests/mining/test_canonical_data.py::test_ratings_table
 PASSED tests/mining/test_clustering.py::test_kmeans_experiments_table_structure
 PASSED tests/mining/test_clustering.py::test_model_stability_evaluation
 PASSED tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile
+PASSED tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe
+PASSED tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table
+PASSED tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package
+PASSED tests/mining/test_clustering.py::test_version_reuse_protection
 PASSED tests/mining/test_clustering.py::test_g3_user_cluster_contract
 PASSED tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract
 PASSED tests/mining/test_clustering.py::test_g3_manifest_contract
 PASSED tests/mining/test_clustering.py::test_figures_exist
-PASSED tests/mining/test_data_io.py::test_table_schemas_and_columns
-PASSED tests/mining/test_data_io.py::test_raw_csv_byte_equivalence
-PASSED tests/mining/test_data_io.py::test_id_uniqueness_and_foreign_keys
-PASSED tests/mining/test_data_io.py::test_rated_at_utc_formatting
-PASSED tests/mining/test_data_io.py::test_multi_genre_movies_do_not_multiply_ratings
-PASSED tests/mining/test_data_io.py::test_dw_error_handling_when_offline
-PASSED tests/mining/test_data_io.py::test_dw_mock_interface_with_connection
-PASSED tests/mining/test_data_io.py::test_dw_ratings_timezone_aware_and_timestamp_validation
-PASSED tests/mining/test_data_io.py::test_dw_exception_does_not_leak_credentials
-PASSED tests/mining/test_data_io.py::test_cli_exit_code_and_output_on_dw_failure
-PASSED tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence
-PASSED tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence_failure
-PASSED tests/mining/test_env.py::test_python_version
-PASSED tests/mining/test_env.py::test_core_libraries_imported
-PASSED tests/mining/test_env.py::test_sparse_matrix_and_similarity
-PASSED tests/mining/test_env.py::test_kmeans_execution
-PASSED tests/mining/test_features.py::test_hand_calculated_synthetic_fixture
-PASSED tests/mining/test_features.py::test_full_dataset_feature_matrix_properties
-PASSED tests/mining/test_features.py::test_zero_division_guard_edge_case
-PASSED tests/mining/test_features.py::test_raw_csv_feature_extraction_equivalence
-PASSED tests/mining/test_source_manifest.py::test_source_manifest_structure
-PASSED tests/mining/test_source_manifest.py::test_raw_files_checksums_and_counts
-======================== 34 passed in 110.21s (0:01:50) ========================
+============================= 11 passed in 18.78s ==============================
