@@ -57,7 +57,7 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
-**Cập nhật công bố ETL/G2:** điều phối đã chấp nhận6D cục bộ và giao commit/push/mởPR; chưa merge/P2 nhậnG2. [Hồ sơ công bố](docs/P1/g2_publication.md) phân biệt commitcode công bố với base/hash runtime; giữ report lịch sử. Chưa xác minh tài khoản chỉ đọc hoặc P2 remote, không chia sẻ credential quản trị. Các trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
+**Cập nhật công bố ETL/G2:** điều phối chấp nhận6D cục bộ; **[PR#9 OPEN, chờ review](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9)**, chưa merge/P2 nhậnG2. Codecommit **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**; [hồ sơ công bố](docs/P1/g2_publication.md) phân biệt commitcode với base/hash runtime và liệt kê đủ65file. Giữ report lịch sử, chưa xác minh tài khoản chỉ đọc/P2 remote, không chia sẻ credential quản trị. Các trạng thái WAITING_REVIEW6D/chưapush dưới đây là lịch sử tại bàn giao.
 
 Hiện hành **6D WAITING_REVIEW**, 6C được điều phối chấp nhận: full refresh chung một transaction đã chạy hai lần, cùng code/config và bốn hash/count;65unit/fixture rollback/adapter rawCSV DW/hậu kiểm chỉ đọc PASS. [Bàn giao6D](docs/P1/s06d_handoff.md), [gói DW](docs/P1/dw_handoff.md), [manifest](results/warehouse/dw_manifest.json). Hậu kiểm tích hợp chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env`; tái tạo có ghi: `python -m etl.run_etl refresh --env-file .env`. Không dùng checker/CLI tiểu bước cũ cho full refresh. Metadata G2 chờ review và xác nhận P2; chưa push/PR/OLAP/dashboard/G3. Các mục dưới là lịch sử.
 

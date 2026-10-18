@@ -1,5 +1,7 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+**Công bố ETL/G2:** [PR#9 OPEN/chờreview](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9), code tái tạo **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**. 6D được điều phối chấp nhận cục bộ; chưa merge hoặc P2 nhậnG2. [Hồ sơ công bố](../docs/P1/g2_publication.md) giữ provenance/runtimehash; các nhãn chưacommit/push phía dưới là lịch sử. Không thực thi fullrefresh mới trong lượt công bố.
+
 ## Hiện hành: full refresh 6D và metadata G2
 
 Lệnh tái tạo có ghi trong phạm vi được giao6D: `.\.venv\Scripts\python.exe -X utf8 -m etl.run_etl refresh --env-file .env`. Kiểm marker/catalog/nguồn, một transaction/connection/advisory lock, UPDATE registry inactive/invalid và một TRUNCATE đúng11bảng RESTART IDENTITY, nạp staging→dimension→bridge→fact, kiểm trước commit. Giữ registry metadata, không CASCADE/DROP/bootstrap; không nối CLI tiểu bước.

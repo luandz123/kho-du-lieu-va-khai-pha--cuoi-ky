@@ -2,6 +2,8 @@
 
 ## Công bố ETL/G2
 
+P1-D73: Code6D công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6, origin/main52dd682 không đổi saufetch nên không merge. Push và mởPR#9 thành công; API OPEN/chưaMERGED,65file/blob khớpGit ởHEADlúcmở11a3d73. Giữ PRreview riêng với6Dđãchấpnhận vàP2NOT_CONFIRMED. CI0check/statuspending không phảiPASS; finalHEAD của commit hồ sơ được xác minh riêng, không tự ghi SHA của chính file ledger trong file đó.
+
 P1-D71: Điều phối chấp nhận6D cục bộ và giao commit/push/mở PR, không merge. Rà toàn bộ gói từmain gồm checkpoint6A/B/C và6D; giữ report thực chạy/hash/nguồn nguyên vẹn, không stage kế hoạch/data/secret. Bằng chứng công bố và commit tái tạo ghi riêng, không sửa runtime report để gán commit mới.
 
 P1-D72: Ledger6D là snapshot29artifact lúc bàn giao. Các hồ sơ mới được cập nhật review/công bố có hash riêng trong g2_publication.json, không viết lại ledger/run lịch sử. So Git code LF với Windows CRLF bằng normalize khi đối chiếu; không chạm byte raw/canonical. G2 chưa P2 nhận, session readonly không đổi thành tài khoản chỉ đọc. Chuẩn bị read-only account/đường kết nối hoặc DW cục bộ P2 là phương án, chưa được thực thi trong lượt công bố.

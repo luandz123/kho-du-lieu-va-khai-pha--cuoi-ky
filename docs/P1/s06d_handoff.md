@@ -2,6 +2,8 @@
 
 **Cập nhật công bố:** điều phối đã chấp nhận6D ở mức cục bộ sau review/65unit/29artifact; giao commit, push và mởPR ETL/G2, chưa merge. Nhãn WAITING_REVIEW phía dưới là lịch sử bản bàn giao. Report runtime, hai run/bundle/config và summary6D giữ nguyên; commit code công bố được ghi riêng tại [hồ sơ công bố](g2_publication.md), không đổi base_commit của run. P2 vẫn chưa xác nhận G2, quyền tài khoản chỉ đọc/remote chưa được xác minh.
 
+Đã công bố **PR#9 OPEN/chưa merge**, codecommit **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**, base52dd682. APIđủ65file/blob khớpGit tạiHEADlúcmở11a3d73; hồ sơ tiếp theo chỉ ghi trạng thái, không thay code đã kiểm hoặc báo cáo runtime. Xem linkPR/filelist/provenance trong hồ sơ công bố.
+
 18/10/2026, Asia/Bangkok. **6D WAITING_REVIEW**. Phạm vi riêng 6D, kế thừa S04/S05/6A/B/C; không OLAP/dashboard/G3. Trạng thái review và kết quả hậu kiểm cuối được ghi trong STATE/S06 và [summary6D](../../results/warehouse/s06d_summary.json). G2 mới chuẩn bị để review, **P2 chưa xác nhận kiểm nhận**.
 
 ## Căn cứ và Git

@@ -2,6 +2,8 @@
 
 **Cập nhật công bố:** điều phối chấp nhận6D cục bộ và giao PR ETL/G2; kết quả Git/commit code/PR được ghi sau xác minh tại [hồ sơ công bố](g2_publication.md). Chưa merge hoặc xác nhận P2 kiểm nhận. Manifest vẫn ghi run2 và version bundle thực chạy, không gán commit mới cho các run lịch sử.
 
+Đã mở **[PR#9](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9)**, OPEN/chưa merge. **Commit code tái tạo:4fa9cf17aa41e5ff84d4490886eeac27971e46f6**, base main52dd682; commit hồ sơ tiếp theo không thay pipeline. Runtimebase vẫn c143f5d và bundleb858a879, hai run lịch sử không được gán cho commit công bố. P2 cần nhận code sauPR được chốt và kiểm môi trường/nguồn/quyền của chính mình, chưa có xác nhận này.
+
 ## Phạm vi và trạng thái
 
 Đây là gói metadata/hướng dẫn để review 6D và chuẩn bị G2. **Chưa có xác nhận P2 kiểm nhận G2**, chưa push/PR trong lượt này. Kết quả thực chạy, hai run cùng phiên bản, adapter và rollback được tổng hợp tại [bàn giao 6D](s06d_handoff.md) và [summary](../../results/warehouse/s06d_summary.json). Không suy việc bốn view đọc được thành đã tích hợp BI/OLAP/dashboard hoặc quyền đọc của máy P2.
