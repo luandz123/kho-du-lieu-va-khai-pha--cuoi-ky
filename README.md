@@ -57,6 +57,8 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
+Hiện hành **6B WAITING_REVIEW**, 6A đã được điều phối chấp nhận: bridge có **6408 cặp**, staging/dimension giữ nguyên, fact/analytics rỗng. Xem [bàn giao 6B](docs/P1/s06b_handoff.md) và [summary](results/warehouse/s06b_summary.json). Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 -m etl.s06b_bridge verify --env-file .env`. Không chạy lại load S05/6A/6B hoặc checker6A cũ đòi bridge rỗng; chưa 6C/6D/G2. Các đoạn hiện hành cũ bên dưới giữ lịch sử từng mốc.
+
 Hiện hành 6A: bốn dimension đã nạp và đang WAITING_REVIEW; xem [bàn giao 6A](docs/P1/s06a_handoff.md) và [bằng chứng](results/warehouse/s06a_summary.json). Staging giữ nguyên, bridge/fact/analytics vẫn rỗng; **không chạy lại load S05 sau 6A**, chưa full refresh tích hợp/G2. Đoạn S05 dưới đây là lịch sử trước khi nạp dimension.
 
 S05 đã tạo cấu trúc được duyệt tại database riêng `movielens_btl` và nạp raw staging, đang WAITING_REVIEW. Xem [hướng dẫn S05](etl/README.md), [bàn giao](docs/P1/s05_handoff.md) và [bằng chứng tổng hợp](results/warehouse/s05_summary.json). Chưa nạp dimension/bridge/fact, chưa G2; các hướng dẫn/mốc trước trong README là lịch sử tương ứng, không cấp quyền tự chạy bước tiếp.

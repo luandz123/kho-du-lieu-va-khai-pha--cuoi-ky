@@ -1,5 +1,15 @@
 # Quyết định P1
 
+## S06 — riêng 6B, 18/10/2026
+
+P1-D57: Điều phối chấp nhận6A và giao6B, cho phép checkpoint local6A; cfed2c8 chỉ local trên p1-s06-etl, chưa push/PR. Bảo toàn cả reportPASS/FAIL/hashcode6A, kế hoạch untracked ngoài phạm vi và fileP2; ghi cập nhật review riêng, không sửa lịch sử.
+
+P1-D58: Bridge ánh xạ từng IDphim/têngenre sang surrogate hiện có, kiểm duy nhất/đủ, không innerjoin làm mất dữ liệu, không deduplicate hoặc dùng IDnguồn như surrogate. Chỉ insertbridge rỗng trong transaction/khóa snapshot chung; toàncặp/PK/FK/sốgenrephim/hash và bảo toàn dimension/staging kiểm cùng connection trướccommit.
+
+P1-D59: Hậu kiểm6B riêng dùng readonly+repeatableread, đối chiếu fingerprints mọi trường dimension gồm surrogate với baseline trong loadreport. Không dùng checker6A nguyên trạng khi bridge đã nạp, không sửa bằng chứng6A để che trạng thái mới. Loader/check6A vàS05 giữ nguyên; ledger6A là snapshot tại checkpoint.
+
+P1-D60: 6BWAITING_REVIEW sau6408cặp/hashđúng/unit15/fixture/hậukiểmPASS; chỉ ba view có dữ liệu, G2 chưa hoànthành. Không rerunloadS05/6A/6B, không6C/6D/OLAP/dashboard hoặcpush/PR. Lỗi scriptfixture kiểm catalog trướccleanup đã sửa thứ tự, giữFAIL; không nới catalogguard hoặc đổiDDL/loader.
+
 ## S06 — riêng 6A, 18/10/2026
 
 P1-D52: Điều phối chấp nhận S05 và giao riêng 6A; PR #7 MERGED đúng8de1c7b đã xác minh. Main52dd682 còn PR #8/P2, chỉ kế thừa, không sửa/chạy/duyệt P2. Nhánh p1-s06-etl, không commit/push/PR ở lượt này.

@@ -1,5 +1,15 @@
 # Trạng thái P1
 
+## Hiện hành — 6B WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận 6A sau review code/bằng chứng và báo chạy lại13/13 unit test đạt; ghi đúng nguồn điều phối, không lời duyệt nguyên văn tự tạo. **6A APPROVED theo điều phối**, đã lưu checkpoint local **cfed2c848e196bee73fcb61ec5fd017cc9dbaf98**, giữ nguyên23file/report/hash6A. Nhánh p1-s06-etl/HEADcfed2c8; chưa push/PR, không fetch/merge/switch, plan untracked giữ nguyên.
+
+6B đã kiểm preflight chỉ đọc rồi nạp riêng dw.bridge_movie_genre: **6408 cặp / 3883 phim**, cặp trùng/FKorphan0, đầy đủ nguồn và số genre/phim. Hash view **9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf** khớp canonical. Một transaction/khóa chung, snapshot staging/target được khóa, kiểm cùng connection trước commit. Toàn bộ staging và trường dimension gồm surrogate giữ nguyên, hai hash users/movies/lịch UTC đúng. Fact, v_ml_ratings và ba analytics vẫn rỗng; chưa G2.
+
+15/15 unit PASS; fixture mapping thiếu/cặp trùng bị từ chối, phim2genre không tăng dim_movie, FK23503/PK23505 rollback toàn bộ bridge thử, schema thử đã dọn. Giữ fixture FAIL do thứ tự kiểm catalog/cleanup và report PASS sau sửa script fixture; loader không đổi. Runload691f5ae7935d43988ca05254cd5ba5f1 COMMITTED10.719s, code6B SHA6ef72d126c2274780c3638744a95d58ffedf0a35d38c30d1cd4ae2b99ddcecd5; readonlyverify03911484 PASS. Code6B chưa commit. Bàn giao docs/P1/s06b_handoff.md, summary results/warehouse/s06b_summary.json, hồ sơ S06.
+
+**6B WAITING_REVIEW**, 6C/6D NOT_STARTED. Không chạy lại loadS05/6A/6B, không checker6A nguyên trạng vì bridge nay có dữ liệu; dùng `python -m etl.s06b_bridge verify --env-file .env` kiểm chỉ đọc và bảo toàn dimension. Không thay DDL/P2/nguồn/manifest hoặc bằng chứng6A cũ; chưa tích hợp full refresh/G2/OLAP/dashboard/BI/backup, dừng chờ review6B.
+
 ## Hiện hành — 6A WAITING_REVIEW, 18/10/2026
 
 Điều phối chấp nhận S05 sau review code/bằng chứng và giao riêng 6A. Ghi đúng nguồn điều phối, không tạo lời duyệt nguyên văn người dùng. S05 APPROVED theo điều phối; PR #7 API xác minh MERGED/8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Các trạng thái OPEN/chờ duyệt S05 bên dưới là lịch sử.

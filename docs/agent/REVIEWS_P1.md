@@ -1,5 +1,11 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận 6A, giao riêng 6B — 18/10/2026
+
+Nguồn là thông báo điều phối: chấp nhận6A sau review code, kiểm bằng chứng và chạy lại13/13 unit test đạt. Ghi **6A APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Cho phép checkpoint local phần6A đãreview; đã thực hiện cfed2c848e196bee73fcb61ec5fd017cc9dbaf98, giữ reportPASS/FAIL/hashcode cũ. Không push/PR, không suy thành G2/merge S06.
+
+6B **WAITING_REVIEW** sau load691f5ae7,15unit/fixture/hậu kiểm PASS; các kiểm tra không tự trở thành duyệt6B. Chỉbridge6408/hashđúng, khôngfact6C/fullrefresh6D hoặcOLAP/dashboard; chờ review riêng6B. Chi tiết và lỗi fixture lịch sử trong bàn giao6B.
+
 ## Điều phối chấp nhận S05 và giao 6A — 18/10/2026
 
 Nguồn: thông báo điều phối chấp nhận S05 sau review code/bằng chứng; API xác minh PR #7 MERGED đúng8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Ghi APPROVED S05 theo nguồn điều phối, không lời duyệt nguyên văn của người dùng. Quyền mới chỉ 6A: nạp bốn dimension trên movielens_btl, kiểm transaction/hash/fixture rồi bàn giao. Không bootstrap/thayDDL, bridge/fact/integrated refresh hoặc commit/push/PR S06.

@@ -1,5 +1,11 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Hiện hành: 6B đã nạp bridge, chờ review
+
+6A đã được điều phối chấp nhận; checkpoint local cfed2c8. Bridge **6408**, ba view users/movies/movie_genres khớp canonical, staging/dimension không đổi; fact/v_ml_ratings/analytics vẫn rỗng. [Bàn giao6B](../docs/P1/s06b_handoff.md), [summary6B](../results/warehouse/s06b_summary.json). Chưa G2/6C/6D; không push/PR.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 -m etl.s06b_bridge verify --env-file .env`. Unit: `.\.venv\Scripts\python.exe -X utf8 -m unittest discover -s tests/warehouse -p test_s06b_bridge.py -v`. Lệnh đã dùng để nạp lúc bridge rỗng: `python -m etl.s06b_bridge load --env-file .env`; không chạy lại loadS05/6A/6B hoặc xóa để vượt guard. Checker6A bên dưới là lịch sử, nay đòi bridge rỗng nên không phù hợp; verifier6B kiểm bảo toàn dimension riêng. Xem bàn giao để chạy fixture có chủ đích; fixture không phải hậu kiểm chỉ đọc.
+
 ## Hiện hành: 6A đã nạp dimension, chờ review
 
 Xem [bàn giao 6A](../docs/P1/s06a_handoff.md) và [summary 6A](../results/warehouse/s06a_summary.json). Chỉ 4 dimension đã nạp: 6040 user/3883 movie/18 genre/1040 date; bridge/fact/analytics còn rỗng. **Không chạy lại load S05 hoặc load6A** trên trạng thái đã nạp; không tự truncate/xóa để vượt guard. Chưa pipeline full refresh6D/chạy lại tích hợp. Mục S05 dưới đây là hướng dẫn của bước trước.

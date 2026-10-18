@@ -1,5 +1,11 @@
 # Nguồn prompt P1
 
+## P-P1-21 — Điều phối chấp nhận6A, giao riêng6B, 18/10/2026
+
+Tóm tắt lệnh: điều phối báo chấp nhận6A và chạy lại13/13unit đạt. Giữ p1-s06-etl; được checkpoint local6A sau rà diff/stage đúng P1, giữ mọi report/hash, không plan/data/secret; chưa push/PR. Kiểm movielens_btl/marker/catalog/staging snapshotS05/dimension6A/haihash/genre/lịch và targetrỗng. Nạp riêngbridge qua mapping đầy đủ/duynhất, không bỏ khóa hoặcdedup, transaction/khóa snapshot chung, kiểm cùngconnection trướccommit. Đối soát6408cặp/hashgenre/PK/FK/từngphim/bảo toàn staging&dimension; fact/analytics vẫn0. Fixture thiếu mapping/cặptrùng/đa genre/rollback. Cập nhật hồ sơ6B WAITING_REVIEW, bàn giao và dừng.
+
+Giới hạn nguyên văn từ lệnh hiện tại: “Sau 6B, checker 6A có điều kiện bridge rỗng sẽ không còn phù hợp để chạy nguyên trạng. Dùng kiểm tra bảo toàn dimension riêng; không sửa bằng chứng 6A cũ để che thay đổi trạng thái.” Và: “Không chạy lại load S05/6A, không truncate dimension, chưa làm 6C/6D, OLAP hoặc dashboard. Chưa push/mở PR. Dừng sau bàn giao 6B.” Đây là lệnh phạm vi, không phải lời duyệt kết quả6B.
+
 ## P-P1-20 — Điều phối giao riêng 6A, 18/10/2026
 
 Tóm tắt lệnh: điều phối chấp nhận S05, PR #7 MERGED/8de1c7b đã xác minh. Bảo toàn hiện trạng, đọc hồ sơ/thiết kế/contract/manifest, đồng bộ main và nhánh p1-s06-etl. Đọc kiểm movielens_btl/marker/catalog/staging toàn nội dung/source/hash và targets rỗng; bất thường phải kiểm nguồn gốc, không truncate. Nạp user/movie/genre/date từ staging, giữ ID/title, map tuổi/nghề/genre, năm NULL và lịch liên tục UTC; một transaction/khóa chung, kiểm miền/NULL/unique/code sets trước commit, không im lặng bỏ dòng. Kiểm count, hai canonical view hash, tập genre/lịch/generated, fixture mapping/NULL/special title/biên UTC/rollback; bridge/fact/analytics vẫn rỗng. Bàn giao code/test/evidence/version/lệnh/giới hạn/3–5 ý bảo vệ, STATE/S06 6A WAITING_REVIEW.
