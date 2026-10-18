@@ -20,7 +20,7 @@
 | **Bước 2-P2** | Thiết lập môi trường độc lập cho P2 | `MERGED` | PR [#2](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/2) đã merge vào `main` (commit `ff87081`). |
 | **Bước 3A-P2**| Nhận mốc G0 & Xác nhận hợp đồng dữ liệu v2 | `APPROVED` | Duyệt lúc 17:38:48 ngày 15/10/2026. Lời duyệt lưu tại REVIEWS_P2.md. |
 | **Bước 3** | EDA, Adapter & Bàn giao G1 | `MERGED` | PR #5 (head `b73c8e2`) đã được điều phối review và merge vào `main` (commit `a8d2615`). 23/23 tests passed trên Windows. |
-| **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `WAITING_REVIEW` | Nhánh `p2-s08-features`. Đã sửa metadata manifest, hoàn thành module `mining/features.py`, tài liệu đặc tả và test 27/27 passed. Chờ điều phối review đặc trưng trước khi làm 8B. |
+| **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `WAITING_REVIEW` | Nhánh `p2-s08-features`. Đã mở PR [#8](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/8) (commit `3a4e47e`). 27/27 tests passed. Chờ điều phối review mã nguồn 8A trước khi làm 8B. |
 | **Bước 8B** | Q1: Huấn luyện phân cụm K-Means & Hồ sơ cụm | `NOT_STARTED` | Chưa thực hiện theo yêu cầu điều phối. |
 
 | **Bước 9** | Khai phá dữ liệu Q2: Temporal Split & Baseline | `NOT_STARTED` | Chờ Bước 8 hoàn thành. |
