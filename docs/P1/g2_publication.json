@@ -1,5 +1,5 @@
 {
-  "phase": "CODE_COMMITTED_BASE_VERIFIED",
+  "phase": "PR_OPEN_WAITING_REVIEW",
   "checked_at_utc": "2026-10-18T13:50:19.675391+00:00",
   "review_source": "Coordinator accepts 6D locally after code review, 65/65 tests and 29 artifact hashes; authorized publication, no merge",
   "repository": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky",
@@ -20,8 +20,8 @@
     }
   },
   "code_publication_commit": "4fa9cf17aa41e5ff84d4490886eeac27971e46f6",
-  "pr_url": null,
-  "pr_state": "NOT_CREATED",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9",
+  "pr_state": "OPEN",
   "p2_intake_status": "NOT_CONFIRMED",
   "dedicated_read_only_account_verified": false,
   "all_pr_candidate_files": [
@@ -139,20 +139,20 @@
   },
   "reviewed_summary_sha256": "a80c97c7d7888f78fe282ccdeb6eb9f9d6811798b3e2721035de074ae363c066",
   "artifact_sha256": {
-    "README.md": "03108f1218b9a7379683d32123f5358c5d3aa15bdc2589c5f129f8add8e17edc",
-    "database/README.md": "23273c4f4289eb6fa28be39a981ae5b8313d4913de9e8f95734e54b6217a758c",
-    "docs/P1/dw_handoff.md": "51c9f032488783f3a8d88c7a1a18253075fd68d40d6b804a97a0e2d54bf40fea",
-    "docs/P1/g2_publication.md": "d3bb718a0bb25cf06e92c80ece5b508391e699b2b61ebfac412258659f33f2d6",
+    "README.md": "d91ac16ac45bc27457dc01a8faf86cc538817968b8acab48f4beaaa20f5aa2a0",
+    "database/README.md": "3c41dea2fe14a417050601f37930b63d80f154f50793607fcc7384047ee95f4a",
+    "docs/P1/dw_handoff.md": "0d0e8f6ce20424df6ba6588dfae4a4f7766029f912b36156c4f522efd7610b59",
+    "docs/P1/g2_publication.md": "7415511b374067479c591dcdc5219340c5b70bdbb783bf23ad886384d1c1aec0",
     "docs/P1/s06a_handoff.md": "f580e25f46be7030d1379755c60503b8784aba2545f5a26d30409994db5ec0ed",
     "docs/P1/s06b_handoff.md": "3558bce888a245704604ef0bb2d08b6bd512a583226e904f4f971c15902d2786",
     "docs/P1/s06c_handoff.md": "219bfe9ee0a8b028c2e0d0473fcf0c9038065b76ab094768cdb1edab50e7f83f",
-    "docs/P1/s06d_handoff.md": "3c56abe882ba20b0b35e4166921dcad6692f5367bed100477a666e4fe9ba9afa",
-    "docs/agent/DECISIONS_P1.md": "72d8834c8b3bbf4dd6eeb60c746ded39bddc04663c89ccd58f3379e7f0a3f68b",
+    "docs/P1/s06d_handoff.md": "12ff4973e7d68610a13404d423817391f20ef356633c6cefdee66c038bb77297",
+    "docs/agent/DECISIONS_P1.md": "ab94ab21bbaad1da25ea951ca2348cfe8d061135d7019135a7012d5edb32d7ae",
     "docs/agent/PROMPTS_P1.md": "9423a4b9512cde3c532f12fc2e62ef33b5117beb7e567929e4c084b852a44c08",
-    "docs/agent/REVIEWS_P1.md": "5286dfa63dab9c01da7b7cbb12a14696dc3b9dfa5f507bf4118ddc099f89a432",
-    "docs/agent/STATE_P1.md": "53dcdf98744091e2cc44093a76a086460fe30cf339a6407c8e727e5c36bd1543",
-    "docs/agent/steps/P1/S06.md": "6589af812c33ef0196682a4304f9a1746031d5ddebc5c3c4c5e39c13e978739f",
-    "etl/README.md": "c0e5236d9b1c72c460f07849663547da93bda7c8718f6dc3ddfce81d711aa567",
+    "docs/agent/REVIEWS_P1.md": "c8156b948f4ac57917d108b4f38c09a919d2a1189bdc8d5b495e358a2854968f",
+    "docs/agent/STATE_P1.md": "f1e8343354b22b06dc216b10010cabb45c540b660170fbc63b6c742844f014fa",
+    "docs/agent/steps/P1/S06.md": "a9a4d60be7849e82ab35a15fd19e08b7dc2528fd95c0c23eb963c4f4f4bcd8bc",
+    "etl/README.md": "0b55f495a070b722a66d90d541bd38ac8fcaef94303fa2dd7ce109f455163e64",
     "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
     "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
     "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
@@ -243,5 +243,497 @@
     "code_physical_sha_matches_reviewed_runtime": true,
     "code_git_blob_matches_physical_after_lf_comparison": true,
     "full_refresh_rerun": false
+  },
+  "pr_open_snapshot": {
+    "number": 9,
+    "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9",
+    "state": "open",
+    "merged": false,
+    "head_at_open": "11a3d7367bbdbfad4267570d04863d22ee490d1c",
+    "base_at_open": "52dd682920e0587f3a474fe284b9bf5635ab6aac"
+  },
+  "push_verified_head": "11a3d7367bbdbfad4267570d04863d22ee490d1c",
+  "pr_merged": false,
+  "api_review_head": "11a3d7367bbdbfad4267570d04863d22ee490d1c",
+  "api_review_base": "52dd682920e0587f3a474fe284b9bf5635ab6aac",
+  "api_all_pr_files": [
+    {
+      "path": "README.md",
+      "git_blob_sha": "79fa162ccc62af95cb1770b4c518392f5a48cb4d",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0
+    },
+    {
+      "path": "database/README.md",
+      "git_blob_sha": "687a9259324337948bbb0bd74d64b86cbcb9f702",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/dw_handoff.md",
+      "git_blob_sha": "bbc702aef60f433744dc2631d4c514d9fae69c65",
+      "status": "added",
+      "additions": 69,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/g2_publication.json",
+      "git_blob_sha": "7ccef66e3df7d218d075fa1d5a5e2d68d8f09d19",
+      "status": "added",
+      "additions": 247,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/g2_publication.md",
+      "git_blob_sha": "5641124a1d1eb91250e04e2b1d3b2abaa7040a72",
+      "status": "added",
+      "additions": 25,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/s06a_handoff.md",
+      "git_blob_sha": "08f4d421ba4bc4c642406b2b0d859b2e87527c27",
+      "status": "added",
+      "additions": 76,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/s06b_handoff.md",
+      "git_blob_sha": "9d3a8a3f2bd950ea715bdc01d68977f2bd85d788",
+      "status": "added",
+      "additions": 69,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/s06c_handoff.md",
+      "git_blob_sha": "7b9c8edea12fb005cc4b5cd2e1ea9224a2214ee6",
+      "status": "added",
+      "additions": 79,
+      "deletions": 0
+    },
+    {
+      "path": "docs/P1/s06d_handoff.md",
+      "git_blob_sha": "fb345262e6cedd5ca9d08479b5e07b7e696c9a15",
+      "status": "added",
+      "additions": 89,
+      "deletions": 0
+    },
+    {
+      "path": "docs/agent/DECISIONS_P1.md",
+      "git_blob_sha": "9aa7f03cea285d028414fc3587fdf95ba4cfe575",
+      "status": "modified",
+      "additions": 52,
+      "deletions": 0
+    },
+    {
+      "path": "docs/agent/PROMPTS_P1.md",
+      "git_blob_sha": "65f52681c0747c6f8062a819ef01c5fcdb19cac6",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 0
+    },
+    {
+      "path": "docs/agent/REVIEWS_P1.md",
+      "git_blob_sha": "b0302cd9df7a3d96388e3bf3c3337e6dbb1b5f9a",
+      "status": "modified",
+      "additions": 30,
+      "deletions": 0
+    },
+    {
+      "path": "docs/agent/STATE_P1.md",
+      "git_blob_sha": "475c6b1b1e915a9d19b7387527600e9b0409fec3",
+      "status": "modified",
+      "additions": 52,
+      "deletions": 0
+    },
+    {
+      "path": "docs/agent/steps/P1/S06.md",
+      "git_blob_sha": "5c724c7102aadc1221e46b2150f45c9efb448012",
+      "status": "added",
+      "additions": 94,
+      "deletions": 0
+    },
+    {
+      "path": "etl/README.md",
+      "git_blob_sha": "53a8ec12ec41e36d7d8cc443625e97449256bf75",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 0
+    },
+    {
+      "path": "etl/run_etl.py",
+      "git_blob_sha": "7746a49463b7216754a3c1d45eba7df3121ec6b9",
+      "status": "added",
+      "additions": 272,
+      "deletions": 0
+    },
+    {
+      "path": "etl/s05_staging.py",
+      "git_blob_sha": "4fb15f3fefb6469c44c7dcd080d01c28f7e59078",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 1
+    },
+    {
+      "path": "etl/s06a_dimensions.py",
+      "git_blob_sha": "cb91b3199198ad33a2c8f5e8df4c1caadbb3bfa6",
+      "status": "added",
+      "additions": 296,
+      "deletions": 0
+    },
+    {
+      "path": "etl/s06b_bridge.py",
+      "git_blob_sha": "1ec2e6b2e89e0856a457219961168295ea0b2260",
+      "status": "added",
+      "additions": 295,
+      "deletions": 0
+    },
+    {
+      "path": "etl/s06c_fact.py",
+      "git_blob_sha": "9a8994f371398da4d9a3c67c9cdcda38edc40b36",
+      "status": "added",
+      "additions": 338,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/dw_manifest.json",
+      "git_blob_sha": "30db7943d224b07dbb4f60cc8fc5c34807f42ae0",
+      "status": "added",
+      "additions": 70,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_fixture_428e7cb459e74eeca7bc62a6b0644e41.json",
+      "git_blob_sha": "da59f1b05fefe7428b41dd794283e947f026b9ba",
+      "status": "added",
+      "additions": 61,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_fixture_5c40ed25036f445c870d4bd716401599.json",
+      "git_blob_sha": "7bb2603db335e675df7c1677827cdf914f948804",
+      "status": "added",
+      "additions": 61,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_load_3b6f0cda57a5454ba52bc8674c18b953.json",
+      "git_blob_sha": "83836ae1c8ffff3b31fb3083d456147fc9603f25",
+      "status": "added",
+      "additions": 136,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_load_ab42f286f1ab40a5ae3d51a59bb82def.json",
+      "git_blob_sha": "8292e9b9753e7d2597f946646196562b26679c7a",
+      "status": "added",
+      "additions": 23,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_postcheck.json",
+      "git_blob_sha": "26ed6be288b6dd86eb351f0b97ef2546b8283127",
+      "status": "added",
+      "additions": 150,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_preflight.json",
+      "git_blob_sha": "7cca056bf733bed558e8ee549bded5cc8178c170",
+      "status": "added",
+      "additions": 146,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_summary.json",
+      "git_blob_sha": "275f9cc78e9f0f48b887e134e241e68ccd437e47",
+      "status": "added",
+      "additions": 185,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_unit_7c1ebdfb10814a228c4eb406517e0a6b.json",
+      "git_blob_sha": "4eaac7e99493018ae5063cd204d154dabaabc678",
+      "status": "added",
+      "additions": 11,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_unit_e62eeea8e04745a8a98ee8f5784f5bf5.json",
+      "git_blob_sha": "20d9864ef7d37d3ea1961198e75e35254b3003df",
+      "status": "added",
+      "additions": 11,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06a_verify_ab5b5c852b7a43238e8ddcc9b7ded893.json",
+      "git_blob_sha": "f79c2a7870b637e5bebebb0035186c9ecb37c0de",
+      "status": "added",
+      "additions": 120,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_fixture_9ac28776dc4f48c48b231767d61d0526.json",
+      "git_blob_sha": "aab0b600bf10dc0423c772b9a0759d59634d13ad",
+      "status": "added",
+      "additions": 15,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_fixture_a88cc39467f4409f9345785b168a455b.json",
+      "git_blob_sha": "8b23a625cdf93329d6422141cc642979a38bd2fd",
+      "status": "added",
+      "additions": 46,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_load_691f5ae7935d43988ca05254cd5ba5f1.json",
+      "git_blob_sha": "1c17d732c0e8ce5bc49a95e622e9f9d0a66a0f06",
+      "status": "added",
+      "additions": 294,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_preflight_6abb1f4165f0473ca86a76e9e1f502b1.json",
+      "git_blob_sha": "59bfa822c562b3b4a020e6b9115859657ba5e63d",
+      "status": "added",
+      "additions": 147,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_summary.json",
+      "git_blob_sha": "0f8755ac213fb3f229f1841cca0c6395c4cac78f",
+      "status": "added",
+      "additions": 208,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_unit_85621afae81e4a59a99ff47e60b6e519.json",
+      "git_blob_sha": "8a8951078e5a0933ad9cdca498da38027640ba98",
+      "status": "added",
+      "additions": 13,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06b_verify_03911484445047ebbfa19d579b73e4d1.json",
+      "git_blob_sha": "219d0f13a195a0fac6206ce8b2fbdcabd3bbf1f4",
+      "status": "added",
+      "additions": 166,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_fixture_db3ea77cfc7d4daebc471e8aa2354c16.json",
+      "git_blob_sha": "3152be00631e5f90c8aed7100601110fa89ff616",
+      "status": "added",
+      "additions": 66,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_load_bba59cc0f59b45b0897144a5268e111f.json",
+      "git_blob_sha": "948af8f46e7bcb8e494c8c7053ef2f8e4e7cfb28",
+      "status": "added",
+      "additions": 347,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_preflight_c0c750144d8a420ab25fefcab3b5433e.json",
+      "git_blob_sha": "813e5851f2e7a9b1972025430a1e9df4ea54af7d",
+      "status": "added",
+      "additions": 167,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_summary.json",
+      "git_blob_sha": "598b057e2fd7b2053fdc65ffa9fe41abd5decc9b",
+      "status": "added",
+      "additions": 213,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_unit_39e473d3dbf7404d9c271d0e511748a5.json",
+      "git_blob_sha": "43b5521f7684ed5216c6fecb2a3eb73057c3db64",
+      "status": "added",
+      "additions": 13,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06c_verify_0dd850a11b604999ae9ff1f87d3cd317.json",
+      "git_blob_sha": "665c44f2fdc0319b4fd53796dfc75a8ca0966a06",
+      "status": "added",
+      "additions": 201,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_adapter_c75f9cb0ceb04d74bfa36e140d812754.json",
+      "git_blob_sha": "d04911913cda6543c40f00caf322b12534e37a01",
+      "status": "added",
+      "additions": 124,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_refresh_16421c84a7a244b5ad4b60f4ce4dfbc6.json",
+      "git_blob_sha": "bc701405bdacac3d69b44e5e05c4d7639d3d863f",
+      "status": "added",
+      "additions": 233,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_refresh_6501a547065246869b98b6ab6531190e.json",
+      "git_blob_sha": "927e286dfc2ffb50a1b7decc60e25724bc0d2755",
+      "status": "added",
+      "additions": 233,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_repeatability.json",
+      "git_blob_sha": "efb3e3115d6efbb92a4d53187b5ae1fa4a8739f1",
+      "status": "added",
+      "additions": 33,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_rollback_5c9c553454e54e81953fded2d524877c.json",
+      "git_blob_sha": "645484d0475a6becd27eecf59d8d3d055b37abba",
+      "status": "added",
+      "additions": 133,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_rollback_83c3e18b561940e8af2e5e734e2f5757.json",
+      "git_blob_sha": "787988017060c243bf97610bd74d5604a38419b9",
+      "status": "added",
+      "additions": 133,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_summary.json",
+      "git_blob_sha": "74b95a7a546c3fa5cbf21d6894fc1492e8e3a157",
+      "status": "added",
+      "additions": 268,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_unit_46211bbea754466aa1f9f7d360eff091.json",
+      "git_blob_sha": "ba881d5b9c2797ddf0ed773ee3d7593e6c5dd659",
+      "status": "added",
+      "additions": 24,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_unit_e1b0f388045848d6914438c8685471c5.json",
+      "git_blob_sha": "eab3554afdf23ab9f3a120920903d08aaa800b93",
+      "status": "added",
+      "additions": 24,
+      "deletions": 0
+    },
+    {
+      "path": "results/warehouse/s06d_verify_21f0d343d42543c2ab176c3ac554841e.json",
+      "git_blob_sha": "05cf15906afb541375b2ac73f212afed1460f60c",
+      "status": "added",
+      "additions": 200,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_g2_adapter.py",
+      "git_blob_sha": "0d1e10d5754f2c10daf7465c0022be22192f11fc",
+      "status": "added",
+      "additions": 112,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_s06a_dimensions.py",
+      "git_blob_sha": "7001779639665f3c59d83bdf8936d6fbd821f2d9",
+      "status": "added",
+      "additions": 64,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_s06a_rollback.py",
+      "git_blob_sha": "f10c82c9f97acc4ef042c1c812198844ffb5bb35",
+      "status": "added",
+      "additions": 106,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_s06b_rollback.py",
+      "git_blob_sha": "8772b7c01e19a239ef17e94c80cb8017c2d8e912",
+      "status": "added",
+      "additions": 140,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_s06c_rollback.py",
+      "git_blob_sha": "1dcd02a26077340a455671bef098220e1fb8c740",
+      "status": "added",
+      "additions": 148,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_s06d_rollback.py",
+      "git_blob_sha": "59784442d2bf0d68a44782aad1781ce3a0a0fc06",
+      "status": "added",
+      "additions": 235,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/check_warehouse.py",
+      "git_blob_sha": "6464bcf7af23cb82dd651cdafb1d83d5dee1cc84",
+      "status": "added",
+      "additions": 20,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/test_s06a_dimensions.py",
+      "git_blob_sha": "ff421f3391d3c2f1ed9e14a30a7536d76951783d",
+      "status": "added",
+      "additions": 92,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/test_s06b_bridge.py",
+      "git_blob_sha": "7f8577f2030c5fc4f7c7d4719b4118e36164a235",
+      "status": "added",
+      "additions": 82,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/test_s06c_fact.py",
+      "git_blob_sha": "58696dbc81f2d3ebd0fc23c19429190be5ebf630",
+      "status": "added",
+      "additions": 101,
+      "deletions": 0
+    },
+    {
+      "path": "tests/warehouse/test_s06d_refresh.py",
+      "git_blob_sha": "174f329eab39642071607ea7493e7a65f121030b",
+      "status": "added",
+      "additions": 120,
+      "deletions": 0
+    }
+  ],
+  "api_file_blob_checks": {
+    "files": 65,
+    "all_api_blobs_match_local_git": true,
+    "all_json_python_parsed": true,
+    "no_p2_data_secrets_plan_paths": true
+  },
+  "ci_at_review": {
+    "check_runs_count": 0,
+    "combined_status": "pending",
+    "status_count": 0,
+    "not_claimed_as_pass": true
+  },
+  "documentation_followup_note": "API blob inventory is tied to api_review_head before this documentation-only update. Resolve latest PR head through GitHub; code publication commit remains 4fa9cf1.",
+  "final_publication_checks": {
+    "all_current_and_history_changed_blobs_secret_scanned": 95,
+    "runtime_pass_fail_reports_physical_hashes_preserved": true,
+    "reviewed_summary_json_unchanged": true,
+    "code_bundle_physical_hashes_unchanged": true,
+    "markdown_links_json_ast_diff_checked": true,
+    "all_pr_files_count": 65,
+    "no_full_refresh_or_db_check_rerun": true,
+    "no_merge_or_access_configuration_changes": true
   }
 }

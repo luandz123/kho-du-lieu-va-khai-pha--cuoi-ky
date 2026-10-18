@@ -1,5 +1,7 @@
 # Thiết kế kho MovieLens — nháp S04
 
+**Công bố ETL/G2:** [PR#9 OPEN/chờreview](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9), codecommit4fa9cf1,6D được điều phối kiểm nhận cục bộ. DDL không đổi, chưa merge/P2 nhậnG2; [hồ sơ công bố](../docs/P1/g2_publication.md) ghi rõ giới hạn quyền đọc/remote. Các mục dưới là lịch sử theo mốc.
+
 **Cập nhật6D:** DDL giữ nguyên; full refresh trên movielens_btl dùng một transaction và một TRUNCATE đúng11bảng, giữ registry metadata và vô hiệu hóa model. Hai run cùng bundle/config đạt, bốn view/count/hash đúng; adapter P2 thực đọc PostgreSQL/raw/CSV khớp. [Bàn giao6D](../docs/P1/s06d_handoff.md), [gói DW](../docs/P1/dw_handoff.md). G2 mới chuẩn bị review, chưa P2 nhận/PR/OLAP/dashboard. Hậu kiểm tích hợp không dùng surrogate/guard tiểu bước lịch sử; các mục dưới là lịch sử.
 
 **Cập nhật6C:** fact/view ratings **1000209**, bốn hash chuẩn đúng; staging/dimension/surrogate/bridge giữ nguyên, analytics rỗng. [Bàn giao6C](../docs/P1/s06c_handoff.md), WAITING_REVIEW; 6B được điều phối chấp nhận. DDL giữ nguyên. Hậu kiểm dùng tests/warehouse/check_warehouse.py; không chạy loader cũ/6C hoặc checker6B đòi factrỗng. Chưafullrefresh6D/G2/OLAP/dashboard; các mục dưới giữ lịch sử.

@@ -1,5 +1,11 @@
 # Hồ sơ duyệt P1
 
+## PR ETL/G2 đã mở — chưa merge
+
+Code công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6, giữ checkpoint6A/B/C và runtimebasec143f5d/bundleb858a879. Push thành công và API xác minh [PR#9](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9) **OPEN/merged=false**, base52dd682, HEAD lúc mở/rà11a3d7367bbdbfad4267570d04863d22ee490d1c. Rà đủ65file/blob soGit và toàn bộcheckpoint, khôngP2/data/secret/plan; JSON/Python/diff/link/ignore/provenance đạt. Không chạy lại fullrefresh vì hồ sơ. CI0check-runs/0status, combinedpending không được ghiPASS.
+
+6D APPROVED theo điều phối cục bộ; **PR WAITING_REVIEW**, P2intakeNOT_CONFIRMED và dedicated_read_only_account_verified=false. Commit chỉ cập nhật hồ sơ tiếp theo thuộc cùngPR, không đổi báo cáo runtime để gán commit mới. Chưa merge/OLAP/dashboard/G3 hoặc thay role/firewall/credential, dừng chờ reviewPR.
+
 ## Điều phối chấp nhận6D, giao công bố PR ETL/G2
 
 Nguồn: thông báo điều phối chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu hash29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, COMMITTED. Ghi **6D APPROVED theo điều phối ở mức cục bộ**, không tạo lời duyệt nguyên văn người dùng và không coi là PR đãmerge/P2 đãnhậnG2.
