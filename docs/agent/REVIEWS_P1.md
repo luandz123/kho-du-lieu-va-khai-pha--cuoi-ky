@@ -1,5 +1,11 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận S05 và giao 6A — 18/10/2026
+
+Nguồn: thông báo điều phối chấp nhận S05 sau review code/bằng chứng; API xác minh PR #7 MERGED đúng8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Ghi APPROVED S05 theo nguồn điều phối, không lời duyệt nguyên văn của người dùng. Quyền mới chỉ 6A: nạp bốn dimension trên movielens_btl, kiểm transaction/hash/fixture rồi bàn giao. Không bootstrap/thayDDL, bridge/fact/integrated refresh hoặc commit/push/PR S06.
+
+6A **WAITING_REVIEW**, chưa có xác nhận duyệt kết quả. 13 unit + fixture + load code77d3450b PASS và read-only hậu kiểm không tự tạo lời duyệt, không xác nhận G2 hoặc cho phép 6B. Giữ FAIL/snapshot phiên bản đầu và giới hạn BI/backup.
+
 ## Công bố S05 — PR #7 OPEN, chưa merge
 
 Sau review của điều phối và bổ sung cặp cùng code 0f24c3a/f5f11bcd đạt, đã commit/push/mở https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/7. API OPEN/merged=false, base main/c3e4f998, head lúc mở 2417416; 25 blob khớp local. Kiểm công bố 19/19 trước commit và 8/8 sau fetch đạt, giữ nguyên run cũ. Ghi đúng nguồn review điều phối, không lời duyệt nguyên văn người dùng. Chưa merge hoặc chuyển 6A; ETL DW/G2, quyền BI và phục hồi backup chưa kiểm.

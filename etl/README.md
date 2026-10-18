@@ -1,5 +1,11 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Hiện hành: 6A đã nạp dimension, chờ review
+
+Xem [bàn giao 6A](../docs/P1/s06a_handoff.md) và [summary 6A](../results/warehouse/s06a_summary.json). Chỉ 4 dimension đã nạp: 6040 user/3883 movie/18 genre/1040 date; bridge/fact/analytics còn rỗng. **Không chạy lại load S05 hoặc load6A** trên trạng thái đã nạp; không tự truncate/xóa để vượt guard. Chưa pipeline full refresh6D/chạy lại tích hợp. Mục S05 dưới đây là hướng dẫn của bước trước.
+
+Kiểm an toàn chỉ đọc sau6A: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_s06a_dimensions.py --env-file .env`. Lệnh đã dùng để nạp6A: `python -m etl.s06a_dimensions --env-file .env`; lệnh này từ chối target không rỗng, không dùng làm checker. Chưa commit/push/PR S06 hoặc tự sang6B.
+
 Chỉ bootstrap DDL S04, kiểm đầu vào và nạp ba bảng staging. Không transform/nạp dimension, bridge, fact hoặc kết quả cụm. Database dự án **movielens_btl**, được điều phối chọn và cho phép tạo ở S05; không dùng postgres/template0/template1 để chứa dữ liệu nghiệp vụ.
 
 ## Chạy trên PowerShell từ thư mục dự án

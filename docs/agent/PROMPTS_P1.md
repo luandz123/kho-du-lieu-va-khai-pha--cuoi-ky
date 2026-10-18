@@ -1,5 +1,11 @@
 # Nguồn prompt P1
 
+## P-P1-20 — Điều phối giao riêng 6A, 18/10/2026
+
+Tóm tắt lệnh: điều phối chấp nhận S05, PR #7 MERGED/8de1c7b đã xác minh. Bảo toàn hiện trạng, đọc hồ sơ/thiết kế/contract/manifest, đồng bộ main và nhánh p1-s06-etl. Đọc kiểm movielens_btl/marker/catalog/staging toàn nội dung/source/hash và targets rỗng; bất thường phải kiểm nguồn gốc, không truncate. Nạp user/movie/genre/date từ staging, giữ ID/title, map tuổi/nghề/genre, năm NULL và lịch liên tục UTC; một transaction/khóa chung, kiểm miền/NULL/unique/code sets trước commit, không im lặng bỏ dòng. Kiểm count, hai canonical view hash, tập genre/lịch/generated, fixture mapping/NULL/special title/biên UTC/rollback; bridge/fact/analytics vẫn rỗng. Bàn giao code/test/evidence/version/lệnh/giới hạn/3–5 ý bảo vệ, STATE/S06 6A WAITING_REVIEW.
+
+Nguyên văn giới hạn: “Sau khi dimension đã có dữ liệu, không tự chạy lại lệnh load S05: lệnh đó được thiết kế yêu cầu DW/analytics rỗng. Chưa tuyên bố pipeline full refresh chạy lại được; phần tích hợp thuộc 6D.” Và: “Chưa nạp bridge 6B, fact 6C, chạy 6D, OLAP hoặc dashboard. Chưa commit/push/mở PR trong lượt này. Dừng sau bàn giao 6A.”
+
 ## P-P1-19 — Chốt bằng chứng và công bố S05, 17/10/2026
 
 Tóm tắt lệnh điều phối: code S05 đã review, điều phối chạy lại 9/9 test đạt, chưa lỗi chặn PR. Giữ báo cáo c122ce2/0f24c3a, chạy thêm một load không đổi code rồi so với 0f24c3a: cùng code SHA, count/retained-row hash, mọi field/source_line và chín target rỗng; nếu thất bại dừng chưa push. Ghi cặp cùng phiên bản, thứ tự/thời điểm/thời gian nhất quán, giữ FAIL/lịch sử và cập nhật artifact hash. Ghi đúng nguồn điều phối, giới hạn chưa DW/G2/BI/backup. Stage đúng phạm vi P1/S05, không kế hoạch/raw/processed/user data/.env/secret, commit trước đồng bộ main an toàn, push/mở PR main và chỉ ghi thành công sau xác minh. Bàn giao PR/HEAD/cặp run/check/worktree, chưa merge/6A/OLAP/dashboard.

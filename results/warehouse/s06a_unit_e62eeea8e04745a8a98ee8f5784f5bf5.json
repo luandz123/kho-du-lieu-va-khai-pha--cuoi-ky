@@ -1,0 +1,11 @@
+{
+  "step": "6A_UNIT",
+  "run_id": "e62eeea8e04745a8a98ee8f5784f5bf5",
+  "status": "PASS",
+  "tests": 12,
+  "exit_code": 0,
+  "fixture": "INVENTED_ONLY_NO_DATABASE",
+  "output": "test_absent_or_nonfour_digit_or_trailing_year_is_null (test_s06a_dimensions.DimensionTransforms.test_absent_or_nonfour_digit_or_trailing_year_is_null) ... ok\ntest_all_seven_age_labels_and_occupation_retained (test_s06a_dimensions.DimensionTransforms.test_all_seven_age_labels_and_occupation_retained) ... ok\ntest_duplicate_user_or_movie_rejected (test_s06a_dimensions.DimensionTransforms.test_duplicate_user_or_movie_rejected) ... ok\ntest_final_parenthesized_year_only (test_s06a_dimensions.DimensionTransforms.test_final_parenthesized_year_only) ... ok\ntest_genre_global_grain_one_row_each (test_s06a_dimensions.DimensionTransforms.test_genre_global_grain_one_row_each) ... ok\ntest_integer_and_timestamp_domain (test_s06a_dimensions.DimensionTransforms.test_integer_and_timestamp_domain) ... ok\ntest_invalid_user_codes_rejected (test_s06a_dimensions.DimensionTransforms.test_invalid_user_codes_rejected) ... ok\ntest_leap_day_continuous_calendar (test_s06a_dimensions.DimensionTransforms.test_leap_day_continuous_calendar) ... ok\ntest_negative_epoch_is_utc (test_s06a_dimensions.DimensionTransforms.test_negative_epoch_is_utc) ... ok\ntest_title_special_characters_preserved (test_s06a_dimensions.DimensionTransforms.test_title_special_characters_preserved) ... ok\ntest_unknown_or_duplicate_movie_genre_rejected (test_s06a_dimensions.DimensionTransforms.test_unknown_or_duplicate_movie_genre_rejected) ... ok\ntest_utc_midnight_not_machine_timezone (test_s06a_dimensions.DimensionTransforms.test_utc_midnight_not_machine_timezone) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.002s\n\nOK\n",
+  "loader_code_sha256": "c231e8c5ee345448ec8f36e5ca6961497b3ffc5a52d8aa6780a42cd25b71cdf4",
+  "test_sha256": "d1e109045d693a0f3881bebc7094f14efda765181c67f9fae55d6edf2be57297"
+}

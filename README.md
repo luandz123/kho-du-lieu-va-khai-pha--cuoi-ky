@@ -57,6 +57,8 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
+Hiện hành 6A: bốn dimension đã nạp và đang WAITING_REVIEW; xem [bàn giao 6A](docs/P1/s06a_handoff.md) và [bằng chứng](results/warehouse/s06a_summary.json). Staging giữ nguyên, bridge/fact/analytics vẫn rỗng; **không chạy lại load S05 sau 6A**, chưa full refresh tích hợp/G2. Đoạn S05 dưới đây là lịch sử trước khi nạp dimension.
+
 S05 đã tạo cấu trúc được duyệt tại database riêng `movielens_btl` và nạp raw staging, đang WAITING_REVIEW. Xem [hướng dẫn S05](etl/README.md), [bàn giao](docs/P1/s05_handoff.md) và [bằng chứng tổng hợp](results/warehouse/s05_summary.json). Chưa nạp dimension/bridge/fact, chưa G2; các hướng dẫn/mốc trước trong README là lịch sử tương ứng, không cấp quyền tự chạy bước tiếp.
 
 `.env.example` là mẫu không bí mật. `.env` gốc phục vụ PostgreSQL Windows; `dashboard/superset/.env` phục vụ metadata/admin Superset và giữ key cũ khi kế thừa volume. Hai file này và `.venv` chỉ nằm cục bộ, không đưa lên Git. Không chuyển nguyên `.venv` giữa máy/checkouts.

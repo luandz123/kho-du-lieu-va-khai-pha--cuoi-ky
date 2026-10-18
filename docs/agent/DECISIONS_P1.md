@@ -1,5 +1,17 @@
 # Quyết định P1
 
+## S06 — riêng 6A, 18/10/2026
+
+P1-D52: Điều phối chấp nhận S05 và giao riêng 6A; PR #7 MERGED đúng8de1c7b đã xác minh. Main52dd682 còn PR #8/P2, chỉ kế thừa, không sửa/chạy/duyệt P2. Nhánh p1-s06-etl, không commit/push/PR ở lượt này.
+
+P1-D53: Insert bốn dimension vào target rỗng trong một transaction/khóa advisory chung; khóa staging chống đổi snapshot và target chống ghi cạnh tranh, kiểm toàn field/source/code sets/hashes trước commit. Không truncate/delete/upsert/bootstrap/DDL hoặc nạp bridge/fact/analytics. Trạng thái khác dự kiến thì dừng kiểm nguồn gốc.
+
+P1-D54: Tính hash view phải ORDER BY/stable sort theo contract vì serializer không tự sort. Lần đầu thiếu sort rollback hoàn toàn; giữ FAIL, sửa caller và regression test, không đổi nguồn/DDL/hash kỳ vọng. Loader cuối77d3450b có unit13/fixture/load cùng hash.
+
+P1-D55: Date lịch UTC continuous 1040 ngày lấy min/max Unix giây, generated calendar kiểm từng ngày; NULL năm vẫn giữ. Surrogate chỉ nội bộ, có thể gap sau rollback, không reset hoặc giả bằng ID nguồn. Hai view users/movies đúng không thay G2 đủ bốn view.
+
+P1-D56: Sau 6A không gọi lại load S05 (đòi DW/analytics rỗng), không tự xóa để rerun6A hoặc tuyên bố integrated full refresh. 6D được giao riêng sau các tiền đề. 6A WAITING_REVIEW; 6B/C/D chưa làm.
+
 ## Chốt bằng chứng và công bố S05 — 17/10/2026
 
 P1-D51: Push nhánh p1-s05-staging và PR #7 vào main đã thành công, API xác minh OPEN/merged=false ở head mở 2417416/base c3e4f998. Đủ 25 file/blob khớp local, 19+8 kiểm công bố đạt. Giữ code và mọi run cũ; cập nhật hồ sơ kết quả tiếp tục cùng PR. Chưa merge, chưa ETL DW/G2/6A/quyền BI/backup restore.

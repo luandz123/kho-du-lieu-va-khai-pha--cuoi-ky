@@ -1,5 +1,7 @@
 # Thiết kế kho MovieLens — nháp S04
 
+**Cập nhật 6A:** chỉ bốn dimension đã được nạp từ staging, 6040/3883/18/1040 dòng; staging giữ nguyên, bridge/fact/ba analytics vẫn rỗng. Hai view user/movie đã khớp canonical; chưa G2 đủ bốn view. DDL giữ nguyên, không bootstrap lại. [Bàn giao 6A](../docs/P1/s06a_handoff.md), WAITING_REVIEW. Không chạy lại load S05 hoặc coi full refresh6D đã có. Các cập nhật S05/S04 dưới đây giữ lịch sử từng thời điểm.
+
 **Cập nhật S05:** PR #6 đã merge; DDL này đã được thực thi trên database riêng movielens_btl trong phạm vi Bước 5, catalog khớp thiết kế. Chỉ staging được nạp; DW và analytics vẫn rỗng. Xem [bàn giao S05](../docs/P1/s05_handoff.md). Các nhãn “chưa chạy DDL” bên dưới mô tả lịch sử S04 tại thời điểm review, không phải trạng thái hiện tại của S05. SQL/thiết kế giữ nguyên.
 
 **P1-S04-draft-v2, 16/10/2026: điều phối chấp nhận ở mức thiết kế. Chưa chạy DDL.**

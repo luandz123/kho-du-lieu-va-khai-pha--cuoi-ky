@@ -1,5 +1,17 @@
 # Trạng thái P1
 
+## Hiện hành — 6A WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận S05 sau review code/bằng chứng và giao riêng 6A. Ghi đúng nguồn điều phối, không tạo lời duyệt nguyên văn người dùng. S05 APPROVED theo điều phối; PR #7 API xác minh MERGED/8de1c7b9c39a7fe7aa0ec6bc671eec1ce490f6d6. Các trạng thái OPEN/chờ duyệt S05 bên dưới là lịch sử.
+
+Đã bảo toàn plan untracked, tracked sạch trước fetch/switch. Main mới còn có PR #8/P2; nhánh **p1-s06-etl**, HEAD nền **52dd682920e0587f3a474fe284b9bf5635ab6aac**. Không sửa P2 hoặc tự duyệt 8A, không commit/push/PR S06. DDL và module S05 giữ nguyên, không bootstrap.
+
+Read-only preflight xác minh movielens_btl/marker/catalog, nguồn và toàn bộ trường/source_line staging đúng snapshot S05, chín target rỗng. Nạp bốn dimension một transaction/khóa chung: **6040 user, 3883 movie, 18 genre, 1040 date**; ngày liên tục 2000-04-25..2003-02-28 UTC, cột lịch generated đúng. Hash v_ml_users/v_ml_movies khớp canonical. Bridge/fact/3 analytics và hai view còn lại vẫn rỗng, chưa G2.
+
+Code thực chạy cuối SHA-256 **77d3450b1c7f7e207984ec7f376a0af268ef8b83ddfb38f69e82553ab7f3d7a2**, working tree chưa commit. Unit13/fixture428e7cb4/load3b6f0cda cùng loader hash; read-only sau commit PASS, staging giữ nguyên. Fixture unique-date lỗi ở dimension cuối rollback cả bốn bảng thử, không đổi production. Lần đầu thiếu sort khi hash view đã rollback toàn bộ, có report FAIL và sửa caller/test hồi quy, không đổi DDL/nguồn/hash kỳ vọng. Identity có thể nhảy sau rollback; không reset hoặc dùng surrogate như ID nguồn.
+
+Bàn giao docs/P1/s06a_handoff.md; code etl/s06a_dimensions.py; test/check trong tests/warehouse; bằng chứng results/warehouse/s06a_summary.json và các run. Hồ sơ steps/P1/S06.md. **6A WAITING_REVIEW**, 6B/6C/6D NOT_STARTED. Không chạy lại load S05 sau khi dimension có dữ liệu; chưa pipeline full refresh tích hợp/chạy lại, chưa OLAP/dashboard/BI/backup. Dừng, không tự chuyển 6B.
+
 ## Hiện hành — công bố S05, 17/10/2026
 
 S05 **WAITING_REVIEW** phần PR; **PR #7 OPEN, chưa MERGED**. Nguồn: điều phối báo đã review code/đối chiếu bằng chứng, chạy lại 9/9 unit test đạt, chưa thấy lỗi code chặn PR; giao chốt bằng chứng rồi commit/push/mở PR. Đây không phải lời duyệt nguyên văn của người dùng và không suy thành nghiệm thu ETL DW/G2. Chưa merge/6A.

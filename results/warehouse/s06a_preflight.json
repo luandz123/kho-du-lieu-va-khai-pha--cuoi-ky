@@ -1,0 +1,146 @@
+{
+  "status": "PASS",
+  "phase": "READ_ONLY_PRECONDITIONS",
+  "checked_at_utc": "2026-10-18T11:54:54.264635+00:00",
+  "database": "movielens_btl",
+  "catalog": {
+    "tables": 12,
+    "columns": 64,
+    "views": 6,
+    "foreign_keys": 9,
+    "check_constraints": 27,
+    "explicit_indexes": 8,
+    "columns_match": true,
+    "keys_match": true,
+    "constraints_validated": true,
+    "view_columns_and_types": {
+      "dw.v_ml_users": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "gender",
+          "text"
+        ],
+        [
+          "age_group",
+          "text"
+        ],
+        [
+          "occupation",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movies": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "title",
+          "text"
+        ],
+        [
+          "release_year",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movie_genres": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "genre_name",
+          "text"
+        ]
+      ],
+      "dw.v_ml_ratings": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "rating",
+          "integer"
+        ],
+        [
+          "timestamp",
+          "bigint"
+        ],
+        [
+          "rated_at",
+          "text"
+        ]
+      ]
+    }
+  },
+  "source": {
+    "users.dat": {
+      "sha256": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "line_count": 6040,
+      "matches": true
+    },
+    "movies.dat": {
+      "sha256": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "line_count": 3883,
+      "matches": true
+    },
+    "ratings.dat": {
+      "sha256": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "line_count": 1000209,
+      "matches": true
+    },
+    "README": {
+      "sha256": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133",
+      "line_count": 170,
+      "matches": true
+    }
+  },
+  "staging": {
+    "users_raw": {
+      "rows": 6040,
+      "min_source_line": 1,
+      "max_source_line": 6040,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "0c7877a3896f0f42af671abbc81fda5f7c1726d36962268d7475a2273192b3ee"
+    },
+    "movies_raw": {
+      "rows": 3883,
+      "min_source_line": 1,
+      "max_source_line": 3883,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "67ceb94ef43b79b585df1a92cca10c971351343b202ea60a26a1d6bb394f1513",
+      "special_title_counts": {
+        "non_ascii": 50,
+        "quote": 0,
+        "comma": 993
+      }
+    },
+    "ratings_raw": {
+      "rows": 1000209,
+      "min_source_line": 1,
+      "max_source_line": 1000209,
+      "source_staging_all_fields_exact": true,
+      "retained_row_csv_sha256": "8715003874297323f06699e8cc214c489beec2c7c8af35ce36e3392eb721e80c"
+    }
+  },
+  "snapshot_matches_s05_run": "f5f11bcd42314042b34bfa1ff66e1f56",
+  "target_counts": {
+    "dw.dim_user": 0,
+    "dw.dim_movie": 0,
+    "dw.dim_date": 0,
+    "dw.dim_genre": 0,
+    "dw.bridge_movie_genre": 0,
+    "dw.fact_rating": 0,
+    "analytics.model_registry": 0,
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0
+  },
+  "duration_seconds": 3.735
+}
