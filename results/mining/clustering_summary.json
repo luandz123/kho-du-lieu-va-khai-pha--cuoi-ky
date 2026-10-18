@@ -181,7 +181,7 @@
   "handoff_manifest": {
     "contract_version": 2,
     "model_version": "kmeans_k4_seed42",
-    "generated_at_utc": "2026-10-18T14:05:28.062347+00:00",
+    "generated_at_utc": "2026-10-18T14:53:47.536766+00:00",
     "algorithm": "KMeans",
     "training_config": {
       "k": 4,
@@ -219,28 +219,22 @@
       "pandas": "2.3.3",
       "python": "3.12.3"
     },
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
     "source_hashes": {
       "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
       "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
       "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
       "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
     },
-    "canonical_hashes_manifest": {
-      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
-      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
-      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
-      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
-    },
-    "actual_canonical_hashes": {
-      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
-      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
-      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
-      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
-    },
     "code_provenance": {
       "g1_canonical_code_commit": "7a284b9f108dd64b030305cf51b8614b770a2296",
       "features_code_sha256": "e02851f985a0ce15dd6871b3bf04e0b8b96725b7a55e9fc5f6a6d2562582f8e6",
-      "clustering_code_sha256": "f2892f2f49767d2e380924cc32e2bb4b6cdc91275367dceb026f8f573da01b8f"
+      "clustering_code_sha256": "ccab17a3e188a517f5915aee407a60609ba7502102e5958a4e65714419a68507"
     },
     "data_summary": {
       "total_users": 6040,

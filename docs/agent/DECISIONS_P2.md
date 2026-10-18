@@ -50,4 +50,15 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 - **Bối cảnh**: Hợp đồng dữ liệu v2 quy định gói handoff phân cụm (`cluster_genre_profile.csv` và `manifest.json`) phải chứa danh mục thể loại và `genre_order` thống nhất, xuất đủ $K \times \text{genres}$ dòng gồm cả tỷ lệ 0.
 - **Quyết định**: Cố định thứ tự thể loại (`genre_order`) theo thứ tự bảng chữ cái tiếng Anh (alphabetical order A–Z) của 18 thể loại gốc trong MovieLens 1M: `Action`, `Adventure`, `Animation`, `Children's`, `Comedy`, `Crime`, `Documentary`, `Drama`, `Fantasy`, `Film-Noir`, `Horror`, `Musical`, `Mystery`, `Romance`, `Sci-Fi`, `Thriller`, `War`, `Western`. Thứ tự này được áp dụng xuyên suốt trong trích xuất đặc trưng vector, ma trận hồ sơ thể loại và manifest.
 
+---
+
+### [DEC-P2-008] Xác thực toàn vẹn DataFrame trong bộ nhớ và đóng băng fingerprint G3
+- **Bối cảnh**: Điều phối viên phát hiện kẽ hở: nếu sửa dữ liệu trong bộ nhớ sau khi loader nạp, CLI vẫn xuất gói mang hash tệp nguồn cũ trên đĩa mà không phát hiện sự sai lệch. Đồng thời cần bảo đảm tính bất biến của `model_version="kmeans_k4_seed42"`.
+- **Quyết định**: 
+  1. Ngay sau khi `load_data`, gọi `verify_and_hash_input_tables` để serialize và băm SHA-256 chính 4 DataFrame trong bộ nhớ theo chuẩn Data Contract v2. Bất kỳ sai lệch nào so với `canonical_manifest.json` sẽ ném `InputDataIntegrityError` và CLI lập tức thoát với exit code khác 0 mà không ghi đè gói.
+  2. Truyền trực tiếp `canonical_hashes` đã kiểm vào hàm xuất `export_g3_handoff_package` và ghi vào `manifest["canonical_hashes"]` chuẩn hợp đồng.
+  3. Đóng băng chặt chẽ `model_version="kmeans_k4_seed42"` với fingerprint chốt ($K=4$, raw, seed=42, n_init=10, 4 hash canonical và 2 hash CSV). Nghiêm cấm tái sử dụng version cho dữ liệu hoặc cấu hình khác.
+  4. Đọc phiên bản `scikit-learn` động từ môi trường runtime thay vì ghi cứng.
+  5. Bỏ mọi assertion ép cứng ngưỡng ARI trong unit tests, chỉ kiểm tính hợp lệ toán học $[-1.0, 1.0]$ và self-comparison bằng 1.0.
+
 

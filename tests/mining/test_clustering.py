@@ -20,6 +20,7 @@ import sys
 import numpy as np
 import pandas as pd
 import pytest
+import sklearn
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
@@ -100,7 +101,8 @@ def test_kmeans_experiments_table_structure(prepared_features):
 def test_model_stability_evaluation(prepared_features):
     """
     Evaluates stability of K=4 raw configuration across random seeds 0 and 7 using ARI.
-    Logs true ARI values and asserts they fall in valid range [-1.0, 1.0] without artificial thresholding.
+    Verifies valid ARI range [-1.0, 1.0], self-comparison equals 1.0, and records observed values.
+    Stability discussion and interpretation belong in report documentation rather than hardcoded test assertions.
     """
     feat_matrix, _, _, _ = prepared_features
     stability = check_model_stability(feat_matrix, k=4, preprocessing="raw", base_seed=42, test_seeds=(42, 0, 7))
@@ -113,10 +115,6 @@ def test_model_stability_evaluation(prepared_features):
     assert ari_self == 1.0, "Self-comparison ARI must equal 1.0"
     assert -1.0 <= ari_0 <= 1.0, f"ARI must be in [-1, 1], got {ari_0}"
     assert -1.0 <= ari_7 <= 1.0, f"ARI must be in [-1, 1], got {ari_7}"
-
-    # Verify that K=4 maintains strong partition stability across seeds
-    assert ari_0 > 0.90, f"Observed high stability between seed 42 and 0: {ari_0}"
-    assert ari_7 > 0.90, f"Observed high stability between seed 42 and 7: {ari_7}"
 
 
 def test_synthetic_computation_label_mapping_and_profile(tmp_path):
@@ -157,6 +155,12 @@ def test_synthetic_computation_label_mapping_and_profile(tmp_path):
 
     # 3. Known labels: users 101 & 102 -> cluster 0; users 103 & 104 -> cluster 1
     synthetic_labels = np.array([0, 0, 1, 1])
+    synthetic_canonical_hashes = {
+        "users": "syn_users_hash_abc",
+        "movies": "syn_movies_hash_def",
+        "movie_genres": "syn_mg_hash_ghi",
+        "ratings": "syn_ratings_hash_jkl",
+    }
 
     # 4. Run export function into isolated temporary directory
     out_dir = tmp_path / "synthetic_handoff"
@@ -164,6 +168,7 @@ def test_synthetic_computation_label_mapping_and_profile(tmp_path):
         user_status_df=user_status_df,
         feat_matrix=feat_df,
         labels=synthetic_labels,
+        canonical_hashes=synthetic_canonical_hashes,
         model_version="synthetic_model_v1",
         output_dir=out_dir,
     )
@@ -208,7 +213,9 @@ def test_synthetic_computation_label_mapping_and_profile(tmp_path):
     assert c1["n_users"].iloc[0] == 2
     assert np.isclose(c1["mean_preference"].sum(), 1.0)
 
-    # 7. Check manifest checksums in tmp_path
+    # 7. Check manifest data binding and checksums in tmp_path
+    assert manifest["canonical_hashes"] == synthetic_canonical_hashes
+    assert manifest["libraries"]["scikit-learn"] == str(sklearn.__version__)
     assert manifest["data_summary"]["total_users"] == 5
     assert manifest["data_summary"]["assigned_users"] == 4
     assert manifest["data_summary"]["insufficient_evidence_users"] == 1
@@ -216,9 +223,145 @@ def test_synthetic_computation_label_mapping_and_profile(tmp_path):
     assert manifest["files"]["cluster_genre_profile.csv"]["sha256"] == compute_file_sha256(prof_path)
 
 
+def test_input_verification_mismatch_detected_on_mutated_dataframe(prepared_features):
+    """
+    Unit test: Verifies that verify_and_hash_input_tables detects in-memory data mutation.
+    When a single rating is modified in the loaded DataFrame, it raises InputDataIntegrityError.
+    """
+    _, _, _, real_tables = prepared_features
+
+    # Copy tables so we do not mutate module fixture
+    mutated_tables = {k: v.copy() for k, v in real_tables.items()}
+
+    # Mutate exactly one rating
+    original_rating = mutated_tables["ratings"].loc[0, "rating"]
+    mutated_tables["ratings"].loc[0, "rating"] = 1 if original_rating != 1 else 5
+
+    with pytest.raises(clustering_mod.InputDataIntegrityError, match="Canonical hash mismatch for table 'ratings'"):
+        clustering_mod.verify_and_hash_input_tables(mutated_tables)
+
+
+def test_input_verification_missing_manifest_or_table(tmp_path):
+    """
+    Unit test: Verifies that verify_and_hash_input_tables raises InputDataIntegrityError
+    when canonical manifest does not exist or required tables are missing.
+    """
+    fake_manifest = tmp_path / "non_existent_manifest.json"
+    with pytest.raises(clustering_mod.InputDataIntegrityError, match="Canonical manifest not found"):
+        clustering_mod.verify_and_hash_input_tables({}, manifest_path=fake_manifest)
+
+    # Missing required tables
+    with pytest.raises(clustering_mod.InputDataIntegrityError, match="missing required table"):
+        clustering_mod.verify_and_hash_input_tables({"users": pd.DataFrame()})
+
+
+def test_cli_rejects_mutated_data_without_exporting_package(tmp_path, monkeypatch):
+    """
+    Regression test reproducing coordinator's finding:
+    Mutating a rating in the DataFrame returned by loader must cause the CLI to exit
+    with non-zero exit code without generating a package or overwriting files.
+    """
+    real_tables = load_data("csv")
+    mutated_tables = {k: v.copy() for k, v in real_tables.items()}
+    original_rating = mutated_tables["ratings"].loc[0, "rating"]
+    mutated_tables["ratings"].loc[0, "rating"] = 1 if original_rating != 1 else 5
+
+    # Monkeypatch load_data in clustering module
+    monkeypatch.setattr(clustering_mod, "load_data", lambda source="csv": mutated_tables)
+
+    out_dir = tmp_path / "mutated_handoff"
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["clustering.py", "--source", "csv", "--mode", "reproduce", "--outdir", str(out_dir)],
+    )
+
+    with pytest.raises(SystemExit) as exc_info:
+        clustering_mod.main()
+
+    # Must exit with non-zero exit code
+    assert exc_info.value.code != 0
+    # No handoff package must be written
+    assert not (out_dir / "user_cluster.csv").exists()
+    assert not (out_dir / "manifest.json").exists()
+
+
+def test_version_reuse_protection(tmp_path):
+    """
+    Verifies that model_version reuse protection forbids using the frozen
+    model_version 'kmeans_k4_seed42' with mismatched data or configuration,
+    and prevents overwriting an existing package with conflicting data.
+    """
+    user_status_df = pd.DataFrame([
+        {"user_id": 1, "status": "assigned"},
+        {"user_id": 2, "status": "assigned"},
+        {"user_id": 3, "status": "assigned"},
+        {"user_id": 4, "status": "assigned"},
+    ])
+    feat_df = pd.DataFrame(
+        np.ones((4, 18)) / 18.0,
+        index=[1, 2, 3, 4],
+        columns=GENRE_COLUMNS,
+    )
+
+    # 1. Attempting to use frozen model_version with K!=4 must raise ValueError
+    labels_k2 = np.array([0, 0, 1, 1])
+    with pytest.raises(ValueError, match="frozen for K=4"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_k2,
+            canonical_hashes=clustering_mod.FROZEN_G3_FINGERPRINT["canonical_hashes"],
+            model_version=clustering_mod.FROZEN_G3_MODEL_VERSION,
+            output_dir=tmp_path / "test_freeze_k",
+        )
+
+    # 2. Attempting to use frozen model_version with differing canonical_hashes must raise ValueError
+    labels_k4 = np.array([0, 1, 2, 3])
+    conflicting_hashes = {
+        "users": "dummy_users_hash",
+        "movies": "dummy_movies_hash",
+        "movie_genres": "dummy_genres_hash",
+        "ratings": "dummy_ratings_hash",
+    }
+    with pytest.raises(ValueError, match="frozen for canonical dataset"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_k4,
+            canonical_hashes=conflicting_hashes,
+            model_version=clustering_mod.FROZEN_G3_MODEL_VERSION,
+            output_dir=tmp_path / "test_freeze_hashes",
+        )
+
+    # 3. Package overwriting protection under same custom version
+    out_dir = tmp_path / "existing_pkg"
+    hashes_v1 = {"users": "h1", "movies": "h2", "movie_genres": "h3", "ratings": "h4"}
+    export_g3_handoff_package(
+        user_status_df=user_status_df,
+        feat_matrix=feat_df,
+        labels=labels_k4,
+        canonical_hashes=hashes_v1,
+        model_version="custom_version_v1",
+        output_dir=out_dir,
+    )
+    assert (out_dir / "manifest.json").exists()
+
+    # Try exporting to same directory under same version with different canonical_hashes
+    hashes_v2 = {"users": "h1_diff", "movies": "h2", "movie_genres": "h3", "ratings": "h4"}
+    with pytest.raises(ValueError, match="Cannot reuse model_version 'custom_version_v1' with different input data"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_k4,
+            canonical_hashes=hashes_v2,
+            model_version="custom_version_v1",
+            output_dir=out_dir,
+        )
+
 
 def test_g3_user_cluster_contract(prepared_features):
-    """Verify results/mining/handoff/user_cluster.csv strictly adheres to Contract v2."""
+    """Artifact verification: Verify published results/mining/handoff/user_cluster.csv adheres to Contract v2."""
     user_cluster_path = HANDOFF_DIR / "user_cluster.csv"
     assert user_cluster_path.exists(), f"Missing {user_cluster_path}"
 
@@ -238,7 +381,6 @@ def test_g3_user_cluster_contract(prepared_features):
     insufficient_mask = (df["status"] == "insufficient_evidence")
     assert insufficient_mask.sum() == 2
     insufficient_clusters = df.loc[insufficient_mask, "cluster_id"]
-    # cluster_id should be NaN or empty string
     assert insufficient_clusters.isna().all() or (insufficient_clusters == "").all()
 
     # Check model_version
@@ -246,7 +388,7 @@ def test_g3_user_cluster_contract(prepared_features):
 
 
 def test_g3_cluster_genre_profile_contract():
-    """Verify results/mining/handoff/cluster_genre_profile.csv strictly adheres to Contract v2."""
+    """Artifact verification: Verify published results/mining/handoff/cluster_genre_profile.csv adheres to Contract v2."""
     profile_path = HANDOFF_DIR / "cluster_genre_profile.csv"
     assert profile_path.exists(), f"Missing {profile_path}"
 
@@ -275,7 +417,7 @@ def test_g3_cluster_genre_profile_contract():
 
 
 def test_g3_manifest_contract():
-    """Verify results/mining/handoff/manifest.json metadata and SHA-256 byte hashes."""
+    """Artifact verification: Verify published results/mining/handoff/manifest.json metadata and SHA-256 byte hashes."""
     manifest_path = HANDOFF_DIR / "manifest.json"
     assert manifest_path.exists(), f"Missing {manifest_path}"
 
@@ -295,6 +437,15 @@ def test_g3_manifest_contract():
     assert "clustering_code_sha256" in prov and len(prov["clustering_code_sha256"]) == 64
     assert prov["g1_canonical_code_commit"] == "7a284b9f108dd64b030305cf51b8614b770a2296"
 
+    # Runtime sklearn version
+    assert manifest["libraries"]["scikit-learn"] == str(sklearn.__version__)
+
+    # Canonical hashes
+    assert "canonical_hashes" in manifest, "Manifest must contain 'canonical_hashes' per Contract v2"
+    for tbl in ["users", "movies", "movie_genres", "ratings"]:
+        assert tbl in manifest["canonical_hashes"], f"Missing table '{tbl}' in canonical_hashes"
+        assert len(manifest["canonical_hashes"][tbl]) == 64
+
     # Verify SHA-256 byte hashes of the files on disk
     for fname, fmeta in manifest["files"].items():
         fpath = HANDOFF_DIR / fname
@@ -304,7 +455,7 @@ def test_g3_manifest_contract():
 
 
 def test_figures_exist():
-    """Verify all 4 required visualization figures exist and are non-empty."""
+    """Artifact verification: Verify all 4 required visualization figures exist and are non-empty."""
     expected_figures = [
         "kmeans_elbow_silhouette.png",
         "cluster_genre_heatmap.png",
@@ -315,3 +466,4 @@ def test_figures_exist():
         fig_path = RESULTS_DIR / fig_name
         assert fig_path.exists(), f"Missing figure {fig_name}"
         assert fig_path.stat().st_size > 10000, f"Figure {fig_name} is too small / empty"
+

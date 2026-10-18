@@ -6,8 +6,8 @@
 - **Hệ điều hành**: Linux Ubuntu 24.04.1 LTS (Kernel `6.14.0-37-generic`, x86_64)
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
-- **Nhánh Git hiện tại**: `p2-s08-clusters`
-- **Thời điểm cập nhật**: 2026-10-18 20:45:00 +07:00
+- **Nhánh Git hiện tại**: `p2-s08-g3-fixes`
+- **Thời điểm cập nhật**: 2026-10-18 21:55:00 +07:00
 
 ---
 
@@ -21,7 +21,7 @@
 | **Bước 3A-P2**| Nhận mốc G0 & Xác nhận hợp đồng dữ liệu v2 | `APPROVED` | Duyệt lúc 17:38:48 ngày 15/10/2026. Lời duyệt lưu tại REVIEWS_P2.md. |
 | **Bước 3** | EDA, Adapter & Bàn giao G1 | `MERGED` | PR #5 (head `b73c8e2`) đã được điều phối review và merge vào `main` (commit `a8d2615`). 23/23 tests passed trên Windows. |
 | **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `MERGED` | PR [#8](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/8) đã được điều phối review và merge vào `main` (commit `52dd682`). 27/27 tests passed. |
-| **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `WAITING_REVIEW` | Nhánh `p2-s08-clusters`. Đã hoàn thành 14 thử nghiệm, chọn K=4 raw (ARI > 0.97), diễn giải 4 cụm & tương quan nhân khẩu học trên 6,038 user, hỗ trợ CLI reproduce cho P1, xuất gói G3 cục bộ. 34/34 tests passed. Đã mở PR [#10](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/10) vào `main` để review diff. |
+| **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `WAITING_REVIEW` | Nhánh `p2-s08-g3-fixes`. Đã hoàn thành sửa giao thức G3: kiểm tra hash in-memory DataFrames trực tiếp, thêm regression test từ chối dữ liệu bị sửa (exit code 1), đóng băng `kmeans_k4_seed42` chống tái sử dụng version, thêm trường `canonical_hashes` chuẩn contract, đọc dynamic runtime `scikit-learn`, bỏ assertion ép ngưỡng ARI. 38/38 tests passed. Chuẩn bị PR sửa G3. |
 
 | **Bước 9** | Khai phá dữ liệu Q2: Temporal Split & Baseline | `NOT_STARTED` | Chờ Bước 8 hoàn thành. |
 | **Bước 10** | Khai phá dữ liệu Q2: Item-based CF & CLI | `NOT_STARTED` | Chờ Bước 9 hoàn thành. |

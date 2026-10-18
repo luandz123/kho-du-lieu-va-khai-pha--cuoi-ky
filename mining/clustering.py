@@ -26,6 +26,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import sklearn
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.metrics import adjusted_rand_score, silhouette_score
@@ -59,6 +60,86 @@ CLUSTER_NAMES: Dict[int, str] = {
     2: "Nhóm người dùng đánh giá tập trung Hài kịch (Comedy)",
     3: "Nhóm người dùng đánh giá tập trung Hành động, Viễn tưởng & Giật gân",
 }
+
+# Frozen fingerprint for the finalized G3 package (model_version="kmeans_k4_seed42")
+FROZEN_G3_MODEL_VERSION = "kmeans_k4_seed42"
+FROZEN_G3_FINGERPRINT: Dict[str, Any] = {
+    "k": 4,
+    "preprocessing": "raw",
+    "seed": 42,
+    "n_init": 10,
+    "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    },
+    "expected_csv_hashes": {
+        "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+        "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d",
+    },
+}
+
+
+class InputDataIntegrityError(Exception):
+    """Raised when loaded input data fails canonical integrity checks or manifest mismatch."""
+    pass
+
+
+def verify_and_hash_input_tables(
+    tables: Dict[str, pd.DataFrame],
+    manifest_path: Path = CANONICAL_MANIFEST_PATH,
+) -> Tuple[Dict[str, str], Dict[str, str], str]:
+    """
+    Serializes and hashes the four DataFrames actually loaded into memory,
+    strictly according to Data Contract v2 serialization rules and sorting.
+    Compares the calculated hashes against the canonical manifest.
+
+    Returns:
+        canonical_hashes: Dict[str, str] mapping table_name to verified SHA-256 hash.
+        source_hashes: Dict[str, str] from canonical manifest for provenance.
+        g1_code_commit: str from canonical manifest for provenance.
+
+    Raises:
+        InputDataIntegrityError: if manifest is missing, required tables are missing,
+                                 or any table's canonical hash mismatches.
+    """
+    if not manifest_path.exists():
+        raise InputDataIntegrityError(f"Canonical manifest not found at: {manifest_path}")
+
+    try:
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            c_meta = json.load(f)
+    except Exception as e:
+        raise InputDataIntegrityError(f"Failed to read canonical manifest: {e}") from e
+
+    expected_canonical_hashes = c_meta.get("canonical_hashes", {})
+    source_hashes = c_meta.get("source_hashes", {})
+    g1_code_commit = c_meta.get("source_code_commit", "")
+
+    required_tables = ["users", "movies", "movie_genres", "ratings"]
+    for tbl in required_tables:
+        if tbl not in expected_canonical_hashes:
+            raise InputDataIntegrityError(
+                f"Canonical manifest at {manifest_path} is missing expected hash for '{tbl}'"
+            )
+        if tbl not in tables:
+            raise InputDataIntegrityError(f"Loaded tables dict is missing required table '{tbl}'")
+
+    actual_canonical_hashes: Dict[str, str] = {}
+    for tbl in required_tables:
+        df = tables[tbl]
+        # Directly compute canonical hash from in-memory DataFrame
+        actual_hash = compute_canonical_hash(tbl, df)
+        expected_hash = expected_canonical_hashes[tbl]
+        if actual_hash != expected_hash:
+            raise InputDataIntegrityError(
+                f"Canonical hash mismatch for table '{tbl}' in loaded data! "
+                f"Actual in-memory hash={actual_hash} != Expected manifest hash={expected_hash}"
+            )
+        actual_canonical_hashes[tbl] = actual_hash
+
+    return actual_canonical_hashes, source_hashes, g1_code_commit
 
 
 def compute_file_sha256(filepath: Path) -> str:
@@ -386,20 +467,69 @@ def export_g3_handoff_package(
     user_status_df: pd.DataFrame,
     feat_matrix: pd.DataFrame,
     labels: np.ndarray,
+    canonical_hashes: Dict[str, str],
     model_version: str = MODEL_VERSION,
     output_dir: Path = DEFAULT_HANDOFF_DIR,
+    source_hashes: Optional[Dict[str, str]] = None,
+    g1_code_commit: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Exports G3 cluster package strictly complying with Data Contract v2:
     - user_cluster.csv: (user_id, cluster_id, status, model_version)
     - cluster_genre_profile.csv: (cluster_id, genre_name, mean_preference, n_users)
-    - manifest.json: Full contract v2 metadata, source/canonical hashes, and checksums.
+    - manifest.json: Full contract v2 metadata, actual verified canonical_hashes, and checksums.
     """
     output_dir.mkdir(parents=True, exist_ok=True)
-
-    # 1. Build user_cluster DataFrame
-    # Map cluster labels to assigned users
     assigned_user_ids = feat_matrix.index.values
+    k_clusters = len(np.unique(labels))
+
+    # 1. Version freeze check for frozen G3 model_version
+    if model_version == FROZEN_G3_MODEL_VERSION:
+        if k_clusters != FROZEN_G3_FINGERPRINT["k"]:
+            raise ValueError(
+                f"model_version '{FROZEN_G3_MODEL_VERSION}' is frozen for K={FROZEN_G3_FINGERPRINT['k']}, "
+                f"but received K={k_clusters}"
+            )
+        if CHOSEN_PREPROCESSING != FROZEN_G3_FINGERPRINT["preprocessing"]:
+            raise ValueError(
+                f"model_version '{FROZEN_G3_MODEL_VERSION}' is frozen for preprocessing '{FROZEN_G3_FINGERPRINT['preprocessing']}', "
+                f"but received '{CHOSEN_PREPROCESSING}'"
+            )
+        if CHOSEN_SEED != FROZEN_G3_FINGERPRINT["seed"]:
+            raise ValueError(
+                f"model_version '{FROZEN_G3_MODEL_VERSION}' is frozen for seed {FROZEN_G3_FINGERPRINT['seed']}, "
+                f"but received seed {CHOSEN_SEED}"
+            )
+        # Verify canonical_hashes match frozen canonical hashes
+        expected_can_hashes = FROZEN_G3_FINGERPRINT["canonical_hashes"]
+        for tbl, exp_h in expected_can_hashes.items():
+            act_h = canonical_hashes.get(tbl)
+            if act_h != exp_h:
+                raise ValueError(
+                    f"model_version '{FROZEN_G3_MODEL_VERSION}' is frozen for canonical dataset. "
+                    f"Table '{tbl}' hash mismatch: actual={act_h} != expected={exp_h}"
+                )
+
+    # 2. General anti-reuse check against existing package on disk in output_dir
+    manifest_path = output_dir / "manifest.json"
+    if manifest_path.exists():
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as f:
+                existing_manifest = json.load(f)
+            if existing_manifest.get("model_version") == model_version:
+                existing_can = existing_manifest.get("canonical_hashes", {})
+                if existing_can and existing_can != canonical_hashes:
+                    raise ValueError(
+                        f"Cannot reuse model_version '{model_version}' with different input data. "
+                        f"Existing package at {output_dir} has canonical_hashes={existing_can}, "
+                        f"attempting to export with {canonical_hashes}"
+                    )
+        except Exception as e:
+            if isinstance(e, ValueError):
+                raise
+            pass
+
+    # 3. Build user_cluster DataFrame
     label_map = dict(zip(assigned_user_ids, labels))
 
     user_cluster_records = []
@@ -418,16 +548,23 @@ def export_g3_handoff_package(
         })
 
     user_cluster_df = pd.DataFrame(user_cluster_records)
+
+    # Validate user_cluster contract before writing
+    assert list(user_cluster_df.columns) == ["user_id", "cluster_id", "status", "model_version"]
+    assert len(user_cluster_df) == len(user_status_df), "User count mismatch"
+    assigned_mask = user_cluster_df["status"] == "assigned"
+    assert user_cluster_df.loc[assigned_mask, "cluster_id"].isin([str(c) for c in range(k_clusters)]).all()
+    assert (user_cluster_df.loc[~assigned_mask, "cluster_id"] == "").all()
+    assert (user_cluster_df["model_version"] == model_version).all()
+
     user_cluster_csv_path = output_dir / "user_cluster.csv"
     user_cluster_df.to_csv(user_cluster_csv_path, index=False, lineterminator="\n")
 
-    # 2. Build cluster_genre_profile DataFrame
-    # Profiles MUST strictly use RAW genre proportions of assigned users in each cluster
+    # 4. Build cluster_genre_profile DataFrame
     feat_df_with_cluster = feat_matrix.copy()
     feat_df_with_cluster["cluster_id"] = labels
 
     cluster_counts = pd.Series(labels).value_counts().to_dict()
-    k_clusters = len(np.unique(labels))
 
     profile_records = []
     for c in range(k_clusters):
@@ -435,9 +572,11 @@ def export_g3_handoff_package(
         mean_prefs = c_features.mean(axis=0)
         n_users_in_c = int(cluster_counts.get(c, 0))
 
-        # Check sum equals 1.0 within 1e-8
+        # Check sum equals 1.0 within SUM_TOLERANCE
         sum_mean = float(mean_prefs.sum())
-        assert abs(sum_mean - 1.0) <= SUM_TOLERANCE, f"Cluster {c} mean preference sum {sum_mean} exceeds tolerance {SUM_TOLERANCE}"
+        assert abs(sum_mean - 1.0) <= SUM_TOLERANCE, (
+            f"Cluster {c} mean preference sum {sum_mean} exceeds tolerance {SUM_TOLERANCE}"
+        )
 
         for g in GENRE_COLUMNS:
             profile_records.append({
@@ -448,45 +587,55 @@ def export_g3_handoff_package(
             })
 
     profile_df = pd.DataFrame(profile_records)
-    # Sort strictly by cluster_id, genre_name
     profile_df = profile_df.sort_values(["cluster_id", "genre_name"])
+
+    # Validate cluster_genre_profile contract before writing
+    assert list(profile_df.columns) == ["cluster_id", "genre_name", "mean_preference", "n_users"]
+    assert len(profile_df) == k_clusters * len(GENRE_COLUMNS), "Profile row count mismatch"
+    assert (profile_df["mean_preference"] >= 0.0).all()
+    assert (profile_df["mean_preference"] <= 1.0).all()
+
     profile_csv_path = output_dir / "cluster_genre_profile.csv"
     profile_df.to_csv(profile_csv_path, index=False, lineterminator="\n")
 
-    # 3. Contract validation
-    total_users = len(user_cluster_df)
-    assigned_count = (user_cluster_df["status"] == "assigned").sum()
-    insufficient_count = (user_cluster_df["status"] == "insufficient_evidence").sum()
-    assert total_users == len(user_status_df), "User count mismatch"
-    assert len(profile_df) == k_clusters * len(GENRE_COLUMNS), "Profile row count mismatch"
-
-    # Compute SHA-256 hashes of generated CSVs
+    # 5. Compute and verify SHA-256 hashes of generated CSVs
     user_cluster_sha256 = compute_file_sha256(user_cluster_csv_path)
     profile_sha256 = compute_file_sha256(profile_csv_path)
 
-    # 4. Read canonical manifest for input hashes and G1 provenance
-    canonical_hashes = {}
-    source_hashes = {}
-    g1_code_commit = ""
-    if CANONICAL_MANIFEST_PATH.exists():
-        with open(CANONICAL_MANIFEST_PATH, "r", encoding="utf-8") as f:
-            c_meta = json.load(f)
-        canonical_hashes = c_meta.get("canonical_hashes", {})
-        source_hashes = c_meta.get("source_hashes", {})
-        g1_code_commit = c_meta.get("source_code_commit", "")
+    if model_version == FROZEN_G3_MODEL_VERSION:
+        expected_csvs = FROZEN_G3_FINGERPRINT["expected_csv_hashes"]
+        if user_cluster_sha256 != expected_csvs["user_cluster.csv"]:
+            raise ValueError(
+                f"user_cluster.csv hash mismatch for frozen model_version '{FROZEN_G3_MODEL_VERSION}': "
+                f"actual={user_cluster_sha256} != expected={expected_csvs['user_cluster.csv']}"
+            )
+        if profile_sha256 != expected_csvs["cluster_genre_profile.csv"]:
+            raise ValueError(
+                f"cluster_genre_profile.csv hash mismatch for frozen model_version '{FROZEN_G3_MODEL_VERSION}': "
+                f"actual={profile_sha256} != expected={expected_csvs['cluster_genre_profile.csv']}"
+            )
 
-    # Actual hashes of processed CSVs currently on disk
-    actual_canonical_hashes = {}
-    for table_name in ["users", "movies", "movie_genres", "ratings"]:
-        csv_p = CANONICAL_PROCESSED_DIR / f"{table_name}.csv"
-        if csv_p.exists():
-            actual_canonical_hashes[table_name] = compute_file_sha256(csv_p)
+    # 6. Metadata and Manifest
+    if source_hashes is None:
+        source_hashes = {}
+        if CANONICAL_MANIFEST_PATH.exists():
+            try:
+                with open(CANONICAL_MANIFEST_PATH, "r", encoding="utf-8") as f:
+                    c_meta = json.load(f)
+                source_hashes = c_meta.get("source_hashes", {})
+                if g1_code_commit is None:
+                    g1_code_commit = c_meta.get("source_code_commit", "")
+            except Exception:
+                pass
 
-    # Hashes of code files for traceability
     features_code_path = REPO_ROOT / "mining" / "features.py"
     clustering_code_path = REPO_ROOT / "mining" / "clustering.py"
     features_code_sha256 = compute_file_sha256(features_code_path) if features_code_path.exists() else ""
     clustering_code_sha256 = compute_file_sha256(clustering_code_path) if clustering_code_path.exists() else ""
+
+    total_users = len(user_cluster_df)
+    assigned_count = (user_cluster_df["status"] == "assigned").sum()
+    insufficient_count = (user_cluster_df["status"] == "insufficient_evidence").sum()
 
     user_order_hash = hashlib.sha256(",".join(map(str, assigned_user_ids)).encode("utf-8")).hexdigest()
     genre_order_hash = hashlib.sha256(",".join(GENRE_COLUMNS).encode("utf-8")).hexdigest()
@@ -513,16 +662,15 @@ def export_g3_handoff_package(
         "training_config": training_config,
         "training_config_hash": training_config_hash,
         "libraries": {
-            "scikit-learn": "1.5.2",
-            "numpy": np.__version__,
-            "pandas": pd.__version__,
+            "scikit-learn": str(sklearn.__version__),
+            "numpy": str(np.__version__),
+            "pandas": str(pd.__version__),
             "python": sys.version.split()[0],
         },
-        "source_hashes": source_hashes,
-        "canonical_hashes_manifest": canonical_hashes,
-        "actual_canonical_hashes": actual_canonical_hashes,
+        "canonical_hashes": canonical_hashes,
+        "source_hashes": source_hashes or {},
         "code_provenance": {
-            "g1_canonical_code_commit": g1_code_commit,
+            "g1_canonical_code_commit": g1_code_commit or "",
             "features_code_sha256": features_code_sha256,
             "clustering_code_sha256": clustering_code_sha256,
         },
@@ -545,7 +693,6 @@ def export_g3_handoff_package(
         },
     }
 
-    manifest_path = output_dir / "manifest.json"
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
 
@@ -566,8 +713,20 @@ def main():
     args.results_dir.mkdir(parents=True, exist_ok=True)
     args.outdir.mkdir(parents=True, exist_ok=True)
 
-    # 1. Load data & extract features
+    # 1. Load data
     tables = load_data(source=args.source)
+
+    # 2. Verify and hash in-memory input DataFrames immediately after load_data
+    try:
+        canonical_hashes, source_hashes, g1_code_commit = verify_and_hash_input_tables(
+            tables=tables,
+            manifest_path=CANONICAL_MANIFEST_PATH,
+        )
+    except InputDataIntegrityError as e:
+        print(f"FATAL: Input data integrity verification failed: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    # 3. Extract features from verified tables
     feat_matrix, user_status_df, feat_summary = extract_user_genre_preference_features(tables)
     print(f"Features: {feat_matrix.shape[0]} assigned users, {len(user_status_df) - feat_matrix.shape[0]} insufficient evidence")
 
@@ -582,8 +741,11 @@ def main():
             user_status_df=user_status_df,
             feat_matrix=feat_matrix,
             labels=labels,
+            canonical_hashes=canonical_hashes,
             model_version=MODEL_VERSION,
             output_dir=args.outdir,
+            source_hashes=source_hashes,
+            g1_code_commit=g1_code_commit,
         )
         print(f"G3 Handoff package reproduced successfully at: {args.outdir}")
         print(f"Files: user_cluster.csv ({len(user_status_df)} rows), cluster_genre_profile.csv ({CHOSEN_K * 18} rows), manifest.json")
@@ -610,8 +772,11 @@ def main():
         user_status_df=user_status_df,
         feat_matrix=feat_matrix,
         labels=labels,
+        canonical_hashes=canonical_hashes,
         model_version=MODEL_VERSION,
         output_dir=args.outdir,
+        source_hashes=source_hashes,
+        g1_code_commit=g1_code_commit,
     )
     print(f"G3 Handoff package exported successfully to {args.outdir}")
 
