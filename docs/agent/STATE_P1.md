@@ -1,5 +1,25 @@
 # Trạng thái P1
 
+## Hiện hành — công bố ETL/G2, 6D đã được điều phối chấp nhận
+
+Nguồn: điều phối thông báo chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, đềuCOMMITTED. **6D APPROVED theo điều phối ở mức kiểm nhận cục bộ**; không tạo lời duyệt nguyên văn người dùng. Được giao commit/push p1-s06-etl và mở PRmain, chưa merge. Trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
+
+Đã xác minh repository luandz123/kho-du-lieu-va-khai-pha--cuoi-ky, main mặc định và quyềnpush hiện có; chưa có PRnhánhETL lúc kiểm. Giữ checkpoint6A/B/C, reportPASS/FAIL và hash thực chạy. Code6D vẫn cùng bundleb858a879; không chạy lại fullrefresh vì cập nhật hồ sơ. Commit code công bố, base đồng bộ và PR/HEAD sẽ ghi sau thao tác thành công trong docs/P1/g2_publication.json/.md.
+
+P2 intake **NOT_CONFIRMED**, dedicated_read_only_account_verified **false**; account kiểm tạiP1 có quyền quản trị/ghi dù session READONLY=on. Chưa tạo role/cấp quyền, mở PostgreSQL công khai/thay firewall hoặc gửi credential. Có thể chuẩn bị tài khoản chỉ đọc và đường kết nối riêng, hoặc để P2 tái tạo DW cục bộ theo hướng dẫn; chưa coi phương án là truy cập đã thành công. Không OLAP/dashboard/G3.
+
+## Hiện hành — 6D WAITING_REVIEW, 18/10/2026
+
+Điều phối chấp nhận 6C sau review, chạy lại 17 unit test và đối chiếu bằng chứng/hash; **6C APPROVED theo điều phối**, không tự tạo lời duyệt nguyên văn. Giữ p1-s06-etl; checkpoint cục bộ 6C/HEAD **c143f5d7081da041aad38c0a97c0a8ac0ef721cb**, rà/stage đúng 19 file trước commit. Phần 6D chưa commit/push/PR; không fetch/merge/reset/stash/switch. Giữ kế hoạch untracked ngoài phạm vi, P2/nguồn/contract/DDL và report cũ.
+
+6D tích hợp trên movielens_btl: cùng connection/transaction/advisory lock, UPDATE registry inactive/invalid, một TRUNCATE tường minh 11 bảng RESTART IDENTITY, giữ metadata registry; nạp staging→dimension→bridge→fact và kiểm cùng connection trước COMMIT. Refactor COPY S05 và namespace fixture được chạy regression; không thay quy tắc chuẩn hóa hoặc guard tiểu bước lịch sử. Hậu kiểm tích hợp không phụ thuộc surrogate/fact rỗng của các bước cũ.
+
+Hai run **16421c84a7a244b5ad4b60f4ce4dfbc6 / 6501a547065246869b98b6ab6531190e**, PASS/COMMITTED **151.047 / 164.672s**. Cùng bundle **b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422** và nonsecret-config **e2b56ec949d873a395b4af4d9ff351967b2f3d48984dbb8b08922fcb0e114dfd**. Toàn bộ checks logic bằng nhau, bốn count6040/3883/6408/1000209 và hash đúng, tổng rating3582313, user/phim có rating6040/3706, PK/FK/miền/UTC đúng. Registry production0/active0/valid0; result tables và active views0. Không nạp G3 hoặc model giả.
+
+65 unit hồi quy PASS46211bbe; fixture5c9c5534 cùng bundle PASS sáu nhóm lỗi phục hồi snapshot cũ của12bảng/identity/model flags và results; schema đã dọn. COMMIT-loss/lỗi xuất file chỉ unit mô phỏng, không cắt mạng thật. AdapterP2 c75f9cb0 PASS50.453s, raw/CSV/DW mọi cell bằng nhau; CSV chỉ cục bộ ngoài Git. Hậu kiểm chỉ đọc21f0d34 PASS58.313s. Account hiện tại có superuser/quyền ghi: **chưa tài khoản chỉ đọc chuyên dụng hoặc P2 remote được xác minh**, dù session readonly=on.
+
+Manifest sau COMMIT trỏ run2 và thêm metadata adapter/hậu kiểm bằng file tạm+replace; lỗi xuất giữ DB đã commit/G2 chưa bàn giao theo code/unit. [Bàn giao6D](../P1/s06d_handoff.md), [gói DW](../P1/dw_handoff.md), index results/warehouse/s06d_summary.json và hồ sơS06. **6D WAITING_REVIEW**, metadataG2 PREPARED_FOR_REVIEW, P2 intake NOT_CONFIRMED. Chưa công bố PRG2/merge/OLAP/dashboard/analytics/BI/backup; dừng chờ điều phối, không tự chuyển bước.
+
 ## Hiện hành — 6C WAITING_REVIEW, 18/10/2026
 
 Điều phối chấp nhận6B sau review, chạy lại15/15unit và kiểm hash/bằng chứng; ghi **6B APPROVED theo điều phối**, không lời duyệt nguyên văn tự tạo. Nhánh p1-s06-etl; checkpoint6B/HEAD **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe**. Đã rà/stage đúng19file6B trước commit local, giữ nguồn/reportPASS/FAIL/hashcode và kế hoạch untracked. Chưa push/PR hoặc đồng bộ/chuyển nhánh; phần6C chưa commit.

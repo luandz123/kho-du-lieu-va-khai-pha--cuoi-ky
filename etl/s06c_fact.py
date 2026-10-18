@@ -27,7 +27,7 @@ EXPECTED_HASH = "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407c
 
 
 def namespace(schema):
-    if schema != "dw" and not re.fullmatch(r"s06c_test_[0-9a-f]{12}", schema):
+    if schema != "dw" and not re.fullmatch(r"s06[cd]_test_[0-9a-f]{12}", schema):
         raise SafeError("INVALID_FACT_NAMESPACE")
     return sql.Identifier(schema)
 

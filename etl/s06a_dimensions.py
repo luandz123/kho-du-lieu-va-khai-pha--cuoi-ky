@@ -109,7 +109,7 @@ def dimension_counts(conn, schema="dw"):
 
 
 def insert_dimensions(conn, prepared, schema="dw", progress=None):
-    if schema != "dw" and not re.fullmatch(r"s06a_test_[0-9a-f]{12}", schema):
+    if schema != "dw" and not re.fullmatch(r"s06[ad]_test_[0-9a-f]{12}", schema):
         raise SafeError("INVALID_DIMENSION_NAMESPACE")
     if any(dimension_counts(conn, schema).values()):
         raise SafeError("DIMENSIONS_NOT_EMPTY_STOP_FOR_PROVENANCE")

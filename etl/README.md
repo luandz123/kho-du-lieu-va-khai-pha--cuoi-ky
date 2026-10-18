@@ -1,5 +1,13 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Hiện hành: full refresh 6D và metadata G2
+
+Lệnh tái tạo có ghi trong phạm vi được giao6D: `.\.venv\Scripts\python.exe -X utf8 -m etl.run_etl refresh --env-file .env`. Kiểm marker/catalog/nguồn, một transaction/connection/advisory lock, UPDATE registry inactive/invalid và một TRUNCATE đúng11bảng RESTART IDENTITY, nạp staging→dimension→bridge→fact, kiểm trước commit. Giữ registry metadata, không CASCADE/DROP/bootstrap; không nối CLI tiểu bước.
+
+Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env` hoặc `python -m etl.run_etl verify --env-file .env`. Checker tích hợp không dùng guard rỗng/fingerprint surrogate của 6A/B/C, kiểm snapshot logical và model sau refresh. Khi được giao G3 phải bổ sung kiểm model phù hợp, không tự bỏ guard. Không dùng loader/checker tiểu bước cũ cho pipeline.
+
+Hai run16421c84/6501a547 cùng bundle/config/hash/count đạt;65unit hồi quy và fixture seeded snapshot/model rollback đạt; adapter P2 trực tiếp PostgreSQL/raw/CSV PASS. [Bàn giao6D](../docs/P1/s06d_handoff.md), [gói DW](../docs/P1/dw_handoff.md), [manifest](../results/warehouse/dw_manifest.json). File report/manifest xuất nguyên tử sau COMMIT, lỗi xuất không phải rollback DB. CSV đối chiếu chỉ cục bộ dưới data/processed, không commit. Chưa P2 nhậnG2/push/PR/OLAP/dashboard/G3; các đoạn dưới giữ lịch sử từng tiểu bước.
+
 ## Hiện hành: 6C đã nạp fact, chờ review
 
 6B đã được điều phối chấp nhận, checkpoint local d698d8e. Fact/view ratings **1000209**, tổng điểm **3582313**, bốn view canonical hash đúng; staging/dimension gồm surrogate/bridge không đổi, analytics rỗng. [Bàn giao6C](../docs/P1/s06c_handoff.md), [summary6C](../results/warehouse/s06c_summary.json). Chưa full refresh6D/G2; chưa commit6C/push/PR.

@@ -1,5 +1,25 @@
 # Quyết định P1
 
+## Công bố ETL/G2
+
+P1-D71: Điều phối chấp nhận6D cục bộ và giao commit/push/mở PR, không merge. Rà toàn bộ gói từmain gồm checkpoint6A/B/C và6D; giữ report thực chạy/hash/nguồn nguyên vẹn, không stage kế hoạch/data/secret. Bằng chứng công bố và commit tái tạo ghi riêng, không sửa runtime report để gán commit mới.
+
+P1-D72: Ledger6D là snapshot29artifact lúc bàn giao. Các hồ sơ mới được cập nhật review/công bố có hash riêng trong g2_publication.json, không viết lại ledger/run lịch sử. So Git code LF với Windows CRLF bằng normalize khi đối chiếu; không chạm byte raw/canonical. G2 chưa P2 nhận, session readonly không đổi thành tài khoản chỉ đọc. Chuẩn bị read-only account/đường kết nối hoặc DW cục bộ P2 là phương án, chưa được thực thi trong lượt công bố.
+
+## S06 — tích hợp 6D, 18/10/2026
+
+P1-D65: Điều phối chấp nhận 6C sau review và chạy lại 17 unit test, giao riêng 6D. Checkpoint cục bộ c143f5d giữ 19 file 6C đã review; tiếp tục p1-s06-etl, không push/PR, không stage kế hoạch ngoài phạm vi hoặc dữ liệu cá nhân.
+
+P1-D66: Full refresh dùng một connection/transaction và advisory lock (20261027,1). Kiểm marker/catalog/nguồn trước ghi, vô hiệu hóa registry, một TRUNCATE tường minh 11 bảng RESTART IDENTITY, giữ metadata registry. Không CASCADE/DROP/bảng ngoài danh sách; nạp và đối soát bằng cùng connection trước COMMIT, không nối các CLI riêng.
+
+P1-D67: Tái sử dụng quy tắc parse/transform/mapping/insert/serializer. S05 tách copy_staging khỏi TRUNCATE để 6D không truncate thêm lần nữa; guard namespace insert 6A/B/C chỉ mở thêm schema fixture6D. Guard tiểu bước vẫn giữ trong các công cụ lịch sử. Hậu kiểm tích hợp dùng nguồn, PK/FK/miền/UTC/hash/model, không dựa fingerprint surrogate cũ hoặc fact rỗng. 65 unit test hồi quy và fixture cả pipeline đã chạy; version bundle ghi hash mới, không sửa report cũ.
+
+P1-D68: Fixture tự tạo giữ đầy đủ constraints từ DDL đã duyệt trong schema riêng. Sáu nhóm lỗi sau invalidate/TRUNCATE/nạp một phần phải phục hồi snapshot cũ của 12 bảng, identity và model active/valid cùng kết quả cụm; không chỉ kiểm dữ liệu mới về rỗng. Model fixture ghi rõ không phải mô hình thật/G3. Production không được nạp model giả.
+
+P1-D69: Mất kết nối COMMIT giữ trạng thái chưa xác định, reconnect kiểm snapshot/model nhưng không suy ra commit thành công nếu snapshot tương đương trước/sau. Unit kiểm đường xử lý này bằng mô phỏng; không cắt kết nối thật. Ghi manifest/report sau COMMIT qua file tạm và thay tên; lỗi filesystem giữ DB đã commit và G2 chưa bàn giao, không gọi là rollback DB.
+
+P1-D70: G2 chỉ chuẩn bị metadata và hướng dẫn để review; kiểm adapter P2 bằng PostgreSQL thật tại máy P1, raw/CSV/DW cùng serializer. Không sửa file P2, CSV chỉ cục bộ ngoài Git. Session readonly không thay tài khoản chỉ đọc hoặc chứng minh P2 kết nối từ xa; ghi phần quyền còn thiếu riêng. Chưa có xác nhận P2 nhận G2, chưa OLAP/dashboard/nạp G3 hoặc push/PR.
+
 ## S06 — riêng 6C, 18/10/2026
 
 P1-D61: Điều phối chấp nhận6B và giao6C; rà/stage đúng19fileP1 rồi checkpoint local d698d8e trên p1-s06-etl. Không push/PR/chuyểnnhánh, không kế hoạch/data/secret; giữ nguyên report/hash và helper6A/6B/DDL/manifest/P2.

@@ -1,4 +1,4 @@
-"""Read-only post-6C warehouse check; never load or refresh any table.
+"""Read-only integrated warehouse check; never load or refresh any table.
 
 Usage: python tests/warehouse/check_warehouse.py --env-file .env
 The action is fixed to verify; user-supplied load/preflight actions are rejected.
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from etl.s06c_fact import RAW, ROOT, main
+from etl.run_etl import RAW, ROOT, main
 
 
 if __name__ == "__main__":

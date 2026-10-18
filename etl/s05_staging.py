@@ -316,10 +316,18 @@ def verify_staging(conn, raw_dir, schema="staging"):
 def refresh_body(conn, raw_dir, expected_counts, schema="staging", stats=None):
     if schema != "staging" and not re.fullmatch(r"s05_test_[0-9a-f]{12}", schema):
         raise SafeError("INVALID_STAGING_NAMESPACE")
-    stats = stats if stats is not None else {}
     with conn.cursor() as cur:
         cur.execute("SELECT pg_advisory_xact_lock(20261027,1)")
         cur.execute(sql.SQL("TRUNCATE {} ").format(sql.SQL(", ").join(sql.Identifier(schema, table) for table in SPECS)))
+    return copy_staging(conn, raw_dir, expected_counts, schema, stats)
+
+
+def copy_staging(conn, raw_dir, expected_counts, schema="staging", stats=None):
+    """COPY/verify only; transaction and clearing belong to the caller (S05/6D)."""
+    if schema != "staging" and not re.fullmatch(r"(?:s05|s06d)_test_[0-9a-f]{12}", schema):
+        raise SafeError("INVALID_STAGING_NAMESPACE")
+    stats = stats if stats is not None else {}
+    with conn.cursor() as cur:
         for table, (filename, _, columns) in SPECS.items():
             stats[table] = {"read": 0, "loaded": 0, "errors": 0}
             # Disk spill is local/temporary, never a repository artifact.

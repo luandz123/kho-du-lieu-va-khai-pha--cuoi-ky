@@ -26,7 +26,7 @@ RAW = ROOT / "data/raw/p1_s05/ml-1m"
 
 
 def namespace(schema):
-    if schema != "dw" and not re.fullmatch(r"s06b_test_[0-9a-f]{12}", schema):
+    if schema != "dw" and not re.fullmatch(r"s06[bd]_test_[0-9a-f]{12}", schema):
         raise SafeError("INVALID_BRIDGE_NAMESPACE")
     return sql.Identifier(schema)
 

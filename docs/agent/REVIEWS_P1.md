@@ -1,5 +1,17 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận6D, giao công bố PR ETL/G2
+
+Nguồn: thông báo điều phối chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu hash29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, COMMITTED. Ghi **6D APPROVED theo điều phối ở mức cục bộ**, không tạo lời duyệt nguyên văn người dùng và không coi là PR đãmerge/P2 đãnhậnG2.
+
+Quyền lần này: rà toàn bộ gói từmain gồm checkpoint6A/B/C, commit6D, fetch/tích hợp main an toàn, push p1-s06-etl và mởPRmain. Không merge, fullrefresh mới/OLAP/dashboard/G3 hoặc thay role/firewall/credential. P2intake NOT_CONFIRMED và dedicated_read_only_account_verified=false tiếp tục giữ đến bằng chứng thật. Bằng chứng công bố ghi riêng, report runtime cũ không được gán commit mới.
+
+## Điều phối chấp nhận 6C và giao riêng 6D — 18/10/2026
+
+Nguồn: điều phối thông báo chấp nhận 6C sau review code, chạy lại17/17 unit test và đối chiếu bằng chứng/hash. Ghi **6C APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Đã rà diff/hash và stage đúng19file P1 của 6C rồi checkpoint local **c143f5d7081da041aad38c0a97c0a8ac0ef721cb**, giữ nhánh p1-s06-etl và kế hoạch untracked ngoài phạm vi; chưa push/PR.
+
+Lệnh mới chỉ full refresh6D, kiểm chạy lại/rollback, hậu kiểm tích hợp và chuẩn bị metadataG2. Không coi kết quả kiểm của agent là duyệt6D, PR đãmerge hoặc P2 đã nhậnG2. ReportPASS/FAIL cũ giữ nguyên; helper được refactor có hash mới ghi riêng trong version bundle6D, không sửa hash thực chạy trong report6A/B/C.
+
 ## Điều phối chấp nhận 6B và giao riêng 6C — 18/10/2026
 
 Nguồn: điều phối thông báo chấp nhận 6B sau review code, chạy lại 15/15 unit test và kiểm bằng chứng/hash bàn giao. Ghi **6B APPROVED theo điều phối**, không tạo lời duyệt nguyên văn của người dùng. Được checkpoint cục bộ phần 6B đã review; sau rà diff, allowlist 19 file P1 và hash artifact, đã commit **d698d8eab4bd8fbf828ffa23e434ddf52ba9eebe** trên p1-s06-etl. Giữ report PASS/FAIL, nguồn và kế hoạch untracked ngoài phạm vi; chưa push/PR hoặc thay nhánh.

@@ -57,6 +57,10 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
+**Cập nhật công bố ETL/G2:** điều phối đã chấp nhận6D cục bộ và giao commit/push/mởPR; chưa merge/P2 nhậnG2. [Hồ sơ công bố](docs/P1/g2_publication.md) phân biệt commitcode công bố với base/hash runtime; giữ report lịch sử. Chưa xác minh tài khoản chỉ đọc hoặc P2 remote, không chia sẻ credential quản trị. Các trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
+
+Hiện hành **6D WAITING_REVIEW**, 6C được điều phối chấp nhận: full refresh chung một transaction đã chạy hai lần, cùng code/config và bốn hash/count;65unit/fixture rollback/adapter rawCSV DW/hậu kiểm chỉ đọc PASS. [Bàn giao6D](docs/P1/s06d_handoff.md), [gói DW](docs/P1/dw_handoff.md), [manifest](results/warehouse/dw_manifest.json). Hậu kiểm tích hợp chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env`; tái tạo có ghi: `python -m etl.run_etl refresh --env-file .env`. Không dùng checker/CLI tiểu bước cũ cho full refresh. Metadata G2 chờ review và xác nhận P2; chưa push/PR/OLAP/dashboard/G3. Các mục dưới là lịch sử.
+
 Hiện hành **6C WAITING_REVIEW**, 6B đã được điều phối chấp nhận: fact/view ratings **1000209** dòng, tổng điểm **3582313**, bốn hash canonical khớp; staging/dimension/bridge giữ nguyên, analytics rỗng. [Bàn giao6C](docs/P1/s06c_handoff.md), [summary6C](results/warehouse/s06c_summary.json). Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env`. Không chạy lại loader cũ/6C hoặc checker6B đòi fact rỗng; chưa6D/G2/OLAP/dashboard. Các đoạn dưới là lịch sử từng mốc.
 
 Hiện hành **6B WAITING_REVIEW**, 6A đã được điều phối chấp nhận: bridge có **6408 cặp**, staging/dimension giữ nguyên, fact/analytics rỗng. Xem [bàn giao 6B](docs/P1/s06b_handoff.md) và [summary](results/warehouse/s06b_summary.json). Hậu kiểm chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 -m etl.s06b_bridge verify --env-file .env`. Không chạy lại load S05/6A/6B hoặc checker6A cũ đòi bridge rỗng; chưa 6C/6D/G2. Các đoạn hiện hành cũ bên dưới giữ lịch sử từng mốc.

@@ -1,0 +1,268 @@
+{
+  "step": "6D",
+  "status": "WAITING_REVIEW",
+  "date_local": "2026-10-18",
+  "review_source": "Coordinator accepts 6C after review, 17/17 unit tests and evidence/hash check; no fabricated verbatim user approval",
+  "branch": "p1-s06-etl",
+  "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+  "checkpoint_6c_local_only": true,
+  "code_state": "UNCOMMITTED_WORKING_TREE_6D",
+  "etl_version": {
+    "name": "P1-S06D-v1",
+    "base_commit": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "code_state": "WORKING_TREE_HASH_AT_RUN",
+    "bundle_sha256": "b858a879b6a0d03ef5b7b1533caf93d1c76f421b8171b5579f61ced840638422",
+    "file_sha256": {
+      "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
+    }
+  },
+  "database": "movielens_btl",
+  "same_version_runs": [
+    "16421c84a7a244b5ad4b60f4ce4dfbc6",
+    "6501a547065246869b98b6ab6531190e"
+  ],
+  "run_durations_seconds": [
+    151.047,
+    164.672
+  ],
+  "nonsecret_config_sha256": "e2b56ec949d873a395b4af4d9ff351967b2f3d48984dbb8b08922fcb0e114dfd",
+  "credentials_not_hashed": true,
+  "two_runs_all_logical_checks_equal": true,
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "row_counts": {
+    "users": 6040,
+    "movies": 3883,
+    "movie_genres": 6408,
+    "ratings": 1000209
+  },
+  "rating_sum": 3582313,
+  "ratings_statistics": {
+    "rows": 1000209,
+    "duplicate_user_movie_pairs": 0,
+    "orphan_fks": 0,
+    "invalid_rating": 0,
+    "timestamp_rated_at_date_mismatches": 0,
+    "surrogate_keys_unique_positive": true,
+    "view_rows": 1000209,
+    "all_logical_fields_match_source": true,
+    "rating_sum": 3582313,
+    "star_counts": {
+      "1": 56174,
+      "2": 107557,
+      "3": 261197,
+      "4": 348971,
+      "5": 226310
+    },
+    "users_with_ratings": 6040,
+    "movies_with_ratings": 3706,
+    "min_timestamp": 956703932,
+    "max_timestamp": 1046454590,
+    "min_rated_at_utc": "2000-04-25T23:05:32Z",
+    "max_rated_at_utc": "2003-02-28T17:49:50Z",
+    "canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    "source_canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    "canonical_hash_matches": true
+  },
+  "model_after": {
+    "registry_rows": 0,
+    "active": 0,
+    "valid": 0,
+    "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "analytics_results": {
+    "analytics.user_cluster": 0,
+    "analytics.cluster_genre_profile": 0,
+    "analytics.v_active_user_cluster": 0,
+    "analytics.v_active_cluster_genre_profile": 0
+  },
+  "unit_report": "results/warehouse/s06d_unit_46211bbea754466aa1f9f7d360eff091.json",
+  "unit_tests_passed": 65,
+  "rollback_report": "results/warehouse/s06d_rollback_5c9c553454e54e81953fded2d524877c.json",
+  "rollback_cases": [
+    {
+      "fault": "parse",
+      "category": "MALFORMED_FIELD_COUNT",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "mapping",
+      "category": "MISSING_USER_MAPPING",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "fk",
+      "category": "REFRESH_SQL_OR_LOCAL_ERROR",
+      "sqlstate": "23503",
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "rating",
+      "category": "OUT_OF_RANGE_RATING",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "duplicate",
+      "category": "DUPLICATE_SOURCE_USER_MOVIE",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    },
+    {
+      "fault": "checksum",
+      "category": "FIXTURE_CANONICAL_CHECKSUM_MISMATCH",
+      "sqlstate": null,
+      "truncate_statements": 1,
+      "all_seeded_tables_restored": true,
+      "identity_sequences_restored": true,
+      "active_valid_model_and_results_restored": true,
+      "snapshot_sha256": "1ebf6217b4876060ea74b248c807dc797d5c6333b5ef7a2c1f86132cc820c46b"
+    }
+  ],
+  "adapter_report": "results/warehouse/s06d_adapter_c75f9cb0ceb04d74bfa36e140d812754.json",
+  "adapter_raw_csv_dw_all_cells_equal": true,
+  "adapter_git_blob_sha256": "748eef31e0aaf17ceca430938d71657df6ca1a020158f6ba8709e2cab65b1c72",
+  "local_csv_directory_ignored": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754",
+  "readonly_report": "results/warehouse/s06d_verify_21f0d343d42543c2ab176c3ac554841e.json",
+  "readonly_duration_seconds": 58.313,
+  "connection_privileges": {
+    "session_read_only": true,
+    "role_superuser": true,
+    "role_can_create_database": true,
+    "role_can_create_role": true,
+    "role_has_project_table_write_privileges": true,
+    "dedicated_read_only_account_verified": false,
+    "p2_remote_connectivity_verified": false
+  },
+  "g2_metadata_status": "PREPARED_FOR_REVIEW",
+  "p2_intake_confirmed": false,
+  "manifest": "results/warehouse/dw_manifest.json",
+  "dw_handoff": "docs/P1/dw_handoff.md",
+  "earlier_6d_evidence_kept": [
+    "results/warehouse/s06d_unit_e1b0f388045848d6914438c8685471c5.json",
+    "results/warehouse/s06d_rollback_83c3e18b561940e8af2e5e734e2f5757.json"
+  ],
+  "failures_this_step": [],
+  "refactor_impact": [
+    "S05 copy_staging extracted without extra TRUNCATE; historical refresh_body guards unchanged",
+    "6A/6B/6C insert namespaces allow isolated 6D fixture only; normalization unchanged",
+    "Integrated checker uses current logical snapshot, not historical 6C or surrogate fingerprints"
+  ],
+  "preservation": {
+    "all_old_tracked_warehouse_reports_unchanged": true,
+    "p2_contract_manifest_schema_raw_unchanged": true,
+    "historical_helper_versions_at_checkpoint": "c143f5d7081da041aad38c0a97c0a8ac0ef721cb",
+    "old_runtime_report_hashes_not_rewritten": true,
+    "plan_untracked_sha256": "da37e4a262541ad9f7957ded381cd1347a8e657709f8367fa2ec5ee4cd51d7c7"
+  },
+  "limits": [
+    "No 6D commit/push/PR/merge",
+    "No P2 G2 intake confirmation",
+    "Current connection role has superuser/write privileges; dedicated read-only account and P2 remote access not verified",
+    "Commit disconnect and publication failure handling tested by unit simulation, not real network disruption",
+    "No OLAP/dashboard/G3/BI/backup restore"
+  ],
+  "final_checks": {
+    "git_diff_check": true,
+    "no_staged_files": true,
+    "artifact_secret_signature_scan": true,
+    "env_raw_processed_venv_ignored_not_tracked": true,
+    "local_csv_bytes_match_canonical_hashes": true,
+    "fixture_schemas_remaining": 0,
+    "handoff_links_resolve": true,
+    "temporary_publish_files_cleaned": true
+  },
+  "files_changed_after_checkpoint": [
+    "README.md",
+    "database/README.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S06.md",
+    "etl/README.md",
+    "etl/s05_staging.py",
+    "etl/s06a_dimensions.py",
+    "etl/s06b_bridge.py",
+    "etl/s06c_fact.py",
+    "tests/warehouse/check_warehouse.py",
+    "docs/P1/dw_handoff.md",
+    "docs/P1/s06d_handoff.md",
+    "etl/run_etl.py",
+    "results/warehouse/dw_manifest.json",
+    "results/warehouse/s06d_adapter_c75f9cb0ceb04d74bfa36e140d812754.json",
+    "results/warehouse/s06d_refresh_16421c84a7a244b5ad4b60f4ce4dfbc6.json",
+    "results/warehouse/s06d_refresh_6501a547065246869b98b6ab6531190e.json",
+    "results/warehouse/s06d_repeatability.json",
+    "results/warehouse/s06d_rollback_5c9c553454e54e81953fded2d524877c.json",
+    "results/warehouse/s06d_rollback_83c3e18b561940e8af2e5e734e2f5757.json",
+    "results/warehouse/s06d_unit_46211bbea754466aa1f9f7d360eff091.json",
+    "results/warehouse/s06d_unit_e1b0f388045848d6914438c8685471c5.json",
+    "results/warehouse/s06d_verify_21f0d343d42543c2ab176c3ac554841e.json",
+    "tests/warehouse/check_g2_adapter.py",
+    "tests/warehouse/check_s06d_rollback.py",
+    "tests/warehouse/test_s06d_refresh.py",
+    "results/warehouse/s06d_summary.json"
+  ],
+  "artifact_sha256": {
+    "README.md": "79d4701cdeac44011038a36975c85cf628af66037fe2e273ddd5939381da1a9e",
+    "database/README.md": "23273c4f4289eb6fa28be39a981ae5b8313d4913de9e8f95734e54b6217a758c",
+    "docs/agent/DECISIONS_P1.md": "f0390e587878c6d5de31d0e0faa70fd554bf90b110d30f9d0673f36ae0efd513",
+    "docs/agent/PROMPTS_P1.md": "e167bceca8ef000ddc10867f83009d1f34bc2003564bd7c8d690d8d9a87f61ed",
+    "docs/agent/REVIEWS_P1.md": "de084284823c4fb20a3b946906c4ab411236eb50e5dcd69f5ad4358b4433702b",
+    "docs/agent/STATE_P1.md": "b7b0048fa5d7cd376ffef9e2b8d2c1de5d2e8ff2cc5959118649eb64658d968b",
+    "docs/agent/steps/P1/S06.md": "977c64de71c44ec33bf58b15b4f0bc155a3bf2ca2020d875ac63f3138bb3a880",
+    "etl/README.md": "c0e5236d9b1c72c460f07849663547da93bda7c8718f6dc3ddfce81d711aa567",
+    "etl/s05_staging.py": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+    "etl/s06a_dimensions.py": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+    "etl/s06b_bridge.py": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+    "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066",
+    "tests/warehouse/check_warehouse.py": "cee640ab79fe1752712e76bc0cfcca4d1e802d35304fd2a8f3cdfd0de08a9faf",
+    "docs/P1/dw_handoff.md": "e7573b42f2a988b2adebc7e4bc3f4a0b5fa19cc48cd4626c8d7b1b4a79436b88",
+    "docs/P1/s06d_handoff.md": "72ae74f249b953c464728ed13186771e536642d8c1e26597fb6291274da8cede",
+    "etl/run_etl.py": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+    "results/warehouse/dw_manifest.json": "6db48bd4eab849a4c0c6298839f2665b71b42d368a663584b1dbb1d566909d02",
+    "results/warehouse/s06d_adapter_c75f9cb0ceb04d74bfa36e140d812754.json": "f549db69f6af4161a0eba3bc0371500068c7b0a4a583330ce83b55b9efea025e",
+    "results/warehouse/s06d_refresh_16421c84a7a244b5ad4b60f4ce4dfbc6.json": "2e6e617ed943589a95808e45c02e64bc69320e6a6c09934537458cc18651b699",
+    "results/warehouse/s06d_refresh_6501a547065246869b98b6ab6531190e.json": "59ac3fd7630cd34f7890cb5284242ce12ca92546a67c5a1c695f7a7a576f1b41",
+    "results/warehouse/s06d_repeatability.json": "d4fac1b621eeb5c3c5d94f49707c12017fd089867bbc0d0a732ab20d9b0e096f",
+    "results/warehouse/s06d_rollback_5c9c553454e54e81953fded2d524877c.json": "891ce7650e523c9878f9d1130ee77176ab87239af1dd61f0340e55bfed045207",
+    "results/warehouse/s06d_rollback_83c3e18b561940e8af2e5e734e2f5757.json": "9404a111bf48729b70322faa3f3d18da409e33f24d39a35bccaa33ae37751fd3",
+    "results/warehouse/s06d_unit_46211bbea754466aa1f9f7d360eff091.json": "82455e19d3a1284c2d7750c75b5ed9f1c96560a5cfadd021da4a65b180657390",
+    "results/warehouse/s06d_unit_e1b0f388045848d6914438c8685471c5.json": "9723bacf501c312c47d46af27c83f4b915fbeec182afc1862f43f233e322e9b4",
+    "results/warehouse/s06d_verify_21f0d343d42543c2ab176c3ac554841e.json": "ce3ce35dd1824a14539a83599b6e401a9c5b728a0e0edd8dc713866f8d67acbf",
+    "tests/warehouse/check_g2_adapter.py": "5da25cb006c121b001fb9bd88c571461232baaadc3d352fe8cc6153a9fde1e3f",
+    "tests/warehouse/check_s06d_rollback.py": "d490d33bab5c6bb5b415652b41ca262d6c07c07cf583bc079b5c607ed15bc944",
+    "tests/warehouse/test_s06d_refresh.py": "2a76c9579e351a198fa0b26d149c7451c51b6386e826c22158ac1a0638513b78"
+  }
+}
