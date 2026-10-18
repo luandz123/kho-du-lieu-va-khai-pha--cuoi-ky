@@ -1,5 +1,5 @@
 {
-  "phase": "PRECOMMIT_REVIEWED",
+  "phase": "CODE_COMMITTED_BASE_VERIFIED",
   "checked_at_utc": "2026-10-18T13:50:19.675391+00:00",
   "review_source": "Coordinator accepts 6D locally after code review, 65/65 tests and 29 artifact hashes; authorized publication, no merge",
   "repository": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky",
@@ -19,7 +19,7 @@
       "etl/s06c_fact.py": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066"
     }
   },
-  "code_publication_commit": null,
+  "code_publication_commit": "4fa9cf17aa41e5ff84d4490886eeac27971e46f6",
   "pr_url": null,
   "pr_state": "NOT_CREATED",
   "p2_intake_status": "NOT_CONFIRMED",
@@ -142,7 +142,7 @@
     "README.md": "03108f1218b9a7379683d32123f5358c5d3aa15bdc2589c5f129f8add8e17edc",
     "database/README.md": "23273c4f4289eb6fa28be39a981ae5b8313d4913de9e8f95734e54b6217a758c",
     "docs/P1/dw_handoff.md": "51c9f032488783f3a8d88c7a1a18253075fd68d40d6b804a97a0e2d54bf40fea",
-    "docs/P1/g2_publication.md": "b45a34f1f38b3d6a9190a6ff7c4bf0760aa3db5a724d1338dfd79d71a56485c6",
+    "docs/P1/g2_publication.md": "d3bb718a0bb25cf06e92c80ece5b508391e699b2b61ebfac412258659f33f2d6",
     "docs/P1/s06a_handoff.md": "f580e25f46be7030d1379755c60503b8784aba2545f5a26d30409994db5ec0ed",
     "docs/P1/s06b_handoff.md": "3558bce888a245704604ef0bb2d08b6bd512a583226e904f4f971c15902d2786",
     "docs/P1/s06c_handoff.md": "219bfe9ee0a8b028c2e0d0473fcf0c9038065b76ab094768cdb1edab50e7f83f",
@@ -203,5 +203,45 @@
     "tests/warehouse/test_s06b_bridge.py": "cb5964fe5c931d36e80b2bd5939262016e0bea02e961bac128e9bf301ddffe96",
     "tests/warehouse/test_s06c_fact.py": "bd3245a7f2f18f5c6fb70c03528b21cd72e6c018ef045fa1352a5d42dfea45a1",
     "tests/warehouse/test_s06d_refresh.py": "2a76c9579e351a198fa0b26d149c7451c51b6386e826c22158ac1a0638513b78"
+  },
+  "verified_origin_main": "52dd682920e0587f3a474fe284b9bf5635ab6aac",
+  "origin_main_changed_since_runtime": false,
+  "merge_needed": false,
+  "code_lf_crlf_provenance": {
+    "etl/run_etl.py": {
+      "working_tree_physical_sha256": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "git_blob_lf_sha256": "fc9a367f69144c2dafe0e9128e8165ec8458c1ad643ef4b82f0806dad1b059da",
+      "lf_crlf_only_difference": true
+    },
+    "etl/s05_staging.py": {
+      "working_tree_physical_sha256": "59a23fc0cccdb9473954741dff4d19f75a929424f0013d864086f7727cfa8733",
+      "git_blob_lf_sha256": "2667b188614fd397a431ee4028f3e397d82d19449b78372be0483105e86c45aa",
+      "lf_crlf_only_difference": true
+    },
+    "etl/s06a_dimensions.py": {
+      "working_tree_physical_sha256": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "git_blob_lf_sha256": "059bc9399266bf30bc4daa458c399db364dc918738ffcc2a7f123e915e96cc03",
+      "lf_crlf_only_difference": true
+    },
+    "etl/s06b_bridge.py": {
+      "working_tree_physical_sha256": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "git_blob_lf_sha256": "8cc5a11973392bda8835e35786bd3cba16a546cb63f825dcc60f553e9ace3830",
+      "lf_crlf_only_difference": true
+    },
+    "etl/s06c_fact.py": {
+      "working_tree_physical_sha256": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066",
+      "git_blob_lf_sha256": "9057a141ea099227bf730b26b0710106799fa52d170408a35cd09b43db1a5066",
+      "lf_crlf_only_difference": true
+    }
+  },
+  "post_fetch_checks": {
+    "runtime_json_physical_hashes_preserved": true,
+    "markdown_relative_links_resolve": true,
+    "env_raw_csv_ignored_not_tracked": true,
+    "plan_preserved_untracked": true,
+    "p2_contract_serializer_unchanged": true,
+    "code_physical_sha_matches_reviewed_runtime": true,
+    "code_git_blob_matches_physical_after_lf_comparison": true,
+    "full_refresh_rerun": false
   }
 }
