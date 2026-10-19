@@ -1,5 +1,22 @@
 # Nguồn prompt P1
 
+## P-P1-26 — Điều phối chấp nhận và giao công bố S07, 19/10/2026
+
+Điều phối báo chấp nhận S07 sau review SQL/code, chạy lại73/73unit, kiểm hash37artifact và đối chiếuQ3. Giao chốt hồ sơ đúng nguồn; giữ reportPASS/FAIL/run/hashG2, giới hạn fullrefreshhelper/account/P2. Rà toànPR gồm hồ sơ500b293/observation; không đổi bảng/contract/P2/nguồn, chỉ CSV tổng hợp runPASS với ignore ngoại lệ đúng thư mục. Stage từng đườngdẫnP1/xemstageddiff/commit trướcfetch, tíchhợpmain antoàn, khôngreset/force/ghiđèP2. Ghi codecommit công bố riêng runtimebase/hash; hash tài liệu mới riêng, không sửa run cũ. Push nhánh p1-s07-olap/mởPRmain, nêu6query/view/OLAP, mẫu số/SUMCOUNT/zero-grid/ngưỡng100/quýbiên/rankâm, test/4hash/giới hạn/hồ sơG2ghép. Bàn giaoURL/HEAD/toànfilePR/checks/workingtree.
+
+Giới hạn được giao: chưa merge/dashboard/G3/quyền/firewall; không rerunETL/installview/OLAP vì hồ sơ. Điều phối sẽ giao riêng11A sauPRđượcchốt;11C có thể tiếp sau đó khôngchờCF. Đây là mô tả lệnh và nguồn review điều phối, không phải agent tự duyệt bước.
+
+---
+
+## P-P1-25 — Điều phối giao Bước 7 và ghép hồ sơ công bố
+
+Nguồn lệnh: xác nhận PR9 MERGED/ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205, agent không merge; code ETL công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6. Cho checkpoint STATE/observation, đồng bộmain an toàn/tạo p1-s07-olap và ghép chọn lọc commit500b293 nếu đúng hồ sơ P1. Giữ report OPEN lịch sử; không đưa lại code đã merge, không stage kế hoạch/P2/secret. P2 NOT_CONFIRMED/tài khoản chỉ đọc chưa xác minh.
+
+Giao sáu OLAP O1KPI/O2Top10/O3genre×tuổi lọc giới pivot/O4năm-quý-tháng UTC/O5count-QoQ-share/O6lọc kết hợp-drilldown. Mean SUM/COUNT; tổngfact, sharegán genre; O5 đủlưới trướcLAG, trước0NULL, ngưỡng100 cố định, quýbiên loại kếtluậntăngtrưởng. Cho tạo view OLAP mới, không đổi bốnviewcontract/bảng/nguồn; testfixture và kiểm DW1000209/tổng3582313/user6040/phimrated3706. Bàn giao code/results/findings/runhash/S07/STATE WAITING_REVIEW. Giới hạn nguyên văn: “Chưa tạo dashboard, khởi động Superset để làm BI, nạp analytics hoặc đổi quyền/firewall. Chưa push/mở PR trong lượt này. Dừng sau bàn giao Bước 7.”
+
+---
+Các mục dưới đây là hồ sơ lịch sử tại thời điểm ghi; trạng thái hiện hành xem mục mới nhất bên trên.
+
 ## P-P1-24 — Điều phối giao công bố PR ETL/G2
 
 Điều phối báo chấp nhận6D sau review, chạy lại65unit và đối chiếu29artifact. Giao rà toàn bộ gói từmain kể cả checkpoint6A/B/C; giữ reportPASS/FAIL/hash runtime, code và quyền truy cập đã kiểm. Stage từng đường dẫnP1/commit6D, phân biệt commit công bố với base_commit và working-tree hash thực chạy. Chỉ chuẩn hóa LF/CRLF để so code với Git blob, không chuẩn hóa byte raw/canonical. Cập nhật ledger hash khi sửa tài liệu/metadata, không rerun fullrefresh vì cập nhật hồ sơ. Khi an toàn fetch/tích hợp origin/main, kiểm tác động nếu adapter/contract/serializer đổi; không reset/force/ghiđèP2/ours-theirs hàng loạt. Push nhánh p1-s06-etl và mởPRmain, bàn giao URL/HEAD/commit code/filelist/checks/workingtree/manifestrun và đầu vào truy cậpP2 còn thiếu.

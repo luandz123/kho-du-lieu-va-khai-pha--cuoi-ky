@@ -4,7 +4,7 @@
 
 Điều phối chấp nhận 6D cục bộ sau review code, chạy lại65/65 unit test và đối chiếu29artifact. Hai run **16421c84a7a244b5ad4b60f4ce4dfbc6** và **6501a547065246869b98b6ab6531190e** COMMITTED, cùng bundle/config/checks. Thông tin này có nguồn từ điều phối, không phải lời duyệt nguyên văn do agent tạo.
 
-Code6D đã commit tại **4fa9cf17aa41e5ff84d4490886eeac27971e46f6** trên p1-s06-etl. Fetch xác nhận origin/main **52dd682920e0587f3a474fe284b9bf5635ab6aac** vẫn là base, không có thay đổi main mới và không cần merge thêm. Chưa push/mởPR ở thời điểm chốt mốc này; URLPR sẽ cập nhật sau xác minh. **Chưa merge, P2 chưa kiểm nhận G2.**
+Code6D đã commit tại **4fa9cf17aa41e5ff84d4490886eeac27971e46f6** trên p1-s06-etl. Fetch xác nhận origin/main **52dd682920e0587f3a474fe284b9bf5635ab6aac** vẫn là base, không có thay đổi main mới và không cần merge thêm. Push thành công, remote SHA khớp; đã mở **[PR #9](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9)** vào main. API xác minh **OPEN / merged=false**, đủ65file/blob khớp Git tại HEAD lúc mở/rà **11a3d7367bbdbfad4267570d04863d22ee490d1c**. **6D được kiểm nhận cục bộ; PR WAITING_REVIEW; P2 chưa kiểm nhận G2.**
 
 ## Truy vết runtime và code công bố
 
@@ -19,6 +19,8 @@ Code6D đã commit tại **4fa9cf17aa41e5ff84d4490886eeac27971e46f6** trên p1-s
 PR bao gồm toàn bộ checkpoint6A/B/C và6D: dimension/bridge/fact/fullrefresh nguyên tử, unit/fixture tự tạo, hậu kiểm, metadata/manifest và bằng chứng tổng hợp; không thêm DDL mới. Không raw/processed/CSV theo user/dump/.env/credential hoặc kế hoạch ngoài phạm vi. Filelist toànPR và kiểm thực tế được ghi trong ledger sau rà diff/base.
 
 Rà trước push:65file P1,34JSON (trước ledger tự tham chiếu) và16Python hợp lệ;61blob thay đổi trong ba checkpoint đã quét chữ ký secret. Diffcheck đạt, helper refactor giữ quy tắc chuẩn hóa và guard lịch sử. Kế thừa bằng chứng65unit/fixture/adapter/hậu kiểm đã review; không ghi là vừa chạy lại các phép kiểm DB hoặc fullrefresh trong lượt công bố.
+
+Rà sau mởPR: APIfilelist đủ65, từng Git blob SHA trùng local và JSON/Python parse được. CI tại lúc kiểm có0check-runs và0commit-status, combined status pending; không coi là CIđạt. Hồ sơ công bố cập nhật tiếp thuộc cùngPR và chỉ đổi tài liệu/ledger; `api_review_head` trong ledger ghi đúng mốc đã rà, không giả là SHA của commit đang chứa chính ledger đó. HEAD mới nhất lấy từ Git/PR và được kiểm sau push. Chưa merge/OLAP/dashboard/G3.
 
 [Gói DW](dw_handoff.md), [manifest](../../results/warehouse/dw_manifest.json), [bàn giao6D](s06d_handoff.md) giữ hai run, bốn hash/count và số liệu thực. Adapter P2 tại P1 đã so raw/CSV/DW mọicell trên PostgreSQL thật, không thay việc P2 nhận G2.
 

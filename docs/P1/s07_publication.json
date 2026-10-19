@@ -1,0 +1,589 @@
+{
+  "step": "S07_PUBLICATION",
+  "stage": "PR_OPEN_WAITING_REVIEW",
+  "functional_review": {
+    "status": "APPROVED",
+    "source": "Coordinator message on 2026-10-19: SQL/code review, reran 73/73 unit tests, checked 37 artifact hashes and Q3 conclusions",
+    "agent_fabricated_user_approval": false
+  },
+  "pr_state": "OPEN",
+  "merged": false,
+  "branch": "p1-s07-olap",
+  "code_publication_commit": "94565740cf40cff92ce6b1af553eec110316ae0e",
+  "runtime_base_commit": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c",
+  "runtime_run_id": "af6dbc20b40d4a47aa3ea71bde6fd107",
+  "runtime_code_sha256": {
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  },
+  "fetched_main": "be8c88931765f2a61f785cdcc694f9c5a53aa521",
+  "sync_merge_commit": "ddff289807d2384d72543deafb7effbb3ee5b7d5",
+  "main_changes_integrated": [
+    "docs/agent/DECISIONS_P2.md",
+    "docs/agent/STATE_P2.md",
+    "docs/agent/steps/P2/S08.md",
+    "mining/clustering.py",
+    "results/mining/test_evidence.txt",
+    "tests/mining/test_clustering.py"
+  ],
+  "adapter_contract_serializer_changes_from_main": false,
+  "sync_conflicts": false,
+  "g2_publication_records_included": [
+    "f0c8a960c3400cf8e8e36c1c4a6b3e93ddbea8d4",
+    "59ed6eddae4981b2c90e8ec8b1cad036270baf9c"
+  ],
+  "precommit_checks": {
+    "stage": "BEFORE_CODE_COMMIT",
+    "status": "PASS",
+    "checks": {
+      "branch": true,
+      "reviewed_runtime_code_unchanged": true,
+      "all_historical_json_unchanged": true,
+      "outside_plan_preserved": true,
+      "approved_csv_exception_exact": true,
+      "no_staged_before": true,
+      "unchanged_schema_contract_p2_source": true,
+      "no_warehouse_runtime_changes": true,
+      "git_diff_check": true,
+      "no_secret_literals": true,
+      "no_private_paths": true,
+      "all_json_valid": true,
+      "python_syntax_valid": true,
+      "staged_file_set_exact": true,
+      "staged_diff_check": true,
+      "staged_content_matches_worktree": true,
+      "aggregate_csv_git_bytes_exact": true
+    },
+    "selected_paths": [
+      ".gitignore",
+      "README.md",
+      "database/README.md",
+      "database/views.sql",
+      "docs/P1/dw_handoff.md",
+      "docs/P1/olap_findings.md",
+      "docs/P1/s06d_handoff.md",
+      "docs/agent/DECISIONS_P1.md",
+      "docs/agent/PROMPTS_P1.md",
+      "docs/agent/REVIEWS_P1.md",
+      "docs/agent/STATE_P1.md",
+      "docs/agent/steps/P1/S06.md",
+      "docs/agent/steps/P1/S07.md",
+      "etl/README.md",
+      "etl/s05_staging.py",
+      "olap/README.md",
+      "olap/queries.sql",
+      "olap/run_olap.py",
+      "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv",
+      "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json",
+      "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json",
+      "results/olap/s07_final_audit.json",
+      "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json",
+      "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json",
+      "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json",
+      "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json",
+      "results/olap/s07_summary.json",
+      "results/olap/s07_unit_tests.json",
+      "tests/warehouse/check_s07_olap.py",
+      "tests/warehouse/test_s07_catalog.py"
+    ],
+    "code_sha256": {
+      "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+      "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+      "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+      "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+    },
+    "reviewed_artifacts_verified_before_document_edits": 37,
+    "historical_json_count": 62,
+    "staged_diff_sha256": "66f9bfdb61429a4708ab383226861e2ab6a6483a06ee8999c1df0544f2712464",
+    "current_document_sha256": {
+      "README.md": "1c96442cd1c2af871dbb43b55cc1bfe11c178507836be2e9fbc0c17712dc953f",
+      "database/README.md": "cb3197b5cb4264e199e0ab0e71966813de6cbc6e79c082248d5a10f1028af673",
+      "docs/P1/dw_handoff.md": "c4390640e227116bc52c5556af6c3e834b56e02f550b9eca7e5857beb1d25954",
+      "docs/P1/olap_findings.md": "713c8ad1d29df0bc5fad1b4fc2d84abcc472fecf29643126b1f8212672af506f",
+      "docs/P1/s06d_handoff.md": "fbe88a5fba839a765974ba21ddb3c88a44ca498bfc33342558f489ffdfe39496",
+      "docs/agent/DECISIONS_P1.md": "d032a7f227ba714704745400c79b23827d6ec6c96569f3a97a552392cea3f31b",
+      "docs/agent/PROMPTS_P1.md": "09cb3f7bac5aaf67d06e189ec138c639c4e1e021ff4995f923e8e452dca0c2dc",
+      "docs/agent/REVIEWS_P1.md": "e4b145e562831faaafe92fa5a13e7da03350dfb7c23ffd667fc165fc95a3d3b0",
+      "docs/agent/STATE_P1.md": "7a5db8d166f7bd2f9b1dc57f1bf654fb91308ec761dedf244a5f6e04ec4c6e28",
+      "docs/agent/steps/P1/S06.md": "abc456a8f85edb04e8aacf26d56c826e9403c9b477a18f223e2b913faae40a92",
+      "docs/agent/steps/P1/S07.md": "549216e33cd7e91c09338af42583fb1898fb2db7ddf69acda2f7a0af79a2322a",
+      "etl/README.md": "72feab37889c6bdd8123b8535f4388bae50137126ce5dcb54e7777289ca677ed",
+      "olap/README.md": "0fc5e443d8791b75456db63981714ddb84836dda445e2625ff3bf374191ad9a8"
+    }
+  },
+  "all_pr_files_expected": [
+    ".gitignore",
+    "README.md",
+    "database/README.md",
+    "database/views.sql",
+    "docs/P1/dw_handoff.md",
+    "docs/P1/g2_post_merge_observation.json",
+    "docs/P1/g2_publication.json",
+    "docs/P1/g2_publication.md",
+    "docs/P1/olap_findings.md",
+    "docs/P1/s06d_handoff.md",
+    "docs/P1/s07_publication.json",
+    "docs/P1/s07_publication.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S06.md",
+    "docs/agent/steps/P1/S07.md",
+    "etl/README.md",
+    "etl/s05_staging.py",
+    "olap/README.md",
+    "olap/queries.sql",
+    "olap/run_olap.py",
+    "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json",
+    "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json",
+    "results/olap/s07_final_audit.json",
+    "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json",
+    "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json",
+    "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json",
+    "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json",
+    "results/olap/s07_summary.json",
+    "results/olap/s07_unit_tests.json",
+    "tests/warehouse/check_s07_olap.py",
+    "tests/warehouse/test_s07_catalog.py"
+  ],
+  "historical_evidence": {
+    "reviewed_37_artifact_ledger": "results/olap/s07_summary.json",
+    "ledger_is_historical_snapshot_not_current_document_hashes": true,
+    "historical_json_preserved": 62,
+    "no_historical_run_retagged_to_publication_commit": true,
+    "failed_export_observation_included": true,
+    "failed_export_csvs_not_staged": true
+  },
+  "current_artifact_sha256": {
+    ".gitignore": "dda77f0fe1ed4a38a3cf495297b740f592f35d17b5c4f40a82041b5e97193916",
+    "README.md": "37ac1d546fd62966b8553cd38e633a005a4a1c966cd016280e0efb8541b73af8",
+    "database/README.md": "cb3197b5cb4264e199e0ab0e71966813de6cbc6e79c082248d5a10f1028af673",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "docs/P1/dw_handoff.md": "c4390640e227116bc52c5556af6c3e834b56e02f550b9eca7e5857beb1d25954",
+    "docs/P1/g2_post_merge_observation.json": "ab5087912c7b37b20b09eafd667c35b063e498d404e400dbe2ff95d32aa96d77",
+    "docs/P1/g2_publication.json": "5d1c5e48f360b67986dff8e473e5f9e126d1957e29f7b9214a663ef3fb488748",
+    "docs/P1/g2_publication.md": "56e7fcf65f9ba56909d70f947bb0c223e23cab79ab2e95a921b58f7754546863",
+    "docs/P1/olap_findings.md": "849cf0fd0a0163f063c8a22dc671e8acc3cd29362c256421a258e7412b0cf98a",
+    "docs/P1/s06d_handoff.md": "fbe88a5fba839a765974ba21ddb3c88a44ca498bfc33342558f489ffdfe39496",
+    "docs/P1/s07_publication.md": "dd86147bb1f2d9bc239d3ea0d08bc979a42204d2bee9640d0aa85421403c948d",
+    "docs/agent/DECISIONS_P1.md": "212420fc22e42290e7ac5c6b40787b1b1c46355ca1e206576a2b10b4e66a30a8",
+    "docs/agent/PROMPTS_P1.md": "09cb3f7bac5aaf67d06e189ec138c639c4e1e021ff4995f923e8e452dca0c2dc",
+    "docs/agent/REVIEWS_P1.md": "961678d218c0cdd88d1bdd64d8c0f9fd8b9c3f499a510922a695d87d06e55e2e",
+    "docs/agent/STATE_P1.md": "14aa244699888cb3c987ff6d5dbea0517bf1b926f3f5620cb17efa3013c42a57",
+    "docs/agent/steps/P1/S06.md": "abc456a8f85edb04e8aacf26d56c826e9403c9b477a18f223e2b913faae40a92",
+    "docs/agent/steps/P1/S07.md": "3e7df44f6984e8f032032012e67dd2d6a312103b724a5dee867aa360f139d9ce",
+    "etl/README.md": "72feab37889c6bdd8123b8535f4388bae50137126ce5dcb54e7777289ca677ed",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90",
+    "olap/README.md": "0fc5e443d8791b75456db63981714ddb84836dda445e2625ff3bf374191ad9a8",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json": "10a5021319f2d1ca4a905e8054fb843f398413c072e459f1272caa71adb20385",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv": "1bab5d73e9a41208edd113e202baf8e0b6bf8659fc76ac791b71647d134d7ebc",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv": "bf761bf303f9e4cfc4a688290f70274aa7c2befce91cf15de6197ef3c25410b1",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv": "31f2bcc655597d2e8205fa075b2f3343eeefd79e7235249a49fb04cd678530b8",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv": "2961413cc02bde610e9c141669d6a2cc779e2da32dcbe2cf7325b4d63a8931d5",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv": "f3ed7eb88d949917089a7ad1157abbcd74b47e47f0d35afb1840a45cf39fc955",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv": "c3ba0a2ab59cda177047e512feaf2a1a730387eb5c27662448dbd2a913f56e25",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv": "60664ec0819b9efb354a19daf3705dadaafb87edfd2e9b9c8520e75bc016e39b",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv": "3a9bdfccdaddc6128418b124b91941a3f3da9ecf61d10453bc455cbe402997ae",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv": "5c3e09f7760d008eca126155b3049ad920a9e3c9f7e7e4d670c760a1d593f271",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json": "a800755595bea88ee3e737551a683406e1340e2b59b497ca7394feb2ab701e98",
+    "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json": "b45a7120868d420a7f25fb93e27e396bb1a8088322331ca22040c28af8fe9aff",
+    "results/olap/s07_final_audit.json": "a958d9a74a1c0bd78245317cab77cdf4d1966bf3cdc47e7eccb2889756fcca74",
+    "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json": "ee3587924ad34cb3c9e5fed1f7a37dd5fe440175eae5ac559e85f2d4704dab1a",
+    "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json": "274a91527267ce3911d33576b003eaca8edfaea6e02cda976e0945ee5bf3e329",
+    "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json": "30fb701d989e9fbd0e78c311c9af87190c46cab181db15f6b63eec8c2a727664",
+    "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json": "1b183e9f37cc6a933ffc49fc3e863887e4260a5cc01fc6c165d44a58c9414a56",
+    "results/olap/s07_summary.json": "c34fca316f6a181656d04c1c73d69616764404ef8641963217113978a89627a9",
+    "results/olap/s07_unit_tests.json": "2bb2158e2b509fd15fb3d76cd5a86100516da6e1e6cfc8b40f59e3903df44a76",
+    "tests/warehouse/check_s07_olap.py": "d139c6a997f3848e24e90959c8a4e366265ffe23819ef05ff2f61b843c6a9d6b",
+    "tests/warehouse/test_s07_catalog.py": "c0db200e5caa6145f3d3a58e662ad2efb62c4e3e15a7b0dc0bd25a5e3fdd47cd"
+  },
+  "ledger_excludes_self": true,
+  "dedicated_read_only_account_verified": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "limitations": [
+    "No full-refresh test with S07 catalog helper",
+    "No dedicated read-only account or P2 intake verification",
+    "No new database/ETL/OLAP/view installation/unit-test run during publication",
+    "No merge, dashboard, G3 loading, privilege or firewall changes"
+  ],
+  "post_sync_checks": {
+    "status": "PASS",
+    "checks": {
+      "main_integrated": true,
+      "reviewed_code_still_exact": true,
+      "historical_reports_preserved": true,
+      "no_p2_or_schema_contract_diff": true,
+      "no_warehouse_report_diff": true,
+      "plan_preserved": true,
+      "full_pr_secret_literal_scan_clear": true,
+      "all_json_parse": true,
+      "python_ast_parse": true,
+      "diff_check": true,
+      "csv_set_exact": true
+    },
+    "tests_rerun_this_publication": false,
+    "database_actions_run_this_publication": false
+  },
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13",
+  "pr_number": 13,
+  "head_verified_at_open": "38ea7ea03ef2a14f58de21309d6a0875025831f4",
+  "base_verified_at_open": "be8c88931765f2a61f785cdcc694f9c5a53aa521",
+  "remote_verification_at_open": {
+    "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13",
+    "number": 13,
+    "state": "open",
+    "merged": false,
+    "head": "38ea7ea03ef2a14f58de21309d6a0875025831f4",
+    "base": "be8c88931765f2a61f785cdcc694f9c5a53aa521",
+    "base_ref": "main",
+    "head_ref": "p1-s07-olap",
+    "file_count": 44,
+    "all_remote_blobs_match_git": true,
+    "files": [
+      {
+        "path": ".gitignore",
+        "status": "modified",
+        "git_blob": "685404412b3b8899a14c845803e9a852e5f63662",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "path": "README.md",
+        "status": "modified",
+        "git_blob": "1a5de08ccb8c69b0756772831b2f8adbbca9732b",
+        "additions": 11,
+        "deletions": 1
+      },
+      {
+        "path": "database/README.md",
+        "status": "modified",
+        "git_blob": "b310a828efbb974412e0c332e3071778ffb014a9",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "path": "database/views.sql",
+        "status": "added",
+        "git_blob": "91386fe46c5fa01695fce0776bcc333b1c519b03",
+        "additions": 83,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/dw_handoff.md",
+        "status": "modified",
+        "git_blob": "298abe6430d09a2b0a935c9f562d2823e167d00d",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/g2_post_merge_observation.json",
+        "status": "added",
+        "git_blob": "f988111c6a0e39ba936d358b0eac9ad1f6cc3103",
+        "additions": 38,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/g2_publication.json",
+        "status": "modified",
+        "git_blob": "9d069b88d9baf42942b319a18906310b6fc3d8a8",
+        "additions": 505,
+        "deletions": 13
+      },
+      {
+        "path": "docs/P1/g2_publication.md",
+        "status": "modified",
+        "git_blob": "800134ef6696206d05ff185be3d7d2105106d066",
+        "additions": 3,
+        "deletions": 1
+      },
+      {
+        "path": "docs/P1/olap_findings.md",
+        "status": "added",
+        "git_blob": "5f3729844e8ddbb7de0c85bb537081ccdfef6d70",
+        "additions": 93,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/s06d_handoff.md",
+        "status": "modified",
+        "git_blob": "258da3f384157c78feb5c030c8b8f6f0944936e1",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/s07_publication.json",
+        "status": "added",
+        "git_blob": "bcb615ba61f001749d6aeec71b400bb454ffab38",
+        "additions": 251,
+        "deletions": 0
+      },
+      {
+        "path": "docs/P1/s07_publication.md",
+        "status": "added",
+        "git_blob": "69f5b7dff86880d3c8c6b188fd1431d6f49402e2",
+        "additions": 13,
+        "deletions": 0
+      },
+      {
+        "path": "docs/agent/DECISIONS_P1.md",
+        "status": "modified",
+        "git_blob": "772293de846e2ddc2f0598802447f04371b9d8a9",
+        "additions": 25,
+        "deletions": 0
+      },
+      {
+        "path": "docs/agent/PROMPTS_P1.md",
+        "status": "modified",
+        "git_blob": "b234d3f0a6130f23b845070619a7b01a0c745e4e",
+        "additions": 17,
+        "deletions": 0
+      },
+      {
+        "path": "docs/agent/REVIEWS_P1.md",
+        "status": "modified",
+        "git_blob": "ecce67631ca13800a69c48542e826f362ba427af",
+        "additions": 29,
+        "deletions": 0
+      },
+      {
+        "path": "docs/agent/STATE_P1.md",
+        "status": "modified",
+        "git_blob": "aed186153b55ecc444a5003720de4187720acedf",
+        "additions": 41,
+        "deletions": 1
+      },
+      {
+        "path": "docs/agent/steps/P1/S06.md",
+        "status": "modified",
+        "git_blob": "4085b634e9ba30ba587a8d0faee5796dfbb1ca97",
+        "additions": 11,
+        "deletions": 1
+      },
+      {
+        "path": "docs/agent/steps/P1/S07.md",
+        "status": "added",
+        "git_blob": "a0aadf8d16e00d968182558cd0a4dd4014ba76a3",
+        "additions": 62,
+        "deletions": 0
+      },
+      {
+        "path": "etl/README.md",
+        "status": "modified",
+        "git_blob": "6b9d8bc3f996cbbdd85164ca6cfdc3e9cbd70377",
+        "additions": 10,
+        "deletions": 0
+      },
+      {
+        "path": "etl/s05_staging.py",
+        "status": "modified",
+        "git_blob": "df1c1cec84f98bb67d4974499e9b4754375a46fd",
+        "additions": 9,
+        "deletions": 1
+      },
+      {
+        "path": "olap/README.md",
+        "status": "added",
+        "git_blob": "1f7cd1680728636a25815d4a8a1448ac4aafea25",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "path": "olap/queries.sql",
+        "status": "added",
+        "git_blob": "e1112fb1422ede73432677f3079abee8f08a7a54",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "path": "olap/run_olap.py",
+        "status": "added",
+        "git_blob": "58fd1335c1f4e48826a69e3c3a9269383edf7f5d",
+        "additions": 201,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json",
+        "status": "added",
+        "git_blob": "45d5df151cfa9ced8fd34f9adf7ef2dd1f8c0605",
+        "additions": 32,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv",
+        "status": "added",
+        "git_blob": "2be67ec4849b6f29d119905ef50bef722325a532",
+        "additions": 2,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv",
+        "status": "added",
+        "git_blob": "ab08c36a254882eb2aaa62f1c6d40edfe9c05e1e",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv",
+        "status": "added",
+        "git_blob": "8a3e4a95a2acad57fde1479c2f592a935c5e2e28",
+        "additions": 127,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv",
+        "status": "added",
+        "git_blob": "bcd02e5b3f7169d5b8421a1354df7ada5fd41251",
+        "additions": 127,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv",
+        "status": "added",
+        "git_blob": "3eea37e7f0178f17c6a52f1fc2da875fb5d79ebd",
+        "additions": 3,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv",
+        "status": "added",
+        "git_blob": "01426a004bc6ccca3ae4bdbf959120bc719518ce",
+        "additions": 19,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv",
+        "status": "added",
+        "git_blob": "2312742d3798ef2008c096d21fbea097fba95b37",
+        "additions": 52,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv",
+        "status": "added",
+        "git_blob": "0f6920d0b02747c3bb21e9b8a835a5982647e01f",
+        "additions": 217,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv",
+        "status": "added",
+        "git_blob": "8c8bd9b38e9085c3205bbc7705394527a710c04a",
+        "additions": 5033,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json",
+        "status": "added",
+        "git_blob": "5ab3ccf4a3ff1568352bdf922fdf323984a093fe",
+        "additions": 346,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json",
+        "status": "added",
+        "git_blob": "8f0985501134b15e8d38a524a22fe05480489989",
+        "additions": 19,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_final_audit.json",
+        "status": "added",
+        "git_blob": "f194305e5bf846079585295f2632dd38423449b5",
+        "additions": 65,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json",
+        "status": "added",
+        "git_blob": "4c10b74bae13cddb661ee072e379014970f63feb",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json",
+        "status": "added",
+        "git_blob": "64f7827d0fdf88707f02bc3a4d80333f2959e622",
+        "additions": 34,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json",
+        "status": "added",
+        "git_blob": "2eadbe0d51c78e0fd4ada38d725c2f379333c415",
+        "additions": 160,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json",
+        "status": "added",
+        "git_blob": "b94c994f7d31052e054a0740479dbca3beb273d9",
+        "additions": 161,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_summary.json",
+        "status": "added",
+        "git_blob": "91f182581223d082646cb2a8ebb3c406c40e5a17",
+        "additions": 165,
+        "deletions": 0
+      },
+      {
+        "path": "results/olap/s07_unit_tests.json",
+        "status": "added",
+        "git_blob": "41509bbd8c108e6277e726593cdc4d696c33d6a3",
+        "additions": 25,
+        "deletions": 0
+      },
+      {
+        "path": "tests/warehouse/check_s07_olap.py",
+        "status": "added",
+        "git_blob": "10ca3d503a94a413bebb1449f1c5300efdac3836",
+        "additions": 98,
+        "deletions": 0
+      },
+      {
+        "path": "tests/warehouse/test_s07_catalog.py",
+        "status": "added",
+        "git_blob": "2f5d56fd922af3aafeffe23928dec49e469e817b",
+        "additions": 48,
+        "deletions": 0
+      }
+    ]
+  },
+  "final_followup_documentation_only": true,
+  "final_head_verification": "Verify separately via git ls-remote and PR API after follow-up push; no self-referential ledger SHA",
+  "new_unit_or_db_run_this_publication": false,
+  "final_document_checks": {
+    "status": "PASS",
+    "current_43_artifact_hashes_match": true,
+    "reviewed_code_unchanged": true,
+    "historical_62_json_unchanged": true,
+    "plan_unchanged": true,
+    "all_44_pr_files_json_and_secret_scan": true,
+    "pr_still_open_before_followup": true
+  }
+}

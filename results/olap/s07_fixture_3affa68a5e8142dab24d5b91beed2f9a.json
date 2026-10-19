@@ -1,0 +1,34 @@
+{
+  "step": "S07_FIXTURE",
+  "run_id": "3affa68a5e8142dab24d5b91beed2f9a",
+  "status": "PASS",
+  "fixture": "INVENTED_ONLY",
+  "code_sha256": {
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  },
+  "test_code_sha256": "d139c6a997f3848e24e90959c8a4e366265ffe23819ef05ff2f61b843c6a9d6b",
+  "checks": {
+    "unique_kpi_and_multi_genre": true,
+    "weighted_mean_unequal_groups": true,
+    "zero_quarter_before_lag": true,
+    "previous_zero_null_qoq": true,
+    "fixed_100_threshold": true,
+    "boundary_ranking_excluded": true,
+    "genre_assignment_denominator": true,
+    "combined_filters_exists_no_duplication": true,
+    "rollup_each_level_matches_fact": true,
+    "fixture_schema_rolled_back": true,
+    "production_unchanged": true
+  },
+  "fixture_totals": {
+    "unique_ratings": 203,
+    "rating_sum": 808,
+    "genre_grid_rows": 15,
+    "combined_filter_ratings": 201,
+    "female_slice": 200
+  },
+  "duration_seconds": 0.593
+}

@@ -145,6 +145,14 @@ def assert_project(conn):
             raise SafeError("UNVERIFIED_PROJECT_DATABASE")
 
 
+def approved_project_views(actual, contract_views):
+    """G2 core is mandatory; S07 extension is either absent or all six named views."""
+    core = set(contract_views) | {"analytics.v_active_user_cluster", "analytics.v_active_cluster_genre_profile"}
+    olap = {"analytics.v_olap_" + name for name in (
+        "kpi", "movie_metrics", "genre_age_gender", "time_rollup", "genre_quarter", "movie_day_segment")}
+    return core.issubset(actual) and actual - core in (set(), olap)
+
+
 def catalog(conn):
     expected = json.loads((ROOT / "docs/P1/s04_design_checks_v2.json").read_text(encoding="utf-8"))
     inventory = expected["sql_inventory"]
@@ -196,7 +204,7 @@ def catalog(conn):
         contract = json.loads((ROOT / "docs/shared/data_contract.json").read_text(encoding="utf-8"))
         cur.execute("SELECT schemaname||'.'||viewname FROM pg_views WHERE schemaname IN ('staging','dw','analytics')")
         views = {r[0] for r in cur.fetchall()}
-        if views != set(contract["dw_views"].values()) | {"analytics.v_active_user_cluster", "analytics.v_active_cluster_genre_profile"}:
+        if not approved_project_views(views, contract["dw_views"].values()):
             raise SafeError("CATALOG_VIEW_SET_MISMATCH")
         view_columns = {}
         for logical, view in contract["dw_views"].items():

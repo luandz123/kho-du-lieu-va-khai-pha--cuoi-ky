@@ -1,10 +1,60 @@
 # Trạng thái P1
 
+## Hiện hành — PR S07 OPEN, WAITING_REVIEW, 19/10/2026
+
+Đã push p1-s07-olap và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) vào main. API xác minh **OPEN/merged=false**, base **be8c88931765f2a61f785cdcc694f9c5a53aa521**, HEAD lúc mở/kiểm **38ea7ea03ef2a14f58de21309d6a0875025831f4**. Rà toàn bộ **44file** và đối chiếu mỗi blob remote với Git local đều khớp, gồm cả hồ sơ G2 đã ghép. S07 đã APPROVED theo điều phối ở mức kết quả; **PR WAITING_REVIEW, chưa MERGED**. Agent không merge.
+
+Code công bố tái tạo **94565740cf40cff92ce6b1af553eec110316ae0e**, tách runtimebase59ed6ed/runaf6dbc20/hash thực chạy. Commit hồ sơ cuối sau mục này chỉ cập nhật trạng thái/hash, không đổi code hoặc gán commit mới cho run cũ. File ledger docs/P1/s07_publication.json ghi HEAD đã xác minh tại lúc mở; SHA commit chứa chính ledger được kiểm riêng bằng Git/API trong bàn giao cuối.
+
+17 kiểm trướccommit và11kiểm sauđồngbộ đạt; không chạy lại73unit/DB/ETL/installview/OLAP vì hồ sơ. ReportPASS/FAIL/G2 vàbốnhash runtime giữ nguyên; CSVGit chỉ9tổnghợp runPASS. Helper chưa fullrefreshmới, dedicated_read_only_account_verified=false/P2intakeNOT_CONFIRMED. Kế hoạch vẫnuntracked ngoài phạmvi. Chưamerge/dashboard/G3/quyền/firewall; dừng chờ reviewPR. Các mục chuẩn bị/chưa mở dưới đây là lịch sử trước công bố.
+
+---
+
+## Công bố S07 — đã commit và đồng bộ, chờ push/mở PR
+
+Commit code công bố **94565740cf40cff92ce6b1af553eec110316ae0e**, khác runtimebase59ed6ed và hash workingtree runaf6dbc20. Commit39file S07/P1 trước fetch, stageddiff/byteCSV đã kiểm. Fetch origin/main **be8c88931765f2a61f785cdcc694f9c5a53aa521**; chỉ6file P2clustering mới, adapter/contract/serializer/source/canonicalmanifest không đổi. Merge an toàn tại **ddff289807d2384d72543deafb7effbb3ee5b7d5**, khôngconflict, không sửaP2. Code/SQLruntime và62JSON lịch sử giữ hash. Kế hoạch untracked giữ nguyên; khôngreset/force.
+
+S07 APPROVED theo điều phối; PR chưa mở tại thời điểm ghi mục này. URL/trạng thái sau push/mở sẽ ghi mục mới và docs/P1/s07_publication.json. Không chạy lại DB/ETL/OLAP/unit chỉ vì hồ sơ; kết quả73test trước và review điều phối không gán thành test mới. Helper chưafullrefreshmới, accountreadonlyfalse/P2NOT_CONFIRMED; chưamerge/dashboard/G3/quyền/firewall.
+
+## Hiện hành — S07 được điều phối chấp nhận; chuẩn bị công bố PR, 19/10/2026
+
+Nguồn: điều phối thông báo chấp nhận S07 sau review SQL/code, chạy lại73/73unit, kiểm hash37artifact và đối chiếu kết luận Q3. **S07 APPROVED theo điều phối ở mức kết quả cục bộ**; không phải lời duyệt nguyên văn do agent tạo, không tương đương PR MERGED. Được giao commit/push/mở PR p1-s07-olap vào main, không merge/dashboard.
+
+Đã kiểm trước công bố: 37artifact/hash và bốn file runtime khớp bản review; report PASS/FAIL/run_id/hash G2 giữ nguyên. Workingtree đúng phần S07/P1, kế hoạch untracked ngoài phạm vi không stage. Origin đúng repository, main mặc định, quyềnpush đạt; chưa có PR S07 ở thời điểm kiểm. Rà cả hai commit hồ sơ G2 cherry-pick f0c8a96/59ed6ed, không chỉ diff OLAP cuối. Commit code công bố và URL PR chỉ ghi sau khi thực hiện/xác minh, xem docs/P1/s07_publication.md/.json.
+
+Không chạy lại ETL, cài view hoặc OLAP trong lượt công bố. Helpercatalog S07 **chưa được kiểm bằng full refresh mới**; dedicated_read_only_account_verified=false và P2intakeNOT_CONFIRMED giữ nguyên. Report và ledger S07 bàn giao là snapshot lịch sử; hash tài liệu mới chỉnh ghi ledger công bố riêng. Chưa merge/dashboard/G3 hoặc thay quyền/firewall. Các mục WAITING_REVIEW phía dưới là lịch sử bàn giao trước thông báo chấp nhận.
+
+---
+
+## Hiện hành — S07 OLAP WAITING_REVIEW, 18/10/2026
+
+PR9 G2 MERGED/ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205 theo xác nhận điều phối và observation API đã lưu; P1 không merge. Code ETL công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6. P2 intake NOT_CONFIRMED; dedicated_read_only_account_verified=false.
+
+Bảo toàn STATE/observation tại ea29430; main fast-forward b5ce06c; nhánh p1-s07-olap ghép chọn lọc hồ sơ500b293→f0c8a96 và checkpoint→59ed6eddae4981b2c90e8ec8b1cad036270baf9c. Không đưa lại ETL đã merge/P2/plan; không conflict/reset/stash/force. OPEN trong report công bố giữ lịch sử; bản cập nhật này ghi MERGED. Hồ sơ ghép và OLAP chưa push/PR.
+
+Sáu view OLAP analytics đã COMMITTED; catalog12view, bốn view contract và bảng không đổi. O1–O6 chạy READ ONLY PASS af6dbc20b40d4a47aa3ea71bde6fd107 (7.016s), base59ed6ed, code chưa commit có SHA thực chạy. KPI1000209/tổng3582313/user6040/phim có rating3706; O5 216ô và ngưỡng100 cố định, quý biên loại rank; O6 53541rating/tổng185726. 73/73 unit PASS, fixture3affa68a PASS/rollback schema thử, read-only preflight595c3690 và postcheck7830281b PASS/đủbốnhash G2. Lỗi xuất Decimal đầu tiên giữ FAIL riêng, đã sửa và chạy lại thật.
+
+Helpercatalog S05 mở đúng bộ sáu view bổ sung, không thay chuẩn hóa/table/contract. Không chạy lại fullrefresh hoặc sửa report cũ. CSV Git chỉ tổng hợp runPASS được allowlist; dữ liệu theo user/credential/plan vẫn loại. Chi tiết docs/agent/steps/P1/S07.md, docs/P1/olap_findings.md, results/olap/s07_summary.json. **S07 WAITING_REVIEW**, chưa điều phối duyệt kết quả; phần OLAP chưa commit/push/PR. Dừng, chưa dashboard/BI/G3/đổi quyền/firewall hoặc kết nối hai máy.
+
+---
+Các mục dưới đây là hồ sơ lịch sử tại thời điểm ghi; trạng thái hiện hành xem mục mới nhất bên trên.
+
+## Quan sát GitHub sau công bố — PR9 đã được merge bên ngoài thao tác agent
+
+API xác minh PR#9 CLOSED/MERGED lúc **2026-10-18T13:56:29Z**, actor GitHub **hungvu205**, merge commit/main **ad51ba6536d0468c05b833ac05be9f18e9d9d87f**. Agent không gửi lệnh/API merge và không tự coi quan sát này là lời duyệt người dùng hoặc P2 đã nhậnG2. PR đã được mở OPEN trước đó đúng lệnh; các trạng thái OPEN phía dưới là lịch sử.
+
+HEAD được merge là **11a3d7367bbdbfad4267570d04863d22ee490d1c**; commit code tái tạo **4fa9cf17aa41e5ff84d4490886eeac27971e46f6** nằm trong PR. Sau đó commit chỉ cập nhật11file hồ sơ **500b29347bfe1834434a401bc5e32cf23c3f6c03** đã push trên p1-s06-etl, chưa thuộc PR đã merge/main. Không khác pipeline code giữa hai HEAD. Không force/reset/tự ghép hoặc mở PR mới để đưa hồ sơ vào main.
+
+Đã dừng thao tác Git ghi sau phát hiện; chỉ đọc kiểm PR/main/branch và65blob của PR đãmerge. Ghi nhận API và hash hồ sơ quan sát tại docs/P1/g2_post_merge_observation.json, giữ cục bộ chưa commit/push. P2intake NOT_CONFIRMED và dedicated_read_only_account_verified=false giữ nguyên; không sửa quyền/firewall/chia sẻcredential, chưa OLAP/dashboard/G3. Cần điều phối chốt riêng cách nhận commit hồ sơ500b293; không tự chuyển bước.
+
+
 ## Hiện hành — công bố ETL/G2, 6D đã được điều phối chấp nhận
 
 Nguồn: điều phối thông báo chấp nhận6D sau review code, chạy lại65/65 unit test và đối chiếu29artifact; hai run16421c84/6501a547 cùng bundle/config/checks, đềuCOMMITTED. **6D APPROVED theo điều phối ở mức kiểm nhận cục bộ**; không tạo lời duyệt nguyên văn người dùng. Được giao commit/push p1-s06-etl và mở PRmain, chưa merge. Trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
 
-Đã xác minh repository luandz123/kho-du-lieu-va-khai-pha--cuoi-ky, main mặc định và quyềnpush hiện có; chưa có PRnhánhETL lúc kiểm. Giữ checkpoint6A/B/C, reportPASS/FAIL và hash thực chạy. Code6D vẫn cùng bundleb858a879; không chạy lại fullrefresh vì cập nhật hồ sơ. Commit code công bố, base đồng bộ và PR/HEAD sẽ ghi sau thao tác thành công trong docs/P1/g2_publication.json/.md.
+Đã xác minh repository luandz123/kho-du-lieu-va-khai-pha--cuoi-ky, main mặc định/quyền push và commitcode **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**. Fetch xác nhận origin/main **52dd682920e0587f3a474fe284b9bf5635ab6aac**, không cần merge, adapter/contract/serializer không đổi. Push remote SHA khớp, mở **[PR#9](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9)**; API **OPEN/merged=false**, HEAD lúc mở/rà **11a3d7367bbdbfad4267570d04863d22ee490d1c**,65file/blob khớp local. Commit hồ sơ tiếp theo thuộc cùngPR; không đổi code bundle hoặc report thực chạy. Hồ sơ/ledger docs/P1/g2_publication.json/.md ghi provenance, runtimebasec143f5d giữ nguyên. Không rerun fullrefresh hoặc DBtest trong lượt công bố.
+
+**PR ETL/G2 WAITING_REVIEW, chưa MERGED.** 6D APPROVED cục bộ theo điều phối khác với PRreview và P2intake. CI lúc kiểm có0check-runs/0status, combined pending, không tự ghi CIđạt. Giữ reportPASS/FAIL và29artifact snapshotreview nguyên vẹn; các hồ sơ cập nhật có hash mới riêng. Workingtree sau hoàn tất commit/push hồ sơ chỉ giữ kế hoạch untracked ngoài phạm vi, kiểm thực tế sau push; không tự chuyển bước.
 
 P2 intake **NOT_CONFIRMED**, dedicated_read_only_account_verified **false**; account kiểm tạiP1 có quyền quản trị/ghi dù session READONLY=on. Chưa tạo role/cấp quyền, mở PostgreSQL công khai/thay firewall hoặc gửi credential. Có thể chuẩn bị tài khoản chỉ đọc và đường kết nối riêng, hoặc để P2 tái tạo DW cục bộ theo hướng dẫn; chưa coi phương án là truy cập đã thành công. Không OLAP/dashboard/G3.
 

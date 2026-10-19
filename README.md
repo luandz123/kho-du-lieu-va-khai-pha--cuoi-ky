@@ -1,5 +1,15 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+S07 đã được điều phối chấp nhận ở mức kết quả; [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) OPEN/chờ review, chưa merge/dashboard. Hồ sơ công bố: docs/P1/s07_publication.md. Report/ledger thực chạy giữ lịch sử; phần kiểm và trạng thái mới ghi riêng.
+
+## Cập nhật S07 — PR9 đã MERGED; các mục công bố phía dưới là lịch sử
+
+Điều phối xác nhận PR9 G2 MERGED tại ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205, agent không merge. Code ETL công bố tái tạo 4fa9cf17aa41e5ff84d4490886eeac27971e46f6; snapshot G2 run6501a547 giữ nguyên. Hồ sơ500b293 và observation hậu merge đã ghép chọn lọc trên p1-s07-olap, chưa công bố PR mới. Report công bố OPEN/run cũ giữ nguyên để truy vết.
+
+S07 thêm sáu view tổng hợp analytics, không đổi bốn view contract/bảng. Có hậu kiểm chỉ đọc khớp G2; không chạy lại full refresh. Catalog helper chỉ mở allowlist bộ sáu view; hash S07 không thay bundle lịch sử. Kết quả S07 WAITING_REVIEW, xem docs/agent/steps/P1/S07.md và docs/P1/olap_findings.md (tính từ gốc repository). Chưa dashboard/G3/quyền BI; P2 intake NOT_CONFIRMED và dedicated_read_only_account_verified=false.
+
+---
+
 MovieLens 1M → PostgreSQL staging/DW → Python ETL → 6 OLAP → K-Means và item-based CF/Popularity Baseline → 3 dashboard Apache Superset. Bảo vệ **27/10/2026**.
 
 ## Trạng thái nền G0
@@ -57,7 +67,7 @@ Nếu P2 đã có checkout riêng (đã có PR môi trường), giữ checkout �
 
 ## Cấu hình và dữ liệu cục bộ
 
-**Cập nhật công bố ETL/G2:** điều phối đã chấp nhận6D cục bộ và giao commit/push/mởPR; chưa merge/P2 nhậnG2. [Hồ sơ công bố](docs/P1/g2_publication.md) phân biệt commitcode công bố với base/hash runtime; giữ report lịch sử. Chưa xác minh tài khoản chỉ đọc hoặc P2 remote, không chia sẻ credential quản trị. Các trạng thái WAITING_REVIEW6D dưới đây là lịch sử tại bàn giao.
+**Cập nhật công bố ETL/G2:** điều phối chấp nhận6D cục bộ; **[PR#9 OPEN, chờ review](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9)**, chưa merge/P2 nhậnG2. Codecommit **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**; [hồ sơ công bố](docs/P1/g2_publication.md) phân biệt commitcode với base/hash runtime và liệt kê đủ65file. Giữ report lịch sử, chưa xác minh tài khoản chỉ đọc/P2 remote, không chia sẻ credential quản trị. Các trạng thái WAITING_REVIEW6D/chưapush dưới đây là lịch sử tại bàn giao.
 
 Hiện hành **6D WAITING_REVIEW**, 6C được điều phối chấp nhận: full refresh chung một transaction đã chạy hai lần, cùng code/config và bốn hash/count;65unit/fixture rollback/adapter rawCSV DW/hậu kiểm chỉ đọc PASS. [Bàn giao6D](docs/P1/s06d_handoff.md), [gói DW](docs/P1/dw_handoff.md), [manifest](results/warehouse/dw_manifest.json). Hậu kiểm tích hợp chỉ đọc: `.\.venv\Scripts\python.exe -X utf8 tests/warehouse/check_warehouse.py --env-file .env`; tái tạo có ghi: `python -m etl.run_etl refresh --env-file .env`. Không dùng checker/CLI tiểu bước cũ cho full refresh. Metadata G2 chờ review và xác nhận P2; chưa push/PR/OLAP/dashboard/G3. Các mục dưới là lịch sử.
 

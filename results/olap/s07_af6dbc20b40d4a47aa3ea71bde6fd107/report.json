@@ -1,0 +1,346 @@
+{
+  "step": "S07",
+  "action": "run",
+  "run_id": "af6dbc20b40d4a47aa3ea71bde6fd107",
+  "started_at_utc": "2026-10-18T15:43:00.452371+00:00",
+  "base_commit": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c",
+  "code_state": "WORKING_TREE_HASH_AT_RUN",
+  "code_sha256": {
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  },
+  "g2_manifest_run_id": "6501a547065246869b98b6ab6531190e",
+  "personal_rows_exported": false,
+  "status": "PASS",
+  "result": {
+    "readonly_session": true,
+    "catalog_views": 12,
+    "checks": {
+      "kpi_matches_g2": true,
+      "rollup_each_level_matches_fact": true,
+      "grid_quarters": 12,
+      "genre_grid_rows": 216,
+      "share_sums_100": true,
+      "fixed_threshold": 100,
+      "o6_fact_reference_count": 53541,
+      "o6_fact_reference_sum": 185726
+    },
+    "parameters": {
+      "O3": {
+        "gender": "F",
+        "genres": null,
+        "ages": null
+      },
+      "O6": {
+        "genres": [
+          "Comedy"
+        ],
+        "ages": [
+          "18-24"
+        ],
+        "gender": null,
+        "start_date_inclusive": "2000-07-01",
+        "end_date_exclusive": "2001-01-01"
+      }
+    },
+    "exports": {
+      "O1": {
+        "rows": 1,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O1.csv",
+        "sha256": "1bab5d73e9a41208edd113e202baf8e0b6bf8659fc76ac791b71647d134d7ebc"
+      },
+      "O2": {
+        "rows": 10,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O2.csv",
+        "sha256": "bf761bf303f9e4cfc4a688290f70274aa7c2befce91cf15de6197ef3c25410b1"
+      },
+      "O3": {
+        "rows": 126,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3.csv",
+        "sha256": "31f2bcc655597d2e8205fa075b2f3343eeefd79e7235249a49fb04cd678530b8"
+      },
+      "O4": {
+        "rows": 51,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O4.csv",
+        "sha256": "60664ec0819b9efb354a19daf3705dadaafb87edfd2e9b9c8520e75bc016e39b"
+      },
+      "O5": {
+        "rows": 216,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O5.csv",
+        "sha256": "3a9bdfccdaddc6128418b124b91941a3f3da9ecf61d10453bc455cbe402997ae"
+      },
+      "O6": {
+        "rows": 5032,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O6.csv",
+        "sha256": "5c3e09f7760d008eca126155b3049ad920a9e3c9f7e7e4d670c760a1d593f271"
+      },
+      "O3_all_genders": {
+        "rows": 126,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_all_genders.csv",
+        "sha256": "2961413cc02bde610e9c141669d6a2cc779e2da32dcbe2cf7325b4d63a8931d5"
+      },
+      "O3_dice": {
+        "rows": 2,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_dice.csv",
+        "sha256": "f3ed7eb88d949917089a7ad1157abbcd74b47e47f0d35afb1840a45cf39fc955"
+      },
+      "O3_pivot_F": {
+        "rows": 18,
+        "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_pivot_F.csv",
+        "sha256": "c3ba0a2ab59cda177047e512feaf2a1a730387eb5c27662448dbd2a913f56e25"
+      }
+    },
+    "kpi": {
+      "catalog_users": 6040,
+      "catalog_movies": 3883,
+      "rated_users": 6040,
+      "rated_movies": 3706,
+      "rating_count": 1000209,
+      "rating_sum": 3582313,
+      "mean_rating": "3.5815644530293169"
+    },
+    "top10": [
+      {
+        "movie_id": 2858,
+        "title": "American Beauty (1999)",
+        "rating_count": 3428,
+        "rating_sum": 14800,
+        "mean_rating": "4.3173862310385064"
+      },
+      {
+        "movie_id": 260,
+        "title": "Star Wars: Episode IV - A New Hope (1977)",
+        "rating_count": 2991,
+        "rating_sum": 13321,
+        "mean_rating": "4.4536944165830826"
+      },
+      {
+        "movie_id": 1196,
+        "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+        "rating_count": 2990,
+        "rating_sum": 12836,
+        "mean_rating": "4.2929765886287625"
+      },
+      {
+        "movie_id": 1210,
+        "title": "Star Wars: Episode VI - Return of the Jedi (1983)",
+        "rating_count": 2883,
+        "rating_sum": 11598,
+        "mean_rating": "4.0228928199791883"
+      },
+      {
+        "movie_id": 480,
+        "title": "Jurassic Park (1993)",
+        "rating_count": 2672,
+        "rating_sum": 10057,
+        "mean_rating": "3.7638473053892216"
+      },
+      {
+        "movie_id": 2028,
+        "title": "Saving Private Ryan (1998)",
+        "rating_count": 2653,
+        "rating_sum": 11507,
+        "mean_rating": "4.3373539389370524"
+      },
+      {
+        "movie_id": 589,
+        "title": "Terminator 2: Judgment Day (1991)",
+        "rating_count": 2649,
+        "rating_sum": 10751,
+        "mean_rating": "4.0585126462816157"
+      },
+      {
+        "movie_id": 2571,
+        "title": "Matrix, The (1999)",
+        "rating_count": 2590,
+        "rating_sum": 11178,
+        "mean_rating": "4.3158301158301158"
+      },
+      {
+        "movie_id": 1270,
+        "title": "Back to the Future (1985)",
+        "rating_count": 2583,
+        "rating_sum": 10307,
+        "mean_rating": "3.9903213317847464"
+      },
+      {
+        "movie_id": 593,
+        "title": "Silence of the Lambs, The (1991)",
+        "rating_count": 2578,
+        "rating_sum": 11219,
+        "mean_rating": "4.3518231186966641"
+      }
+    ],
+    "q3_quarter_winners": [
+      {
+        "genre_name": "Animation",
+        "quarter_start": "2000-10-01",
+        "rating_count": 20068,
+        "rating_sum": 74016,
+        "system_rating_count": 446574,
+        "is_boundary_partial": false,
+        "previous_rating_count": 13102,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "944392",
+        "qoq_pct": "53.1674553503281942",
+        "genre_share_pct": "2.1249650568831587",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Animation",
+        "quarter_start": "2001-01-01",
+        "rating_count": 1715,
+        "rating_sum": 6199,
+        "system_rating_count": 32223,
+        "is_boundary_partial": false,
+        "previous_rating_count": 20068,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "63335",
+        "qoq_pct": "-91.4540562088897748",
+        "genre_share_pct": "2.7078234783295176",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Comedy",
+        "quarter_start": "2001-04-01",
+        "rating_count": 5812,
+        "rating_sum": 19825,
+        "system_rating_count": 15091,
+        "is_boundary_partial": false,
+        "previous_rating_count": 11975,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "29171",
+        "qoq_pct": "-51.4655532359081420",
+        "genre_share_pct": "19.9238970210140208",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Western",
+        "quarter_start": "2001-07-01",
+        "rating_count": 189,
+        "rating_sum": 659,
+        "system_rating_count": 12296,
+        "is_boundary_partial": false,
+        "previous_rating_count": 179,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "24095",
+        "qoq_pct": "5.5865921787709497",
+        "genre_share_pct": "0.78439510271840630836",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Film-Noir",
+        "quarter_start": "2001-10-01",
+        "rating_count": 151,
+        "rating_sum": 623,
+        "system_rating_count": 8448,
+        "is_boundary_partial": false,
+        "previous_rating_count": 159,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "16298",
+        "qoq_pct": "-5.0314465408805031",
+        "genre_share_pct": "0.92649404834949073506",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Horror",
+        "quarter_start": "2002-01-01",
+        "rating_count": 697,
+        "rating_sum": 2254,
+        "system_rating_count": 8166,
+        "is_boundary_partial": false,
+        "previous_rating_count": 514,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "15873",
+        "qoq_pct": "35.6031128404669261",
+        "genre_share_pct": "4.3911043911043911",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Musical",
+        "quarter_start": "2002-04-01",
+        "rating_count": 268,
+        "rating_sum": 1016,
+        "system_rating_count": 6385,
+        "is_boundary_partial": false,
+        "previous_rating_count": 306,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "12173",
+        "qoq_pct": "-12.4183006535947712",
+        "genre_share_pct": "2.2015936909553931",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Thriller",
+        "quarter_start": "2002-07-01",
+        "rating_count": 1004,
+        "rating_sum": 3291,
+        "system_rating_count": 5309,
+        "is_boundary_partial": false,
+        "previous_rating_count": 1007,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "10287",
+        "qoq_pct": "-0.29791459781529294935",
+        "genre_share_pct": "9.7598911247205210",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      },
+      {
+        "genre_name": "Romance",
+        "quarter_start": "2002-10-01",
+        "rating_count": 711,
+        "rating_sum": 2519,
+        "system_rating_count": 4186,
+        "is_boundary_partial": false,
+        "previous_rating_count": 733,
+        "previous_is_boundary_partial": false,
+        "genre_assignment_total": "8003",
+        "qoq_pct": "-3.0013642564802183",
+        "genre_share_pct": "8.8841684368361864",
+        "passes_fixed_100_threshold": true,
+        "eligible_for_ranking": true,
+        "growth_rank": 1
+      }
+    ],
+    "eligible_ranked_rows": 156,
+    "boundary_quarters": [
+      "2000-04-01",
+      "2003-01-01"
+    ],
+    "o3_dice": [
+      {
+        "genre_name": "Comedy",
+        "age_group": "18-24",
+        "rating_count": "19136",
+        "rating_sum": "65521",
+        "mean_rating": "3.4239653010033445"
+      },
+      {
+        "genre_name": "Drama",
+        "age_group": "18-24",
+        "rating_count": "15977",
+        "rating_sum": "58015",
+        "mean_rating": "3.6311572886023659"
+      }
+    ],
+    "source_snapshot_signature": "4987258f5f7b0f44d00db8532e43bf4c4d9924a2c3f0f1ebeb033c406943127a"
+  },
+  "duration_seconds": 7.016
+}
