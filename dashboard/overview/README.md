@@ -1,5 +1,9 @@
 # Dashboard Tổng quan — 11A
 
+Quan sát mới: PR14 đã MERGED bên ngoài agent tại 5a42c73c39c00780b2d5442c45662d93bdf0f23b; agent không merge. Gói công bố ef82fc4 gồm50file/blob đã kiểm. Hồ sơ trạng thái sau mởPR đang local/chưa commit-push, xem docs/P1/overview_post_merge_observation.json; các mụcOPEN dưới đây giữ lịch sử. Dừng, chưa11C/11B.
+
+Hiện hành19/10/2026: [PR #14 — 11A](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14) OPEN/chờ review, chưa merge/11C/11B. 11A đã được điều phối chấp nhận chức năng; các mục chưa được giao công bố/chưa commit phía dưới giữ lịch sử. Hồ sơ mới docs/P1/overview_publication.json.
+
 URL thật: http://127.0.0.1:8089/superset/dashboard/1/
 
 Superset 6.1.0 dự án 8089; database 1, datasets 1/2, charts 1–8, dashboard 1. Tên/ID đầy đủ trong object_ids.json và evidence/final_verification.json. Bàn giao chi tiết: docs/P1/overview_handoff.md tính từ gốc repository.

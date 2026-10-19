@@ -1,5 +1,9 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+Quan sát mới: PR14 đã MERGED bên ngoài agent tại 5a42c73c39c00780b2d5442c45662d93bdf0f23b; agent không merge. Gói công bố ef82fc4 gồm50file/blob đã kiểm. Hồ sơ trạng thái sau mởPR đang local/chưa commit-push, xem docs/P1/overview_post_merge_observation.json; các mụcOPEN dưới đây giữ lịch sử. Dừng, chưa11C/11B.
+
+Hiện hành19/10/2026: [PR #14 — 11A](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14) OPEN/chờ review, chưa merge/11C/11B. 11A đã được điều phối chấp nhận chức năng; các mục chưa được giao công bố/chưa commit phía dưới giữ lịch sử. Hồ sơ mới docs/P1/overview_publication.json.
+
 11A đã được điều phối chấp nhận chức năng và giao công bố PR; chưa merge/11C/11B. Hồ sơ công bố mới: docs/P1/overview_publication.md; các trạng thái chờ review kết quả bên dưới giữ lịch sử.
 
 ## Hiện hành — 11A Tổng quan chờ review
