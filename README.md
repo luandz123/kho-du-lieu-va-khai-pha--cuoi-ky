@@ -1,6 +1,6 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
-S07 đã được điều phối chấp nhận ở mức kết quả; công bố PR theo lệnh19/10/2026, chưa merge/dashboard. Hồ sơ công bố: docs/P1/s07_publication.md. Report/ledger thực chạy giữ lịch sử; phần kiểm và trạng thái mới ghi riêng.
+S07 đã được điều phối chấp nhận ở mức kết quả; [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) OPEN/chờ review, chưa merge/dashboard. Hồ sơ công bố: docs/P1/s07_publication.md. Report/ledger thực chạy giữ lịch sử; phần kiểm và trạng thái mới ghi riêng.
 
 ## Cập nhật S07 — PR9 đã MERGED; các mục công bố phía dưới là lịch sử
 

@@ -1,5 +1,15 @@
 # Trạng thái P1
 
+## Hiện hành — PR S07 OPEN, WAITING_REVIEW, 19/10/2026
+
+Đã push p1-s07-olap và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) vào main. API xác minh **OPEN/merged=false**, base **be8c88931765f2a61f785cdcc694f9c5a53aa521**, HEAD lúc mở/kiểm **38ea7ea03ef2a14f58de21309d6a0875025831f4**. Rà toàn bộ **44file** và đối chiếu mỗi blob remote với Git local đều khớp, gồm cả hồ sơ G2 đã ghép. S07 đã APPROVED theo điều phối ở mức kết quả; **PR WAITING_REVIEW, chưa MERGED**. Agent không merge.
+
+Code công bố tái tạo **94565740cf40cff92ce6b1af553eec110316ae0e**, tách runtimebase59ed6ed/runaf6dbc20/hash thực chạy. Commit hồ sơ cuối sau mục này chỉ cập nhật trạng thái/hash, không đổi code hoặc gán commit mới cho run cũ. File ledger docs/P1/s07_publication.json ghi HEAD đã xác minh tại lúc mở; SHA commit chứa chính ledger được kiểm riêng bằng Git/API trong bàn giao cuối.
+
+17 kiểm trướccommit và11kiểm sauđồngbộ đạt; không chạy lại73unit/DB/ETL/installview/OLAP vì hồ sơ. ReportPASS/FAIL/G2 vàbốnhash runtime giữ nguyên; CSVGit chỉ9tổnghợp runPASS. Helper chưa fullrefreshmới, dedicated_read_only_account_verified=false/P2intakeNOT_CONFIRMED. Kế hoạch vẫnuntracked ngoài phạmvi. Chưamerge/dashboard/G3/quyền/firewall; dừng chờ reviewPR. Các mục chuẩn bị/chưa mở dưới đây là lịch sử trước công bố.
+
+---
+
 ## Công bố S07 — đã commit và đồng bộ, chờ push/mở PR
 
 Commit code công bố **94565740cf40cff92ce6b1af553eec110316ae0e**, khác runtimebase59ed6ed và hash workingtree runaf6dbc20. Commit39file S07/P1 trước fetch, stageddiff/byteCSV đã kiểm. Fetch origin/main **be8c88931765f2a61f785cdcc694f9c5a53aa521**; chỉ6file P2clustering mới, adapter/contract/serializer/source/canonicalmanifest không đổi. Merge an toàn tại **ddff289807d2384d72543deafb7effbb3ee5b7d5**, khôngconflict, không sửaP2. Code/SQLruntime và62JSON lịch sử giữ hash. Kế hoạch untracked giữ nguyên; khôngreset/force.

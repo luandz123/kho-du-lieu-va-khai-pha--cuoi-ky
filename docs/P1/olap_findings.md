@@ -1,5 +1,7 @@
 # Kết quả OLAP S07 — WAITING_REVIEW
 
+Trạng thái công bố19/10/2026: [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) OPEN/chờ review, S07 đã được điều phối chấp nhận kết quả; chưa merge/dashboard. Code công bố `94565740cf40cff92ce6b1af553eec110316ae0e`; report/số liệu lịch sử bên dưới giữ nguyên.
+
 ## Cập nhật công bố, 19/10/2026
 
 Điều phối đã chấp nhận kết quả S07 sau review SQL/code,73unit/37artifact vàQ3. Số liệu, SQL/code và report thực chạy phía dưới không đổi. Đang thực hiện công bố PR theo lệnh riêng, chưamerge/dashboard. Mục WAITING_REVIEW trong tiêu đề và bàn giao ban đầu phía dưới là lịch sử trước chấp nhận; trạng thái PR/codecommit/URL mới xem docs/P1/s07_publication.md tính từ repository. Không chạy lại OLAP/ETL/installview để cập nhật hồ sơ; giữ giới hạn fullrefreshhelper/account/P2intake.

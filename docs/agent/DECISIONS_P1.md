@@ -1,5 +1,7 @@
 # Quyết định P1
 
+P1-D81: Push và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) thành công, OPEN/chưaMERGED. API kiểm đủ44file/blob ởHEAD38ea7ea, basebe8c889, codecommit9456574; kiểm cuối sau push hồ sơ không gán SHA chính ledger vào chínhfile. FunctionalAPPROVED theo điều phối khác PRWAITING_REVIEW. Giữ giới hạn và khôngmerge/tựchuyển11A.
+
 ## Công bố S07 theo lệnh điều phối, 19/10/2026
 
 P1-D78: Điều phối chấp nhận S07 kết quả cục bộ sau review SQL/code,73unit/37artifact/Q3; giao commit/push/PR, chưa merge. Ghi riêng functional acceptance, PRreview và MERGED. Không tạo lời duyệt nguyên văn người dùng hoặc tự chuyển dashboard11A.
