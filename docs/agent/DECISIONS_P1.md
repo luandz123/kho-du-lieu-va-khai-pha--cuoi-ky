@@ -1,5 +1,26 @@
 # Quyết định P1
 
+## Công bố 11A theo điều phối, 19/10/2026
+
+P1-D87: Điều phối chấp nhận chức năng11A sau kiểm hồ sơ/hash/cấu hình thật, giao commit/push/PR, không merge/11C/11B. Không ghi thành lời duyệt nguyên văn người dùng. Chỉ stage đường dẫn11A/P1, bảo toàn kế hoạch và lịch sử PASS/FAIL.
+
+P1-D88: Quan sát mới container/API/cấu hình ghi riêng; thông tin hai container từng exit255 và được restart là báo cáo điều phối, nguyên nhân chưa xác định. Agent chỉ đọc trạng thái/API, không rerun ETL/reconciliation/create hoặc đổi metric/filter. Giữ PUBLIC TEMP/chưarestore/P2/fullrefreshS07; credential/ZIP localignored.
+
+P1-D89: Ledger bàn giao45artifact là snapshot review; tài liệu sau chỉnh có hash trong ledger công bố riêng. Commitcode công bố khác runtimebase988874d và workingtree SHA lúc kiểm. Đồng bộ main sau commit an toàn, không reset/force hoặc sửaP2, kiểm toàn bộ blobPR saupush.
+
+
+## 11A — thực hiện theo lệnh điều phối, chờ review
+
+P1-D82: PR13 MERGED988874d được kiểm API/Git, agentkhôngmerge; main fastforward rồi tạo p1-s11a-overview. Giữ plan/reportOPEN vàG2/S07run cũ; khôngcommit/push/PR11A.
+
+P1-D83: Tái dùng Superset8089, chỉstart2container dựán, mọi cấu hìnhquaAPI. Tạo roleBI khi kiểm thấy chưa tồn tại, secretlocalignored; chỉCONNECT/USAGE/SELECT2view. Effective24relation vàrealengine đúngreader, khôngDML/CREATE/owner/membership/sequencewrite; PUBLIC TEMP mặcđịnh ghi rõ, khôngrevokePUBLIC/cấp quyềnngoàiphạmvi.
+
+P1-D84: Virtualratingdataset giữgrain vàUTCcast, titlejoin1:1/nogenre. MeanSUM/COUNT; catalogdataset/chart5cốđịnhloạifilter. NativeUTCfiltertrướcaggregate/limit; sortmetricROW(count,mean,-ID)DESC bảođảm3khóapháhòa, khôngdùngmetrictrộnđiểm.
+
+P1-D85: SQLđộc lập đối3khoảng vớiactualSupersetchart vàảnhnativefilter, cófixturehòa; PASS/FAILchecker giữ lại. ExportrealZIPcụcbộscansecretPASS, passwordmasked, khônggọiimportrestoređạt. Scriptcreatekhôngphảibootstrapmáysạch; khungnhìndesktopđãkiểm/reset, mobilechưatốiưu.
+
+P1-D86: BIreaderP1verifiedkhácP2intake/kếtnốihai máy; G2metadatafalse lịch sử khôngsửa. 11AWAITING_REVIEW, 11B/11C/G3chưalàm; khôngrerunfullrefresh đểkiểmhelperS07.
+
 P1-D81: Push và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) thành công, OPEN/chưaMERGED. API kiểm đủ44file/blob ởHEAD38ea7ea, basebe8c889, codecommit9456574; kiểm cuối sau push hồ sơ không gán SHA chính ledger vào chínhfile. FunctionalAPPROVED theo điều phối khác PRWAITING_REVIEW. Giữ giới hạn và khôngmerge/tựchuyển11A.
 
 ## Công bố S07 theo lệnh điều phối, 19/10/2026

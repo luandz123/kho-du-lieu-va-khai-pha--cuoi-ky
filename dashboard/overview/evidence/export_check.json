@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "mechanism": "GET /api/v1/dashboard/export/?q=!(1)",
+  "real_superset_zip": true,
+  "sha256": "d76d1fd954d1f5efef3f445992c0ec2645b98923c9513ee3095753647d8aa0dd",
+  "bytes": 34269,
+  "members": [
+    "dashboard_export_20261019T135835/metadata.yaml",
+    "dashboard_export_20261019T135835/dashboards/MovieLens_1M_Tong_quan_1.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_iem_trung_binh_SUM_COUNT_2.yaml",
+    "dashboard_export_20261019T135835/datasets/MovieLens_BTL_-_BI_reader/P1_11A_ratings_1.yaml",
+    "dashboard_export_20261019T135835/databases/MovieLens_BTL_-_BI_reader.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Phim_co_anh_gia_4.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Tong_so_anh_gia_1.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_User_co_anh_gia_3.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Phan_bo_so_anh_gia_theo_muc_sao_8.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Tong_iem_anh_gia_6.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Top_10_phim_so_anh_gia_iem_TB_ID_7.yaml",
+    "dashboard_export_20261019T135835/charts/P1_11A_Phim_danh_muc_co_inh_moi_thoi_ky_5.yaml",
+    "dashboard_export_20261019T135835/datasets/MovieLens_BTL_-_BI_reader/P1_11A_catalog_2.yaml"
+  ],
+  "charts": 8,
+  "datasets": 2,
+  "dashboards": 1,
+  "actual_local_secrets_absent": true,
+  "database_uri_password_masked": true,
+  "zip_is_git_ignored": true,
+  "import_restore_tested": false
+}

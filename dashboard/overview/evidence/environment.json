@@ -1,0 +1,24 @@
+{
+  "client_date": "2026-10-19",
+  "workspace": "D:\\kho-du-lieu-va-khai-pha--cuoi-ky",
+  "base_commit": "988874d7b5897a5615acfebdf571c6d55861ddc2",
+  "branch": "p1-s11a-overview",
+  "pr13_merge_confirmed": "988874d7b5897a5615acfebdf571c6d55861ddc2",
+  "merge_source": "Coordinator message plus ancestry in fetched origin/main",
+  "agent_merged_pr13": false,
+  "no_bootstrap_full_refresh_or_s07_install": true,
+  "plan_sha256": "da37e4a262541ad9f7957ded381cd1347a8e657709f8367fa2ec5ee4cd51d7c7",
+  "health": 200,
+  "login/": 200,
+  "container_versions": {
+    "superset": "6.1.0",
+    "psycopg2": "2.9.13"
+  },
+  "login_ui_and_api_verified": true,
+  "object_creation_permissions_verified_by_real_api_creations": [
+    "database",
+    "dataset",
+    "chart",
+    "dashboard"
+  ]
+}

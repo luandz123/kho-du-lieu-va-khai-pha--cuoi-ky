@@ -1,0 +1,51 @@
+{
+  "rating_count": {
+    "expressionType": "SQL",
+    "sqlExpression": "SUM(rating_count)",
+    "label": "rating_count",
+    "hasCustomLabel": true,
+    "optionName": "metric_rating_count"
+  },
+  "weighted_mean": {
+    "expressionType": "SQL",
+    "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+    "label": "weighted_mean",
+    "hasCustomLabel": true,
+    "optionName": "metric_weighted_mean"
+  },
+  "rated_users": {
+    "expressionType": "SQL",
+    "sqlExpression": "COUNT(DISTINCT user_id)",
+    "label": "rated_users",
+    "hasCustomLabel": true,
+    "optionName": "metric_rated_users"
+  },
+  "rated_movies": {
+    "expressionType": "SQL",
+    "sqlExpression": "COUNT(DISTINCT movie_id)",
+    "label": "rated_movies",
+    "hasCustomLabel": true,
+    "optionName": "metric_rated_movies"
+  },
+  "catalog_movies": {
+    "expressionType": "SQL",
+    "sqlExpression": "COUNT(DISTINCT movie_id)",
+    "label": "catalog_movies",
+    "hasCustomLabel": true,
+    "optionName": "metric_catalog_movies"
+  },
+  "rating_sum": {
+    "expressionType": "SQL",
+    "sqlExpression": "SUM(rating_sum)",
+    "label": "rating_sum",
+    "hasCustomLabel": true,
+    "optionName": "metric_rating_sum"
+  },
+  "top10_sort_row": {
+    "expressionType": "SQL",
+    "sqlExpression": "ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))",
+    "label": "top10_sort_row",
+    "hasCustomLabel": true,
+    "optionName": "metric_top10_sort_row"
+  }
+}

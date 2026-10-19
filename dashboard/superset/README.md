@@ -1,5 +1,11 @@
 # Superset dự án tại máy P1
 
+## Cập nhật 11A, 19/10/2026
+
+Instance dự án đã khởi động lại bằng hai container hiện có, không init hoặc đổi metadata/key. Đã đăng nhập UI/API và tạo dashboard Tổng quan thật tại http://127.0.0.1:8089/superset/dashboard/1/ . Database1 dùng role BI mới chỉ SELECT hai view; cấu hình bí mật riêng dashboard/superset/.env.bi bị Git ignore, khác metadata/admin và `.env` SQL quản trị gốc. Không in/hash các tệp bí mật.
+
+SQL/metric/filter, quyền thực, ba khoảng đối soát và ảnh ở dashboard/overview/; bàn giao docs/P1/overview_handoff.md. **11A WAITING_REVIEW**, chưa commit/push/PR/11B/11C/G3. Reader thực có bằng chứng mới tại P1; không suy P2 đã truy cập. PUBLIC TEMP mặc định còn, không có quyền ghi bảng/view dự án. ZIP export thật đã scan chỉ cục bộ; import chưa kiểm. Các mục S02/chưa dashboard bên dưới là lịch sử.
+
 Phiên bản S02-P1-v1. Instance được kế thừa từ workspace cũ, không tạo lại metadata hoặc đổi password/key.
 
 | Thành phần | Phiên bản/vị trí |

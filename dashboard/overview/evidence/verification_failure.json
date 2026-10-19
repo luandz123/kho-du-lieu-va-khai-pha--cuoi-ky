@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "kind": "READ_ONLY_PRIVILEGE_AUDIT_QUERY",
+  "sqlstate": "42809",
+  "cause": "Planner evaluated has_sequence_privilege for a non-sequence before a WHERE filter; replace with CASE guard. No data write or dashboard change."
+}

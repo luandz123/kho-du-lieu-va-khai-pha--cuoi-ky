@@ -1,0 +1,47 @@
+{
+  "step": "S11A_PUBLICATION_OBSERVATION",
+  "at_utc": "2026-10-19T15:22:27.130118+00:00",
+  "coordinator_report": {
+    "source": "Coordinator message in current user instruction",
+    "observation": "Both project Superset containers had exit code 255; coordinator restarted them and checked API successfully",
+    "cause_of_stop": "NOT_DETERMINED"
+  },
+  "current_containers": [
+    "/btl-movielens-superset-web-1|running|0|healthy",
+    "/btl-movielens-superset-metadata-1|running|0|healthy"
+  ],
+  "no_container_start_restart_by_agent_this_publication": true,
+  "no_reconciliation_or_etl_or_create_overview_run": true,
+  "config_comparison": {
+    "ratings_sql_exact": true,
+    "catalog_sql_exact": true,
+    "chart_ratings_params_exact": true,
+    "chart_ratings_query_context_exact": true,
+    "chart_mean_params_exact": true,
+    "chart_mean_query_context_exact": true,
+    "chart_users_params_exact": true,
+    "chart_users_query_context_exact": true,
+    "chart_movies_params_exact": true,
+    "chart_movies_query_context_exact": true,
+    "chart_catalog_params_exact": true,
+    "chart_catalog_query_context_exact": true,
+    "chart_sum_params_exact": true,
+    "chart_sum_query_context_exact": true,
+    "chart_top10_params_exact": true,
+    "chart_top10_query_context_exact": true,
+    "chart_stars_params_exact": true,
+    "chart_stars_query_context_exact": true,
+    "dashboard_positions_exact": true,
+    "native_filters_exact": true,
+    "css_exact": true
+  },
+  "health_http": 200,
+  "authenticated_api": true,
+  "status": "PASS",
+  "dashboard_url": "http://127.0.0.1:8089/superset/dashboard/1/",
+  "published": true,
+  "public_temp": true,
+  "zip_import_restore_verified": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "full_refresh_s07_helper_verified": false
+}

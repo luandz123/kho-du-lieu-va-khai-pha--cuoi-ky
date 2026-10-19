@@ -1,0 +1,41 @@
+{
+  "role": "movielens_bi_reader",
+  "database": "movielens_btl",
+  "server_version": "17.11",
+  "session_read_only": "off",
+  "attributes": {
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false,
+    "bypassrls": false,
+    "inherit": false
+  },
+  "memberships": [],
+  "selectable_relations": [
+    "dw.v_ml_movies",
+    "dw.v_ml_ratings"
+  ],
+  "writeable_relations": [],
+  "relations_checked": 24,
+  "schema_create": {
+    "public": false,
+    "staging": false,
+    "analytics": false,
+    "dw": false
+  },
+  "database_create": false,
+  "temporary_objects_via_existing_public_default": true,
+  "rating_kpi": [
+    1000209,
+    3582313,
+    6040,
+    3706
+  ],
+  "catalog_movies": 3883,
+  "utc_mismatches": 0,
+  "no_op_update_sqlstate": "42501",
+  "status": "PASS",
+  "origin": "existing Superset web container -> host.docker.internal:5432",
+  "p2_intake_status": "NOT_CONFIRMED"
+}

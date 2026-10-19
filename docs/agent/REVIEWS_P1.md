@@ -1,5 +1,21 @@
 # Hồ sơ duyệt P1
 
+## Hiện hành — 11A đã được điều phối chấp nhận chức năng; chuẩn bị PR
+
+Ngày 19/10/2026, điều phối thông báo chấp nhận sau khi kiểm hồ sơ, hash artifact và cấu hình thực lưu trên Superset; giao commit/push/mở PR p1-s11a-overview vào main. Đây là review của điều phối, không phải lời duyệt nguyên văn do agent tạo. APPROVED chức năng khác với PR review/MERGED; chưa merge và chưa11C/11B.
+
+Điều phối báo hai container đã dừng mã255, được điều phối khởi động lại và kiểm API thành công. Quan sát mới riêng tại dashboard/overview/evidence/publication_observation.json: web/metadata running/healthy, exit0; health200, API đăng nhập thành công,21 đối chiếu cấu hình thực khớp SQL/metric/filter đã review. Không suy đoán nguyên nhân dừng; agent không start/restart trong lượt công bố này. Không chạy ETL/đối soát3khoảng/create_overview.py hoặc thay cấu hình chức năng vì cập nhật hồ sơ.
+
+Giữ mọi report PASS/FAIL, run_id/hash thực chạy và ledger bàn giao45artifact lịch sử. Hash tài liệu mới được ghi ở docs/P1/overview_publication.json riêng. PUBLIC TEMP còn; chưa import/restoreZIP, P2 intake/kết nối hai máy hoặc fullrefreshhelperS07. ZIP và credential tiếp tục localignored. Kế hoạch ngoài phạm vi giữ nguyên. Commitcode/URLPR chỉ ghi sau xác minh; các trạng thái WAITING_REVIEW bàn giao/chưa được giao công bố bên dưới là lịch sử.
+
+---
+
+## S07 đã MERGED; 11A WAITING_REVIEW — 19/10/2026
+
+Nguồn: điều phối chấp nhận công bốS07/PR13 và cungcấp merge988874d7b5897a5615acfebdf571c6d55861ddc2; API xácminhclosed/merged vàlocalmaincócommit. Agentkhôngmerge; reportOPEN lịch sửgiữ nguyên. Lệnh riênggiao11A vàchophépstartinstance/tạoreaderBI, chưaduyệtkếtquả11A.
+
+Tựkiểm11A: đăngnhập/tạođốitượngthật; SQLđộc lập+API+nativefilterUIba khoảngPASS, rolepermission/enginePASS, exportZIPthật/scanPASS. 8chart/2dataset/dashboard1 chạytrên8089; ảnh/metric/SQL/report/handoff đãlưu. Hai lỗi checkerchỉđọc đượclưuvàsửa/PASS, khônggiấubằngchứng. PUBLICTEMP/importrestore/mobile/fullrefreshhelper/P2access còn giới hạn nhưhandoff. **11A WAITING_REVIEW**, khôngtựtạo lời duyệtnguyênvăn hoặc chuyển11B/11C/G3/commit/push/PR.
+
 ## Hiện hành — PR S07 OPEN, WAITING_REVIEW, 19/10/2026
 
 Đã push p1-s07-olap và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) vào main. API xác minh **OPEN/merged=false**, base **be8c88931765f2a61f785cdcc694f9c5a53aa521**, HEAD lúc mở/kiểm **38ea7ea03ef2a14f58de21309d6a0875025831f4**. Rà toàn bộ **44file** và đối chiếu mỗi blob remote với Git local đều khớp, gồm cả hồ sơ G2 đã ghép. S07 đã APPROVED theo điều phối ở mức kết quả; **PR WAITING_REVIEW, chưa MERGED**. Agent không merge.
