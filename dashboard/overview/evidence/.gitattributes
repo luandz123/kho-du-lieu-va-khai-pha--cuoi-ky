@@ -1,0 +1,3 @@
+# Verbatim UI captures contain spaces in rendered text; preserve their evidence bytes.
+2000_q3_desktop_ax.txt whitespace=-blank-at-eol
+all_history_ax.txt whitespace=-blank-at-eol

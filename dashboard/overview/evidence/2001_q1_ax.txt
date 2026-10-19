@@ -1,0 +1,148 @@
+Browser tab: 1, Title: "MovieLens 1M · Tổng quan", URL: "http://127.0.0.1:8089/superset/dashboard/1/?native_filters_key=cXkEJ4bQz1g".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 261-292
++							261 pop up button Applied filters (1)
++								262 image filter
++								263 text 1
++								264 container
++									265 text 32,223 Thời điểm đánh giá UTC
++							266 pop up button Applied filters (1)
++								267 image filter
++								268 text 1
++								269 container
++									270 text 3.5427 Thời điểm đánh giá UTC
++							271 pop up button Applied filters (1)
++								272 image filter
++								273 text 1
++								274 container
++									275 text 781 Thời điểm đánh giá UTC
++							276 pop up button Applied filters (1)
++								277 image filter
++								278 text 1
++								279 container
++									280 text 2,996 Thời điểm đánh giá UTC
++							281 pop up button Applied filters (1)
++								282 image filter
++								283 text 1
++								284 container
++									285 text 114,158 Thời điểm đánh giá UTC
++							286 pop up button Applied filters (1)
++								287 image filter
++								288 text 1
++								289 container chart-id-7
++									290 text Select page size
++									291 text Show
++									292 container Show entries per page
++										293 container
++											294 combo box (collapsed, settable) Description: Show entries per page, ID: pageSizeSelect, Secondary Actions: Expand
++											295 text 10
++									296 text entries per page
++									297 table
++										298 row
++											299 cell Help: Shift + Click to sort by multiple columns, ID: header-movie_id
++												300 text movie_id
++												301 image
++											302 cell Help: Shift + Click to sort by multiple columns, ID: header-title
++												303 text title
++												304 image
++											305 cell Help: Shift + Click to sort by multiple columns, ID: header-rating_count
++												306 text rating_count
++												307 image
++											308 cell Help: Shift + Click to sort by multiple columns, ID: header-weighted_mean
++												309 text weighted_mean
++												310 image
++										311 container
++											312 row
++												313 cell movie_id
++													314 text 3578
++												315 cell title
++													316 text Gladiator (2000)
++												317 cell rating_count
++													318 text 146
++												319 cell weighted_mean, Help: 3.9657534246575343
++													320 text 3.9658
++											321 row
++												322 cell movie_id
++													323 text 3751
++												324 cell title
++													325 text Chicken Run (2000)
++												326 cell rating_count
++													327 text 128
++												328 cell weighted_mean, Help: 3.5234375
++													329 text 3.5234
++											330 row
++												331 cell movie_id
++													332 text 3863
++												333 cell title
++													334 text Cell, The (2000)
++												335 cell rating_count
++													336 text 102
++												337 cell weighted_mean, Help: 3.2941176470588234
++													338 text 3.2941
++											339 row
++												340 cell movie_id
++													341 text 3755
++												342 cell title
++													343 text Perfect Storm, The (2000)
++												344 cell rating_count
++													345 text 97
++												346 cell weighted_mean, Help: 3.1237113402061856
++													347 text 3.1237
++											348 row
++												349 cell movie_id
++													350 text 3793
++												351 cell title
++													352 text X-Men (2000)
++												353 cell rating_count
++													354 text 94
++												355 cell weighted_mean, Help: 3.4680851063829787
++													356 text 3.4681
++											357 row
++												358 cell movie_id
++													359 text 1997
++												360 cell title
++													361 text Exorcist, The (1973)
++												362 cell rating_count
++													363 text 91
++												364 cell weighted_mean, Help: 3.5604395604395602
++													365 text 3.5604
++											366 row
++												367 cell movie_id
++													368 text 3753
++												369 cell title
++													370 text Patriot, The (2000)
++												371 cell rating_count
++													372 text 84
++												373 cell weighted_mean, Help: 3.619047619047619
++													374 text 3.6190
++											375 row
++												376 cell movie_id
++													377 text 3408
++												378 cell title
++													379 text Erin Brockovich (2000)
++												380 cell rating_count
++													381 text 83
++												382 cell weighted_mean, Help: 3.8313253012048194
++													383 text 3.8313
++											384 row
++												385 cell movie_id
++													386 text 3948
++												387 cell title
++													388 text Meet the Parents (2000)
++												389 cell rating_count
++													390 text 80
++												391 cell weighted_mean
++													392 text 3.5375
++											393 row
++												394 cell movie_id
++													395 text 648
++												396 cell title
++													397 text Mission: Impossible (1996)
++												398 cell rating_count
++													399 text 76
++												400 cell weighted_mean, Help: 3.486842105263158
++													401 text 3.4868
++							402 pop up button Applied filters (1)
++								403 image filter
++								404 text 1
+The focused UI element is 0 AXWebArea MovieLens 1M · Tổng quan, URL: 127.0.0.1:8089/superset/dashboard/1/?native_filters_key=cXkEJ4bQz1g

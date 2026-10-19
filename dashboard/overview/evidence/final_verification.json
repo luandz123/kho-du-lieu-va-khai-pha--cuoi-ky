@@ -1,0 +1,211 @@
+{
+  "at_utc": "2026-10-19T14:03:48.812088+00:00",
+  "status": "PASS",
+  "objects": {
+    "database": {
+      "id": 1,
+      "database_name": "MovieLens BTL - BI reader",
+      "allow_dml": false,
+      "allow_ctas": false,
+      "allow_cvas": false,
+      "allow_file_upload": false,
+      "expose_in_sqllab": false
+    },
+    "ratings_dataset": {
+      "id": 1,
+      "name": "P1_11A_ratings",
+      "main_dttm_col": "rated_at_utc",
+      "columns": [
+        {
+          "column_name": "user_id",
+          "type": "INTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "movie_id",
+          "type": "INTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "title",
+          "type": "STRING",
+          "is_dttm": false
+        },
+        {
+          "column_name": "rating",
+          "type": "INTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "rating_count",
+          "type": "LONGINTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "rating_sum",
+          "type": "LONGINTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "rated_at_utc",
+          "type": "DATETIME",
+          "is_dttm": true
+        }
+      ]
+    },
+    "catalog_dataset": {
+      "id": 2,
+      "name": "P1_11A_catalog",
+      "main_dttm_col": null,
+      "columns": [
+        {
+          "column_name": "movie_id",
+          "type": "INTEGER",
+          "is_dttm": false
+        },
+        {
+          "column_name": "title",
+          "type": "STRING",
+          "is_dttm": false
+        }
+      ]
+    },
+    "charts": [
+      {
+        "key": "ratings",
+        "id": 1,
+        "name": "P1 11A · Tổng số đánh giá",
+        "viz_type": "big_number_total",
+        "datasource_id": 1
+      },
+      {
+        "key": "mean",
+        "id": 2,
+        "name": "P1 11A · Điểm trung bình · SUM/COUNT",
+        "viz_type": "big_number_total",
+        "datasource_id": 1
+      },
+      {
+        "key": "users",
+        "id": 3,
+        "name": "P1 11A · User có đánh giá",
+        "viz_type": "big_number_total",
+        "datasource_id": 1
+      },
+      {
+        "key": "movies",
+        "id": 4,
+        "name": "P1 11A · Phim có đánh giá",
+        "viz_type": "big_number_total",
+        "datasource_id": 1
+      },
+      {
+        "key": "catalog",
+        "id": 5,
+        "name": "P1 11A · Phim danh mục · cố định mọi thời kỳ",
+        "viz_type": "big_number_total",
+        "datasource_id": 2
+      },
+      {
+        "key": "sum",
+        "id": 6,
+        "name": "P1 11A · Tổng điểm đánh giá",
+        "viz_type": "big_number_total",
+        "datasource_id": 1
+      },
+      {
+        "key": "top10",
+        "id": 7,
+        "name": "P1 11A · Top 10 phim · số đánh giá, điểm TB, ID",
+        "viz_type": "table",
+        "datasource_id": 1
+      },
+      {
+        "key": "stars",
+        "id": 8,
+        "name": "P1 11A · Phân bố số đánh giá theo mức sao",
+        "viz_type": "echarts_timeseries_bar",
+        "datasource_id": 1
+      }
+    ],
+    "dashboard": {
+      "id": 1,
+      "title": "MovieLens 1M · Tổng quan",
+      "slug": "movielens-overview",
+      "published": true,
+      "native_filters": [
+        {
+          "id": "NATIVE_FILTER-UTC-RATED",
+          "name": "Thời điểm đánh giá (UTC)",
+          "filterType": "filter_time",
+          "type": "NATIVE_FILTER",
+          "targets": [
+            {}
+          ],
+          "controlValues": {},
+          "cascadeParentIds": [],
+          "scope": {
+            "rootPath": [
+              "ROOT_ID"
+            ],
+            "excluded": [
+              5
+            ]
+          },
+          "defaultDataMask": {
+            "extraFormData": {
+              "time_range": "No filter"
+            },
+            "filterState": {
+              "value": "No filter"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "code_sha256": "39dc20a502c3425cc5589e6056aea1d43cb0f3f42038c2cf60be386606fa3e48",
+  "actual_superset_engine": {
+    "executing_role": "movielens_bi_reader",
+    "engine_timezone": "UTC"
+  },
+  "independent_dim_movie_count": 3883,
+  "independent_stars": [
+    [
+      1,
+      56174
+    ],
+    [
+      2,
+      107557
+    ],
+    [
+      3,
+      261197
+    ],
+    [
+      4,
+      348971
+    ],
+    [
+      5,
+      226310
+    ]
+  ],
+  "duplicate_rating_pairs": 0,
+  "reader_owned_relations": 0,
+  "reader_mutable_project_sequences": 0,
+  "analytics_row_counts": [
+    0,
+    0,
+    0
+  ],
+  "project_containers": [
+    "/btl-movielens-superset-web-1|running|healthy",
+    "/btl-movielens-superset-metadata-1|running|healthy"
+  ],
+  "readonly_bi_role_verified": true,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "other_instances_modified": false,
+  "native_filter_excludes_only_catalog": true
+}

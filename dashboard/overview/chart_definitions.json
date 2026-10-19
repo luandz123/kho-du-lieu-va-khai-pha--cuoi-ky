@@ -1,0 +1,766 @@
+{
+  "ratings": {
+    "chart_id": 1,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "SUM(rating_count)",
+        "label": "rating_count",
+        "hasCustomLabel": true,
+        "optionName": "metric_rating_count"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "mean": {
+    "chart_id": 2,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+        "label": "weighted_mean",
+        "hasCustomLabel": true,
+        "optionName": "metric_weighted_mean"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ".4f",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+              "label": "weighted_mean",
+              "hasCustomLabel": true,
+              "optionName": "metric_weighted_mean"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+          "label": "weighted_mean",
+          "hasCustomLabel": true,
+          "optionName": "metric_weighted_mean"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ".4f",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "users": {
+    "chart_id": 3,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "COUNT(DISTINCT user_id)",
+        "label": "rated_users",
+        "hasCustomLabel": true,
+        "optionName": "metric_rated_users"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(DISTINCT user_id)",
+              "label": "rated_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_rated_users"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(DISTINCT user_id)",
+          "label": "rated_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_rated_users"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "movies": {
+    "chart_id": 4,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "COUNT(DISTINCT movie_id)",
+        "label": "rated_movies",
+        "hasCustomLabel": true,
+        "optionName": "metric_rated_movies"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(DISTINCT movie_id)",
+              "label": "rated_movies",
+              "hasCustomLabel": true,
+              "optionName": "metric_rated_movies"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(DISTINCT movie_id)",
+          "label": "rated_movies",
+          "hasCustomLabel": true,
+          "optionName": "metric_rated_movies"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "catalog": {
+    "chart_id": 5,
+    "form_data": {
+      "datasource": "2__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "COUNT(DISTINCT movie_id)",
+        "label": "catalog_movies",
+        "hasCustomLabel": true,
+        "optionName": "metric_catalog_movies"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Không chịu bộ lọc thời gian",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 2,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(DISTINCT movie_id)",
+              "label": "catalog_movies",
+              "hasCustomLabel": true,
+              "optionName": "metric_catalog_movies"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "2__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(DISTINCT movie_id)",
+          "label": "catalog_movies",
+          "hasCustomLabel": true,
+          "optionName": "metric_catalog_movies"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Không chịu bộ lọc thời gian",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "sum": {
+    "chart_id": 6,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "big_number_total",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "SUM(rating_sum)",
+        "label": "rating_sum",
+        "hasCustomLabel": true,
+        "optionName": "metric_rating_sum"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10000
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_sum)",
+              "label": "rating_sum",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_sum"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "big_number_total",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_sum)",
+          "label": "rating_sum",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_sum"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10000
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "top10": {
+    "chart_id": 7,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "table",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "SUM(rating_count)",
+        "label": "rating_count",
+        "hasCustomLabel": true,
+        "optionName": "metric_rating_count"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 10,
+      "query_mode": "aggregate",
+      "groupby": [
+        "movie_id",
+        "title"
+      ],
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+          "label": "weighted_mean",
+          "hasCustomLabel": true,
+          "optionName": "metric_weighted_mean"
+        }
+      ],
+      "all_columns": [],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))",
+        "label": "top10_sort_row",
+        "hasCustomLabel": true,
+        "optionName": "metric_top10_sort_row"
+      },
+      "order_desc": true,
+      "server_pagination": false,
+      "page_length": 10,
+      "include_search": false,
+      "show_cell_bars": false,
+      "column_config": {
+        "weighted_mean": {
+          "d3NumberFormat": ".4f"
+        },
+        "rating_count": {
+          "d3NumberFormat": ",d"
+        },
+        "movie_id": {
+          "d3NumberFormat": "d"
+        }
+      },
+      "table_timestamp_format": "smart_date"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "movie_id",
+            "title"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+              "label": "weighted_mean",
+              "hasCustomLabel": true,
+              "optionName": "metric_weighted_mean"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))",
+                "label": "top10_sort_row",
+                "hasCustomLabel": true,
+                "optionName": "metric_top10_sort_row"
+              },
+              false
+            ]
+          ],
+          "row_limit": 10,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "table",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 10,
+        "query_mode": "aggregate",
+        "groupby": [
+          "movie_id",
+          "title"
+        ],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(rating_count)",
+            "label": "rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_rating_count"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)",
+            "label": "weighted_mean",
+            "hasCustomLabel": true,
+            "optionName": "metric_weighted_mean"
+          }
+        ],
+        "all_columns": [],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))",
+          "label": "top10_sort_row",
+          "hasCustomLabel": true,
+          "optionName": "metric_top10_sort_row"
+        },
+        "order_desc": true,
+        "server_pagination": false,
+        "page_length": 10,
+        "include_search": false,
+        "show_cell_bars": false,
+        "column_config": {
+          "weighted_mean": {
+            "d3NumberFormat": ".4f"
+          },
+          "rating_count": {
+            "d3NumberFormat": ",d"
+          },
+          "movie_id": {
+            "d3NumberFormat": "d"
+          }
+        },
+        "table_timestamp_format": "smart_date"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "stars": {
+    "chart_id": 8,
+    "form_data": {
+      "datasource": "1__table",
+      "viz_type": "echarts_timeseries_bar",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "SUM(rating_count)",
+        "label": "rating_count",
+        "hasCustomLabel": true,
+        "optionName": "metric_rating_count"
+      },
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": "rated_at_utc",
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader_font_size": 0.12,
+      "subheader": "Thời điểm đánh giá UTC",
+      "force_timestamp_formatting": false,
+      "row_limit": 5,
+      "x_axis": "rating",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        }
+      ],
+      "groupby": [],
+      "orientation": "vertical",
+      "show_value": true,
+      "show_legend": false,
+      "x_axis_title": "Mức sao",
+      "y_axis_title": "Số đánh giá",
+      "x_axis_sort": "rating",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "color_scheme": "supersetColors"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 1,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "rating"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "SUM(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            }
+          ],
+          "orderby": [
+            [
+              "rating",
+              true
+            ]
+          ],
+          "row_limit": 5,
+          "granularity": "rated_at_utc",
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "1__table",
+        "viz_type": "echarts_timeseries_bar",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "SUM(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        },
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": "rated_at_utc",
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader_font_size": 0.12,
+        "subheader": "Thời điểm đánh giá UTC",
+        "force_timestamp_formatting": false,
+        "row_limit": 5,
+        "x_axis": "rating",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "SUM(rating_count)",
+            "label": "rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_rating_count"
+          }
+        ],
+        "groupby": [],
+        "orientation": "vertical",
+        "show_value": true,
+        "show_legend": false,
+        "x_axis_title": "Mức sao",
+        "y_axis_title": "Số đánh giá",
+        "x_axis_sort": "rating",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "color_scheme": "supersetColors"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  }
+}

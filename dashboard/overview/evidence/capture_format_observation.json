@@ -1,0 +1,6 @@
+{
+  "status": "CORRECTED",
+  "kind": "IMAGE_FORMAT_LABEL",
+  "observation": "Native browser screenshot returned JPEG bytes. Initial .png labels were corrected to .jpg without changing image bytes. Header validation detected this before handoff.",
+  "image_content_edited": false
+}

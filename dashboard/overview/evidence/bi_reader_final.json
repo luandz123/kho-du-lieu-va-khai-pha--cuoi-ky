@@ -1,0 +1,41 @@
+{
+  "role": "movielens_bi_reader",
+  "database": "movielens_btl",
+  "session_read_only": "off",
+  "attributes": {
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false,
+    "bypassrls": false,
+    "inherit": false
+  },
+  "memberships": [],
+  "relations_checked": 24,
+  "selectable": [
+    "dw.v_ml_movies",
+    "dw.v_ml_ratings"
+  ],
+  "writeable": [],
+  "schema_create": {
+    "public": false,
+    "staging": false,
+    "analytics": false,
+    "dw": false
+  },
+  "database_create": false,
+  "public_default_temp": true,
+  "kpi": [
+    1000209,
+    3582313,
+    6040,
+    3706
+  ],
+  "catalog_count": 3883,
+  "update_sqlstate": "42501",
+  "status": "PASS",
+  "at_utc": "2026-10-19T14:00:55.722426+00:00",
+  "run_id": "d6c5d56693a946d3bb21c88d914ccf23",
+  "origin": "Superset web container",
+  "p2_intake_status": "NOT_CONFIRMED"
+}

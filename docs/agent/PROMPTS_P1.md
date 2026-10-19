@@ -1,5 +1,18 @@
 # Nguồn prompt P1
 
+## P-P1-28 — Điều phối giao công bố PR11A
+
+Điều phối chấp nhận chức năng11A sau kiểm hồ sơ/hash/cấu hình Superset thực; giao kiểm nhánh/HEAD/main, bảo toàn kế hoạch/thay đổi ngoài phạm vi và stage từng đường dẫn11A/P1. Ghi đúng nguồn review và thông tin điều phối đã restart hai container exit255/APIthànhcông; quan sát mới riêng, không suy nguyên nhân. Giữ PUBLIC TEMP/chưaimportrestore/P2/hai máy/fullrefreshhelperS07. Ràdiff/JSON/Python/path/ignore, khôngsecret/URIcredential/userdata/ZIP lênGit, giữPASS/FAIL. KhôngrerunETL/3khoảngchỉđểcôngbố; nếu đổiSQL/metric/filter thì kiểm phầnảnhhưởng. Commit/push/PRmain, nêu dashboardthật/UTCtrướcgroupTop10/BIrole/đốisoát/giớihạn; xácminhremoteHEAD/tấtcảblob. BàngiaoURL/fullHEAD/base/filelist/checks/workingtree/dashboard/container. Chưamerge/create_overview/11C/11B/G3/quyềnfirewall; dừngreviewPR. Đây làtómtắt lệnh điều phối, không tự tạo xácnhậnduyệt.
+
+
+## P-P1-27 — Điều phối giao riêng11A sau PR13 MERGED
+
+Điều phối chấp nhận công bốS07, merge988874d7b5897a5615acfebdf571c6d55861ddc2, giao11A Tổngquan. Giữplan/thayđổingoàiphạmvi, đồngbộmainantoàn/tạop1-s11a-overview; ghiMERGEDmới/giữreportOPEN. Khôngbootstrap/fullrefresh/installS07. KiểmSupersetdựán8089/health/login/quyềncreate; chophépstartinstancehiệncó, chỉdùngUI/APIchínhthức.
+
+Cho tạo movielens_bi_reader nếuchưatồn tại, mật khẩumạnhlocalignored; nếucósẵnkiểmnguồngquảnlý/khôngđổicredential. ChỉCONNECT/USAGE/SELECTviewcần, chứngminhroleattributes/membership/effectivepermissions bằngtài khoảnthậttừSuperset, khôngsessionreadonlyđơnthuần. Khôngfirewall/publicDB hoặccoiP2đãnhậnG2.
+
+Dashboard có KPI rating/mean/user/phim có rating và danh mục riêng; Top10 theo count/mean/ID, sao1–5, native UTC filter trước aggregate/limit, UTC typed cast nếu cần, SUM/COUNT và không nhân genre. Danh mục cố định loại khỏi filter, nhãn rõ. Đối soát toàn lịch sử và hai khoảng khác, ảnh filter thật; mốc1000209/tổng3582313/user6040/phim3706/danhmục3883/sao56174-107557-261197-348971-226310. Bàn giao URL/tên-ID/SQL/metric/filter/ảnh/đối soát/quyền/file/giới hạn, export chỉ thật và scan. S11/STATE11A WAITING_REVIEW, dừng; chưa commit/push/PR/11B/11C/G3 hoặc quyền/firewall ngoài phạm vi. Đây là tóm tắt lệnh, không phải lời agent duyệt.
+
 ## P-P1-26 — Điều phối chấp nhận và giao công bố S07, 19/10/2026
 
 Điều phối báo chấp nhận S07 sau review SQL/code, chạy lại73/73unit, kiểm hash37artifact và đối chiếuQ3. Giao chốt hồ sơ đúng nguồn; giữ reportPASS/FAIL/run/hashG2, giới hạn fullrefreshhelper/account/P2. Rà toànPR gồm hồ sơ500b293/observation; không đổi bảng/contract/P2/nguồn, chỉ CSV tổng hợp runPASS với ignore ngoại lệ đúng thư mục. Stage từng đườngdẫnP1/xemstageddiff/commit trướcfetch, tíchhợpmain antoàn, khôngreset/force/ghiđèP2. Ghi codecommit công bố riêng runtimebase/hash; hash tài liệu mới riêng, không sửa run cũ. Push nhánh p1-s07-olap/mởPRmain, nêu6query/view/OLAP, mẫu số/SUMCOUNT/zero-grid/ngưỡng100/quýbiên/rankâm, test/4hash/giới hạn/hồ sơG2ghép. Bàn giaoURL/HEAD/toànfilePR/checks/workingtree.

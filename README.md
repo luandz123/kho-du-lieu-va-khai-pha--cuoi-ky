@@ -1,5 +1,11 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+11A đã được điều phối chấp nhận chức năng và giao công bố PR; chưa merge/11C/11B. Hồ sơ công bố mới: docs/P1/overview_publication.md; các trạng thái chờ review kết quả bên dưới giữ lịch sử.
+
+## Hiện hành — 11A Tổng quan chờ review
+
+PR13 S07 đã MERGED tại `988874d7b5897a5615acfebdf571c6d55861ddc2`. Dashboard thật: http://127.0.0.1:8089/superset/dashboard/1/ . **11A WAITING_REVIEW**, database1/datasets1–2/charts1–8; xem docs/P1/overview_handoff.md và docs/agent/steps/P1/S11.md. Chưa commit/push/PR11A, chưa 11B/11C/G3. Các trạng thái OPEN/chưa dashboard phía dưới là lịch sử.
+
 S07 đã được điều phối chấp nhận ở mức kết quả; [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) OPEN/chờ review, chưa merge/dashboard. Hồ sơ công bố: docs/P1/s07_publication.md. Report/ledger thực chạy giữ lịch sử; phần kiểm và trạng thái mới ghi riêng.
 
 ## Cập nhật S07 — PR9 đã MERGED; các mục công bố phía dưới là lịch sử

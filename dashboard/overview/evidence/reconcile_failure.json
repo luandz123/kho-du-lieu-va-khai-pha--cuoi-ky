@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "kind": "READ_ONLY_RECONCILIATION_SCRIPT_ASSERTION",
+  "cause": "Text-order assertion matched GROUP BY in a SQL comment before the actual WHERE; not a data mismatch. Script stopped before publishing its report.",
+  "code_sha256": "aebdc49fa3fbe76efdd1ae58d472bb84f2ed80fa893dc17a0412932b7a48bb9f",
+  "data_changed": false
+}

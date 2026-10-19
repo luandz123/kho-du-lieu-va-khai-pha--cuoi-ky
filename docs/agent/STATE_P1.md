@@ -1,5 +1,33 @@
 # Trạng thái P1
 
+## Công bố11A — đã commit và đồng bộ, chờ mở PR
+
+Commit code công bố `5915702d414f0385208b696329a2aed215db8762`, khác runtimebase988874d/run a614b26f và hash workingtree lúc đối soát. Đã stage/rà đúng50file P1, giữ nguyên21bằngchứng vàcode/SQL/metric/filter. Fetchmain `988874d7b5897a5615acfebdf571c6d55861ddc2` vẫn làancestor, khôngcầnmerge. Chưa chạyETL/đốisoát3khoảng/create lại. URL/HEADPR ghi sau xácminh; giới hạn PUBLIC TEMP/restore/P2/fullrefreshS07 giữ nguyên.
+
+---
+
+## Hiện hành — 11A đã được điều phối chấp nhận chức năng; chuẩn bị PR
+
+Ngày 19/10/2026, điều phối thông báo chấp nhận sau khi kiểm hồ sơ, hash artifact và cấu hình thực lưu trên Superset; giao commit/push/mở PR p1-s11a-overview vào main. Đây là review của điều phối, không phải lời duyệt nguyên văn do agent tạo. APPROVED chức năng khác với PR review/MERGED; chưa merge và chưa11C/11B.
+
+Điều phối báo hai container đã dừng mã255, được điều phối khởi động lại và kiểm API thành công. Quan sát mới riêng tại dashboard/overview/evidence/publication_observation.json: web/metadata running/healthy, exit0; health200, API đăng nhập thành công,21 đối chiếu cấu hình thực khớp SQL/metric/filter đã review. Không suy đoán nguyên nhân dừng; agent không start/restart trong lượt công bố này. Không chạy ETL/đối soát3khoảng/create_overview.py hoặc thay cấu hình chức năng vì cập nhật hồ sơ.
+
+Giữ mọi report PASS/FAIL, run_id/hash thực chạy và ledger bàn giao45artifact lịch sử. Hash tài liệu mới được ghi ở docs/P1/overview_publication.json riêng. PUBLIC TEMP còn; chưa import/restoreZIP, P2 intake/kết nối hai máy hoặc fullrefreshhelperS07. ZIP và credential tiếp tục localignored. Kế hoạch ngoài phạm vi giữ nguyên. Commitcode/URLPR chỉ ghi sau xác minh; các trạng thái WAITING_REVIEW bàn giao/chưa được giao công bố bên dưới là lịch sử.
+
+---
+
+## Hiện hành — 11A Dashboard Tổng quan WAITING_REVIEW, 19/10/2026
+
+Điều phối chấp nhận công bố S07; PR13 API/Git xác minh MERGED tại988874d7b5897a5615acfebdf571c6d55861ddc2, agent không merge. Giữ report OPEN lịch sử. Main fast-forward an toàn tới988874d và tạo p1-s11a-overview, HEAD/base cùngSHA; kếhoạch untracked giữ nguyên. Chưa commit/push/PR11A.
+
+Superset dựán8089 đã start đúng2container cósẵn, healthy6.1.0/driver2.9.13; đăng nhập UI/API và quyềncreate đã kiểm thật. Database1 dùng roleBI mới movielens_bi_reader, SELECT đúng2view; datasets1/2, charts1–8, dashboard1 tại http://127.0.0.1:8089/superset/dashboard/1/ . Không ghi metadata trực tiếp, bootstrap/fullrefresh/installS07 hoặc thay bảng/viewcontract/nguồn.
+
+11A đã chạy web/filter thật: một rating/user–movie, UTCtypedtime, SUM/COUNT; chart5danhmục3883 loại khỏitimefilter. SQLđộc lập/API/UI khớp toànlịchsử1000209, Q3/2000=324864, Q1/2001=32223; sao/Top10/mean/user/movie đúng. Run a614b26f902842618b39a35c799d0a77,40.219s; ảnh và codehash trong dashboard/overview/evidence. QuyềnBI từ container và Supersetengine thực: khôngDML/CREATE/owner/membership/sequencewrite, UPDATEWHEREfalse42501 dùsessionreadonlyoff. PUBLIC TEMP mặcđịnh giữtrue, chỉđọc dữliệudựán đượcgiảithíchgiới hạn.
+
+ExportZIP thật đã scan khôngsecret, passwordmasked; chưaimport/restore. 11A **WAITING_REVIEW**, chưađiềuphốiduyệt. Handoff docs/P1/overview_handoff.md, S11 và ledger11A. G2reportreadonlyfalse cũ làlịchsử; nay **BI readonly tạiP1 verified**, không suy P2access: P2intakeNOT_CONFIRMED/kếtnối2máychưakiểm. HelperS07chưafullrefreshmới. Chưa11B/11C/G3, đổi quyềnngoàiroleBI hoặcfirewall; dừng.
+
+Các mục OPEN/chưadashboard bên dưới là lịch sử trước giao11A.
+
 ## Hiện hành — PR S07 OPEN, WAITING_REVIEW, 19/10/2026
 
 Đã push p1-s07-olap và mở [PR #13](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/13) vào main. API xác minh **OPEN/merged=false**, base **be8c88931765f2a61f785cdcc694f9c5a53aa521**, HEAD lúc mở/kiểm **38ea7ea03ef2a14f58de21309d6a0875025831f4**. Rà toàn bộ **44file** và đối chiếu mỗi blob remote với Git local đều khớp, gồm cả hồ sơ G2 đã ghép. S07 đã APPROVED theo điều phối ở mức kết quả; **PR WAITING_REVIEW, chưa MERGED**. Agent không merge.

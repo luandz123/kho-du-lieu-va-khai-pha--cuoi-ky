@@ -1,0 +1,263 @@
+Browser tab: 1, Title: "MovieLens 1M · Tổng quan", URL: "http://127.0.0.1:8089/superset/dashboard/1/?native_filters_key=cXkEJ4bQz1g".
+0 AXWebArea MovieLens 1M · Tổng quan, URL: 127.0.0.1:8089/superset/dashboard/1/?native_filters_key=cXkEJ4bQz1g
+	1 container app
+		2 container main-menu
+			19 container
+				20 link Description: Apache Superset, Value: 127.0.0.1:8089/
+				21 menu
+					22 Dashboards
+						23 button Dashboards
+							24 text Dashboards
+					25 Charts
+						26 button Charts
+							27 text Charts
+					28 Datasets
+						29 button Datasets
+							30 text Datasets
+					31 (collapsed) down SQL, Secondary Actions: Expand
+						32 image down
+						33 text SQL
+			10 menu
+				11 (collapsed) down plus, Secondary Actions: Expand
+					12 image down
+					13 image plus
+				14 (collapsed) down format-painter, Secondary Actions: Expand
+					15 image down
+					16 image format-painter
+				17 (collapsed) down Settings, Secondary Actions: Expand
+					18 image down
+					34 text Settings
+		35 container
+			36 container
+				37 text Filters and controls
+				38 button setting
+					39 image setting
+				40 button vertical-align
+					41 image vertical-align
+				42 container
+					43 container
+						44 heading Thời điểm đánh giá (UTC), Value: 4, ID: filter-name-NATIVE_FILTER-UTC-RATED
+							45 text Thời điểm đánh giá (UTC)
+					46 button
+						47 text 2000-07-01 ≤ col < 2000-10-01
+						48 image calendar
+				49 button (disabled) Apply filters
+				50 button Clear all
+			51 text field (disabled) Description: Dashboard title, Value: MovieLens 1M · Tổng quan
+			52 button unstarred
+				53 image unstarred
+			54 button Refresh dashboard
+				55 image sync
+			56 button check-circle Published
+				57 image check-circle
+				58 text Published
+			59 container
+				60 image user
+				61 text BTL Admin
+			62 container
+				63 image edit
+				64 text 4 seconds ago
+			65 button Edit dashboard
+			66 button Menu actions trigger
+				67 image ellipsis
+			68 container GRID_ID-panel-GRID_ID
+				69 container
+					70 heading Đánh giá lịch sử · MovieLens 1M, Value: 3
+						71 text Đánh giá lịch sử · MovieLens 1M
+					72 text Bộ lọc dùng 
+					73 text thời điểm đánh giá UTC
+					74 text ; từ ngày bắt đầu đến trước ngày kết thúc. 
+					75 text Phim danh mục
+					76 text  cố định 3.883, không chịu bộ lọc. Top 10: số đánh giá ↓, điểm trung bình ↓, movie_id ↑. Rating không phải lượt xem; dữ liệu không mô tả nhu cầu hiện tại.
+				77 container
+					78 container
+						79 link Description: P1 11A · Tổng số đánh giá, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=1
+						80 pop up button Applied filters (1)
+							81 image filter
+							82 text 1
+						83 pop up button Description: More Options, ID: slice_1-controls
+							84 image ellipsis
+						85 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							86 container
+								87 text 324,864 Thời điểm đánh giá UTC
+					88 container
+						89 link Description: P1 11A · Điểm trung bình · SUM/COUNT, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=2
+						90 pop up button Applied filters (1)
+							91 image filter
+							92 text 1
+						93 pop up button Description: More Options, ID: slice_2-controls
+							94 image ellipsis
+						95 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							96 container
+								97 text 3.5943 Thời điểm đánh giá UTC
+					98 container
+						99 link Description: P1 11A · User có đánh giá, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=3
+						100 pop up button Applied filters (1)
+							101 image filter
+							102 text 1
+						103 pop up button Description: More Options, ID: slice_3-controls
+							104 image ellipsis
+						105 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							106 container
+								107 text 2,244 Thời điểm đánh giá UTC
+				108 container
+					109 container
+						110 link Description: P1 11A · Phim có đánh giá, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=4
+						111 pop up button Applied filters (1)
+							112 image filter
+							113 text 1
+						114 pop up button Description: More Options, ID: slice_4-controls
+							115 image ellipsis
+						116 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							117 container
+								118 text 3,465 Thời điểm đánh giá UTC
+					119 container
+						120 link Description: P1 11A · Phim danh mục · cố định mọi thời kỳ, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=5
+						121 pop up button Description: More Options, ID: slice_5-controls
+							122 image ellipsis
+						123 container S11A; grain source rating; UTC before aggregation. Fixed catalog excluded from native time filter.
+							124 container
+								125 text 3,883 Không chịu bộ lọc thời gian
+					126 container
+						127 link Description: P1 11A · Tổng điểm đánh giá, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=6
+						128 pop up button Applied filters (1)
+							129 image filter
+							130 text 1
+						131 pop up button Description: More Options, ID: slice_6-controls
+							132 image ellipsis
+						133 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							134 container
+								135 text 1,167,669 Thời điểm đánh giá UTC
+				136 container
+					137 container
+						138 link Description: P1 11A · Top 10 phim · số đánh giá, điểm TB, ID, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=7
+						139 pop up button Applied filters (1)
+							140 image filter
+							141 text 1
+						142 image warning
+						143 pop up button Description: More Options, ID: slice_7-controls
+							144 image ellipsis
+						145 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+							146 container chart-id-7
+								147 text Select page size
+								148 text Show
+								149 container Show entries per page
+									150 container
+										151 combo box (collapsed, settable) Description: Show entries per page, ID: pageSizeSelect, Secondary Actions: Expand
+										152 text 10
+								153 text entries per page
+								154 table
+									155 row
+										156 cell Help: Shift + Click to sort by multiple columns, ID: header-movie_id
+											157 text movie_id
+											158 image
+										159 cell Help: Shift + Click to sort by multiple columns, ID: header-title
+											160 text title
+											161 image
+										162 cell Help: Shift + Click to sort by multiple columns, ID: header-rating_count
+											163 text rating_count
+											164 image
+										165 cell Help: Shift + Click to sort by multiple columns, ID: header-weighted_mean
+											166 text weighted_mean
+											167 image
+									168 container
+										169 row
+											170 cell movie_id
+												171 text 2858
+											172 cell title
+												173 text American Beauty (1999)
+											174 cell rating_count, Help: 1102
+												175 text 1,102
+											176 cell weighted_mean, Help: 4.368421052631579
+												177 text 4.3684
+										178 row
+											179 cell movie_id
+												180 text 260
+											181 cell title
+												182 text Star Wars: Episode IV - A New Hope (1977)
+											183 cell rating_count
+												184 text 971
+											185 cell weighted_mean, Help: 4.513903192584964
+												186 text 4.5139
+										187 row
+											188 cell movie_id
+												189 text 1196
+											190 cell title
+												191 text Star Wars: Episode V - The Empire Strikes Back (1980)
+											192 cell rating_count
+												193 text 967
+											194 cell weighted_mean, Help: 4.3195449844881075
+												195 text 4.3195
+										196 row
+											197 cell movie_id
+												198 text 1210
+											199 cell title
+												200 text Star Wars: Episode VI - Return of the Jedi (1983)
+											201 cell rating_count
+												202 text 957
+											203 cell weighted_mean, Help: 4.048066875653083
+												204 text 4.0481
+										205 row
+											206 cell movie_id
+												207 text 1270
+											208 cell title
+												209 text Back to the Future (1985)
+											210 cell rating_count
+												211 text 891
+											212 cell weighted_mean, Help: 3.983164983164983
+												213 text 3.9832
+										214 row
+											215 cell movie_id
+												216 text 593
+											217 cell title
+												218 text Silence of the Lambs, The (1991)
+											219 cell rating_count
+												220 text 880
+											221 cell weighted_mean, Help: 4.368181818181818
+												222 text 4.3682
+										223 row
+											224 cell movie_id
+												225 text 2571
+											226 cell title
+												227 text Matrix, The (1999)
+											228 cell rating_count
+												229 text 868
+											230 cell weighted_mean, Help: 4.346774193548387
+												231 text 4.3468
+										232 row
+											233 cell movie_id
+												234 text 2028
+											235 cell title
+												236 text Saving Private Ryan (1998)
+											237 cell rating_count
+												238 text 855
+											239 cell weighted_mean, Help: 4.360233918128655
+												240 text 4.3602
+										241 row
+											242 cell movie_id
+												243 text 608
+											244 cell title
+												245 text Fargo (1996)
+											246 cell rating_count
+												247 text 844
+											248 cell weighted_mean, Help: 4.220379146919432
+												249 text 4.2204
+										250 row
+											251 cell movie_id
+												252 text 1198
+											253 cell title
+												254 text Raiders of the Lost Ark (1981)
+											255 cell rating_count
+												256 text 828
+											257 cell weighted_mean, Help: 4.495169082125604
+												258 text 4.4952
+					259 container
+						260 link Description: P1 11A · Phân bố số đánh giá theo mức sao, Value: 127.0.0.1:8089/explore/?dashboard_page_id=j49vqQMkQMVr7nm5kmLHn&slice_id=8
+						261 pop up button Applied filters (1)
+							262 image filter
+							263 text 1
+						264 pop up button Description: More Options, ID: slice_8-controls
+							265 image ellipsis
+						266 container S11A; source rating grain, weighted means, no genre duplication. Native UTC time filter before aggregate/top10.
+
+The focused UI element is 0 AXWebArea MovieLens 1M · Tổng quan, URL: 127.0.0.1:8089/superset/dashboard/1/?native_filters_key=cXkEJ4bQz1g
