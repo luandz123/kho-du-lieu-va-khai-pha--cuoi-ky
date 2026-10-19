@@ -1,5 +1,11 @@
 # Công bố PR11A Tổng quan
 
+## Công bố11A — đã commit và đồng bộ, chờ mở PR
+
+Commit code công bố `5915702d414f0385208b696329a2aed215db8762`, khác runtimebase988874d/run a614b26f và hash workingtree lúc đối soát. Đã stage/rà đúng50file P1, giữ nguyên21bằngchứng vàcode/SQL/metric/filter. Fetchmain `988874d7b5897a5615acfebdf571c6d55861ddc2` vẫn làancestor, khôngcầnmerge. Chưa chạyETL/đốisoát3khoảng/create lại. URL/HEADPR ghi sau xácminh; giới hạn PUBLIC TEMP/restore/P2/fullrefreshS07 giữ nguyên.
+
+---
+
 Ngày19/10/2026, điều phối chấp nhận chức năng11A sau kiểm hồ sơ/hash/cấu hình Superset thực, giao commit/push/PR. Đây là review điều phối, không phải agent tạo lời duyệt nguyên văn người dùng. PR chưa mở tại thời điểm ghi phần chuẩn bị; URL/HEAD/base sẽ được cập nhật sau xác minh. Chưa merge/11C/11B.
 
 Dashboard thật http://127.0.0.1:8089/superset/dashboard/1/ ; database1/datasets1–2/charts1–8/dashboard1. UTCtypedfilter trước aggregate/Top10, khônggenreduplicate; meanSUM/COUNT, catalogchart5 cốđịnh. Tài khoảnBI chỉ SELECT2view; kết quả ba khoảng đãreview ở handoff/report, không chạy lại vì công bố.

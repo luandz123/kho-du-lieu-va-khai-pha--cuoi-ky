@@ -1,5 +1,11 @@
 # Trạng thái P1
 
+## Công bố11A — đã commit và đồng bộ, chờ mở PR
+
+Commit code công bố `5915702d414f0385208b696329a2aed215db8762`, khác runtimebase988874d/run a614b26f và hash workingtree lúc đối soát. Đã stage/rà đúng50file P1, giữ nguyên21bằngchứng vàcode/SQL/metric/filter. Fetchmain `988874d7b5897a5615acfebdf571c6d55861ddc2` vẫn làancestor, khôngcầnmerge. Chưa chạyETL/đốisoát3khoảng/create lại. URL/HEADPR ghi sau xácminh; giới hạn PUBLIC TEMP/restore/P2/fullrefreshS07 giữ nguyên.
+
+---
+
 ## Hiện hành — 11A đã được điều phối chấp nhận chức năng; chuẩn bị PR
 
 Ngày 19/10/2026, điều phối thông báo chấp nhận sau khi kiểm hồ sơ, hash artifact và cấu hình thực lưu trên Superset; giao commit/push/mở PR p1-s11a-overview vào main. Đây là review của điều phối, không phải lời duyệt nguyên văn do agent tạo. APPROVED chức năng khác với PR review/MERGED; chưa merge và chưa11C/11B.

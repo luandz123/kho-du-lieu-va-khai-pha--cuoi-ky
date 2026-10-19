@@ -1,6 +1,6 @@
 {
   "step": "S11A_PUBLICATION",
-  "stage": "PREPARING_COMMIT",
+  "stage": "READY_TO_PUSH_AND_OPEN_PR",
   "functional_review": {
     "status": "APPROVED",
     "source": "Coordinator message: accepted functional 11A after inspecting records, artifact hashes and real Superset configuration",
@@ -10,7 +10,7 @@
   "branch": "p1-s11a-overview",
   "runtime_base_commit": "988874d7b5897a5615acfebdf571c6d55861ddc2",
   "runtime_reconciliation_run_id": "a614b26f902842618b39a35c799d0a77",
-  "code_publication_commit": null,
+  "code_publication_commit": "5915702d414f0385208b696329a2aed215db8762",
   "reviewed_artifact_count_before_document_edits": 45,
   "historical_evidence_count": 21,
   "historical_ledger": "dashboard/overview/evidence/handoff_manifest.json",
@@ -112,13 +112,13 @@
     "dashboard/overview/verify_overview.py": "39dc20a502c3425cc5589e6056aea1d43cb0f3f42038c2cf60be386606fa3e48",
     "dashboard/superset/README.md": "f5659b5e8681a2162a557419ae6cd665e67df43a9253f4e45e5fdd6732e78ac2",
     "docs/P1/overview_handoff.md": "f49f6b03922883d1d616cd13dad0e984ab373814a6035905c87a16627c156e45",
-    "docs/P1/overview_publication.md": "8e708e9656277685c8ef2306e8d214a82a68c018ad1401f5e50e965d668ccc8f",
+    "docs/P1/overview_publication.md": "effd5404e2d7c929f8a6896745988cbd4cb7a396ff47ca0c1885bbae251ee42c",
     "docs/agent/DECISIONS_P1.md": "eecf825fb0c012fe103cdfed40cd89b27c66ef38c6b48a3e9268598d226e3ae1",
     "docs/agent/PROMPTS_P1.md": "dca2b5b40b9a824902f0d4da69be4ce222edaeaa9288cc5e3c1da8a38d999f86",
-    "docs/agent/REVIEWS_P1.md": "99c2868d0960379fe0f402b280a4a3666e8badc704dff5d44eec7729b6130785",
-    "docs/agent/STATE_P1.md": "ce4ba4b8c0b4f48af9f9446a1090f18f5e190fa4d2abb788f1c757fb9be58b51",
+    "docs/agent/REVIEWS_P1.md": "18a92407f7622aadd728b6b15ac7666c14a2c876225fe0e289a93b53c8d930b9",
+    "docs/agent/STATE_P1.md": "102c9592d86d2a992decd0cb141025f3226a0d9136d7e3e9a881bc9f3d71d32b",
     "docs/agent/steps/P1/S07.md": "f7eaec576993a8e66eca4fc5e4323c6ce82593c571ac2f2433066d6ece9feb6b",
-    "docs/agent/steps/P1/S11.md": "37cdb92049835dc26b23b13c9f857ff140cc8c6b24b2854dd25e00c13f77ab45"
+    "docs/agent/steps/P1/S11.md": "9521e7c5514505190f99664c1c30bb4e90db28de6df575bdcb5e4c0ffeb9015f"
   },
   "ledger_excludes_self": true,
   "dashboard_url": "http://127.0.0.1:8089/superset/dashboard/1/",
@@ -166,5 +166,17 @@
     "status": "FAIL",
     "cause": "Verbatim UI AX text contains trailing spaces on four lines",
     "resolution": "Artifact-local whitespace attribute for only two capture files; no byte changes to reviewed evidence or code"
+  },
+  "fetched_main": "988874d7b5897a5615acfebdf571c6d55861ddc2",
+  "main_already_ancestor": true,
+  "main_changes_since_runtime_base": [],
+  "sync_merge_needed": false,
+  "staged_verification": {
+    "status": "PASS",
+    "file_count": 50,
+    "all_staged_bytes_match_worktree_with_git_text_eol_normalization": true,
+    "all_seven_jpeg_blobs_exact_bytes": true,
+    "cached_diff_check_after_artifact_local_attributes": true,
+    "historical_21_evidence_unchanged": true
   }
 }
