@@ -1,5 +1,13 @@
 # Bàn giao 6D — full refresh và metadata G2
 
+## Cập nhật S07 — PR9 đã MERGED; các mục công bố phía dưới là lịch sử
+
+Điều phối xác nhận PR9 G2 MERGED tại ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205, agent không merge. Code ETL công bố tái tạo 4fa9cf17aa41e5ff84d4490886eeac27971e46f6; snapshot G2 run6501a547 giữ nguyên. Hồ sơ500b293 và observation hậu merge đã ghép chọn lọc trên p1-s07-olap, chưa công bố PR mới. Report công bố OPEN/run cũ giữ nguyên để truy vết.
+
+S07 thêm sáu view tổng hợp analytics, không đổi bốn view contract/bảng. Có hậu kiểm chỉ đọc khớp G2; không chạy lại full refresh. Catalog helper chỉ mở allowlist bộ sáu view; hash S07 không thay bundle lịch sử. Kết quả S07 WAITING_REVIEW, xem docs/agent/steps/P1/S07.md và docs/P1/olap_findings.md (tính từ gốc repository). Chưa dashboard/G3/quyền BI; P2 intake NOT_CONFIRMED và dedicated_read_only_account_verified=false.
+
+---
+
 **Cập nhật công bố:** điều phối đã chấp nhận6D ở mức cục bộ sau review/65unit/29artifact; giao commit, push và mởPR ETL/G2, chưa merge. Nhãn WAITING_REVIEW phía dưới là lịch sử bản bàn giao. Report runtime, hai run/bundle/config và summary6D giữ nguyên; commit code công bố được ghi riêng tại [hồ sơ công bố](g2_publication.md), không đổi base_commit của run. P2 vẫn chưa xác nhận G2, quyền tài khoản chỉ đọc/remote chưa được xác minh.
 
 Đã công bố **PR#9 OPEN/chưa merge**, codecommit **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**, base52dd682. APIđủ65file/blob khớpGit tạiHEADlúcmở11a3d73; hồ sơ tiếp theo chỉ ghi trạng thái, không thay code đã kiểm hoặc báo cáo runtime. Xem linkPR/filelist/provenance trong hồ sơ công bố.

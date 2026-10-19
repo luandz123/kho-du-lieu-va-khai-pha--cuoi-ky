@@ -1,5 +1,22 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận S07 và giao công bố, 19/10/2026
+
+Nguồn review là thông báo điều phối: chấp nhận sau review SQL/code, chạy lại73/73unit test, kiểm hash37artifact và đối chiếu kết luậnQ3. Ghi S07 APPROVED theo điều phối ở mức kết quả, không tạo lời duyệt nguyên văn người dùng. PR sẽ WAITING_REVIEW sau khi mở thành công; chưa MERGED.
+
+P1 tự kiểm công bố: reviewed37artifact và code/SQL đều khớp trước chỉnh hồ sơ, chín CSV đúng runPASS và chỉ tổng hợp. Không chạy lại unit/DB/OLAP chỉ để ghi hồ sơ; 73unit/fixture/postcheck là kết quả thực chạy lịch sử, đợt review điều phối là nguồn độc lập. Hash tài liệu sau chỉnh, commitcode/URL và kiểm remote ghi tại docs/P1/s07_publication.json. Fullrefresh bảnhelperS07 chưa kiểm mới; accountreadonly/P2intake chưa xác minh. Chưamerge/dashboard/G3/quyền/firewall.
+
+---
+
+## S07 — WAITING_REVIEW; PR9 MERGED theo điều phối
+
+Nguồn xác nhận tiền đề: “Điều phối xác nhận PR #9 G2 đã merge tại ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205. P1 không thực hiện merge. Code công bố để tái tạo là 4fa9cf17aa41e5ff84d4490886eeac27971e46f6.” Lưu đúng nguồn điều phối, không tạo lời duyệt kết quả S07.
+
+S07 tự kiểm 73unit PASS, fixture PostgreSQL PASS/rollback, O1–O6 PASS runaf6dbc20, hậu kiểm chỉ đọc7830281b PASS. Sáu view đã tạo, bảng/contract giữ nguyên; catalog helper mở allowlist cần review. Báo cáo FAIL xuất Decimal và mọi run cũ giữ nguyên. S07 WAITING_REVIEW; chưa commit/push/PR OLAP. P2 NOT_CONFIRMED, account read-only chưa xác minh. Cần điều phối xem SQL, chỉ số/ngưỡng/quý biên, findings và ledger trước giao mốc tiếp.
+
+---
+Các mục dưới đây là hồ sơ lịch sử tại thời điểm ghi; trạng thái hiện hành xem mục mới nhất bên trên.
+
 ## PR ETL/G2 đã mở — chưa merge
 
 Code công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6, giữ checkpoint6A/B/C và runtimebasec143f5d/bundleb858a879. Push thành công và API xác minh [PR#9](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9) **OPEN/merged=false**, base52dd682, HEAD lúc mở/rà11a3d7367bbdbfad4267570d04863d22ee490d1c. Rà đủ65file/blob soGit và toàn bộcheckpoint, khôngP2/data/secret/plan; JSON/Python/diff/link/ignore/provenance đạt. Không chạy lại fullrefresh vì hồ sơ. CI0check-runs/0status, combinedpending không được ghiPASS.

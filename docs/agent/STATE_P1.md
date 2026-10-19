@@ -1,5 +1,28 @@
 # Trạng thái P1
 
+## Hiện hành — S07 được điều phối chấp nhận; chuẩn bị công bố PR, 19/10/2026
+
+Nguồn: điều phối thông báo chấp nhận S07 sau review SQL/code, chạy lại73/73unit, kiểm hash37artifact và đối chiếu kết luận Q3. **S07 APPROVED theo điều phối ở mức kết quả cục bộ**; không phải lời duyệt nguyên văn do agent tạo, không tương đương PR MERGED. Được giao commit/push/mở PR p1-s07-olap vào main, không merge/dashboard.
+
+Đã kiểm trước công bố: 37artifact/hash và bốn file runtime khớp bản review; report PASS/FAIL/run_id/hash G2 giữ nguyên. Workingtree đúng phần S07/P1, kế hoạch untracked ngoài phạm vi không stage. Origin đúng repository, main mặc định, quyềnpush đạt; chưa có PR S07 ở thời điểm kiểm. Rà cả hai commit hồ sơ G2 cherry-pick f0c8a96/59ed6ed, không chỉ diff OLAP cuối. Commit code công bố và URL PR chỉ ghi sau khi thực hiện/xác minh, xem docs/P1/s07_publication.md/.json.
+
+Không chạy lại ETL, cài view hoặc OLAP trong lượt công bố. Helpercatalog S07 **chưa được kiểm bằng full refresh mới**; dedicated_read_only_account_verified=false và P2intakeNOT_CONFIRMED giữ nguyên. Report và ledger S07 bàn giao là snapshot lịch sử; hash tài liệu mới chỉnh ghi ledger công bố riêng. Chưa merge/dashboard/G3 hoặc thay quyền/firewall. Các mục WAITING_REVIEW phía dưới là lịch sử bàn giao trước thông báo chấp nhận.
+
+---
+
+## Hiện hành — S07 OLAP WAITING_REVIEW, 18/10/2026
+
+PR9 G2 MERGED/ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205 theo xác nhận điều phối và observation API đã lưu; P1 không merge. Code ETL công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6. P2 intake NOT_CONFIRMED; dedicated_read_only_account_verified=false.
+
+Bảo toàn STATE/observation tại ea29430; main fast-forward b5ce06c; nhánh p1-s07-olap ghép chọn lọc hồ sơ500b293→f0c8a96 và checkpoint→59ed6eddae4981b2c90e8ec8b1cad036270baf9c. Không đưa lại ETL đã merge/P2/plan; không conflict/reset/stash/force. OPEN trong report công bố giữ lịch sử; bản cập nhật này ghi MERGED. Hồ sơ ghép và OLAP chưa push/PR.
+
+Sáu view OLAP analytics đã COMMITTED; catalog12view, bốn view contract và bảng không đổi. O1–O6 chạy READ ONLY PASS af6dbc20b40d4a47aa3ea71bde6fd107 (7.016s), base59ed6ed, code chưa commit có SHA thực chạy. KPI1000209/tổng3582313/user6040/phim có rating3706; O5 216ô và ngưỡng100 cố định, quý biên loại rank; O6 53541rating/tổng185726. 73/73 unit PASS, fixture3affa68a PASS/rollback schema thử, read-only preflight595c3690 và postcheck7830281b PASS/đủbốnhash G2. Lỗi xuất Decimal đầu tiên giữ FAIL riêng, đã sửa và chạy lại thật.
+
+Helpercatalog S05 mở đúng bộ sáu view bổ sung, không thay chuẩn hóa/table/contract. Không chạy lại fullrefresh hoặc sửa report cũ. CSV Git chỉ tổng hợp runPASS được allowlist; dữ liệu theo user/credential/plan vẫn loại. Chi tiết docs/agent/steps/P1/S07.md, docs/P1/olap_findings.md, results/olap/s07_summary.json. **S07 WAITING_REVIEW**, chưa điều phối duyệt kết quả; phần OLAP chưa commit/push/PR. Dừng, chưa dashboard/BI/G3/đổi quyền/firewall hoặc kết nối hai máy.
+
+---
+Các mục dưới đây là hồ sơ lịch sử tại thời điểm ghi; trạng thái hiện hành xem mục mới nhất bên trên.
+
 ## Quan sát GitHub sau công bố — PR9 đã được merge bên ngoài thao tác agent
 
 API xác minh PR#9 CLOSED/MERGED lúc **2026-10-18T13:56:29Z**, actor GitHub **hungvu205**, merge commit/main **ad51ba6536d0468c05b833ac05be9f18e9d9d87f**. Agent không gửi lệnh/API merge và không tự coi quan sát này là lời duyệt người dùng hoặc P2 đã nhậnG2. PR đã được mở OPEN trước đó đúng lệnh; các trạng thái OPEN phía dưới là lịch sử.

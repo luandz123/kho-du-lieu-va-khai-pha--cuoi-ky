@@ -1,0 +1,25 @@
+{
+  "step": "S07_UNIT_REGRESSION",
+  "status": "PASS",
+  "evidence_source": "Observed unittest command output in current agent turn; not a re-run of historical 65-test report",
+  "command": ".venv/Scripts/python.exe -X utf8 -m unittest discover -s tests/warehouse -p test_*.py",
+  "tests_run": 73,
+  "failures": 0,
+  "errors": 0,
+  "reported_duration_seconds": 0.107,
+  "base_commit": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c",
+  "test_files_sha256": {
+    "tests/warehouse/test_s05_staging.py": "148e50d98fa22b8bfaf3b0afeca544592bc8d75c693c988de2ad209e220e0801",
+    "tests/warehouse/test_s06a_dimensions.py": "501e3b589d2468fb0c4ff91e3b2be52ba5fe7d0585b3b0ba296d81f037e23692",
+    "tests/warehouse/test_s06b_bridge.py": "9bf00b951740523ce55d75621dd8789a5253f4b439bdeeb3b64ea960ce528313",
+    "tests/warehouse/test_s06c_fact.py": "a216604106e67c76d8ee91a19c6b71e7870e094a98c8860fa34e3a0f8fe7d77a",
+    "tests/warehouse/test_s06d_refresh.py": "490734f467b284b2bf12180b01ca94b3d655f5877d3542f21ef0fee029f71a5d",
+    "tests/warehouse/test_s07_catalog.py": "c0db200e5caa6145f3d3a58e662ad2efb62c4e3e15a7b0dc0bd25a5e3fdd47cd"
+  },
+  "runtime_code_sha256": {
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  }
+}

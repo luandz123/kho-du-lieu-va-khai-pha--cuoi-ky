@@ -76,5 +76,7 @@ htmlcov/
 
 # Generated data is denied by default; aggregate CSV exceptions need review.
 # Manifests, source_manifest.json, source code and SQL remain eligible for Git.
+# S07 reviewed aggregate outputs only (no user ID/history, raw or canonical exports).
+!/results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/*.csv
 .DS_Store
 Thumbs.db

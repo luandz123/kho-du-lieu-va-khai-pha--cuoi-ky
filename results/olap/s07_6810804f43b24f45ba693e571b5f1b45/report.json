@@ -1,0 +1,32 @@
+{
+  "step": "S07",
+  "action": "install",
+  "run_id": "6810804f43b24f45ba693e571b5f1b45",
+  "started_at_utc": "2026-10-18T15:39:38.462357+00:00",
+  "base_commit": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c",
+  "code_state": "WORKING_TREE_HASH_AT_RUN",
+  "code_sha256": {
+    "olap/run_olap.py": "923b0c1262246fdc5a35fbbc4717deb6f59dc6beb65d22406f17f44555487c66",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  },
+  "g2_manifest_run_id": "6501a547065246869b98b6ab6531190e",
+  "personal_rows_exported": false,
+  "status": "PASS",
+  "result": {
+    "transaction": "COMMITTED",
+    "installed_views": [
+      "analytics.v_olap_kpi",
+      "analytics.v_olap_movie_metrics",
+      "analytics.v_olap_genre_age_gender",
+      "analytics.v_olap_time_rollup",
+      "analytics.v_olap_genre_quarter",
+      "analytics.v_olap_movie_day_segment"
+    ],
+    "catalog_views": 12,
+    "table_and_contract_signature_unchanged": true,
+    "signature": "4987258f5f7b0f44d00db8532e43bf4c4d9924a2c3f0f1ebeb033c406943127a"
+  },
+  "duration_seconds": 0.375
+}

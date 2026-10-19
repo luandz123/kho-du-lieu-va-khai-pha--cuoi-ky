@@ -1,5 +1,28 @@
 # Quyết định P1
 
+## Công bố S07 theo lệnh điều phối, 19/10/2026
+
+P1-D78: Điều phối chấp nhận S07 kết quả cục bộ sau review SQL/code,73unit/37artifact/Q3; giao commit/push/PR, chưa merge. Ghi riêng functional acceptance, PRreview và MERGED. Không tạo lời duyệt nguyên văn người dùng hoặc tự chuyển dashboard11A.
+
+P1-D79: Đóng gói cả hai commit hồ sơ G2 ghép kèm và S07. Chỉ chín CSV tổng hợp của run af6dbc20 trong ngoại lệ .gitignore chính xác; CSV runlỗi cục bộ khôngstage, observationFAIL giữ Git. Không đổi code/SQL đã review, bảng/contract/P2/nguồn; không rerunDB vì hồ sơ.
+
+P1-D80: Giữ run/base/hashcode và ledger bàn giao37artifact lịch sử bất biến; ledger công bố ghi hash tài liệu hiện tại, codecommit công bố riêng với runtimebase59ed6ed. Commit phần việc trướcfetch/tíchhợpmain, chỉ stage đườngdẫnP1 đã rà. Khôngreset/force hoặc ghiđèP2. Giới hạn fullrefreshhelper/accountreadonly/P2intake giữ nguyên.
+
+---
+
+## S07 — thực hiện theo lệnh điều phối, chờ review
+
+P1-D74: PR9 đã MERGED bên ngoài agent; ghép chọn lọc hồ sơ500b293 và quan sát hậu merge sau checkpoint an toàn. Giữ report OPEN/run cũ là lịch sử, cập nhật MERGED ở hồ sơ mới. Không suy P2 đã nhận G2.
+
+P1-D75: Chỉ thêm sáu view analytics, không đổi bảng/bốn view contract. Catalog allowlist nhận core G2 và đúng bộ sáu view tùy chọn; từ chối partial/rogue. Đây là điều chỉnh helper để hậu kiểm tích hợp đọc được snapshot S07, đã regression73test; không tuyên bố fullrefresh đã chạy với helper mới.
+
+P1-D76: O1/O4 tổng rating duy nhất; O3/O5 count gán genre. Mean SUM/COUNT. O6 EXISTS chọn hợp genre tránh nhân rating; ngày UTC và khoảng nửa mở. O5 đủ genre×quý/zero-fill trướcLAG; n_prev0 NULL, ngưỡng100 giữ cố định; quý hiện tại/trước là biên không rank; share chia tổng gán genre cùng quý, bộ lọc O5 toàn bộ.
+
+P1-D77: Metadata Decimal xuất chuỗi giữ precision, ngày ISO; exporter sửa riêng OLAP. Giữ quan sát FAIL và CSV cục bộ lần lỗi, không ghi lại thành PASS; run mới/fixture mới có SHA thực. Chỉ allowlist CSV tổng hợp đúng thư mục runPASS, chưa stage/push. Các quyết định S07 hiện là thực thi theo phạm vi giao, kết quả WAITING_REVIEW.
+
+---
+Các mục dưới đây là hồ sơ lịch sử tại thời điểm ghi; trạng thái hiện hành xem mục mới nhất bên trên.
+
 ## Công bố ETL/G2
 
 P1-D73: Code6D công bố4fa9cf17aa41e5ff84d4490886eeac27971e46f6, origin/main52dd682 không đổi saufetch nên không merge. Push và mởPR#9 thành công; API OPEN/chưaMERGED,65file/blob khớpGit ởHEADlúcmở11a3d73. Giữ PRreview riêng với6Dđãchấpnhận vàP2NOT_CONFIRMED. CI0check/statuspending không phảiPASS; finalHEAD của commit hồ sơ được xác minh riêng, không tự ghi SHA của chính file ledger trong file đó.

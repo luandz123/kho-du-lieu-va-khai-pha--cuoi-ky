@@ -1,0 +1,165 @@
+{
+  "step": "S07",
+  "state": "WAITING_REVIEW",
+  "branch": "p1-s07-olap",
+  "base_commit": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c",
+  "integration_base_main": "b5ce06ce73d8fe5d80ad268a7f57fdfd8b4f0bb2",
+  "code_state": "UNCOMMITTED_WORKING_TREE",
+  "g2_pr9_state": "MERGED",
+  "g2_merge_commit": "ad51ba6536d0468c05b833ac05be9f18e9d9d87f",
+  "g2_code_publication_commit": "4fa9cf17aa41e5ff84d4490886eeac27971e46f6",
+  "g2_manifest_run_id": "6501a547065246869b98b6ab6531190e",
+  "p2_intake_status": "NOT_CONFIRMED",
+  "dedicated_read_only_account_verified": false,
+  "run_id": "af6dbc20b40d4a47aa3ea71bde6fd107",
+  "run_report": "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json",
+  "fixture_report": "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json",
+  "unit_test_report": "results/olap/s07_unit_tests.json",
+  "postcheck_report": "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json",
+  "code_sha256": {
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90"
+  },
+  "aggregate_exports": {
+    "O1": {
+      "rows": 1,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O1.csv",
+      "sha256": "1bab5d73e9a41208edd113e202baf8e0b6bf8659fc76ac791b71647d134d7ebc"
+    },
+    "O2": {
+      "rows": 10,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O2.csv",
+      "sha256": "bf761bf303f9e4cfc4a688290f70274aa7c2befce91cf15de6197ef3c25410b1"
+    },
+    "O3": {
+      "rows": 126,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3.csv",
+      "sha256": "31f2bcc655597d2e8205fa075b2f3343eeefd79e7235249a49fb04cd678530b8"
+    },
+    "O4": {
+      "rows": 51,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O4.csv",
+      "sha256": "60664ec0819b9efb354a19daf3705dadaafb87edfd2e9b9c8520e75bc016e39b"
+    },
+    "O5": {
+      "rows": 216,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O5.csv",
+      "sha256": "3a9bdfccdaddc6128418b124b91941a3f3da9ecf61d10453bc455cbe402997ae"
+    },
+    "O6": {
+      "rows": 5032,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O6.csv",
+      "sha256": "5c3e09f7760d008eca126155b3049ad920a9e3c9f7e7e4d670c760a1d593f271"
+    },
+    "O3_all_genders": {
+      "rows": 126,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_all_genders.csv",
+      "sha256": "2961413cc02bde610e9c141669d6a2cc779e2da32dcbe2cf7325b4d63a8931d5"
+    },
+    "O3_dice": {
+      "rows": 2,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_dice.csv",
+      "sha256": "f3ed7eb88d949917089a7ad1157abbcd74b47e47f0d35afb1840a45cf39fc955"
+    },
+    "O3_pivot_F": {
+      "rows": 18,
+      "path": "results\\olap\\s07_af6dbc20b40d4a47aa3ea71bde6fd107\\O3_pivot_F.csv",
+      "sha256": "c3ba0a2ab59cda177047e512feaf2a1a730387eb5c27662448dbd2a913f56e25"
+    }
+  },
+  "historical_failed_export_csvs": "Kept locally and ignored; failure observation JSON is Git-eligible",
+  "changes_this_step": [
+    ".gitignore",
+    "README.md",
+    "database/README.md",
+    "database/views.sql",
+    "docs/P1/dw_handoff.md",
+    "docs/P1/olap_findings.md",
+    "docs/P1/s06d_handoff.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S06.md",
+    "docs/agent/steps/P1/S07.md",
+    "etl/README.md",
+    "etl/s05_staging.py",
+    "olap/README.md",
+    "olap/queries.sql",
+    "olap/run_olap.py",
+    "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json",
+    "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json",
+    "results/olap/s07_final_audit.json",
+    "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json",
+    "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json",
+    "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json",
+    "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json",
+    "results/olap/s07_summary.json",
+    "results/olap/s07_unit_tests.json",
+    "tests/warehouse/check_s07_olap.py",
+    "tests/warehouse/test_s07_catalog.py"
+  ],
+  "documentation_cherry_picks": {
+    "500b29347bfe1834434a401bc5e32cf23c3f6c03": "f0c8a960c3400cf8e8e36c1c4a6b3e93ddbea8d4",
+    "ea29430083c062e5f5fefb8b8ee13faa2188a9e5": "59ed6eddae4981b2c90e8ec8b1cad036270baf9c"
+  },
+  "artifact_sha256": {
+    ".gitignore": "dda77f0fe1ed4a38a3cf495297b740f592f35d17b5c4f40a82041b5e97193916",
+    "README.md": "1244dfc30d2ffd1b5910f27f908e8f24d8796cf98836077423c6fa3a3d4bfeb4",
+    "database/README.md": "cb3197b5cb4264e199e0ab0e71966813de6cbc6e79c082248d5a10f1028af673",
+    "database/views.sql": "752c3013b6e386879ef237cf7b8266b5a536ec4562cac719aafa99820ba265ea",
+    "docs/P1/dw_handoff.md": "c4390640e227116bc52c5556af6c3e834b56e02f550b9eca7e5857beb1d25954",
+    "docs/P1/olap_findings.md": "a885f59889ac558eafd149bf5565b7df4c539ed0b90e4843d31de0e00d1ae582",
+    "docs/P1/s06d_handoff.md": "fbe88a5fba839a765974ba21ddb3c88a44ca498bfc33342558f489ffdfe39496",
+    "docs/agent/DECISIONS_P1.md": "4dd6d2c8077115efc3bd4d67a72bfe31e2d9981b958f7508ab5c25584520e78e",
+    "docs/agent/PROMPTS_P1.md": "9e961f36b8d87809f0cbbeb6e3b44c6218b77dc11b3834473e9e65445366e905",
+    "docs/agent/REVIEWS_P1.md": "48725a183789aebeb3026eb796982350ffa66388028c985d5bb2ed357dff8a3a",
+    "docs/agent/STATE_P1.md": "e893ba508e98f0d2623738d5ba5e50729f47cdaec387d84b488a9e9c1f52e05a",
+    "docs/agent/steps/P1/S06.md": "abc456a8f85edb04e8aacf26d56c826e9403c9b477a18f223e2b913faae40a92",
+    "docs/agent/steps/P1/S07.md": "2ab2eb82d968bb49e1ba20a9a832a8565747f9129bd579a1aba8076a39fb535a",
+    "etl/README.md": "72feab37889c6bdd8123b8535f4388bae50137126ce5dcb54e7777289ca677ed",
+    "etl/s05_staging.py": "38d584007b0e0aa4fcd908ff0a3ada9944a890feb1bb4ddb2152b2d909b81b90",
+    "olap/README.md": "0fc5e443d8791b75456db63981714ddb84836dda445e2625ff3bf374191ad9a8",
+    "olap/queries.sql": "090a884c51d2ee5fcd2b2806dfb8c5cfdd00aee099ae6a34a25c5e141c2d7ad0",
+    "olap/run_olap.py": "4ad30d7d7a35644fdd92fe73bab40723002889c8fdd5954f28b24a55465c9f80",
+    "results/olap/s07_6810804f43b24f45ba693e571b5f1b45/report.json": "10a5021319f2d1ca4a905e8054fb843f398413c072e459f1272caa71adb20385",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O1.csv": "1bab5d73e9a41208edd113e202baf8e0b6bf8659fc76ac791b71647d134d7ebc",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O2.csv": "bf761bf303f9e4cfc4a688290f70274aa7c2befce91cf15de6197ef3c25410b1",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3.csv": "31f2bcc655597d2e8205fa075b2f3343eeefd79e7235249a49fb04cd678530b8",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_all_genders.csv": "2961413cc02bde610e9c141669d6a2cc779e2da32dcbe2cf7325b4d63a8931d5",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_dice.csv": "f3ed7eb88d949917089a7ad1157abbcd74b47e47f0d35afb1840a45cf39fc955",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O3_pivot_F.csv": "c3ba0a2ab59cda177047e512feaf2a1a730387eb5c27662448dbd2a913f56e25",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O4.csv": "60664ec0819b9efb354a19daf3705dadaafb87edfd2e9b9c8520e75bc016e39b",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O5.csv": "3a9bdfccdaddc6128418b124b91941a3f3da9ecf61d10453bc455cbe402997ae",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/O6.csv": "5c3e09f7760d008eca126155b3049ad920a9e3c9f7e7e4d670c760a1d593f271",
+    "results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json": "a800755595bea88ee3e737551a683406e1340e2b59b497ca7394feb2ab701e98",
+    "results/olap/s07_export_failure_123a8e762ec8402789dcfd4ba94d966b.json": "b45a7120868d420a7f25fb93e27e396bb1a8088322331ca22040c28af8fe9aff",
+    "results/olap/s07_fixture_3affa68a5e8142dab24d5b91beed2f9a.json": "ee3587924ad34cb3c9e5fed1f7a37dd5fe440175eae5ac559e85f2d4704dab1a",
+    "results/olap/s07_fixture_f8164e4b8c1f49c99dc1bcfd23f43832.json": "274a91527267ce3911d33576b003eaca8edfaea6e02cda976e0945ee5bf3e329",
+    "results/olap/s07_postcheck_7830281b4a3b4075937773561272fbc5.json": "30fb701d989e9fbd0e78c311c9af87190c46cab181db15f6b63eec8c2a727664",
+    "results/olap/s07_preflight_595c3690edf9413b9d6555c7529e3d1c.json": "1b183e9f37cc6a933ffc49fc3e863887e4260a5cc01fc6c165d44a58c9414a56",
+    "results/olap/s07_unit_tests.json": "2bb2158e2b509fd15fb3d76cd5a86100516da6e1e6cfc8b40f59e3903df44a76",
+    "tests/warehouse/check_s07_olap.py": "d139c6a997f3848e24e90959c8a4e366265ffe23819ef05ff2f61b843c6a9d6b",
+    "tests/warehouse/test_s07_catalog.py": "c0db200e5caa6145f3d3a58e662ad2efb62c4e3e15a7b0dc0bd25a5e3fdd47cd"
+  },
+  "ledger_excludes_self_and_final_audit": true,
+  "limitations": [
+    "No full refresh re-run with S07 catalog extension",
+    "No P2 intake or dedicated read-only account verification",
+    "No dashboard/Superset BI/G3 or permission/firewall changes",
+    "No S07 commit/push/PR",
+    "Rubric not independently provided/verified"
+  ]
+}

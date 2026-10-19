@@ -1,5 +1,13 @@
 # P1 — S05: cấu trúc đã duyệt và raw staging
 
+## Cập nhật S07 — PR9 đã MERGED; các mục công bố phía dưới là lịch sử
+
+Điều phối xác nhận PR9 G2 MERGED tại ad51ba6536d0468c05b833ac05be9f18e9d9d87f bởi hungvu205, agent không merge. Code ETL công bố tái tạo 4fa9cf17aa41e5ff84d4490886eeac27971e46f6; snapshot G2 run6501a547 giữ nguyên. Hồ sơ500b293 và observation hậu merge đã ghép chọn lọc trên p1-s07-olap, chưa công bố PR mới. Report công bố OPEN/run cũ giữ nguyên để truy vết.
+
+S07 thêm sáu view tổng hợp analytics, không đổi bốn view contract/bảng. Có hậu kiểm chỉ đọc khớp G2; không chạy lại full refresh. Catalog helper chỉ mở allowlist bộ sáu view; hash S07 không thay bundle lịch sử. Kết quả S07 WAITING_REVIEW, xem docs/agent/steps/P1/S07.md và docs/P1/olap_findings.md (tính từ gốc repository). Chưa dashboard/G3/quyền BI; P2 intake NOT_CONFIRMED và dedicated_read_only_account_verified=false.
+
+---
+
 **Công bố ETL/G2:** [PR#9 OPEN/chờreview](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/9), code tái tạo **4fa9cf17aa41e5ff84d4490886eeac27971e46f6**. 6D được điều phối chấp nhận cục bộ; chưa merge hoặc P2 nhậnG2. [Hồ sơ công bố](../docs/P1/g2_publication.md) giữ provenance/runtimehash; các nhãn chưacommit/push phía dưới là lịch sử. Không thực thi fullrefresh mới trong lượt công bố.
 
 ## Hiện hành: full refresh 6D và metadata G2

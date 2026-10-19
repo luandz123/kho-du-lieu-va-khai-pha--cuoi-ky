@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "run_id": "123a8e762ec8402789dcfd4ba94d966b",
+  "observation": "Recovered after CLI metadata export failed: Decimal was not JSON serializable. Aggregate CSV files existed; original report was not published. Not a successful handed-off run. Queries were read-only.",
+  "original_report_exists": false,
+  "runner_sha256_before_fix": "923b0c1262246fdc5a35fbbc4717deb6f59dc6beb65d22406f17f44555487c66",
+  "exports": {
+    "O1.csv": "1bab5d73e9a41208edd113e202baf8e0b6bf8659fc76ac791b71647d134d7ebc",
+    "O2.csv": "bf761bf303f9e4cfc4a688290f70274aa7c2befce91cf15de6197ef3c25410b1",
+    "O3.csv": "31f2bcc655597d2e8205fa075b2f3343eeefd79e7235249a49fb04cd678530b8",
+    "O3_all_genders.csv": "2961413cc02bde610e9c141669d6a2cc779e2da32dcbe2cf7325b4d63a8931d5",
+    "O3_dice.csv": "f3ed7eb88d949917089a7ad1157abbcd74b47e47f0d35afb1840a45cf39fc955",
+    "O3_pivot_F.csv": "c3ba0a2ab59cda177047e512feaf2a1a730387eb5c27662448dbd2a913f56e25",
+    "O4.csv": "60664ec0819b9efb354a19daf3705dadaafb87edfd2e9b9c8520e75bc016e39b",
+    "O5.csv": "3a9bdfccdaddc6128418b124b91941a3f3da9ecf61d10453bc455cbe402997ae",
+    "O6.csv": "5c3e09f7760d008eca126155b3049ad920a9e3c9f7e7e4d670c760a1d593f271"
+  },
+  "duration_seconds": null
+}
