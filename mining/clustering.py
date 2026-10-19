@@ -18,6 +18,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import tempfile
 import time
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -478,12 +479,20 @@ def export_g3_handoff_package(
     - user_cluster.csv: (user_id, cluster_id, status, model_version)
     - cluster_genre_profile.csv: (cluster_id, genre_name, mean_preference, n_users)
     - manifest.json: Full contract v2 metadata, actual verified canonical_hashes, and checksums.
+
+    Publication guarantees:
+    - Fully constructs DataFrames, serializes CSV bytes, and computes SHA-256 hashes in memory.
+    - Validates contract rules, frozen fingerprints, existing package internal consistency,
+      and version anti-reuse BEFORE touching any target files.
+    - Rejects conflicting payloads under the same model_version before writing.
+    - Disallows overwriting or bypassing corrupted/inconsistent existing packages.
+    - Atomic publication via isolated temporary staging directory; cleans up completely on failure.
     """
-    output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir = Path(output_dir)
     assigned_user_ids = feat_matrix.index.values
     k_clusters = len(np.unique(labels))
 
-    # 1. Version freeze check for frozen G3 model_version
+    # 1. Static parameter and frozen fingerprint validation
     if model_version == FROZEN_G3_MODEL_VERSION:
         if k_clusters != FROZEN_G3_FINGERPRINT["k"]:
             raise ValueError(
@@ -500,7 +509,6 @@ def export_g3_handoff_package(
                 f"model_version '{FROZEN_G3_MODEL_VERSION}' is frozen for seed {FROZEN_G3_FINGERPRINT['seed']}, "
                 f"but received seed {CHOSEN_SEED}"
             )
-        # Verify canonical_hashes match frozen canonical hashes
         expected_can_hashes = FROZEN_G3_FINGERPRINT["canonical_hashes"]
         for tbl, exp_h in expected_can_hashes.items():
             act_h = canonical_hashes.get(tbl)
@@ -510,26 +518,63 @@ def export_g3_handoff_package(
                     f"Table '{tbl}' hash mismatch: actual={act_h} != expected={exp_h}"
                 )
 
-    # 2. General anti-reuse check against existing package on disk in output_dir
+    # 2. Existing package consistency and anti-reuse check on disk (PRE-FLIGHT)
     manifest_path = output_dir / "manifest.json"
-    if manifest_path.exists():
+    user_cluster_csv_path = output_dir / "user_cluster.csv"
+    profile_csv_path = output_dir / "cluster_genre_profile.csv"
+
+    existing_manifest: Optional[Dict[str, Any]] = None
+    has_manifest = manifest_path.exists()
+    has_uc = user_cluster_csv_path.exists()
+    has_prof = profile_csv_path.exists()
+
+    if has_manifest or has_uc or has_prof:
+        if not has_manifest:
+            raise ValueError(
+                f"Corrupted or incomplete existing handoff package at '{output_dir}': "
+                f"CSV file(s) exist but 'manifest.json' is missing."
+            )
+        if not has_uc or not has_prof:
+            raise ValueError(
+                f"Corrupted or incomplete existing handoff package at '{output_dir}': "
+                f"'manifest.json' exists but required CSV file(s) are missing."
+            )
+
         try:
             with open(manifest_path, "r", encoding="utf-8") as f:
                 existing_manifest = json.load(f)
-            if existing_manifest.get("model_version") == model_version:
-                existing_can = existing_manifest.get("canonical_hashes", {})
-                if existing_can and existing_can != canonical_hashes:
-                    raise ValueError(
-                        f"Cannot reuse model_version '{model_version}' with different input data. "
-                        f"Existing package at {output_dir} has canonical_hashes={existing_can}, "
-                        f"attempting to export with {canonical_hashes}"
-                    )
         except Exception as e:
-            if isinstance(e, ValueError):
-                raise
-            pass
+            raise ValueError(f"Corrupted existing manifest at '{manifest_path}': invalid JSON ({e})")
 
-    # 3. Build user_cluster DataFrame
+        if not isinstance(existing_manifest, dict) or "files" not in existing_manifest:
+            raise ValueError(f"Corrupted existing manifest at '{manifest_path}': missing required 'files' dictionary")
+
+        # Validate internal consistency of existing files on disk
+        existing_files = existing_manifest.get("files", {})
+        for expected_fname in ["user_cluster.csv", "cluster_genre_profile.csv"]:
+            if expected_fname not in existing_files or "sha256" not in existing_files[expected_fname]:
+                raise ValueError(
+                    f"Corrupted existing manifest at '{manifest_path}': missing checksum entry for '{expected_fname}'"
+                )
+            expected_disk_hash = existing_files[expected_fname]["sha256"]
+            actual_disk_hash = compute_file_sha256(output_dir / expected_fname)
+            if actual_disk_hash != expected_disk_hash:
+                raise ValueError(
+                    f"Corrupted existing handoff package at '{output_dir}': "
+                    f"checksum mismatch for '{expected_fname}' (disk={actual_disk_hash} != manifest={expected_disk_hash})"
+                )
+
+        # Anti-reuse validation for canonical_hashes under same model_version
+        if existing_manifest.get("model_version") == model_version:
+            existing_can = existing_manifest.get("canonical_hashes", {})
+            if existing_can and existing_can != canonical_hashes:
+                raise ValueError(
+                    f"Cannot reuse model_version '{model_version}' with different input data. "
+                    f"Existing package at '{output_dir}' has canonical_hashes={existing_can}, "
+                    f"attempting to export with {canonical_hashes}"
+                )
+
+    # 3. Construct DataFrames in memory and strictly validate Data Contract v2
     label_map = dict(zip(assigned_user_ids, labels))
 
     user_cluster_records = []
@@ -549,21 +594,23 @@ def export_g3_handoff_package(
 
     user_cluster_df = pd.DataFrame(user_cluster_records)
 
-    # Validate user_cluster contract before writing
-    assert list(user_cluster_df.columns) == ["user_id", "cluster_id", "status", "model_version"]
-    assert len(user_cluster_df) == len(user_status_df), "User count mismatch"
+    # Validate user_cluster contract in memory
+    if list(user_cluster_df.columns) != ["user_id", "cluster_id", "status", "model_version"]:
+        raise ValueError("user_cluster DataFrame columns violate Data Contract v2")
+    if len(user_cluster_df) != len(user_status_df):
+        raise ValueError("User count mismatch in user_cluster DataFrame")
     assigned_mask = user_cluster_df["status"] == "assigned"
-    assert user_cluster_df.loc[assigned_mask, "cluster_id"].isin([str(c) for c in range(k_clusters)]).all()
-    assert (user_cluster_df.loc[~assigned_mask, "cluster_id"] == "").all()
-    assert (user_cluster_df["model_version"] == model_version).all()
+    valid_clusters = [str(c) for c in range(k_clusters)]
+    if not user_cluster_df.loc[assigned_mask, "cluster_id"].isin(valid_clusters).all():
+        raise ValueError("user_cluster DataFrame contains invalid cluster_id for assigned users")
+    if not (user_cluster_df.loc[~assigned_mask, "cluster_id"] == "").all():
+        raise ValueError("user_cluster DataFrame contains non-empty cluster_id for unassigned users")
+    if not (user_cluster_df["model_version"] == model_version).all():
+        raise ValueError("user_cluster DataFrame model_version mismatch")
 
-    user_cluster_csv_path = output_dir / "user_cluster.csv"
-    user_cluster_df.to_csv(user_cluster_csv_path, index=False, lineterminator="\n")
-
-    # 4. Build cluster_genre_profile DataFrame
+    # Build cluster_genre_profile DataFrame in memory
     feat_df_with_cluster = feat_matrix.copy()
     feat_df_with_cluster["cluster_id"] = labels
-
     cluster_counts = pd.Series(labels).value_counts().to_dict()
 
     profile_records = []
@@ -572,11 +619,9 @@ def export_g3_handoff_package(
         mean_prefs = c_features.mean(axis=0)
         n_users_in_c = int(cluster_counts.get(c, 0))
 
-        # Check sum equals 1.0 within SUM_TOLERANCE
         sum_mean = float(mean_prefs.sum())
-        assert abs(sum_mean - 1.0) <= SUM_TOLERANCE, (
-            f"Cluster {c} mean preference sum {sum_mean} exceeds tolerance {SUM_TOLERANCE}"
-        )
+        if abs(sum_mean - 1.0) > SUM_TOLERANCE:
+            raise ValueError(f"Cluster {c} mean preference sum {sum_mean} exceeds tolerance {SUM_TOLERANCE}")
 
         for g in GENRE_COLUMNS:
             profile_records.append({
@@ -589,19 +634,21 @@ def export_g3_handoff_package(
     profile_df = pd.DataFrame(profile_records)
     profile_df = profile_df.sort_values(["cluster_id", "genre_name"])
 
-    # Validate cluster_genre_profile contract before writing
-    assert list(profile_df.columns) == ["cluster_id", "genre_name", "mean_preference", "n_users"]
-    assert len(profile_df) == k_clusters * len(GENRE_COLUMNS), "Profile row count mismatch"
-    assert (profile_df["mean_preference"] >= 0.0).all()
-    assert (profile_df["mean_preference"] <= 1.0).all()
+    # Validate cluster_genre_profile contract in memory
+    if list(profile_df.columns) != ["cluster_id", "genre_name", "mean_preference", "n_users"]:
+        raise ValueError("cluster_genre_profile DataFrame columns violate Data Contract v2")
+    if len(profile_df) != k_clusters * len(GENRE_COLUMNS):
+        raise ValueError(f"Profile row count mismatch: expected {k_clusters * len(GENRE_COLUMNS)}, got {len(profile_df)}")
+    if not ((profile_df["mean_preference"] >= 0.0) & (profile_df["mean_preference"] <= 1.0)).all():
+        raise ValueError("cluster_genre_profile contains mean_preference outside [0.0, 1.0]")
 
-    profile_csv_path = output_dir / "cluster_genre_profile.csv"
-    profile_df.to_csv(profile_csv_path, index=False, lineterminator="\n")
+    # 4. In-memory CSV serialization and SHA-256 byte hashing
+    user_cluster_bytes = user_cluster_df.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    profile_bytes = profile_df.to_csv(index=False, lineterminator="\n").encode("utf-8")
+    user_cluster_sha256 = hashlib.sha256(user_cluster_bytes).hexdigest()
+    profile_sha256 = hashlib.sha256(profile_bytes).hexdigest()
 
-    # 5. Compute and verify SHA-256 hashes of generated CSVs
-    user_cluster_sha256 = compute_file_sha256(user_cluster_csv_path)
-    profile_sha256 = compute_file_sha256(profile_csv_path)
-
+    # 5. Frozen fingerprint validation on serialized CSV bytes
     if model_version == FROZEN_G3_MODEL_VERSION:
         expected_csvs = FROZEN_G3_FINGERPRINT["expected_csv_hashes"]
         if user_cluster_sha256 != expected_csvs["user_cluster.csv"]:
@@ -615,7 +662,23 @@ def export_g3_handoff_package(
                 f"actual={profile_sha256} != expected={expected_csvs['cluster_genre_profile.csv']}"
             )
 
-    # 6. Metadata and Manifest
+    # 6. Anti-reuse check on payload against existing package on disk
+    if existing_manifest is not None and existing_manifest.get("model_version") == model_version:
+        existing_files = existing_manifest.get("files", {})
+        existing_uc_hash = existing_files.get("user_cluster.csv", {}).get("sha256")
+        existing_prof_hash = existing_files.get("cluster_genre_profile.csv", {}).get("sha256")
+        if existing_uc_hash and existing_uc_hash != user_cluster_sha256:
+            raise ValueError(
+                f"Cannot reuse model_version '{model_version}' with conflicting payload in '{output_dir}': "
+                f"new user_cluster.csv hash={user_cluster_sha256} != existing={existing_uc_hash}"
+            )
+        if existing_prof_hash and existing_prof_hash != profile_sha256:
+            raise ValueError(
+                f"Cannot reuse model_version '{model_version}' with conflicting payload in '{output_dir}': "
+                f"new cluster_genre_profile.csv hash={profile_sha256} != existing={existing_prof_hash}"
+            )
+
+    # 7. Metadata and Manifest Preparation in memory
     if source_hashes is None:
         source_hashes = {}
         if CANONICAL_MANIFEST_PATH.exists():
@@ -693,8 +756,31 @@ def export_g3_handoff_package(
         },
     }
 
-    with open(manifest_path, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, indent=2, ensure_ascii=False)
+    manifest_bytes = json.dumps(manifest, indent=2, ensure_ascii=False).encode("utf-8")
+
+    # 8. Atomic Publication via Temporary Staging Directory
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.TemporaryDirectory(dir=output_dir, prefix=".staging_g3_handoff_") as staging_dir_str:
+        staging_dir = Path(staging_dir_str)
+        stage_uc = staging_dir / "user_cluster.csv"
+        stage_prof = staging_dir / "cluster_genre_profile.csv"
+        stage_manifest = staging_dir / "manifest.json"
+
+        stage_uc.write_bytes(user_cluster_bytes)
+        stage_prof.write_bytes(profile_bytes)
+        stage_manifest.write_bytes(manifest_bytes)
+
+        # Final sanity checks on staging files before replacing destination
+        if compute_file_sha256(stage_uc) != user_cluster_sha256:
+            raise RuntimeError("Staging user_cluster.csv corruption detected during publication")
+        if compute_file_sha256(stage_prof) != profile_sha256:
+            raise RuntimeError("Staging cluster_genre_profile.csv corruption detected during publication")
+
+        # Atomic replacement: safely overwrite/install handoff files
+        os.replace(stage_uc, user_cluster_csv_path)
+        os.replace(stage_prof, profile_csv_path)
+        os.replace(stage_manifest, manifest_path)
 
     return manifest
 
@@ -711,7 +797,6 @@ def main():
 
     print(f"=== Step 8B: K-Means Clustering & Profiling (Source: {args.source}, Mode: {args.mode}) ===")
     args.results_dir.mkdir(parents=True, exist_ok=True)
-    args.outdir.mkdir(parents=True, exist_ok=True)
 
     # 1. Load data
     tables = load_data(source=args.source)
