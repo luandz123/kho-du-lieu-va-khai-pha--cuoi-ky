@@ -2,23 +2,32 @@
 platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
 cachedir: .pytest_cache
 rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
-collecting ... collected 16 items
+collecting ... collected 25 items
 
-tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [  6%]
-tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [ 12%]
-tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [ 18%]
-tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe PASSED [ 25%]
-tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table PASSED [ 31%]
-tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package PASSED [ 37%]
-tests/mining/test_clustering.py::test_version_reuse_protection PASSED    [ 43%]
-tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 50%]
-tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 56%]
-tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 62%]
-tests/mining/test_clustering.py::test_figures_exist PASSED               [ 68%]
-tests/mining/test_clustering.py::test_export_preserves_existing_package_on_fingerprint_mismatch PASSED [ 75%]
-tests/mining/test_clustering.py::test_export_leaves_no_incomplete_package_when_validation_fails PASSED [ 81%]
-tests/mining/test_clustering.py::test_export_rejects_corrupted_existing_package_without_modifying PASSED [ 87%]
-tests/mining/test_clustering.py::test_export_reproduce_yields_exact_frozen_csv_hashes PASSED [ 93%]
-tests/mining/test_clustering.py::test_export_rejects_conflicting_payload_under_custom_model_version PASSED [100%]
+tests/mining/test_split_evaluation.py::test_temporal_split_tie_handling_and_boundary_integrity PASSED [  4%]
+tests/mining/test_split_evaluation.py::test_real_data_temporal_split_properties PASSED [  8%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_evaluation_cohort PASSED [ 12%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_candidate_universe_and_no_negative_sampling PASSED [ 16%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_precision_and_recall_denominator PASSED [ 20%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_tie_breaking_rules PASSED [ 24%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_relevant_outside_candidate_universe_and_macro_average PASSED [ 28%]
+tests/mining/test_split_evaluation.py::test_split_manifest_contract_and_structure PASSED [ 32%]
+tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [ 36%]
+tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [ 40%]
+tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [ 44%]
+tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe PASSED [ 48%]
+tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table PASSED [ 52%]
+tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package PASSED [ 56%]
+tests/mining/test_clustering.py::test_version_reuse_protection PASSED    [ 60%]
+tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 64%]
+tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 68%]
+tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 72%]
+tests/mining/test_clustering.py::test_figures_exist PASSED               [ 76%]
+tests/mining/test_clustering.py::test_export_preserves_existing_package_on_fingerprint_mismatch PASSED [ 80%]
+tests/mining/test_clustering.py::test_export_leaves_no_incomplete_package_when_validation_fails PASSED [ 84%]
+tests/mining/test_clustering.py::test_export_rejects_corrupted_existing_package_without_modifying PASSED [ 88%]
+tests/mining/test_clustering.py::test_export_reproduce_yields_exact_frozen_csv_hashes PASSED [ 92%]
+tests/mining/test_clustering.py::test_export_rejects_conflicting_payload_under_custom_model_version PASSED [ 96%]
+tests/mining/test_clustering.py::test_export_handles_simulated_io_failure_during_second_replace PASSED [100%]
 
-============================= 16 passed in 18.99s ==============================
+============================= 25 passed in 20.89s ==============================
