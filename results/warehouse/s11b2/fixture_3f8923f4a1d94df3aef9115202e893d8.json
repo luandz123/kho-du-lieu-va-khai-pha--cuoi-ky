@@ -1,0 +1,32 @@
+{
+  "at_utc": "2026-10-20T08:52:37.650750+00:00",
+  "status": "FAIL",
+  "tests": 7,
+  "failures": 1,
+  "errors": 0,
+  "schema": "p1_g3_fixture_95333abb7d904091b2de62b2de7aab62",
+  "production_analytics_before": [
+    0,
+    0,
+    0
+  ],
+  "synthetic_only": true,
+  "rollback_phases": [
+    "registry",
+    "users",
+    "profiles",
+    "activate"
+  ],
+  "code_sha256": {
+    "etl/g3_transaction.py": "ccd7d57971ffa4d37f89dd18db10dda54413aaa8fc24aa792acda707ff22b219",
+    "tests/warehouse/check_g3_transaction.py": "838718b046d6547204926ba5216703a279f8ca0e7e632c6a6ac7aeaec6eff854"
+  },
+  "production_analytics_after": [
+    0,
+    0,
+    0
+  ],
+  "fixture_removed": true,
+  "shared_engine_production_check_exercised": true,
+  "commit_ack_loss_unknown_checked": true
+}

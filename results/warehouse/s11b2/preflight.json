@@ -1,0 +1,104 @@
+{
+  "run_id": "bf242d3adfa1417694131c3642b85f4a",
+  "at_utc": "2026-10-20T08:53:40.939408+00:00",
+  "mode": "DRY_RUN",
+  "status": "FAIL",
+  "code_state": "WORKING_TREE_SHA256_NOT_IN_BASE_COMMIT",
+  "base_commit": "17e9d5664f247b7ee13446ff260937986d17b54a",
+  "code_sha256": {
+    "etl/g3_intake.py": "5a6162015463387347d8b54f6521ef0704269f2a4b8091af0b8c22fdc732179d",
+    "etl/g3_transaction.py": "97f0312a1622f14327f9427b1c5d4dbc1b382b37cfa9a7bce807be99e17b31c2",
+    "etl/load_g3.py": "634745bee7fed2ded45fdb05aa004a21629dd384e4d63742dfec091f5e426781"
+  },
+  "p2_intake_status": "NOT_CONFIRMED",
+  "write_retry": false,
+  "model_version": "kmeans_k4_seed42",
+  "payload_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+  },
+  "manifest_sha256": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0",
+  "before": {
+    "database": "movielens_btl",
+    "read_only": "on",
+    "dw": {
+      "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "row_counts": {
+        "users": 6040,
+        "movies": 3883,
+        "movie_genres": 6408,
+        "ratings": 1000209
+      },
+      "analytics_counts": {
+        "model_registry": 0,
+        "user_cluster": 0,
+        "cluster_genre_profile": 0
+      },
+      "plan": "INSERT_NEW_INACTIVE_VERSION_THEN_VERIFY_AND_ACTIVATE"
+    },
+    "protected_state": {
+      "sources": {
+        "staging.users_raw": {
+          "rows": 6040,
+          "ordered_row_md5": "41613a25953ee36c6f82b577bc968833"
+        },
+        "staging.movies_raw": {
+          "rows": 3883,
+          "ordered_row_md5": "2df9f038321699e2a459e73d57415340"
+        },
+        "staging.ratings_raw": {
+          "rows": 1000209,
+          "ordered_row_md5": "f2ad1444f262c29e58276e441b94b68d"
+        },
+        "dw.dim_user": {
+          "rows": 6040,
+          "ordered_row_md5": "0cb8b28e95f529ebe1adce302c93a829"
+        },
+        "dw.dim_movie": {
+          "rows": 3883,
+          "ordered_row_md5": "dbcf2b9620b74e145b686446079a8c8e"
+        },
+        "dw.dim_date": {
+          "rows": 1040,
+          "ordered_row_md5": "8e71d3be043b287242012580ab23c371"
+        },
+        "dw.dim_genre": {
+          "rows": 18,
+          "ordered_row_md5": "79adae2753cd78ea214b41c4acc15bfa"
+        },
+        "dw.bridge_movie_genre": {
+          "rows": 6408,
+          "ordered_row_md5": "12ae55061a94d5dac5befe1e24d39e6d"
+        },
+        "dw.fact_rating": {
+          "rows": 1000209,
+          "ordered_row_md5": "a5df6838adf7902726e417d42b54ad2c"
+        }
+      },
+      "project_relation_acl_sha256": "1e3df3bd62cccac073b1638d9b166874b87625e6a3bb853cf615bcfa32b579aa",
+      "bi_role_attributes": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "bi_memberships": [],
+      "schema_acl_sha256": "99c2bf933a3ff092bb2ee99a1ccb64ae6beffc8c6c315fa69ed2227a8e98b8ab"
+    },
+    "registry": [],
+    "cluster_sizes": {},
+    "status_counts": {},
+    "profile_aggregates": []
+  },
+  "error_code": "G3_DISPATCH_RUNTIME_ERROR",
+  "error_details": {},
+  "exception_type": "URLError",
+  "duration_seconds": 51.734
+}

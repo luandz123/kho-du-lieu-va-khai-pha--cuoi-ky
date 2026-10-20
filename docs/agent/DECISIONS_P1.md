@@ -1,5 +1,31 @@
 # Quyết định P1
 
+P1-D106: Điều phối chấpnhận11B-4đúngphạmviRESTlayoutrestore8091/cùngDW,giaoPRtoàn11B-1→4. ChỉZIPb5a9c987…938f6faeđúngđườngdẫnđượcGit;policyphasecôngbốkhácignoredhistory. GiữZIP/source snapshot/UUIDmapping/RESTscriptđủbộ;khôngZIPtựimporthoànchỉnh/DWbackup/hai máy. Chưamerge/12A.
+
+P1-D107: Main9fae38bđổiP2clusteringdoc/comments→guardHEADcũP2_CODE_PROVENANCEthật. SửaP1guardpinblobproducerbab0b404…đãduyệt/ancestry,giữlocalP2khớpHEAD;LFCRLFchỉcode,khôngnguồnCSV. Khôngsửamanifest/payload/metadataactivemodel.41unitcompat đạttrongcheckouttáchbiệt,FAILtrướcsửagiữ;test-onlypackagepathchốngthiếudữliệuignored,nokhôngtáitạo.
+
+P1-D103 (11B-4,20/10/2026): Theo điều phối chấp nhận11B-3, checkpoint38file4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4 giữnhánh/khôngpushPR. ExportnguyênbyteREST API3dashboard, ZIP129744byte/b5a9c987…938f6fae giữignored dùsecretauditđạt; chưađượccôngbốGit. DependencyclosureUUID3dash23chart6dataset1db, khôngđếmfileđơnlẻthaybằngchứng.
+
+P1-D104: Restore8091/projectbtl-movielens-s11b4-restore/version6.1.0,metadata17.11/home/network/cookie/secret riêng; khôngimport8089/GRANT/DDL/ETL/G3. PasswordmapAPIchínhthứcđọcBIlocalmemory, dùngrole7viewhiệulựckhôngwrite. Giữ2volume/serviceđểreview, chi phíDockerlocalkhôngcloud.
+
+P1-D105: PháthiệncustomlayoutnguồnthiếuUUIDnênexporterthêmôorphanlặp. KhôngsửaZIP/production; phục hồibốtụcthửquaPUTAPIbằngUUIDmapping,giữ8/5/10ôvànativefilter. Ghi bướcAPIbổsungbắtbuộcrunbook, khôngtuyênbốimportmộtbướcđãđạt. SQL/API23chart/UI5ca/hậuUIscopelayout/sourcepreservationđạt; 11B-4WAITING_REVIEW, chưacommitpushPRphầnmới, P2intakeG2NOT_CONFIRMED.
+
+P1-D100 (11B-3,20/10/2026): Theo lệnh điều phối, checkpoint cục bộ11B-2 được duyệt tại f663dcb4143202dac0835e4d5168e1b8558a6463, không push/PR. Giữ producerP2 bab0b4049d4e0b1724418b8a92d8afbeda4bc775/packageidentity đãkiểm, không đổi provenance theoHEAD hoặc chạyapply/ETL.
+
+P1-D101: Userdatasetactiveview+dwusers một dòng/user, window denominator trước nativefilter; profiledataset riêng4×18, khôngfanoutuser. Baseline toàn6038assigned cốđịnhmọifilter; thiếu bằng chứng2 KPIriêngngoàiscope; tỷtrọngquymô6038/cơcấucụmquymôgốc, nhãn nêurõsauage/gender khôngchuẩnhóalạivề100%. Baselinegiới/tuổi đơnbiến khôngđiềuchỉnhtheofiltercònlại.
+
+P1-D102: Heatmap chỉcụm, loạituổi/giới vì profileP2tínhsẵn; MAX(mean_preference) theoô, khôngSUMn_userslặp. DùngtênmôtảP2Q1, khôngsuynhânquảhayratingthànhlượtxem. BIchỉthêmSELECT3viewcụthể, tổng7view; PUBLIC TEMPgiữgiớihạn. 11B-3WAITING_REVIEW/chưacommitpushPR/exportrestore; P2G2intakeNOT_CONFIRMED.
+
+P1-D98: Theo lệnh điều phối chấp nhận11B-1, checkpoint17e9d56, mở dispatcher production riêng mặc địnhdryrun/--apply; không gỡ guard fixture. Giữ mapping preprocessingJSONB đã được chấp nhận; băm snapshotmemory trướcghi vàfreshDW saukhóa; cùngtransaction kiểm+nạp+activecuối. Nguồn9bảngSHARE,3analyticsSHAREROWEXCLUSIVE, advisory20261027,1. UNKNOWN khiCOMMITACKkhôngrõ, khôngretryghi.
+
+P1-D99: Đã chạy đúngapply COMMITTED4648f191 vàapply kiểmNOOP0dec3918; registered_atvàtoàn dữliệu giữnguyên, cảhaihậu kiểmconnectionROmới. 31unit/8integration/4hashG2/ninefingerprints/BIACL/19Supersetobjects đạt. Chỉcheckpoint11B-1 đượccommit; code11B-2 workingtreeSHA khônggán17e9d56làmcodeversion. GiữFAILcũ/P2NOT_CONFIRMED, chưa dashboard11B/ETL/DDL/quyền/export/pushPR. 11B-2WAITING_REVIEW.
+
+
+P1-D96: Theo lệnh điều phối20/10, xác minh PR15MERGED371aab7/côngbố11Cđượcchấpnhận; đồngbộmain/tạo p1-s11b-cluster-intake, giữ kếhoạch. Chỉ giao11B-1kiểmG3/dry-run, không ghi analytics. Tái tạo bằngcodeP2bab0b404 trong tmp/g3_venvriêng, giữ frozenpins; khácPythonpatch/OSnhưngchecksumkhớp. Không sửaP2 hoặcdependencyP1.
+
+P1-D97 (đề xuất cần review trong11B-1): dùng preprocessing jsonb hiện có để lưu method/training_config/payloadsha/provenance, kết hợp registryfields để xác định identity. Cùngversiongiốnghàng/metadata activevalid=>NOOP; khácpayload=>reject; invalidated+hairesultsrỗng+identitygiống chỉ dựkiếnreload sauDWrecheck. Engine hiệnkhóa production, chỉ fixture. Không tự duyệt mapping/dispatcherproduction; chờ11B-2.
+
+
 P1-D95: PR15 OPEN/chưaMERGED được API xác minh tại HEADbdb14fce8deb830999bcb4c17655100a72e6514e/base5a42c73c39c00780b2d5442c45662d93bdf0f23b; đủ52file/PRblob/remotetree khớp Git. Code tái tạobdb14fce8deb830999bcb4c17655100a72e6514e; runtimebase/hash giữ riêng. Chức năng APPROVED theo điều phối, PRWAITING_REVIEW. Chỉ cập nhật hồ sơ sau mở, không đổiSQL/metric/filter/ETL hoặc tựmerge/11B/G3.
 
 P1-D94: Theo thông báo điều phối do người dùng chuyển20/10, chức năng11C APPROVED; được commit/push/mởPR p1-s11c-trends vào main, gồm hồ sơ hậu merge11A đã ghép chọn lọc. Không đổi SQL/metric/filter và không rerun ETL/create/3khoảng chỉ để công bố. PR chưa merge; giữ report/hash cũ và giới hạn BI/P2/restore/fullrefreshS07; không11B/G3.

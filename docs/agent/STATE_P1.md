@@ -1,5 +1,91 @@
 # Trạng thái P1
 
+## Hiện hành — PR #18 OPEN, WAITING_REVIEW PR,20/10/2026
+
+Đã công bố [PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18) vào main, nhánh p1-s11b-cluster-intake. GitHub xác minh OPEN/merged=false; agent không merge. Chức năng11B-1→4 đã được điều phối chấp nhận theo phạm vi tương ứng; **PR WAITING_REVIEW**, chưa12A.
+
+Code tích hợp làm căn cứ tái lập **050b601c916b7b4f6be476640673c9978e0ba979**, base lúc mở **9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48**. Đã kiểm116file/blob lúc mở và ZIPremote đúngb5a9c987…938f6fae; snapshot lúc đó tại docs/P1/11b_publication_remote.json. Commit hồ sơ tiếp theo ghi quan sát này, không gán lại commit/hash cho run cũ; HEAD và toàn bộfile/blob sau commit hồ sơ được kiểm GitHub riêng trước bàn giao cuối.
+
+41test sau tích hợp main và gói producerbab0b404…đạt, manifest/payload/registry không đổi; FAILcompat cũ được giữ. GuardchỉsửaP1 để kiểm producerimmutable, vẫn chặn localP2bẩn. ZIPduynhất đượcduyệtGit, policy/gói/fullscope/JSONPythonYAML/secret/artifacthash đạt; báo cáo ignoredlocal cũ giữ lịch sử. README đủ ZIP+snapshot+UUIDmapping+RESTscript; không ZIPimportmộtbước/DWbackup/hai máy.
+
+8091healthy/volume thử giữreview;8089nghiệpvụ/nguồnmodelkhôngđổi, khôngETL/apply/importlại/quyềnfirewall. Giữ PUBLIC TEMP/fullrefreshS07G3 chưa kiểm/P2intakeG2NOT_CONFIRMED. Kế hoạch ngoài phạm vi giữuntracked, không stage. Dừng chờ review PR; không tự merge.
+
+---
+
+## Công bố toàn bộ 11B — chức năng đã được điều phối chấp nhận, chuẩn bị PR,20/10/2026
+
+Nguồnngườidùngchuyển: điều phối chấp nhận11B-4 theo phạmvi exportthật+importchínhthức+RESTphụchồibốtụctrên8091/cùngDWhiệnhữu;giaocommitpushmộtPRtoàn11B. Chấpnhậnchứcnăng11B-1→4khácPRMERGED;khôngtạolờiduyệtngườidùng. Giữcheckpoint17e9d56/f663dcb/4cc9ca8vàmọirunPASSFAIL/historicalhash, kếhoạchuntracked/P2/privateG3nguyênvẹn.
+
+ZIPb5a9c987…938f6faeđúng129744byteđượcphépGitriêngdashboard/superset_export.zip;ngoạilệđúngđườngdẫn,chặnZIPkhác/privateenv/userdata/góiG3. Ràlạisecret/CRC/memberSHA/UUIDdependencyđạt,reportlocalignoredcũgiữnguyên,auditcôngbốmới riêng. README dẫntớiZIP+source snapshot+UUIDmapping+RESTscript/runbook,khôngtuyênbốZIPtựimporthoànchỉnh/backupDW/hai máy.
+
+Mainmới9fae38bP2PR16/17đổichúthíchclustering. CheckouttáchbiệtxácnhậnP2_CODE_PROVENANCE ởguardcũ;P1fix đối chiếu producerimmutablebab0b404…trongancestry,khôngđổimanifest/package/registry. VẫngiữguardlocalP2phảikhớpHEAD/LFCRLFchỉcode.41testtrongcheckoutghépmainđạt;thiếupackageignoredtestbanđầugiữFAILvàtrỏpackagecũquaenvtest,nokhôngcopy/táitạo. Khôngapply/ETL/importlại. Observationmớiproduct/8091/scopemodel/quyềnđạt,8091volumeđanggiữ.
+
+Chi tiết docs/P1/11b_publication.md/.checks.json vàauditdashboard/restore/evidence. Commitcodecôngbố/PRURL/fullHEADbase/từngblobchỉghisauxácminh. GiữPUBLIC TEMP/cùngmáyversionDWhiệnhữu/chưafullrefreshS07G3/chưabackupDW/P2intakeG2NOT_CONFIRMED. Chưamerge/12A/quyềnfirewall. MụcWAITING_REVIEWkếtquảbêndưới làlịchsửtrướcthôngbáochấpnhậnmới.
+
+---
+
+## Hiện hành — 11B-4 export/restore WAITING_REVIEW, 20/10/2026
+
+Nguồn: người dùng chuyển điều phối chấp nhận chức năng11B-3, giao exportthật3dashboard vàrestoreinstance táchbiệt. Đã checkpoint38file11B-3 **4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4**, giữ nhánh **p1-s11b-cluster-intake**, khôngpushPR. Kếhoạchngoàiphạmvi/P2/bằngchứngcũgiữnguyên; WAITING_REVIEW11B-3 bên dưới là lịch sử nayđượcđiềuphốichấpnhận, khôngsuythànhMERGED.
+
+ZIP APIchínhthức dashboard/superset_export.zip129744byte, SHA **b5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae**;3dash/23chart/6dataset/1database, memberSHA/UUIDdependencyclosuređạt. Actualknownsecret/token/URIpassword/SSH/privatekeyauditđạt; passwordmasked. ZIPgiữnguyênbyte/ignored/localchờreviewGit, khôngtựtạoZIP/đóngdữliệu hoặc nớiignore.
+
+Môi trườngthử **8091/Superset6.1.0**, project btl-movielens-s11b4-restore; web+metadatahealthy/initexit0,2volume/network/cookie/secretmetadatariêng. BIreaderđúng7view/khôngprojectwrite/CREATE/member/admin, khôngGRANTmới/firewall. KhôngETL/applyG3/DDL hoặcimportproduction. Chỉmetadata cấu hình thửđượcimportbằngAPIchínhthức,passwordmap trongmemory từlocalignored.
+
+Điểmgiớihạnquantrọng: sourcecustomlayoutthiếuUUIDpernode, officialexport thêm23ôorphanUUID bêncạnh23ôlegacy. ZIP/8089khôngsửa. Sauimport dùngRESTPUTlayout vào3dashboardthử, mapUUID→IDmới, giữnguyên8/5/10ôvàscope. Đây là restorecó bướcđốisoátbốtụcbổsung, khôngcoiHTTP200/importmộtbướclàhoànhảo. Mapping/reportFAIL/observationsgiữtruyvết; nhiềuchart/datasetIDđổi.
+
+RunSQL/API **e4d784ce1cfc4b3ba9b06142de5a395b**,90.218s/codeworkingtreehashtrongreport,base4cc9ca8:23chartđạt,6datasetSQL/cộttime vàmetric/querycontextsauremapkhớp. Tổngquan1000209/Q32000324864;Animation2001Q1count1715/prev20068/QoQ−91.454056%/mẫu63335/rank1giảmítnhấtkhôngđổisaulọc;Sởthíchassigned6038/170,baseline6038/insufficient2/heatmap72 hoặc18ôchỉfiltercụm. UI5cathậtcóảnhAX; hậuUIlayout/scopemappingđúng. Production32objectvàsnapshot9bảngstagingDW/toànregistry/cụmgiữnguyên,API8089vẫnlọcđược.
+
+Bàngiao docs/P1/dashboard_restore_handoff.md + dashboard/restore/README.md/evidence/ledger. RAMthử~229.5+78.68MiB,metadata68884KiB/home4KiB,webcap2CPU2GiB/metadata1CPU512MiB;2container+2volume+1networkđanggiữreview, khôngcloudtrảphí/khôngxóavolume. GiữPUBLIC TEMP/chưafullrefreshS07G3/chưabackupDW/hai máy và **P2intakeG2NOT_CONFIRMED**. Export/restorecode/hồsơmớichưastage/commit/pushPR; **11B-4 WAITING_REVIEW**, dừngtrướccôngbố11B.
+
+---
+
+## Hiện hành — 11B-3 Dashboard Sở thích WAITING_REVIEW, 20/10/2026
+
+Nguồn: người dùng chuyển điều phối chấp nhận11B-2 sau review code/unit/artifact/hash/DB thực, giao riêng11B-3. Checkpoint25file11B-2 **f663dcb4143202dac0835e4d5168e1b8558a6463**, giữ nhánh **p1-s11b-cluster-intake**; không push/PR. Checkpoint không thay producer/package identity hoặc gán commit mới cho run production cũ. Mục WAITING_REVIEW11B-2 bên dưới là lịch sử, nay đã được điều phối chấp nhận.
+
+Dashboard3 thật http://127.0.0.1:8089/superset/dashboard/3/ , database1 BIreader/UTC, datasets5users/6profile, charts14–23. User một dòng/user, không join profile để đếm; profile72ô4×18mean_preference. Assigned6038/insufficientNULL2, quy mô2478/1393/760/1407; modelkmeans_k4_seed42 activevalid. Ba nativefilter cluster/age/gender có scope: baseline6038/insufficient2/model/baselinebars cố định, heatmap chỉ cluster. Tỷ trọng quy mô mẫu6038, cơ cấu mẫuquymôgốccụm; baselinegiới/tuổi cố địnhtoànassigned, không suy nhân quả.
+
+SQLđộc lập+API+UI3ca đạt: all6038/72ô; cluster3=1407/18ô; cluster1,F,25–34=170/18ô. Baseline6038/thiếubằngchứng2 khôngđổi, heatmap chỉ1filtercụm dù bảng/KPI3filter. Run09782a8ea2094b6bbd7c32cc4a2cdb03,35.422s; SHAworkingtreecode/config trongreport, không coi code chưacommit là checkpoint. FixtureVALUESREADONLY kiểm denominator/fanout đạt. JSON/AST/packagebytes/ignore/actualconfig đạt; giữPASS43d0… vàFAILcheckerJSONwhitespace, sửa so parsedlayout chứkhôngsửa nghiệpvụ. Hashreport lịch sử giữnguyên, ledgerbảncuối riêng.
+
+Chỉ GRANTUSAGEdw/analytics+SELECT3view activeuser/activeprofile/dwusers; BISELECTđúng7view, khôngprojectwrite/CREATE/membership/admin, UPDATEfalse42501, PUBLIC TEMPcòn. EngineSupersetthậtreaderUTC. 19object11A/11C và9bảng staging/DW+toànregistry/user/profile/registered_at giữsnapshottrước-sau. Querycũcófilter11A2000Q3=324864,11C2001Q1=32223/AnimationQoQđúng. Hai container runninghealthy/exit0 ở quan sátmới, khôngrestart trong11B-3.
+
+GóifrozenP1táitạođãkiểmnhận giữhaiCSVhash+manifest630453…; producerP2bab0b404…, khôngrecreate/apply/ETL/DDL/fixtureanalyticsrỗng/P2/firewall. Bàn giao docs/P1/preferences_handoff.md và dashboard/preferences/README.md/evidence/ledger. **11B-3 WAITING_REVIEW**; dashboard/hồsơmớichưa stage/commit/push/PR/exportimport. P2intakeG2NOT_CONFIRMED; giữPUBLIC TEMP/chưarestore/hai máy/fullrefreshS07vớiG3. Bảngcơcấucuộnngang, heatmapdesktopđãkiểm; kếhoạchngoàiphạmvigiữSHA. Dừng review, chưa bướcđónggói/restore.
+
+---
+
+## Hiện hành — 11B-2 production G3 WAITING_REVIEW, 20/10/2026
+
+Nguồn: điều phối chấp nhận11B-1 và người dùng giao ghi đúng3bảnganalytics, chưa dashboard/export. Checkpoint chọn lọc21file11B-1 tại **17e9d5664f247b7ee13446ff260937986d17b54a**, nhánh p1-s11b-cluster-intake giữ nguyên; không push/PR. Kế hoạch untracked giữ SHA, không sửaP2.
+
+Dispatcher etl/load_g3.py mặc định dry-run, phải --apply để ghi. Guard fixture vẫn chặn analytics; production có cổng riêng kiểm byte snapshot/frozen version, cùng engine transaction đã kiểm. Advisoryexclusive/khóa9bảngnguồnSHARE+3analytics, sau khóa kiểm marker/catalog/bốncanonical/cohort/registry bằng cùngconnection. Insertinactive, so toàn rows, activecuối, hai activeviews kiểm trướcCOMMIT. Không tái đọc CSV để insert, không UPSERT/DDL/ETL.
+
+31unit/8integration PASS trước nạp; rollback4pha và mấtACKsauCOMMITfixture=>UNKNOWN/newROconnection, không autoretry. Analytics thật000 trước apply; fixture đã dọn. Apply đầu **4648f191bba5455989340dbfefc021ba**,160.438s COMMITTED/PASS; apply kiểm lần2 **0dec3918c71641b99bd5b47cec2a91f8**,163.531s COMMITTED_NO_OP/PASS. Hậu kiểm cả2 dùngconnectionREADONLYmới. Registry1 activevalidversionkmeans_k4_seed42; user6040/assigned6038/insufficient2; cụm2478/1393/760/1407; profile72; activeviews6040/72. Registered_at2026-10-20T09:00:37.986010Z khôngđổi; toàn rows/metadata vàbốnhashG2khớp.
+
+Chín bảng staging/DW mọi trường+surrogate giữfingerprint; BIACL/role khôngđổi;19đối tượng11A/11C API/config khớp trước/sau. Code11B-2 chưa commit, bundleSHA **5b4ec63472ce588081f77c9e7922438607b331acf05eead2e2d5d241a4bce193** vàtừngfiletrongreceipt; base17e9d56khôngchứa codeproduction, khônggáncommitcũcho runtime. Codegiữ nguyênhaiapply. GiữFAILproxyfixture/preflightDockerdown/PASS cũ. Dockerexisting mở/start2containercũhealthy, restartCLIstopdeadlineđãkếtthúclỗi; khôngrecreate/resetvolume/forcekill, API thậtđạt, khôngsuynguyênnhân255.
+
+Bàn giao docs/P1/g3_load.md, results/warehouse/s11b2/handoff_summary.json vàledger. P2intakeG2NOT_CONFIRMED; giữPUBLIC TEMP/restore/fullrefreshhelperS07chưa kiểmvớiG3. Testfixturecũguardproductionrỗng khôngchạylạisauG3; khôngxóamodelđểéptest. **11B-2 WAITING_REVIEW**, chưađiềuphốiduyệt; chưa stage/commit11B-2/push/PR, dashboard11B/export/import/quyềnfirewall. Dừng review.
+
+---
+
+
+## Hiện hành — 11B-1 kiểm nhận G3/dry-run WAITING_REVIEW, 20/10/2026
+
+Điều phối xác nhận PR15 MERGED và chấp nhận công bố11C. API/Git xác minh merge **371aab7e43742dc1e5c330077ffbd49fcef5fe09**; agent không merge. Quan sát mới docs/P1/trends_post_merge_observation.json; giữ report OPEN lịch sử. Working tree đầu lượt chỉ kế hoạch untracked; main fast-forward an toàn rồi tạo **p1-s11b-cluster-intake**, HEAD/base cùng371aab7. Không reset/stash/clean, không stage/commit/push/PR; kế hoạch giữ nguyên SHA.
+
+Chưa có G3 local nên tái tạo đúng CLI P2 đã merge, commit code **bab0b4049d4e0b1724418b8a92d8afbeda4bc775**, bằng môi trường ignored tmp/g3_venv riêng. Python3.12.14Windows/numpy2.0.2/pandas2.3.3/scipy1.14.1/sklearn1.5.2; không đổi .venv P1. Bốn canonical CSV G2 được băm trước khi copy vào đường dẫn canonical đang thiếu; không ghi đè raw/P2manifest. Gói data/processed/p1_g3_20261020_intake ignored, đủ3file, hai checksum frozen khớp tuyệt đối. Không đổi hash/nhãn để ép tái tạo.
+
+Contract2/versionkmeans_k4_seed42:6040user duy nhất,6038assigned/2insufficientNULL; quy mô2478/1393/760/1407;72profile/18genre, mean hữu hạn/tổng1/n_users đúng. Metadata config/library/provenance/hash/UTC đầy đủ. Dry-run cuối **14c7eb52e34a4b0da6b0c158b56175cd** (intake_run_02), transaction READONLY=on, băm mới bốn view DW bằng serializerP2 và khớp G2/gói. Registry/user/profile/2activeview đều0; chưa nạp analytics. Source gói là tái tạo tạiP1, không phải P2 trực tiếp bàn giao hoặc xác nhận G2.
+
+Code etl/g3_intake.py tách package check trước DB, CLI chỉ --dry-run. Engine etl/g3_transaction.py hiện chặn schema analytics, chỉ chạy trong fixture cóUUID/marker/ownership. Thiết kế transaction/metadata jsonb/same-versionNOOP hoặc conflict/invalidatedreload chờ review, chưa mở dispatcherproduction11B-2. 23/23unit và5/5integration thật đạt; fixture lỗi bốn pha phục hồi snapshot/modelactive cũ, analytics thật0 trước/sau và schema thử đã dọn. Giữ FAIL dictalias ban đầu và PASS/run cũ; sửa deepcopy để snapshot độc lập.
+
+Bàn giao docs/P1/g3_intake.md; bằng chứng aggregate results/warehouse/s11b1/, ledger handoff_manifest.json. PostgreSQL17.11;101file P2/schema/contractdashboard/EDA đã kiểm không đổi. Cảnh báo pandasDBAPI2 được ghi rõ, không sửaadapterP2. Chưa thử productionwrite hoặc mấtkếtnốiCOMMIT; Pythonpatch/OS khácP2 được ghi trung thực, frozen payload đã khớp. PUBLIC TEMP/restore/hai máy/fullrefreshS07 cũ giữ nguyên; **P2 intake G2 NOT_CONFIRMED**.
+
+**11B-1 WAITING_REVIEW**, chưa điều phối duyệt kết quả, chưa load analytics/dashboard11B/exportba dashboard/quyềnfirewall. Chưa stage/commit/push/PR. Dừng chờ điều phối review gói/metadata/mapping/transaction trước khi giao11B-2.
+
+---
+
+
 ## Hiện hành — PR11C OPEN, chờ review PR, 20/10/2026
 
 Đã commit/push p1-s11c-trends và mở [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15) vào main. GitHub API xác minh OPEN/merged=false, HEAD lúc mở **bdb14fce8deb830999bcb4c17655100a72e6514e**, base **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Đủ52file của toànPR, gồm checkpoint11A, có SHAblob trong PR và remotetree khớp Gitlocal. Chức năng11C **APPROVED theo điều phối**; PR **WAITING_REVIEW**, chưaMERGED; agent không merge.

@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "stage": "verification before final handoff",
+  "error_category": "AssertionError: position_json",
+  "cause_verified": "Checker compared serialized JSON strings; Superset serialized whitespace differently. Parsed layout objects are equal.",
+  "correction": "Compare parsed position_json structures; no dashboard business SQL, metric, filter or layout changed.",
+  "historical_observation": true
+}

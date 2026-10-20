@@ -1,0 +1,14 @@
+{
+  "at_utc": "2026-10-20T08:57:13.514551+00:00",
+  "status": "PASS",
+  "tests": 30,
+  "errors": 0,
+  "failures": 0,
+  "code_sha256": {
+    "etl/g3_intake.py": "5a6162015463387347d8b54f6521ef0704269f2a4b8091af0b8c22fdc732179d",
+    "etl/g3_transaction.py": "97f0312a1622f14327f9427b1c5d4dbc1b382b37cfa9a7bce807be99e17b31c2",
+    "etl/load_g3.py": "639969aaa12cd65a4625ce2bd6909396ee6b8fd4537fd42621c39c1f4d41dcd3",
+    "tests/warehouse/test_g3_dispatcher.py": "67eef51d87a0a1dccc55b0100581ff33f6763e4697048092a6772c147d716bc8",
+    "tests/warehouse/test_g3_intake.py": "faffe9e0d7bfed75e3b14dc2f5a6af3cc29e6a1a4fabf2b44cc62a3c5c26dbd7"
+  }
+}

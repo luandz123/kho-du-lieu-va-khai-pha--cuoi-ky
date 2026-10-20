@@ -1,0 +1,604 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-20T09:53:39.598543+00:00",
+  "mechanism": "GET /api/v1/dashboard/export/?q=!(1,2,3)",
+  "real_superset_zip": true,
+  "zip_path": "dashboard/superset_export.zip",
+  "sha256": "b5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae",
+  "bytes": 129744,
+  "counts": {
+    "dashboards": 3,
+    "charts": 23,
+    "datasets": 6,
+    "databases": 1
+  },
+  "inventory": {
+    "dashboards": [
+      {
+        "path": "dashboards/MovieLens_1M_Tong_quan_1.yaml",
+        "uuid": "067f3274-71a2-4f0a-a111-9bd58f34597f",
+        "name": "MovieLens 1M · Tổng quan"
+      },
+      {
+        "path": "dashboards/MovieLens_1M_Xu_huong_anh_gia_theo_quy_2.yaml",
+        "uuid": "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+        "name": "MovieLens 1M · Xu hướng đánh giá theo quý"
+      },
+      {
+        "path": "dashboards/MovieLens_1M_So_thich_va_co_cau_cum_3.yaml",
+        "uuid": "64f10807-e129-4a6e-80b0-b18165df4ff8",
+        "name": "MovieLens 1M · Sở thích và cơ cấu cụm"
+      }
+    ],
+    "charts": [
+      {
+        "path": "charts/P1_11A_iem_trung_binh_SUM_COUNT_2.yaml",
+        "uuid": "c1afdfa1-7c6f-40ff-935e-d29f3d120fa0",
+        "name": "P1 11A · Điểm trung bình · SUM/COUNT"
+      },
+      {
+        "path": "charts/P1_11A_Phim_co_anh_gia_4.yaml",
+        "uuid": "cfd84309-d053-4065-a817-36aed7d43c66",
+        "name": "P1 11A · Phim có đánh giá"
+      },
+      {
+        "path": "charts/P1_11A_Tong_so_anh_gia_1.yaml",
+        "uuid": "30ec3181-1cbc-4759-9482-661e004db140",
+        "name": "P1 11A · Tổng số đánh giá"
+      },
+      {
+        "path": "charts/P1_11A_User_co_anh_gia_3.yaml",
+        "uuid": "64648d20-e282-40c8-bf01-9e7a134fc077",
+        "name": "P1 11A · User có đánh giá"
+      },
+      {
+        "path": "charts/P1_11A_Phan_bo_so_anh_gia_theo_muc_sao_8.yaml",
+        "uuid": "4b480fb6-2dd6-4246-9a39-1afeedf4a9a4",
+        "name": "P1 11A · Phân bố số đánh giá theo mức sao"
+      },
+      {
+        "path": "charts/P1_11A_Tong_iem_anh_gia_6.yaml",
+        "uuid": "39eb9eb5-d752-495b-9787-8083d38cb548",
+        "name": "P1 11A · Tổng điểm đánh giá"
+      },
+      {
+        "path": "charts/P1_11A_Top_10_phim_so_anh_gia_iem_TB_ID_7.yaml",
+        "uuid": "a15272e5-6b7a-4525-9a89-e58c9402e417",
+        "name": "P1 11A · Top 10 phim · số đánh giá, điểm TB, ID"
+      },
+      {
+        "path": "charts/P1_11A_Phim_danh_muc_co_inh_moi_thoi_ky_5.yaml",
+        "uuid": "5100ed63-5486-4385-9a11-3bb1efbebdb3",
+        "name": "P1 11A · Phim danh mục · cố định mọi thời kỳ"
+      },
+      {
+        "path": "charts/P1_11C_Luot_gan_genre_theo_quy_khong_cong_thanh_tong_he_thong_10.yaml",
+        "uuid": "49b6eab2-347d-49df-9a66-cd027b5770a1",
+        "name": "P1 11C · Lượt gắn genre theo quý · không cộng thành tổng hệ thống"
+      },
+      {
+        "path": "charts/P1_11C_QoQ_genre__am_la_giam_NULL_xem_bang_chi_tiet_11.yaml",
+        "uuid": "af3f3aa9-1f88-442e-88f7-cacbd6e13611",
+        "name": "P1 11C · QoQ genre (%) · âm là giảm; NULL xem bảng chi tiết"
+      },
+      {
+        "path": "charts/P1_11C_anh_gia_duy_nhat_theo_quy_khong_chiu_filter_genre_9.yaml",
+        "uuid": "cc595b5b-0785-43f9-81e8-7a84663fbabc",
+        "name": "P1 11C · Đánh giá duy nhất theo quý · không chịu filter genre"
+      },
+      {
+        "path": "charts/P1_11C_Ty_trong_genre__mau_so_toan_bo_18_genre_12.yaml",
+        "uuid": "671a5f9b-9524-4b41-81a1-453822c7c4f2",
+        "name": "P1 11C · Tỷ trọng genre (%) · mẫu số toàn bộ 18 genre"
+      },
+      {
+        "path": "charts/P1_11C_oi_soat_quy_genre_N_A_quy_bien_va_hang_toan_bo_genre_13.yaml",
+        "uuid": "53d76291-bda9-4926-91b1-6a6178c8a262",
+        "name": "P1 11C · Đối soát quý × genre · N/A, quý biên và hạng toàn bộ genre"
+      },
+      {
+        "path": "charts/P1_11B_Gioi_tinh_theo_cum_so_baseline_co_inh_20.yaml",
+        "uuid": "93bb630d-d716-41b4-85e9-b18deb6cc1b2",
+        "name": "P1 11B · Giới tính theo cụm · so baseline cố định"
+      },
+      {
+        "path": "charts/P1_11B_Nhom_tuoi_theo_cum_so_baseline_co_inh_22.yaml",
+        "uuid": "50c1db65-7252-4422-a255-bd00c3a83f6d",
+        "name": "P1 11B · Nhóm tuổi theo cụm · so baseline cố định"
+      },
+      {
+        "path": "charts/P1_11B_Thieu_bang_chung_co_inh_toan_mo_hinh_15.yaml",
+        "uuid": "07c9f8dd-17a7-45d3-814d-433bcc381084",
+        "name": "P1 11B · Thiếu bằng chứng · cố định toàn mô hình"
+      },
+      {
+        "path": "charts/P1_11B_Baseline_assigned_co_inh_6.038_16.yaml",
+        "uuid": "01b69c0b-9a71-4c50-8cf9-3dc8bb8b6bff",
+        "name": "P1 11B · Baseline assigned · cố định 6.038"
+      },
+      {
+        "path": "charts/P1_11B_Quy_mo_cum__tren_6.038_assigned_goc_17.yaml",
+        "uuid": "978b13a0-6ba9-43db-96d0-7009c87ea0b7",
+        "name": "P1 11B · Quy mô cụm · % trên 6.038 assigned gốc"
+      },
+      {
+        "path": "charts/P1_11B_User_assigned_chiu_3_filter_14.yaml",
+        "uuid": "9ec29e2a-b8ec-478e-81ee-44fe644dd9c3",
+        "name": "P1 11B · User assigned · chịu 3 filter"
+      },
+      {
+        "path": "charts/P1_11B_Profile_cum_genre_khong_loc_tuoi_gioi_19.yaml",
+        "uuid": "324e5106-1537-4c60-bbe9-64b363265a08",
+        "name": "P1 11B · Profile cụm × genre · không lọc tuổi/giới"
+      },
+      {
+        "path": "charts/P1_11B_Phien_ban_active__valid_toan_mo_hinh_18.yaml",
+        "uuid": "6be3f811-cb24-4177-be32-89a24f8481ea",
+        "name": "P1 11B · Phiên bản active + valid · toàn mô hình"
+      },
+      {
+        "path": "charts/P1_11B_Gioi_tinh_baseline_toan_bo_assigned_21.yaml",
+        "uuid": "77dd0fdd-9b28-4da3-92ca-ec6769868ff2",
+        "name": "P1 11B · Giới tính baseline · toàn bộ assigned"
+      },
+      {
+        "path": "charts/P1_11B_Tuoi_baseline_toan_bo_assigned_23.yaml",
+        "uuid": "c8b63899-5e15-4f0f-974d-13487a418107",
+        "name": "P1 11B · Tuổi baseline · toàn bộ assigned"
+      }
+    ],
+    "datasets": [
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11A_ratings_1.yaml",
+        "uuid": "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a",
+        "name": "P1_11A_ratings"
+      },
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11A_catalog_2.yaml",
+        "uuid": "e0ae556d-3c75-4edd-8101-db962558c479",
+        "name": "P1_11A_catalog"
+      },
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11C_genre_4.yaml",
+        "uuid": "d9a6aa51-5cc8-4955-8b3b-46edc19d6675",
+        "name": "P1_11C_genre"
+      },
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11C_quarter_3.yaml",
+        "uuid": "aac23ba4-bbc5-4193-8a6b-22ae64aa68b4",
+        "name": "P1_11C_quarter"
+      },
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11B_users_5.yaml",
+        "uuid": "d5d1ad8d-e730-4175-92d0-3caa7c1584c7",
+        "name": "P1_11B_users"
+      },
+      {
+        "path": "datasets/MovieLens_BTL_-_BI_reader/P1_11B_profile_6.yaml",
+        "uuid": "11bd6a7b-b831-40a9-a296-ea3a13962652",
+        "name": "P1_11B_profile"
+      }
+    ],
+    "databases": [
+      {
+        "path": "databases/MovieLens_BTL_-_BI_reader.yaml",
+        "uuid": "7d798203-eef1-49c5-882c-15e0a3f12e28",
+        "name": "MovieLens BTL - BI reader"
+      }
+    ]
+  },
+  "dependency_edges_uuid": [
+    [
+      "c1afdfa1-7c6f-40ff-935e-d29f3d120fa0",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "cfd84309-d053-4065-a817-36aed7d43c66",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "30ec3181-1cbc-4759-9482-661e004db140",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "64648d20-e282-40c8-bf01-9e7a134fc077",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "4b480fb6-2dd6-4246-9a39-1afeedf4a9a4",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "39eb9eb5-d752-495b-9787-8083d38cb548",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "a15272e5-6b7a-4525-9a89-e58c9402e417",
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a"
+    ],
+    [
+      "5100ed63-5486-4385-9a11-3bb1efbebdb3",
+      "e0ae556d-3c75-4edd-8101-db962558c479"
+    ],
+    [
+      "49b6eab2-347d-49df-9a66-cd027b5770a1",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "af3f3aa9-1f88-442e-88f7-cacbd6e13611",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "cc595b5b-0785-43f9-81e8-7a84663fbabc",
+      "aac23ba4-bbc5-4193-8a6b-22ae64aa68b4"
+    ],
+    [
+      "671a5f9b-9524-4b41-81a1-453822c7c4f2",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "53d76291-bda9-4926-91b1-6a6178c8a262",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "93bb630d-d716-41b4-85e9-b18deb6cc1b2",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "50c1db65-7252-4422-a255-bd00c3a83f6d",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "07c9f8dd-17a7-45d3-814d-433bcc381084",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "01b69c0b-9a71-4c50-8cf9-3dc8bb8b6bff",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "978b13a0-6ba9-43db-96d0-7009c87ea0b7",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "9ec29e2a-b8ec-478e-81ee-44fe644dd9c3",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "324e5106-1537-4c60-bbe9-64b363265a08",
+      "11bd6a7b-b831-40a9-a296-ea3a13962652"
+    ],
+    [
+      "6be3f811-cb24-4177-be32-89a24f8481ea",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "77dd0fdd-9b28-4da3-92ca-ec6769868ff2",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "c8b63899-5e15-4f0f-974d-13487a418107",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "f49b872f-6d28-4e15-8fb3-d5f62bb00e7a",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "e0ae556d-3c75-4edd-8101-db962558c479",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "aac23ba4-bbc5-4193-8a6b-22ae64aa68b4",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "11bd6a7b-b831-40a9-a296-ea3a13962652",
+      "7d798203-eef1-49c5-882c-15e0a3f12e28"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "5100ed63-5486-4385-9a11-3bb1efbebdb3"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "39eb9eb5-d752-495b-9787-8083d38cb548"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "cfd84309-d053-4065-a817-36aed7d43c66"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "64648d20-e282-40c8-bf01-9e7a134fc077"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "4b480fb6-2dd6-4246-9a39-1afeedf4a9a4"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "a15272e5-6b7a-4525-9a89-e58c9402e417"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "c1afdfa1-7c6f-40ff-935e-d29f3d120fa0"
+    ],
+    [
+      "067f3274-71a2-4f0a-a111-9bd58f34597f",
+      "30ec3181-1cbc-4759-9482-661e004db140"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "cc595b5b-0785-43f9-81e8-7a84663fbabc"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "53d76291-bda9-4926-91b1-6a6178c8a262"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "49b6eab2-347d-49df-9a66-cd027b5770a1"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "af3f3aa9-1f88-442e-88f7-cacbd6e13611"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "671a5f9b-9524-4b41-81a1-453822c7c4f2"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "4910eac0-3c2f-434e-847d-6f1f587c2ae1",
+      "d9a6aa51-5cc8-4955-8b3b-46edc19d6675"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "9ec29e2a-b8ec-478e-81ee-44fe644dd9c3"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "324e5106-1537-4c60-bbe9-64b363265a08"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "978b13a0-6ba9-43db-96d0-7009c87ea0b7"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "93bb630d-d716-41b4-85e9-b18deb6cc1b2"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "01b69c0b-9a71-4c50-8cf9-3dc8bb8b6bff"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "6be3f811-cb24-4177-be32-89a24f8481ea"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "07c9f8dd-17a7-45d3-814d-433bcc381084"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "50c1db65-7252-4422-a255-bd00c3a83f6d"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "c8b63899-5e15-4f0f-974d-13487a418107"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "77dd0fdd-9b28-4da3-92ca-ec6769868ff2"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "11bd6a7b-b831-40a9-a296-ea3a13962652"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ],
+    [
+      "64f10807-e129-4a6e-80b0-b18165df4ff8",
+      "d5d1ad8d-e730-4175-92d0-3caa7c1584c7"
+    ]
+  ],
+  "all_dependencies_resolved": true,
+  "legacy_layout_nodes_without_uuid": 23,
+  "restore_requires_uuid_layout_reconciliation": true,
+  "members": [
+    {
+      "path": "dashboard_export_20261020T095220/metadata.yaml",
+      "bytes": 77,
+      "sha256": "ea31cac31659588775fbb56161705e3817f72c4c77393101fcf851f03e49cd55"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/dashboards/MovieLens_1M_Tong_quan_1.yaml",
+      "bytes": 7513,
+      "sha256": "6f6dba34f0d7459fb99cea36ab73b57fe93b8683f7df0b31ef8eafdc91eab790"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_iem_trung_binh_SUM_COUNT_2.yaml",
+      "bytes": 2020,
+      "sha256": "503c214f5e51b5e34fe3c3d7436609df388e43b45e785473ee9f5a09dd498bcf"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11A_ratings_1.yaml",
+      "bytes": 3059,
+      "sha256": "413be08c97da4b446f797d1dc3f4d15c9ae08288198ad2889f7ca67e95d5c8c5"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/databases/MovieLens_BTL_-_BI_reader.yaml",
+      "bytes": 516,
+      "sha256": "57e13db39fe74b8c014cb9c2b5fd9e93b3992a8b0e4d55b1297452683eda617b"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Phim_co_anh_gia_4.yaml",
+      "bytes": 1909,
+      "sha256": "f846121b503b2083d5e6004f671a6cf559c47f70c6433bc4030dbd68ae6233fd"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Tong_so_anh_gia_1.yaml",
+      "bytes": 1895,
+      "sha256": "2b789e2d8b23502338a35ecd78f69109c105790a26864d8fe51150c9d1ca9171"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_User_co_anh_gia_3.yaml",
+      "bytes": 1900,
+      "sha256": "c8e7bf611c30074992d3ace7dbde8f5a0abe9d2dcbfc491c47c2cb7ceef91f59"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Phan_bo_so_anh_gia_theo_muc_sao_8.yaml",
+      "bytes": 2894,
+      "sha256": "18bac52be97b140c90613bb9de2a99c6d8514cd99e4194088f875046377e1cfa"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Tong_iem_anh_gia_6.yaml",
+      "bytes": 1884,
+      "sha256": "1fc4001b7d435f5aafcfe671adc2ba085848fe584eeb0948d724b554b31225ce"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Top_10_phim_so_anh_gia_iem_TB_ID_7.yaml",
+      "bytes": 4382,
+      "sha256": "0a9ddca43fbb40c87d959685039337180afc4cceca350fd994b5e0a99db71269"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11A_Phim_danh_muc_co_inh_moi_thoi_ky_5.yaml",
+      "bytes": 1927,
+      "sha256": "c0c8ea41739b26f7cadd43733033b3acea8b8cf006f7b324f4b5fa91b764cd96"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11A_catalog_2.yaml",
+      "bytes": 1319,
+      "sha256": "b832fff5a665fcedc6e53d2a67bae89e399ca9cf82b6052e54a7ccd06da7df40"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/dashboards/MovieLens_1M_Xu_huong_anh_gia_theo_quy_2.yaml",
+      "bytes": 8934,
+      "sha256": "fac3a77c453b3f4db8e63ee78b93163c2c6d946e589e193834a2dc517568cf15"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11C_Luot_gan_genre_theo_quy_khong_cong_thanh_tong_he_thong_10.yaml",
+      "bytes": 2768,
+      "sha256": "1835942592523fc54ce33f4386c45975a1c62eea46d55ed736621eb9dc6dfdd2"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11C_genre_4.yaml",
+      "bytes": 7077,
+      "sha256": "3c8e28e77fc1e20b82589a1d6c931366560ca8fd038c374881462d8f7b12fd2f"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11C_QoQ_genre__am_la_giam_NULL_xem_bang_chi_tiet_11.yaml",
+      "bytes": 2636,
+      "sha256": "7e63180be3160a10ca26cec7885c3d01c4755cbf1a71df77b66bc4976875654e"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11C_anh_gia_duy_nhat_theo_quy_khong_chiu_filter_genre_9.yaml",
+      "bytes": 2630,
+      "sha256": "51500a424e1570e828dd165c6361cd0dccf8b25ac7b493ff2e615fdd3f0e7644"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11C_quarter_3.yaml",
+      "bytes": 3246,
+      "sha256": "160c92d143cfd68605e56fc64f1ca1b5a5ac16aae1471f73d96101ecd0bbc748"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11C_Ty_trong_genre__mau_so_toan_bo_18_genre_12.yaml",
+      "bytes": 2711,
+      "sha256": "cf95d2ffb7beaf8fd0958eb45bf31211cca4f1c45fe3327280ae61e3aff4f245"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11C_oi_soat_quy_genre_N_A_quy_bien_va_hang_toan_bo_genre_13.yaml",
+      "bytes": 6820,
+      "sha256": "aa4c04205fd568ebba71e5d16f5852fff429288e78f9e01ffa762c0cc4a8bfec"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/dashboards/MovieLens_1M_So_thich_va_co_cau_cum_3.yaml",
+      "bytes": 13040,
+      "sha256": "440faf52b216e11c6b67a3fb68f7369138cfee98b342179a67828e0a9ae53a02"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Gioi_tinh_theo_cum_so_baseline_co_inh_20.yaml",
+      "bytes": 5878,
+      "sha256": "614d8251a9ef099ad85db81ad1adbbe66415555ea5195b4e7cace670e04612d1"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11B_users_5.yaml",
+      "bytes": 4810,
+      "sha256": "8e10c49b6ba29fdace44c28446e188c938264f0ef186c4414b8c47109ee814c4"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Nhom_tuoi_theo_cum_so_baseline_co_inh_22.yaml",
+      "bytes": 5832,
+      "sha256": "53f26ffcc805fa4dc85186f0231a72cbdd331d033333ba836cf44d908292d90f"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Thieu_bang_chung_co_inh_toan_mo_hinh_15.yaml",
+      "bytes": 2110,
+      "sha256": "b92612112e76ae188cebe707ad38955c6d90a33a3c7f42bda0f32b40972197c4"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Baseline_assigned_co_inh_6.038_16.yaml",
+      "bytes": 1984,
+      "sha256": "4e0c7f00ffe6620ce62bc20ccf4b5dd57c280e5ed7bc865f04a7e7f10971579b"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Quy_mo_cum__tren_6.038_assigned_goc_17.yaml",
+      "bytes": 3767,
+      "sha256": "63fcea26b98d7a0687cd67bd84e9bcd5d572ebace643e97f310420a5ee25548d"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_User_assigned_chiu_3_filter_14.yaml",
+      "bytes": 1921,
+      "sha256": "99facbb2c977e01353047eb45e7ac550943617e7f239ba95e2e3cb6d19577bc8"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Profile_cum_genre_khong_loc_tuoi_gioi_19.yaml",
+      "bytes": 2611,
+      "sha256": "74b4a6fe3b36467d42de3d13117b1ad2c9b3a9c7f415e311342913b89399bd0f"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/datasets/MovieLens_BTL_-_BI_reader/P1_11B_profile_6.yaml",
+      "bytes": 2954,
+      "sha256": "99a97bf46b7acc0be6aba77f9882bbd13fea357affdbe37ad796e35aa521254e"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Phien_ban_active__valid_toan_mo_hinh_18.yaml",
+      "bytes": 3456,
+      "sha256": "d10ddca8b4fd427a07d87f52e529d73ca11d5b81800504ae50a543624a58ddbc"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Gioi_tinh_baseline_toan_bo_assigned_21.yaml",
+      "bytes": 2413,
+      "sha256": "3787320fea44719f02ffe399f5e78b2328581c208b33f4bce69b0161190e71ac"
+    },
+    {
+      "path": "dashboard_export_20261020T095220/charts/P1_11B_Tuoi_baseline_toan_bo_assigned_23.yaml",
+      "bytes": 2423,
+      "sha256": "edf39966177f53b32a9317bd50a1eff7f57ae9a5206b83c790370b451a97c542"
+    }
+  ],
+  "secret_scan": {
+    "known_local_secret_bytes_absent": true,
+    "database_uri_password_masked": true,
+    "findings": [],
+    "raw_uri_not_logged": true,
+    "ssh_private_token_fields_reviewed": true
+  },
+  "zip_ignored": true,
+  "publication_status": "LOCAL_ONLY_PENDING_REVIEW"
+}

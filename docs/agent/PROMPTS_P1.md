@@ -1,5 +1,28 @@
 # Nguồn prompt P1
 
+## P-P1-35 — Công bố toàn11B theođiềuphối,20/10/2026
+
+Chấpnhận11B-4vớiphạmvinguồnexportthật/importchínhthức/RESTlayoutrestore8091/cùngDW,giaođónggóicommitpushmộtPRmain11B-1intake,11B-2transactionNOOP,11B-3dashboard,11B-4exportrestoremapping/source snapshots/scripts. Bảotoànplan/P2/FAIL,khôngaddall. ChoZIPduynhấtdashboard/superset_export.zipb5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae,rásecrettrướcstage,ngoạilệignoređúngpath/khôngmởmọiZIP,checkerphânbiệthistoricalignoredvàapprovedpublication. READMEđủZIP+snapshot+UUIDmapping+script/khôngZIPtựimporthoànchỉnh/giới hạncùngmáyversionDW/chưabackupDW/P2intake. Ràfullbranchvsmainmới/JSONPythondependencyignoresecrethash/checkouttáchbiệtnếucần;provenanceproducergiữnguyênkhôngrecreateactive;compatibilitylỗiphảibáorõtrướckhẳngđịnhđạt. KhôngcầnapplyETLimportlại;đổilogicphảikiểmphầnbịảnhhưởng. CommitphầncònlạipushmởPRfull11B,verifyfullHEAD/vàmọifileblobremote,giữ8091volume. BàngiaoURLHEADbasefilesZIPchecksWT,dừngreview,chưamerge12Afullrefreshquyềnfirewall. Đây làtómtắtlệnh,khôngtạolờiduyệt.
+
+## P-P1-34 — Điều phối giao11B-4 export/import restore,20/10/2026
+
+Chấpnhậnchứcnăng11B-3,giữnhánh/checkpointcục bộđúngphạmvi,bảotoànplan/P2,chưapushPR/ETL/applyG3/tạolạiproduction. Exportthật3dashboardquaAPI/UI,lưudashboard/superset_export.zip,kiểmCRC/UUIDdependency3dash23chart6dataset1db/memberSHA vàsecretURIpasswordtokenSSH;ZIPlocalignoredchờreviewGit,khôngZIPgiả. ĐượctạoinstanceSupersetthửversiontươngthíchmetadata/volume/cổngriêngkhôngxungđột/khôngimportmetadata8089,BIreadercredentiallocaltheocơchếimporthỗtrợ/khôngGRANTfirewall. Importchínhthức/mapUUIDIDmới/khôngsửametadataSQL. Kiểm3dashboard/chartquery/nativefiltermetricSQLvàSQLAPIUI:Overviewall/Q32000,XuhướngAnimation2001Q1countprevQoQ/mẫurank,Sởthíchall/cluster1F25–34baseline6038insufficient2heatmapclusteronly. Kiểm8089nghiệpvụkhôngđổi. BàngiaoZIPhashinventorysecretaudit/versionresources/mapping/importlog/URLảnh/runbookcredentiallocal/cost/files/runtimehash;S11STATE11B-4WAITING_REVIEW,chưacommitpushPRphầnmới,ZIPignored,P2intakethực,dừngreviewtrướccôngbố11B. Đây làtómtắtlệnh,khôngtạolờiduyệtkếtquả.
+
+## P-P1-33 — Điều phối giao 11B-3 Dashboard Sở thích,20/10/2026
+
+Chấp nhận11B-2 sau review thực; giữnhánh p1-s11b-cluster-intake vàcheckpointcục bộ11B-2đúngphạmvi, bảo toànkếhoạch/P2; khôngpushPR/apply/ETL/fixtureanalyticsrỗng/táitạogóiđangactive hoặcđổiprovenance. TạodashboardriêngtrênSuperset8089quaUI/APIchínhthức, từhai activeviews+dwusers, đượcSELECTcụthểchoBIreader, khôngtoànschema/write/DDL/registry/G3/firewall. Assignedvàinsufficienttáchriêng,quymô4cụm/tỷtrọnguser,heatmapmeanpreference,cơcấugiới/tuổisobaseline6038assigned,tênmôtảP2Q1/modelversion. Nativecluster/age/gender:clusternhưngbaselinekhôngcothànhcụm;heatmapkhôngchịutuổi/giới;insufficientNULLkhôngbiếnmất;mọimẫusốrõràng/khôngSUMn_users18genre/khôngnhânquả. ĐốisoátSQLđộclậpvớiAPIUIít nhất3ca,kiểm11A11Cvẫnlọc/truyvấnnghiệpvụkhôngđổi. BàngiaoURL/IDs/SQLmetrics/scope/ảnh/đốisoát/quyền/package/codehash/files/giớihạn;S11STATE11B-3WAITING_REVIEW.ChưacommitpushPRdashboard/exportimport;P2intakegiữthực;dừngreview. Đây làtómtắtlệnh,khôngtạolờiduyệtkếtquả.
+
+
+## P-P1-32 — Điều phối giao11B-2production,20/10/2026
+
+Chấp nhận11B-1, giữnhánh/checkpointcục bộ/bảo toànplanvàP2, khôngpushPR. Cho ghiđúngregistry/user/profileanalytics bằng productiondispatcher rõràng/mặcđịnhdryrun/applyflag, giữnguardfixture vàbyte snapshot trướcDB. Cùngconnectiontransaction:advisoryexclusive,khóaDW/nguồn,kiểmsaukhóa marker/catalog/bốncanonical/cohort/genre/registry,insertinactive,sofullrows,activecuối. Version/frozenpins/cùngidentityNOOP/conflictreject/reloadreactivatechínhsách11B-1;DDL/P2khôngđổi. Lỗitrướccommitrollback, mấtACK=>UNKNOWN/newRO/noautoretry. Test/unit/integrationtrướcapply,productionphảirỗng. Choapply1lần+hậukiểmconnectionROmới, choapplylần2NOOPkhôngđổi registered_at/dữliệu. Bàngiaocodehash/package/run/thờigian/checks/files/Git/S11STATEWAITING_REVIEW. P2G2intakeNOT_CONFIRMED. ChưaETL/DDL/quyền/firewall/dashboard11B/exportimport/pushPR. Đây làtómtắt lệnh,khôngtạo lời duyệt kếtquả.
+
+
+## P-P1-31 — Giao11B-1 kiểm nhậnG3/dry-run,20/10/2026
+
+Điều phối xác nhận PR15merge371aab7/côngbố11Cđạt; giaođồngbộmain/tạop1-s11b-cluster-intake, bảo toànplan/dởdang vàquan sátmerge riêng. Nhậnđủ3fileG3 hoặc táitạocodeP2merged bằngmôitrườngtươngthíchriêng, khôngbỏfrozenfingerprint/thayhash/nhãn. Kiểmcontract2/modelkmeans_k4_seed42/twoSHA/người6040/assigned6038/thiếubằngchứng2/quymô2478,1393,760,1407/profile72×18genre/mean/n_users/config/library/provenance; canonicalkhớpG2vàDWthật. Táchcheckkhỏighi, dry-runchỉđọc;thiếtkếtransactionregistry+user+profile/activecuối/cùngversionNOOPvsconflict;fixturetựtạovùngthửriêng. BàngiaonguồnmôitrườngSHA/code/test/rollback/files/giớihạn/S11STATEWAITING_REVIEW. Chưa stagecommitpushPR, loadanalytics/dashboard11B/export3dashboard. P1nhậnG3khôngsuyP2đãnhậnG2;dừngreview. Đây là tómtắt lệnh,khôngtạolờiduyệt.
+
+
 ## P-P1-30 — Công bố11C theo điều phối,20/10/2026
 
 Điều phối chấp nhận chức năng11C; giao ràdiff/bí mật/ignore và bảo toànplan, commit11C+hồsơ11Ađãghép, pushnhánh/mởPRmain, kiểmmọifile/blobremote. NếuđãcóPR chỉxácminh, khôngtạotrùng. KhôngcầnrerunETL/create/đốisoátđầyđủ khiSQL/metric/filterkhôngđổi. BàngiaoURL/fullHEAD/base/checks/workingtree, chưamerge/11B/G3. Đây là tóm tắt lệnh trực tiếp, không phải lời duyệt do agent tạo.

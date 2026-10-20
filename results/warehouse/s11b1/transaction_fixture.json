@@ -1,0 +1,30 @@
+{
+  "at_utc": "2026-10-20T08:35:54.176131+00:00",
+  "status": "PASS",
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "schema": "p1_g3_fixture_a860f58a96404c00b3538a4939e3c69b",
+  "production_analytics_before": [
+    0,
+    0,
+    0
+  ],
+  "synthetic_only": true,
+  "rollback_phases": [
+    "registry",
+    "users",
+    "profiles",
+    "activate"
+  ],
+  "code_sha256": {
+    "etl/g3_transaction.py": "baf61aead872ef32daa576572a820e6e8ddfeddac850d5727d45217989a0fdfa",
+    "tests/warehouse/check_g3_transaction.py": "133960729e7280848934ada922ef3667ad0a8a99eb2b3395e4a5a3d83e993fb6"
+  },
+  "production_analytics_after": [
+    0,
+    0,
+    0
+  ],
+  "fixture_removed": true
+}

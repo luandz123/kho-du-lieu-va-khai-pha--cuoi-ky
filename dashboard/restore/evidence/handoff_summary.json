@@ -1,0 +1,171 @@
+{
+  "step": "11B-4",
+  "status": "WAITING_REVIEW",
+  "at_utc": "2026-10-20T10:07:56.831449+00:00",
+  "branch": "p1-s11b-cluster-intake",
+  "checkpoint_11b3": "4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4",
+  "export_restore_code_state": "WORKING_TREE_NOT_COMMITTED",
+  "zip": {
+    "zip_path": "dashboard/superset_export.zip",
+    "sha256": "b5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae",
+    "bytes": 129744,
+    "counts": {
+      "dashboards": 3,
+      "charts": 23,
+      "datasets": 6,
+      "databases": 1
+    },
+    "all_dependencies_resolved": true,
+    "secret_scan": {
+      "known_local_secret_bytes_absent": true,
+      "database_uri_password_masked": true,
+      "findings": [],
+      "raw_uri_not_logged": true,
+      "ssh_private_token_fields_reviewed": true
+    },
+    "zip_ignored": true,
+    "publication_status": "LOCAL_ONLY_PENDING_REVIEW"
+  },
+  "dependency_inventory": "evidence/export_inventory.json",
+  "uuid_mapping": "evidence/uuid_mapping.json",
+  "authentic_export_zip_unchanged": true,
+  "mandatory_restore_layout_reconciliation": "Official export preserves 23 legacy layout nodes without UUID and appends 23 UUID nodes. After import, official REST PUT on isolated dashboards remaps source layout by UUID to retain 8/5/10 charts; no production or ZIP edits. One-step import alone not claimed sufficient.",
+  "import_http_status": 200,
+  "restore_urls": {
+    "1": "http://127.0.0.1:8091/superset/dashboard/1/",
+    "2": "http://127.0.0.1:8091/superset/dashboard/2/",
+    "3": "http://127.0.0.1:8091/superset/dashboard/3/"
+  },
+  "verification_run_id": "e4d784ce1cfc4b3ba9b06142de5a395b",
+  "verification_seconds": 90.218,
+  "verification_code_sha256": {
+    "verify_restore.py": "4bd8b880cad7f8a4490f46b4d2c50d9427774e83bd1c3772b1de5cbee80ff94c",
+    "common.py": "cf4bbef6f557dbe9a766e9f8a9cf626d0b21a5e2de69f07f080d897fca7c22c5"
+  },
+  "import_code_sha256": {
+    "import_bundle.py": "8df35c43cd575f928c6028993abdb00317c9805e2dd857e907f5a52376776ad7",
+    "common.py": "cf4bbef6f557dbe9a766e9f8a9cf626d0b21a5e2de69f07f080d897fca7c22c5"
+  },
+  "observation_runtime_hash": {
+    "observe.py": "4462b88a4ffa7d632cd62c1b5e94cea34419a0d5db046622653b717725162761",
+    "common.py": "cf4bbef6f557dbe9a766e9f8a9cf626d0b21a5e2de69f07f080d897fca7c22c5"
+  },
+  "export_inventory_audit_code_sha256": "6abb2cabcd7cad6a8a89d6ffa7db0837a6d57d22f8a6966d3661088572e8012e",
+  "export_request_note": "Initial official GET completed before UUID audit KeyError; original ZIP retained. Current exporter code was run with --inspect-existing for the successful audit, not claimed as original request code.",
+  "setup_runtime_files_sha256": {
+    "setup_local.py": "f2fc093ae87c51ba2bd64b16b9e71109597eebc5ff9a84ad42d004489837e495",
+    "compose.yaml": "2ba1ae3ee12a2230da367dd854ba46e02aeac870f80a10978d3db1629d3e6fe5",
+    "superset_config.py": "c75a2821b65f94f4a836acd43a3ce91f288c37686b0e5905a3de9b7d938c339b"
+  },
+  "all_23_charts_query_success": true,
+  "overview_rating_counts": [
+    1000209,
+    324864
+  ],
+  "trend_animation": {
+    "rating_count": 1715,
+    "previous_rating_count": 20068,
+    "genre_assignment_total": 63335,
+    "genre_share_pct": 2.7078234783295176,
+    "qoq_pct": -91.45405620888978,
+    "growth_rank": 1
+  },
+  "preference_counts": [
+    6038,
+    170
+  ],
+  "fixed_baseline": 6038,
+  "fixed_insufficient": 2,
+  "heatmap_age_gender_filters_excluded": true,
+  "five_actual_ui_checks": {
+    "ui_overview_all.json": "PASS",
+    "ui_overview_q3.json": "PASS",
+    "ui_trends_animation.json": "PASS",
+    "ui_preferences_all.json": "PASS",
+    "ui_preferences_filtered.json": "PASS"
+  },
+  "production_preservation": true,
+  "post_ui_restored_filter_and_layout_exact": true,
+  "metadata_volumes_disjoint": true,
+  "bi_reader_same_seven_views": true,
+  "resources": {
+    "snapshot": [
+      {
+        "BlockIO": "11.7MB / 0B",
+        "CPUPerc": "0.02%",
+        "MemUsage": "229.5MiB / 2GiB",
+        "Name": "btl-movielens-s11b4-restore-web-1",
+        "NetIO": "12.5MB / 13.9MB",
+        "PIDs": "38"
+      },
+      {
+        "BlockIO": "83.1MB / 103MB",
+        "CPUPerc": "0.00%",
+        "MemUsage": "78.68MiB / 512MiB",
+        "Name": "btl-movielens-s11b4-restore-metadata-1",
+        "NetIO": "11MB / 13.9MB",
+        "PIDs": "7"
+      }
+    ],
+    "disk": {
+      "test_metadata_KiB": 68884,
+      "test_home_KiB": 4
+    },
+    "test_volumes": [
+      "btl-movielens-s11b4-restore_restore_home",
+      "btl-movielens-s11b4-restore_restore_metadata"
+    ],
+    "cost": "Local Docker resources only; no paid cloud service created. Test web/metadata and two volumes retained for review."
+  },
+  "limitations": [
+    "Authentic export requires documented UUID layout reconciliation via REST after import",
+    "Test targets same Superset 6.1.0 and existing Windows DW, not a DW backup or cross-machine proof",
+    "PUBLIC TEMP remains",
+    "No fresh full refresh with S07 helper/G3",
+    "P2 intake G2 NOT_CONFIRMED",
+    "ZIP remains ignored pending separate publication review",
+    "Test containers/network/two volumes retained for review"
+  ],
+  "p2_intake_status": "NOT_CONFIRMED",
+  "no_export_restore_stage_commit_push_pr": true,
+  "files_this_turn": [
+    "dashboard/restore/.env.example",
+    "dashboard/restore/common.py",
+    "dashboard/restore/compose.yaml",
+    "dashboard/restore/evidence/export_inspection_FAIL_legacy_layout.json",
+    "dashboard/restore/evidence/export_inventory.json",
+    "dashboard/restore/evidence/final_observation.json",
+    "dashboard/restore/evidence/final_observation_pre_scope_recheck.json",
+    "dashboard/restore/evidence/implementation_observations.json",
+    "dashboard/restore/evidence/import_attempt.json",
+    "dashboard/restore/evidence/import_result.json",
+    "dashboard/restore/evidence/production_before.json",
+    "dashboard/restore/evidence/restore_verification.json",
+    "dashboard/restore/evidence/setup_preflight.json",
+    "dashboard/restore/evidence/ui_overview_all.jpg",
+    "dashboard/restore/evidence/ui_overview_all.json",
+    "dashboard/restore/evidence/ui_overview_q3.jpg",
+    "dashboard/restore/evidence/ui_overview_q3.json",
+    "dashboard/restore/evidence/ui_preferences_all.jpg",
+    "dashboard/restore/evidence/ui_preferences_all.json",
+    "dashboard/restore/evidence/ui_preferences_filtered.jpg",
+    "dashboard/restore/evidence/ui_preferences_filtered.json",
+    "dashboard/restore/evidence/ui_trends_animation.jpg",
+    "dashboard/restore/evidence/ui_trends_animation.json",
+    "dashboard/restore/evidence/ui_trends_qoq.jpg",
+    "dashboard/restore/evidence/uuid_mapping.json",
+    "dashboard/restore/export_bundle.py",
+    "dashboard/restore/import_bundle.py",
+    "dashboard/restore/observe.py",
+    "dashboard/restore/README.md",
+    "dashboard/restore/setup_local.py",
+    "dashboard/restore/superset_config.py",
+    "dashboard/restore/verify_restore.py",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S11.md",
+    "docs/P1/dashboard_restore_handoff.md"
+  ]
+}

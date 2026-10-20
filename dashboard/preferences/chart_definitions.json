@@ -1,0 +1,1408 @@
+{
+  "assigned": {
+    "chart_id": 14,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "big_number_total",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+        "label": "assigned_users",
+        "hasCustomLabel": true,
+        "optionName": "metric_assigned_users"
+      },
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader": "User có cụm trong bộ lọc hiện tại"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "big_number_total",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        },
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader": "User có cụm trong bộ lọc hiện tại"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "insufficient": {
+    "chart_id": 15,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "big_number_total",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+        "label": "insufficient_users",
+        "hasCustomLabel": true,
+        "optionName": "metric_insufficient_users"
+      },
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader": "Không có đánh giá tích cực đủ làm vector; cluster NULL"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+              "label": "insufficient_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_insufficient_users"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "big_number_total",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+          "label": "insufficient_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_insufficient_users"
+        },
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader": "Không có đánh giá tích cực đủ làm vector; cluster NULL"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "baseline": {
+    "chart_id": 16,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "big_number_total",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "MAX(assigned_total)",
+        "label": "fixed_assigned_baseline",
+        "hasCustomLabel": true,
+        "optionName": "metric_fixed_assigned_baseline"
+      },
+      "y_axis_format": ",d",
+      "header_font_size": 0.38,
+      "subheader": "Mẫu số cố định, không chịu cluster / tuổi / giới"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(assigned_total)",
+              "label": "fixed_assigned_baseline",
+              "hasCustomLabel": true,
+              "optionName": "metric_fixed_assigned_baseline"
+            }
+          ],
+          "orderby": [],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "big_number_total",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(assigned_total)",
+          "label": "fixed_assigned_baseline",
+          "hasCustomLabel": true,
+          "optionName": "metric_fixed_assigned_baseline"
+        },
+        "y_axis_format": ",d",
+        "header_font_size": 0.38,
+        "subheader": "Mẫu số cố định, không chịu cluster / tuổi / giới"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "size": {
+    "chart_id": 17,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "table",
+      "adhoc_filters": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "status='assigned'",
+          "clause": "WHERE",
+          "filterOptionName": "assigned_only"
+        }
+      ],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "query_mode": "aggregate",
+      "groupby": [
+        "cluster_label"
+      ],
+      "all_columns": [],
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(assigned_total),0)",
+          "label": "pct_of_fixed_6038",
+          "hasCustomLabel": true,
+          "optionName": "metric_pct_of_fixed_6038"
+        }
+      ],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(MIN(cluster_label))",
+        "label": "row_order",
+        "hasCustomLabel": true,
+        "optionName": "metric_row_order"
+      },
+      "order_desc": false,
+      "page_length": 30,
+      "server_pagination": false,
+      "include_search": false,
+      "show_cell_bars": false,
+      "column_config": {
+        "assigned_users": {
+          "d3NumberFormat": ",d"
+        },
+        "pct_of_fixed_6038": {
+          "d3NumberFormat": ".2f"
+        }
+      }
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "cluster_label"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(assigned_total),0)",
+              "label": "pct_of_fixed_6038",
+              "hasCustomLabel": true,
+              "optionName": "metric_pct_of_fixed_6038"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(MIN(cluster_label))",
+                "label": "row_order",
+                "hasCustomLabel": true,
+                "optionName": "metric_row_order"
+              },
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "status='assigned'",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "table",
+        "adhoc_filters": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "status='assigned'",
+            "clause": "WHERE",
+            "filterOptionName": "assigned_only"
+          }
+        ],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "query_mode": "aggregate",
+        "groupby": [
+          "cluster_label"
+        ],
+        "all_columns": [],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(assigned_total),0)",
+            "label": "pct_of_fixed_6038",
+            "hasCustomLabel": true,
+            "optionName": "metric_pct_of_fixed_6038"
+          }
+        ],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(MIN(cluster_label))",
+          "label": "row_order",
+          "hasCustomLabel": true,
+          "optionName": "metric_row_order"
+        },
+        "order_desc": false,
+        "page_length": 30,
+        "server_pagination": false,
+        "include_search": false,
+        "show_cell_bars": false,
+        "column_config": {
+          "assigned_users": {
+            "d3NumberFormat": ",d"
+          },
+          "pct_of_fixed_6038": {
+            "d3NumberFormat": ".2f"
+          }
+        }
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "model": {
+    "chart_id": 18,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "table",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "query_mode": "aggregate",
+      "groupby": [
+        "model_version"
+      ],
+      "all_columns": [],
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+          "label": "insufficient_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_insufficient_users"
+        }
+      ],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(MIN(model_version))",
+        "label": "row_order",
+        "hasCustomLabel": true,
+        "optionName": "metric_row_order"
+      },
+      "order_desc": false,
+      "page_length": 30,
+      "server_pagination": false,
+      "include_search": false,
+      "show_cell_bars": false,
+      "column_config": {
+        "assigned_users": {
+          "d3NumberFormat": ",d"
+        },
+        "insufficient_users": {
+          "d3NumberFormat": ",d"
+        }
+      }
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "model_version"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+              "label": "insufficient_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_insufficient_users"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(MIN(model_version))",
+                "label": "row_order",
+                "hasCustomLabel": true,
+                "optionName": "metric_row_order"
+              },
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "table",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "query_mode": "aggregate",
+        "groupby": [
+          "model_version"
+        ],
+        "all_columns": [],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='insufficient_evidence')",
+            "label": "insufficient_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_insufficient_users"
+          }
+        ],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(MIN(model_version))",
+          "label": "row_order",
+          "hasCustomLabel": true,
+          "optionName": "metric_row_order"
+        },
+        "order_desc": false,
+        "page_length": 30,
+        "server_pagination": false,
+        "include_search": false,
+        "show_cell_bars": false,
+        "column_config": {
+          "assigned_users": {
+            "d3NumberFormat": ",d"
+          },
+          "insufficient_users": {
+            "d3NumberFormat": ",d"
+          }
+        }
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "heatmap": {
+    "chart_id": 19,
+    "form_data": {
+      "datasource": "6__table",
+      "viz_type": "heatmap_v2",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "x_axis": "genre_name",
+      "groupby": [
+        "cluster_label"
+      ],
+      "metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "MAX(mean_preference)",
+        "label": "mean_preference",
+        "hasCustomLabel": true,
+        "optionName": "metric_mean_preference"
+      },
+      "sort_x_axis": "alpha_asc",
+      "sort_y_axis": "alpha_asc",
+      "normalize_across": "heatmap",
+      "normalized": false,
+      "show_percentage": false,
+      "show_values": false,
+      "show_legend": true,
+      "legend_type": "continuous",
+      "linear_color_scheme": "blue_white_yellow",
+      "y_axis_format": ".2%",
+      "value_bounds": [
+        0,
+        0.4
+      ],
+      "xAxisLabelRotation": 45,
+      "left_margin": 230,
+      "bottom_margin": 100,
+      "xscale_interval": 1,
+      "yscale_interval": 1
+    },
+    "query_context": {
+      "datasource": {
+        "id": 6,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "genre_name",
+            "cluster_label"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(mean_preference)",
+              "label": "mean_preference",
+              "hasCustomLabel": true,
+              "optionName": "metric_mean_preference"
+            }
+          ],
+          "orderby": [
+            [
+              "genre_name",
+              true
+            ],
+            [
+              "cluster_label",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "6__table",
+        "viz_type": "heatmap_v2",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "x_axis": "genre_name",
+        "groupby": [
+          "cluster_label"
+        ],
+        "metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(mean_preference)",
+          "label": "mean_preference",
+          "hasCustomLabel": true,
+          "optionName": "metric_mean_preference"
+        },
+        "sort_x_axis": "alpha_asc",
+        "sort_y_axis": "alpha_asc",
+        "normalize_across": "heatmap",
+        "normalized": false,
+        "show_percentage": false,
+        "show_values": false,
+        "show_legend": true,
+        "legend_type": "continuous",
+        "linear_color_scheme": "blue_white_yellow",
+        "y_axis_format": ".2%",
+        "value_bounds": [
+          0,
+          0.4
+        ],
+        "xAxisLabelRotation": 45,
+        "left_margin": 230,
+        "bottom_margin": 100,
+        "xscale_interval": 1,
+        "yscale_interval": 1
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "gender": {
+    "chart_id": 20,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "table",
+      "adhoc_filters": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "status='assigned'",
+          "clause": "WHERE",
+          "filterOptionName": "assigned_only"
+        }
+      ],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "query_mode": "aggregate",
+      "groupby": [
+        "cluster_label",
+        "gender"
+      ],
+      "all_columns": [],
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(original_cluster_n)",
+          "label": "original_cluster_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_original_cluster_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+          "label": "pct_of_original_cluster",
+          "hasCustomLabel": true,
+          "optionName": "metric_pct_of_original_cluster"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(baseline_gender_n)",
+          "label": "baseline_gender_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_baseline_gender_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "100.0*MAX(baseline_gender_n)/MAX(assigned_total)",
+          "label": "baseline_gender_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_baseline_gender_pct"
+        }
+      ],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(MIN(cluster_label),MIN(gender))",
+        "label": "row_order",
+        "hasCustomLabel": true,
+        "optionName": "metric_row_order"
+      },
+      "order_desc": false,
+      "page_length": 30,
+      "server_pagination": false,
+      "include_search": false,
+      "show_cell_bars": false,
+      "column_config": {
+        "assigned_users": {
+          "d3NumberFormat": ",d"
+        },
+        "original_cluster_users": {
+          "d3NumberFormat": ",d"
+        },
+        "pct_of_original_cluster": {
+          "d3NumberFormat": ".2f"
+        },
+        "baseline_gender_users": {
+          "d3NumberFormat": ",d"
+        },
+        "baseline_gender_pct": {
+          "d3NumberFormat": ".2f"
+        }
+      }
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "cluster_label",
+            "gender"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(original_cluster_n)",
+              "label": "original_cluster_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_original_cluster_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+              "label": "pct_of_original_cluster",
+              "hasCustomLabel": true,
+              "optionName": "metric_pct_of_original_cluster"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(baseline_gender_n)",
+              "label": "baseline_gender_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_baseline_gender_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "100.0*MAX(baseline_gender_n)/MAX(assigned_total)",
+              "label": "baseline_gender_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_baseline_gender_pct"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(MIN(cluster_label),MIN(gender))",
+                "label": "row_order",
+                "hasCustomLabel": true,
+                "optionName": "metric_row_order"
+              },
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "status='assigned'",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "table",
+        "adhoc_filters": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "status='assigned'",
+            "clause": "WHERE",
+            "filterOptionName": "assigned_only"
+          }
+        ],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "query_mode": "aggregate",
+        "groupby": [
+          "cluster_label",
+          "gender"
+        ],
+        "all_columns": [],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(original_cluster_n)",
+            "label": "original_cluster_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_original_cluster_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+            "label": "pct_of_original_cluster",
+            "hasCustomLabel": true,
+            "optionName": "metric_pct_of_original_cluster"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(baseline_gender_n)",
+            "label": "baseline_gender_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_baseline_gender_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "100.0*MAX(baseline_gender_n)/MAX(assigned_total)",
+            "label": "baseline_gender_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_baseline_gender_pct"
+          }
+        ],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(MIN(cluster_label),MIN(gender))",
+          "label": "row_order",
+          "hasCustomLabel": true,
+          "optionName": "metric_row_order"
+        },
+        "order_desc": false,
+        "page_length": 30,
+        "server_pagination": false,
+        "include_search": false,
+        "show_cell_bars": false,
+        "column_config": {
+          "assigned_users": {
+            "d3NumberFormat": ",d"
+          },
+          "original_cluster_users": {
+            "d3NumberFormat": ",d"
+          },
+          "pct_of_original_cluster": {
+            "d3NumberFormat": ".2f"
+          },
+          "baseline_gender_users": {
+            "d3NumberFormat": ",d"
+          },
+          "baseline_gender_pct": {
+            "d3NumberFormat": ".2f"
+          }
+        }
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "baseline_gender": {
+    "chart_id": 21,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "status='assigned'",
+          "clause": "WHERE",
+          "filterOptionName": "assigned_only"
+        }
+      ],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "x_axis": "gender",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        }
+      ],
+      "groupby": [],
+      "orientation": "vertical",
+      "show_value": true,
+      "show_legend": false,
+      "x_axis_sort": "gender",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ",d"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "gender"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            }
+          ],
+          "orderby": [
+            [
+              "gender",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "status='assigned'",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "status='assigned'",
+            "clause": "WHERE",
+            "filterOptionName": "assigned_only"
+          }
+        ],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "x_axis": "gender",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          }
+        ],
+        "groupby": [],
+        "orientation": "vertical",
+        "show_value": true,
+        "show_legend": false,
+        "x_axis_sort": "gender",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ",d"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "age": {
+    "chart_id": 22,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "table",
+      "adhoc_filters": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "status='assigned'",
+          "clause": "WHERE",
+          "filterOptionName": "assigned_only"
+        }
+      ],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "query_mode": "aggregate",
+      "groupby": [
+        "cluster_label",
+        "age_group"
+      ],
+      "all_columns": [],
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(original_cluster_n)",
+          "label": "original_cluster_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_original_cluster_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+          "label": "pct_of_original_cluster",
+          "hasCustomLabel": true,
+          "optionName": "metric_pct_of_original_cluster"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(baseline_age_n)",
+          "label": "baseline_age_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_baseline_age_users"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "100.0*MAX(baseline_age_n)/MAX(assigned_total)",
+          "label": "baseline_age_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_baseline_age_pct"
+        }
+      ],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(MIN(cluster_label),MIN(age_group))",
+        "label": "row_order",
+        "hasCustomLabel": true,
+        "optionName": "metric_row_order"
+      },
+      "order_desc": false,
+      "page_length": 30,
+      "server_pagination": false,
+      "include_search": false,
+      "show_cell_bars": false,
+      "column_config": {
+        "assigned_users": {
+          "d3NumberFormat": ",d"
+        },
+        "original_cluster_users": {
+          "d3NumberFormat": ",d"
+        },
+        "pct_of_original_cluster": {
+          "d3NumberFormat": ".2f"
+        },
+        "baseline_age_users": {
+          "d3NumberFormat": ",d"
+        },
+        "baseline_age_pct": {
+          "d3NumberFormat": ".2f"
+        }
+      }
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "cluster_label",
+            "age_group"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(original_cluster_n)",
+              "label": "original_cluster_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_original_cluster_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+              "label": "pct_of_original_cluster",
+              "hasCustomLabel": true,
+              "optionName": "metric_pct_of_original_cluster"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(baseline_age_n)",
+              "label": "baseline_age_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_baseline_age_users"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "100.0*MAX(baseline_age_n)/MAX(assigned_total)",
+              "label": "baseline_age_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_baseline_age_pct"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(MIN(cluster_label),MIN(age_group))",
+                "label": "row_order",
+                "hasCustomLabel": true,
+                "optionName": "metric_row_order"
+              },
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "status='assigned'",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "table",
+        "adhoc_filters": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "status='assigned'",
+            "clause": "WHERE",
+            "filterOptionName": "assigned_only"
+          }
+        ],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "query_mode": "aggregate",
+        "groupby": [
+          "cluster_label",
+          "age_group"
+        ],
+        "all_columns": [],
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(original_cluster_n)",
+            "label": "original_cluster_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_original_cluster_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "100.0*COUNT(*) FILTER (WHERE status='assigned')/NULLIF(MAX(original_cluster_n),0)",
+            "label": "pct_of_original_cluster",
+            "hasCustomLabel": true,
+            "optionName": "metric_pct_of_original_cluster"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(baseline_age_n)",
+            "label": "baseline_age_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_baseline_age_users"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "100.0*MAX(baseline_age_n)/MAX(assigned_total)",
+            "label": "baseline_age_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_baseline_age_pct"
+          }
+        ],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(MIN(cluster_label),MIN(age_group))",
+          "label": "row_order",
+          "hasCustomLabel": true,
+          "optionName": "metric_row_order"
+        },
+        "order_desc": false,
+        "page_length": 30,
+        "server_pagination": false,
+        "include_search": false,
+        "show_cell_bars": false,
+        "column_config": {
+          "assigned_users": {
+            "d3NumberFormat": ",d"
+          },
+          "original_cluster_users": {
+            "d3NumberFormat": ",d"
+          },
+          "pct_of_original_cluster": {
+            "d3NumberFormat": ".2f"
+          },
+          "baseline_age_users": {
+            "d3NumberFormat": ",d"
+          },
+          "baseline_age_pct": {
+            "d3NumberFormat": ".2f"
+          }
+        }
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "baseline_age": {
+    "chart_id": 23,
+    "form_data": {
+      "datasource": "5__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "status='assigned'",
+          "clause": "WHERE",
+          "filterOptionName": "assigned_only"
+        }
+      ],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "row_limit": 1000,
+      "color_scheme": "supersetColors",
+      "x_axis": "age_group",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+          "label": "assigned_users",
+          "hasCustomLabel": true,
+          "optionName": "metric_assigned_users"
+        }
+      ],
+      "groupby": [],
+      "orientation": "vertical",
+      "show_value": true,
+      "show_legend": false,
+      "x_axis_sort": "age_group",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ",d"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 5,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "age_group"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+              "label": "assigned_users",
+              "hasCustomLabel": true,
+              "optionName": "metric_assigned_users"
+            }
+          ],
+          "orderby": [
+            [
+              "age_group",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "status='assigned'",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "5__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "status='assigned'",
+            "clause": "WHERE",
+            "filterOptionName": "assigned_only"
+          }
+        ],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "row_limit": 1000,
+        "color_scheme": "supersetColors",
+        "x_axis": "age_group",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "COUNT(*) FILTER (WHERE status='assigned')",
+            "label": "assigned_users",
+            "hasCustomLabel": true,
+            "optionName": "metric_assigned_users"
+          }
+        ],
+        "groupby": [],
+        "orientation": "vertical",
+        "show_value": true,
+        "show_legend": false,
+        "x_axis_sort": "age_group",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ",d"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  }
+}

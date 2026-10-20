@@ -1,0 +1,54 @@
+{
+  "run_id": "14c7eb52e34a4b0da6b0c158b56175cd",
+  "at_utc": "2026-10-20T08:35:54.410134+00:00",
+  "mode": "DRY_RUN",
+  "database_writes": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "status": "PASS",
+  "database": "movielens_btl",
+  "transaction_read_only": "on",
+  "package_path": "data\\processed\\p1_g3_20261020_intake",
+  "model_version": "kmeans_k4_seed42",
+  "payload_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+  },
+  "manifest_sha256": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0",
+  "libraries": {
+    "scikit-learn": "1.5.2",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "python": "3.12.14"
+  },
+  "cluster_sizes": {
+    "0": 2478,
+    "1": 1393,
+    "2": 760,
+    "3": 1407
+  },
+  "assigned": 6038,
+  "insufficient_evidence": 2,
+  "profile_rows": 72,
+  "result": {
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "analytics_counts": {
+      "model_registry": 0,
+      "user_cluster": 0,
+      "cluster_genre_profile": 0
+    },
+    "plan": "INSERT_NEW_INACTIVE_VERSION_THEN_VERIFY_AND_ACTIVATE"
+  },
+  "code_base_commit": "371aab7e43742dc1e5c330077ffbd49fcef5fe09",
+  "code_sha256": "f02452ec5fba24c77c2088b50a6111befafc3a241c4a9a0a6f49e62c90ce3e8e"
+}

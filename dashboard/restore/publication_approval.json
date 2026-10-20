@@ -1,0 +1,7 @@
+{
+  "phase": "AUTHORIZED_GIT_PUBLICATION",
+  "path": "dashboard/superset_export.zip",
+  "sha256": "b5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae",
+  "source": "Coordinator acceptance and publication instruction conveyed by user on 2026-10-20; exact ZIP path and hash authorized.",
+  "scope": "Authentic export + official import + REST layout restoration on isolated 8091 using existing DW; not one-step ZIP restore or DW backup."
+}

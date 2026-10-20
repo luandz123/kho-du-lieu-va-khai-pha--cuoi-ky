@@ -1,0 +1,522 @@
+{
+  "run_id": "0dec3918c71641b99bd5b47cec2a91f8",
+  "at_utc": "2026-10-20T09:03:23.492259+00:00",
+  "mode": "APPLY",
+  "status": "PASS",
+  "code_state": "WORKING_TREE_SHA256_NOT_IN_BASE_COMMIT",
+  "base_commit": "17e9d5664f247b7ee13446ff260937986d17b54a",
+  "code_sha256": {
+    "etl/g3_intake.py": "5a6162015463387347d8b54f6521ef0704269f2a4b8091af0b8c22fdc732179d",
+    "etl/g3_transaction.py": "3510b9e4cdd8265ea9e2a04ca424c0ed0f9eae73fe0fc96da8015d078ef436f5",
+    "etl/load_g3.py": "4645611cb3d906c3d8169c0722a0f820061961a30942ae0351f9bb7292852186"
+  },
+  "p2_intake_status": "NOT_CONFIRMED",
+  "write_retry": false,
+  "model_version": "kmeans_k4_seed42",
+  "payload_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+  },
+  "manifest_sha256": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0",
+  "before": {
+    "database": "movielens_btl",
+    "read_only": "on",
+    "dw": {
+      "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "row_counts": {
+        "users": 6040,
+        "movies": 3883,
+        "movie_genres": 6408,
+        "ratings": 1000209
+      },
+      "analytics_counts": {
+        "model_registry": 1,
+        "user_cluster": 6040,
+        "cluster_genre_profile": 72
+      },
+      "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+    },
+    "protected_state": {
+      "sources": {
+        "staging.users_raw": {
+          "rows": 6040,
+          "ordered_row_md5": "41613a25953ee36c6f82b577bc968833"
+        },
+        "staging.movies_raw": {
+          "rows": 3883,
+          "ordered_row_md5": "2df9f038321699e2a459e73d57415340"
+        },
+        "staging.ratings_raw": {
+          "rows": 1000209,
+          "ordered_row_md5": "f2ad1444f262c29e58276e441b94b68d"
+        },
+        "dw.dim_user": {
+          "rows": 6040,
+          "ordered_row_md5": "0cb8b28e95f529ebe1adce302c93a829"
+        },
+        "dw.dim_movie": {
+          "rows": 3883,
+          "ordered_row_md5": "dbcf2b9620b74e145b686446079a8c8e"
+        },
+        "dw.dim_date": {
+          "rows": 1040,
+          "ordered_row_md5": "8e71d3be043b287242012580ab23c371"
+        },
+        "dw.dim_genre": {
+          "rows": 18,
+          "ordered_row_md5": "79adae2753cd78ea214b41c4acc15bfa"
+        },
+        "dw.bridge_movie_genre": {
+          "rows": 6408,
+          "ordered_row_md5": "12ae55061a94d5dac5befe1e24d39e6d"
+        },
+        "dw.fact_rating": {
+          "rows": 1000209,
+          "ordered_row_md5": "a5df6838adf7902726e417d42b54ad2c"
+        }
+      },
+      "project_relation_acl_sha256": "1e3df3bd62cccac073b1638d9b166874b87625e6a3bb853cf615bcfa32b579aa",
+      "bi_role_attributes": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "bi_memberships": [],
+      "schema_acl_sha256": "99c2bf933a3ff092bb2ee99a1ccb64ae6beffc8c6c315fa69ed2227a8e98b8ab"
+    },
+    "registry": [
+      {
+        "model_version": "kmeans_k4_seed42",
+        "contract_version": 2,
+        "is_active": true,
+        "is_valid_for_dw": true,
+        "registered_at": "2026-10-20 09:00:37.986010+00:00",
+        "model_created_at": "2026-10-20 08:32:23.015413+00:00"
+      }
+    ],
+    "cluster_sizes": {
+      "0": 2478,
+      "1": 1393,
+      "2": 760,
+      "3": 1407
+    },
+    "status_counts": {
+      "assigned": 6038,
+      "insufficient_evidence": 2
+    },
+    "profile_aggregates": [
+      [
+        0,
+        18,
+        1.0,
+        2478,
+        2478
+      ],
+      [
+        1,
+        18,
+        0.9999999999999999,
+        1393,
+        1393
+      ],
+      [
+        2,
+        18,
+        1.0,
+        760,
+        760
+      ],
+      [
+        3,
+        18,
+        1.0000000000000002,
+        1407,
+        1407
+      ]
+    ]
+  },
+  "dashboard_before": {
+    "available": true,
+    "object_config_sha256": {
+      "dashboard/1": "2dbb2beb08a1ba8bd2d7293ccd967b01cb1c9dfb158bc976298faeea862b5207",
+      "dashboard/2": "b9fe73f553b5b9cb100f7d8e24008e53729ac4ce162a82a507c4683d84f7c893",
+      "dataset/1": "1ee852934137ab0baf9e192947e66d536ef163c2d4991e9420b7888d06785177",
+      "dataset/2": "d49ce4bb38df490b5adc83e7b14ab885366b9ab7ccc85b219db63b00c136ec8d",
+      "dataset/3": "a0ab393a92caac099b2b5ff14e4317d1b1e80396f8a3b1e7adcf6cf8413da938",
+      "dataset/4": "555043e3c5b6deb1cf9575226c86c17b4852ae575f6008d97ffd05764119b79e",
+      "chart/1": "cba496563eaf7336c0296e7c4b045b9db8381a92b7d41255c4eab9f52ff9fa2e",
+      "chart/2": "9d680b6b4f0296308cd854900c70c39a451577faa713fe4daceebb2d130b96d9",
+      "chart/3": "72f99d97462c94abc9ec5beb9738aa8ab05d807e6d2051ee64cd225928581bbf",
+      "chart/4": "38a94f5d67aff937266fd3d81cbb2e62123a46f2b546eae6384fb243b629118b",
+      "chart/5": "48eefd821b033a57f8194beb1805035e37373c5e58ec63ab0b23b786f661da3e",
+      "chart/6": "cb1a490fbea7c96c982fbd6683043da3ec9dbc4585e4e2d6738a905649789cdf",
+      "chart/7": "30d002bfba1f711de6bdd573e39ca14f4bf6b0f95fb765c91bfd14216b9fb4e7",
+      "chart/8": "9ee9d7832d8ba1f20ba93eab06b1bc5c2e9f74b42b6298a1bec102ec8af595ff",
+      "chart/9": "c04a03b04989901d81482a92ac1bee3d46032d743122f6fc1bae34f55e2134f7",
+      "chart/10": "6a9f913195c2d0d31f8ceb36877ab2f9e90d1a3793edca28ed3cc56439dd8e87",
+      "chart/11": "5480a6bcc298c1151251336cd46af235c808027928cdc7691f682da59ccec0fb",
+      "chart/12": "50277b2b9379a83f1059f1f6b5925699ef66bd197f4145485f507659d66de344",
+      "chart/13": "50f557e7c612f723318950b5fd1cbc90aaed04965c54b0a71d7397b113efc7d3"
+    },
+    "local_artifact_sha256": {
+      "dashboard/overview/.env.example": "40453fa675b3699205c785234d09f660c95b8f05779bc2bd439f6188f385ace6",
+      "dashboard/overview/README.md": "5dd3c68fb62d249b1d39f0ca6afc7a94ae411ca48ef968696c081a763147cc99",
+      "dashboard/overview/bi_grants.sql": "70e128779db0f8def4a31a6cc742180290a5687a4da130e6d4c426f4914f7cf8",
+      "dashboard/overview/catalog_dataset.sql": "59f650d30a0ea2bd645a9047ac3898734024a380c3ea48ef6dbf3304e567b93d",
+      "dashboard/overview/chart_definitions.json": "057066ce8d30b2ffb450aa203eb2a803ab53cec200d793368511ed0faea8de05",
+      "dashboard/overview/check_bi_reader.py": "e1d5f369058c097a08fdb515a428f0723afd650a5e3e9a41a9c1143997ce77be",
+      "dashboard/overview/create_overview.py": "d947ba1522bc3b86cd90f632f71be538fecb86a7ea372d136f67356ce4eefd32",
+      "dashboard/overview/dashboard_definition.json": "56336c82776ec71b51fbc477ace1aa2f62d8565f5a03ca755a6283125cca3354",
+      "dashboard/overview/evidence/.gitattributes": "ad97cfa3234074796ad043b856a26a66bbcef193adeafefbdf1cbbd7d1756551",
+      "dashboard/overview/evidence/2000_q3_charts.jpg": "25469560bd0fc3d2cf15dca2400cef9ae9c83b997c2aac52e624ad1df6908502",
+      "dashboard/overview/evidence/2000_q3_desktop_ax.txt": "df84157706a9fbb4bede009884c157c52057755072a605931693ec17d102905a",
+      "dashboard/overview/evidence/2000_q3_viewport.jpg": "43016b0bdd4434551ffa37c10231bf69927e4064ede824e4d8af475cb17281f9",
+      "dashboard/overview/evidence/2001_q1_ax.txt": "f6ea8fefc008425da921fd9bb76e270a3e1d360bf4310f74733737fa0d6a5417",
+      "dashboard/overview/evidence/2001_q1_charts.jpg": "98225126733d20c0e2940e2168e18d3bbf36d6e9b3c46411e4ba02aa8615409e",
+      "dashboard/overview/evidence/2001_q1_filter.jpg": "4401a8382e7e077af1167ae09fa72a13bd8319b725eb774876dc3d6e43d1ea91",
+      "dashboard/overview/evidence/2001_q1_viewport.jpg": "bb9f6293b426601820658273fa16c963911e0ad2b57f2af49bff1290587c91da",
+      "dashboard/overview/evidence/all_history_ax.txt": "d0c5d8748b15d3a6b42a080b91ab1c6a2ab3dbd9ad1d40b625f43c224f620e23",
+      "dashboard/overview/evidence/all_history_charts.jpg": "6c7b49ccb233b6b6f968f3a6eabdcd44e38264d40ebb0c1cd9817839616b358a",
+      "dashboard/overview/evidence/all_history_viewport.jpg": "657de80de12960fa9a609dc1ccb600253dd0236abe5f0ca25e61374a42423b9e",
+      "dashboard/overview/evidence/bi_reader.json": "2dfa764ae806df3cf6f5a81f1bed3ec00420804f9ab7efe885c801fb0983e039",
+      "dashboard/overview/evidence/bi_reader_final.json": "7014691f767a128807d6892cd93435f8f9207663fa112c518ccec306bfdc340c",
+      "dashboard/overview/evidence/capture_format_observation.json": "6a4f4e4e1aac0e193275ae530192885907ea573ab104f54d489bff7236fb6bc2",
+      "dashboard/overview/evidence/environment.json": "92ca1d236b514f2a0657abb4a9556f46cf7459016048b699e31844d015940069",
+      "dashboard/overview/evidence/export_check.json": "2c4de69c88d9d9ea3dd1bc390d45cc99e3d645ca262f8ef451c99120991a7f83",
+      "dashboard/overview/evidence/final_verification.json": "59bde8dd07e2343f22b69c1f1833bd404f97993a799a9b55ea54ab12f835cbc1",
+      "dashboard/overview/evidence/handoff_manifest.json": "fc51ed4d9f8502cba801a08bdfd00eaf4594894ed27675432db951b343c5d84b",
+      "dashboard/overview/evidence/publication_observation.json": "a8e77c8994669898b2ad67909fa972db29569588767fd1a48ebb8c3cae759575",
+      "dashboard/overview/evidence/reconcile_failure.json": "961a5128595c4b9786df69551642eed638019a9be009ebd47b7a07a42e3cf380",
+      "dashboard/overview/evidence/reconciliation.json": "93d18548bf3ae5a179d48521ef41d133142ed2d185a309f9a0c86ec1fda88817",
+      "dashboard/overview/evidence/s07_merge_observation.json": "e069bf440334a890d33a665e1f5fbc42cc70ee74b47a9fe9018b7840f4b70dff",
+      "dashboard/overview/evidence/verification_failure.json": "15858d3249066fff48ee4d4adc3b8f21f14c208ad6d983b0d0b1763217bd2d13",
+      "dashboard/overview/metrics.json": "0ba6b6aab95ed34e2e7d6b83ec08e0ef30d7189e918894830b1af457a5937c08",
+      "dashboard/overview/object_ids.json": "150d27095ab01f5e650c241aa9267285906040c2fa4436481837965067e3ce90",
+      "dashboard/overview/overview.css": "a067b61d6b6a855bb396b86507de9f271662dacdc8902f8936ae3ea6119a429b",
+      "dashboard/overview/ratings_dataset.sql": "f37d3620c2342b9f7f00e0cbd952a8ef32abc08b4d9535c52d0038d0bdc38fa1",
+      "dashboard/overview/reconcile.py": "7aeb6a75e1bfa8aec3e46091e254515590d819b298e444df618585089d1239f1",
+      "dashboard/overview/reconciliation.sql": "68b150fddf716ff8a8e4fe06f610651ad1fb13f016f4c9b2ba7b89fe06f08541",
+      "dashboard/overview/superset_api.py": "3c96267db6b99b474808ae35d903a0f8369f56694deea46f690b8b3216a86f3e",
+      "dashboard/overview/verify_overview.py": "376b41f5b4f7200032d0ca0018283d87b18ebbef087516409249ffc4b5e07b41",
+      "dashboard/superset/.dockerignore": "c105e6033241de579ceb28823b6776a62cfaf4b7880d82eaaa1d61f68629a4cb",
+      "dashboard/superset/.env.example": "f00c9729aa8fcb801fe48035e7ee0b4b6770d5baf7daf2f253c1534e2b02aa11",
+      "dashboard/superset/Dockerfile": "581df3244e257eae89aa0674c112e48c74460bb958e3364dc52a400bb0c868fa",
+      "dashboard/superset/README.md": "d85e7e025fa913ededbd72e49ea2a545c67aac45d22eab1f97fac86c74d7d26b",
+      "dashboard/superset/compose.yaml": "c8b782332c6cdeece07e76fde21391a16002311df5daf6724ecc9496d82e06fe",
+      "dashboard/superset/init_metadata.py": "02846052d6a1555d3305ed2967821f8896b046c8e132d4e6d77a94b4cc9924a6",
+      "dashboard/superset/superset_config.py": "72439db1120c3e1b76024fca39ce01b3490236aa7fb00afdb4e19bea732bbfe9",
+      "dashboard/trends/README.md": "3bec8270b6afc3e3b896e0910cfa8748ab08a0849e7e23c42883d879aea88950",
+      "dashboard/trends/bi_grants.sql": "7a2d3470460d90c9a9a5f2c28701805025343c4dd7131094f990050f297754a0",
+      "dashboard/trends/chart_definitions.json": "961f16726b95be0195b2d5f90f826c31857be5abf2269722bbd7c5bde5655f49",
+      "dashboard/trends/create_trends.py": "2a9b7a4a2d44deccd082852cdfb6cea6e0469624060d5d52ea5cd5122fa652d6",
+      "dashboard/trends/dashboard_definition.json": "ca96f588b993afc57f2515b1cf982c1dc4f703a9c2d18d35815a500b058bb26c",
+      "dashboard/trends/dashboard_observed.json": "97cd8f1cf7e91770674c067f93e98363c37d61cd01f326c5afe7f9ccdc42aad9",
+      "dashboard/trends/evidence/all_quarters.jpg": "f2ce0013d9c0cb54ddd73030a4510047bf1e04f16991c0b2b576e9e41eebfcbf",
+      "dashboard/trends/evidence/all_quarters_final.jpg": "d09a5f8d9878332f66f7c74a8bcc1a051205b3832c74b3667846be92fafe7121",
+      "dashboard/trends/evidence/all_quarters_final_ui.json": "ebd264079e1c61f7402e854cb1bbd3826373d81006692d8da5e53780709ad9c1",
+      "dashboard/trends/evidence/audit.json": "bd38c11dfaacba11868e777634d73fc3717651c82b7648f7e3a8970c713f7321",
+      "dashboard/trends/evidence/bi_reader.json": "c0e52e87537d0518c83a52c27c7fe0dea641e0ea9bbe86a47955512e630c2fcf",
+      "dashboard/trends/evidence/chart_initial_failure.json": "1d9fd2dc9db7b3694f8eb49673e103900b3bd5c674b17f3a3018ad0bb0676aae",
+      "dashboard/trends/evidence/comedy_charts.jpg": "2fbbc58712a303ff59a98dd67d5f9e830028821794c9fc70a45c93a2b8fd15ea",
+      "dashboard/trends/evidence/comedy_filter.jpg": "7322155eeaf46a0da763cb00685b08546d521501bf910d55e43335b9c9e91564",
+      "dashboard/trends/evidence/comedy_ui.json": "4c4bc1e0676ef7a695be69f5464ff5a9a191fc329ff92dd299894d08033dcbd5",
+      "dashboard/trends/evidence/final_verification.json": "bafc7a3f8d0839378ad7275d606ec688224d45a0453dd019bf78ed277db04279",
+      "dashboard/trends/evidence/handoff_manifest.json": "6277d7f834ab3e53c6c5a49ac955de815d73dfe9632c9a5e7f7b32ee10982ad7",
+      "dashboard/trends/evidence/overview_after.json": "953a52585c79b67c98b287e8ff182860d5ef7fe213eefb0638763a9480e44cbc",
+      "dashboard/trends/evidence/overview_before.json": "953a52585c79b67c98b287e8ff182860d5ef7fe213eefb0638763a9480e44cbc",
+      "dashboard/trends/evidence/overview_regression.jpg": "2948cd1afe35468cdb97375eab644bbc550e2f7553e29baae6f0faf1a3cc5527",
+      "dashboard/trends/evidence/overview_regression_ui.json": "41c1bd3f56846f41145a073ec73ec6cbe62dfd67086fb66f7faa4e4095230f9e",
+      "dashboard/trends/evidence/prepare_failure.json": "48adc14ba832eb3c42567088fbaeec66930f3e4c35da875a6990be351e6f4b43",
+      "dashboard/trends/evidence/reconciliation.json": "3fdd1fe9f545d59dbc26641a71bc4f2970ea0f7858548a64ac073c73ccb5c720",
+      "dashboard/trends/evidence/reconciliation_75f0014542554631a7267aa52319b05f.json": "5731db1e7546925fe801a5e7734864c282338d189860a756eaf84cfb20425279",
+      "dashboard/trends/evidence/three_genres_charts.jpg": "24a26d3d271f4194b83d2f386ecbf3b6d1cb2c81f4089663dd96efbad84a1a27",
+      "dashboard/trends/evidence/three_genres_filter.jpg": "5b7ce14727ece86cc0aa8c05265c3d9e4b8350bd0eb005d2daeacbff534868ac",
+      "dashboard/trends/evidence/three_genres_final_ui.json": "87fa743d638be7eac9b29fa9d48e4d3a336ec492e8bf3453a9cdcc8393d37914",
+      "dashboard/trends/evidence/three_genres_qoq.jpg": "0ca38c391524c584e645899c03bc5af02484567ae7ba0445146c01c82213a87b",
+      "dashboard/trends/evidence/three_genres_ui.json": "88f87008d585fdf994935c9556c08706571c6e3deec6f30aafb135777523f64b",
+      "dashboard/trends/evidence/verification_initial_failure.json": "bbf24c2ee840f0d91fcc18ed7fbe45089b0d6be431aa242d0da4ca54f8104d4a",
+      "dashboard/trends/genre_dataset.sql": "e9dd474f0548ce62453d50c247ea50af36a5c209b836661fd32f172a75b066dc",
+      "dashboard/trends/object_ids.json": "166a5b5b15d8a870bd502eac153e79801a2bdb820c6fc8a8ce2a135eb35cf3e7",
+      "dashboard/trends/prepare.py": "66ea29a93ee27f63c7b4e3979a99d60d858775ebf558df325246c626e2424878",
+      "dashboard/trends/quarter_dataset.sql": "7a87a9a733f730d09e084ecc3cf78dc75b87c940eeb44f8b19639b6ca500c1f2",
+      "dashboard/trends/reconcile.py": "c19904a8a45dac8f65dd6305e2b6f04252fdfc96b0d4ed69fbb439c83b95ef2a",
+      "dashboard/trends/reconciliation.sql": "cf9ae6aceb1aad51b26f260b22286a794917bb75d9613c7f8a84cc20f1be922e",
+      "dashboard/trends/verify.py": "06e66fd86ca2d6eea504309d287083d18437c0d0fab7a9d8943d79cdd5fbe53e"
+    }
+  },
+  "transaction_result": {
+    "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION",
+    "transaction": "COMMITTED_NO_OP",
+    "rows_verified": 6112,
+    "checks": {
+      "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "row_counts": {
+        "users": 6040,
+        "movies": 3883,
+        "movie_genres": 6408,
+        "ratings": 1000209
+      },
+      "analytics_counts": {
+        "model_registry": 1,
+        "user_cluster": 6040,
+        "cluster_genre_profile": 72
+      },
+      "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+    },
+    "progress": {
+      "exclusive_etl_lock": true,
+      "sources_and_targets_locked": true,
+      "production_checks_same_connection": true,
+      "all_rows_and_active_state_verified": true
+    }
+  },
+  "after": {
+    "database": "movielens_btl",
+    "read_only": "on",
+    "dw": {
+      "canonical_hashes": {
+        "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+        "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+        "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+        "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+      },
+      "row_counts": {
+        "users": 6040,
+        "movies": 3883,
+        "movie_genres": 6408,
+        "ratings": 1000209
+      },
+      "analytics_counts": {
+        "model_registry": 1,
+        "user_cluster": 6040,
+        "cluster_genre_profile": 72
+      },
+      "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+    },
+    "protected_state": {
+      "sources": {
+        "staging.users_raw": {
+          "rows": 6040,
+          "ordered_row_md5": "41613a25953ee36c6f82b577bc968833"
+        },
+        "staging.movies_raw": {
+          "rows": 3883,
+          "ordered_row_md5": "2df9f038321699e2a459e73d57415340"
+        },
+        "staging.ratings_raw": {
+          "rows": 1000209,
+          "ordered_row_md5": "f2ad1444f262c29e58276e441b94b68d"
+        },
+        "dw.dim_user": {
+          "rows": 6040,
+          "ordered_row_md5": "0cb8b28e95f529ebe1adce302c93a829"
+        },
+        "dw.dim_movie": {
+          "rows": 3883,
+          "ordered_row_md5": "dbcf2b9620b74e145b686446079a8c8e"
+        },
+        "dw.dim_date": {
+          "rows": 1040,
+          "ordered_row_md5": "8e71d3be043b287242012580ab23c371"
+        },
+        "dw.dim_genre": {
+          "rows": 18,
+          "ordered_row_md5": "79adae2753cd78ea214b41c4acc15bfa"
+        },
+        "dw.bridge_movie_genre": {
+          "rows": 6408,
+          "ordered_row_md5": "12ae55061a94d5dac5befe1e24d39e6d"
+        },
+        "dw.fact_rating": {
+          "rows": 1000209,
+          "ordered_row_md5": "a5df6838adf7902726e417d42b54ad2c"
+        }
+      },
+      "project_relation_acl_sha256": "1e3df3bd62cccac073b1638d9b166874b87625e6a3bb853cf615bcfa32b579aa",
+      "bi_role_attributes": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "bi_memberships": [],
+      "schema_acl_sha256": "99c2bf933a3ff092bb2ee99a1ccb64ae6beffc8c6c315fa69ed2227a8e98b8ab"
+    },
+    "registry": [
+      {
+        "model_version": "kmeans_k4_seed42",
+        "contract_version": 2,
+        "is_active": true,
+        "is_valid_for_dw": true,
+        "registered_at": "2026-10-20 09:00:37.986010+00:00",
+        "model_created_at": "2026-10-20 08:32:23.015413+00:00"
+      }
+    ],
+    "cluster_sizes": {
+      "0": 2478,
+      "1": 1393,
+      "2": 760,
+      "3": 1407
+    },
+    "status_counts": {
+      "assigned": 6038,
+      "insufficient_evidence": 2
+    },
+    "profile_aggregates": [
+      [
+        0,
+        18,
+        1.0,
+        2478,
+        2478
+      ],
+      [
+        1,
+        18,
+        0.9999999999999999,
+        1393,
+        1393
+      ],
+      [
+        2,
+        18,
+        1.0,
+        760,
+        760
+      ],
+      [
+        3,
+        18,
+        1.0000000000000002,
+        1407,
+        1407
+      ]
+    ]
+  },
+  "dashboard_after": {
+    "available": true,
+    "object_config_sha256": {
+      "dashboard/1": "2dbb2beb08a1ba8bd2d7293ccd967b01cb1c9dfb158bc976298faeea862b5207",
+      "dashboard/2": "b9fe73f553b5b9cb100f7d8e24008e53729ac4ce162a82a507c4683d84f7c893",
+      "dataset/1": "1ee852934137ab0baf9e192947e66d536ef163c2d4991e9420b7888d06785177",
+      "dataset/2": "d49ce4bb38df490b5adc83e7b14ab885366b9ab7ccc85b219db63b00c136ec8d",
+      "dataset/3": "a0ab393a92caac099b2b5ff14e4317d1b1e80396f8a3b1e7adcf6cf8413da938",
+      "dataset/4": "555043e3c5b6deb1cf9575226c86c17b4852ae575f6008d97ffd05764119b79e",
+      "chart/1": "cba496563eaf7336c0296e7c4b045b9db8381a92b7d41255c4eab9f52ff9fa2e",
+      "chart/2": "9d680b6b4f0296308cd854900c70c39a451577faa713fe4daceebb2d130b96d9",
+      "chart/3": "72f99d97462c94abc9ec5beb9738aa8ab05d807e6d2051ee64cd225928581bbf",
+      "chart/4": "38a94f5d67aff937266fd3d81cbb2e62123a46f2b546eae6384fb243b629118b",
+      "chart/5": "48eefd821b033a57f8194beb1805035e37373c5e58ec63ab0b23b786f661da3e",
+      "chart/6": "cb1a490fbea7c96c982fbd6683043da3ec9dbc4585e4e2d6738a905649789cdf",
+      "chart/7": "30d002bfba1f711de6bdd573e39ca14f4bf6b0f95fb765c91bfd14216b9fb4e7",
+      "chart/8": "9ee9d7832d8ba1f20ba93eab06b1bc5c2e9f74b42b6298a1bec102ec8af595ff",
+      "chart/9": "c04a03b04989901d81482a92ac1bee3d46032d743122f6fc1bae34f55e2134f7",
+      "chart/10": "6a9f913195c2d0d31f8ceb36877ab2f9e90d1a3793edca28ed3cc56439dd8e87",
+      "chart/11": "5480a6bcc298c1151251336cd46af235c808027928cdc7691f682da59ccec0fb",
+      "chart/12": "50277b2b9379a83f1059f1f6b5925699ef66bd197f4145485f507659d66de344",
+      "chart/13": "50f557e7c612f723318950b5fd1cbc90aaed04965c54b0a71d7397b113efc7d3"
+    },
+    "local_artifact_sha256": {
+      "dashboard/overview/.env.example": "40453fa675b3699205c785234d09f660c95b8f05779bc2bd439f6188f385ace6",
+      "dashboard/overview/README.md": "5dd3c68fb62d249b1d39f0ca6afc7a94ae411ca48ef968696c081a763147cc99",
+      "dashboard/overview/bi_grants.sql": "70e128779db0f8def4a31a6cc742180290a5687a4da130e6d4c426f4914f7cf8",
+      "dashboard/overview/catalog_dataset.sql": "59f650d30a0ea2bd645a9047ac3898734024a380c3ea48ef6dbf3304e567b93d",
+      "dashboard/overview/chart_definitions.json": "057066ce8d30b2ffb450aa203eb2a803ab53cec200d793368511ed0faea8de05",
+      "dashboard/overview/check_bi_reader.py": "e1d5f369058c097a08fdb515a428f0723afd650a5e3e9a41a9c1143997ce77be",
+      "dashboard/overview/create_overview.py": "d947ba1522bc3b86cd90f632f71be538fecb86a7ea372d136f67356ce4eefd32",
+      "dashboard/overview/dashboard_definition.json": "56336c82776ec71b51fbc477ace1aa2f62d8565f5a03ca755a6283125cca3354",
+      "dashboard/overview/evidence/.gitattributes": "ad97cfa3234074796ad043b856a26a66bbcef193adeafefbdf1cbbd7d1756551",
+      "dashboard/overview/evidence/2000_q3_charts.jpg": "25469560bd0fc3d2cf15dca2400cef9ae9c83b997c2aac52e624ad1df6908502",
+      "dashboard/overview/evidence/2000_q3_desktop_ax.txt": "df84157706a9fbb4bede009884c157c52057755072a605931693ec17d102905a",
+      "dashboard/overview/evidence/2000_q3_viewport.jpg": "43016b0bdd4434551ffa37c10231bf69927e4064ede824e4d8af475cb17281f9",
+      "dashboard/overview/evidence/2001_q1_ax.txt": "f6ea8fefc008425da921fd9bb76e270a3e1d360bf4310f74733737fa0d6a5417",
+      "dashboard/overview/evidence/2001_q1_charts.jpg": "98225126733d20c0e2940e2168e18d3bbf36d6e9b3c46411e4ba02aa8615409e",
+      "dashboard/overview/evidence/2001_q1_filter.jpg": "4401a8382e7e077af1167ae09fa72a13bd8319b725eb774876dc3d6e43d1ea91",
+      "dashboard/overview/evidence/2001_q1_viewport.jpg": "bb9f6293b426601820658273fa16c963911e0ad2b57f2af49bff1290587c91da",
+      "dashboard/overview/evidence/all_history_ax.txt": "d0c5d8748b15d3a6b42a080b91ab1c6a2ab3dbd9ad1d40b625f43c224f620e23",
+      "dashboard/overview/evidence/all_history_charts.jpg": "6c7b49ccb233b6b6f968f3a6eabdcd44e38264d40ebb0c1cd9817839616b358a",
+      "dashboard/overview/evidence/all_history_viewport.jpg": "657de80de12960fa9a609dc1ccb600253dd0236abe5f0ca25e61374a42423b9e",
+      "dashboard/overview/evidence/bi_reader.json": "2dfa764ae806df3cf6f5a81f1bed3ec00420804f9ab7efe885c801fb0983e039",
+      "dashboard/overview/evidence/bi_reader_final.json": "7014691f767a128807d6892cd93435f8f9207663fa112c518ccec306bfdc340c",
+      "dashboard/overview/evidence/capture_format_observation.json": "6a4f4e4e1aac0e193275ae530192885907ea573ab104f54d489bff7236fb6bc2",
+      "dashboard/overview/evidence/environment.json": "92ca1d236b514f2a0657abb4a9556f46cf7459016048b699e31844d015940069",
+      "dashboard/overview/evidence/export_check.json": "2c4de69c88d9d9ea3dd1bc390d45cc99e3d645ca262f8ef451c99120991a7f83",
+      "dashboard/overview/evidence/final_verification.json": "59bde8dd07e2343f22b69c1f1833bd404f97993a799a9b55ea54ab12f835cbc1",
+      "dashboard/overview/evidence/handoff_manifest.json": "fc51ed4d9f8502cba801a08bdfd00eaf4594894ed27675432db951b343c5d84b",
+      "dashboard/overview/evidence/publication_observation.json": "a8e77c8994669898b2ad67909fa972db29569588767fd1a48ebb8c3cae759575",
+      "dashboard/overview/evidence/reconcile_failure.json": "961a5128595c4b9786df69551642eed638019a9be009ebd47b7a07a42e3cf380",
+      "dashboard/overview/evidence/reconciliation.json": "93d18548bf3ae5a179d48521ef41d133142ed2d185a309f9a0c86ec1fda88817",
+      "dashboard/overview/evidence/s07_merge_observation.json": "e069bf440334a890d33a665e1f5fbc42cc70ee74b47a9fe9018b7840f4b70dff",
+      "dashboard/overview/evidence/verification_failure.json": "15858d3249066fff48ee4d4adc3b8f21f14c208ad6d983b0d0b1763217bd2d13",
+      "dashboard/overview/metrics.json": "0ba6b6aab95ed34e2e7d6b83ec08e0ef30d7189e918894830b1af457a5937c08",
+      "dashboard/overview/object_ids.json": "150d27095ab01f5e650c241aa9267285906040c2fa4436481837965067e3ce90",
+      "dashboard/overview/overview.css": "a067b61d6b6a855bb396b86507de9f271662dacdc8902f8936ae3ea6119a429b",
+      "dashboard/overview/ratings_dataset.sql": "f37d3620c2342b9f7f00e0cbd952a8ef32abc08b4d9535c52d0038d0bdc38fa1",
+      "dashboard/overview/reconcile.py": "7aeb6a75e1bfa8aec3e46091e254515590d819b298e444df618585089d1239f1",
+      "dashboard/overview/reconciliation.sql": "68b150fddf716ff8a8e4fe06f610651ad1fb13f016f4c9b2ba7b89fe06f08541",
+      "dashboard/overview/superset_api.py": "3c96267db6b99b474808ae35d903a0f8369f56694deea46f690b8b3216a86f3e",
+      "dashboard/overview/verify_overview.py": "376b41f5b4f7200032d0ca0018283d87b18ebbef087516409249ffc4b5e07b41",
+      "dashboard/superset/.dockerignore": "c105e6033241de579ceb28823b6776a62cfaf4b7880d82eaaa1d61f68629a4cb",
+      "dashboard/superset/.env.example": "f00c9729aa8fcb801fe48035e7ee0b4b6770d5baf7daf2f253c1534e2b02aa11",
+      "dashboard/superset/Dockerfile": "581df3244e257eae89aa0674c112e48c74460bb958e3364dc52a400bb0c868fa",
+      "dashboard/superset/README.md": "d85e7e025fa913ededbd72e49ea2a545c67aac45d22eab1f97fac86c74d7d26b",
+      "dashboard/superset/compose.yaml": "c8b782332c6cdeece07e76fde21391a16002311df5daf6724ecc9496d82e06fe",
+      "dashboard/superset/init_metadata.py": "02846052d6a1555d3305ed2967821f8896b046c8e132d4e6d77a94b4cc9924a6",
+      "dashboard/superset/superset_config.py": "72439db1120c3e1b76024fca39ce01b3490236aa7fb00afdb4e19bea732bbfe9",
+      "dashboard/trends/README.md": "3bec8270b6afc3e3b896e0910cfa8748ab08a0849e7e23c42883d879aea88950",
+      "dashboard/trends/bi_grants.sql": "7a2d3470460d90c9a9a5f2c28701805025343c4dd7131094f990050f297754a0",
+      "dashboard/trends/chart_definitions.json": "961f16726b95be0195b2d5f90f826c31857be5abf2269722bbd7c5bde5655f49",
+      "dashboard/trends/create_trends.py": "2a9b7a4a2d44deccd082852cdfb6cea6e0469624060d5d52ea5cd5122fa652d6",
+      "dashboard/trends/dashboard_definition.json": "ca96f588b993afc57f2515b1cf982c1dc4f703a9c2d18d35815a500b058bb26c",
+      "dashboard/trends/dashboard_observed.json": "97cd8f1cf7e91770674c067f93e98363c37d61cd01f326c5afe7f9ccdc42aad9",
+      "dashboard/trends/evidence/all_quarters.jpg": "f2ce0013d9c0cb54ddd73030a4510047bf1e04f16991c0b2b576e9e41eebfcbf",
+      "dashboard/trends/evidence/all_quarters_final.jpg": "d09a5f8d9878332f66f7c74a8bcc1a051205b3832c74b3667846be92fafe7121",
+      "dashboard/trends/evidence/all_quarters_final_ui.json": "ebd264079e1c61f7402e854cb1bbd3826373d81006692d8da5e53780709ad9c1",
+      "dashboard/trends/evidence/audit.json": "bd38c11dfaacba11868e777634d73fc3717651c82b7648f7e3a8970c713f7321",
+      "dashboard/trends/evidence/bi_reader.json": "c0e52e87537d0518c83a52c27c7fe0dea641e0ea9bbe86a47955512e630c2fcf",
+      "dashboard/trends/evidence/chart_initial_failure.json": "1d9fd2dc9db7b3694f8eb49673e103900b3bd5c674b17f3a3018ad0bb0676aae",
+      "dashboard/trends/evidence/comedy_charts.jpg": "2fbbc58712a303ff59a98dd67d5f9e830028821794c9fc70a45c93a2b8fd15ea",
+      "dashboard/trends/evidence/comedy_filter.jpg": "7322155eeaf46a0da763cb00685b08546d521501bf910d55e43335b9c9e91564",
+      "dashboard/trends/evidence/comedy_ui.json": "4c4bc1e0676ef7a695be69f5464ff5a9a191fc329ff92dd299894d08033dcbd5",
+      "dashboard/trends/evidence/final_verification.json": "bafc7a3f8d0839378ad7275d606ec688224d45a0453dd019bf78ed277db04279",
+      "dashboard/trends/evidence/handoff_manifest.json": "6277d7f834ab3e53c6c5a49ac955de815d73dfe9632c9a5e7f7b32ee10982ad7",
+      "dashboard/trends/evidence/overview_after.json": "953a52585c79b67c98b287e8ff182860d5ef7fe213eefb0638763a9480e44cbc",
+      "dashboard/trends/evidence/overview_before.json": "953a52585c79b67c98b287e8ff182860d5ef7fe213eefb0638763a9480e44cbc",
+      "dashboard/trends/evidence/overview_regression.jpg": "2948cd1afe35468cdb97375eab644bbc550e2f7553e29baae6f0faf1a3cc5527",
+      "dashboard/trends/evidence/overview_regression_ui.json": "41c1bd3f56846f41145a073ec73ec6cbe62dfd67086fb66f7faa4e4095230f9e",
+      "dashboard/trends/evidence/prepare_failure.json": "48adc14ba832eb3c42567088fbaeec66930f3e4c35da875a6990be351e6f4b43",
+      "dashboard/trends/evidence/reconciliation.json": "3fdd1fe9f545d59dbc26641a71bc4f2970ea0f7858548a64ac073c73ccb5c720",
+      "dashboard/trends/evidence/reconciliation_75f0014542554631a7267aa52319b05f.json": "5731db1e7546925fe801a5e7734864c282338d189860a756eaf84cfb20425279",
+      "dashboard/trends/evidence/three_genres_charts.jpg": "24a26d3d271f4194b83d2f386ecbf3b6d1cb2c81f4089663dd96efbad84a1a27",
+      "dashboard/trends/evidence/three_genres_filter.jpg": "5b7ce14727ece86cc0aa8c05265c3d9e4b8350bd0eb005d2daeacbff534868ac",
+      "dashboard/trends/evidence/three_genres_final_ui.json": "87fa743d638be7eac9b29fa9d48e4d3a336ec492e8bf3453a9cdcc8393d37914",
+      "dashboard/trends/evidence/three_genres_qoq.jpg": "0ca38c391524c584e645899c03bc5af02484567ae7ba0445146c01c82213a87b",
+      "dashboard/trends/evidence/three_genres_ui.json": "88f87008d585fdf994935c9556c08706571c6e3deec6f30aafb135777523f64b",
+      "dashboard/trends/evidence/verification_initial_failure.json": "bbf24c2ee840f0d91fcc18ed7fbe45089b0d6be431aa242d0da4ca54f8104d4a",
+      "dashboard/trends/genre_dataset.sql": "e9dd474f0548ce62453d50c247ea50af36a5c209b836661fd32f172a75b066dc",
+      "dashboard/trends/object_ids.json": "166a5b5b15d8a870bd502eac153e79801a2bdb820c6fc8a8ce2a135eb35cf3e7",
+      "dashboard/trends/prepare.py": "66ea29a93ee27f63c7b4e3979a99d60d858775ebf558df325246c626e2424878",
+      "dashboard/trends/quarter_dataset.sql": "7a87a9a733f730d09e084ecc3cf78dc75b87c940eeb44f8b19639b6ca500c1f2",
+      "dashboard/trends/reconcile.py": "c19904a8a45dac8f65dd6305e2b6f04252fdfc96b0d4ed69fbb439c83b95ef2a",
+      "dashboard/trends/reconciliation.sql": "cf9ae6aceb1aad51b26f260b22286a794917bb75d9613c7f8a84cc20f1be922e",
+      "dashboard/trends/verify.py": "06e66fd86ca2d6eea504309d287083d18437c0d0fab7a9d8943d79cdd5fbe53e"
+    }
+  },
+  "dashboard_comparison": "LIVE_API_AND_ARTIFACTS_MATCH",
+  "duration_seconds": 163.531
+}

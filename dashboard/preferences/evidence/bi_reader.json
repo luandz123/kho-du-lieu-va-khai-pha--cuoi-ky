@@ -1,0 +1,45 @@
+{
+  "role": "movielens_bi_reader",
+  "database": "movielens_btl",
+  "session_read_only": "off",
+  "attributes": {
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false,
+    "bypassrls": false,
+    "inherit": false
+  },
+  "memberships": [],
+  "relations_checked": 24,
+  "selectable": [
+    "analytics.v_active_cluster_genre_profile",
+    "analytics.v_active_user_cluster",
+    "analytics.v_olap_genre_quarter",
+    "analytics.v_olap_time_rollup",
+    "dw.v_ml_movies",
+    "dw.v_ml_ratings",
+    "dw.v_ml_users"
+  ],
+  "writeable": [],
+  "schema_create": {
+    "public": false,
+    "staging": false,
+    "analytics": false,
+    "dw": false
+  },
+  "database_create": false,
+  "public_default_temp": true,
+  "kpi": [
+    1000209,
+    3582313,
+    6040,
+    3706
+  ],
+  "catalog_count": 3883,
+  "update_sqlstate": "42501",
+  "status": "PASS",
+  "grant_sql": "-- Only these three additional view privileges; no table/schema-wide SELECT.\nGRANT USAGE ON SCHEMA analytics, dw TO movielens_bi_reader;\nGRANT SELECT ON analytics.v_active_user_cluster,\n    analytics.v_active_cluster_genre_profile, dw.v_ml_users TO movielens_bi_reader;\n",
+  "at_utc": "2026-10-20T09:22:42.175604+00:00",
+  "p2_intake_status": "NOT_CONFIRMED"
+}

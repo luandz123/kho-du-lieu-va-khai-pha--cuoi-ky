@@ -1,5 +1,51 @@
 # Hồ sơ duyệt P1
 
+## Công bố PR18 — chờ review PR,20/10/2026
+
+GitHubAPI xác minh PR18 OPEN/merged=false;116file/blobsnapshotlúcmởkhớpremoteGit,ZIPbyteSHAđúnghashđượcduyệt. Code050b601c916b7b4f6be476640673c9978e0ba979/base9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48. Đây làquan sátcôngbố,khôngphảilờiduyệtPR/agentmerge. Commithồsơsau đókiểmHEADremote riêng. **PRWAITING_REVIEW**, dừng/chưa12A;giữphạmvilayoutAPI/cùngDW/P2intakeG2NOT_CONFIRMED.
+
+## Điều phối chấp nhận11B-4 và giao công bố toàn11B —20/10/2026
+
+Nguồn người dùng chuyển, trích nguyên văn:
+
+> Điều phối chấp nhận 11B-4 với phạm vi:
+> export thật + import chính thức + phục hồi bố cục bằng REST API
+> trên instance riêng 8091, cùng DW hiện có.
+
+Đây là phê duyệt điều phối đúng phạmvi đó,khôngđổi thànhuserapprovaltựtạo/ZIPimportmộtbướchoặcMERGED. ĐượccommitpushmộtPRtoàn11B vàZIPduynhấtđúnghashb5a9c987…938f6fae;chưa merge/12A. GhiPRURL/HEAD/base sauAPI/Gitxácminh;trạngtháiWAITING_REVIEWkếtquảcũ giữlịchsử. RàcompatibilitybáolỗiHEADprovenancevàsửaguardhistoricalP1,41test/bytegói/secret/UUID/policyđạt,khôngapplyETLimport/đổiP2/firewall. Hồsơcôngbố11b_publication.mdvàchecks.
+
+## Điều phối chấp nhận 11B-3, giao11B-4 —20/10/2026
+
+Nguồn: người dùng chuyển thông báo điều phối, trích nguyên văn:
+
+> Điều phối chấp nhận chức năng 11B-3.
+
+Đây là chấp nhận chức năng của điều phối, không tự biến thành lời duyệt trực tiếp của người dùng hoặc MERGED. Đã checkpointcục bộ4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4; report/historicalhash/producergóigiữnguyên.
+
+11B-4đãexportAPIthật vàrestoreinstance8091táchbiệt,23chartSQLAPI/5caUIđạt,UUIDdependency/secretauditđạt. CóbướcsửalayouttrêninstanceTHỬquaAPIvìexportnguồnthiếuUUID,giữZIPvà8089nguyênvẹn; nêurõtrongrunbook, khôngtựchegiớihạn. Run e4d784ce1cfc4b3ba9b06142de5a395b,90.218s,source/config/quyềngiữđúng. **11B-4WAITING_REVIEW**, chưađiềuphốiduyệtkếtquả/exportGit/commitpushPRphầnmới. P2G2NOT_CONFIRMED.
+
+## Điều phối chấp nhận 11B-2, giao 11B-3 — 20/10/2026
+
+Nguồn là thông báo điều phối được người dùng chuyển trong chat, trích nguyên văn phần chấp nhận:
+
+> Điều phối chấp nhận 11B-2 sau review code, unit test,
+> artifact hash và truy vấn hậu kiểm DB thực tế.
+
+Đây là review của điều phối, không đổi thành lời duyệt trực tiếp của người dùng hoặc trạng thái MERGED. Được checkpoint cục bộ11B-2; đã thực hiện f663dcb4143202dac0835e4d5168e1b8558a6463, chưa push/PR. Run/hash/provenance11B-2 lịch sử không sửa.
+
+11B-3 dashboard3 thực, SQL/API/UI3tổhợp đạt; quyềnBI7view/noDML, model/nguồn/19object11A11C giữ nguyên; fixtureREADONLY/JSON/AST/hash/ignore đạt. Run09782a8ea2094b6bbd7c32cc4a2cdb03,35.422s. GiữFAILcheckerJSONserialization và cácPASS. Kết quả mới **11B-3 WAITING_REVIEW**, chưa có điều phối duyệt, chưacommit/dashboardpushPR/exportimport. Giới hạn và bằng chứng trong docs/P1/preferences_handoff.md; P2G2intakeNOT_CONFIRMED.
+
+
+## 11B-2 — Nạp production xong, WAITING_REVIEW
+
+Nguồn người dùng chuyển: điều phối chấp nhận11B-1 và giao11B-2, cho phép3bảnganalytics, checkpointcục bộ, khôngpushPR/dashboard/export. Đây là phê duyệt11B-1 và ủy quyền thao tác, **không phải lời duyệt kết quả11B-2 do agent tạo**. Code/test/checks31unit/8integration đạt; apply4648f191 COMMITTED,0dec3918 COMMITTED_NO_OP, hậu kiểmRO/canonical/profile/registered_at/nguồn/BI/dashboardđạt. Gói frozen đãkiểmnhận khôngđổi. GiữFAILlịchsử. Bàn giao docs/P1/g3_load.md;11B-2WAITING_REVIEW, dừng.
+
+
+## 11B-1 — Giao việc và kết quả chờ review, 20/10/2026
+
+Nguồn: người dùng chuyển xác nhận điều phối PR15merge371aab7/chấpnhận côngbố11C và giao riêng11B-1. Không tạo lời duyệt cho G3/loader. Tái tạoP1khớp hai frozenSHA; dry-run14c7eb52 READONLY vàbốnDW/G2hashđạt;23unit+5integrationđạt, rollback4pha phục hồi snapshot/modelactivefixture. Analytics thật0/schema thửđãdọn, giữFAILaliasvàruncũ. **11B-1 WAITING_REVIEW**; chưa nạpanalytics/dashboard/export/commitpushPR. P2G2intakeNOT_CONFIRMED. Bàn giao docs/P1/g3_intake.md vàresults/warehouse/s11b1.
+
+
 ## Hiện hành — PR11C OPEN, chờ review PR, 20/10/2026
 
 Đã commit/push p1-s11c-trends và mở [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15) vào main. GitHub API xác minh OPEN/merged=false, HEAD lúc mở **bdb14fce8deb830999bcb4c17655100a72e6514e**, base **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Đủ52file của toànPR, gồm checkpoint11A, có SHAblob trong PR và remotetree khớp Gitlocal. Chức năng11C **APPROVED theo điều phối**; PR **WAITING_REVIEW**, chưaMERGED; agent không merge.

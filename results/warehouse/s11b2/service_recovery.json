@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-10-20T09:04:15.151432+00:00",
+  "initial_state": "Docker Linux engine pipe unavailable; all WSL distributions stopped; project web/metadata observed Exited255 before this step service recovery",
+  "operations": [
+    "Opened existing Docker Desktop hidden",
+    "docker desktop start reported already running",
+    "docker desktop restart attempted, returned failure: context deadline exceeded while stopping existing processes",
+    "Once engine became available, started ONLY existing btl-movielens-superset-metadata-1 and web-1 containers; no init/recreate/down/volume reset"
+  ],
+  "current_containers": [
+    "btl-movielens-superset-web-1 Up 5 minutes (healthy)",
+    "btl-movielens-superset-metadata-1 Up 5 minutes (healthy)"
+  ],
+  "dashboard_config_verified_in_apply_receipt": true,
+  "exit255_cause": "NOT_DETERMINED",
+  "restart_cli_result": "FAILED_STOP_CONTEXT_DEADLINE",
+  "pending_helper_commands": false,
+  "metadata_or_config_reset": false
+}
