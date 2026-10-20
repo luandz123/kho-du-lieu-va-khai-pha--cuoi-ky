@@ -1,0 +1,1 @@
+{"status":"FAIL","phase":"before_grants","category":"guard_used_obj_description_for_shared_role_catalog","effect":"transaction rolled back; no grant executed","resolution":"use shobj_description for pg_authid shared object comment; inspect existing managed role, preserve credential"}

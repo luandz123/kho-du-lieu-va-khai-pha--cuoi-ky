@@ -1,5 +1,9 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+Quan sát mới: PR14 đã MERGED bên ngoài agent tại 5a42c73c39c00780b2d5442c45662d93bdf0f23b; agent không merge. Gói công bố ef82fc4 gồm50file/blob đã kiểm. Hồ sơ trạng thái sau mởPR đang local/chưa commit-push, xem docs/P1/overview_post_merge_observation.json; các mụcOPEN dưới đây giữ lịch sử. Dừng, chưa11C/11B.
+
+Hiện hành19/10/2026: [PR #14 — 11A](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14) OPEN/chờ review, chưa merge/11C/11B. 11A đã được điều phối chấp nhận chức năng; các mục chưa được giao công bố/chưa commit phía dưới giữ lịch sử. Hồ sơ mới docs/P1/overview_publication.json.
+
 11A đã được điều phối chấp nhận chức năng và giao công bố PR; chưa merge/11C/11B. Hồ sơ công bố mới: docs/P1/overview_publication.md; các trạng thái chờ review kết quả bên dưới giữ lịch sử.
 
 ## Hiện hành — 11A Tổng quan chờ review
@@ -94,3 +98,11 @@ Mỗi máy tự tải MovieLens từ nguồn chính thức và đối soát hash
 P1: DW/ETL/OLAP/Superset và ghép tổng. P2: EDA/K-Means/CF/baseline/metric/CLI. P2 quản lý `docs/P2/requirements-p2.txt`, không sửa requirements gốc. P1 chỉ hợp nhất dependency tại12A sau kiểm chứng; không sao chép pin P2 thành thư viện đã chạy trên P1.
 
 Sau duyệt và lệnh **Đẩy G0**, commit/push nhánh rồi mở PR vào main. Merge cần xác nhận cụ thể; không push thẳng main, force-push, đổi remote hoặc xóa nhánh. APPROVED chức năng khác PR MERGED.
+
+## Dashboard xu hướng 11C — chờ review
+
+Mở http://127.0.0.1:8089/superset/dashboard/2/ ; hướng dẫn/SQL/filter tại [dashboard/trends](dashboard/trends/README.md), bằng chứng và bàn giao [11C](docs/P1/trends_handoff.md). Chỉ chọn quý nguyên vẹn; genre không lọc tổng rating hệ thống. Chưa công bố PR11C hoặc làm11B/G3.
+
+Cập nhật20/10/2026: điều phối chấp nhận chức năng11C; đang công bố PR theo lệnh riêng. Trạng thái PR/commit và kiểm công bố xem docs/P1/trends_publication.md tính từ repository. Các nhãn chờ review kết quả ở trên là lịch sử; không tự merge hoặc chuyển11B/G3.
+
+Đã công bố [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15), OPEN/chờ review PR; code tái tạo `bdb14fce8deb830999bcb4c17655100a72e6514e`. Chức năng đã được điều phối chấp nhận, chưa merge. Chi tiết kiểm52blob và HEAD/base lúc mở tại docs/P1/trends_publication.json.

@@ -1,5 +1,18 @@
 # Quyết định P1
 
+P1-D95: PR15 OPEN/chưaMERGED được API xác minh tại HEADbdb14fce8deb830999bcb4c17655100a72e6514e/base5a42c73c39c00780b2d5442c45662d93bdf0f23b; đủ52file/PRblob/remotetree khớp Git. Code tái tạobdb14fce8deb830999bcb4c17655100a72e6514e; runtimebase/hash giữ riêng. Chức năng APPROVED theo điều phối, PRWAITING_REVIEW. Chỉ cập nhật hồ sơ sau mở, không đổiSQL/metric/filter/ETL hoặc tựmerge/11B/G3.
+
+P1-D94: Theo thông báo điều phối do người dùng chuyển20/10, chức năng11C APPROVED; được commit/push/mởPR p1-s11c-trends vào main, gồm hồ sơ hậu merge11A đã ghép chọn lọc. Không đổi SQL/metric/filter và không rerun ETL/create/3khoảng chỉ để công bố. PR chưa merge; giữ report/hash cũ và giới hạn BI/P2/restore/fullrefreshS07; không11B/G3.
+
+P1-D92: Theo lệnh điều phối chấp nhận công bố11A/PR14MERGED, checkpoint11hồsơP1 c09ae5b rồi ghép52d566a trên p1-s11c-trends sau main5a42c73; khôngstageplan. Cho11C dùng native quarter_select trọnquý, genrefilter khôngtácđộng O4system. QoQ/share/rank tínhfullseries trướcfilter, fixed100/cờbiên/allgenre18 giữnguyên. Thêm USAGEanalytics/SELECTđúng2viewcho BIrolecũ, khôngrotatecredential. Không11B/G3/export/ETL.
+
+P1-D93: 11C dùng mộtôquý×genre với MAX metric đểlấy chỉsốtínhsẵn, khôngSUM%/khôngAVGQoQ. NULL hiểnthịN/A. Hạng1âm ghi giảmítnhất. Superset tựsinh4fieldmàu: ghiriêng, kiểmexactmọifieldnghiệpvụ/filter/layout khác; không sửa côngthứcS07. 3tổhợpSQL/API/UIđạt,11Anguyênvẹn; WAITING_REVIEW, chưaPR/commit11C.
+
+
+P1-D91: API phát hiện PR14 MERGED bởi hungvu205 tại 5a42c73c39c00780b2d5442c45662d93bdf0f23b khi guard chuẩn bị commit hồ sơ. Agentkhôngmerge; khôngstage/commit/push saupháthiện. Giữ localnotes chưa thuộcmain, ghi observation riêng; không tựmởPRkhác/chuyển11C11B hoặc suy lệnh mới từ trạngtháiGitHub. 50blob đãmerge vẫnkhớpHEADef82fc4.
+
+P1-D90: Push/mở [PR #14](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14) thànhcông, OPEN/chưaMERGED. Đãkiểm50file/blob tạiHEADef82fc4/base988874d. Codecommit5915702 riêngruntimebase/hash; ledger currentdocshash cập nhật, không sửa snapshot21bằngchứng. Khôngmerge hoặc chuyển11C/11B; giữ cácgiớihạn và quan sát mới containers/API riêng.
+
 ## Công bố 11A theo điều phối, 19/10/2026
 
 P1-D87: Điều phối chấp nhận chức năng11A sau kiểm hồ sơ/hash/cấu hình thật, giao commit/push/PR, không merge/11C/11B. Không ghi thành lời duyệt nguyên văn người dùng. Chỉ stage đường dẫn11A/P1, bảo toàn kế hoạch và lịch sử PASS/FAIL.

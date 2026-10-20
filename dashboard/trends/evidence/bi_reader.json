@@ -1,0 +1,48 @@
+{
+  "role": "movielens_bi_reader",
+  "database": "movielens_btl",
+  "session_read_only": "off",
+  "attributes": {
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false,
+    "bypassrls": false,
+    "inherit": false
+  },
+  "memberships": [],
+  "relations_checked": 24,
+  "selectable": [
+    "analytics.v_olap_genre_quarter",
+    "analytics.v_olap_time_rollup",
+    "dw.v_ml_movies",
+    "dw.v_ml_ratings"
+  ],
+  "writeable": [],
+  "schema_create": {
+    "public": false,
+    "staging": false,
+    "dw": false,
+    "analytics": false
+  },
+  "database_create": false,
+  "public_default_temp": true,
+  "kpi": [
+    1000209,
+    3582313,
+    6040,
+    3706
+  ],
+  "catalog_count": 3883,
+  "update_sqlstate": "42501",
+  "status": "PASS",
+  "at_utc": "2026-10-19T15:39:20.760441+00:00",
+  "run_id": "6c51ce7061c7472a8e91a453b9e25ad4",
+  "grant_sql": "-- Execute as authorized project owner, only against movielens_btl.\n-- Existing role/credential preserved. No schema-wide SELECT or default privileges.\nGRANT USAGE ON SCHEMA analytics TO movielens_bi_reader;\nGRANT SELECT ON analytics.v_olap_time_rollup, analytics.v_olap_genre_quarter TO movielens_bi_reader;\n",
+  "grant_sha256": "3c688e9700f35b0ef194863ade635fe007116dadcfe3913a429132e57841c2a1",
+  "p2_intake_status": "NOT_CONFIRMED",
+  "limits": [
+    "PUBLIC TEMP remains",
+    "No two-machine connectivity assertion"
+  ]
+}

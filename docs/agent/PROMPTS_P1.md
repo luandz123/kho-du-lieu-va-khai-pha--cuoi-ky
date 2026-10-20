@@ -1,5 +1,14 @@
 # Nguồn prompt P1
 
+## P-P1-30 — Công bố11C theo điều phối,20/10/2026
+
+Điều phối chấp nhận chức năng11C; giao ràdiff/bí mật/ignore và bảo toànplan, commit11C+hồsơ11Ađãghép, pushnhánh/mởPRmain, kiểmmọifile/blobremote. NếuđãcóPR chỉxácminh, khôngtạotrùng. KhôngcầnrerunETL/create/đốisoátđầyđủ khiSQL/metric/filterkhôngđổi. BàngiaoURL/fullHEAD/base/checks/workingtree, chưamerge/11B/G3. Đây là tóm tắt lệnh trực tiếp, không phải lời duyệt do agent tạo.
+
+## P-P1-29 — Điều phối giao 11C sau PR14 MERGED
+
+Bảo toàn10hồsơhậumerge+observation vàplan; cho phépcheckpointchỉP1, đồngbộmain/tạop1-s11c-trends, ghéphồsơ11A chọnlọc. Dựng dashboardxu hướng thực Superset8089 từO4/O5, khôngđổiDW/S07/11A/ETL. O4chỉquarter, O5fullserieszero-fill/LAG/rankfixed100/quýbiên/mẫusốtấtcảgenre; quarterdisplayfilter sau tính, genrekhônglọctổnghệthống; khôngngàylẻ/tuổigiới. ChoGRANTUSAGEanalytics/SELECTđúngO4O5đểBIrolecũ, khôngwrite/admin/firewall/credentiallog. ĐốisoátSQL/API/UI≥3tổhợp và11Avẫnhoạtđộng. BàngiaoURL/IDs/SQL/metrics/nativefilters/ảnh/quyền/hash/file/giớihạn/S11STATE WAITING_REVIEW. ChưacommitpushPR11C,11B/G3/3dashboardexport/importrestore; dừngreview. Đây là tómtắt lệnh, không tạo lời duyệt kết quả.
+
+
 ## P-P1-28 — Điều phối giao công bố PR11A
 
 Điều phối chấp nhận chức năng11A sau kiểm hồ sơ/hash/cấu hình Superset thực; giao kiểm nhánh/HEAD/main, bảo toàn kế hoạch/thay đổi ngoài phạm vi và stage từng đường dẫn11A/P1. Ghi đúng nguồn review và thông tin điều phối đã restart hai container exit255/APIthànhcông; quan sát mới riêng, không suy nguyên nhân. Giữ PUBLIC TEMP/chưaimportrestore/P2/hai máy/fullrefreshhelperS07. Ràdiff/JSON/Python/path/ignore, khôngsecret/URIcredential/userdata/ZIP lênGit, giữPASS/FAIL. KhôngrerunETL/3khoảngchỉđểcôngbố; nếu đổiSQL/metric/filter thì kiểm phầnảnhhưởng. Commit/push/PRmain, nêu dashboardthật/UTCtrướcgroupTop10/BIrole/đốisoát/giớihạn; xácminhremoteHEAD/tấtcảblob. BàngiaoURL/fullHEAD/base/filelist/checks/workingtree/dashboard/container. Chưamerge/create_overview/11C/11B/G3/quyềnfirewall; dừngreviewPR. Đây làtómtắt lệnh điều phối, không tự tạo xácnhậnduyệt.

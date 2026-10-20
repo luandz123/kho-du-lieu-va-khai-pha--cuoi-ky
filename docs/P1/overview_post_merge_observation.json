@@ -1,0 +1,33 @@
+{
+  "observed_at_utc": "2026-10-19T15:28:38.140182+00:00",
+  "source": "GitHub REST GET pull14 and branch main",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14",
+  "state": "closed",
+  "merged": true,
+  "merged_at_utc": "2026-10-19T15:27:06Z",
+  "merged_by_login": "hungvu205",
+  "merge_commit": "5a42c73c39c00780b2d5442c45662d93bdf0f23b",
+  "pr_head": "ef82fc4041a1393e942bd533f4e41c17283d0d4c",
+  "pr_base": "988874d7b5897a5615acfebdf571c6d55861ddc2",
+  "current_main": "5a42c73c39c00780b2d5442c45662d93bdf0f23b",
+  "local_published_head": "ef82fc4041a1393e942bd533f4e41c17283d0d4c",
+  "agent_performed_merge": false,
+  "followup_documentation_committed": false,
+  "followup_documentation_pushed": false,
+  "all_50_merged_pr_blobs_match_local_git_commit": true,
+  "followup_local_modified_paths": [
+    "README.md",
+    "dashboard/overview/README.md",
+    "dashboard/superset/README.md",
+    "docs/P1/overview_handoff.md",
+    "docs/P1/overview_publication.json",
+    "docs/P1/overview_publication.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S11.md"
+  ],
+  "followup_note_status": "LOCAL_NOT_COMMITTED_OR_PUSHED",
+  "git_writes_stopped_after_observation": true,
+  "no_new_pr_or_step_started": true
+}
