@@ -1,5 +1,10 @@
 # Quyết định P1
 
+P1-D96: Theo lệnh điều phối20/10, xác minh PR15MERGED371aab7/côngbố11Cđượcchấpnhận; đồngbộmain/tạo p1-s11b-cluster-intake, giữ kếhoạch. Chỉ giao11B-1kiểmG3/dry-run, không ghi analytics. Tái tạo bằngcodeP2bab0b404 trong tmp/g3_venvriêng, giữ frozenpins; khácPythonpatch/OSnhưngchecksumkhớp. Không sửaP2 hoặcdependencyP1.
+
+P1-D97 (đề xuất cần review trong11B-1): dùng preprocessing jsonb hiện có để lưu method/training_config/payloadsha/provenance, kết hợp registryfields để xác định identity. Cùngversiongiốnghàng/metadata activevalid=>NOOP; khácpayload=>reject; invalidated+hairesultsrỗng+identitygiống chỉ dựkiếnreload sauDWrecheck. Engine hiệnkhóa production, chỉ fixture. Không tự duyệt mapping/dispatcherproduction; chờ11B-2.
+
+
 P1-D95: PR15 OPEN/chưaMERGED được API xác minh tại HEADbdb14fce8deb830999bcb4c17655100a72e6514e/base5a42c73c39c00780b2d5442c45662d93bdf0f23b; đủ52file/PRblob/remotetree khớp Git. Code tái tạobdb14fce8deb830999bcb4c17655100a72e6514e; runtimebase/hash giữ riêng. Chức năng APPROVED theo điều phối, PRWAITING_REVIEW. Chỉ cập nhật hồ sơ sau mở, không đổiSQL/metric/filter/ETL hoặc tựmerge/11B/G3.
 
 P1-D94: Theo thông báo điều phối do người dùng chuyển20/10, chức năng11C APPROVED; được commit/push/mởPR p1-s11c-trends vào main, gồm hồ sơ hậu merge11A đã ghép chọn lọc. Không đổi SQL/metric/filter và không rerun ETL/create/3khoảng chỉ để công bố. PR chưa merge; giữ report/hash cũ và giới hạn BI/P2/restore/fullrefreshS07; không11B/G3.

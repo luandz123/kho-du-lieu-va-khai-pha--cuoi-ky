@@ -1,0 +1,150 @@
+{
+  "at_utc": "2026-10-20T08:36:19.304731+00:00",
+  "source": "P1 local reproduction using merged P2 CLI; not a direct P2 package transfer",
+  "reproduction_code_commit": "bab0b4049d4e0b1724418b8a92d8afbeda4bc775",
+  "checkout_base": "371aab7e43742dc1e5c330077ffbd49fcef5fe09",
+  "command": "tmp/g3_venv/Scripts/python.exe mining/clustering.py --mode reproduce --source csv --outdir data/processed/p1_g3_20261020_intake --results-dir tmp/g3_reproduce_results",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "p1_dependency_freeze_after": [
+    "greenlet==3.5.6",
+    "numpy==2.0.2",
+    "pandas==2.3.3",
+    "psycopg2-binary==2.9.10",
+    "python-dateutil==2.9.0.post0",
+    "python-dotenv==1.1.1",
+    "pytz==2026.5",
+    "six==1.17.0",
+    "SQLAlchemy==2.0.43",
+    "typing_extensions==4.16.0",
+    "tzdata==2026.5"
+  ],
+  "reproduction_environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.0.2",
+      "pandas": "2.3.3",
+      "scipy": "1.14.1",
+      "scikit-learn": "1.5.2",
+      "matplotlib": "3.10.7"
+    }
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "package_files_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d",
+    "manifest.json": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0"
+  },
+  "input_csv_preparation": {
+    "users": {
+      "sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "source_local_g2_export": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754\\users.csv",
+      "canonical_path": "data\\processed\\users.csv"
+    },
+    "movies": {
+      "sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "source_local_g2_export": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754\\movies.csv",
+      "canonical_path": "data\\processed\\movies.csv"
+    },
+    "movie_genres": {
+      "sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "source_local_g2_export": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754\\movie_genres.csv",
+      "canonical_path": "data\\processed\\movie_genres.csv"
+    },
+    "ratings": {
+      "sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+      "source_local_g2_export": "data\\processed\\p1_g2_c75f9cb0ceb04d74bfa36e140d812754\\ratings.csv",
+      "canonical_path": "data\\processed\\ratings.csv"
+    }
+  },
+  "manifest_metadata": {
+    "contract_version": 2,
+    "model_version": "kmeans_k4_seed42",
+    "generated_at_utc": "2026-10-20T08:32:23.015413+00:00",
+    "algorithm": "KMeans",
+    "training_config": {
+      "k": 4,
+      "preprocessing": "raw",
+      "seed": 42,
+      "n_init": 10,
+      "genre_order": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Children's",
+        "Comedy",
+        "Crime",
+        "Documentary",
+        "Drama",
+        "Fantasy",
+        "Film-Noir",
+        "Horror",
+        "Musical",
+        "Mystery",
+        "Romance",
+        "Sci-Fi",
+        "Thriller",
+        "War",
+        "Western"
+      ],
+      "genre_order_hash": "bcf3f11af93e4d9392d5ed9072917b784a1d19fdb365092c85c41acd5e5b4665",
+      "user_order_hash": "37eaa087e5d9b6be9a17e61d773a58ee39234e793409294fa0d98cf402f1c24a",
+      "total_assigned_users": 6038
+    },
+    "training_config_hash": "8fc755ef7234422a556c5fa725520ddd985a3aeeaef92cbb4362d9e21c2c0786",
+    "libraries": {
+      "scikit-learn": "1.5.2",
+      "numpy": "2.0.2",
+      "pandas": "2.3.3",
+      "python": "3.12.14"
+    },
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "source_hashes": {
+      "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+    },
+    "code_provenance": {
+      "g1_canonical_code_commit": "7a284b9f108dd64b030305cf51b8614b770a2296",
+      "features_code_sha256": "cd288de8f13524826fa696f4b6fa76e35b5681ba360fffcc1525abf49a58f58b",
+      "clustering_code_sha256": "e6c08ffc8774e2aabc134d149c83d137e7887388b961583b47b6a17d4e56ce11"
+    },
+    "data_summary": {
+      "total_users": 6040,
+      "assigned_users": 6038,
+      "insufficient_evidence_users": 2,
+      "num_clusters": 4,
+      "cluster_sizes": {
+        "0": 2478,
+        "3": 1407,
+        "1": 1393,
+        "2": 760
+      }
+    },
+    "files": {
+      "user_cluster.csv": {
+        "row_count": 6040,
+        "sha256": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93"
+      },
+      "cluster_genre_profile.csv": {
+        "row_count": 72,
+        "sha256": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+      }
+    }
+  },
+  "user_level_files_ignored": true,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "frozen_fingerprint_enforced": true,
+  "package_publication_atomicity": "Three os.replace calls are NOT whole-package atomic; consumer validates complete in-memory snapshot and independently hashes every CSV before DB connection",
+  "p1_environment_unchanged_vs_precheck_and_requirements": true
+}

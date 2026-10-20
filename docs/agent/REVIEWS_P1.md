@@ -1,5 +1,10 @@
 # Hồ sơ duyệt P1
 
+## 11B-1 — Giao việc và kết quả chờ review, 20/10/2026
+
+Nguồn: người dùng chuyển xác nhận điều phối PR15merge371aab7/chấpnhận côngbố11C và giao riêng11B-1. Không tạo lời duyệt cho G3/loader. Tái tạoP1khớp hai frozenSHA; dry-run14c7eb52 READONLY vàbốnDW/G2hashđạt;23unit+5integrationđạt, rollback4pha phục hồi snapshot/modelactivefixture. Analytics thật0/schema thửđãdọn, giữFAILaliasvàruncũ. **11B-1 WAITING_REVIEW**; chưa nạpanalytics/dashboard/export/commitpushPR. P2G2intakeNOT_CONFIRMED. Bàn giao docs/P1/g3_intake.md vàresults/warehouse/s11b1.
+
+
 ## Hiện hành — PR11C OPEN, chờ review PR, 20/10/2026
 
 Đã commit/push p1-s11c-trends và mở [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15) vào main. GitHub API xác minh OPEN/merged=false, HEAD lúc mở **bdb14fce8deb830999bcb4c17655100a72e6514e**, base **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Đủ52file của toànPR, gồm checkpoint11A, có SHAblob trong PR và remotetree khớp Gitlocal. Chức năng11C **APPROVED theo điều phối**; PR **WAITING_REVIEW**, chưaMERGED; agent không merge.

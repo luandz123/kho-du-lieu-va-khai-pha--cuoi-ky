@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-20T08:39:20.275670+00:00",
+  "mode": "READ_ONLY_FINAL_OBSERVATION",
+  "database": "movielens_btl",
+  "postgresql": "17.11",
+  "transaction_read_only": "on",
+  "production_analytics_counts": {
+    "model_registry": 0,
+    "user_cluster": 0,
+    "cluster_genre_profile": 0,
+    "v_active_user_cluster": 0,
+    "v_active_cluster_genre_profile": 0
+  },
+  "active_view_definitions": {
+    "analytics.v_active_cluster_genre_profile": " SELECT p.cluster_id,\n    p.genre_name,\n    p.mean_preference,\n    p.n_users,\n    p.model_version\n   FROM analytics.cluster_genre_profile p\n     JOIN analytics.model_registry r ON r.model_version = p.model_version\n  WHERE r.is_active AND r.is_valid_for_dw;",
+    "analytics.v_active_user_cluster": " SELECT c.user_id,\n    c.cluster_id,\n    c.status,\n    c.model_version\n   FROM analytics.user_cluster c\n     JOIN analytics.model_registry r ON r.model_version = c.model_version\n  WHERE r.is_active AND r.is_valid_for_dw;"
+  },
+  "remaining_g3_fixture_schemas": [],
+  "protected_files_unchanged": true,
+  "status": "PASS",
+  "protected_files_checked": 101,
+  "outside_plan_unchanged": true,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "production_write_enabled": false
+}

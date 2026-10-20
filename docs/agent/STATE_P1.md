@@ -1,5 +1,22 @@
 # Trạng thái P1
 
+## Hiện hành — 11B-1 kiểm nhận G3/dry-run WAITING_REVIEW, 20/10/2026
+
+Điều phối xác nhận PR15 MERGED và chấp nhận công bố11C. API/Git xác minh merge **371aab7e43742dc1e5c330077ffbd49fcef5fe09**; agent không merge. Quan sát mới docs/P1/trends_post_merge_observation.json; giữ report OPEN lịch sử. Working tree đầu lượt chỉ kế hoạch untracked; main fast-forward an toàn rồi tạo **p1-s11b-cluster-intake**, HEAD/base cùng371aab7. Không reset/stash/clean, không stage/commit/push/PR; kế hoạch giữ nguyên SHA.
+
+Chưa có G3 local nên tái tạo đúng CLI P2 đã merge, commit code **bab0b4049d4e0b1724418b8a92d8afbeda4bc775**, bằng môi trường ignored tmp/g3_venv riêng. Python3.12.14Windows/numpy2.0.2/pandas2.3.3/scipy1.14.1/sklearn1.5.2; không đổi .venv P1. Bốn canonical CSV G2 được băm trước khi copy vào đường dẫn canonical đang thiếu; không ghi đè raw/P2manifest. Gói data/processed/p1_g3_20261020_intake ignored, đủ3file, hai checksum frozen khớp tuyệt đối. Không đổi hash/nhãn để ép tái tạo.
+
+Contract2/versionkmeans_k4_seed42:6040user duy nhất,6038assigned/2insufficientNULL; quy mô2478/1393/760/1407;72profile/18genre, mean hữu hạn/tổng1/n_users đúng. Metadata config/library/provenance/hash/UTC đầy đủ. Dry-run cuối **14c7eb52e34a4b0da6b0c158b56175cd** (intake_run_02), transaction READONLY=on, băm mới bốn view DW bằng serializerP2 và khớp G2/gói. Registry/user/profile/2activeview đều0; chưa nạp analytics. Source gói là tái tạo tạiP1, không phải P2 trực tiếp bàn giao hoặc xác nhận G2.
+
+Code etl/g3_intake.py tách package check trước DB, CLI chỉ --dry-run. Engine etl/g3_transaction.py hiện chặn schema analytics, chỉ chạy trong fixture cóUUID/marker/ownership. Thiết kế transaction/metadata jsonb/same-versionNOOP hoặc conflict/invalidatedreload chờ review, chưa mở dispatcherproduction11B-2. 23/23unit và5/5integration thật đạt; fixture lỗi bốn pha phục hồi snapshot/modelactive cũ, analytics thật0 trước/sau và schema thử đã dọn. Giữ FAIL dictalias ban đầu và PASS/run cũ; sửa deepcopy để snapshot độc lập.
+
+Bàn giao docs/P1/g3_intake.md; bằng chứng aggregate results/warehouse/s11b1/, ledger handoff_manifest.json. PostgreSQL17.11;101file P2/schema/contractdashboard/EDA đã kiểm không đổi. Cảnh báo pandasDBAPI2 được ghi rõ, không sửaadapterP2. Chưa thử productionwrite hoặc mấtkếtnốiCOMMIT; Pythonpatch/OS khácP2 được ghi trung thực, frozen payload đã khớp. PUBLIC TEMP/restore/hai máy/fullrefreshS07 cũ giữ nguyên; **P2 intake G2 NOT_CONFIRMED**.
+
+**11B-1 WAITING_REVIEW**, chưa điều phối duyệt kết quả, chưa load analytics/dashboard11B/exportba dashboard/quyềnfirewall. Chưa stage/commit/push/PR. Dừng chờ điều phối review gói/metadata/mapping/transaction trước khi giao11B-2.
+
+---
+
+
 ## Hiện hành — PR11C OPEN, chờ review PR, 20/10/2026
 
 Đã commit/push p1-s11c-trends và mở [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15) vào main. GitHub API xác minh OPEN/merged=false, HEAD lúc mở **bdb14fce8deb830999bcb4c17655100a72e6514e**, base **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Đủ52file của toànPR, gồm checkpoint11A, có SHAblob trong PR và remotetree khớp Gitlocal. Chức năng11C **APPROVED theo điều phối**; PR **WAITING_REVIEW**, chưaMERGED; agent không merge.

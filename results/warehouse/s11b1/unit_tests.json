@@ -1,0 +1,12 @@
+{
+  "at_utc": "2026-10-20T08:37:33.259497+00:00",
+  "status": "PASS",
+  "tests": 23,
+  "failures": 0,
+  "errors": 0,
+  "portable_synthetic_fixtures": true,
+  "code_sha256": {
+    "etl/g3_intake.py": "f02452ec5fba24c77c2088b50a6111befafc3a241c4a9a0a6f49e62c90ce3e8e",
+    "tests/warehouse/test_g3_intake.py": "faffe9e0d7bfed75e3b14dc2f5a6af3cc29e6a1a4fabf2b44cc62a3c5c26dbd7"
+  }
+}

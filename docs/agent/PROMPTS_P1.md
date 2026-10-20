@@ -1,5 +1,10 @@
 # Nguồn prompt P1
 
+## P-P1-31 — Giao11B-1 kiểm nhậnG3/dry-run,20/10/2026
+
+Điều phối xác nhận PR15merge371aab7/côngbố11Cđạt; giaođồngbộmain/tạop1-s11b-cluster-intake, bảo toànplan/dởdang vàquan sátmerge riêng. Nhậnđủ3fileG3 hoặc táitạocodeP2merged bằngmôitrườngtươngthíchriêng, khôngbỏfrozenfingerprint/thayhash/nhãn. Kiểmcontract2/modelkmeans_k4_seed42/twoSHA/người6040/assigned6038/thiếubằngchứng2/quymô2478,1393,760,1407/profile72×18genre/mean/n_users/config/library/provenance; canonicalkhớpG2vàDWthật. Táchcheckkhỏighi, dry-runchỉđọc;thiếtkếtransactionregistry+user+profile/activecuối/cùngversionNOOPvsconflict;fixturetựtạovùngthửriêng. BàngiaonguồnmôitrườngSHA/code/test/rollback/files/giớihạn/S11STATEWAITING_REVIEW. Chưa stagecommitpushPR, loadanalytics/dashboard11B/export3dashboard. P1nhậnG3khôngsuyP2đãnhậnG2;dừngreview. Đây là tómtắt lệnh,khôngtạolờiduyệt.
+
+
 ## P-P1-30 — Công bố11C theo điều phối,20/10/2026
 
 Điều phối chấp nhận chức năng11C; giao ràdiff/bí mật/ignore và bảo toànplan, commit11C+hồsơ11Ađãghép, pushnhánh/mởPRmain, kiểmmọifile/blobremote. NếuđãcóPR chỉxácminh, khôngtạotrùng. KhôngcầnrerunETL/create/đốisoátđầyđủ khiSQL/metric/filterkhôngđổi. BàngiaoURL/fullHEAD/base/checks/workingtree, chưamerge/11B/G3. Đây là tóm tắt lệnh trực tiếp, không phải lời duyệt do agent tạo.
