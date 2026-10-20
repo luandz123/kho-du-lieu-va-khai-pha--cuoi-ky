@@ -104,3 +104,5 @@ Sau duyệt và lệnh **Đẩy G0**, commit/push nhánh rồi mở PR vào main
 Mở http://127.0.0.1:8089/superset/dashboard/2/ ; hướng dẫn/SQL/filter tại [dashboard/trends](dashboard/trends/README.md), bằng chứng và bàn giao [11C](docs/P1/trends_handoff.md). Chỉ chọn quý nguyên vẹn; genre không lọc tổng rating hệ thống. Chưa công bố PR11C hoặc làm11B/G3.
 
 Cập nhật20/10/2026: điều phối chấp nhận chức năng11C; đang công bố PR theo lệnh riêng. Trạng thái PR/commit và kiểm công bố xem docs/P1/trends_publication.md tính từ repository. Các nhãn chờ review kết quả ở trên là lịch sử; không tự merge hoặc chuyển11B/G3.
+
+Đã công bố [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15), OPEN/chờ review PR; code tái tạo `bdb14fce8deb830999bcb4c17655100a72e6514e`. Chức năng đã được điều phối chấp nhận, chưa merge. Chi tiết kiểm52blob và HEAD/base lúc mở tại docs/P1/trends_publication.json.

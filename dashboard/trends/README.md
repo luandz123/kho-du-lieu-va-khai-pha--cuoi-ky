@@ -37,3 +37,5 @@ SQL GRANT thực chạy ở `bi_grants.sql`. Credential chỉ trong `dashboard/s
 Bàn giao đầy đủ: `docs/P1/trends_handoff.md`; số liệu API/SQL và ảnh thật tại `evidence/`. JSON chỉ tổng hợp, không có lịch sử từng user. Trạng thái11C WAITING_REVIEW, chưa commit/push/PR.
 
 Cập nhật20/10/2026: điều phối chấp nhận chức năng11C; đang công bố PR theo lệnh riêng. Trạng thái PR/commit và kiểm công bố xem docs/P1/trends_publication.md tính từ repository. Các nhãn chờ review kết quả ở trên là lịch sử; không tự merge hoặc chuyển11B/G3.
+
+Đã công bố [PR #15](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/15), OPEN/chờ review PR; code tái tạo `bdb14fce8deb830999bcb4c17655100a72e6514e`. Chức năng đã được điều phối chấp nhận, chưa merge. Chi tiết kiểm52blob và HEAD/base lúc mở tại docs/P1/trends_publication.json.
