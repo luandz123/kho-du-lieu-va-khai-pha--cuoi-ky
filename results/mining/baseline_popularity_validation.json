@@ -1,0 +1,103 @@
+{
+  "contract_version": 2,
+  "model_name": "popularity",
+  "evaluation_phase": "validation",
+  "top_k": 5,
+  "cutoff": 5,
+  "training_cutoff_timestamp": 974862386,
+  "evaluation_cutoff_timestamp": 976422051,
+  "thresholds": {
+    "t1": 974862386,
+    "t1_utc": "2000-11-22T03:06:26Z",
+    "t2": 976422051,
+    "t2_utc": "2000-12-10T04:20:51Z"
+  },
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "provenance": {
+    "split_manifest_path": "results/mining/split_manifest.json",
+    "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "baseline_code_sha256": "5556040e418860d5f466138e56b85a169b8047c30c45fcbfc7778d76f400157d",
+    "config_hash": "d3ef5f96fdde482fd0c9cb997e06a529fd09247759cc0550d2293aaf6cad3611",
+    "runtime_seconds": 0.6428
+  },
+  "cohort": {
+    "evaluation_phase": "validation",
+    "eligible_cohort_size": 471,
+    "eligible_user_ids_hash": "ba0f9648c46999712f4339a81f0b6c0cb45b4bd3bc5ad1184d8885e580fd101f",
+    "total_active_eval_users": 1352,
+    "excluded_users_count": 881,
+    "exclusion_rate_percentage": 65.1627,
+    "excluded_insufficient_train_count": 849,
+    "excluded_no_positives_in_eval_count": 32,
+    "candidate_universe_stats": {
+      "formula": "train_catalog - user_train_history",
+      "training_catalog_size": 3633,
+      "min_candidates_per_user": 2193,
+      "max_candidates_per_user": 3628
+    },
+    "short_candidate_universe_users_count": 0
+  },
+  "novel_movies_breakdown": {
+    "all_validation_novel_movies": {
+      "count": 36,
+      "denominator_total_validation_catalog": 3426,
+      "ratio_percentage": 1.0508
+    },
+    "all_validation_novel_positive_movies": {
+      "count": 9,
+      "denominator_total_validation_positive_movies": 3072,
+      "ratio_percentage": 0.293
+    },
+    "eligible_cohort_novel_positive_movies": {
+      "count": 3,
+      "denominator_total_cohort_positive_movies": 2445,
+      "ratio_percentage": 0.1227,
+      "movie_ids": [
+        192,
+        712,
+        1471
+      ]
+    }
+  },
+  "metrics": {
+    "top_k": 5,
+    "total_evaluated_users": 471,
+    "total_hits": 400,
+    "macro_precision_at_5": 0.169851,
+    "macro_recall_at_5": 0.031261,
+    "macro_precision_at_5_percentage": 16.9851,
+    "macro_recall_at_5_percentage": 3.1261
+  },
+  "popularity_fit_summary": {
+    "training_items_count": 3633,
+    "top_10_popular_movie_ids": [
+      2858,
+      1196,
+      260,
+      1210,
+      589,
+      2028,
+      480,
+      1270,
+      608,
+      593
+    ],
+    "top_10_popular_movie_counts": [
+      2567,
+      2242,
+      2239,
+      2195,
+      2004,
+      1981,
+      1948,
+      1945,
+      1921,
+      1919
+    ]
+  }
+}

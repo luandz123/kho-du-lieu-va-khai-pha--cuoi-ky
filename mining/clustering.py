@@ -480,13 +480,20 @@ def export_g3_handoff_package(
     - cluster_genre_profile.csv: (cluster_id, genre_name, mean_preference, n_users)
     - manifest.json: Full contract v2 metadata, actual verified canonical_hashes, and checksums.
 
-    Publication guarantees:
-    - Fully constructs DataFrames, serializes CSV bytes, and computes SHA-256 hashes in memory.
-    - Validates contract rules, frozen fingerprints, existing package internal consistency,
-      and version anti-reuse BEFORE touching any target files.
-    - Rejects conflicting payloads under the same model_version before writing.
-    - Disallows overwriting or bypassing corrupted/inconsistent existing packages.
-    - Atomic publication via isolated temporary staging directory; cleans up completely on failure.
+    Publication guarantees & limitations:
+    - Pre-flight validation: Fully constructs DataFrames, serializes CSV bytes, and computes
+      SHA-256 hashes in memory. Validates contract rules, frozen fingerprints, existing package
+      internal consistency, and version anti-reuse BEFORE touching any target files.
+      If validation fails at this stage, any existing package on disk remains completely untouched.
+    - Publication semantics: Staged files are published sequentially via individual `os.replace` calls.
+      On POSIX filesystems, each `os.replace` is atomic per file, but the sequence of three replacements
+      is NOT an all-or-nothing multi-file transaction. An unhandled I/O failure or abrupt termination
+      between replaces could leave the destination directory in an inconsistent/corrupted state.
+    - Downstream receiver requirement: Consumers (Person 1 / Analytics) MUST verify the manifest and
+      both CSV checksums before ingesting. If an inconsistent/corrupted package is detected, ingestion
+      must abort immediately and a clean reproduction must be run into a new directory, preserving
+      the faulty directory for diagnostic inspection. No transactional filesystem engine or power-loss
+      rollback is implemented.
     """
     output_dir = Path(output_dir)
     assigned_user_ids = feat_matrix.index.values
@@ -777,7 +784,11 @@ def export_g3_handoff_package(
         if compute_file_sha256(stage_prof) != profile_sha256:
             raise RuntimeError("Staging cluster_genre_profile.csv corruption detected during publication")
 
-        # Atomic replacement: safely overwrite/install handoff files
+        # Sequential per-file atomic replacement:
+        # Each os.replace is atomic per-file on POSIX filesystems.
+        # Note: The 3-file sequence is not an all-or-nothing multi-file transaction.
+        # An I/O error between replacements can leave an inconsistent state on disk,
+        # which will be detected and rejected by pre-flight checksum checks on subsequent runs.
         os.replace(stage_uc, user_cluster_csv_path)
         os.replace(stage_prof, profile_csv_path)
         os.replace(stage_manifest, manifest_path)

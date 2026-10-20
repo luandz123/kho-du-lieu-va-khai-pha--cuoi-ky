@@ -15,6 +15,7 @@ Validates:
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import shutil
 import sys
@@ -702,5 +703,79 @@ def test_export_rejects_conflicting_payload_under_custom_model_version(tmp_path)
     assert compute_file_sha256(target_dir / "user_cluster.csv") == h_uc_before
     assert compute_file_sha256(target_dir / "cluster_genre_profile.csv") == h_prof_before
     assert compute_file_sha256(target_dir / "manifest.json") == h_manifest_before
+
+
+def test_export_handles_simulated_io_failure_during_second_replace(tmp_path, monkeypatch):
+    """
+    Regression test:
+    Simulates an I/O failure (OSError) on the second os.replace call during publication.
+    Verifies that:
+    1. The exception is propagated and publication does not claim success.
+    2. The partial failure leaves an inconsistent state (new user_cluster.csv but old/missing profile & manifest).
+    3. Code does NOT claim full multi-file atomic rollback (honest acknowledgment of per-file replace semantics).
+    4. Crucially: Any subsequent export attempt to this corrupted directory is strictly rejected
+       by pre-flight checksum verification, preventing silent corruption or overwrite.
+    """
+    user_status_df = pd.DataFrame([
+        {"user_id": 1, "status": "assigned"},
+        {"user_id": 2, "status": "assigned"},
+    ])
+    feat_df = pd.DataFrame(np.ones((2, 18)) / 18.0, index=[1, 2], columns=GENRE_COLUMNS)
+    labels_v1 = np.array([0, 0])
+    hashes = {"users": "h1", "movies": "h2", "movie_genres": "h3", "ratings": "h4"}
+
+    target_dir = tmp_path / "io_fail_pkg"
+
+    # 1. Establish an initial valid package
+    export_g3_handoff_package(
+        user_status_df=user_status_df,
+        feat_matrix=feat_df,
+        labels=labels_v1,
+        canonical_hashes=hashes,
+        model_version="custom_pkg_v1",
+        output_dir=target_dir,
+    )
+    assert (target_dir / "manifest.json").exists()
+
+    # 2. Prepare next publication under new version "custom_pkg_v2"
+    real_os_replace = os.replace
+    replace_call_count = 0
+
+    def mock_replace(src, dst):
+        nonlocal replace_call_count
+        replace_call_count += 1
+        if replace_call_count == 2:
+            raise OSError("Simulated I/O failure on second replace (cluster_genre_profile.csv)")
+        return real_os_replace(src, dst)
+
+    monkeypatch.setattr(os, "replace", mock_replace)
+
+    # Attempt export with simulated I/O failure
+    with pytest.raises(OSError, match="Simulated I/O failure on second replace"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_v1,
+            canonical_hashes=hashes,
+            model_version="custom_pkg_v2",
+            output_dir=target_dir,
+        )
+
+    # 3. Restore original os.replace
+    monkeypatch.undo()
+
+    # 4. Verify that the target_dir is now in an inconsistent state:
+    # user_cluster.csv has been updated to v2, but manifest still reflects v1 checksums!
+    # A subsequent attempt to export to this corrupted directory MUST be rejected by pre-flight check.
+    with pytest.raises(ValueError, match="Corrupted existing handoff package.*checksum mismatch"):
+        export_g3_handoff_package(
+            user_status_df=user_status_df,
+            feat_matrix=feat_df,
+            labels=labels_v1,
+            canonical_hashes=hashes,
+            model_version="custom_pkg_v2",
+            output_dir=target_dir,
+        )
+
 
 
