@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "stage": "Initial UUID dependency checker",
+  "error_category": "KeyError: uuid in legacy layout chart meta",
+  "cause_verified": "Production custom layouts omit per-node UUID. Official Superset exporter retains 23 legacy nodes and appends 23 UUID-bearing chart nodes as orphan chart rows.",
+  "resolution": "Inventory resolves real UUID dependency nodes; preserve original ZIP and production. Isolated restore must reconcile original layout via official REST API using UUID-ID mapping; record this additional required step.",
+  "zip_rewritten": false,
+  "production_changed": false
+}

@@ -8,6 +8,7 @@ from collections import Counter
 from etl.s05_staging import ROOT,SafeError,assert_project,catalog,config,connect,sha256
 
 VERSION='kmeans_k4_seed42'
+APPROVED_PRODUCER_COMMIT='bab0b4049d4e0b1724418b8a92d8afbeda4bc775'
 PINNED={'user_cluster.csv':'5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93',
         'cluster_genre_profile.csv':'59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d'}
 HEADERS={'user_cluster.csv':['user_id','cluster_id','status','model_version'],
@@ -77,6 +78,21 @@ def read_package(directory):
     require(all((directory/n).read_bytes()==b for n,b in blobs.items()),'PACKAGE_CHANGED_DURING_READ')
     return validate_snapshot(blobs)
 
+def verify_producer_code(name,expected_sha):
+    """Pin historical approved producer, not evolving HEAD. Never rewrite manifest.
+
+    Current P2 working files must still match their committed HEAD. Historical
+    Git LF and Windows CRLF code bytes are equivalent; source/CSV bytes are not.
+    """
+    path='mining/'+name+'.py'
+    local=(ROOT/path).read_bytes()
+    current=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
+    require(local.replace(b'\r\n',b'\n')==current,'P2_CODE_NOT_MERGED')
+    ancestry=subprocess.run(['git','merge-base','--is-ancestor',APPROVED_PRODUCER_COMMIT,'HEAD'],cwd=ROOT,capture_output=True)
+    require(ancestry.returncode==0,'APPROVED_PRODUCER_NOT_IN_HISTORY')
+    producer=subprocess.check_output(['git','show',APPROVED_PRODUCER_COMMIT+':'+path],cwd=ROOT)
+    require(expected_sha in {hashlib.sha256(producer).hexdigest(),hashlib.sha256(producer.replace(b'\n',b'\r\n')).hexdigest()},'P2_CODE_PROVENANCE')
+
 def validate_snapshot(blobs):
     """Revalidate in-memory bytes without rereading package files."""
     require(set(blobs)=={*PINNED,'manifest.json'} and all(isinstance(v,bytes) for v in blobs.values()),'SNAPSHOT_INCOMPLETE')
@@ -107,9 +123,7 @@ def validate_snapshot(blobs):
     require(m['source_hashes']==g1['source_hashes']==g2['source_hashes'],'SOURCE_METADATA')
     require(m['code_provenance'].get('g1_canonical_code_commit')==g1['source_code_commit'],'G1_CODE_PROVENANCE')
     for name in ['features','clustering']:
-        path='mining/'+name+'.py';local=(ROOT/path).read_bytes();git=subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
-        require(local.replace(b'\r\n',b'\n')==git,'P2_CODE_NOT_MERGED')
-        require(m['code_provenance'].get(name+'_code_sha256') in {hashlib.sha256(local).hexdigest(),hashlib.sha256(git).hexdigest()},'P2_CODE_PROVENANCE')
+        verify_producer_code(name,m['code_provenance'].get(name+'_code_sha256'))
     ur=csv_rows(blobs['user_cluster.csv'],'user_cluster.csv');pr=csv_rows(blobs['cluster_genre_profile.csv'],'cluster_genre_profile.csv')
     # IDs must additionally equal live dim_user during DB intake.
     users,profiles,counts,assigned=validate_records(ur,pr,version=VERSION,k=4,genres=genres,user_ids=set(range(1,6041)))

@@ -1,0 +1,227 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-20T10:02:01.657477+00:00",
+  "superset_version": "6.1.0",
+  "containers": [
+    {
+      "name": "btl-movielens-s11b4-restore-web-1",
+      "image_id": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "name": null,
+          "destination": "/app/s11b4/superset_config.py",
+          "writable": false
+        },
+        {
+          "type": "bind",
+          "name": null,
+          "destination": "/app/s11b4/init_metadata.py",
+          "writable": false
+        },
+        {
+          "type": "volume",
+          "name": "btl-movielens-s11b4-restore_restore_home",
+          "destination": "/app/superset_home",
+          "writable": true
+        }
+      ],
+      "networks": [
+        "btl-movielens-s11b4-restore_default"
+      ],
+      "ports": {
+        "8088/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8091"
+          }
+        ]
+      },
+      "memory_limit_bytes": 2147483648,
+      "nano_cpus": 2000000000
+    },
+    {
+      "name": "btl-movielens-s11b4-restore-metadata-1",
+      "image_id": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "btl-movielens-s11b4-restore_restore_metadata",
+          "destination": "/var/lib/postgresql/data",
+          "writable": true
+        }
+      ],
+      "networks": [
+        "btl-movielens-s11b4-restore_default"
+      ],
+      "ports": {
+        "5432/tcp": null
+      },
+      "memory_limit_bytes": 536870912,
+      "nano_cpus": 1000000000
+    },
+    {
+      "name": "btl-movielens-s11b4-restore-init-1",
+      "image_id": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "exited",
+      "health": "unhealthy",
+      "exit_code": 0,
+      "mounts": [
+        {
+          "type": "bind",
+          "name": null,
+          "destination": "/app/s11b4/superset_config.py",
+          "writable": false
+        },
+        {
+          "type": "bind",
+          "name": null,
+          "destination": "/app/s11b4/init_metadata.py",
+          "writable": false
+        },
+        {
+          "type": "volume",
+          "name": "btl-movielens-s11b4-restore_restore_home",
+          "destination": "/app/superset_home",
+          "writable": true
+        }
+      ],
+      "networks": [
+        "btl-movielens-s11b4-restore_default"
+      ],
+      "ports": {},
+      "memory_limit_bytes": 2147483648,
+      "nano_cpus": 2000000000
+    },
+    {
+      "name": "btl-movielens-superset-web-1",
+      "image_id": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "btl-movielens-superset_superset_home",
+          "destination": "/app/superset_home",
+          "writable": true
+        }
+      ],
+      "networks": [
+        "btl-movielens-superset_default"
+      ],
+      "ports": {
+        "8088/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8089"
+          }
+        ]
+      },
+      "memory_limit_bytes": 0,
+      "nano_cpus": 0
+    },
+    {
+      "name": "btl-movielens-superset-metadata-1",
+      "image_id": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "btl-movielens-superset_metadata_data",
+          "destination": "/var/lib/postgresql/data",
+          "writable": true
+        }
+      ],
+      "networks": [
+        "btl-movielens-superset_default"
+      ],
+      "ports": {
+        "5432/tcp": null
+      },
+      "memory_limit_bytes": 0,
+      "nano_cpus": 0
+    }
+  ],
+  "test_volumes": [
+    "btl-movielens-s11b4-restore_restore_home",
+    "btl-movielens-s11b4-restore_restore_metadata"
+  ],
+  "production_volumes": [
+    "btl-movielens-superset_metadata_data",
+    "btl-movielens-superset_superset_home"
+  ],
+  "metadata_home_volumes_disjoint": true,
+  "bi_effective_privileges_from_test_container": {
+    "role": "movielens_bi_reader",
+    "database": "movielens_btl",
+    "selectable": [
+      "analytics.v_active_cluster_genre_profile",
+      "analytics.v_active_user_cluster",
+      "analytics.v_olap_genre_quarter",
+      "analytics.v_olap_time_rollup",
+      "dw.v_ml_movies",
+      "dw.v_ml_ratings",
+      "dw.v_ml_users"
+    ],
+    "writeable": [],
+    "attributes_all_false": true,
+    "memberships": 0,
+    "schema_create": {
+      "public": false,
+      "staging": false,
+      "analytics": false,
+      "dw": false
+    },
+    "database_create": false,
+    "public_temp": true,
+    "session_read_only_for_observation": true
+  },
+  "bi_same_seven_views_as_approved_11b3": true,
+  "production_32_business_objects_and_staging_dw_model_unchanged": true,
+  "ui_checks": {
+    "ui_overview_all.json": "PASS",
+    "ui_overview_q3.json": "PASS",
+    "ui_trends_animation.json": "PASS",
+    "ui_preferences_all.json": "PASS",
+    "ui_preferences_filtered.json": "PASS"
+  },
+  "resource_snapshot": [
+    {
+      "BlockIO": "11.5MB / 0B",
+      "CPUPerc": "10.12%",
+      "MemUsage": "229.2MiB / 2GiB",
+      "Name": "btl-movielens-s11b4-restore-web-1",
+      "NetIO": "12.3MB / 13.8MB",
+      "PIDs": "38"
+    },
+    {
+      "BlockIO": "83MB / 103MB",
+      "CPUPerc": "0.00%",
+      "MemUsage": "78.66MiB / 512MiB",
+      "Name": "btl-movielens-s11b4-restore-metadata-1",
+      "NetIO": "10.9MB / 13.7MB",
+      "PIDs": "7"
+    }
+  ],
+  "volume_disk": {
+    "test_metadata_KiB": 68884,
+    "test_home_KiB": 4
+  },
+  "ongoing_cost": "Local Docker resources only; no paid cloud service created. Test web/metadata and two volumes retained for review.",
+  "production_metadata_not_imported_into": true,
+  "zip_still_ignored": true,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "runtime_hash": {
+    "observe.py": "cbfcfd442d8f79f6183d1093696f762f7a037d45971697072541018a3ad73a60",
+    "common.py": "cf4bbef6f557dbe9a766e9f8a9cf626d0b21a5e2de69f07f080d897fca7c22c5"
+  }
+}

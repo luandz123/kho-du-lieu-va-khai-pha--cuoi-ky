@@ -1,0 +1,1354 @@
+{
+  "run_id": "e4d784ce1cfc4b3ba9b06142de5a395b",
+  "at_utc": "2026-10-20T09:56:25.679610+00:00",
+  "status": "PASS",
+  "target": "http://127.0.0.1:8091",
+  "base_commit": "4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4",
+  "code_state": "WORKING_TREE_NOT_COMMITTED",
+  "code_sha256": {
+    "verify_restore.py": "4bd8b880cad7f8a4490f46b4d2c50d9427774e83bd1c3772b1de5cbee80ff94c",
+    "common.py": "cf4bbef6f557dbe9a766e9f8a9cf626d0b21a5e2de69f07f080d897fca7c22c5"
+  },
+  "all_23_charts_query_success": true,
+  "engine": {
+    "role": "movielens_bi_reader",
+    "timezone": "UTC"
+  },
+  "duration_seconds": 90.218,
+  "dataset_sql_and_time_columns_exact": true,
+  "all_chart_metrics_and_contexts_remapped_exact": true,
+  "import_added_empty_annotation_layers_only": true,
+  "overview_cases": [
+    {
+      "case": "all",
+      "status": "PASS",
+      "rating_count": 1000209,
+      "rating_sum": 3582313,
+      "rated_users": 6040,
+      "rated_movies": 3706,
+      "actual": {
+        "1": [
+          {
+            "rating_count": 1000209
+          }
+        ],
+        "2": [
+          {
+            "weighted_mean": 3.581564453029317
+          }
+        ],
+        "3": [
+          {
+            "rated_users": 6040
+          }
+        ],
+        "4": [
+          {
+            "rated_movies": 3706
+          }
+        ],
+        "5": [
+          {
+            "catalog_movies": 3883
+          }
+        ],
+        "6": [
+          {
+            "rating_sum": 3582313
+          }
+        ],
+        "7": [
+          {
+            "movie_id": 2858,
+            "title": "American Beauty (1999)",
+            "rating_count": 3428,
+            "weighted_mean": 4.3173862310385065
+          },
+          {
+            "movie_id": 260,
+            "title": "Star Wars: Episode IV - A New Hope (1977)",
+            "rating_count": 2991,
+            "weighted_mean": 4.453694416583082
+          },
+          {
+            "movie_id": 1196,
+            "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+            "rating_count": 2990,
+            "weighted_mean": 4.292976588628762
+          },
+          {
+            "movie_id": 1210,
+            "title": "Star Wars: Episode VI - Return of the Jedi (1983)",
+            "rating_count": 2883,
+            "weighted_mean": 4.022892819979188
+          },
+          {
+            "movie_id": 480,
+            "title": "Jurassic Park (1993)",
+            "rating_count": 2672,
+            "weighted_mean": 3.7638473053892216
+          },
+          {
+            "movie_id": 2028,
+            "title": "Saving Private Ryan (1998)",
+            "rating_count": 2653,
+            "weighted_mean": 4.337353938937053
+          },
+          {
+            "movie_id": 589,
+            "title": "Terminator 2: Judgment Day (1991)",
+            "rating_count": 2649,
+            "weighted_mean": 4.058512646281616
+          },
+          {
+            "movie_id": 2571,
+            "title": "Matrix, The (1999)",
+            "rating_count": 2590,
+            "weighted_mean": 4.315830115830116
+          },
+          {
+            "movie_id": 1270,
+            "title": "Back to the Future (1985)",
+            "rating_count": 2583,
+            "weighted_mean": 3.9903213317847466
+          },
+          {
+            "movie_id": 593,
+            "title": "Silence of the Lambs, The (1991)",
+            "rating_count": 2578,
+            "weighted_mean": 4.3518231186966645
+          }
+        ],
+        "8": [
+          {
+            "rating": 1,
+            "rating_count": 56174
+          },
+          {
+            "rating": 2,
+            "rating_count": 107557
+          },
+          {
+            "rating": 3,
+            "rating_count": 261197
+          },
+          {
+            "rating": 4,
+            "rating_count": 348971
+          },
+          {
+            "rating": 5,
+            "rating_count": 226310
+          }
+        ]
+      }
+    },
+    {
+      "case": "Q3_2000",
+      "status": "PASS",
+      "rating_count": 324864,
+      "rating_sum": 1167669,
+      "rated_users": 2244,
+      "rated_movies": 3465,
+      "actual": {
+        "1": [
+          {
+            "rating_count": 324864
+          }
+        ],
+        "2": [
+          {
+            "weighted_mean": 3.5943317819148937
+          }
+        ],
+        "3": [
+          {
+            "rated_users": 2244
+          }
+        ],
+        "4": [
+          {
+            "rated_movies": 3465
+          }
+        ],
+        "5": [
+          {
+            "catalog_movies": 3883
+          }
+        ],
+        "6": [
+          {
+            "rating_sum": 1167669
+          }
+        ],
+        "7": [
+          {
+            "movie_id": 2858,
+            "title": "American Beauty (1999)",
+            "rating_count": 1102,
+            "weighted_mean": 4.368421052631579
+          },
+          {
+            "movie_id": 260,
+            "title": "Star Wars: Episode IV - A New Hope (1977)",
+            "rating_count": 971,
+            "weighted_mean": 4.513903192584964
+          },
+          {
+            "movie_id": 1196,
+            "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+            "rating_count": 967,
+            "weighted_mean": 4.3195449844881075
+          },
+          {
+            "movie_id": 1210,
+            "title": "Star Wars: Episode VI - Return of the Jedi (1983)",
+            "rating_count": 957,
+            "weighted_mean": 4.048066875653083
+          },
+          {
+            "movie_id": 1270,
+            "title": "Back to the Future (1985)",
+            "rating_count": 891,
+            "weighted_mean": 3.983164983164983
+          },
+          {
+            "movie_id": 593,
+            "title": "Silence of the Lambs, The (1991)",
+            "rating_count": 880,
+            "weighted_mean": 4.368181818181818
+          },
+          {
+            "movie_id": 2571,
+            "title": "Matrix, The (1999)",
+            "rating_count": 868,
+            "weighted_mean": 4.346774193548387
+          },
+          {
+            "movie_id": 2028,
+            "title": "Saving Private Ryan (1998)",
+            "rating_count": 855,
+            "weighted_mean": 4.360233918128655
+          },
+          {
+            "movie_id": 608,
+            "title": "Fargo (1996)",
+            "rating_count": 844,
+            "weighted_mean": 4.220379146919432
+          },
+          {
+            "movie_id": 1198,
+            "title": "Raiders of the Lost Ark (1981)",
+            "rating_count": 828,
+            "weighted_mean": 4.495169082125604
+          }
+        ],
+        "8": [
+          {
+            "rating": 1,
+            "rating_count": 17823
+          },
+          {
+            "rating": 2,
+            "rating_count": 33819
+          },
+          {
+            "rating": 3,
+            "rating_count": 85526
+          },
+          {
+            "rating": 4,
+            "rating_count": 112850
+          },
+          {
+            "rating": 5,
+            "rating_count": 74846
+          }
+        ]
+      }
+    }
+  ],
+  "trend_animation": {
+    "status": "PASS",
+    "expected_independent_fact_sql_python": {
+      "rating_count": 1715,
+      "previous_rating_count": 20068,
+      "genre_assignment_total": 63335,
+      "genre_share_pct": 2.7078234783295176,
+      "qoq_pct": -91.45405620888978,
+      "growth_rank": 1
+    },
+    "actual": [
+      {
+        "quarter_label": "2001 Q1",
+        "genre_name": "Animation",
+        "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+        "rank_interpretation": "Hạng 1: giảm ít nhất",
+        "rating_count": 1715,
+        "previous_rating_count": 20068,
+        "genre_assignment_total": 63335,
+        "genre_share_pct": 2.7078234783295176,
+        "qoq_pct": -91.45405620888978,
+        "growth_rank": 1
+      }
+    ],
+    "all_filtered_charts": {
+      "9": [
+        {
+          "quarter_label": "2001 Q1",
+          "rating_count": 32223
+        }
+      ],
+      "10": [
+        {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "rating_count": 1715
+        }
+      ],
+      "11": [
+        {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "qoq_pct": -91.45405620888978
+        }
+      ],
+      "12": [
+        {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "genre_share_pct": 2.7078234783295176
+        }
+      ],
+      "13": [
+        {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+          "rank_interpretation": "Hạng 1: giảm ít nhất",
+          "rating_count": 1715,
+          "previous_rating_count": 20068,
+          "genre_assignment_total": 63335,
+          "genre_share_pct": 2.7078234783295176,
+          "qoq_pct": -91.45405620888978,
+          "growth_rank": 1
+        }
+      ]
+    },
+    "share_rank_unchanged_by_display_filter": true
+  },
+  "preferences_cases": [
+    {
+      "case": "all",
+      "status": "PASS",
+      "assigned": 6038,
+      "baseline_fixed": 6038,
+      "insufficient_fixed": 2,
+      "heatmap_cells": 72,
+      "actual": {
+        "14": [
+          {
+            "assigned_users": 6038
+          }
+        ],
+        "15": [
+          {
+            "insufficient_users": 2
+          }
+        ],
+        "16": [
+          {
+            "fixed_assigned_baseline": 6038
+          }
+        ],
+        "17": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "assigned_users": 2478,
+            "pct_of_fixed_6038": 41.040079496522026
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "assigned_users": 1393,
+            "pct_of_fixed_6038": 23.070553163299106
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "assigned_users": 760,
+            "pct_of_fixed_6038": 12.586949320967207
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "assigned_users": 1407,
+            "pct_of_fixed_6038": 23.30241801921166
+          }
+        ],
+        "18": [
+          {
+            "model_version": "kmeans_k4_seed42",
+            "assigned_users": 6038,
+            "insufficient_users": 2
+          }
+        ],
+        "19": [
+          {
+            "genre_name": "Action",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.10753669947248282
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0628637866744523
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.05269886777232584
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.20147146941736913
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.0559541531253238
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.027301861292870065
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.032794042821757935
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.09671678505374393
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02842888257253178
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.010942878656515545
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.03265519424838543
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.014726912293477893
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.03653697889471876
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.016558397598863232
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.038902687652155904
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02017450689654243
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.16176989981036657
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.14883740505763784
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.35989029637124026
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.08543978925479541
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.04294341154236175
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.05066040372026482
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.02511566312728415
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.032805822842818855
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.005039349653356135
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.008503021007568145
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.004536394790189357
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.0010200776834558309
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.17714660745067107
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.3428462139020109
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.16291446074188534
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.10399283455931604
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.015183532320055145
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.007213797801686972
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.011321355030502819
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02175258487092637
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.016024027816356777
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014651188353456641
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.0064009824603581695
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.008981868056201665
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02936482480269772
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.013483965015758765
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.017198309359105733
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.045393249982651915
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02439487397702844
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014829596230321172
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.023294903359128358
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.009254159815897531
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02381281921830121
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.02380509939251054
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.011999266907969765
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.015522756888980615
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.06645626358515558
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.08434124082364364
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.11373953601512944
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.03852752156076505
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.06295702922295253
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.029852360024518867
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.0303994106024203
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.1355369657977109
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.09665745875330908
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0821819421208289
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.04506295476709747
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.11568146023862387
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.04004853374512865
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.053527441695708396
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.024192272580946403
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.042983348115082615
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.009744654037202226
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.00759940063138321
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.006883401392117369
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.010017886671639952
+          }
+        ],
+        "20": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "gender": "F",
+            "assigned_users": 651,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 26.271186440677965,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "gender": "M",
+            "assigned_users": 1827,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 73.72881355932203,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "F",
+            "assigned_users": 540,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 38.765254845656855,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "M",
+            "assigned_users": 853,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 61.234745154343145,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "gender": "F",
+            "assigned_users": 341,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 44.86842105263158,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "gender": "M",
+            "assigned_users": 419,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 55.13157894736842,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "F",
+            "assigned_users": 177,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 12.57995735607676,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "M",
+            "assigned_users": 1230,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 87.42004264392324,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          }
+        ],
+        "21": [
+          {
+            "gender": "F",
+            "assigned_users": 1709
+          },
+          {
+            "gender": "M",
+            "assigned_users": 4329
+          }
+        ],
+        "22": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "18-24",
+            "assigned_users": 494,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 19.93543179983858,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "25-34",
+            "assigned_users": 906,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 36.56174334140436,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "35-44",
+            "assigned_users": 491,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 19.814366424535915,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "45-49",
+            "assigned_users": 210,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 8.474576271186441,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "50-55",
+            "assigned_users": 183,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 7.38498789346247,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "56+",
+            "assigned_users": 110,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 4.4390637610976595,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "Under 18",
+            "assigned_users": 84,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 3.389830508474576,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "18-24",
+            "assigned_users": 177,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.706389088298636,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "25-34",
+            "assigned_users": 435,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 31.2275664034458,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "35-44",
+            "assigned_users": 274,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 19.669777458722184,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "45-49",
+            "assigned_users": 161,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.557788944723619,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "50-55",
+            "assigned_users": 159,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.41421392677674,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "56+",
+            "assigned_users": 167,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.98851399856425,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "Under 18",
+            "assigned_users": 20,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 1.4357501794687724,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "18-24",
+            "assigned_users": 157,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 20.657894736842106,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "25-34",
+            "assigned_users": 259,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 34.078947368421055,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "35-44",
+            "assigned_users": 135,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 17.763157894736842,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "45-49",
+            "assigned_users": 63,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 8.289473684210526,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "50-55",
+            "assigned_users": 49,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 6.447368421052632,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "56+",
+            "assigned_users": 40,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 5.2631578947368425,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "Under 18",
+            "assigned_users": 57,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 7.5,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "18-24",
+            "assigned_users": 275,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 19.545131485429994,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "25-34",
+            "assigned_users": 496,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 35.25230987917555,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "35-44",
+            "assigned_users": 292,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 20.753375977256574,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "45-49",
+            "assigned_users": 116,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 8.24449182658138,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "50-55",
+            "assigned_users": 105,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 7.462686567164179,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "56+",
+            "assigned_users": 62,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.406538734896944,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "Under 18",
+            "assigned_users": 61,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.33546552949538,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          }
+        ],
+        "23": [
+          {
+            "age_group": "18-24",
+            "assigned_users": 1103
+          },
+          {
+            "age_group": "25-34",
+            "assigned_users": 2096
+          },
+          {
+            "age_group": "35-44",
+            "assigned_users": 1192
+          },
+          {
+            "age_group": "45-49",
+            "assigned_users": 550
+          },
+          {
+            "age_group": "50-55",
+            "assigned_users": 496
+          },
+          {
+            "age_group": "56+",
+            "assigned_users": 379
+          },
+          {
+            "age_group": "Under 18",
+            "assigned_users": 222
+          }
+        ]
+      }
+    },
+    {
+      "case": "cluster1_F_25_34",
+      "status": "PASS",
+      "assigned": 170,
+      "baseline_fixed": 6038,
+      "insufficient_fixed": 2,
+      "heatmap_cells": 18,
+      "actual": {
+        "14": [
+          {
+            "assigned_users": 170
+          }
+        ],
+        "15": [
+          {
+            "insufficient_users": 2
+          }
+        ],
+        "16": [
+          {
+            "fixed_assigned_baseline": 6038
+          }
+        ],
+        "17": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "assigned_users": 170,
+            "pct_of_fixed_6038": 2.8155018217952965
+          }
+        ],
+        "18": [
+          {
+            "model_version": "kmeans_k4_seed42",
+            "assigned_users": 6038,
+            "insufficient_users": 2
+          }
+        ],
+        "19": [
+          {
+            "genre_name": "Action",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0628637866744523
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.027301861292870065
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.010942878656515545
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.016558397598863232
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.14883740505763784
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.05066040372026482
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.008503021007568145
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.3428462139020109
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.007213797801686972
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014651188353456641
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.013483965015758765
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014829596230321172
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.02380509939251054
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.08434124082364364
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.029852360024518867
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0821819421208289
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.053527441695708396
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.00759940063138321
+          }
+        ],
+        "20": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "F",
+            "assigned_users": 170,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.203876525484565,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          }
+        ],
+        "21": [
+          {
+            "gender": "F",
+            "assigned_users": 1709
+          },
+          {
+            "gender": "M",
+            "assigned_users": 4329
+          }
+        ],
+        "22": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "25-34",
+            "assigned_users": 170,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.203876525484565,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          }
+        ],
+        "23": [
+          {
+            "age_group": "18-24",
+            "assigned_users": 1103
+          },
+          {
+            "age_group": "25-34",
+            "assigned_users": 2096
+          },
+          {
+            "age_group": "35-44",
+            "assigned_users": 1192
+          },
+          {
+            "age_group": "45-49",
+            "assigned_users": 550
+          },
+          {
+            "age_group": "50-55",
+            "assigned_users": 496
+          },
+          {
+            "age_group": "56+",
+            "assigned_users": 379
+          },
+          {
+            "age_group": "Under 18",
+            "assigned_users": 222
+          }
+        ]
+      }
+    }
+  ],
+  "all_32_production_business_objects_unchanged": true,
+  "source_model_registry_fingerprints_unchanged": true,
+  "production_live": {
+    "1_No filter": [
+      {
+        "rating_count": 1000209
+      }
+    ],
+    "1_2000-07-01 : 2000-10-01": [
+      {
+        "rating_count": 324864
+      }
+    ],
+    "13_None": [
+      {
+        "quarter_label": "2001 Q1",
+        "genre_name": "Animation",
+        "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+        "rank_interpretation": "Hạng 1: giảm ít nhất",
+        "rating_count": 1715,
+        "previous_rating_count": 20068,
+        "genre_assignment_total": 63335,
+        "genre_share_pct": 2.7078234783295176,
+        "qoq_pct": -91.45405620888978,
+        "growth_rank": 1
+      }
+    ],
+    "14_None": [
+      {
+        "assigned_users": 170
+      }
+    ]
+  },
+  "p2_intake_status": "NOT_CONFIRMED",
+  "ui_verification_separate": true
+}

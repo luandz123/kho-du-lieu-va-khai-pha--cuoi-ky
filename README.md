@@ -1,5 +1,20 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Công bố toàn bộ 11B — được điều phối chấp nhận, chờ review PR
+
+11B-1 kiểm nhận G3/dry-run, 11B-2 loader transaction/NO-OP, 11B-3 dashboard sở thích và 11B-4 export/import + phục hồi bố cục trên instance riêng8091 đã được điều phối chấp nhận theo phạm vi tương ứng. Hồ sơ PR/commit/kiểm công bố: [11B publication](docs/P1/11b_publication.md). Các nhãn chờ duyệt/ZIP ignored/chưa11B trong tài liệu/báo cáo cũ bên dưới là quan sát lịch sử, không ghi lại run cũ thành commit mới.
+
+Tái lập cấu hình dashboard cần **đủ bộ**, không chỉ ZIP:
+
+- [ZIP export thật ba dashboard](dashboard/superset_export.zip), đúng SHA-256 `b5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae`.
+- [Snapshot bố cục và cấu hình nguồn](dashboard/restore/evidence/production_before.json) và [mapping UUID/ID quan sát ở8091](dashboard/restore/evidence/uuid_mapping.json).
+- [Script import + phục hồi bố cục qua REST API](dashboard/restore/import_bundle.py), [hướng dẫn credential local và tái lập](dashboard/restore/README.md), [bàn giao restore](docs/P1/dashboard_restore_handoff.md).
+- [G3 intake](docs/P1/g3_intake.md), [loader](docs/P1/g3_load.md), [dashboard sở thích](docs/P1/preferences_handoff.md).
+
+ZIP nguyên bản có ô layout legacy thiếuUUID, exporter thêm ô orphan. Script import trên **instance mới rỗng**, remap theoUUID rồi PUT layout bằng API để giữ8/5/10ô; không tuyên bố ZIP tự import hoàn chỉnh. Không import vào8089 hoặc chạy lại instance8091 đã có dữ liệu. ZIP duy nhất này được phép Git, các ZIP khác và credential/raw/processed/góiG3/user-level vẫn bị ignore. Không chỉnh ZIP hoặc production để che giới hạn.
+
+Producer gói active giữ commit `bab0b4049d4e0b1724418b8a92d8afbeda4bc775`, không đổi theoHEAD mới. Guard P1 kiểm provenance lịch sử từ blob commit đó và vẫn chặn fileP2 bẩn; không tái tạo model/đổi manifest. Xác minh41test trong checkout tích hợp main, giữ lỗi compatibility trước sửa để truy vết. Giới hạn: cùng máy/Superset6.1.0/DW hiện hữu; chưa backup/restore DW, kết nối hai máy hoặc P2 intakeG2 (`NOT_CONFIRMED`); chưa full refresh mới với helperS07/G3, PUBLIC TEMP còn. Instance8091 vàvolume thử giữ để review. Không tự merge hoặc chuyển12A.
+
 Quan sát mới: PR14 đã MERGED bên ngoài agent tại 5a42c73c39c00780b2d5442c45662d93bdf0f23b; agent không merge. Gói công bố ef82fc4 gồm50file/blob đã kiểm. Hồ sơ trạng thái sau mởPR đang local/chưa commit-push, xem docs/P1/overview_post_merge_observation.json; các mụcOPEN dưới đây giữ lịch sử. Dừng, chưa11C/11B.
 
 Hiện hành19/10/2026: [PR #14 — 11A](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/14) OPEN/chờ review, chưa merge/11C/11B. 11A đã được điều phối chấp nhận chức năng; các mục chưa được giao công bố/chưa commit phía dưới giữ lịch sử. Hồ sơ mới docs/P1/overview_publication.json.

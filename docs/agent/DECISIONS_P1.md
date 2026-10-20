@@ -1,5 +1,15 @@
 # Quyết định P1
 
+P1-D106: Điều phối chấpnhận11B-4đúngphạmviRESTlayoutrestore8091/cùngDW,giaoPRtoàn11B-1→4. ChỉZIPb5a9c987…938f6faeđúngđườngdẫnđượcGit;policyphasecôngbốkhácignoredhistory. GiữZIP/source snapshot/UUIDmapping/RESTscriptđủbộ;khôngZIPtựimporthoànchỉnh/DWbackup/hai máy. Chưamerge/12A.
+
+P1-D107: Main9fae38bđổiP2clusteringdoc/comments→guardHEADcũP2_CODE_PROVENANCEthật. SửaP1guardpinblobproducerbab0b404…đãduyệt/ancestry,giữlocalP2khớpHEAD;LFCRLFchỉcode,khôngnguồnCSV. Khôngsửamanifest/payload/metadataactivemodel.41unitcompat đạttrongcheckouttáchbiệt,FAILtrướcsửagiữ;test-onlypackagepathchốngthiếudữliệuignored,nokhôngtáitạo.
+
+P1-D103 (11B-4,20/10/2026): Theo điều phối chấp nhận11B-3, checkpoint38file4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4 giữnhánh/khôngpushPR. ExportnguyênbyteREST API3dashboard, ZIP129744byte/b5a9c987…938f6fae giữignored dùsecretauditđạt; chưađượccôngbốGit. DependencyclosureUUID3dash23chart6dataset1db, khôngđếmfileđơnlẻthaybằngchứng.
+
+P1-D104: Restore8091/projectbtl-movielens-s11b4-restore/version6.1.0,metadata17.11/home/network/cookie/secret riêng; khôngimport8089/GRANT/DDL/ETL/G3. PasswordmapAPIchínhthứcđọcBIlocalmemory, dùngrole7viewhiệulựckhôngwrite. Giữ2volume/serviceđểreview, chi phíDockerlocalkhôngcloud.
+
+P1-D105: PháthiệncustomlayoutnguồnthiếuUUIDnênexporterthêmôorphanlặp. KhôngsửaZIP/production; phục hồibốtụcthửquaPUTAPIbằngUUIDmapping,giữ8/5/10ôvànativefilter. Ghi bướcAPIbổsungbắtbuộcrunbook, khôngtuyênbốimportmộtbướcđãđạt. SQL/API23chart/UI5ca/hậuUIscopelayout/sourcepreservationđạt; 11B-4WAITING_REVIEW, chưacommitpushPRphầnmới, P2intakeG2NOT_CONFIRMED.
+
 P1-D100 (11B-3,20/10/2026): Theo lệnh điều phối, checkpoint cục bộ11B-2 được duyệt tại f663dcb4143202dac0835e4d5168e1b8558a6463, không push/PR. Giữ producerP2 bab0b4049d4e0b1724418b8a92d8afbeda4bc775/packageidentity đãkiểm, không đổi provenance theoHEAD hoặc chạyapply/ETL.
 
 P1-D101: Userdatasetactiveview+dwusers một dòng/user, window denominator trước nativefilter; profiledataset riêng4×18, khôngfanoutuser. Baseline toàn6038assigned cốđịnhmọifilter; thiếu bằng chứng2 KPIriêngngoàiscope; tỷtrọngquymô6038/cơcấucụmquymôgốc, nhãn nêurõsauage/gender khôngchuẩnhóalạivề100%. Baselinegiới/tuổi đơnbiến khôngđiềuchỉnhtheofiltercònlại.

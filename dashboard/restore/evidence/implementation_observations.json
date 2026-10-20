@@ -1,0 +1,9 @@
+{
+  "historical_observations": [
+    {"stage":"Initial export dependency audit","result":"FAIL","error":"KeyError uuid","resolution":"Official exporter appended UUID-bearing orphan nodes because source custom layout lacked UUID; authentic ZIP and source unchanged. See separate FAIL report."},
+    {"stage":"Inspection-only rerun guard implementation","result":"FAIL","error":"UnboundLocalError sys due to local import shadowing","resolution":"Removed local sys import; existing ZIP inspected without another export or overwrite."},
+    {"stage":"UI navigation to restored dashboards 2 and 3","result":"NAVIGATION_DEADLINE","resolution":"Existing tabs finished loading; bound the same tabs and verified charts/filters. No duplicate dashboards/tabs created. Test instance uses one web worker."}
+  ],
+  "production_changed_to_make_checks_pass":false,
+  "source_or_package_recreated":false
+}

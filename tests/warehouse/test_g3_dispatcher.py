@@ -1,5 +1,5 @@
 """Production dispatch guards and CLI policy without database writes."""
-import unittest,tempfile,json,sys,io
+import unittest,tempfile,json,sys,io,os
 from pathlib import Path
 from unittest.mock import patch
 from contextlib import redirect_stdout
@@ -47,7 +47,9 @@ class DispatcherTests(unittest.TestCase):
     def test_snapshot_does_not_reread_package_directory(self):
         # Actual package is read once, then all file paths can disappear without changing snapshot validation.
         from etl.s05_staging import ROOT
-        p=read_package(ROOT/'data/processed/p1_g3_20261020_intake')
+        # An isolated checkout may use the already accepted ignored package
+        # via an explicit test-only path; never regenerate or copy it into Git.
+        p=read_package(Path(os.environ.get('BTL_G3_TEST_PACKAGE',ROOT/'data/processed/p1_g3_20261020_intake')))
         with patch('pathlib.Path.is_file',side_effect=AssertionError('package reread')):
             q=validate_snapshot(p.snapshot)
         self.assertEqual(q.users,p.users);self.assertEqual(q.profiles,p.profiles)

@@ -23,6 +23,7 @@ secrets/
 *.feather
 *.arrow
 *.zip
+!/dashboard/superset_export.zip
 *.gz
 *.7z
 *.dump

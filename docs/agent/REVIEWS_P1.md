@@ -1,5 +1,25 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận11B-4 và giao công bố toàn11B —20/10/2026
+
+Nguồn người dùng chuyển, trích nguyên văn:
+
+> Điều phối chấp nhận 11B-4 với phạm vi:
+> export thật + import chính thức + phục hồi bố cục bằng REST API
+> trên instance riêng 8091, cùng DW hiện có.
+
+Đây là phê duyệt điều phối đúng phạmvi đó,khôngđổi thànhuserapprovaltựtạo/ZIPimportmộtbướchoặcMERGED. ĐượccommitpushmộtPRtoàn11B vàZIPduynhấtđúnghashb5a9c987…938f6fae;chưa merge/12A. GhiPRURL/HEAD/base sauAPI/Gitxácminh;trạngtháiWAITING_REVIEWkếtquảcũ giữlịchsử. RàcompatibilitybáolỗiHEADprovenancevàsửaguardhistoricalP1,41test/bytegói/secret/UUID/policyđạt,khôngapplyETLimport/đổiP2/firewall. Hồsơcôngbố11b_publication.mdvàchecks.
+
+## Điều phối chấp nhận 11B-3, giao11B-4 —20/10/2026
+
+Nguồn: người dùng chuyển thông báo điều phối, trích nguyên văn:
+
+> Điều phối chấp nhận chức năng 11B-3.
+
+Đây là chấp nhận chức năng của điều phối, không tự biến thành lời duyệt trực tiếp của người dùng hoặc MERGED. Đã checkpointcục bộ4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4; report/historicalhash/producergóigiữnguyên.
+
+11B-4đãexportAPIthật vàrestoreinstance8091táchbiệt,23chartSQLAPI/5caUIđạt,UUIDdependency/secretauditđạt. CóbướcsửalayouttrêninstanceTHỬquaAPIvìexportnguồnthiếuUUID,giữZIPvà8089nguyênvẹn; nêurõtrongrunbook, khôngtựchegiớihạn. Run e4d784ce1cfc4b3ba9b06142de5a395b,90.218s,source/config/quyềngiữđúng. **11B-4WAITING_REVIEW**, chưađiềuphốiduyệtkếtquả/exportGit/commitpushPRphầnmới. P2G2NOT_CONFIRMED.
+
 ## Điều phối chấp nhận 11B-2, giao 11B-3 — 20/10/2026
 
 Nguồn là thông báo điều phối được người dùng chuyển trong chat, trích nguyên văn phần chấp nhận:
