@@ -24,7 +24,7 @@ Bài toán Q2 đặt mục tiêu xây dựng hệ sinh thái gợi ý phim (Top-
 
 ### 2.2. Thuật toán Chọn Mốc Thời gian Toàn cục ($t_1, t_2$)
 
-1. **Đầu vào chuẩn:** Toàn bộ bảng ratings chuẩn từ `mining/data_io.load_canonical_data()["ratings"]` (1,000,209 dòng), được kiểm tra SHA256 integrity hash đối chiếu với `data/canonical/canonical_manifest.json`.
+1. **Đầu vào chuẩn:** Toàn bộ bảng ratings chuẩn từ `mining/data_io.load_data("csv")["ratings"]` (1,000,209 dòng), được kiểm tra SHA256 integrity hash đối chiếu với `results/eda/canonical_manifest.json` (qua hàm `verify_and_hash_input_tables`).
 2. **Phân vị mục tiêu:** Xác định hai mốc phân vị mục tiêu là $q_1 = 0.70$ (70%) và $q_2 = 0.85$ (85%).
 3. **Xử lý giá trị trùng và ranh giới:**
    - Tìm giá trị timestamp tại phân vị mục tiêu:
@@ -43,14 +43,14 @@ Bài toán Q2 đặt mục tiêu xây dựng hệ sinh thái gợi ý phim (Top-
 | **Tỷ lệ thực tế** | **70.0002%** | **14.9998%** | **15.0001%** | **100.0000%** |
 | **Số user duy nhất** | 4,870 | 1,352 | 1,512 | 6,040 |
 | **Số movie duy nhất** | 3,633 | 3,426 | 3,482 | 3,706 |
-| **Timestamp Min (UTC)** | 2000-04-25 23:05:32 | 2000-11-22 03:06:30 | 2000-12-10 04:20:53 | 2000-04-25 23:05:32 |
-| **Timestamp Max (UTC)** | 2000-11-22 03:06:26 | 2000-12-10 04:20:51 | 2003-02-28 17:49:50 | 2003-02-28 17:49:50 |
-| **Độ lệch ranh giới** | $t_1 = 974862386$ (4 dòng) | Min $t = 974862390$ (+4s) | Min $t = 976422053$ (+2s) | Không có dòng trùng ranh giới |
+| **Timestamp Min (UTC)** | 2000-04-25 23:05:32 | 2000-11-22 03:06:30 | 2000-12-10 04:20:54 | 2000-04-25 23:05:32 |
+| **Timestamp Max (UTC)** | 2000-11-22 03:06:26 | 2000-12-10 04:20:42 | 2003-02-28 17:49:50 | 2003-02-28 17:49:50 |
+| **Độ lệch ranh giới** | $t_1 = 974862386$ (4 dòng) | Min $t = 974862390$ (+4s gap) | Min $t = 976422054$ (+12s gap) | Không có dòng trùng ranh giới |
 
 - **Kiểm tra tính toàn vẹn (Integrity Checks):**
   - Giao tập giữa các phân vùng: $\text{Train} \cap \text{Val} = \emptyset$, $\text{Val} \cap \text{Test} = \emptyset$, $\text{Train} \cap \text{Test} = \emptyset$.
   - Bảo toàn kích thước: $700,148 + 150,029 + 150,032 = 1,000,209$ (không mất dòng nào).
-  - Không có hiện tượng rò rỉ thời gian (khoảng cách giữa Train max và Val min là 4 giây; Val max và Test min là 2 giây).
+  - Không có hiện tượng rò rỉ thời gian: khoảng cách giữa Train max (`2000-11-22T03:06:26Z`) và Val min (`2000-11-22T03:06:30Z`) là 4 giây; khoảng cách giữa Val max (`2000-12-10T04:20:42Z`) và Test min (`2000-12-10T04:20:54Z`) là 12 giây (mốc $t_2 = 976422051$ / `2000-12-10T04:20:51Z` nằm trọn trong khoảng trống 12 giây này, không đổi giá trị $t_2$).
 - **Cam kết lưu trữ:** Chi tiết phân chia ratings/user được lưu trữ tạm thời trong local storage hoặc sinh on-the-fly qua `mining/split.py`; không commit file dữ liệu lớn vào Git, chỉ commit `results/mining/split_manifest.json`.
 
 ---
@@ -111,16 +111,16 @@ Khi xếp hạng các ứng viên để chọn ra danh sách Top-5 ($\text{Top5}
 2. **Trường hợp người dùng không có seed item khả dụng:**
    - Nếu một user không có bất kỳ phim nào trong lịch sử tương đồng với các phim khác (ví dụ: tất cả phim đã đánh giá có độ tương đồng bằng 0 với toàn bộ catalog), mô hình kích hoạt cơ chế **Fallback Popularity**: Gợi ý các bộ phim thịnh hành nhất trong lịch sử huấn luyện mà user chưa đánh giá.
 3. **Phân biệt rõ 3 mức thống kê phim mới (Novel Items / Cold-start Items) trong kỳ Validation:**
-   - **Mức 1 (Toàn Validation):** Có đúng **36 phim mới** xuất hiện trong kỳ Validation chưa từng có trong Train catalog ($|\mathcal{I}_{\text{val}} \setminus \mathcal{I}_{\text{train}}| = 36$).
-   - **Mức 2 (Toàn Validation relevant):** Có đúng **9 phim mới relevant** (được đánh giá $\ge 4$ bởi bất kỳ user nào trong số 1,352 user hoạt động tại Validation).
-   - **Mức 3 (Cohort 471 user đủ điều kiện):** Có đúng **3 phim mới relevant** được đánh giá $\ge 4$ bởi người dùng thuộc cohort 471 user đủ điều kiện, bao gồm các `movie_id`: **`192`** (user 1943 đánh giá 4), **`712`** (user 1164 đánh giá 4), và **`1471`** (user 1896 đánh giá 5).
+   - **Mức 1 (Toàn Validation):** Có đúng **36 phim mới** xuất hiện trong kỳ Validation chưa từng có trong Train catalog ($|\mathcal{I}_{\text{val}} \setminus \mathcal{I}_{\text{train}}| = 36$). Tỷ lệ trên tổng catalog Validation (3,426 phim): $36 / 3426 \approx 1.05\%$.
+   - **Mức 2 (Toàn Validation relevant):** Có đúng **9 phim mới relevant** (được đánh giá $\ge 4$ bởi bất kỳ user nào trong số 1,352 user hoạt động tại Validation). Tỷ lệ trên tổng phim relevant của Validation (2,741 phim): $9 / 2741 \approx 0.33\%$.
+   - **Mức 3 (Cohort 471 user đủ điều kiện):** Có đúng **3 phim mới relevant** được đánh giá $\ge 4$ bởi người dùng thuộc cohort 471 user đủ điều kiện (mã định danh tổng hợp: `192`, `712`, `1471`). Tỷ lệ trên tổng phim relevant của cohort (2,058 phim): $3 / 2058 \approx 0.15\%$.
    - **Nguyên tắc mẫu số Recall@5 của từng cá nhân:**
-     - Các con số 36, 9, 3 là thống kê tổng hợp cấp độ tập dữ liệu/cohort, **TUYỆT ĐỐI KHÔNG ĐƯỢC DÙNG THAY THẾ CHO MẪU SỐ RECALL CỦA TỪNG USER**.
+     - Các con số 36, 9, 3 là thống kê tổng hợp cấp độ phân vùng/cohort, **TUYỆT ĐỐI KHÔNG ĐƯỢC DÙNG THAY THẾ CHO MẪU SỐ RECALL CỦA TỪNG USER**.
      - Do không có trong catalog huấn luyện, phim mới không thể xuất hiện trong $\text{CandidateUniverse}(u)$ và không thể được gợi ý (đóng góp 0 vào số hits).
      - Tuy nhiên, mọi phim mà user $u$ đánh giá $\ge 4$ trong kỳ đánh giá (kể cả phim mới) **BẮT BUỘC ĐƯỢC GIỮ NGUYÊN TRONG MẪU SỐ CỦA RECALL@5**:
        $$\text{Relevant}_{\text{eval}}(u) = \{i \in \mathcal{I}_{\text{eval}}(u) \mid \text{rating}_{u, i} \ge 4\}$$
-       Ví dụ: User 1943 có 141 phim relevant trong Validation (bao gồm phim mới 192). Mẫu số Recall@5 của user 1943 là $141$. Hệ thống chấp nhận hình phạt giảm Recall do cold-start item.
-     - Sau khi tính Recall@5 cho từng user, hệ thống tính trung bình cộng số học (Macro-Average) trên toàn bộ 471 user trong cohort.
+     - **Ví dụ minh họa bằng fixture tự tạo:** Giả sử một người dùng $u$ trong cohort có 5 phim relevant trong kỳ đánh giá (trong đó 4 phim đã có trong train catalog và 1 phim mới hoàn toàn ngoài train). Candidate universe của $u$ chỉ chứa các phim trong train catalog. Dù thuật toán có xếp hạng hoàn hảo 4 phim cũ vào Top-5, số hits tối đa chỉ là 4. Mẫu số Recall@5 của $u$ vẫn là 5 (bao gồm cả phim mới ngoài train). Khi đó $\text{Recall@5}(u) = 4/5 = 0.80$ thay vì $4/4 = 1.00$. Quy tắc này phản ánh trung thực hình phạt giảm Recall do cold-start item trong thực tế.
+     - Sau khi tính $\text{Precision@5}(u)$ và $\text{Recall@5}(u)$ cho từng user, hệ thống tính trung bình cộng số học (Macro-Average) trên toàn bộ 471 user trong cohort.
 
 ---
 

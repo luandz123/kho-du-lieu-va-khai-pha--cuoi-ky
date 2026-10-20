@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
+collecting ... collected 13 items
+
+tests/mining/test_baseline.py::test_hand_calculated_popularity_fit_and_ranking PASSED [  7%]
+tests/mining/test_baseline.py::test_hand_calculated_user_recommendation_and_history_exclusion PASSED [ 15%]
+tests/mining/test_baseline.py::test_hand_calculated_short_candidate_universe_and_novel_items PASSED [ 23%]
+tests/mining/test_baseline.py::test_hand_calculated_pipeline_macro_metrics PASSED [ 30%]
+tests/mining/test_baseline.py::test_real_data_popularity_baseline_artifact PASSED [ 38%]
+tests/mining/test_split_evaluation.py::test_temporal_split_tie_handling_and_boundary_integrity PASSED [ 46%]
+tests/mining/test_split_evaluation.py::test_real_data_temporal_split_properties PASSED [ 53%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_evaluation_cohort PASSED [ 61%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_candidate_universe_and_no_negative_sampling PASSED [ 69%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_precision_and_recall_denominator PASSED [ 76%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_tie_breaking_rules PASSED [ 84%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_relevant_outside_candidate_universe_and_macro_average PASSED [ 92%]
+tests/mining/test_split_evaluation.py::test_split_manifest_contract_and_structure PASSED [100%]
+
+============================== 13 passed in 4.53s ==============================
