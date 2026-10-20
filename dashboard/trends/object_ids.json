@@ -1,0 +1,13 @@
+{
+  "database": 1,
+  "charts": {
+    "system": 9,
+    "genre_count": 10,
+    "qoq": 11,
+    "share": 12,
+    "detail": 13
+  },
+  "quarter": 3,
+  "genre": 4,
+  "dashboard": 2
+}

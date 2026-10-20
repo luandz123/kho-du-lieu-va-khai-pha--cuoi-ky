@@ -1,0 +1,1 @@
+{"chart": "detail", "status": "FAIL", "category": "initial_detail_sort_record_aggregate_not_supported", "safe_error": "SUPERSET_HTTP_400_/api/v1/chart/data"}

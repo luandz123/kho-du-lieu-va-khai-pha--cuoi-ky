@@ -1,5 +1,31 @@
 # Trạng thái P1
 
+## Công bố 11C — chức năng được điều phối chấp nhận, 20/10/2026
+
+Nguồn: người dùng chuyển thông báo điều phối chấp nhận chức năng11C và giao commit/push/mở PR vào main. Đây là review chức năng của điều phối, không phải agent tự tạo lời duyệt. Chức năng **APPROVED theo điều phối**; PR chỉ ghi OPEN/MERGED sau khi xác minh. Không tự merge,11B hoặc nạpG3.
+
+Kiểm trước công bố: repository/nhánh đúng, quyền push có, chưa có PR11C;43artifact bàn giao khớp SHA, JSON/Python hợp lệ, không secret/URI chứa credential hoặc dữ liệu theo user, private paths ignored. Rà cả11file checkpoint hậu merge11A đã ghép52d566a, không chỉ code11C. SQL/metric/filter giữ nguyên; không chạy lại ETL, create dashboard hoặc đối soát3khoảng. Report PASS/FAIL và run8b4eeb54/75f00145 giữ nguyên, codehash lúc chạy không gán thành commit công bố.
+
+Ledger bàn giao43artifact là snapshot lịch sử trước duyệt. Tài liệu cập nhật công bố có hash riêng tại docs/P1/trends_publication.json; không sửa report cũ để khớp tài liệu mới. Giữ PUBLIC TEMP/chưa importrestore/P2intakeNOT_CONFIRMED/hai máy/fullrefreshhelperS07. Kế hoạch untracked giữ nguyên. URL/commit/trạng thái thực sẽ bổ sung sau xác minh; các mục WAITING_REVIEW kết quả bên dưới là lịch sử.
+
+---
+
+
+## Hiện hành — 11C Xu hướng WAITING_REVIEW, 19/10/2026
+
+Điều phối xác nhận PR14 đã MERGED/chấp nhận công bố11A, giao riêng11C; agent không merge. Đã checkpoint đúng11file hồ sơ hậu merge P1 tại c09ae5b, main fast-forward5a42c73 rồi tạo p1-s11c-trends và cherry-pick checkpoint thành **52d566a8e13284f707f622049b37a416ba9cd982**. Các ghi chú chờ xử lý hồ sơ/OPEN phía dưới là lịch sử; hồ sơ11A nay đã được bảo toàn/ghép local, chưa push PR11C. Kế hoạch untracked giữ hash, không reset/stash/clean/sửaP2.
+
+Dashboard2 thực http://127.0.0.1:8089/superset/dashboard/2/ ; datasets3/4, charts9–13, database1 dùng movielens_bi_reader/UTC. Chỉ2GRANTđúngphạmvi cho O4/O5; SELECT4view, khôngprojectDML/CREATE/ownership/membership/sequencewrite; PUBLIC TEMP còn. Không thay bảng/bốncontractview/côngthứcS07, bootstrap/ETL/11A/G3/firewall.
+
+O4 chỉ cấpquý. Native chọntrọnquý lọc sau full-series; genrefilter loại chart9. O5 giữ mẫu18genre, zero-fill trướcLAG, prev0=>NULL, ngưỡng100/cờbiên/ranktoàn bộ không đổi. UI thật3tổhợp; count/share/QoQ/NULL/rank khớpSQLfactđộclập vàAPI cả5chart. Runcuối **8b4eeb54e699409aa5ca926f2c4925de**,32.828s, base52d566a, SHAworkingtree trongreport. Run75f00145 và3FAIL giữnguyên. Animation2001Q1prev20068→1715,QoQ−91.454056%,rank1=giảmítnhất. Toànkỳ1000209/tổng3582313,216ôgenre/156rank. 11đốitượng11A khôngđổi, KPI/Top10/API/UI còn hoạtđộng.
+
+SQL/config/IDs/ảnh/report tại dashboard/trends; bàn giao docs/P1/trends_handoff.md, ledger evidence/handoff_manifest.json. Hai container running/healthy/exit0 ở kiểm mới; lượt này khôngrestart, không suy nguyênnhân255cũ. Cấu hình màu Superset tựsinh lưu riêng, filter/layout/metric kiểmexact. Chưaexport/importrestore, P2intakeNOT_CONFIRMED/hai máy, fullrefreshhelperS07 chưakiểm. Panelhẹp chưa tốiưu, bảngchi tiết cuộnngang/phântrang.
+
+**11C WAITING_REVIEW**, chưađiềuphối duyệtkếtquả/chưa stage/commit/push/mởPR11C; chỉcheckpoint hồsơ11A theo lệnh. Chưa11B/G3; dừngchờreview. Xem handoff để chạykiểmchỉđọc, phạmvi filter, lỗi, file/SHA và5ýbảovệ.
+
+---
+
+
 ## Quan sát sau công bố — PR14 đã MERGED bên ngoài agent
 
 API xác minh PR14 CLOSED/MERGED lúc **2026-10-19T15:27:06Z**, actor **hungvu205**, merge/main **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Agent không thực hiện merge. HEAD được merge/công bố **ef82fc4041a1393e942bd533f4e41c17283d0d4c**, base **988874d7b5897a5615acfebdf571c6d55861ddc2**; đủ50file/blob khớp Git của HEAD này. Code tái tạo **5915702d414f0385208b696329a2aed215db8762**. Các mục OPEN phía dưới là trạng thái đã quan sát trước đó, không phải hiện hành.

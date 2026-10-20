@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-19T15:45:37.281543+00:00",
+  "objects": {
+    "database": 1,
+    "charts": {
+      "system": 9,
+      "genre_count": 10,
+      "qoq": 11,
+      "share": 12,
+      "detail": 13
+    },
+    "quarter": 3,
+    "genre": 4,
+    "dashboard": 2
+  },
+  "superset_generated_color_metadata": {
+    "shared_label_colors": [
+      "Action",
+      "Adventure",
+      "Animation",
+      "Children's",
+      "Comedy",
+      "Crime",
+      "Documentary",
+      "Drama",
+      "Fantasy",
+      "Film-Noir",
+      "Horror",
+      "Musical",
+      "Mystery",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "War",
+      "Western"
+    ],
+    "color_scheme_domain": [
+      "#1FA8C9",
+      "#454E7C",
+      "#5AC189",
+      "#FF7F44",
+      "#666666",
+      "#E04355",
+      "#FCC700",
+      "#A868B7",
+      "#3CCCCB",
+      "#A38F79",
+      "#8FD3E4",
+      "#A1A6BD",
+      "#ACE1C4",
+      "#FEC0A1",
+      "#B2B2B2",
+      "#EFA1AA",
+      "#FDE380",
+      "#D3B3DA",
+      "#9EE5E5",
+      "#D1C6BC"
+    ],
+    "map_label_colors": {},
+    "label_colors": {}
+  },
+  "native_filters": [
+    {
+      "filterType": "filter_select",
+      "type": "NATIVE_FILTER",
+      "controlValues": {
+        "enableEmptyFilter": false,
+        "defaultToFirstItem": false,
+        "multiSelect": true,
+        "searchAllOptions": false,
+        "inverseSelection": false
+      },
+      "cascadeParentIds": [],
+      "defaultDataMask": {
+        "extraFormData": {},
+        "filterState": {}
+      },
+      "scope": {
+        "rootPath": [
+          "ROOT_ID"
+        ],
+        "excluded": []
+      },
+      "id": "NATIVE_FILTER-11C-QUARTER",
+      "name": "Quý hiển thị (UTC) · chọn trọn quý",
+      "description": "Chọn các quý liên tiếp; bỏ chọn = toàn bộ. Lọc sau QoQ/rank; không dùng khoảng ngày lẻ.",
+      "targets": [
+        {
+          "datasetId": 4,
+          "column": {
+            "name": "quarter_label"
+          }
+        }
+      ]
+    },
+    {
+      "filterType": "filter_select",
+      "type": "NATIVE_FILTER",
+      "controlValues": {
+        "enableEmptyFilter": false,
+        "defaultToFirstItem": false,
+        "multiSelect": true,
+        "searchAllOptions": false,
+        "inverseSelection": false
+      },
+      "cascadeParentIds": [],
+      "defaultDataMask": {
+        "extraFormData": {},
+        "filterState": {}
+      },
+      "scope": {
+        "rootPath": [
+          "ROOT_ID"
+        ],
+        "excluded": [
+          9
+        ]
+      },
+      "id": "NATIVE_FILTER-11C-GENRE",
+      "name": "Genre · chỉ biểu đồ genre",
+      "description": "Không lọc tổng hệ thống. Mẫu số tỷ trọng giữ toàn bộ 18 genre.",
+      "targets": [
+        {
+          "datasetId": 4,
+          "column": {
+            "name": "genre_name"
+          }
+        }
+      ]
+    }
+  ],
+  "actual_superset_engine": {
+    "executing_role": "movielens_bi_reader",
+    "engine_timezone": "UTC"
+  },
+  "reader_owned_relations": 0,
+  "mutable_project_sequences": 0,
+  "schema_usage": {
+    "analytics": true,
+    "dw": true
+  },
+  "containers": [
+    "/btl-movielens-superset-web-1|running|healthy|0",
+    "/btl-movielens-superset-metadata-1|running|healthy|0"
+  ],
+  "protected_files": {
+    "database/schema.sql": "ebef448cd245c54cc50e2b02b34d382471daccb29e8a933b7078c19304f68250",
+    "database/views.sql": "c78f2dea7797d17f49c6979ef1e54e4c4a3c745da896e99e1781747f4957299f",
+    "docs/shared/data_contract.md": "0177a0f5854623a457bfed2b5341c3c0e5b4a025bfa77fb5d46d9dde0274bec6",
+    "docs/shared/data_contract.json": "751371f9db0b85804751f6a65e5d188ce2b975f0d4b43b0c7febec41b3130e6f"
+  },
+  "dedicated_bi_reader_verified": true,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "public_temp_remains": true,
+  "full_refresh_with_s07_helper_verified": false,
+  "import_restore_verified": false,
+  "code_sha256": "5ce65c469edea2aad04774d5278dd29da37b8d44be1a4498f503ce9d812a4be0"
+}

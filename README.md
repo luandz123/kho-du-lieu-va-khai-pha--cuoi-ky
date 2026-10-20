@@ -98,3 +98,9 @@ Mỗi máy tự tải MovieLens từ nguồn chính thức và đối soát hash
 P1: DW/ETL/OLAP/Superset và ghép tổng. P2: EDA/K-Means/CF/baseline/metric/CLI. P2 quản lý `docs/P2/requirements-p2.txt`, không sửa requirements gốc. P1 chỉ hợp nhất dependency tại12A sau kiểm chứng; không sao chép pin P2 thành thư viện đã chạy trên P1.
 
 Sau duyệt và lệnh **Đẩy G0**, commit/push nhánh rồi mở PR vào main. Merge cần xác nhận cụ thể; không push thẳng main, force-push, đổi remote hoặc xóa nhánh. APPROVED chức năng khác PR MERGED.
+
+## Dashboard xu hướng 11C — chờ review
+
+Mở http://127.0.0.1:8089/superset/dashboard/2/ ; hướng dẫn/SQL/filter tại [dashboard/trends](dashboard/trends/README.md), bằng chứng và bàn giao [11C](docs/P1/trends_handoff.md). Chỉ chọn quý nguyên vẹn; genre không lọc tổng rating hệ thống. Chưa công bố PR11C hoặc làm11B/G3.
+
+Cập nhật20/10/2026: điều phối chấp nhận chức năng11C; đang công bố PR theo lệnh riêng. Trạng thái PR/commit và kiểm công bố xem docs/P1/trends_publication.md tính từ repository. Các nhãn chờ review kết quả ở trên là lịch sử; không tự merge hoặc chuyển11B/G3.

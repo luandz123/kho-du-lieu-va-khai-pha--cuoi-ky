@@ -1,5 +1,21 @@
 # Hồ sơ duyệt P1
 
+## Công bố 11C — chức năng được điều phối chấp nhận, 20/10/2026
+
+Nguồn: người dùng chuyển thông báo điều phối chấp nhận chức năng11C và giao commit/push/mở PR vào main. Đây là review chức năng của điều phối, không phải agent tự tạo lời duyệt. Chức năng **APPROVED theo điều phối**; PR chỉ ghi OPEN/MERGED sau khi xác minh. Không tự merge,11B hoặc nạpG3.
+
+Kiểm trước công bố: repository/nhánh đúng, quyền push có, chưa có PR11C;43artifact bàn giao khớp SHA, JSON/Python hợp lệ, không secret/URI chứa credential hoặc dữ liệu theo user, private paths ignored. Rà cả11file checkpoint hậu merge11A đã ghép52d566a, không chỉ code11C. SQL/metric/filter giữ nguyên; không chạy lại ETL, create dashboard hoặc đối soát3khoảng. Report PASS/FAIL và run8b4eeb54/75f00145 giữ nguyên, codehash lúc chạy không gán thành commit công bố.
+
+Ledger bàn giao43artifact là snapshot lịch sử trước duyệt. Tài liệu cập nhật công bố có hash riêng tại docs/P1/trends_publication.json; không sửa report cũ để khớp tài liệu mới. Giữ PUBLIC TEMP/chưa importrestore/P2intakeNOT_CONFIRMED/hai máy/fullrefreshhelperS07. Kế hoạch untracked giữ nguyên. URL/commit/trạng thái thực sẽ bổ sung sau xác minh; các mục WAITING_REVIEW kết quả bên dưới là lịch sử.
+
+---
+
+
+## R-P1-11C — Giao việc từ điều phối; kết quả đang WAITING_REVIEW
+
+Nguồn người dùng chuyển lệnh điều phối: xác nhận PR14 merge/chấp nhận công bố11A và giao riêng11C. Không tạo lời duyệt nguyên văn cho11C. Kiểm mới: SQLđộc lập/API3tổhợp×5chart PASS run8b4eeb54/32.828s; native UI và11Aregression đạt; quyền BI từcontainer/engine thật. Chi tiết vàhash xem docs/P1/trends_handoff.md, dashboard/trends/evidence. Giữ3FAIL vàrun75f00145 lịch sử. Agent chưamerge/côngbố/commit11C; **11C WAITING_REVIEW**.
+
+
 ## Quan sát sau công bố — PR14 đã MERGED bên ngoài agent
 
 API xác minh PR14 CLOSED/MERGED lúc **2026-10-19T15:27:06Z**, actor **hungvu205**, merge/main **5a42c73c39c00780b2d5442c45662d93bdf0f23b**. Agent không thực hiện merge. HEAD được merge/công bố **ef82fc4041a1393e942bd533f4e41c17283d0d4c**, base **988874d7b5897a5615acfebdf571c6d55861ddc2**; đủ50file/blob khớp Git của HEAD này. Code tái tạo **5915702d414f0385208b696329a2aed215db8762**. Các mục OPEN phía dưới là trạng thái đã quan sát trước đó, không phải hiện hành.

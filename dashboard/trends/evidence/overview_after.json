@@ -1,0 +1,330 @@
+{
+  "dashboard/1": {
+    "dashboard_title": "MovieLens 1M · Tổng quan",
+    "position_json": "{\"DASHBOARD_VERSION_KEY\": \"v2\", \"ROOT_ID\": {\"id\": \"ROOT_ID\", \"type\": \"ROOT\", \"children\": [\"GRID_ID\"]}, \"GRID_ID\": {\"id\": \"GRID_ID\", \"type\": \"GRID\", \"parents\": [\"ROOT_ID\"], \"children\": [\"NOTE\", \"ROW1\", \"ROW2\", \"ROW3\"]}, \"NOTE\": {\"id\": \"NOTE\", \"type\": \"MARKDOWN\", \"parents\": [\"ROOT_ID\", \"GRID_ID\"], \"children\": [], \"meta\": {\"width\": 12, \"height\": 20, \"code\": \"### \\u0110\\u00e1nh gi\\u00e1 l\\u1ecbch s\\u1eed \\u00b7 MovieLens 1M\\nB\\u1ed9 l\\u1ecdc d\\u00f9ng **th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC**; t\\u1eeb ng\\u00e0y b\\u1eaft \\u0111\\u1ea7u \\u0111\\u1ebfn tr\\u01b0\\u1edbc ng\\u00e0y k\\u1ebft th\\u00fac. **Phim danh m\\u1ee5c** c\\u1ed1 \\u0111\\u1ecbnh 3.883, kh\\u00f4ng ch\\u1ecbu b\\u1ed9 l\\u1ecdc.\\nTop 10: s\\u1ed1 \\u0111\\u00e1nh gi\\u00e1 \\u2193, \\u0111i\\u1ec3m trung b\\u00ecnh \\u2193, movie_id \\u2191. Rating kh\\u00f4ng ph\\u1ea3i l\\u01b0\\u1ee3t xem; d\\u1eef li\\u1ec7u kh\\u00f4ng m\\u00f4 t\\u1ea3 nhu c\\u1ea7u hi\\u1ec7n t\\u1ea1i.\", \"background\": \"BACKGROUND_TRANSPARENT\"}}, \"ROW1\": {\"id\": \"ROW1\", \"type\": \"ROW\", \"parents\": [\"ROOT_ID\", \"GRID_ID\"], \"children\": [\"CHART-ratings\", \"CHART-mean\", \"CHART-users\"], \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}}, \"CHART-ratings\": {\"id\": \"CHART-ratings\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW1\"], \"children\": [], \"meta\": {\"chartId\": 1, \"width\": 4, \"height\": 22, \"sliceName\": \"ratings\"}}, \"CHART-mean\": {\"id\": \"CHART-mean\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW1\"], \"children\": [], \"meta\": {\"chartId\": 2, \"width\": 4, \"height\": 22, \"sliceName\": \"mean\"}}, \"CHART-users\": {\"id\": \"CHART-users\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW1\"], \"children\": [], \"meta\": {\"chartId\": 3, \"width\": 4, \"height\": 22, \"sliceName\": \"users\"}}, \"ROW2\": {\"id\": \"ROW2\", \"type\": \"ROW\", \"parents\": [\"ROOT_ID\", \"GRID_ID\"], \"children\": [\"CHART-movies\", \"CHART-catalog\", \"CHART-sum\"], \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}}, \"CHART-movies\": {\"id\": \"CHART-movies\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW2\"], \"children\": [], \"meta\": {\"chartId\": 4, \"width\": 4, \"height\": 22, \"sliceName\": \"movies\"}}, \"CHART-catalog\": {\"id\": \"CHART-catalog\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW2\"], \"children\": [], \"meta\": {\"chartId\": 5, \"width\": 4, \"height\": 22, \"sliceName\": \"catalog\"}}, \"CHART-sum\": {\"id\": \"CHART-sum\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW2\"], \"children\": [], \"meta\": {\"chartId\": 6, \"width\": 4, \"height\": 22, \"sliceName\": \"sum\"}}, \"ROW3\": {\"id\": \"ROW3\", \"type\": \"ROW\", \"parents\": [\"ROOT_ID\", \"GRID_ID\"], \"children\": [\"CHART-top10\", \"CHART-stars\"], \"meta\": {\"background\": \"BACKGROUND_TRANSPARENT\"}}, \"CHART-top10\": {\"id\": \"CHART-top10\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW3\"], \"children\": [], \"meta\": {\"chartId\": 7, \"width\": 8, \"height\": 60, \"sliceName\": \"top10\"}}, \"CHART-stars\": {\"id\": \"CHART-stars\", \"type\": \"CHART\", \"parents\": [\"ROOT_ID\", \"GRID_ID\", \"ROW3\"], \"children\": [], \"meta\": {\"chartId\": 8, \"width\": 4, \"height\": 60, \"sliceName\": \"stars\"}}}",
+    "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}",
+    "css": "/* S11A uses the supported Superset 12-column desktop grid. No global CSS overrides. */\n",
+    "slug": "movielens-overview"
+  },
+  "dataset/1": {
+    "sql": "-- S11A dataset grain: one source user-movie rating. UTC timestamp is typed,\n-- title join is one-to-one; no genre bridge. Superset filters before GROUP BY/LIMIT.\nSELECT r.user_id,r.movie_id,m.title,r.rating,\n       1::bigint AS rating_count,r.rating::bigint AS rating_sum,\n       (r.rated_at::timestamptz AT TIME ZONE 'UTC') AS rated_at_utc\nFROM dw.v_ml_ratings r JOIN dw.v_ml_movies m ON m.movie_id=r.movie_id\n",
+    "metrics": [
+      {
+        "changed_on": "2026-10-19T13:50:07.525048",
+        "created_on": "2026-10-19T13:50:07.525039",
+        "currency": null,
+        "d3format": null,
+        "description": null,
+        "expression": "COUNT(*)",
+        "extra": null,
+        "id": 1,
+        "metric_name": "count",
+        "metric_type": "count",
+        "uuid": "2efa96db-6396-46c9-902d-272f9e18afd8",
+        "verbose_name": "COUNT(*)",
+        "warning_text": null
+      }
+    ],
+    "columns": [
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.530903",
+        "column_name": "user_id",
+        "created_on": "2026-10-19T13:50:07.530893",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 1,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "INTEGER",
+        "type_generic": 0,
+        "uuid": "e9bf2ae7-ae58-4dfb-8141-0e5e6b94207e",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.530978",
+        "column_name": "movie_id",
+        "created_on": "2026-10-19T13:50:07.530976",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 2,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "INTEGER",
+        "type_generic": 0,
+        "uuid": "202d18df-b457-481b-a746-d353af3f23e1",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.531007",
+        "column_name": "title",
+        "created_on": "2026-10-19T13:50:07.531004",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 3,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "STRING",
+        "type_generic": 1,
+        "uuid": "9a438f55-5643-42f0-a70c-67d85f27cae1",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.531032",
+        "column_name": "rating",
+        "created_on": "2026-10-19T13:50:07.531029",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 4,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "INTEGER",
+        "type_generic": 0,
+        "uuid": "0a6ae831-e24d-4799-b64f-3c34f5b2b082",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.531056",
+        "column_name": "rating_count",
+        "created_on": "2026-10-19T13:50:07.531054",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 5,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "LONGINTEGER",
+        "type_generic": 0,
+        "uuid": "6fd546bf-28c8-4310-980c-4e40e5422944",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.531081",
+        "column_name": "rating_sum",
+        "created_on": "2026-10-19T13:50:07.531079",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 6,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "LONGINTEGER",
+        "type_generic": 0,
+        "uuid": "3d9a4522-6738-458a-97bb-942016ccd3d5",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.531108",
+        "column_name": "rated_at_utc",
+        "created_on": "2026-10-19T13:50:07.531105",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 7,
+        "is_active": true,
+        "is_dttm": true,
+        "python_date_format": null,
+        "type": "DATETIME",
+        "type_generic": 2,
+        "uuid": "12bf3e3d-111e-41a1-a7b2-5d7931470e23",
+        "verbose_name": null
+      }
+    ],
+    "main_dttm_col": "rated_at_utc"
+  },
+  "dataset/2": {
+    "sql": "-- Fixed catalog grain: one source movie, deliberately outside native time filter.\nSELECT movie_id,title FROM dw.v_ml_movies\n",
+    "metrics": [
+      {
+        "changed_on": "2026-10-19T13:50:07.966535",
+        "created_on": "2026-10-19T13:50:07.966530",
+        "currency": null,
+        "d3format": null,
+        "description": null,
+        "expression": "COUNT(*)",
+        "extra": null,
+        "id": 2,
+        "metric_name": "count",
+        "metric_type": "count",
+        "uuid": "9468f610-04cc-4455-b9eb-b0ea426dc6db",
+        "verbose_name": "COUNT(*)",
+        "warning_text": null
+      }
+    ],
+    "columns": [
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.967791",
+        "column_name": "movie_id",
+        "created_on": "2026-10-19T13:50:07.967787",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 8,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "INTEGER",
+        "type_generic": 0,
+        "uuid": "5d0f085b-e099-49db-8fae-95feb09ba361",
+        "verbose_name": null
+      },
+      {
+        "advanced_data_type": null,
+        "changed_on": "2026-10-19T13:50:07.967830",
+        "column_name": "title",
+        "created_on": "2026-10-19T13:50:07.967829",
+        "description": null,
+        "expression": null,
+        "extra": null,
+        "filterable": true,
+        "groupby": true,
+        "id": 9,
+        "is_active": true,
+        "is_dttm": false,
+        "python_date_format": null,
+        "type": "STRING",
+        "type_generic": 1,
+        "uuid": "9f7f7b8a-9a13-488d-925f-202b5a156e24",
+        "verbose_name": null
+      }
+    ],
+    "main_dttm_col": null
+  },
+  "chart/1": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Tổng số đánh giá",
+    "viz_type": "big_number_total"
+  },
+  "chart/2": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \".4f\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \".4f\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Điểm trung bình · SUM/COUNT",
+    "viz_type": "big_number_total"
+  },
+  "chart/3": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT user_id)\", \"label\": \"rated_users\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_users\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT user_id)\", \"label\": \"rated_users\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_users\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT user_id)\", \"label\": \"rated_users\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_users\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · User có đánh giá",
+    "viz_type": "big_number_total"
+  },
+  "chart/4": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"rated_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_movies\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"rated_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_movies\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"rated_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_rated_movies\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Phim có đánh giá",
+    "viz_type": "big_number_total"
+  },
+  "chart/5": {
+    "params": "{\"datasource\": \"2__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"catalog_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_catalog_movies\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": null, \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Kh\\u00f4ng ch\\u1ecbu b\\u1ed9 l\\u1ecdc th\\u1eddi gian\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 2, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"catalog_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_catalog_movies\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": null, \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"2__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"COUNT(DISTINCT movie_id)\", \"label\": \"catalog_movies\", \"hasCustomLabel\": true, \"optionName\": \"metric_catalog_movies\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": null, \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Kh\\u00f4ng ch\\u1ecbu b\\u1ed9 l\\u1ecdc th\\u1eddi gian\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Phim danh mục · cố định mọi thời kỳ",
+    "viz_type": "big_number_total"
+  },
+  "chart/6": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)\", \"label\": \"rating_sum\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_sum\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)\", \"label\": \"rating_sum\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_sum\"}], \"orderby\": [], \"row_limit\": 1, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"big_number_total\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)\", \"label\": \"rating_sum\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_sum\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10000}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Tổng điểm đánh giá",
+    "viz_type": "big_number_total"
+  },
+  "chart/7": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"table\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10, \"query_mode\": \"aggregate\", \"groupby\": [\"movie_id\", \"title\"], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}], \"all_columns\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))\", \"label\": \"top10_sort_row\", \"hasCustomLabel\": true, \"optionName\": \"metric_top10_sort_row\"}, \"order_desc\": true, \"server_pagination\": false, \"page_length\": 10, \"include_search\": false, \"show_cell_bars\": false, \"column_config\": {\"weighted_mean\": {\"d3NumberFormat\": \".4f\"}, \"rating_count\": {\"d3NumberFormat\": \",d\"}, \"movie_id\": {\"d3NumberFormat\": \"d\"}}, \"table_timestamp_format\": \"smart_date\"}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [\"movie_id\", \"title\"], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}], \"orderby\": [[{\"expressionType\": \"SQL\", \"sqlExpression\": \"ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))\", \"label\": \"top10_sort_row\", \"hasCustomLabel\": true, \"optionName\": \"metric_top10_sort_row\"}, false]], \"row_limit\": 10, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"table\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 10, \"query_mode\": \"aggregate\", \"groupby\": [\"movie_id\", \"title\"], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0)\", \"label\": \"weighted_mean\", \"hasCustomLabel\": true, \"optionName\": \"metric_weighted_mean\"}], \"all_columns\": [], \"percent_metrics\": [], \"timeseries_limit_metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"ROW(SUM(rating_count), SUM(rating_sum)::numeric / NULLIF(SUM(rating_count),0), -MIN(movie_id))\", \"label\": \"top10_sort_row\", \"hasCustomLabel\": true, \"optionName\": \"metric_top10_sort_row\"}, \"order_desc\": true, \"server_pagination\": false, \"page_length\": 10, \"include_search\": false, \"show_cell_bars\": false, \"column_config\": {\"weighted_mean\": {\"d3NumberFormat\": \".4f\"}, \"rating_count\": {\"d3NumberFormat\": \",d\"}, \"movie_id\": {\"d3NumberFormat\": \"d\"}}, \"table_timestamp_format\": \"smart_date\"}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Top 10 phim · số đánh giá, điểm TB, ID",
+    "viz_type": "table"
+  },
+  "chart/8": {
+    "params": "{\"datasource\": \"1__table\", \"viz_type\": \"echarts_timeseries_bar\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 5, \"x_axis\": \"rating\", \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}], \"groupby\": [], \"orientation\": \"vertical\", \"show_value\": true, \"show_legend\": false, \"x_axis_title\": \"M\\u1ee9c sao\", \"y_axis_title\": \"S\\u1ed1 \\u0111\\u00e1nh gi\\u00e1\", \"x_axis_sort\": \"rating\", \"x_axis_sort_asc\": true, \"order_desc\": false, \"rich_tooltip\": true, \"color_scheme\": \"supersetColors\"}",
+    "query_context": "{\"datasource\": {\"id\": 1, \"type\": \"table\"}, \"force\": false, \"queries\": [{\"columns\": [\"rating\"], \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}], \"orderby\": [[\"rating\", true]], \"row_limit\": 5, \"granularity\": \"rated_at_utc\", \"time_range\": \"No filter\", \"is_timeseries\": false, \"extras\": {\"where\": \"\", \"having\": \"\"}}], \"form_data\": {\"datasource\": \"1__table\", \"viz_type\": \"echarts_timeseries_bar\", \"metric\": {\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}, \"adhoc_filters\": [], \"time_range\": \"No filter\", \"granularity_sqla\": \"rated_at_utc\", \"y_axis_format\": \",d\", \"header_font_size\": 0.38, \"subheader_font_size\": 0.12, \"subheader\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 UTC\", \"force_timestamp_formatting\": false, \"row_limit\": 5, \"x_axis\": \"rating\", \"metrics\": [{\"expressionType\": \"SQL\", \"sqlExpression\": \"SUM(rating_count)\", \"label\": \"rating_count\", \"hasCustomLabel\": true, \"optionName\": \"metric_rating_count\"}], \"groupby\": [], \"orientation\": \"vertical\", \"show_value\": true, \"show_legend\": false, \"x_axis_title\": \"M\\u1ee9c sao\", \"y_axis_title\": \"S\\u1ed1 \\u0111\\u00e1nh gi\\u00e1\", \"x_axis_sort\": \"rating\", \"x_axis_sort_asc\": true, \"order_desc\": false, \"rich_tooltip\": true, \"color_scheme\": \"supersetColors\"}, \"result_format\": \"json\", \"result_type\": \"full\"}",
+    "dashboards": [
+      {
+        "dashboard_title": "MovieLens 1M · Tổng quan",
+        "id": 1,
+        "json_metadata": "{\"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-UTC-RATED\", \"name\": \"Th\\u1eddi \\u0111i\\u1ec3m \\u0111\\u00e1nh gi\\u00e1 (UTC)\", \"filterType\": \"filter_time\", \"type\": \"NATIVE_FILTER\", \"targets\": [{}], \"controlValues\": {}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [5]}, \"defaultDataMask\": {\"extraFormData\": {\"time_range\": \"No filter\"}, \"filterState\": {\"value\": \"No filter\"}}}], \"timed_refresh_immune_slices\": [], \"refresh_frequency\": 0, \"expanded_slices\": {}, \"color_scheme\": \"supersetColors\", \"chart_configuration\": {}, \"shared_label_colors\": [], \"color_scheme_domain\": [\"#1FA8C9\", \"#454E7C\", \"#5AC189\", \"#FF7F44\", \"#666666\", \"#E04355\", \"#FCC700\", \"#A868B7\", \"#3CCCCB\", \"#A38F79\", \"#8FD3E4\", \"#A1A6BD\", \"#ACE1C4\", \"#FEC0A1\", \"#B2B2B2\", \"#EFA1AA\", \"#FDE380\", \"#D3B3DA\", \"#9EE5E5\", \"#D1C6BC\"], \"map_label_colors\": {}, \"label_colors\": {}}"
+      }
+    ],
+    "slice_name": "P1 11A · Phân bố số đánh giá theo mức sao",
+    "viz_type": "echarts_timeseries_bar"
+  }
+}

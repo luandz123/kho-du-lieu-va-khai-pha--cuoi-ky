@@ -1,0 +1,793 @@
+{
+  "system": {
+    "chart_id": 9,
+    "form_data": {
+      "datasource": "3__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "x_axis": "quarter_label",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        }
+      ],
+      "groupby": [],
+      "orientation": "vertical",
+      "show_value": true,
+      "show_legend": false,
+      "legendType": "scroll",
+      "legendOrientation": "top",
+      "x_axis_sort": "quarter_label",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ",d",
+      "x_axis_title": "Quý UTC (chọn trọn quý)",
+      "y_axis_title": "Đánh giá duy nhất",
+      "color_scheme": "supersetColors",
+      "row_limit": 1000,
+      "truncateXAxis": false,
+      "xAxisLabelRotation": 45,
+      "show_empty_columns": true,
+      "contributionMode": null
+    },
+    "query_context": {
+      "datasource": {
+        "id": 3,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "quarter_label"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            }
+          ],
+          "orderby": [
+            [
+              "quarter_label",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "3__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "x_axis": "quarter_label",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(rating_count)",
+            "label": "rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_rating_count"
+          }
+        ],
+        "groupby": [],
+        "orientation": "vertical",
+        "show_value": true,
+        "show_legend": false,
+        "legendType": "scroll",
+        "legendOrientation": "top",
+        "x_axis_sort": "quarter_label",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ",d",
+        "x_axis_title": "Quý UTC (chọn trọn quý)",
+        "y_axis_title": "Đánh giá duy nhất",
+        "color_scheme": "supersetColors",
+        "row_limit": 1000,
+        "truncateXAxis": false,
+        "xAxisLabelRotation": 45,
+        "show_empty_columns": true,
+        "contributionMode": null
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "genre_count": {
+    "chart_id": 10,
+    "form_data": {
+      "datasource": "4__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "x_axis": "quarter_label",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        }
+      ],
+      "groupby": [
+        "genre_name"
+      ],
+      "orientation": "vertical",
+      "show_value": false,
+      "show_legend": true,
+      "legendType": "scroll",
+      "legendOrientation": "top",
+      "x_axis_sort": "quarter_label",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ",d",
+      "x_axis_title": "Quý UTC (chọn trọn quý)",
+      "y_axis_title": "Lượt gắn genre",
+      "color_scheme": "supersetColors",
+      "row_limit": 1000,
+      "truncateXAxis": false,
+      "xAxisLabelRotation": 45,
+      "show_empty_columns": true,
+      "contributionMode": null
+    },
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "quarter_label",
+            "genre_name"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            }
+          ],
+          "orderby": [
+            [
+              "quarter_label",
+              true
+            ],
+            [
+              "genre_name",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "4__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "x_axis": "quarter_label",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(rating_count)",
+            "label": "rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_rating_count"
+          }
+        ],
+        "groupby": [
+          "genre_name"
+        ],
+        "orientation": "vertical",
+        "show_value": false,
+        "show_legend": true,
+        "legendType": "scroll",
+        "legendOrientation": "top",
+        "x_axis_sort": "quarter_label",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ",d",
+        "x_axis_title": "Quý UTC (chọn trọn quý)",
+        "y_axis_title": "Lượt gắn genre",
+        "color_scheme": "supersetColors",
+        "row_limit": 1000,
+        "truncateXAxis": false,
+        "xAxisLabelRotation": 45,
+        "show_empty_columns": true,
+        "contributionMode": null
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "qoq": {
+    "chart_id": 11,
+    "form_data": {
+      "datasource": "4__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "x_axis": "quarter_label",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(qoq_pct)",
+          "label": "qoq_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_qoq_pct"
+        }
+      ],
+      "groupby": [
+        "genre_name"
+      ],
+      "orientation": "vertical",
+      "show_value": false,
+      "show_legend": true,
+      "legendType": "scroll",
+      "legendOrientation": "top",
+      "x_axis_sort": "quarter_label",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ".2f",
+      "x_axis_title": "Quý UTC (chọn trọn quý)",
+      "y_axis_title": "%",
+      "color_scheme": "supersetColors",
+      "row_limit": 1000,
+      "truncateXAxis": false,
+      "xAxisLabelRotation": 45,
+      "show_empty_columns": true,
+      "contributionMode": null
+    },
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "quarter_label",
+            "genre_name"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(qoq_pct)",
+              "label": "qoq_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_qoq_pct"
+            }
+          ],
+          "orderby": [
+            [
+              "quarter_label",
+              true
+            ],
+            [
+              "genre_name",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "4__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "x_axis": "quarter_label",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(qoq_pct)",
+            "label": "qoq_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_qoq_pct"
+          }
+        ],
+        "groupby": [
+          "genre_name"
+        ],
+        "orientation": "vertical",
+        "show_value": false,
+        "show_legend": true,
+        "legendType": "scroll",
+        "legendOrientation": "top",
+        "x_axis_sort": "quarter_label",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ".2f",
+        "x_axis_title": "Quý UTC (chọn trọn quý)",
+        "y_axis_title": "%",
+        "color_scheme": "supersetColors",
+        "row_limit": 1000,
+        "truncateXAxis": false,
+        "xAxisLabelRotation": 45,
+        "show_empty_columns": true,
+        "contributionMode": null
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "share": {
+    "chart_id": 12,
+    "form_data": {
+      "datasource": "4__table",
+      "viz_type": "echarts_timeseries_bar",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "x_axis": "quarter_label",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(genre_share_pct)",
+          "label": "genre_share_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_genre_share_pct"
+        }
+      ],
+      "groupby": [
+        "genre_name"
+      ],
+      "orientation": "vertical",
+      "show_value": false,
+      "show_legend": true,
+      "legendType": "scroll",
+      "legendOrientation": "top",
+      "x_axis_sort": "quarter_label",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ".2f",
+      "x_axis_title": "Quý UTC (chọn trọn quý)",
+      "y_axis_title": "%",
+      "color_scheme": "supersetColors",
+      "row_limit": 1000,
+      "truncateXAxis": false,
+      "xAxisLabelRotation": 45,
+      "show_empty_columns": true,
+      "contributionMode": null
+    },
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "quarter_label",
+            "genre_name"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(genre_share_pct)",
+              "label": "genre_share_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_genre_share_pct"
+            }
+          ],
+          "orderby": [
+            [
+              "quarter_label",
+              true
+            ],
+            [
+              "genre_name",
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "4__table",
+        "viz_type": "echarts_timeseries_bar",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "x_axis": "quarter_label",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(genre_share_pct)",
+            "label": "genre_share_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_genre_share_pct"
+          }
+        ],
+        "groupby": [
+          "genre_name"
+        ],
+        "orientation": "vertical",
+        "show_value": false,
+        "show_legend": true,
+        "legendType": "scroll",
+        "legendOrientation": "top",
+        "x_axis_sort": "quarter_label",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ".2f",
+        "x_axis_title": "Quý UTC (chọn trọn quý)",
+        "y_axis_title": "%",
+        "color_scheme": "supersetColors",
+        "row_limit": 1000,
+        "truncateXAxis": false,
+        "xAxisLabelRotation": 45,
+        "show_empty_columns": true,
+        "contributionMode": null
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  },
+  "detail": {
+    "chart_id": 13,
+    "form_data": {
+      "datasource": "4__table",
+      "viz_type": "table",
+      "adhoc_filters": [],
+      "time_range": "No filter",
+      "granularity_sqla": null,
+      "x_axis": "quarter_label",
+      "metrics": [
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(rating_count)",
+          "label": "rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_rating_count"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(previous_rating_count)",
+          "label": "previous_rating_count",
+          "hasCustomLabel": true,
+          "optionName": "metric_previous_rating_count"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(genre_assignment_total)",
+          "label": "genre_assignment_total",
+          "hasCustomLabel": true,
+          "optionName": "metric_genre_assignment_total"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(genre_share_pct)",
+          "label": "genre_share_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_genre_share_pct"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(qoq_pct)",
+          "label": "qoq_pct",
+          "hasCustomLabel": true,
+          "optionName": "metric_qoq_pct"
+        },
+        {
+          "expressionType": "SQL",
+          "sqlExpression": "MAX(growth_rank)",
+          "label": "growth_rank",
+          "hasCustomLabel": true,
+          "optionName": "metric_growth_rank"
+        }
+      ],
+      "groupby": [
+        "quarter_label",
+        "genre_name",
+        "ranking_status",
+        "rank_interpretation"
+      ],
+      "orientation": "vertical",
+      "show_value": false,
+      "show_legend": true,
+      "legendType": "scroll",
+      "legendOrientation": "top",
+      "x_axis_sort": "quarter_label",
+      "x_axis_sort_asc": true,
+      "order_desc": false,
+      "rich_tooltip": true,
+      "y_axis_format": ".2f",
+      "x_axis_title": "Quý UTC (chọn trọn quý)",
+      "y_axis_title": "%",
+      "color_scheme": "supersetColors",
+      "row_limit": 1000,
+      "truncateXAxis": false,
+      "xAxisLabelRotation": 45,
+      "show_empty_columns": true,
+      "contributionMode": null,
+      "query_mode": "aggregate",
+      "all_columns": [],
+      "percent_metrics": [],
+      "timeseries_limit_metric": {
+        "expressionType": "SQL",
+        "sqlExpression": "ROW(MIN(quarter_start),MIN(genre_name))",
+        "label": "quarter_genre_order",
+        "hasCustomLabel": true,
+        "optionName": "metric_quarter_genre_order"
+      },
+      "page_length": 15,
+      "server_pagination": false,
+      "include_search": true,
+      "show_cell_bars": false,
+      "column_config": {
+        "qoq_pct": {
+          "d3NumberFormat": ".2f"
+        },
+        "genre_share_pct": {
+          "d3NumberFormat": ".2f"
+        },
+        "rating_count": {
+          "d3NumberFormat": ",d"
+        },
+        "previous_rating_count": {
+          "d3NumberFormat": ",d"
+        },
+        "genre_assignment_total": {
+          "d3NumberFormat": ",d"
+        },
+        "growth_rank": {
+          "d3NumberFormat": ",d"
+        }
+      },
+      "table_timestamp_format": "smart_date"
+    },
+    "query_context": {
+      "datasource": {
+        "id": 4,
+        "type": "table"
+      },
+      "force": false,
+      "queries": [
+        {
+          "columns": [
+            "quarter_label",
+            "genre_name",
+            "ranking_status",
+            "rank_interpretation"
+          ],
+          "metrics": [
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(rating_count)",
+              "label": "rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_rating_count"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(previous_rating_count)",
+              "label": "previous_rating_count",
+              "hasCustomLabel": true,
+              "optionName": "metric_previous_rating_count"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(genre_assignment_total)",
+              "label": "genre_assignment_total",
+              "hasCustomLabel": true,
+              "optionName": "metric_genre_assignment_total"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(genre_share_pct)",
+              "label": "genre_share_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_genre_share_pct"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(qoq_pct)",
+              "label": "qoq_pct",
+              "hasCustomLabel": true,
+              "optionName": "metric_qoq_pct"
+            },
+            {
+              "expressionType": "SQL",
+              "sqlExpression": "MAX(growth_rank)",
+              "label": "growth_rank",
+              "hasCustomLabel": true,
+              "optionName": "metric_growth_rank"
+            }
+          ],
+          "orderby": [
+            [
+              {
+                "expressionType": "SQL",
+                "sqlExpression": "ROW(MIN(quarter_start),MIN(genre_name))",
+                "label": "quarter_genre_order",
+                "hasCustomLabel": true,
+                "optionName": "metric_quarter_genre_order"
+              },
+              true
+            ]
+          ],
+          "row_limit": 1000,
+          "granularity": null,
+          "time_range": "No filter",
+          "is_timeseries": false,
+          "extras": {
+            "where": "",
+            "having": ""
+          }
+        }
+      ],
+      "form_data": {
+        "datasource": "4__table",
+        "viz_type": "table",
+        "adhoc_filters": [],
+        "time_range": "No filter",
+        "granularity_sqla": null,
+        "x_axis": "quarter_label",
+        "metrics": [
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(rating_count)",
+            "label": "rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_rating_count"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(previous_rating_count)",
+            "label": "previous_rating_count",
+            "hasCustomLabel": true,
+            "optionName": "metric_previous_rating_count"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(genre_assignment_total)",
+            "label": "genre_assignment_total",
+            "hasCustomLabel": true,
+            "optionName": "metric_genre_assignment_total"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(genre_share_pct)",
+            "label": "genre_share_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_genre_share_pct"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(qoq_pct)",
+            "label": "qoq_pct",
+            "hasCustomLabel": true,
+            "optionName": "metric_qoq_pct"
+          },
+          {
+            "expressionType": "SQL",
+            "sqlExpression": "MAX(growth_rank)",
+            "label": "growth_rank",
+            "hasCustomLabel": true,
+            "optionName": "metric_growth_rank"
+          }
+        ],
+        "groupby": [
+          "quarter_label",
+          "genre_name",
+          "ranking_status",
+          "rank_interpretation"
+        ],
+        "orientation": "vertical",
+        "show_value": false,
+        "show_legend": true,
+        "legendType": "scroll",
+        "legendOrientation": "top",
+        "x_axis_sort": "quarter_label",
+        "x_axis_sort_asc": true,
+        "order_desc": false,
+        "rich_tooltip": true,
+        "y_axis_format": ".2f",
+        "x_axis_title": "Quý UTC (chọn trọn quý)",
+        "y_axis_title": "%",
+        "color_scheme": "supersetColors",
+        "row_limit": 1000,
+        "truncateXAxis": false,
+        "xAxisLabelRotation": 45,
+        "show_empty_columns": true,
+        "contributionMode": null,
+        "query_mode": "aggregate",
+        "all_columns": [],
+        "percent_metrics": [],
+        "timeseries_limit_metric": {
+          "expressionType": "SQL",
+          "sqlExpression": "ROW(MIN(quarter_start),MIN(genre_name))",
+          "label": "quarter_genre_order",
+          "hasCustomLabel": true,
+          "optionName": "metric_quarter_genre_order"
+        },
+        "page_length": 15,
+        "server_pagination": false,
+        "include_search": true,
+        "show_cell_bars": false,
+        "column_config": {
+          "qoq_pct": {
+            "d3NumberFormat": ".2f"
+          },
+          "genre_share_pct": {
+            "d3NumberFormat": ".2f"
+          },
+          "rating_count": {
+            "d3NumberFormat": ",d"
+          },
+          "previous_rating_count": {
+            "d3NumberFormat": ",d"
+          },
+          "genre_assignment_total": {
+            "d3NumberFormat": ",d"
+          },
+          "growth_rank": {
+            "d3NumberFormat": ",d"
+          }
+        },
+        "table_timestamp_format": "smart_date"
+      },
+      "result_format": "json",
+      "result_type": "full"
+    }
+  }
+}
