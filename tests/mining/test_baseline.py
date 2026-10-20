@@ -12,6 +12,7 @@ Validates:
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 import numpy as np
@@ -42,6 +43,7 @@ baseline_mod = load_mining_module("mining.baseline", "mining/baseline.py")
 
 fit_popularity_model = baseline_mod.fit_popularity_model
 recommend_for_user_popularity = baseline_mod.recommend_for_user_popularity
+run_popularity_validation_pipeline = baseline_mod.run_popularity_validation_pipeline
 DEFAULT_BASELINE_OUTPUT = baseline_mod.DEFAULT_BASELINE_OUTPUT
 
 compute_user_metrics_at_k = eval_mod.compute_user_metrics_at_k
@@ -231,3 +233,51 @@ def test_real_data_popularity_baseline_artifact():
     fit_summary = res["popularity_fit_summary"]
     assert fit_summary["training_items_count"] == 3633
     assert fit_summary["top_10_popular_movie_ids"] == [2858, 1196, 260, 1210, 589, 2028, 480, 1270, 608, 593]
+
+
+def test_pipeline_strictly_rejects_non_top_5():
+    """
+    Regression test: run_popularity_validation_pipeline must reject any top_k != 5
+    (including top_k=10 and top_k=0) before computing or generating results.
+    """
+    empty_df = pd.DataFrame(columns=["user_id", "movie_id", "rating", "timestamp"])
+
+    with pytest.raises(ValueError, match="top_k=5"):
+        run_popularity_validation_pipeline(ratings_df=empty_df, top_k=10)
+
+    with pytest.raises(ValueError, match="top_k=5"):
+        run_popularity_validation_pipeline(ratings_df=empty_df, top_k=0)
+
+    with pytest.raises(ValueError, match="top_k=5"):
+        run_popularity_validation_pipeline(ratings_df=empty_df, top_k=3)
+
+
+def test_cli_rejects_non_top_5_without_touching_output(tmp_path):
+    """
+    Regression test: CLI must reject any --top-k != 5 with non-zero exit code
+    before loading data and must not create or overwrite the output file.
+    """
+    baseline_script = REPO_ROOT / "mining" / "baseline.py"
+
+    # Test top_k=10 on non-existent file: must fail with nonzero and not create file
+    out_file_10 = tmp_path / "out_10.json"
+    proc_10 = subprocess.run(
+        [sys.executable, str(baseline_script), "--top-k", "10", "--output", str(out_file_10)],
+        capture_output=True,
+        text=True,
+    )
+    assert proc_10.returncode != 0
+    assert not out_file_10.exists()
+    assert "invalid choice" in proc_10.stderr or "top-k" in proc_10.stderr
+
+    # Test top_k=0 on existing file: must fail with nonzero and preserve existing file content
+    out_file_0 = tmp_path / "out_0.json"
+    sentinel_content = '{"sentinel_preserved": true}'
+    out_file_0.write_text(sentinel_content, encoding="utf-8")
+    proc_0 = subprocess.run(
+        [sys.executable, str(baseline_script), "--top-k", "0", "--output", str(out_file_0)],
+        capture_output=True,
+        text=True,
+    )
+    assert proc_0.returncode != 0
+    assert out_file_0.read_text(encoding="utf-8") == sentinel_content

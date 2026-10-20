@@ -102,7 +102,13 @@ def run_popularity_validation_pipeline(
 ) -> Dict[str, Any]:
     """
     Executes complete Popularity Baseline evaluation pipeline on Validation set.
+    Strictly restricted to top_k=5 per official evaluation protocol.
     """
+    if top_k != 5:
+        raise ValueError(
+            f"Popularity baseline evaluation protocol strictly requires top_k=5, got top_k={top_k}"
+        )
+
     start_time = time.time()
 
     # 1. Load and verify split manifest
@@ -320,7 +326,13 @@ def main():
     parser.add_argument("--source", choices=["raw", "csv", "dw"], default="csv", help="Input data source")
     parser.add_argument("--split-manifest", type=Path, default=DEFAULT_SPLIT_MANIFEST_PATH, help="Path to split_manifest.json")
     parser.add_argument("--output", type=Path, default=DEFAULT_BASELINE_OUTPUT, help="Path to output results JSON")
-    parser.add_argument("--top-k", type=int, default=5, help="Recommendation cutoff K")
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        choices=[5],
+        default=5,
+        help="Recommendation cutoff K (strictly 5 per evaluation protocol)",
+    )
     args = parser.parse_args()
 
     print(f"=== Step 9B: Popularity Baseline Evaluation (Source: {args.source}, K={args.top_k}) ===")
