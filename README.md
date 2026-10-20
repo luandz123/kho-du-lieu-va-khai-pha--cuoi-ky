@@ -2,6 +2,8 @@
 
 ## Công bố toàn bộ 11B — được điều phối chấp nhận, chờ review PR
 
+[PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18) **OPEN**, chưa merge. Code tái lập `050b601c916b7b4f6be476640673c9978e0ba979`; [snapshot kiểm remote lúc mở](docs/P1/11b_publication_remote.json) và [danh sách toàn PR](docs/P1/11b_pr_files.json). Commit hồ sơ mới không thay hash runtime lịch sử.
+
 11B-1 kiểm nhận G3/dry-run, 11B-2 loader transaction/NO-OP, 11B-3 dashboard sở thích và 11B-4 export/import + phục hồi bố cục trên instance riêng8091 đã được điều phối chấp nhận theo phạm vi tương ứng. Hồ sơ PR/commit/kiểm công bố: [11B publication](docs/P1/11b_publication.md). Các nhãn chờ duyệt/ZIP ignored/chưa11B trong tài liệu/báo cáo cũ bên dưới là quan sát lịch sử, không ghi lại run cũ thành commit mới.
 
 Tái lập cấu hình dashboard cần **đủ bộ**, không chỉ ZIP:

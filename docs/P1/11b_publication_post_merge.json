@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-20T15:14:43.581411+00:00",
+  "publication_code_commit": "050b601c916b7b4f6be476640673c9978e0ba979",
+  "main": "9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48",
+  "unit_exit_code": 0,
+  "unit_output": ".........................................\n----------------------------------------------------------------------\nRan 41 tests in 0.556s\n\nOK\n",
+  "accepted_package_manifest_sha256": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0",
+  "producer_commit": "bab0b4049d4e0b1724418b8a92d8afbeda4bc775",
+  "payload_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+  },
+  "database_connected": false,
+  "no_apply_etl_import": true
+}

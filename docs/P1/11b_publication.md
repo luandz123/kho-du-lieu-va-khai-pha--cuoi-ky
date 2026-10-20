@@ -1,5 +1,9 @@
 # Công bố toàn bộ 11B — chức năng được điều phối chấp nhận
 
+Đã mở [PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18), **OPEN, WAITING_REVIEW**, chưa merge. Code tái lập **050b601c916b7b4f6be476640673c9978e0ba979**, base mởPR **9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48**. 116file/blob lúc mở khớp GitHub PR/tree và remote ZIP byteSHA đúng; snapshot lúc mở trong 11b_publication_remote.json. Commit hồ sơ tiếp theo chỉ ghi quan sát này; không gán commit mới cho runtime cũ. Toànfile/blob và HEAD sau hồ sơ được kiểm riêng trước bàn giao. Danh sách file cuối trong 11b_pr_files.json.
+
+Nếu tái lập G3 sau này, dùng checkout producer đã duyệt bab0b404… và môi trường/đầu vào đã chốt; không chạy exporter HEAD mới để tạo metadata khác dưới version active cũ. Lượt này không tái tạo gói hoặc đổi producer.
+
 Nguồn: người dùng chuyển điều phối chấp nhận11B-4 theo đúng phạm vi **export thật + import chính thức + phục hồi layout bằng REST trên instance riêng8091, cùngDW hiện có**, rồi giao commit/push/mởmộtPRmain toàn11B. Đây là review điều phối/ủy quyền công bố, không phải agent tạo lời duyệt người dùng hoặc tựmerge. URL/HEAD/base chỉ bổ sung sau xác minhGitHub thật.
 
 Toàn PR gồm11B-1 intake/dryrun (checkpoint17e9d56),11B-2 dispatchertransaction/apply+NOOP (f663dcb),11B-3 dashboard (4cc9ca8) và11B-4 export/restore+mapping/snapshot/API/runbook. ReportPASS/FAIL và hash runtime/base cũ giữ nguyên; commit code công bố ghi riêng. Không stage kế hoạchuntracked/P2/privateG3 hoặc mọi file workspace.

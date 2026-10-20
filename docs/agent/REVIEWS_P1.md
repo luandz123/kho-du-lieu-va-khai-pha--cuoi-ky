@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Công bố PR18 — chờ review PR,20/10/2026
+
+GitHubAPI xác minh PR18 OPEN/merged=false;116file/blobsnapshotlúcmởkhớpremoteGit,ZIPbyteSHAđúnghashđượcduyệt. Code050b601c916b7b4f6be476640673c9978e0ba979/base9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48. Đây làquan sátcôngbố,khôngphảilờiduyệtPR/agentmerge. Commithồsơsau đókiểmHEADremote riêng. **PRWAITING_REVIEW**, dừng/chưa12A;giữphạmvilayoutAPI/cùngDW/P2intakeG2NOT_CONFIRMED.
+
 ## Điều phối chấp nhận11B-4 và giao công bố toàn11B —20/10/2026
 
 Nguồn người dùng chuyển, trích nguyên văn:

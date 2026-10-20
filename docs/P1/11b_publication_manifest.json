@@ -1,7 +1,9 @@
 {
   "status": "PASS",
-  "purpose": "Current publication artifact hashes; does not rewrite historical runtime/ignored reports",
-  "hash_algorithm": "SHA-256 local bytes; remote verification uses Git blob hashes separately",
+  "at_utc": "2026-10-20T15:18:08.650020+00:00",
+  "purpose": "Final publication artifact hashes, separate from immutable historical runtime reports",
+  "hash_algorithm": "SHA-256 raw local bytes; remote verification uses Git blobs, preserving ZIP bytes exactly",
+  "self_excluded": true,
   "files": [
     {
       "path": ".gitignore",
@@ -10,8 +12,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "4553f68bde0a39a0c19455a215d6fa7ada4e9cca104baa0dfbcb6abc0b51ee19",
-      "bytes": 16587
+      "sha256": "4012b008dd9e124a88f73729bd0ee8cdc471d07a093e2db422bedf6d84d57d4e",
+      "bytes": 16939
     },
     {
       "path": "dashboard/preferences/README.md",
@@ -364,14 +366,29 @@
       "bytes": 129744
     },
     {
+      "path": "docs/P1/11b_pr_files.json",
+      "sha256": "a60871b46cb393314dc8b8ef8088716fceebeb5dfb2be6c117c252d0ccad23ef",
+      "bytes": 6557
+    },
+    {
       "path": "docs/P1/11b_publication.md",
-      "sha256": "f8bea1b115fb02923f38e9403f6eee321f82760a6aaab5b0927eeac043237916",
-      "bytes": 4035
+      "sha256": "85d10a1d9d34e90efde9076a36caf58ecfaf07977c84b558ce318657df183e00",
+      "bytes": 4913
     },
     {
       "path": "docs/P1/11b_publication_checks.json",
       "sha256": "4f3fd8b5d7668119b63efcfc9267e56235f87aead304c6071eac433a855daf42",
       "bytes": 9496
+    },
+    {
+      "path": "docs/P1/11b_publication_post_merge.json",
+      "sha256": "914774536cd9c31324b1ef74bd0e424b0e555abaf7b65a138531fcf624cbe58e",
+      "bytes": 855
+    },
+    {
+      "path": "docs/P1/11b_publication_remote.json",
+      "sha256": "9685abfea6a3e10665833ac9b5f8f1cfa9dd2e8a1851e3c3cb2e78851ab035c5",
+      "bytes": 20410
     },
     {
       "path": "docs/P1/dashboard_restore_handoff.md",
@@ -410,18 +427,18 @@
     },
     {
       "path": "docs/agent/REVIEWS_P1.md",
-      "sha256": "246c94786c1156bc5455239cbd46c6adb10073d51d71dae232369641f8c3c8a0",
-      "bytes": 39127
+      "sha256": "7eae5b481e4d911b19fa7381148ed93958914fdc56eb05e0719f01b9222b5dd4",
+      "bytes": 39605
     },
     {
       "path": "docs/agent/STATE_P1.md",
-      "sha256": "5c1278808166127a3317ca1400e340bd97d7fb30903240e32ff7fc834fbe8405",
-      "bytes": 62286
+      "sha256": "f2db406657501f2b1b6d8ac84588f216e51c4a5f2a70a534753cd1094d0e0277",
+      "bytes": 63932
     },
     {
       "path": "docs/agent/steps/P1/S11.md",
-      "sha256": "a82fd08bb179af35951b414b3728e2db78a62a057f4d0dc779d956629fc0b749",
-      "bytes": 29662
+      "sha256": "f104f2b1330b7e7bd2ff11868aae1045079ddc66270deb313f0f78282acc93d0",
+      "bytes": 31308
     },
     {
       "path": "etl/g3_intake.py",
@@ -578,6 +595,5 @@
       "sha256": "3073a28eb9dc47facb502cd3967053d09c21229ca5c789e95078a89514252a27",
       "bytes": 2838
     }
-  ],
-  "self_excluded": true
+  ]
 }
