@@ -1,5 +1,10 @@
 # Quyết định P1
 
+P1-D98: Theo lệnh điều phối chấp nhận11B-1, checkpoint17e9d56, mở dispatcher production riêng mặc địnhdryrun/--apply; không gỡ guard fixture. Giữ mapping preprocessingJSONB đã được chấp nhận; băm snapshotmemory trướcghi vàfreshDW saukhóa; cùngtransaction kiểm+nạp+activecuối. Nguồn9bảngSHARE,3analyticsSHAREROWEXCLUSIVE, advisory20261027,1. UNKNOWN khiCOMMITACKkhôngrõ, khôngretryghi.
+
+P1-D99: Đã chạy đúngapply COMMITTED4648f191 vàapply kiểmNOOP0dec3918; registered_atvàtoàn dữliệu giữnguyên, cảhaihậu kiểmconnectionROmới. 31unit/8integration/4hashG2/ninefingerprints/BIACL/19Supersetobjects đạt. Chỉcheckpoint11B-1 đượccommit; code11B-2 workingtreeSHA khônggán17e9d56làmcodeversion. GiữFAILcũ/P2NOT_CONFIRMED, chưa dashboard11B/ETL/DDL/quyền/export/pushPR. 11B-2WAITING_REVIEW.
+
+
 P1-D96: Theo lệnh điều phối20/10, xác minh PR15MERGED371aab7/côngbố11Cđượcchấpnhận; đồngbộmain/tạo p1-s11b-cluster-intake, giữ kếhoạch. Chỉ giao11B-1kiểmG3/dry-run, không ghi analytics. Tái tạo bằngcodeP2bab0b404 trong tmp/g3_venvriêng, giữ frozenpins; khácPythonpatch/OSnhưngchecksumkhớp. Không sửaP2 hoặcdependencyP1.
 
 P1-D97 (đề xuất cần review trong11B-1): dùng preprocessing jsonb hiện có để lưu method/training_config/payloadsha/provenance, kết hợp registryfields để xác định identity. Cùngversiongiốnghàng/metadata activevalid=>NOOP; khácpayload=>reject; invalidated+hairesultsrỗng+identitygiống chỉ dựkiếnreload sauDWrecheck. Engine hiệnkhóa production, chỉ fixture. Không tự duyệt mapping/dispatcherproduction; chờ11B-2.

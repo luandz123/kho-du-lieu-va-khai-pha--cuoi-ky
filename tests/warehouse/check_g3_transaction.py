@@ -1,11 +1,13 @@
 """Integration fixtures only; owned marked schema, actual analytics never written."""
 import unittest,uuid,json,hashlib,sys
+from unittest.mock import patch
 from pathlib import Path
 from datetime import datetime,timezone
 from psycopg2 import sql
 from etl.s05_staging import ROOT,connect,config,sha256
 from etl.g3_intake import SafeError
 from etl.g3_transaction import fixture_transaction
+from etl import g3_transaction as transaction_module
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from test_g3_intake import sample
 
@@ -59,6 +61,31 @@ class TransactionTests(unittest.TestCase):
                 for table in ['user_cluster','cluster_genre_profile']:q.execute(sql.SQL('DELETE FROM {}').format(sql.Identifier(self.schema,table)))
                 q.execute(sql.SQL('UPDATE {} SET is_active=false,is_valid_for_dw=false').format(sql.Identifier(self.schema,'model_registry')))
         r=fixture_transaction(self.c,pkg,schema=self.schema);self.assertEqual(r['plan'],'RELOAD_IDENTICAL_INVALIDATED_VERSION')
+    def test_production_check_runs_before_insert_same_connection(self):
+        before=self.snapshot()
+        def reject(actual_conn,pkg):
+            self.assertIs(actual_conn,self.c)
+            with actual_conn.cursor() as q:
+                q.execute('SELECT pg_backend_pid()');self.assertIsInstance(q.fetchone()[0],int)
+            raise SafeError('FIXTURE_CANONICAL_CHECK_REJECTED')
+        with patch.object(transaction_module,'SOURCE_TABLES',{self.schema+'.dim_user':'user_id',self.schema+'.dim_genre':'genre_name'}),patch.object(transaction_module,'check_dw',side_effect=reject) as checked:
+            with self.assertRaises(SafeError) as e:transaction_module._transaction(self.c,sample(),schema=self.schema,source_schema=self.schema,production=True)
+        self.assertEqual(e.exception.code,'FIXTURE_CANONICAL_CHECK_REJECTED');self.assertEqual(e.exception.details['database_outcome'],'ROLLED_BACK');self.assertEqual(checked.call_count,1);self.assertEqual(before,self.snapshot())
+    def test_commit_ack_loss_is_unknown_not_rollback(self):
+        with self.assertRaises(SafeError) as e:fixture_transaction(self.c,sample(),schema=self.schema,fail_after='commit_ack')
+        self.assertEqual(e.exception.details['database_outcome'],'UNKNOWN')
+        # Only a fresh READ ONLY connection observes the committed fixture state.
+        c=connect(config(ROOT/'.env'));c.set_session(readonly=True)
+        try:
+            with c:
+                with c.cursor() as q:
+                    q.execute(sql.SQL('SELECT model_version FROM {} WHERE is_active AND is_valid_for_dw').format(sql.Identifier(self.schema,'model_registry')));self.assertEqual(q.fetchall(),[('fixture-v1',)])
+        finally:c.close()
+    def test_unexpected_nonempty_production_precondition_rejected(self):
+        before=self.snapshot()
+        with patch.object(transaction_module,'SOURCE_TABLES',{self.schema+'.dim_user':'user_id',self.schema+'.dim_genre':'genre_name'}),patch.object(transaction_module,'check_dw',return_value={'analytics_counts':{'model_registry':1}}):
+            with self.assertRaises(SafeError) as e:transaction_module._transaction(self.c,sample(),schema=self.schema,source_schema=self.schema,production=True,expect_empty=True)
+        self.assertEqual(e.exception.code,'EXPECTED_EMPTY_ANALYTICS_CHANGED');self.assertEqual(before,self.snapshot())
     @classmethod
     def tearDownClass(cls):
         with cls.c:
@@ -77,5 +104,6 @@ def main():
             q.execute('SELECT count(*) FROM analytics.model_registry UNION ALL SELECT count(*) FROM analytics.user_cluster UNION ALL SELECT count(*) FROM analytics.cluster_genre_profile');r['production_analytics_after']=[x[0] for x in q.fetchall()]
             q.execute('SELECT count(*) FROM pg_namespace WHERE nspname=%s',(r['schema'],));r['fixture_removed']=q.fetchone()[0]==0
     c.close();require_ok=result.wasSuccessful() and r['production_analytics_after']==[0,0,0] and r['fixture_removed'];r['status']='PASS' if require_ok else 'FAIL'
-    out=ROOT/'results/warehouse/s11b1/transaction_fixture.json';assert not out.exists();out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8');return 0 if require_ok else 2
+    r.update(shared_engine_production_check_exercised=True,commit_ack_loss_unknown_checked=True)
+    out=ROOT/('results/warehouse/s11b2/fixture_'+uuid.uuid4().hex+'.json');out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8');print(str(out));return 0 if require_ok else 2
 if __name__=='__main__':raise SystemExit(main())

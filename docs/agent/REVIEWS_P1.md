@@ -1,5 +1,10 @@
 # Hồ sơ duyệt P1
 
+## 11B-2 — Nạp production xong, WAITING_REVIEW
+
+Nguồn người dùng chuyển: điều phối chấp nhận11B-1 và giao11B-2, cho phép3bảnganalytics, checkpointcục bộ, khôngpushPR/dashboard/export. Đây là phê duyệt11B-1 và ủy quyền thao tác, **không phải lời duyệt kết quả11B-2 do agent tạo**. Code/test/checks31unit/8integration đạt; apply4648f191 COMMITTED,0dec3918 COMMITTED_NO_OP, hậu kiểmRO/canonical/profile/registered_at/nguồn/BI/dashboardđạt. Gói frozen đãkiểmnhận khôngđổi. GiữFAILlịchsử. Bàn giao docs/P1/g3_load.md;11B-2WAITING_REVIEW, dừng.
+
+
 ## 11B-1 — Giao việc và kết quả chờ review, 20/10/2026
 
 Nguồn: người dùng chuyển xác nhận điều phối PR15merge371aab7/chấpnhận côngbố11C và giao riêng11B-1. Không tạo lời duyệt cho G3/loader. Tái tạoP1khớp hai frozenSHA; dry-run14c7eb52 READONLY vàbốnDW/G2hashđạt;23unit+5integrationđạt, rollback4pha phục hồi snapshot/modelactivefixture. Analytics thật0/schema thửđãdọn, giữFAILaliasvàruncũ. **11B-1 WAITING_REVIEW**; chưa nạpanalytics/dashboard/export/commitpushPR. P2G2intakeNOT_CONFIRMED. Bàn giao docs/P1/g3_intake.md vàresults/warehouse/s11b1.

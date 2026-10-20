@@ -63,6 +63,7 @@ class Package:
     profiles:list
     payload_sha256:dict
     manifest_sha256:str
+    snapshot:dict|None=None
 
 def read_package(directory):
     """Read the complete three-file snapshot into memory before any DB connection.
@@ -74,6 +75,11 @@ def read_package(directory):
     require(all((directory/n).is_file() and not (directory/n).is_symlink() for n in names),'PACKAGE_INCOMPLETE')
     blobs={n:(directory/n).read_bytes() for n in names}
     require(all((directory/n).read_bytes()==b for n,b in blobs.items()),'PACKAGE_CHANGED_DURING_READ')
+    return validate_snapshot(blobs)
+
+def validate_snapshot(blobs):
+    """Revalidate in-memory bytes without rereading package files."""
+    require(set(blobs)=={*PINNED,'manifest.json'} and all(isinstance(v,bytes) for v in blobs.values()),'SNAPSHOT_INCOMPLETE')
     try:m=json.loads(blobs['manifest.json'])
     except (ValueError,UnicodeError):fail('MANIFEST_PARSE')
     require(isinstance(m,dict),'MANIFEST_SCHEMA')
@@ -112,7 +118,7 @@ def read_package(directory):
     summary={'total_users':6040,'assigned_users':6038,'insufficient_evidence_users':2,'num_clusters':4,'cluster_sizes':{str(k):v for k,v in SIZES.items()}}
     require(m['data_summary']==summary,'SUMMARY_MISMATCH')
     for n,count in [('user_cluster.csv',6040),('cluster_genre_profile.csv',72)]:require(m['files'][n].get('row_count')==count,'MANIFEST_ROW_COUNT')
-    return Package(m,users,profiles,hashes,hashlib.sha256(blobs['manifest.json']).hexdigest())
+    return Package(m,users,profiles,hashes,hashlib.sha256(blobs['manifest.json']).hexdigest(),dict(blobs))
 
 def registry_metadata(pkg):
     # Existing jsonb column retains the exact input config plus payload identity.

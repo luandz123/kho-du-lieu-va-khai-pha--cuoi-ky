@@ -1,5 +1,10 @@
 # Nguồn prompt P1
 
+## P-P1-32 — Điều phối giao11B-2production,20/10/2026
+
+Chấp nhận11B-1, giữnhánh/checkpointcục bộ/bảo toànplanvàP2, khôngpushPR. Cho ghiđúngregistry/user/profileanalytics bằng productiondispatcher rõràng/mặcđịnhdryrun/applyflag, giữnguardfixture vàbyte snapshot trướcDB. Cùngconnectiontransaction:advisoryexclusive,khóaDW/nguồn,kiểmsaukhóa marker/catalog/bốncanonical/cohort/genre/registry,insertinactive,sofullrows,activecuối. Version/frozenpins/cùngidentityNOOP/conflictreject/reloadreactivatechínhsách11B-1;DDL/P2khôngđổi. Lỗitrướccommitrollback, mấtACK=>UNKNOWN/newRO/noautoretry. Test/unit/integrationtrướcapply,productionphảirỗng. Choapply1lần+hậukiểmconnectionROmới, choapplylần2NOOPkhôngđổi registered_at/dữliệu. Bàngiaocodehash/package/run/thờigian/checks/files/Git/S11STATEWAITING_REVIEW. P2G2intakeNOT_CONFIRMED. ChưaETL/DDL/quyền/firewall/dashboard11B/exportimport/pushPR. Đây làtómtắt lệnh,khôngtạo lời duyệt kếtquả.
+
+
 ## P-P1-31 — Giao11B-1 kiểm nhậnG3/dry-run,20/10/2026
 
 Điều phối xác nhận PR15merge371aab7/côngbố11Cđạt; giaođồngbộmain/tạop1-s11b-cluster-intake, bảo toànplan/dởdang vàquan sátmerge riêng. Nhậnđủ3fileG3 hoặc táitạocodeP2merged bằngmôitrườngtươngthíchriêng, khôngbỏfrozenfingerprint/thayhash/nhãn. Kiểmcontract2/modelkmeans_k4_seed42/twoSHA/người6040/assigned6038/thiếubằngchứng2/quymô2478,1393,760,1407/profile72×18genre/mean/n_users/config/library/provenance; canonicalkhớpG2vàDWthật. Táchcheckkhỏighi, dry-runchỉđọc;thiếtkếtransactionregistry+user+profile/activecuối/cùngversionNOOPvsconflict;fixturetựtạovùngthửriêng. BàngiaonguồnmôitrườngSHA/code/test/rollback/files/giớihạn/S11STATEWAITING_REVIEW. Chưa stagecommitpushPR, loadanalytics/dashboard11B/export3dashboard. P1nhậnG3khôngsuyP2đãnhậnG2;dừngreview. Đây là tómtắt lệnh,khôngtạolờiduyệt.

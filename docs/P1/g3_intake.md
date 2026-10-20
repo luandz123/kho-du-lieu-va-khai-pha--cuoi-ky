@@ -1,5 +1,7 @@
 # 11B-1 — Kiểm nhận G3 và loader dry-run (WAITING_REVIEW)
 
+Cập nhật20/10: điều phối đã chấp nhận11B-1 và giao11B-2. Dispatcher production đã nạp một lần/NOOP một lần, hậu kiểm đạt, **11B-2 WAITING_REVIEW**. Xem docs/P1/g3_load.md. Guard chỉ-fixture/WAITING_REVIEW11B-1 trong phần dưới là lịch sử trước lệnh11B-2; report11B-1 giữ nguyên, không tự mở dashboard hoặc công bố.
+
 Điều phối xác nhận PR15 đã merge tại `371aab7e43742dc1e5c330077ffbd49fcef5fe09` và chấp nhận công bố11C. API và Git đã xác minh; agent không merge. Báo cáo OPEN cũ giữ nguyên, quan sát mới ở `docs/P1/trends_post_merge_observation.json`.
 
 ## Nguồn gói và môi trường
