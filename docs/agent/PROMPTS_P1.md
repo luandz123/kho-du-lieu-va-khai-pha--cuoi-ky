@@ -1,5 +1,10 @@
 # Nguồn prompt P1
 
+## P-P1-33 — Điều phối giao 11B-3 Dashboard Sở thích,20/10/2026
+
+Chấp nhận11B-2 sau review thực; giữnhánh p1-s11b-cluster-intake vàcheckpointcục bộ11B-2đúngphạmvi, bảo toànkếhoạch/P2; khôngpushPR/apply/ETL/fixtureanalyticsrỗng/táitạogóiđangactive hoặcđổiprovenance. TạodashboardriêngtrênSuperset8089quaUI/APIchínhthức, từhai activeviews+dwusers, đượcSELECTcụthểchoBIreader, khôngtoànschema/write/DDL/registry/G3/firewall. Assignedvàinsufficienttáchriêng,quymô4cụm/tỷtrọnguser,heatmapmeanpreference,cơcấugiới/tuổisobaseline6038assigned,tênmôtảP2Q1/modelversion. Nativecluster/age/gender:clusternhưngbaselinekhôngcothànhcụm;heatmapkhôngchịutuổi/giới;insufficientNULLkhôngbiếnmất;mọimẫusốrõràng/khôngSUMn_users18genre/khôngnhânquả. ĐốisoátSQLđộclậpvớiAPIUIít nhất3ca,kiểm11A11Cvẫnlọc/truyvấnnghiệpvụkhôngđổi. BàngiaoURL/IDs/SQLmetrics/scope/ảnh/đốisoát/quyền/package/codehash/files/giớihạn;S11STATE11B-3WAITING_REVIEW.ChưacommitpushPRdashboard/exportimport;P2intakegiữthực;dừngreview. Đây làtómtắtlệnh,khôngtạolờiduyệtkếtquả.
+
+
 ## P-P1-32 — Điều phối giao11B-2production,20/10/2026
 
 Chấp nhận11B-1, giữnhánh/checkpointcục bộ/bảo toànplanvàP2, khôngpushPR. Cho ghiđúngregistry/user/profileanalytics bằng productiondispatcher rõràng/mặcđịnhdryrun/applyflag, giữnguardfixture vàbyte snapshot trướcDB. Cùngconnectiontransaction:advisoryexclusive,khóaDW/nguồn,kiểmsaukhóa marker/catalog/bốncanonical/cohort/genre/registry,insertinactive,sofullrows,activecuối. Version/frozenpins/cùngidentityNOOP/conflictreject/reloadreactivatechínhsách11B-1;DDL/P2khôngđổi. Lỗitrướccommitrollback, mấtACK=>UNKNOWN/newRO/noautoretry. Test/unit/integrationtrướcapply,productionphảirỗng. Choapply1lần+hậukiểmconnectionROmới, choapplylần2NOOPkhôngđổi registered_at/dữliệu. Bàngiaocodehash/package/run/thờigian/checks/files/Git/S11STATEWAITING_REVIEW. P2G2intakeNOT_CONFIRMED. ChưaETL/DDL/quyền/firewall/dashboard11B/exportimport/pushPR. Đây làtómtắt lệnh,khôngtạo lời duyệt kếtquả.

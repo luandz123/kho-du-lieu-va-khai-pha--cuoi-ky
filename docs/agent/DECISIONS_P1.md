@@ -1,5 +1,11 @@
 # Quyết định P1
 
+P1-D100 (11B-3,20/10/2026): Theo lệnh điều phối, checkpoint cục bộ11B-2 được duyệt tại f663dcb4143202dac0835e4d5168e1b8558a6463, không push/PR. Giữ producerP2 bab0b4049d4e0b1724418b8a92d8afbeda4bc775/packageidentity đãkiểm, không đổi provenance theoHEAD hoặc chạyapply/ETL.
+
+P1-D101: Userdatasetactiveview+dwusers một dòng/user, window denominator trước nativefilter; profiledataset riêng4×18, khôngfanoutuser. Baseline toàn6038assigned cốđịnhmọifilter; thiếu bằng chứng2 KPIriêngngoàiscope; tỷtrọngquymô6038/cơcấucụmquymôgốc, nhãn nêurõsauage/gender khôngchuẩnhóalạivề100%. Baselinegiới/tuổi đơnbiến khôngđiềuchỉnhtheofiltercònlại.
+
+P1-D102: Heatmap chỉcụm, loạituổi/giới vì profileP2tínhsẵn; MAX(mean_preference) theoô, khôngSUMn_userslặp. DùngtênmôtảP2Q1, khôngsuynhânquảhayratingthànhlượtxem. BIchỉthêmSELECT3viewcụthể, tổng7view; PUBLIC TEMPgiữgiớihạn. 11B-3WAITING_REVIEW/chưacommitpushPR/exportrestore; P2G2intakeNOT_CONFIRMED.
+
 P1-D98: Theo lệnh điều phối chấp nhận11B-1, checkpoint17e9d56, mở dispatcher production riêng mặc địnhdryrun/--apply; không gỡ guard fixture. Giữ mapping preprocessingJSONB đã được chấp nhận; băm snapshotmemory trướcghi vàfreshDW saukhóa; cùngtransaction kiểm+nạp+activecuối. Nguồn9bảngSHARE,3analyticsSHAREROWEXCLUSIVE, advisory20261027,1. UNKNOWN khiCOMMITACKkhôngrõ, khôngretryghi.
 
 P1-D99: Đã chạy đúngapply COMMITTED4648f191 vàapply kiểmNOOP0dec3918; registered_atvàtoàn dữliệu giữnguyên, cảhaihậu kiểmconnectionROmới. 31unit/8integration/4hashG2/ninefingerprints/BIACL/19Supersetobjects đạt. Chỉcheckpoint11B-1 đượccommit; code11B-2 workingtreeSHA khônggán17e9d56làmcodeversion. GiữFAILcũ/P2NOT_CONFIRMED, chưa dashboard11B/ETL/DDL/quyền/export/pushPR. 11B-2WAITING_REVIEW.

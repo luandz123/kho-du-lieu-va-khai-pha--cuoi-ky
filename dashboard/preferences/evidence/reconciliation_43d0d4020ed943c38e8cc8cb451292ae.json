@@ -1,0 +1,1412 @@
+{
+  "run_id": "43d0d4020ed943c38e8cc8cb451292ae",
+  "at_utc": "2026-10-20T09:24:31.228066+00:00",
+  "status": "PASS",
+  "base_commit": "f663dcb4143202dac0835e4d5168e1b8558a6463",
+  "cases": [
+    {
+      "case": "all",
+      "status": "PASS",
+      "cluster": null,
+      "age_group": null,
+      "gender": null,
+      "assigned": 6038,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 72,
+      "actual_aggregates": {
+        "assigned": [
+          {
+            "assigned_users": 6038
+          }
+        ],
+        "insufficient": [
+          {
+            "insufficient_users": 2
+          }
+        ],
+        "baseline": [
+          {
+            "fixed_assigned_baseline": 6038
+          }
+        ],
+        "size": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "assigned_users": 2478,
+            "pct_of_fixed_6038": 41.040079496522026
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "assigned_users": 1393,
+            "pct_of_fixed_6038": 23.070553163299106
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "assigned_users": 760,
+            "pct_of_fixed_6038": 12.586949320967207
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "assigned_users": 1407,
+            "pct_of_fixed_6038": 23.30241801921166
+          }
+        ],
+        "model": [
+          {
+            "model_version": "kmeans_k4_seed42",
+            "assigned_users": 6038,
+            "insufficient_users": 2
+          }
+        ],
+        "heatmap": [
+          {
+            "genre_name": "Action",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.10753669947248282
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0628637866744523
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.05269886777232584
+          },
+          {
+            "genre_name": "Action",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.20147146941736913
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.0559541531253238
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.027301861292870065
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.032794042821757935
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.09671678505374393
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02842888257253178
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.010942878656515545
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.03265519424838543
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.014726912293477893
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.03653697889471876
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.016558397598863232
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.038902687652155904
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02017450689654243
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.16176989981036657
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.14883740505763784
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.35989029637124026
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.08543978925479541
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.04294341154236175
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.05066040372026482
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.02511566312728415
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.032805822842818855
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.005039349653356135
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.008503021007568145
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.004536394790189357
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.0010200776834558309
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.17714660745067107
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.3428462139020109
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.16291446074188534
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.10399283455931604
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.015183532320055145
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.007213797801686972
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.011321355030502819
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02175258487092637
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.016024027816356777
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014651188353456641
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.0064009824603581695
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.008981868056201665
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02936482480269772
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.013483965015758765
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.017198309359105733
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.045393249982651915
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02439487397702844
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014829596230321172
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.023294903359128358
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.009254159815897531
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.02381281921830121
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.02380509939251054
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.011999266907969765
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.015522756888980615
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.06645626358515558
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.08434124082364364
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.11373953601512944
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.03852752156076505
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.06295702922295253
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.029852360024518867
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.0303994106024203
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.1355369657977109
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.09665745875330908
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0821819421208289
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.04506295476709747
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.11568146023862387
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.04004853374512865
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.053527441695708396
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.024192272580946403
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.042983348115082615
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "mean_preference": 0.009744654037202226
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.00759940063138321
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "2 · Comedy",
+            "mean_preference": 0.006883401392117369
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.010017886671639952
+          }
+        ],
+        "gender": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "gender": "F",
+            "assigned_users": 651,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 26.271186440677965,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "gender": "M",
+            "assigned_users": 1827,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 73.72881355932203,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "F",
+            "assigned_users": 540,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 38.765254845656855,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "M",
+            "assigned_users": 853,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 61.234745154343145,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "gender": "F",
+            "assigned_users": 341,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 44.86842105263158,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "gender": "M",
+            "assigned_users": 419,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 55.13157894736842,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "F",
+            "assigned_users": 177,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 12.57995735607676,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "M",
+            "assigned_users": 1230,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 87.42004264392324,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          }
+        ],
+        "baseline_gender": [
+          {
+            "gender": "F",
+            "assigned_users": 1709
+          },
+          {
+            "gender": "M",
+            "assigned_users": 4329
+          }
+        ],
+        "age": [
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "18-24",
+            "assigned_users": 494,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 19.93543179983858,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "25-34",
+            "assigned_users": 906,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 36.56174334140436,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "35-44",
+            "assigned_users": 491,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 19.814366424535915,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "45-49",
+            "assigned_users": 210,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 8.474576271186441,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "50-55",
+            "assigned_users": 183,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 7.38498789346247,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "56+",
+            "assigned_users": 110,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 4.4390637610976595,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "0 · Đa dạng / cân bằng",
+            "age_group": "Under 18",
+            "assigned_users": 84,
+            "original_cluster_users": 2478,
+            "pct_of_original_cluster": 3.389830508474576,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "18-24",
+            "assigned_users": 177,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.706389088298636,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "25-34",
+            "assigned_users": 435,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 31.2275664034458,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "35-44",
+            "assigned_users": 274,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 19.669777458722184,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "45-49",
+            "assigned_users": 161,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.557788944723619,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "50-55",
+            "assigned_users": 159,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.41421392677674,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "56+",
+            "assigned_users": 167,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 11.98851399856425,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "Under 18",
+            "assigned_users": 20,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 1.4357501794687724,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "18-24",
+            "assigned_users": 157,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 20.657894736842106,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "25-34",
+            "assigned_users": 259,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 34.078947368421055,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "35-44",
+            "assigned_users": 135,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 17.763157894736842,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "45-49",
+            "assigned_users": 63,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 8.289473684210526,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "50-55",
+            "assigned_users": 49,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 6.447368421052632,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "56+",
+            "assigned_users": 40,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 5.2631578947368425,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "2 · Comedy",
+            "age_group": "Under 18",
+            "assigned_users": 57,
+            "original_cluster_users": 760,
+            "pct_of_original_cluster": 7.5,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "18-24",
+            "assigned_users": 275,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 19.545131485429994,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "25-34",
+            "assigned_users": 496,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 35.25230987917555,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "35-44",
+            "assigned_users": 292,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 20.753375977256574,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "45-49",
+            "assigned_users": 116,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 8.24449182658138,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "50-55",
+            "assigned_users": 105,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 7.462686567164179,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "56+",
+            "assigned_users": 62,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.406538734896944,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "Under 18",
+            "assigned_users": 61,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.33546552949538,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          }
+        ],
+        "baseline_age": [
+          {
+            "age_group": "18-24",
+            "assigned_users": 1103
+          },
+          {
+            "age_group": "25-34",
+            "assigned_users": 2096
+          },
+          {
+            "age_group": "35-44",
+            "assigned_users": 1192
+          },
+          {
+            "age_group": "45-49",
+            "assigned_users": 550
+          },
+          {
+            "age_group": "50-55",
+            "assigned_users": 496
+          },
+          {
+            "age_group": "56+",
+            "assigned_users": 379
+          },
+          {
+            "age_group": "Under 18",
+            "assigned_users": 222
+          }
+        ]
+      },
+      "generated_queries": {
+        "assigned": "SELECT COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "insufficient": "SELECT COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "baseline": "SELECT MAX(assigned_total) AS fixed_assigned_baseline \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "size": "SELECT cluster_label AS cluster_label, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(assigned_total), 0) AS pct_of_fixed_6038 \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY cluster_label ORDER BY ROW(MIN(cluster_label)) ASC \n LIMIT 1000;\n\n",
+        "model": "SELECT model_version AS model_version, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table GROUP BY model_version ORDER BY ROW(MIN(model_version)) ASC \n LIMIT 1000;\n\n",
+        "heatmap": "SELECT genre_name AS genre_name, cluster_label AS cluster_label, MAX(mean_preference) AS mean_preference \nFROM (-- Grain: cluster x genre in the single active+valid model. No user join.\n-- Precomputed positive-rating preference, NOT recomputed by demographic filters.\nSELECT cluster_id, genre_name, mean_preference, n_users, model_version,\n       CASE cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller' END AS cluster_label\nFROM analytics.v_active_cluster_genre_profile\n) AS virtual_table GROUP BY genre_name, cluster_label ORDER BY genre_name ASC, cluster_label ASC \n LIMIT 1000;\n\n",
+        "gender": "SELECT cluster_label AS cluster_label, gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_gender_n) AS baseline_gender_users, 100.0 * MAX(baseline_gender_n) / MAX(assigned_total) AS baseline_gender_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY cluster_label, gender ORDER BY ROW(MIN(cluster_label), MIN(gender)) ASC \n LIMIT 1000;\n\n",
+        "baseline_gender": "SELECT gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY gender ORDER BY gender ASC \n LIMIT 1000;\n\n",
+        "age": "SELECT cluster_label AS cluster_label, age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_age_n) AS baseline_age_users, 100.0 * MAX(baseline_age_n) / MAX(assigned_total) AS baseline_age_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY cluster_label, age_group ORDER BY ROW(MIN(cluster_label), MIN(age_group)) ASC \n LIMIT 1000;\n\n",
+        "baseline_age": "SELECT age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY age_group ORDER BY age_group ASC \n LIMIT 1000;\n\n"
+      }
+    },
+    {
+      "case": "cluster_3",
+      "status": "PASS",
+      "cluster": [
+        3
+      ],
+      "age_group": null,
+      "gender": null,
+      "assigned": 1407,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 18,
+      "actual_aggregates": {
+        "assigned": [
+          {
+            "assigned_users": 1407
+          }
+        ],
+        "insufficient": [
+          {
+            "insufficient_users": 2
+          }
+        ],
+        "baseline": [
+          {
+            "fixed_assigned_baseline": 6038
+          }
+        ],
+        "size": [
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "assigned_users": 1407,
+            "pct_of_fixed_6038": 23.30241801921166
+          }
+        ],
+        "model": [
+          {
+            "model_version": "kmeans_k4_seed42",
+            "assigned_users": 6038,
+            "insufficient_users": 2
+          }
+        ],
+        "heatmap": [
+          {
+            "genre_name": "Action",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.20147146941736913
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.09671678505374393
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.014726912293477893
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02017450689654243
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.08543978925479541
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.032805822842818855
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.0010200776834558309
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.10399283455931604
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.02175258487092637
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.008981868056201665
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.045393249982651915
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.009254159815897531
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.015522756888980615
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.03852752156076505
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.1355369657977109
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.11568146023862387
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.042983348115082615
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "mean_preference": 0.010017886671639952
+          }
+        ],
+        "gender": [
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "F",
+            "assigned_users": 177,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 12.57995735607676,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "gender": "M",
+            "assigned_users": 1230,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 87.42004264392324,
+            "baseline_gender_users": 4329,
+            "baseline_gender_pct": 71.69592580324611
+          }
+        ],
+        "baseline_gender": [
+          {
+            "gender": "F",
+            "assigned_users": 1709
+          },
+          {
+            "gender": "M",
+            "assigned_users": 4329
+          }
+        ],
+        "age": [
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "18-24",
+            "assigned_users": 275,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 19.545131485429994,
+            "baseline_age_users": 1103,
+            "baseline_age_pct": 18.267638290824777
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "25-34",
+            "assigned_users": 496,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 35.25230987917555,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "35-44",
+            "assigned_users": 292,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 20.753375977256574,
+            "baseline_age_users": 1192,
+            "baseline_age_pct": 19.741636303411724
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "45-49",
+            "assigned_users": 116,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 8.24449182658138,
+            "baseline_age_users": 550,
+            "baseline_age_pct": 9.1089764822789
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "50-55",
+            "assigned_users": 105,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 7.462686567164179,
+            "baseline_age_users": 496,
+            "baseline_age_pct": 8.214640609473335
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "56+",
+            "assigned_users": 62,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.406538734896944,
+            "baseline_age_users": 379,
+            "baseline_age_pct": 6.276912885061279
+          },
+          {
+            "cluster_label": "3 · Action / Sci-Fi / Thriller",
+            "age_group": "Under 18",
+            "assigned_users": 61,
+            "original_cluster_users": 1407,
+            "pct_of_original_cluster": 4.33546552949538,
+            "baseline_age_users": 222,
+            "baseline_age_pct": 3.6767141437562105
+          }
+        ],
+        "baseline_age": [
+          {
+            "age_group": "18-24",
+            "assigned_users": 1103
+          },
+          {
+            "age_group": "25-34",
+            "assigned_users": 2096
+          },
+          {
+            "age_group": "35-44",
+            "assigned_users": 1192
+          },
+          {
+            "age_group": "45-49",
+            "assigned_users": 550
+          },
+          {
+            "age_group": "50-55",
+            "assigned_users": 496
+          },
+          {
+            "age_group": "56+",
+            "assigned_users": 379
+          },
+          {
+            "age_group": "Under 18",
+            "assigned_users": 222
+          }
+        ]
+      },
+      "generated_queries": {
+        "assigned": "SELECT COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (3) \n LIMIT 1000;\n\n",
+        "insufficient": "SELECT COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "baseline": "SELECT MAX(assigned_total) AS fixed_assigned_baseline \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "size": "SELECT cluster_label AS cluster_label, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(assigned_total), 0) AS pct_of_fixed_6038 \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (3) AND (status = 'assigned') GROUP BY cluster_label ORDER BY ROW(MIN(cluster_label)) ASC \n LIMIT 1000;\n\n",
+        "model": "SELECT model_version AS model_version, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table GROUP BY model_version ORDER BY ROW(MIN(model_version)) ASC \n LIMIT 1000;\n\n",
+        "heatmap": "SELECT genre_name AS genre_name, cluster_label AS cluster_label, MAX(mean_preference) AS mean_preference \nFROM (-- Grain: cluster x genre in the single active+valid model. No user join.\n-- Precomputed positive-rating preference, NOT recomputed by demographic filters.\nSELECT cluster_id, genre_name, mean_preference, n_users, model_version,\n       CASE cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller' END AS cluster_label\nFROM analytics.v_active_cluster_genre_profile\n) AS virtual_table \nWHERE cluster_id IN (3) GROUP BY genre_name, cluster_label ORDER BY genre_name ASC, cluster_label ASC \n LIMIT 1000;\n\n",
+        "gender": "SELECT cluster_label AS cluster_label, gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_gender_n) AS baseline_gender_users, 100.0 * MAX(baseline_gender_n) / MAX(assigned_total) AS baseline_gender_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (3) AND (status = 'assigned') GROUP BY cluster_label, gender ORDER BY ROW(MIN(cluster_label), MIN(gender)) ASC \n LIMIT 1000;\n\n",
+        "baseline_gender": "SELECT gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY gender ORDER BY gender ASC \n LIMIT 1000;\n\n",
+        "age": "SELECT cluster_label AS cluster_label, age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_age_n) AS baseline_age_users, 100.0 * MAX(baseline_age_n) / MAX(assigned_total) AS baseline_age_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (3) AND (status = 'assigned') GROUP BY cluster_label, age_group ORDER BY ROW(MIN(cluster_label), MIN(age_group)) ASC \n LIMIT 1000;\n\n",
+        "baseline_age": "SELECT age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY age_group ORDER BY age_group ASC \n LIMIT 1000;\n\n"
+      }
+    },
+    {
+      "case": "cluster_1_age25_34_female",
+      "status": "PASS",
+      "cluster": [
+        1
+      ],
+      "age_group": [
+        "25-34"
+      ],
+      "gender": [
+        "F"
+      ],
+      "assigned": 170,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 18,
+      "actual_aggregates": {
+        "assigned": [
+          {
+            "assigned_users": 170
+          }
+        ],
+        "insufficient": [
+          {
+            "insufficient_users": 2
+          }
+        ],
+        "baseline": [
+          {
+            "fixed_assigned_baseline": 6038
+          }
+        ],
+        "size": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "assigned_users": 170,
+            "pct_of_fixed_6038": 2.8155018217952965
+          }
+        ],
+        "model": [
+          {
+            "model_version": "kmeans_k4_seed42",
+            "assigned_users": 6038,
+            "insufficient_users": 2
+          }
+        ],
+        "heatmap": [
+          {
+            "genre_name": "Action",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0628637866744523
+          },
+          {
+            "genre_name": "Adventure",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.027301861292870065
+          },
+          {
+            "genre_name": "Animation",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.010942878656515545
+          },
+          {
+            "genre_name": "Children's",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.016558397598863232
+          },
+          {
+            "genre_name": "Comedy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.14883740505763784
+          },
+          {
+            "genre_name": "Crime",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.05066040372026482
+          },
+          {
+            "genre_name": "Documentary",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.008503021007568145
+          },
+          {
+            "genre_name": "Drama",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.3428462139020109
+          },
+          {
+            "genre_name": "Fantasy",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.007213797801686972
+          },
+          {
+            "genre_name": "Film-Noir",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014651188353456641
+          },
+          {
+            "genre_name": "Horror",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.013483965015758765
+          },
+          {
+            "genre_name": "Musical",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.014829596230321172
+          },
+          {
+            "genre_name": "Mystery",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.02380509939251054
+          },
+          {
+            "genre_name": "Romance",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.08434124082364364
+          },
+          {
+            "genre_name": "Sci-Fi",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.029852360024518867
+          },
+          {
+            "genre_name": "Thriller",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.0821819421208289
+          },
+          {
+            "genre_name": "War",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.053527441695708396
+          },
+          {
+            "genre_name": "Western",
+            "cluster_label": "1 · Drama / tình cảm",
+            "mean_preference": 0.00759940063138321
+          }
+        ],
+        "gender": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "gender": "F",
+            "assigned_users": 170,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.203876525484565,
+            "baseline_gender_users": 1709,
+            "baseline_gender_pct": 28.30407419675389
+          }
+        ],
+        "baseline_gender": [
+          {
+            "gender": "F",
+            "assigned_users": 1709
+          },
+          {
+            "gender": "M",
+            "assigned_users": 4329
+          }
+        ],
+        "age": [
+          {
+            "cluster_label": "1 · Drama / tình cảm",
+            "age_group": "25-34",
+            "assigned_users": 170,
+            "original_cluster_users": 1393,
+            "pct_of_original_cluster": 12.203876525484565,
+            "baseline_age_users": 2096,
+            "baseline_age_pct": 34.71348128519377
+          }
+        ],
+        "baseline_age": [
+          {
+            "age_group": "18-24",
+            "assigned_users": 1103
+          },
+          {
+            "age_group": "25-34",
+            "assigned_users": 2096
+          },
+          {
+            "age_group": "35-44",
+            "assigned_users": 1192
+          },
+          {
+            "age_group": "45-49",
+            "assigned_users": 550
+          },
+          {
+            "age_group": "50-55",
+            "assigned_users": 496
+          },
+          {
+            "age_group": "56+",
+            "assigned_users": 379
+          },
+          {
+            "age_group": "Under 18",
+            "assigned_users": 222
+          }
+        ]
+      },
+      "generated_queries": {
+        "assigned": "SELECT COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (1) AND age_group IN ('25-34') AND gender IN ('F') \n LIMIT 1000;\n\n",
+        "insufficient": "SELECT COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "baseline": "SELECT MAX(assigned_total) AS fixed_assigned_baseline \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \n LIMIT 1000;\n\n",
+        "size": "SELECT cluster_label AS cluster_label, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(assigned_total), 0) AS pct_of_fixed_6038 \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (1) AND age_group IN ('25-34') AND gender IN ('F') AND (status = 'assigned') GROUP BY cluster_label ORDER BY ROW(MIN(cluster_label)) ASC \n LIMIT 1000;\n\n",
+        "model": "SELECT model_version AS model_version, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, COUNT(*) FILTER(WHERE status = 'insufficient_evidence') AS insufficient_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table GROUP BY model_version ORDER BY ROW(MIN(model_version)) ASC \n LIMIT 1000;\n\n",
+        "heatmap": "SELECT genre_name AS genre_name, cluster_label AS cluster_label, MAX(mean_preference) AS mean_preference \nFROM (-- Grain: cluster x genre in the single active+valid model. No user join.\n-- Precomputed positive-rating preference, NOT recomputed by demographic filters.\nSELECT cluster_id, genre_name, mean_preference, n_users, model_version,\n       CASE cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller' END AS cluster_label\nFROM analytics.v_active_cluster_genre_profile\n) AS virtual_table \nWHERE cluster_id IN (1) GROUP BY genre_name, cluster_label ORDER BY genre_name ASC, cluster_label ASC \n LIMIT 1000;\n\n",
+        "gender": "SELECT cluster_label AS cluster_label, gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_gender_n) AS baseline_gender_users, 100.0 * MAX(baseline_gender_n) / MAX(assigned_total) AS baseline_gender_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (1) AND age_group IN ('25-34') AND gender IN ('F') AND (status = 'assigned') GROUP BY cluster_label, gender ORDER BY ROW(MIN(cluster_label), MIN(gender)) ASC \n LIMIT 1000;\n\n",
+        "baseline_gender": "SELECT gender AS gender, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY gender ORDER BY gender ASC \n LIMIT 1000;\n\n",
+        "age": "SELECT cluster_label AS cluster_label, age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users, MAX(original_cluster_n) AS original_cluster_users, 100.0 * COUNT(*) FILTER(WHERE status = 'assigned') / NULLIF(MAX(original_cluster_n), 0) AS pct_of_original_cluster, MAX(baseline_age_n) AS baseline_age_users, 100.0 * MAX(baseline_age_n) / MAX(assigned_total) AS baseline_age_pct \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE cluster_id IN (1) AND age_group IN ('25-34') AND gender IN ('F') AND (status = 'assigned') GROUP BY cluster_label, age_group ORDER BY ROW(MIN(cluster_label), MIN(age_group)) ASC \n LIMIT 1000;\n\n",
+        "baseline_age": "SELECT age_group AS age_group, COUNT(*) FILTER(WHERE status = 'assigned') AS assigned_users \nFROM (-- Grain: one original user in the single active+valid model, including insufficient.\n-- Window denominators are computed BEFORE outer native filters.\nSELECT c.user_id, c.cluster_id, c.status, c.model_version, u.gender, u.age_group,\n       CASE c.cluster_id\n         WHEN 0 THEN '0 · Đa dạng / cân bằng'\n         WHEN 1 THEN '1 · Drama / tình cảm'\n         WHEN 2 THEN '2 · Comedy'\n         WHEN 3 THEN '3 · Action / Sci-Fi / Thriller'\n         ELSE 'Thiếu bằng chứng' END AS cluster_label,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER () AS assigned_total,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY c.cluster_id) AS original_cluster_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.gender) AS baseline_gender_n,\n       COUNT(*) FILTER (WHERE c.status='assigned') OVER (PARTITION BY u.age_group) AS baseline_age_n\nFROM analytics.v_active_user_cluster c\nJOIN dw.v_ml_users u USING (user_id)\n) AS virtual_table \nWHERE (status = 'assigned') GROUP BY age_group ORDER BY age_group ASC \n LIMIT 1000;\n\n"
+      }
+    }
+  ],
+  "code_sha256": {
+    "dashboard/preferences/bi_grants.sql": "aa79e2920f9039acfbc6e5d63e62f0873331e0d2e9ade55d54a75e412a3698c3",
+    "dashboard/preferences/create_preferences.py": "e736d3393ef20adc3308bfe88979e3c1b7a986495d03dbc521c978f7cd0cfc22",
+    "dashboard/preferences/prepare.py": "8f23f2dd999970dbca13f7169b2be40a49d336fd43135a3d9b1c9c826448650f",
+    "dashboard/preferences/profile_dataset.sql": "c7c120a2111f6dba3a015521482b85f48d38751c6da71d01d63193c16a543917",
+    "dashboard/preferences/reconcile.py": "e64d9dd0205e4e1e133a118f487a13493820d4c18b1e25e93bc648efb1f43636",
+    "dashboard/preferences/users_dataset.sql": "48ade8baa2d9df7d27fcac35b643777fd54353aa9bee255066e3f11f87e896d0"
+  },
+  "engine": {
+    "engine_role": "movielens_bi_reader",
+    "engine_timezone": "UTC"
+  },
+  "existing_dashboards_live": {
+    "11A_all": [
+      {
+        "rating_count": 1000209
+      }
+    ],
+    "11A_Q3_2000": [
+      {
+        "rating_count": 324864
+      }
+    ],
+    "11C_all": [
+      {
+        "quarter_label": "2000 Q2",
+        "rating_count": 133319
+      },
+      {
+        "quarter_label": "2000 Q3",
+        "rating_count": 324864
+      },
+      {
+        "quarter_label": "2000 Q4",
+        "rating_count": 446574
+      },
+      {
+        "quarter_label": "2001 Q1",
+        "rating_count": 32223
+      },
+      {
+        "quarter_label": "2001 Q2",
+        "rating_count": 15091
+      },
+      {
+        "quarter_label": "2001 Q3",
+        "rating_count": 12296
+      },
+      {
+        "quarter_label": "2001 Q4",
+        "rating_count": 8448
+      },
+      {
+        "quarter_label": "2002 Q1",
+        "rating_count": 8166
+      },
+      {
+        "quarter_label": "2002 Q2",
+        "rating_count": 6385
+      },
+      {
+        "quarter_label": "2002 Q3",
+        "rating_count": 5309
+      },
+      {
+        "quarter_label": "2002 Q4",
+        "rating_count": 4186
+      },
+      {
+        "quarter_label": "2003 Q1",
+        "rating_count": 3348
+      }
+    ],
+    "11C_Q1_2001": [
+      {
+        "quarter_label": "2001 Q1",
+        "rating_count": 32223
+      }
+    ],
+    "11C_Animation_Q1_2001": [
+      {
+        "quarter_label": "2001 Q1",
+        "genre_name": "Animation",
+        "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+        "rank_interpretation": "Hạng 1: giảm ít nhất",
+        "rating_count": 1715,
+        "previous_rating_count": 20068,
+        "genre_assignment_total": 63335,
+        "genre_share_pct": 2.7078234783295176,
+        "qoq_pct": -91.45405620888978,
+        "growth_rank": 1
+      }
+    ]
+  },
+  "duration_seconds": 40.047,
+  "all_19_existing_objects_unchanged": true,
+  "staging_dw_model_unchanged": true,
+  "cluster_sizes": {
+    "0": 2478,
+    "1": 1393,
+    "2": 760,
+    "3": 1407
+  },
+  "fixed_gender_baseline": {
+    "F": 1709,
+    "M": 4329
+  },
+  "fixed_age_baseline": {
+    "18-24": 1103,
+    "25-34": 2096,
+    "35-44": 1192,
+    "45-49": 550,
+    "50-55": 496,
+    "56+": 379,
+    "Under 18": 222
+  },
+  "p2_intake_status": "NOT_CONFIRMED",
+  "package_unchanged": true
+}

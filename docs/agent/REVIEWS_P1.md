@@ -1,5 +1,17 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận 11B-2, giao 11B-3 — 20/10/2026
+
+Nguồn là thông báo điều phối được người dùng chuyển trong chat, trích nguyên văn phần chấp nhận:
+
+> Điều phối chấp nhận 11B-2 sau review code, unit test,
+> artifact hash và truy vấn hậu kiểm DB thực tế.
+
+Đây là review của điều phối, không đổi thành lời duyệt trực tiếp của người dùng hoặc trạng thái MERGED. Được checkpoint cục bộ11B-2; đã thực hiện f663dcb4143202dac0835e4d5168e1b8558a6463, chưa push/PR. Run/hash/provenance11B-2 lịch sử không sửa.
+
+11B-3 dashboard3 thực, SQL/API/UI3tổhợp đạt; quyềnBI7view/noDML, model/nguồn/19object11A11C giữ nguyên; fixtureREADONLY/JSON/AST/hash/ignore đạt. Run09782a8ea2094b6bbd7c32cc4a2cdb03,35.422s. GiữFAILcheckerJSONserialization và cácPASS. Kết quả mới **11B-3 WAITING_REVIEW**, chưa có điều phối duyệt, chưacommit/dashboardpushPR/exportimport. Giới hạn và bằng chứng trong docs/P1/preferences_handoff.md; P2G2intakeNOT_CONFIRMED.
+
+
 ## 11B-2 — Nạp production xong, WAITING_REVIEW
 
 Nguồn người dùng chuyển: điều phối chấp nhận11B-1 và giao11B-2, cho phép3bảnganalytics, checkpointcục bộ, khôngpushPR/dashboard/export. Đây là phê duyệt11B-1 và ủy quyền thao tác, **không phải lời duyệt kết quả11B-2 do agent tạo**. Code/test/checks31unit/8integration đạt; apply4648f191 COMMITTED,0dec3918 COMMITTED_NO_OP, hậu kiểmRO/canonical/profile/registered_at/nguồn/BI/dashboardđạt. Gói frozen đãkiểmnhận khôngđổi. GiữFAILlịchsử. Bàn giao docs/P1/g3_load.md;11B-2WAITING_REVIEW, dừng.

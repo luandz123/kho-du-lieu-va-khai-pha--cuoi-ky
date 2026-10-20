@@ -1,0 +1,172 @@
+{
+  "step": "11B-3",
+  "status": "WAITING_REVIEW",
+  "at_utc": "2026-10-20T09:34:32.980547+00:00",
+  "branch": "p1-s11b-cluster-intake",
+  "head_checkpoint_11b2": "f663dcb4143202dac0835e4d5168e1b8558a6463",
+  "dashboard_code_state": "WORKING_TREE_NOT_COMMITTED",
+  "checkpoint_11b2_accepted_source": "Coordinator review conveyed by user; not a fabricated user approval",
+  "url": "http://127.0.0.1:8089/superset/dashboard/3/",
+  "ids": {
+    "database": 1,
+    "charts": {
+      "assigned": 14,
+      "insufficient": 15,
+      "baseline": 16,
+      "size": 17,
+      "model": 18,
+      "heatmap": 19,
+      "gender": 20,
+      "baseline_gender": 21,
+      "age": 22,
+      "baseline_age": 23
+    },
+    "users": 5,
+    "profile": 6,
+    "dashboard": 3
+  },
+  "reconciliation_run_id": "09782a8ea2094b6bbd7c32cc4a2cdb03",
+  "duration_seconds": 35.422,
+  "runtime_code_sha256": {
+    "dashboard/preferences/bi_grants.sql": "aa79e2920f9039acfbc6e5d63e62f0873331e0d2e9ade55d54a75e412a3698c3",
+    "dashboard/preferences/create_preferences.py": "0e2a4e154ecaf632391fe2608171d71f404e9f2913db97df24802d2c7f449ab5",
+    "dashboard/preferences/prepare.py": "8f23f2dd999970dbca13f7169b2be40a49d336fd43135a3d9b1c9c826448650f",
+    "dashboard/preferences/profile_dataset.sql": "c7c120a2111f6dba3a015521482b85f48d38751c6da71d01d63193c16a543917",
+    "dashboard/preferences/reconcile.py": "e64d9dd0205e4e1e133a118f487a13493820d4c18b1e25e93bc648efb1f43636",
+    "dashboard/preferences/users_dataset.sql": "48ade8baa2d9df7d27fcac35b643777fd54353aa9bee255066e3f11f87e896d0",
+    "dashboard/preferences/verify.py": "fb5da65a63e2397834f47159d0667669cb88ad3520ed799e096299e0b6743664"
+  },
+  "runtime_hash_note": "Immutable runtime snapshot. verify.py later changed only JSON layout comparison; final artifact hashes separate. No SQL/metric/filter changes after this run.",
+  "cases": [
+    {
+      "case": "all",
+      "status": "PASS",
+      "assigned": 6038,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 72
+    },
+    {
+      "case": "cluster_3",
+      "status": "PASS",
+      "assigned": 1407,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 18
+    },
+    {
+      "case": "cluster_1_age25_34_female",
+      "status": "PASS",
+      "assigned": 170,
+      "insufficient_fixed": 2,
+      "baseline_fixed": 6038,
+      "heatmap_cells": 18
+    }
+  ],
+  "ui_evidence": [
+    "ui_all.json",
+    "ui_cluster3.json",
+    "ui_demographic.json",
+    "ui_all_dashboard.jpg",
+    "ui_cluster3_heatmap.jpg",
+    "ui_demographic_top.jpg",
+    "ui_demographic_baseline.jpg"
+  ],
+  "ui_review": "Three actual native-filter cases inspected; applied-filter counts on demographic case are 3 for user charts, 1 for heatmap, 0 for fixed KPIs/baseline. Viewport reset after desktop validation.",
+  "registry": {
+    "version": "kmeans_k4_seed42",
+    "active": true,
+    "valid_for_dw": true,
+    "registered_at": "2026-10-20T09:00:37.98601+00:00",
+    "model_created_at": "2026-10-20T08:32:23.015413+00:00"
+  },
+  "producer_commit": "bab0b4049d4e0b1724418b8a92d8afbeda4bc775",
+  "package_sha256": {
+    "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+    "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d",
+    "manifest.json": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0"
+  },
+  "source_and_registry_unchanged": true,
+  "existing_19_business_objects_unchanged": true,
+  "engine": {
+    "engine_role": "movielens_bi_reader",
+    "engine_timezone": "UTC"
+  },
+  "new_privileges": "USAGE dw/analytics and SELECT exact three additional views; no write/schema-wide SELECT",
+  "bi_read_only_project_data": true,
+  "public_temp_remains": true,
+  "containers": [
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    },
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    }
+  ],
+  "p2_intake_status": "NOT_CONFIRMED",
+  "fixture": "READ ONLY VALUES; no production analytics write",
+  "checks": [
+    "Independent aggregate SQL vs actual Superset chart/data for 3 cases",
+    "Actual UI three native-filter combinations with screenshots",
+    "Existing 11A/11C config preservation and filtered live API queries",
+    "All source/model table count+ordered row fingerprints unchanged",
+    "Frozen package byte hashes and unchanged producer identity",
+    "Effective BI privilege check from container and actual Superset engine identity",
+    "Python AST, JSON, secret-pattern, trailing-space and ignore checks",
+    "git diff --check and empty index"
+  ],
+  "historical_failure": "verification_FAIL_position_serialization.json retained; parsed layouts identical, checker corrected",
+  "limits": [
+    "PUBLIC TEMP remains",
+    "Three-dashboard export/import/restore not performed",
+    "No two-machine connectivity or P2 intake evidence",
+    "No fresh full refresh with S07 helper/G3",
+    "Narrow panels require table horizontal scrolling; desktop heatmap verified at 1280x900"
+  ],
+  "no_dashboard_commit_push_pr": true,
+  "no_apply_etl_ddl_export_import": true,
+  "files_this_turn": [
+    "dashboard/preferences/bi_grants.sql",
+    "dashboard/preferences/chart_definitions.json",
+    "dashboard/preferences/create_preferences.py",
+    "dashboard/preferences/dashboard_definition.json",
+    "dashboard/preferences/dashboard_observed.json",
+    "dashboard/preferences/evidence/before.json",
+    "dashboard/preferences/evidence/bi_reader.json",
+    "dashboard/preferences/evidence/existing_after.json",
+    "dashboard/preferences/evidence/fixture.json",
+    "dashboard/preferences/evidence/reconciliation.json",
+    "dashboard/preferences/evidence/reconciliation_43d0d4020ed943c38e8cc8cb451292ae.json",
+    "dashboard/preferences/evidence/ui_all.json",
+    "dashboard/preferences/evidence/ui_all_age.jpg",
+    "dashboard/preferences/evidence/ui_all_dashboard.jpg",
+    "dashboard/preferences/evidence/ui_all_top.jpg",
+    "dashboard/preferences/evidence/ui_cluster3.json",
+    "dashboard/preferences/evidence/ui_cluster3_heatmap.jpg",
+    "dashboard/preferences/evidence/ui_demographic.json",
+    "dashboard/preferences/evidence/ui_demographic_baseline.jpg",
+    "dashboard/preferences/evidence/ui_demographic_top.jpg",
+    "dashboard/preferences/evidence/verification.json",
+    "dashboard/preferences/evidence/verification_FAIL_position_serialization.json",
+    "dashboard/preferences/object_ids.json",
+    "dashboard/preferences/prepare.py",
+    "dashboard/preferences/profile_dataset.sql",
+    "dashboard/preferences/README.md",
+    "dashboard/preferences/reconcile.py",
+    "dashboard/preferences/users_dataset.sql",
+    "dashboard/preferences/verify.py",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S11.md",
+    "docs/P1/preferences_handoff.md",
+    "tests/warehouse/check_preferences_fixture.py"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": {
+    "session_read_only": true,
+    "filtered_count": 1,
+    "fixed_assigned_denominator": 4,
+    "original_cluster_denominator": 3,
+    "fixed_gender_baseline": 2,
+    "selected_share_pct": 25.0,
+    "cluster_share_pct": 33.333333333333336,
+    "profile_genres": 2,
+    "true_users": 3,
+    "sum_repeated_n_users_is_wrong": 6
+  },
+  "production_writes": false
+}
