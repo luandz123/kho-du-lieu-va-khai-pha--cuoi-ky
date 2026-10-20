@@ -6,8 +6,8 @@
 - **Hệ điều hành**: Linux Ubuntu 24.04.1 LTS (Kernel `6.14.0-37-generic`, x86_64)
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
-- **Nhánh Git hiện tại**: `p2-s08-g3-publication-fix`
-- **Thời điểm cập nhật**: 2026-10-18 22:38:00 +07:00
+- **Nhánh Git hiện tại**: `codex/p2-s09-evaluation`
+- **Thời điểm cập nhật**: 2026-10-19 22:45:00 +07:00
 
 ---
 
@@ -21,10 +21,10 @@
 | **Bước 3A-P2**| Nhận mốc G0 & Xác nhận hợp đồng dữ liệu v2 | `APPROVED` | Duyệt lúc 17:38:48 ngày 15/10/2026. Lời duyệt lưu tại REVIEWS_P2.md. |
 | **Bước 3** | EDA, Adapter & Bàn giao G1 | `MERGED` | PR #5 (head `b73c8e2`) đã được điều phối review và merge vào `main` (commit `a8d2615`). 23/23 tests passed trên Windows. |
 | **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `MERGED` | PR [#8](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/8) đã được điều phối review và merge vào `main` (commit `52dd682`). 27/27 tests passed. |
-| **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `WAITING_REVIEW` | Nhánh `p2-s08-g3-publication-fix`. Đã giải quyết triệt để lỗi thứ tự xuất bản: tạo dữ liệu, serialize bytes CSV và dựng manifest trong bộ nhớ; kiểm tra tính nhất quán gói cũ trên đĩa; kiểm tra chống tái sử dụng version với payload xung đột; công bố nguyên tử qua thư mục tạm trung gian; bảo toàn 100% byte gói cũ khi từ chối; 43/43 tests passed (gồm 5 regression tests mới). Chuẩn bị PR. |
-
-| **Bước 9** | Khai phá dữ liệu Q2: Temporal Split & Baseline | `NOT_STARTED` | Chờ Bước 8 hoàn thành. |
-| **Bước 10** | Khai phá dữ liệu Q2: Item-based CF & CLI | `NOT_STARTED` | Chờ Bước 9 hoàn thành. |
+| **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `MERGED` | PR [#12](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/12) đã được điều phối review và merge vào `main` (commit `be8c889`). 16/16 test clustering đạt. Đã chỉnh docstring cam kết xuất bản theo nguyên tử từng file. |
+| **Bước 9A** | Q2: Phép chia thời gian & Giao thức đánh giá | `WAITING_REVIEW` | Nhánh `codex/p2-s09-evaluation`. Mốc $t_1=974862386$ (70%), $t_2=976422051$ (85%). Đã xuất `split_manifest.json`, viết `evaluation_protocol.md`. Phân định rõ 36/9/3 phim mới; 52/52 tests passed (8/8 tests split & eval). Mở PR vào `main` để review code; không tự merge; chưa chạy baseline trên dữ liệu thật, chưa thử k, chưa huấn luyện CF hoặc test. |
+| **Bước 9B** | Q2: Popularity Baseline trên Validation | `NOT_STARTED` | Chờ điều phối duyệt PR 9A. Fit train, đánh giá validation. |
+| **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `NOT_STARTED` | Thử $k \in \{20, 40, 80\}$ trên validation, chốt $k^*$, fit Train+Val, đánh giá test 1 lần duy nhất. |
 
 
 ---

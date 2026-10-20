@@ -63,13 +63,15 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 
 ---
 
-### [DEC-P2-009] Xuất bản nguyên tử (Atomic Publication) và bảo toàn gói G3 chống phá hủy khi kiểm tra thất bại
-- **Bối cảnh**: Điều phối viên phát hiện lỗi thứ tự trong `export_g3_handoff_package`: hai tệp CSV được ghi trực tiếp vào thư mục đích trước khi kiểm tra hash đóng băng. Khi truyền nhãn hoán vị, hàm ném `ValueError` nhưng hai CSV đích đã bị thay thế, làm mất tính toàn vẹn và phá hỏng gói cũ.
-- **Quyết định**:
-  1. Toàn bộ quá trình tạo DataFrame, chuyển đổi sang chuỗi byte CSV, tính băm SHA-256 và dựng cấu trúc `manifest` được thực hiện 100% trong bộ nhớ trước khi chạm vào bất kỳ tệp nào của gói đích.
-  2. Thực hiện nghiêm ngặt kiểm tra tính nhất quán nội bộ của gói đã tồn tại trên đĩa (tồn tại đầy đủ CSV + manifest, parse JSON hợp lệ, checksum trên đĩa khớp với manifest). Tuyệt đối không âm thầm bỏ qua manifest hỏng để ghi đè.
-  3. Kiểm tra chống tái sử dụng version: cùng `model_version` nhưng payload (mã băm CSV dự kiến) hoặc `canonical_hashes` khác biệt với gói đang có phải bị từ chối ngay lập tức trước khi ghi.
-  4. Chỉ công bố (publish) khi mọi kiểm tra contract, fingerprint và checksum đều đạt: ghi các tệp vào thư mục tạm trung gian (`tempfile.TemporaryDirectory`) rồi thay thế nguyên tử (`os.replace`). Nếu kiểm tra thất bại ở bất kỳ khâu nào, gói cũ trên đĩa giữ nguyên 100% từng byte, và thư mục chưa tồn tại không để lại bất kỳ tệp dở dang nào.
+### [DEC-P2-009] Xuất bản nguyên tử theo từng tệp (Per-file Atomic Publication) và bảo toàn gói G3
+- **Bối cảnh**: Điều phối viên phát hiện lỗi thứ tự trong `export_g3_handoff_package`: hai tệp CSV ban đầu bị ghi trực tiếp vào thư mục đích trước khi kiểm tra hash đóng băng, khiến việc xuất với nhãn hoán vị làm hỏng hai CSV đích dù hàm báo `ValueError`. Đồng thời, ba lệnh `os.replace` nối tiếp chỉ đảm bảo tính nguyên tử ở cấp độ từng tệp riêng biệt trên filesystem POSIX chứ không phải giao dịch nguyên tử liên tệp (multi-file atomic transaction).
+- **Quyết định & Cam kết kỹ thuật**:
+  1. **Bảo toàn khi validation thất bại:** Toàn bộ DataFrame, chuỗi byte CSV, mã băm SHA-256 và cấu trúc `manifest` được dựng và kiểm tra 100% trong bộ nhớ trước khi sửa bất kỳ tệp nào của gói đích. Nếu kiểm tra thất bại ở giai đoạn này, gói cũ trên đĩa giữ nguyên 100% từng byte, và thư mục chưa tồn tại không để lại bất kỳ tệp dở dang nào.
+  2. **Nguyên tử từng tệp qua Staging:** Sau khi kiểm tra đạt, tệp được ghi vào thư mục staging tạm thời (`tempfile.TemporaryDirectory`) rồi thay thế nguyên tử từng tệp (`os.replace`).
+  3. **Giới hạn I/O và sự cố giữa chừng:** Do ba lệnh `os.replace` diễn ra tuần tự, nếu có lỗi I/O hoặc gián đoạn tiến trình giữa các lần replace (ví dụ replace thành công CSV nhưng chưa kịp replace manifest), thư mục đích có thể rơi vào trạng thái không nhất quán. Hệ thống không có cơ chế tự động rollback liên tệp.
+  4. **Quy định đối với bên nhận (Downstream Receiver / Person 1 / Analytics):** Bên nhận bắt buộc phải kiểm tra sự tồn tại của `manifest.json` và xác thực đủ cả hai mã băm SHA-256 của `user_cluster.csv` và `cluster_genre_profile.csv` trước khi nạp vào analytics/kho dữ liệu. Nếu phát hiện gói hỏng hoặc checksum không khớp, phải dừng quy trình và tái tạo sang thư mục mới hoàn toàn, đồng thời giữ nguyên thư mục lỗi để kiểm toán.
+  5. **Chống tái sử dụng gói không nhất quán:** Nếu một gói bị hỏng dở dang do lỗi I/O, lần xuất tiếp theo vào thư mục đó sẽ bị cơ chế pre-flight integrity check từ chối ngay lập tức (báo checksum mismatch / corrupted package), tuyệt đối không âm thầm tiếp tục sử dụng hay ghi đè.
+  6. **Phạm vi kỹ thuật:** Chưa cần mở rộng sang cơ chế giao dịch filesystem đa tệp phức tạp hoặc chịu mất điện đột ngột.
 
 
 
