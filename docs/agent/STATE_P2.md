@@ -7,7 +7,7 @@
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
 - **Nhánh Git hiện tại**: `codex/p2-s09-evaluation`
-- **Thời điểm cập nhật**: 2026-10-19 22:45:00 +07:00
+- **Thời điểm cập nhật**: 2026-10-20 16:30:00 +07:00
 
 ---
 
@@ -22,8 +22,8 @@
 | **Bước 3** | EDA, Adapter & Bàn giao G1 | `MERGED` | PR #5 (head `b73c8e2`) đã được điều phối review và merge vào `main` (commit `a8d2615`). 23/23 tests passed trên Windows. |
 | **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `MERGED` | PR [#8](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/8) đã được điều phối review và merge vào `main` (commit `52dd682`). 27/27 tests passed. |
 | **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `MERGED` | PR [#12](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/12) đã được điều phối review và merge vào `main` (commit `be8c889`). 16/16 test clustering đạt. Đã chỉnh docstring cam kết xuất bản theo nguyên tử từng file. |
-| **Bước 9A** | Q2: Phép chia thời gian & Giao thức đánh giá | `WAITING_REVIEW` | Nhánh `codex/p2-s09-evaluation`. Mốc $t_1=974862386$ (70%), $t_2=976422051$ (85%). Đã xuất `split_manifest.json`, viết `evaluation_protocol.md`. Phân định rõ 36/9/3 phim mới; 52/52 tests passed (8/8 tests split & eval). Đã mở PR [#16](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/16) vào `main` để review code; không tự merge; chưa chạy baseline trên dữ liệu thật, chưa thử k, chưa huấn luyện CF hoặc test. |
-| **Bước 9B** | Q2: Popularity Baseline trên Validation | `NOT_STARTED` | Chờ điều phối duyệt PR 9A. Fit train, đánh giá validation. |
+| **Bước 9A** | Q2: Phép chia thời gian & Giao thức đánh giá | `MERGED` | PR [#16](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/16) đã merge vào `main` tại commit `afeeec0`. 52/52 tests passed. Rà soát độc lập khớp toàn bộ count, mốc UTC và cohort 471. |
+| **Bước 9B** | Q2: Popularity Baseline trên Validation | `WAITING_REVIEW` | Nhánh `codex/p2-s09-evaluation`. Đã mở PR [#17](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/17) vào `main`. Fit popularity train, đánh giá cohort 471 validation: Macro-Precision@5 = 16.9851%, Macro-Recall@5 = 3.1261%, 400 hits. Candidate universe per user: min=2193, max=3628. Tỷ lệ loại 65.1627% (881/1352). Đã lưu `baseline_popularity_validation.json` và `test_evidence_s09b.txt`. Chưa thử k, chưa fit train+val, chưa test. Dừng chờ review trước Bước 10. |
 | **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `NOT_STARTED` | Thử $k \in \{20, 40, 80\}$ trên validation, chốt $k^*$, fit Train+Val, đánh giá test 1 lần duy nhất. |
 
 

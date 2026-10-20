@@ -73,5 +73,25 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   5. **Chống tái sử dụng gói không nhất quán:** Nếu một gói bị hỏng dở dang do lỗi I/O, lần xuất tiếp theo vào thư mục đó sẽ bị cơ chế pre-flight integrity check từ chối ngay lập tức (báo checksum mismatch / corrupted package), tuyệt đối không âm thầm tiếp tục sử dụng hay ghi đè.
   6. **Phạm vi kỹ thuật:** Chưa cần mở rộng sang cơ chế giao dịch filesystem đa tệp phức tạp hoặc chịu mất điện đột ngột.
 
+---
 
+### [DEC-P2-010] Khế ước Phép chia Thời gian và Giao thức Đánh giá Q2 (Tiểu bước 9A)
+- **Bối cảnh**: Dự án yêu cầu phân vùng thời gian toàn cục theo tỷ lệ 70% Train / 15% Validation / 15% Test để tránh rò rỉ dữ liệu tương lai (temporal data leakage). Đồng thời cần xác lập giao thức đánh giá offline cho bài toán Q2 Recommendation.
+- **Quyết định**:
+  1. Sử dụng phương pháp quantile tuyến tính trên mốc timestamp toàn cục để xác định $t_1 = 974862386$ (`2000-11-22T03:06:26Z`) và $t_2 = 976422051$ (`2000-12-10T04:20:51Z`).
+  2. Quy tắc hòa mốc (tie-breaking): toàn bộ rating có `timestamp == t1` thuộc về Train (700,148 ratings, 70.0002%); `timestamp == t2` thuộc về Validation (150,029 ratings, 14.9998%); và `timestamp > t2` thuộc về Test (150,032 ratings, 15.0001%).
+  3. Cohort đánh giá Validation: Lọc đúng các user có $\ge 5$ ratings trong Train và có ít nhất 1 rating $\ge 4$ trong kỳ Validation $\to$ xác định chính xác 471 user đủ điều kiện (eligible cohort), mã băm SHA-256 là `ba0f9648c46999712f4339a81f0b6c0cb45b4bd3bc5ad1184d8885e580fd101f`.
+  4. Mẫu số Recall@5: Tính trên toàn bộ số phim relevant ($rating \ge 4$) của người dùng trong kỳ đánh giá, bao gồm cả các phim mới (novel items) chưa từng xuất hiện trong tập Train.
+  5. Đóng băng khế ước tại `results/mining/split_manifest.json`.
 
+---
+
+### [DEC-P2-011] Giao thức Triển khai & Đánh giá Popularity Baseline (Tiểu bước 9B)
+- **Bối cảnh**: Cần một mô hình cơ sở (baseline) phi cá nhân hóa vững chắc để làm mốc quy chiếu cho thuật toán Item-based Collaborative Filtering ở Bước 10.
+- **Quyết định**:
+  1. **Huấn luyện:** Đếm toàn bộ số lượt rating (1–5 sao) trên tập Train ($timestamp \le t_1$) theo `movie_id`. Sắp xếp xác định: `rating_count DESC, movie_id ASC`. Tuyệt đối không sử dụng dữ liệu từ Validation hay Test, không áp dụng negative sampling.
+  2. **Candidate Universe theo từng user:** $\text{Candidate}(u) = \mathcal{I}_{\text{train}} \setminus \text{History}_{\text{train}}(u)$. Số lượng candidate không cố định mà dao động từ 2,193 đến 3,628 phim trên cohort 471 user.
+  3. **Gợi ý Top-5:** Loại bỏ toàn bộ phim người dùng đã đánh giá trong kỳ Train, lấy tối đa 5 phim đứng đầu danh sách thịnh hành còn lại của candidate universe. Danh sách gợi ý của từng user có thể khác nhau do sự khác biệt về lịch sử đã loại trừ.
+  4. **Kết quả Macro:** Đo đạc trên 471 user cohort validation đạt **Macro-Precision@5 = 16.9851%** và **Macro-Recall@5 = 3.1261%** (tổng 400 hits).
+  5. **Nguyên tắc diễn giải kỹ thuật:** Precision phản ánh tỷ lệ relevant trong Top 5 theo giao thức ngoại tuyến, không tương đương với xác suất người dùng ngẫu nhiên xem phim. Recall thấp là tổ hợp đa nhân tố (giới hạn Top 5, kích thước tập relevant lớn, tính chất đại chúng). Không kết luận mô hình CF tốt hơn baseline trước khi có kết quả thực nghiệm.
+  6. **Bảo mật & Cục bộ:** Giữ toàn bộ gợi ý chi tiết và metric per-user ngoài Git; chỉ xuất bản kết quả tổng hợp `results/mining/baseline_popularity_validation.json`.
