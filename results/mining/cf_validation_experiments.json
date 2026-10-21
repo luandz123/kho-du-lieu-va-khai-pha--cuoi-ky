@@ -1,0 +1,165 @@
+{
+  "contract_version": 2,
+  "model_name": "item_based_collaborative_filtering",
+  "evaluation_phase": "validation",
+  "recommendation_cutoff": 5,
+  "recommendation_top_n": 5,
+  "training_cutoff_timestamp": 974862386,
+  "evaluation_cutoff_timestamp": 976422051,
+  "thresholds": {
+    "t1": 974862386,
+    "t1_utc": "2000-11-22T03:06:26Z",
+    "t2": 976422051,
+    "t2_utc": "2000-12-10T04:20:51Z"
+  },
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "source_hashes": {
+    "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+    "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+    "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+    "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+  },
+  "provenance": {
+    "split_manifest_path": "results/mining/split_manifest.json",
+    "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "cf_code_sha256": "ca06474d37eeb8a70226b2a3f2d95789e46b93d90518b24b59a5cee4aec82234",
+    "config_hash": "d1bc01cfab27f1c37c43646c360e5d9b206ce1eb53b2172fea39520198cde248",
+    "matrix_dtype": "float32",
+    "batch_size": 500,
+    "cosine_normalization": "L2 unit norm per movie row: r_i' = r_i / ||r_i||_2, cosine similarity = (r_i' @ r_j'.T), diagonal set to 0.0, strictly positive similarities kept (sim > 0)",
+    "tie_breaking": {
+      "neighbor_selection": "similarity DESC, neighbor_movie_id ASC",
+      "recommendation_ranking": "score DESC, train_popularity DESC, movie_id ASC"
+    },
+    "timing_breakdown": {
+      "matrix_fit_seconds": 0.4548,
+      "neighbor_build_seconds": 5.4975,
+      "evaluation_runtime_seconds": {
+        "k_20": 0.3863,
+        "k_40": 0.6045,
+        "k_80": 0.9779
+      },
+      "total_runtime_seconds": 8.8493,
+      "explanation": "matrix_fit_seconds: time to construct sparse CSR matrix from train_df; neighbor_build_seconds: time to compute L2-normalized batched cosine similarities and extract top-80 positive neighbors; evaluation_runtime_seconds: time to generate Top-5 recommendations and evaluate metrics for the 471-user validation cohort per k; total_runtime_seconds: total execution time including verification, split, fit, neighbor build, and all evaluation runs."
+    },
+    "matrix_fitting_seconds": 5.9523,
+    "total_runtime_seconds": 8.8493,
+    "libraries": {
+      "scipy": "1.14.1",
+      "scikit_learn": "1.5.2",
+      "numpy": "2.0.2",
+      "pandas": "2.3.3"
+    }
+  },
+  "cohort": {
+    "evaluation_phase": "validation",
+    "eligible_cohort_size": 471,
+    "eligible_user_ids_hash": "ba0f9648c46999712f4339a81f0b6c0cb45b4bd3bc5ad1184d8885e580fd101f",
+    "total_active_eval_users": 1352,
+    "excluded_users_count": 881,
+    "exclusion_rate_percentage": 65.1627,
+    "candidate_universe_stats": {
+      "formula": "train_catalog - user_train_history",
+      "training_catalog_size": 3633,
+      "min_candidates_per_user": 2193,
+      "max_candidates_per_user": 3628
+    }
+  },
+  "experiments": {
+    "k_20": {
+      "neighbor_k": 20,
+      "k_neighbors": 20,
+      "recommendation_top_n": 5,
+      "recommendation_cutoff": 5,
+      "macro_precision_at_5": 0.17707,
+      "macro_recall_at_5": 0.02856537,
+      "macro_recall_at_5_unrounded": 0.02856536704222439,
+      "macro_precision_at_5_percentage": 17.707,
+      "macro_recall_at_5_percentage": 2.856537,
+      "total_hits": 417,
+      "total_evaluated_users": 471,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.3863,
+      "runtime_seconds": 0.3863
+    },
+    "k_40": {
+      "neighbor_k": 40,
+      "k_neighbors": 40,
+      "recommendation_top_n": 5,
+      "recommendation_cutoff": 5,
+      "macro_precision_at_5": 0.180042,
+      "macro_recall_at_5": 0.03007556,
+      "macro_recall_at_5_unrounded": 0.03007556334371585,
+      "macro_precision_at_5_percentage": 18.0042,
+      "macro_recall_at_5_percentage": 3.007556,
+      "total_hits": 424,
+      "total_evaluated_users": 471,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.6045,
+      "runtime_seconds": 0.6045
+    },
+    "k_80": {
+      "neighbor_k": 80,
+      "k_neighbors": 80,
+      "recommendation_top_n": 5,
+      "recommendation_cutoff": 5,
+      "macro_precision_at_5": 0.184289,
+      "macro_recall_at_5": 0.02866586,
+      "macro_recall_at_5_unrounded": 0.02866586314500013,
+      "macro_precision_at_5_percentage": 18.4289,
+      "macro_recall_at_5_percentage": 2.866586,
+      "total_hits": 434,
+      "total_evaluated_users": 471,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.9779,
+      "runtime_seconds": 0.9779
+    }
+  },
+  "best_configuration": {
+    "selected_k": 40,
+    "selection_metric": "unrounded_macro_recall_at_5",
+    "selection_rule": "Highest Macro-Recall@5 on validation cohort (unrounded); smaller k breaks ties",
+    "unrounded_macro_recall_at_5": 0.03007556334371585,
+    "metrics": {
+      "neighbor_k": 40,
+      "k_neighbors": 40,
+      "recommendation_top_n": 5,
+      "recommendation_cutoff": 5,
+      "macro_precision_at_5": 0.180042,
+      "macro_recall_at_5": 0.03007556,
+      "macro_recall_at_5_unrounded": 0.03007556334371585,
+      "macro_precision_at_5_percentage": 18.0042,
+      "macro_recall_at_5_percentage": 3.007556,
+      "total_hits": 424,
+      "total_evaluated_users": 471,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.6045,
+      "runtime_seconds": 0.6045
+    }
+  },
+  "baseline_comparison": {
+    "baseline_model": "popularity",
+    "baseline_metrics": {
+      "macro_precision_at_5": 0.169851,
+      "macro_recall_at_5": 0.031261,
+      "total_hits": 400
+    },
+    "best_cf_k": 40,
+    "best_cf_metrics": {
+      "macro_precision_at_5": 0.180042,
+      "macro_recall_at_5": 0.03007556,
+      "macro_recall_at_5_unrounded": 0.03007556334371585,
+      "total_hits": 424
+    },
+    "honest_technical_assessment": "Item-based CF with k*=40 achieves higher Macro-Precision@5 (0.180042 vs 0.169851, +1.0191 percentage points) and captures more total hits (424 vs 400) than the Popularity baseline on the 471-user validation cohort. However, Popularity baseline retains a slightly higher Macro-Recall@5 (0.031261 vs 0.030076, +0.001185). Recall@5 measures the fraction of validation relevant items (rating >= 4) recovered within Top-5 recommendations, and does NOT represent catalog coverage. Popularity baseline recommends ubiquitous blockbuster titles which happen to capture a broad fraction of validation interactions. The qualitative explanations regarding user taste niches versus popular blockbuster appeal remain working hypotheses until confirmed by dedicated genre or long-tail distribution analyses. The selection of k*=40 strictly adheres to the pre-established rule of highest unrounded Macro-Recall@5 on validation without altering criteria post-hoc, and without forcing CF to beat the baseline on all metrics."
+  }
+}

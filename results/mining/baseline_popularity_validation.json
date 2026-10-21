@@ -21,9 +21,9 @@
   "provenance": {
     "split_manifest_path": "results/mining/split_manifest.json",
     "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
-    "baseline_code_sha256": "5556040e418860d5f466138e56b85a169b8047c30c45fcbfc7778d76f400157d",
+    "baseline_code_sha256": "3854b4c17db5d34c74b58eb22b84a6e2dcddefde66f0af6609fe2ba5187a97c7",
     "config_hash": "d3ef5f96fdde482fd0c9cb997e06a529fd09247759cc0550d2293aaf6cad3611",
-    "runtime_seconds": 0.6428
+    "runtime_seconds": 0.5002
   },
   "cohort": {
     "evaluation_phase": "validation",
