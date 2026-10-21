@@ -1,5 +1,5 @@
 {
-  "at_utc": "2026-10-21T14:21:02.204339+00:00",
+  "at_utc": "2026-10-21T14:22:06.840225+00:00",
   "scope": "Current working-tree bytes for P1 publication; excludes self and private files. Historical ledgers kept, no run relabeled as published commit.",
   "files": {
     "README.md": "a2ef34c6e728147cf9f57a8360a614fbd5ba25e43d61b81f9ccba8543526094a",
@@ -39,8 +39,9 @@
     "docs/P1/integration_prep/component_inventory.json": "cd7472cc76422c48c76fad07d974e4f752c27bd42d245215eff513a3eb416fd3",
     "docs/P1/pr18_merged_observation.json": "af89f76c7e332805832fdf2511c0d6d45f972b000283f66ad78370712dbed621",
     "docs/P1/pre12a_publication/README.md": "09220903f726aaa4f33cfe114be5830fb8d32b173d9208410c210105c2c6f790",
+    "docs/P1/pre12a_publication/main_integration_observation.json": "d06c0f35bc2aeb62ccbab5ed8628406a17cef2527609a104f5c8bde32c496b27",
     "docs/P1/pre12a_publication/publication_FAIL_image_signature.json": "c453f0b67d8a344b5e10232536566d2e6e0245068d553c2265b4ee70dc408850",
-    "docs/P1/pre12a_publication/publication_audit.json": "2437ec2171e251d3d11c8c5b3ea3367d6f4a47cd42d41f4558c5909e763dbd7b",
+    "docs/P1/pre12a_publication/publication_audit.json": "9179e2bc1e5bd2d844e5a93180aff586bc20cc311842c0f37a8783b83836b1a1",
     "docs/agent/DECISIONS_P1.md": "08224a7d71bfb9c9b205b34924e096dc8aa13a581f271285657dc82be40985fb",
     "docs/agent/PROMPTS_P1.md": "c728c1e64ae5190ce8cf3e082e5d7e47263d1d95b5afda5a45f6e103ae58e51c",
     "docs/agent/REVIEWS_P1.md": "718ec5639febae3bcdcfa748fa51a19f5470a5e0b1e57d0e44753d94ba1c3c95",
