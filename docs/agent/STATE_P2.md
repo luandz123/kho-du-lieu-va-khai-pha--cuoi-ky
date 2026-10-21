@@ -6,8 +6,8 @@
 - **Hệ điều hành**: Linux Ubuntu 24.04.1 LTS (Kernel `6.14.0-37-generic`, x86_64)
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
-- **Nhánh Git hiện tại**: `codex/p2-s09-evaluation`
-- **Thời điểm cập nhật**: 2026-10-20 16:30:00 +07:00
+- **Nhánh Git hiện tại**: `codex/p2-s10-cf`
+- **Thời điểm cập nhật**: 2026-10-21 18:15:00 +07:00
 
 ---
 
@@ -23,8 +23,8 @@
 | **Bước 8A** | Q1: Trích xuất đặc trưng thể loại người dùng | `MERGED` | PR [#8](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/8) đã được điều phối review và merge vào `main` (commit `52dd682`). 27/27 tests passed. |
 | **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `MERGED` | PR [#12](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/12) đã được điều phối review và merge vào `main` (commit `be8c889`). 16/16 test clustering đạt. Đã chỉnh docstring cam kết xuất bản theo nguyên tử từng file. |
 | **Bước 9A** | Q2: Phép chia thời gian & Giao thức đánh giá | `MERGED` | PR [#16](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/16) đã merge vào `main` tại commit `afeeec0`. 52/52 tests passed. Rà soát độc lập khớp toàn bộ count, mốc UTC và cohort 471. |
-| **Bước 9B** | Q2: Popularity Baseline trên Validation | `WAITING_REVIEW` | Nhánh `codex/p2-s09-evaluation`. Đã mở PR [#17](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/17) vào `main`. Fit popularity train, đánh giá cohort 471 validation: Macro-Precision@5 = 16.9851%, Macro-Recall@5 = 3.1261%, 400 hits. Candidate universe per user: min=2193, max=3628. Tỷ lệ loại 65.1627% (881/1352). Đã lưu `baseline_popularity_validation.json` và `test_evidence_s09b.txt`. Chưa thử k, chưa fit train+val, chưa test. Dừng chờ review trước Bước 10. |
-| **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `NOT_STARTED` | Thử $k \in \{20, 40, 80\}$ trên validation, chốt $k^*$, fit Train+Val, đánh giá test 1 lần duy nhất. |
+| **Bước 9B** | Q2: Popularity Baseline trên Validation | `APPROVED` | PR [#17](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/17) đã merge tại commit `9fae38b`. Đã mở PR bổ sung [#19](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/19) (nhánh `codex/p2-s09-top5-fix`, cherry-pick `eeb1c12`) để đưa bản sửa khóa cứng Top-5 lên `main`. |
+| **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `10A WAITING_REVIEW` | Nhánh `codex/p2-s10-cf`. Fit Item-based CF trên Train ($\le t_1$), thực nghiệm $k \in \{20, 40, 80\}$ trên cohort 471 user Validation. Chọn $k^* = 40$ (unrounded Recall@5 = 0.030075563 cao nhất). Precision@5 = 18.0042%, Recall@5 = 3.0076%, 424 hits, fallback_rate = 0.0%. Đã lưu `cf_validation_experiments.json` và `test_evidence_s10a.txt` (7/7 CF tests, 39/39 model subset, 66/66 toàn bộ mining suite passed). Đóng gói mở PR 10A vào main phụ thuộc PR #19. Dừng chờ duyệt cấu hình trước pha đánh giá cuối (10B). |
 
 
 ---

@@ -95,3 +95,15 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   4. **Kết quả Macro:** Đo đạc trên 471 user cohort validation đạt **Macro-Precision@5 = 16.9851%** và **Macro-Recall@5 = 3.1261%** (tổng 400 hits).
   5. **Nguyên tắc diễn giải kỹ thuật:** Precision phản ánh tỷ lệ relevant trong Top 5 theo giao thức ngoại tuyến, không tương đương với xác suất người dùng ngẫu nhiên xem phim. Recall thấp là tổ hợp đa nhân tố (giới hạn Top 5, kích thước tập relevant lớn, tính chất đại chúng). Không kết luận mô hình CF tốt hơn baseline trước khi có kết quả thực nghiệm.
   6. **Bảo mật & Cục bộ:** Giữ toàn bộ gợi ý chi tiết và metric per-user ngoài Git; chỉ xuất bản kết quả tổng hợp `results/mining/baseline_popularity_validation.json`.
+
+---
+
+### [DEC-P2-012] Thiết Kế & Lựa Chọn Siêu Tham Số k Cho Item-based CF (Tiểu Bước 10A)
+- **Bối cảnh**: Triển khai thuật toán Item-based Collaborative Filtering trên tập Train và lựa chọn siêu tham số láng giềng $k \in \{20, 40, 80\}$ trên cohort 471 người dùng Validation trước khi tiến hành đánh giá Test ở Bước 10B.
+- **Quyết định**:
+  1. **Huấn luyện độc lập trên Train:** Chỉ fit ma trận thưa Movie $\times$ User `float32` trên tập Train ($timestamp \le t_1$). Tính tương đồng Cosine theo khối (`batch_size=500`) sau khi chuẩn hóa chuẩn L2 trên từng hàng phim; triệt tiêu đường chéo ($\text{sim}(i, i) = 0.0$); chỉ giữ tương đồng dương ($\text{sim} > 0$); cắt tỉa lưu trữ tối đa 80 láng giềng dương theo thứ tự `similarity DESC, neighbor_movie_id ASC`. Tuyệt đối không dùng thông tin phân cụm Q1 hay dữ liệu Validation.
+  2. **Hướng tính điểm Seed $\to$ Candidate:** Với mỗi seed $j \in \text{Seed}(u) = \{j \in \text{History}_{\text{train}}(u) \mid r_{u, j} \ge 4\}$, ứng viên $i \in \text{Candidate}(u) = \mathcal{I}_{\text{train}} \setminus \text{History}_{\text{train}}(u)$ nhận điểm nếu $i \in N_k(j)$. Phá hòa xếp hạng: `score DESC, train_popularity DESC, movie_id ASC`.
+  3. **Cơ chế Fallback & Tách biệt Điểm:** Nếu ít hơn 5 ứng viên CF có điểm dương, bổ sung từ danh sách Popularity Train (đã loại trừ lịch sử và item đã chọn). Tách biệt nhãn `score_type="cf"` và `score_type="popularity_fallback"` (`score=None`).
+  4. **Quy tắc chọn $k^*$ cố định:** Tiêu chí chọn $k^*$ là Macro-Recall@5 chưa làm tròn trên Validation cao nhất. Kết quả: $k=40$ đạt `0.03007556334371585` > $k=80$ (`0.02866586314500013`) > $k=20$ (`0.02856536704222439`). Chốt chọn $k^* = 40$. Giữ vững tiêu chí chọn theo quy tắc a priori, không đổi sang chọn theo Precision hay Hits dù baseline có Recall cao hơn.
+  5. **Nguyên tắc diễn giải trung thực:** CF $k=40$ có Precision@5 cao hơn baseline (18.0042% vs 16.9851%, +24 hits), nhưng Recall@5 thấp hơn baseline (3.0076% vs 3.1261%). Recall@5 không phải là độ bao phủ danh mục (catalog coverage). Mọi nhận định về phim bom tấn hay ngách sở thích chỉ là giả thuyết làm việc nếu chưa có phân tích thực nghiệm riêng. Tuyệt đối không ép CF phải thắng baseline.
+  6. **Bảo mật & Cục bộ:** Giữ toàn bộ gợi ý chi tiết và metric per-user ngoài Git; chỉ xuất bản kết quả tổng hợp `results/mining/cf_validation_experiments.json`.
