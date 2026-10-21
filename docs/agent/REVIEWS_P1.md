@@ -1,5 +1,17 @@
 # Hồ sơ duyệt P1
 
+## PR18 MERGED, giao chuẩn bị trước12A —21/10/2026
+
+Nguồn người dùng chuyển, nguyên văn:
+
+> Điều phối xác nhận PR18 đã merge:
+> 0692822ceb5cba0e523ec45629bdea31a0d45562.
+> Công bố toàn bộ 11B được chấp nhận.
+
+APIxácminhclosed/merged/actorhungvu205/mergehashđúng; agentkhôngmerge. Đây là chấpnhậncôngbố11B, **không phải phêduyệt12A hoặcphầnchuẩnbịmới**. GiữOPENreport cũ, observationriêngpr18_merged_observation.json.
+
+Được backupDW/restoreDBthửmới/backupmetadata khôngrestoremetadata. Run2856ed49…252.891s đạt: bốncanonical/catalog/model/OLAP/ACLobject/sourcepreservation;9unitguard/BIreaderclone/production32object/45protectedfileđạt. GiữkhácbiệtDBACL/comment/globals,metadatabackupchưarestore. **ChuẩnbịWAITING_REVIEW**,CF/Bước10chờP2/P2intakeNOT_CONFIRMED/12Achưachốt,chưarequirementscandidateG4commitpushPR.
+
 ## Công bố PR18 — chờ review PR,20/10/2026
 
 GitHubAPI xác minh PR18 OPEN/merged=false;116file/blobsnapshotlúcmởkhớpremoteGit,ZIPbyteSHAđúnghashđượcduyệt. Code050b601c916b7b4f6be476640673c9978e0ba979/base9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48. Đây làquan sátcôngbố,khôngphảilờiduyệtPR/agentmerge. Commithồsơsau đókiểmHEADremote riêng. **PRWAITING_REVIEW**, dừng/chưa12A;giữphạmvilayoutAPI/cùngDW/P2intakeG2NOT_CONFIRMED.

@@ -1,5 +1,11 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Chuẩn bị trước 12A — WAITING_REVIEW, 21/10/2026
+
+PR18 đã xác minh MERGED tại `0692822ceb5cba0e523ec45629bdea31a0d45562`; báo cáo OPEN bên dưới giữ lịch sử. Đang trên `codex/p1-s12a-prep`, **chưa đủ tiền đề/chưa hoàn thành12A/G4**, chưa chọn commit ứng viên hoặc hợp nhất requirements. CF/CLI/evaluation cuối/Bước10P2 đang chờ; P2intakeG2NOT_CONFIRMED; chưa fullrefresh tích hợp sauS07/G3.
+
+[README chuẩn bị và inventory](docs/P1/integration_prep/README.md), [checklist sơ bộ](docs/integration_checklist.md), [bằng chứng backup/restore](results/warehouse/s12a_prep/): DW đã pg_dump nhất quán vàrestore vàoDBthửmới, bốncanonical/catalog/model/OLAP khớp. MetadataSuperset mớibackup/kiểmarchive, **chưarestoremetadata**. Dump/rawlog/secretconfig chỉ nằmlocalignored; không chạy lại--apply đểreview, không dùngguardproductiontrênclone. ZIPdashboard vẫn cần snapshot+UUIDmapping+RESTlayout, không phảiDWbackup. GiữDBcloneđểreview; chưacommit/push/PRlượtchuẩnbị, chưa12A/cuốibáocáo.
+
 ## Công bố toàn bộ 11B — được điều phối chấp nhận, chờ review PR
 
 [PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18) **OPEN**, chưa merge. Code tái lập `050b601c916b7b4f6be476640673c9978e0ba979`; [snapshot kiểm remote lúc mở](docs/P1/11b_publication_remote.json) và [danh sách toàn PR](docs/P1/11b_pr_files.json). Commit hồ sơ mới không thay hash runtime lịch sử.

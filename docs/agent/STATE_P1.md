@@ -1,5 +1,25 @@
 # Trạng thái P1
 
+## Hiện hành — chuẩn bị trước 12A WAITING_REVIEW, 21/10/2026
+
+Điều phối xác nhận công bố 11B được chấp nhận. GitHub đã kiểm PR18 MERGED, merge **0692822ceb5cba0e523ec45629bdea31a0d45562**, actor hungvu205; agent không merge. Quan sát mới tại docs/P1/pr18_merged_observation.json; giữ báo cáo OPEN cũ. Main fast-forward an toàn rồi tạo **codex/p1-s12a-prep** theo tên chỉ định lần này; kế hoạch untracked ngoài phạm vi giữ nguyên, không reset/stash/ghi đè.
+
+**Chỉ phần chuẩn bị WAITING_REVIEW. 12A chưa đủ tiền đề/chưa hoàn thành**, CF/CLI/evaluation cuối và Bước10 P2 đang chờ; P2 intake G2 **NOT_CONFIRMED**. Chưa chọn candidate/G4, hợp nhất requirements, gửi mốc P2 hoặc kiểm full refresh sau S07/G3. Inventory/README sơ bộ và checklist ghi rõ các điểm này; không sửa file P2.
+
+Run backup/restore **2856ed49e9ba494090e2acae73b41b9a**,252.891s: pg_dump/pg_restore17.11, source movielens_btl17.11 đã kiểm marker/catalog. Dump custom19.618.251byte, SHA **ac3f16548a4ffa9299dc4434927f929bff3f353cf63843f5986ed05c28b8f1c4**, dùng snapshot MVCC export + source READONLY/repeatable-read/shared project advisory lock. Đích mới **movielens_btl_restore_20261021_2856ed49** kiểm chưa tồn tại; guard đúng tên/marker/dumpSHA, TOC không chứa DATABASE command; restore single-transaction/exit-on-error, khôngclean/create trongpg_restore hoặc xóađíchcũ.
+
+Hậu kiểm clone READONLY: catalog12bảng/64cột/12view/9FK/27CHECK; bốn canonical hash/count khớpG2; toàn12bảng,sequence,viewdefinition fingerprint khớpnguồn. Registrykmeans_k4_seed42 activevalid/registered_at giữ nguyên;6040user/6038assigned/2insufficientNULL, cụm2478/1393/760/1407,72profile. KPIrating1000209/tổng3582313/Q32000324864/Top1movie2858count3428/Animation2001Q1 đúng. **Guard production vẫn từ chối clone**; không sửa helper production để chạy test.
+
+Objectowner/schemaACL/relationACL giữ nguyên theo dump default; globalroles/password không dump, cùngcluster cósẵnroles. Database-levelACL/COMMENT không sao chép: clone dataclNULL/defaultPUBLICCONNECTTEMP và marker safetyriêng; khôngGRANTđểépgiốngnguồn. BIreader thực từcontainer đọcclone đúng7view, khôngprojectDML/CREATE; TEMPcòn. Source fingerprint/ACL và45fileP2/schema/requirements/contract bảo toàn.
+
+Metadata Superset production dump342.955byte, SHA **43665b8c70c13d295ad7c6f3f9289a41750ce536ae28c94435213fdda5141236**, đãlistTOC/giảiđọcarchivekhôngexecuteSQL; **chưa restore metadata**. Secret/config exactcopylocalignored, khôngin/hashsecretfile. DWdump khácmetadata vàZIP; ZIPvẫncầnRESTlayout. Dump/rawlogs/privateconfig tại backups/p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a, khôngGit.
+
+Đầu lượt8089/8091stopped255, nguyênnhânchưaxácminh; chỉ startcontainer8089cũđểbackup/API, khôngrecreate/init/resetvolume. Saukiểm8089healthy/32objectnghiệpvụkhôngđổi;8091giữstopped, DBclonegiữreview.9unitguardđạt, AST/JSON/ignore/hashkiểmtheobằngchứng, codeworkingtreeSHAtrongreceipt chưanằmởbase0692822.
+
+Bàn giao docs/P1/integration_prep/README.md, docs/integration_checklist.md, docs/agent/steps/P1/S12.md và results/warehouse/s12a_prep/. Giới hạn cùngmáy/PG17.11/roleshiệnhữu, chưaoff-machinebackup/clusterkhác/metadatarestore/CFfinal/fullrefreshS07G3. **Chưa commit/push/PR, khôngETL/applyG3/fullrefresh/quyềnfirewall hoặcbáocáocuối. Dừng chờ review phần chuẩn bị.**
+
+---
+
 ## Hiện hành — PR #18 OPEN, WAITING_REVIEW PR,20/10/2026
 
 Đã công bố [PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18) vào main, nhánh p1-s11b-cluster-intake. GitHub xác minh OPEN/merged=false; agent không merge. Chức năng11B-1→4 đã được điều phối chấp nhận theo phạm vi tương ứng; **PR WAITING_REVIEW**, chưa12A.

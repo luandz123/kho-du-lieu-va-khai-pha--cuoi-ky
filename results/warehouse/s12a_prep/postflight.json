@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-10-21T08:46:23.521989+00:00",
+  "backup_run_id": "2856ed49e9ba494090e2acae73b41b9a",
+  "endpoints": {
+    "production": [
+      "movielens_btl",
+      "127.0.0.1/32",
+      5432,
+      "on"
+    ],
+    "clone": [
+      "movielens_btl_restore_20261021_2856ed49",
+      "127.0.0.1/32",
+      5432,
+      "on"
+    ]
+  },
+  "bi_clone_read_only": {
+    "database": "movielens_btl_restore_20261021_2856ed49",
+    "role": "movielens_bi_reader",
+    "session_read_only": "on",
+    "selectable": [
+      "analytics.v_active_cluster_genre_profile",
+      "analytics.v_active_user_cluster",
+      "analytics.v_olap_genre_quarter",
+      "analytics.v_olap_time_rollup",
+      "dw.v_ml_movies",
+      "dw.v_ml_ratings",
+      "dw.v_ml_users"
+    ],
+    "writeable": [],
+    "database_privileges_connect_create_temp": [
+      true,
+      false,
+      true
+    ],
+    "ratings_count_sum": [
+      1000209,
+      3582313
+    ],
+    "active_users": 6040,
+    "active_profiles": 72
+  },
+  "production_32_business_objects_unchanged": true,
+  "source_fingerprints_preserved_after_metadata_backup": true,
+  "private_secret_config_exact_copy": true,
+  "secret_config_values_or_hashes_published": false,
+  "metadata_pg_dump_version": "pg_dump (PostgreSQL) 17.11 (Debian 17.11-1.pgdg13+2)",
+  "metadata_restore_tested": false,
+  "protected_files_unchanged": 45,
+  "services": [
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-superset_superset_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-superset_metadata_data"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-web-1",
+      "status": "exited",
+      "health": "starting",
+      "exit_code": 255,
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-metadata-1",
+      "status": "exited",
+      "health": "starting",
+      "exit_code": 255,
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_metadata"
+      ]
+    }
+  ],
+  "services_before_observed": "8089 and 8091 project web/metadata Exited255 at turn start; cause unverified. Started only existing 8089 metadata/web for backup/API; no recreate/init/volume reset. 8091 left stopped.",
+  "dump_completed_utc_from_file_mtime": {
+    "dw.dump": "2026-10-21T08:42:40.813267+00:00",
+    "superset_metadata.dump": "2026-10-21T08:44:40.020727+00:00"
+  },
+  "code_sha256": "5a64cc638e0c0681cce44dba0cf89eb9ac4e0712b0e19d37675fa55da62cc03e",
+  "step12a_completed": false,
+  "integration_candidate": null,
+  "p2_intake_status": "NOT_CONFIRMED"
+}

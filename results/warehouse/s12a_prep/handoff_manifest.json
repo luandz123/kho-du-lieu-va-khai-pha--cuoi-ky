@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-21T08:53:19.909060+00:00",
+  "hash_scope": "Current working-tree bytes; excludes this manifest itself and all private backup/secret files",
+  "files": {
+    "database/backup_restore.py": "6986b021ca96b73fe151141352ad3af0ec47a2ec7a8e8bdccf35f3b4ee4409f1",
+    "docs/agent/DECISIONS_P1.md": "bb48f5d79d2480ee5c7da16bd10f84432bbb86a1baee448f4f756ca0cd5a55f6",
+    "docs/agent/PROMPTS_P1.md": "495d228a664503e1cdd30dd597a40357a979163a1fab6f2012104d7b7c338216",
+    "docs/agent/REVIEWS_P1.md": "64a40aafb280a1aa432200a1c982b2f64cc4566ec2b33812c1d903495009035d",
+    "docs/agent/STATE_P1.md": "3404903917173017916a01f02476b2e745d5de6982df8c138422c4957c1083fa",
+    "docs/agent/steps/P1/S12.md": "935606862c79811b386d377f75be7ddfa6dc5443a7fa628cba803cea353d6cb4",
+    "docs/integration_checklist.md": "cda69321d6a0be1a44aa97b2f3eab50b50cd68a2ce319fa12674b146b4003bce",
+    "docs/P1/integration_prep/component_inventory.json": "cd7472cc76422c48c76fad07d974e4f752c27bd42d245215eff513a3eb416fd3",
+    "docs/P1/integration_prep/README.md": "94983374fa86c0e246cfa4cbab7390ef1350cd8e3e11215511578cc347e6548a",
+    "docs/P1/pr18_merged_observation.json": "af89f76c7e332805832fdf2511c0d6d45f972b000283f66ad78370712dbed621",
+    "README.md": "12b742d7619b9b53ec185691e87930fde258bb642e407bdf3e95c18a88bcbb76",
+    "results/warehouse/s12a_prep/backup_restore_2856ed49e9ba494090e2acae73b41b9a.json": "916d93627a25a8cb16dac7ffc6d3f63675e528c9e0416c6ba03dac114c0c9de2",
+    "results/warehouse/s12a_prep/handoff_summary.json": "1074c3ea346ab67ba45d945a3bf123bdbab90c35f53ef989babb7bb892996a44",
+    "results/warehouse/s12a_prep/postflight.json": "9ad244dbd7bd932f9f041d525959d0d412eacdf5984d316ed73befa475f29ed7",
+    "results/warehouse/s12a_prep/protected_files_before.json": "905a81fb538b55fdeb1c4a7aeceebbe3b3bad889a1d4bc4f7f269d060a1ee4ac",
+    "results/warehouse/s12a_prep/superset_before.json": "8f1a21219ec5d0d0d2b002a7a02a7cbc0b360450eb962666126656729bce50d8",
+    "results/warehouse/s12a_prep/unit_tests.json": "9a9db122783ae54e24328c92570b00ae9d039e1d97307a3c47c40bbeff8f9508",
+    "tests/warehouse/check_backup_postflight.py": "5a64cc638e0c0681cce44dba0cf89eb9ac4e0712b0e19d37675fa55da62cc03e",
+    "tests/warehouse/test_backup_restore_guards.py": "829f267290df8037776fcb46d291cb71da54b918130a44889e095a7e29533c84"
+  }
+}

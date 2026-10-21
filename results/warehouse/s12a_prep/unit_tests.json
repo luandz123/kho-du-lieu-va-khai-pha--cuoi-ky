@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "recorded_at_utc": "2026-10-21T08:44:06.063933+00:00",
+  "command": "python -m unittest tests.warehouse.test_backup_restore_guards",
+  "tests": 9,
+  "result_observed": "Ran 9 tests in 0.051s; OK",
+  "database_writes": false,
+  "code_sha256": {
+    "database/backup_restore.py": "6986b021ca96b73fe151141352ad3af0ec47a2ec7a8e8bdccf35f3b4ee4409f1",
+    "tests/warehouse/test_backup_restore_guards.py": "829f267290df8037776fcb46d291cb71da54b918130a44889e095a7e29533c84"
+  }
+}
