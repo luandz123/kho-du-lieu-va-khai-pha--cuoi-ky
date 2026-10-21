@@ -1,0 +1,307 @@
+{
+  "at_utc": "2026-10-21T14:23:26.541499+00:00",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21",
+  "state": "open",
+  "merged": false,
+  "head_observed": "a32dfcb407009fd5d404035d6c82d787e0411505",
+  "base_observed": "9efa05379fc8323f1b656632e140ac5a3a4354ea",
+  "head_ref": "codex/p1-s12a-prep",
+  "base_ref": "main",
+  "scope": "Snapshot at observed HEAD, before any later publication-record-only commit",
+  "all_pr_file_blobs_match": true,
+  "whole_remote_git_tree_matches_local": true,
+  "total_tree_blobs": 467,
+  "file_count": 58,
+  "files": [
+    {
+      "path": "README.md",
+      "status": "modified",
+      "blob": "9305cf13d452e14b5dde20a55ddec5d91b970673"
+    },
+    {
+      "path": "dashboard/metadata_restore/README.md",
+      "status": "added",
+      "blob": "b3b73775ffbf6733b30174e4593db53d18e1f808"
+    },
+    {
+      "path": "dashboard/metadata_restore/common.py",
+      "status": "added",
+      "blob": "0d9e33e637bdb2521044b0e5c5fddb247a827a53"
+    },
+    {
+      "path": "dashboard/metadata_restore/compose.yaml",
+      "status": "added",
+      "blob": "ffdabc7c76e8425bb4f92c3fe65de9bdc9363ddd"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/artifact_manifest.json",
+      "status": "added",
+      "blob": "7db770bab8ab3a294336b25f0959465b15299d05"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/final_observation.json",
+      "status": "added",
+      "blob": "3904005b5b3a80f2bef2a36422f41f644ee88a4c"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/postflight_FAIL_encoding.json",
+      "status": "added",
+      "blob": "83f5174b7c60a7adcdd611cda6f015f1c0b54f94"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/postflight_FAIL_ui_snapshot.json",
+      "status": "added",
+      "blob": "2361404003be81074b9f385854faa7b30cc5b079"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/production_before.json",
+      "status": "added",
+      "blob": "f25fcd86dfd5fd70e05c2eff9af949b817b39ab5"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/publication_audit.json",
+      "status": "added",
+      "blob": "4e55edae108ac43a5798ae173d8b8aa93b69cb97"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/restore_receipt.json",
+      "status": "added",
+      "blob": "2dee338fb173897fcbe8e20f4c5de0d17ce468ff"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/restore_verification.json",
+      "status": "added",
+      "blob": "3663513c7c5bc5e245cd848a47c5c7b948580c7c"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_all.json",
+      "status": "added",
+      "blob": "9c832dd30a9ca482cb0150c574b7c6c57a49333b"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_all.png",
+      "status": "added",
+      "blob": "775170fe2195c4af795d830cb17314cd76bc4878"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_all_DIFF_observation.json",
+      "status": "added",
+      "blob": "e0bec187094f5f8e778eebba2bece8ab4c5eb37e"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_q3.json",
+      "status": "added",
+      "blob": "d1f923ea93d0b64161c7b4bb5e8852432a15f9ac"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_q3.png",
+      "status": "added",
+      "blob": "0767de791b8f9c981412a85eb1d1af0933d74ee5"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_overview_q3_DIFF_observation.json",
+      "status": "added",
+      "blob": "9a69867d672fc101e25bd34b320732d519896af6"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_preferences_all.json",
+      "status": "added",
+      "blob": "9121cd3c15af55bab358cb79ab26993faab4277d"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_preferences_all.png",
+      "status": "added",
+      "blob": "e11a3903654d12986e3171d075819c49ebabd61c"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_preferences_all_DIFF_observation.json",
+      "status": "added",
+      "blob": "f235ba9731ea9247b6cdf6fb05f7f2ce66b01484"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_preferences_filtered.json",
+      "status": "added",
+      "blob": "a452fb11e2821bbdff69d915dac4e18e08faea84"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_preferences_filtered.png",
+      "status": "added",
+      "blob": "38c9c4cc66cd2c5a08ac535c26f4b250aa947af5"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_trends_animation.json",
+      "status": "added",
+      "blob": "a1c964787b4a53dffc1aa738faa9b78aba5fe6e9"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_trends_animation.png",
+      "status": "added",
+      "blob": "81f3d4120805ac0a55445413562ee717a266cf2a"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_trends_animation_DIFF_observation.json",
+      "status": "added",
+      "blob": "c9a36a119fc4e9755a6a781d290c4184f89e6407"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/ui_trends_review.png",
+      "status": "added",
+      "blob": "d188490069e78fd89ffc2e5c038c23bdf2e9599d"
+    },
+    {
+      "path": "dashboard/metadata_restore/evidence/uuid_mapping.json",
+      "status": "added",
+      "blob": "72fd0616c911d580ce0246e8e3c8a3782ae1177d"
+    },
+    {
+      "path": "dashboard/metadata_restore/observe.py",
+      "status": "added",
+      "blob": "de23e5094de72413987c5e30b812ff9d1e173137"
+    },
+    {
+      "path": "dashboard/metadata_restore/restore_metadata.py",
+      "status": "added",
+      "blob": "711023a4c5a81b3d6a6e5099728e62eca12189e9"
+    },
+    {
+      "path": "dashboard/metadata_restore/superset_config.py",
+      "status": "added",
+      "blob": "d38000e648ca19bde1fac1e132959022e6147057"
+    },
+    {
+      "path": "dashboard/metadata_restore/verify_restore.py",
+      "status": "added",
+      "blob": "cc9f7fc5c8749ee09388d9d59000260ea85edfe6"
+    },
+    {
+      "path": "database/backup_restore.py",
+      "status": "added",
+      "blob": "6e82973b9ef87d4f9e6b76324514a964cac87126"
+    },
+    {
+      "path": "docs/P1/integration_prep/README.md",
+      "status": "added",
+      "blob": "6f88a24c119827efeb08ad0be70a0a3accb664c4"
+    },
+    {
+      "path": "docs/P1/integration_prep/component_inventory.json",
+      "status": "added",
+      "blob": "087014ce4ca38ba2df71613764ae6fda806b5b0c"
+    },
+    {
+      "path": "docs/P1/pr18_merged_observation.json",
+      "status": "added",
+      "blob": "74e1570ffd031ff69717165a2308799f9157e8a1"
+    },
+    {
+      "path": "docs/P1/pre12a_publication/README.md",
+      "status": "added",
+      "blob": "97dcb71031ec99f392ec92cbbe8158df6fd6f72a"
+    },
+    {
+      "path": "docs/P1/pre12a_publication/artifact_manifest.json",
+      "status": "added",
+      "blob": "208990fe790fbae846753c50fa47e4aa166c831e"
+    },
+    {
+      "path": "docs/P1/pre12a_publication/main_integration_observation.json",
+      "status": "added",
+      "blob": "3b438cccf3793ff1b56802d7c01794f99abdec14"
+    },
+    {
+      "path": "docs/P1/pre12a_publication/publication_FAIL_image_signature.json",
+      "status": "added",
+      "blob": "4ed6ad3a3bb44ea17078be55dacd67a8999e9c17"
+    },
+    {
+      "path": "docs/P1/pre12a_publication/publication_audit.json",
+      "status": "added",
+      "blob": "719be9082ca313dd79b3513b78c901d57afd3276"
+    },
+    {
+      "path": "docs/agent/DECISIONS_P1.md",
+      "status": "modified",
+      "blob": "39f5135943601292dde7369e9cd75ff638138e15"
+    },
+    {
+      "path": "docs/agent/PROMPTS_P1.md",
+      "status": "modified",
+      "blob": "b1ed5a9e783db6525b8e27ff6ef16680e1ce75d2"
+    },
+    {
+      "path": "docs/agent/REVIEWS_P1.md",
+      "status": "modified",
+      "blob": "b333b6c479fbaa93022c92585d50c66444968023"
+    },
+    {
+      "path": "docs/agent/STATE_P1.md",
+      "status": "modified",
+      "blob": "b3fd5f693009171aa2f98d7e73f2ec40ed68fdc0"
+    },
+    {
+      "path": "docs/agent/steps/P1/S12.md",
+      "status": "added",
+      "blob": "e8191348bb77f63911a84e78ecbba1c017559462"
+    },
+    {
+      "path": "docs/integration_checklist.md",
+      "status": "added",
+      "blob": "031d380d80617f4985949c87dfae62edac2bc034"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/backup_restore_2856ed49e9ba494090e2acae73b41b9a.json",
+      "status": "added",
+      "blob": "9facdbd81fdb6149b77ed634c9d46e7f42db9fa0"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/handoff_manifest.json",
+      "status": "added",
+      "blob": "a756f37f87c6c765670d0b8317a35b14181911e0"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/handoff_summary.json",
+      "status": "added",
+      "blob": "aee796cf1580b743dfc44eba7c161e1310a7dbf3"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/postflight.json",
+      "status": "added",
+      "blob": "e53628be746a50451513ac4f08e20ef9f5b50825"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/protected_files_before.json",
+      "status": "added",
+      "blob": "f9674d40f92884b9072373ded63a482b4c6ec954"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/superset_before.json",
+      "status": "added",
+      "blob": "e1c527642d006d9952f42d371744093ff238ac14"
+    },
+    {
+      "path": "results/warehouse/s12a_prep/unit_tests.json",
+      "status": "added",
+      "blob": "5e60ce710ffe54e99b98b530f056ffd1055da298"
+    },
+    {
+      "path": "tests/warehouse/check_backup_postflight.py",
+      "status": "added",
+      "blob": "18a60ea26107aae6d8a86ee39a9661b0238b7902"
+    },
+    {
+      "path": "tests/warehouse/check_prep_publication.py",
+      "status": "added",
+      "blob": "1916e47feeff993dae3a45ecfae7c19ec890e74f"
+    },
+    {
+      "path": "tests/warehouse/test_backup_restore_guards.py",
+      "status": "added",
+      "blob": "db6885b39255042d2a8a1c6b4880dbf9544fd6f8"
+    },
+    {
+      "path": "tests/warehouse/test_metadata_restore_guards.py",
+      "status": "added",
+      "blob": "9e2cd2ab3760254d87132f201e60e6e9fa4a7e1b"
+    }
+  ]
+}

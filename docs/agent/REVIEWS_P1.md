@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Công bố thực tế — PR21 OPEN, chờ review
+
+[PR #21](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21) đã mở và xác minh remote. Điều phối đã chấp nhận chức năng phần chuẩn bị; PR chưa merge, không có lời duyệt 12A/G4. Code công bố a32dfcb407009fd5d404035d6c82d787e0411505; bằng chứng runtime không gán lại commit này.
+
 ## Review điều phối cho công bố phần chuẩn bị trước 12A — 21/10/2026
 
 Thông điệp điều phối qua người dùng chấp nhận DW backup/restore, kiểm kê và metadata restore riêng; giao commit/push/PR vào main. Ghi nhận APPROVED chức năng trong phạm vi chuẩn bị, không duyệt12A/G4 hoặc quyền merge. Giữ FAIL và report runtime lịch sử. PR WAITING_REVIEW sau khi mở thực tế; link/commit được ghi trong quan sát công bố riêng, không gán commit mới cho run cũ.
