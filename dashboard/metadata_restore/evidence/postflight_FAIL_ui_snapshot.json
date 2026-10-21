@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "at_utc": "2026-10-21T11:28:43.617074+00:00",
+  "error_category": "UI_OVERVIEW_ALL_AX_SNAPSHOT_WAS_DIFF_NOT_FULL",
+  "database_writes": false,
+  "fix": "Preserve original AX observations and recapture full AX from real UI; no SQL/metric/filter config changes."
+}

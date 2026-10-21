@@ -1,0 +1,55 @@
+name: btl-movielens-s12a-metadata
+services:
+  metadata:
+    image: postgres:17.11
+    environment:
+      POSTGRES_DB: superset_metadata
+      POSTGRES_USER: superset_meta
+      POSTGRES_PASSWORD: ${METADATA_PASSWORD:?Local backup env required}
+    volumes:
+      - restore_metadata:/var/lib/postgresql/data
+    labels:
+      btl.purpose: s12a-metadata-restore-test
+      btl.run_id: ${RESTORE_RUN_ID:?Guard run ID required}
+    cpus: 1
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U superset_meta -d superset_metadata"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  web:
+    image: btl-movielens-superset:6.1.0-local
+    environment:
+      SUPERSET_CONFIG_PATH: /app/test_restore/superset_config.py
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:?Backed-up key required}
+      METADATA_PASSWORD: ${METADATA_PASSWORD:?Local backup env required}
+    volumes:
+      - ./superset_config.py:/app/test_restore/superset_config.py:ro
+      - ${BACKED_UP_CONFIG:?Local backup config required}:/app/test_restore/source_config.py:ro
+      - restore_home:/app/superset_home
+    ports:
+      - "127.0.0.1:8092:8088"
+    command: [gunicorn, --bind, "0.0.0.0:8088", --workers, "1", --timeout, "120", "superset.app:create_app()"]
+    labels:
+      btl.purpose: s12a-metadata-restore-test
+      btl.run_id: ${RESTORE_RUN_ID:?Guard run ID required}
+    cpus: 2
+    mem_limit: 2g
+    depends_on:
+      metadata:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8088/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+volumes:
+  restore_metadata:
+    labels:
+      btl.purpose: s12a-metadata-restore-test
+      btl.run_id: ${RESTORE_RUN_ID:?Guard run ID required}
+  restore_home:
+    labels:
+      btl.purpose: s12a-metadata-restore-test
+      btl.run_id: ${RESTORE_RUN_ID:?Guard run ID required}

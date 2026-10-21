@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-10-21T14:21:39.933291+00:00",
+  "status": "PASS_STATIC_INTEGRATION",
+  "integrated_main": "9efa05379fc8323f1b656632e140ac5a3a4354ea",
+  "merge_commit": "f79fcdc3f789fabcd8909f91f519326a2907b98b",
+  "p2_changes_inherited_unchanged_from_main": true,
+  "data_io_contract_source_canonical_manifests_unchanged_from_runtime_base": [
+    "mining/data_io.py",
+    "docs/shared/data_contract.md",
+    "docs/shared/data_contract.json",
+    "data/source_manifest.json",
+    "results/eda/canonical_manifest.json"
+  ],
+  "unit_guards": "14/14 PASS after merge; no database/service writes",
+  "runtime_or_business_logic_changed_by_merge": false,
+  "cf_final_not_accepted_by_this_check": true,
+  "no_dump_restore_etl_apply_ui_rerun": true,
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "step12a_completed": false
+}

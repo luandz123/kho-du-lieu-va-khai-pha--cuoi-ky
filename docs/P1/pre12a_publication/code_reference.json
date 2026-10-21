@@ -1,0 +1,14 @@
+{
+  "at_utc": "2026-10-21T14:24:08.876229+00:00",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21",
+  "code_publication_commit": "a32dfcb407009fd5d404035d6c82d787e0411505",
+  "working_tree_base_for_dw_run": "0692822ceb5cba0e523ec45629bdea31a0d45562",
+  "working_tree_base_for_metadata_run": "d3f00cc6a068868662a7040459a51ff46e49e231",
+  "dw_run": "2856ed49e9ba494090e2acae73b41b9a",
+  "metadata_restore_run": "301bfdfabc984c2b8ec61cb41ed9e79c",
+  "metadata_api_sql_run": "e606cfd1830c4a1cab53c1d06b0ea6fa",
+  "run_reports_reassigned_to_published_commit": false,
+  "publication_record_only_commit_may_follow": true,
+  "state": "OPEN_WAITING_REVIEW_NOT_MERGED",
+  "step12a_completed": false
+}

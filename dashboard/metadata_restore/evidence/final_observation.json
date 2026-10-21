@@ -1,0 +1,119 @@
+{
+  "status": "PASS_WAITING_REVIEW",
+  "at_utc": "2026-10-21T11:32:09.787377+00:00",
+  "run_id": "301bfdfabc984c2b8ec61cb41ed9e79c",
+  "metadata_restore_tested": true,
+  "login_succeeded_with_restored_account": true,
+  "restored_encrypted_database_connection_works_as_bi_role": {
+    "role": "movielens_bi_reader",
+    "timezone": "UTC"
+  },
+  "all_32_business_objects_layout_filter_metric_sql_exact": true,
+  "identity_ids_and_uuids_preserved": true,
+  "layout_repair_applied": false,
+  "zip_import_performed": false,
+  "source_dw_model_acl_preserved": true,
+  "production_32_business_objects_preserved": true,
+  "private_backed_up_config_matches_production": true,
+  "bi_effective_read_only_privileges": {
+    "database": "movielens_btl",
+    "role": "movielens_bi_reader",
+    "session_read_only": "on",
+    "selectable": [
+      "analytics.v_active_cluster_genre_profile",
+      "analytics.v_active_user_cluster",
+      "analytics.v_olap_genre_quarter",
+      "analytics.v_olap_time_rollup",
+      "dw.v_ml_movies",
+      "dw.v_ml_ratings",
+      "dw.v_ml_users"
+    ],
+    "writeable": [],
+    "database_privileges_connect_create_temp": [
+      true,
+      false,
+      true
+    ],
+    "ratings_count_sum": [
+      1000209,
+      3582313
+    ],
+    "active_users": 6040,
+    "active_profiles": 72
+  },
+  "ui_checks": {
+    "ui_overview_all": "PASS",
+    "ui_overview_q3": "PASS",
+    "ui_trends_animation": "PASS",
+    "ui_preferences_all": "PASS",
+    "ui_preferences_filtered": "PASS"
+  },
+  "test_volumes": [
+    "btl-movielens-s12a-metadata_restore_home",
+    "btl-movielens-s12a-metadata_restore_metadata"
+  ],
+  "volume_isolation": true,
+  "containers": [
+    {
+      "name": "/btl-movielens-s12a-metadata-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    },
+    {
+      "name": "/btl-movielens-s12a-metadata-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    },
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    },
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "status": "exited",
+      "health": "starting",
+      "exit_code": 255
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "status": "exited",
+      "health": "starting",
+      "exit_code": 255
+    }
+  ],
+  "resources": [
+    {
+      "CPUPerc": "0.01%",
+      "MemUsage": "231.7MiB / 2GiB",
+      "Name": "btl-movielens-s12a-metadata-web-1",
+      "PIDs": "38"
+    },
+    {
+      "CPUPerc": "0.02%",
+      "MemUsage": "51.05MiB / 512MiB",
+      "Name": "btl-movielens-s12a-metadata-metadata-1",
+      "PIDs": "7"
+    }
+  ],
+  "scope": "same host/version, existing production DW; not new-machine whole-stack disaster recovery",
+  "p2_intake_status": "NOT_CONFIRMED",
+  "step12a_completed": false,
+  "integration_candidate": null,
+  "code_sha256": "8654dfe5bd0eb69316e4ccac63341c1321e0b1c9f50a93bc3b03e61d43e06b54"
+}

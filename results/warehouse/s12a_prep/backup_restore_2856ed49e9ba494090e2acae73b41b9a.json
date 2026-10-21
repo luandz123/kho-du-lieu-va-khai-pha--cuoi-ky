@@ -1,0 +1,1675 @@
+{
+  "run_id": "2856ed49e9ba494090e2acae73b41b9a",
+  "at_utc": "2026-10-21T08:40:27.612690+00:00",
+  "step": "PRE_12A_BACKUP_RESTORE_ONLY",
+  "status": "PASS_WAITING_REVIEW",
+  "target": "movielens_btl_restore_20261021_2856ed49",
+  "base_commit": "0692822ceb5cba0e523ec45629bdea31a0d45562",
+  "code_sha256": "6986b021ca96b73fe151141352ad3af0ec47a2ec7a8e8bdccf35f3b4ee4409f1",
+  "metadata_restore_tested": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "cf_step10": "WAITING_FOR_P2_FINALIZATION",
+  "integration_candidate_selected": false,
+  "source": {
+    "database": "movielens_btl",
+    "role": "postgres",
+    "server_version": "17.11",
+    "bytes": 279049907,
+    "owner": "postgres",
+    "encoding": "UTF8",
+    "lc_collate": "English_United States.1258",
+    "lc_ctype": "English_United States.1258",
+    "locale_provider": "c",
+    "locale": null,
+    "marker": "BTL MovieLens P1 S05; contract=2; schema_sha256=ebef448cd245c54cc50e2b02b34d382471daccb29e8a933b7078c19304f68250",
+    "database_acl": "{=Tc/postgres,postgres=CTc/postgres,movielens_bi_reader=c/postgres}"
+  },
+  "disk": {
+    "free_before": 93808975872,
+    "source_database_bytes": 279049907,
+    "minimum_policy_bytes": 1910891545
+  },
+  "versions": {
+    "pg_dump": "pg_dump (PostgreSQL) 17.11",
+    "pg_restore": "pg_restore (PostgreSQL) 17.11"
+  },
+  "consistent_snapshot": "Explicit exported PostgreSQL MVCC snapshot; source READ ONLY repeatable-read transaction and project shared advisory lock held through dump/verification",
+  "source_catalog": {
+    "tables": 12,
+    "columns": 64,
+    "views": 12,
+    "foreign_keys": 9,
+    "check_constraints": 27,
+    "explicit_indexes": 8,
+    "columns_match": true,
+    "keys_match": true,
+    "constraints_validated": true,
+    "view_columns_and_types": {
+      "dw.v_ml_users": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "gender",
+          "text"
+        ],
+        [
+          "age_group",
+          "text"
+        ],
+        [
+          "occupation",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movies": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "title",
+          "text"
+        ],
+        [
+          "release_year",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movie_genres": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "genre_name",
+          "text"
+        ]
+      ],
+      "dw.v_ml_ratings": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "rating",
+          "integer"
+        ],
+        [
+          "timestamp",
+          "bigint"
+        ],
+        [
+          "rated_at",
+          "text"
+        ]
+      ]
+    },
+    "constraint_definitions": [
+      {
+        "table": "staging.users_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "staging.users_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "staging.movies_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "staging.movies_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "staging.ratings_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "staging.ratings_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((user_id > 0))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((gender = ANY (ARRAY['F'::text, 'M'::text])))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "u",
+        "definition": "UNIQUE (full_date)"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "u",
+        "definition": "UNIQUE (date_key, full_date)"
+      },
+      {
+        "table": "dw.dim_genre",
+        "type": "p",
+        "definition": "PRIMARY KEY (genre_key)"
+      },
+      {
+        "table": "dw.dim_genre",
+        "type": "u",
+        "definition": "UNIQUE (genre_name)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "p",
+        "definition": "PRIMARY KEY (movie_key, genre_key)"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((age_group = ANY (ARRAY['Under 18'::text, '18-24'::text, '25-34'::text, '35-44'::text, '45-49'::text, '50-55'::text, '56+'::text])))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK (((occupation >= 0) AND (occupation <= 20)))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "p",
+        "definition": "PRIMARY KEY (user_key)"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "u",
+        "definition": "UNIQUE (user_id)"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "c",
+        "definition": "CHECK ((movie_id > 0))"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "c",
+        "definition": "CHECK (((release_year >= 0) AND (release_year <= 9999)))"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "p",
+        "definition": "PRIMARY KEY (movie_key)"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "u",
+        "definition": "UNIQUE (movie_id)"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((quarter_number >= 1) AND (quarter_number <= 4)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((month_number >= 1) AND (month_number <= 12)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((day_of_month >= 1) AND (day_of_month <= 31)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "p",
+        "definition": "PRIMARY KEY (date_key)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "f",
+        "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "f",
+        "definition": "FOREIGN KEY (genre_key) REFERENCES dw.dim_genre(genre_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "c",
+        "definition": "CHECK (((rating >= 1) AND (rating <= 5)))"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "c",
+        "definition": "CHECK ((EXTRACT(epoch FROM rated_at) = (rating_timestamp)::numeric))"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "p",
+        "definition": "PRIMARY KEY (rating_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "u",
+        "definition": "UNIQUE (user_key, movie_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (user_key) REFERENCES dw.dim_user(user_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (date_key, rated_date) REFERENCES dw.dim_date(date_key, full_date)"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((length(btrim(model_version)) > 0))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((contract_version = 2))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((jsonb_typeof(source_hashes) = 'object'::text) AND (source_hashes ?& ARRAY['users.dat'::text, 'movies.dat'::text, 'ratings.dat'::text, 'README'::text])))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((jsonb_typeof(canonical_hashes) = 'object'::text) AND (canonical_hashes ?& ARRAY['users'::text, 'movies'::text, 'movie_genres'::text, 'ratings'::text])))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((k >= 2) AND (k <= 8)))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((cardinality(genre_order) > 0) AND (array_ndims(genre_order) = 1) AND (array_position(genre_order, NULL::text) IS NULL)))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((jsonb_typeof(libraries) = 'object'::text))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((training_config_hash ~ '^[0-9a-f]{64}$'::text))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((NOT is_active) OR is_valid_for_dw))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "c",
+        "definition": "CHECK ((((status = 'assigned'::text) AND (cluster_id IS NOT NULL) AND (cluster_id >= 0)) OR ((status = 'insufficient_evidence'::text) AND (cluster_id IS NULL))))"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version, user_id)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "f",
+        "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "f",
+        "definition": "FOREIGN KEY (user_id) REFERENCES dw.dim_user(user_id)"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK ((cluster_id >= 0))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK (((mean_preference >= (0)::double precision) AND (mean_preference <= (1)::double precision)))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK ((n_users >= 0))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version, cluster_id, genre_name)"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "f",
+        "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "f",
+        "definition": "FOREIGN KEY (genre_name) REFERENCES dw.dim_genre(genre_name)"
+      }
+    ]
+  },
+  "source_before": {
+    "staging.users_raw": {
+      "rows": 6040,
+      "ordered_row_md5": "c1af5c46a4fb0f81e5780bf0ec62ee57"
+    },
+    "staging.movies_raw": {
+      "rows": 3883,
+      "ordered_row_md5": "7fa412e6dbb52a9113db43fe123eb189"
+    },
+    "staging.ratings_raw": {
+      "rows": 1000209,
+      "ordered_row_md5": "f74f6b9fd3bd2037da402ea6065df8a7"
+    },
+    "dw.dim_user": {
+      "rows": 6040,
+      "ordered_row_md5": "e32f0ba13fba2a67ef10b03d02044391"
+    },
+    "dw.dim_movie": {
+      "rows": 3883,
+      "ordered_row_md5": "217e5f5d28c41baf012ec8abebb305af"
+    },
+    "dw.dim_date": {
+      "rows": 1040,
+      "ordered_row_md5": "3bd645df05ae4891eef8a9b95f99346d"
+    },
+    "dw.dim_genre": {
+      "rows": 18,
+      "ordered_row_md5": "5f78788297123aaf0a9e9ef156eaa689"
+    },
+    "dw.bridge_movie_genre": {
+      "rows": 6408,
+      "ordered_row_md5": "35e8aaa9fb1ab8d4e655c78a27bee3bc"
+    },
+    "dw.fact_rating": {
+      "rows": 1000209,
+      "ordered_row_md5": "a7a5f998a9e34a22055483954bbb8725"
+    },
+    "analytics.model_registry": {
+      "rows": 1,
+      "ordered_row_md5": "d94c6b466e81255f05456fcc993d5227"
+    },
+    "analytics.user_cluster": {
+      "rows": 6040,
+      "ordered_row_md5": "b62117f5d57737daf73b7beb7fccf4fc"
+    },
+    "analytics.cluster_genre_profile": {
+      "rows": 72,
+      "ordered_row_md5": "df637acede96a66bfe4fe14b3fe48cc2"
+    },
+    "view_definitions_sha256": "4fe20111623a45b8805d6f94592c1f2e7297aee9087aab6a567d6e6052743a36",
+    "sequences": {
+      "dim_date_date_key_seq": [
+        1040,
+        true
+      ],
+      "dim_genre_genre_key_seq": [
+        18,
+        true
+      ],
+      "dim_movie_movie_key_seq": [
+        3883,
+        true
+      ],
+      "dim_user_user_key_seq": [
+        6040,
+        true
+      ],
+      "fact_rating_rating_key_seq": [
+        1000209,
+        true
+      ]
+    }
+  },
+  "source_acl_ownership": {
+    "relations": [
+      [
+        "analytics.cluster_genre_profile",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.model_registry",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.user_cluster",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_active_cluster_genre_profile",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_active_user_cluster",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_olap_genre_age_gender",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_genre_quarter",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_olap_kpi",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_movie_day_segment",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_movie_metrics",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_time_rollup",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.bridge_movie_genre",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_date",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_date_date_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_genre",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_genre_genre_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_movie",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_movie_movie_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_user",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_user_user_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.fact_rating",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.fact_rating_rating_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.v_ml_movie_genres",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "dw.v_ml_movies",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.v_ml_ratings",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.v_ml_users",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "staging.movies_raw",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "staging.ratings_raw",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "staging.users_raw",
+        "r",
+        "postgres",
+        null
+      ]
+    ],
+    "schemas": [
+      [
+        "analytics",
+        "postgres",
+        "{postgres=UC/postgres,movielens_bi_reader=U/postgres}"
+      ],
+      [
+        "dw",
+        "postgres",
+        "{postgres=UC/postgres,movielens_bi_reader=U/postgres}"
+      ],
+      [
+        "staging",
+        "postgres",
+        null
+      ]
+    ],
+    "database_role_settings": []
+  },
+  "source_canonical": {
+    "hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "warning_categories": [
+      "UserWarning"
+    ]
+  },
+  "source_aggregates": {
+    "kpi": {
+      "catalog_users": 6040,
+      "catalog_movies": 3883,
+      "rated_users": 6040,
+      "rated_movies": 3706,
+      "rating_count": 1000209,
+      "rating_sum": 3582313,
+      "mean_rating": "3.5815644530293169"
+    },
+    "registry": [
+      {
+        "model_version": "kmeans_k4_seed42",
+        "is_active": true,
+        "is_valid_for_dw": true,
+        "registered_at": "2026-10-20 09:00:37.986010+00:00",
+        "model_created_at": "2026-10-20 08:32:23.015413+00:00"
+      }
+    ],
+    "clusters": [
+      {
+        "status": "assigned",
+        "cluster_id": 0,
+        "users": 2478
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 1,
+        "users": 1393
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 2,
+        "users": 760
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 3,
+        "users": 1407
+      },
+      {
+        "status": "insufficient_evidence",
+        "cluster_id": null,
+        "users": 2
+      }
+    ],
+    "profiles": [
+      {
+        "cluster_id": 0,
+        "genres": 18,
+        "sum_mean": 1.0,
+        "min_n_users": 2478,
+        "max_n_users": 2478
+      },
+      {
+        "cluster_id": 1,
+        "genres": 18,
+        "sum_mean": 0.9999999999999999,
+        "min_n_users": 1393,
+        "max_n_users": 1393
+      },
+      {
+        "cluster_id": 2,
+        "genres": 18,
+        "sum_mean": 1.0,
+        "min_n_users": 760,
+        "max_n_users": 760
+      },
+      {
+        "cluster_id": 3,
+        "genres": 18,
+        "sum_mean": 1.0000000000000002,
+        "min_n_users": 1407,
+        "max_n_users": 1407
+      }
+    ],
+    "top_movie": [
+      2858,
+      3428
+    ],
+    "rollup": [
+      [
+        "month",
+        35,
+        "1000209",
+        "3582313"
+      ],
+      [
+        "quarter",
+        12,
+        "1000209",
+        "3582313"
+      ],
+      [
+        "year",
+        4,
+        "1000209",
+        "3582313"
+      ]
+    ],
+    "q3_2000": 324864,
+    "animation_2001q1": {
+      "rating_count": 1715,
+      "previous_rating_count": 20068,
+      "qoq_pct": "-91.4540562088897748",
+      "genre_assignment_total": "63335",
+      "genre_share_pct": "2.7078234783295176",
+      "eligible_for_ranking": true
+    }
+  },
+  "dw_dump": {
+    "exit_code": 0,
+    "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_dump.stdout.log",
+    "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_dump.stderr.log",
+    "sha256": "ac3f16548a4ffa9299dc4434927f929bff3f353cf63843f5986ed05c28b8f1c4",
+    "bytes": 19618251,
+    "scope": "All movielens_btl database objects/data; owners and object ACL retained, no globals/role passwords, no CREATE DATABASE",
+    "completed_at_utc": "2026-10-21T08:42:40.911233+00:00"
+  },
+  "dw_toc": {
+    "exit_code": 0,
+    "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_toc.stdout.log",
+    "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_toc.stderr.log",
+    "entries": 93
+  },
+  "target_created": true,
+  "target_marker": "BTL P1 S12A-PREP RESTORE TEST; source=movielens_btl; run_id=2856ed49e9ba494090e2acae73b41b9a; dump_sha256=ac3f16548a4ffa9299dc4434927f929bff3f353cf63843f5986ed05c28b8f1c4",
+  "restore": {
+    "exit_code": 0,
+    "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_restore.stdout.log",
+    "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\dw_restore.stderr.log"
+  },
+  "production_guard_still_rejects_clone": true,
+  "clone_catalog": {
+    "tables": 12,
+    "columns": 64,
+    "views": 12,
+    "foreign_keys": 9,
+    "check_constraints": 27,
+    "explicit_indexes": 8,
+    "columns_match": true,
+    "keys_match": true,
+    "constraints_validated": true,
+    "view_columns_and_types": {
+      "dw.v_ml_users": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "gender",
+          "text"
+        ],
+        [
+          "age_group",
+          "text"
+        ],
+        [
+          "occupation",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movies": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "title",
+          "text"
+        ],
+        [
+          "release_year",
+          "integer"
+        ]
+      ],
+      "dw.v_ml_movie_genres": [
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "genre_name",
+          "text"
+        ]
+      ],
+      "dw.v_ml_ratings": [
+        [
+          "user_id",
+          "integer"
+        ],
+        [
+          "movie_id",
+          "integer"
+        ],
+        [
+          "rating",
+          "integer"
+        ],
+        [
+          "timestamp",
+          "bigint"
+        ],
+        [
+          "rated_at",
+          "text"
+        ]
+      ]
+    },
+    "constraint_definitions": [
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK ((cluster_id >= 0))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK (((mean_preference >= (0)::double precision) AND (mean_preference <= (1)::double precision)))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "c",
+        "definition": "CHECK ((n_users >= 0))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((NOT is_active) OR is_valid_for_dw))"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "c",
+        "definition": "CHECK ((EXTRACT(epoch FROM rated_at) = (rating_timestamp)::numeric))"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "u",
+        "definition": "UNIQUE (movie_id)"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "p",
+        "definition": "PRIMARY KEY (movie_key)"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "p",
+        "definition": "PRIMARY KEY (user_key)"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((jsonb_typeof(canonical_hashes) = 'object'::text) AND (canonical_hashes ?& ARRAY['users'::text, 'movies'::text, 'movie_genres'::text, 'ratings'::text])))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((contract_version = 2))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((cardinality(genre_order) > 0) AND (array_ndims(genre_order) = 1) AND (array_position(genre_order, NULL::text) IS NULL)))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((k >= 2) AND (k <= 8)))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((jsonb_typeof(libraries) = 'object'::text))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((length(btrim(model_version)) > 0))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((user_id > 0))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "u",
+        "definition": "UNIQUE (full_date)"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "p",
+        "definition": "PRIMARY KEY (date_key)"
+      },
+      {
+        "table": "dw.dim_genre",
+        "type": "u",
+        "definition": "UNIQUE (genre_name)"
+      },
+      {
+        "table": "dw.dim_genre",
+        "type": "p",
+        "definition": "PRIMARY KEY (genre_key)"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK (((jsonb_typeof(source_hashes) = 'object'::text) AND (source_hashes ?& ARRAY['users.dat'::text, 'movies.dat'::text, 'ratings.dat'::text, 'README'::text])))"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "c",
+        "definition": "CHECK ((training_config_hash ~ '^[0-9a-f]{64}$'::text))"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "c",
+        "definition": "CHECK ((((status = 'assigned'::text) AND (cluster_id IS NOT NULL) AND (cluster_id >= 0)) OR ((status = 'insufficient_evidence'::text) AND (cluster_id IS NULL))))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((age_group = ANY (ARRAY['Under 18'::text, '18-24'::text, '25-34'::text, '35-44'::text, '45-49'::text, '50-55'::text, '56+'::text])))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK ((gender = ANY (ARRAY['F'::text, 'M'::text])))"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "c",
+        "definition": "CHECK (((occupation >= 0) AND (occupation <= 20)))"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "c",
+        "definition": "CHECK (((rating >= 1) AND (rating <= 5)))"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "c",
+        "definition": "CHECK ((movie_id > 0))"
+      },
+      {
+        "table": "dw.dim_movie",
+        "type": "c",
+        "definition": "CHECK (((release_year >= 0) AND (release_year <= 9999)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((day_of_month >= 1) AND (day_of_month <= 31)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((month_number >= 1) AND (month_number <= 12)))"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "c",
+        "definition": "CHECK (((quarter_number >= 1) AND (quarter_number <= 4)))"
+      },
+      {
+        "table": "staging.movies_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "staging.ratings_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "staging.users_raw",
+        "type": "c",
+        "definition": "CHECK ((source_line > 0))"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version, cluster_id, genre_name)"
+      },
+      {
+        "table": "analytics.model_registry",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "p",
+        "definition": "PRIMARY KEY (model_version, user_id)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "p",
+        "definition": "PRIMARY KEY (movie_key, genre_key)"
+      },
+      {
+        "table": "dw.dim_user",
+        "type": "u",
+        "definition": "UNIQUE (user_id)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "p",
+        "definition": "PRIMARY KEY (rating_key)"
+      },
+      {
+        "table": "dw.dim_date",
+        "type": "u",
+        "definition": "UNIQUE (date_key, full_date)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "u",
+        "definition": "UNIQUE (user_key, movie_key)"
+      },
+      {
+        "table": "staging.movies_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "staging.ratings_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "staging.users_raw",
+        "type": "p",
+        "definition": "PRIMARY KEY (source_line)"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "f",
+        "definition": "FOREIGN KEY (genre_name) REFERENCES dw.dim_genre(genre_name)"
+      },
+      {
+        "table": "analytics.cluster_genre_profile",
+        "type": "f",
+        "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "f",
+        "definition": "FOREIGN KEY (model_version) REFERENCES analytics.model_registry(model_version)"
+      },
+      {
+        "table": "analytics.user_cluster",
+        "type": "f",
+        "definition": "FOREIGN KEY (user_id) REFERENCES dw.dim_user(user_id)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "f",
+        "definition": "FOREIGN KEY (genre_key) REFERENCES dw.dim_genre(genre_key)"
+      },
+      {
+        "table": "dw.bridge_movie_genre",
+        "type": "f",
+        "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (movie_key) REFERENCES dw.dim_movie(movie_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (user_key) REFERENCES dw.dim_user(user_key)"
+      },
+      {
+        "table": "dw.fact_rating",
+        "type": "f",
+        "definition": "FOREIGN KEY (date_key, rated_date) REFERENCES dw.dim_date(date_key, full_date)"
+      }
+    ]
+  },
+  "clone_fingerprints": {
+    "staging.users_raw": {
+      "rows": 6040,
+      "ordered_row_md5": "c1af5c46a4fb0f81e5780bf0ec62ee57"
+    },
+    "staging.movies_raw": {
+      "rows": 3883,
+      "ordered_row_md5": "7fa412e6dbb52a9113db43fe123eb189"
+    },
+    "staging.ratings_raw": {
+      "rows": 1000209,
+      "ordered_row_md5": "f74f6b9fd3bd2037da402ea6065df8a7"
+    },
+    "dw.dim_user": {
+      "rows": 6040,
+      "ordered_row_md5": "e32f0ba13fba2a67ef10b03d02044391"
+    },
+    "dw.dim_movie": {
+      "rows": 3883,
+      "ordered_row_md5": "217e5f5d28c41baf012ec8abebb305af"
+    },
+    "dw.dim_date": {
+      "rows": 1040,
+      "ordered_row_md5": "3bd645df05ae4891eef8a9b95f99346d"
+    },
+    "dw.dim_genre": {
+      "rows": 18,
+      "ordered_row_md5": "5f78788297123aaf0a9e9ef156eaa689"
+    },
+    "dw.bridge_movie_genre": {
+      "rows": 6408,
+      "ordered_row_md5": "35e8aaa9fb1ab8d4e655c78a27bee3bc"
+    },
+    "dw.fact_rating": {
+      "rows": 1000209,
+      "ordered_row_md5": "a7a5f998a9e34a22055483954bbb8725"
+    },
+    "analytics.model_registry": {
+      "rows": 1,
+      "ordered_row_md5": "d94c6b466e81255f05456fcc993d5227"
+    },
+    "analytics.user_cluster": {
+      "rows": 6040,
+      "ordered_row_md5": "b62117f5d57737daf73b7beb7fccf4fc"
+    },
+    "analytics.cluster_genre_profile": {
+      "rows": 72,
+      "ordered_row_md5": "df637acede96a66bfe4fe14b3fe48cc2"
+    },
+    "view_definitions_sha256": "4fe20111623a45b8805d6f94592c1f2e7297aee9087aab6a567d6e6052743a36",
+    "sequences": {
+      "dim_date_date_key_seq": [
+        1040,
+        true
+      ],
+      "dim_genre_genre_key_seq": [
+        18,
+        true
+      ],
+      "dim_movie_movie_key_seq": [
+        3883,
+        true
+      ],
+      "dim_user_user_key_seq": [
+        6040,
+        true
+      ],
+      "fact_rating_rating_key_seq": [
+        1000209,
+        true
+      ]
+    }
+  },
+  "clone_canonical": {
+    "hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "warning_categories": [
+      "UserWarning"
+    ]
+  },
+  "clone_aggregates": {
+    "kpi": {
+      "catalog_users": 6040,
+      "catalog_movies": 3883,
+      "rated_users": 6040,
+      "rated_movies": 3706,
+      "rating_count": 1000209,
+      "rating_sum": 3582313,
+      "mean_rating": "3.5815644530293169"
+    },
+    "registry": [
+      {
+        "model_version": "kmeans_k4_seed42",
+        "is_active": true,
+        "is_valid_for_dw": true,
+        "registered_at": "2026-10-20 09:00:37.986010+00:00",
+        "model_created_at": "2026-10-20 08:32:23.015413+00:00"
+      }
+    ],
+    "clusters": [
+      {
+        "status": "assigned",
+        "cluster_id": 0,
+        "users": 2478
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 1,
+        "users": 1393
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 2,
+        "users": 760
+      },
+      {
+        "status": "assigned",
+        "cluster_id": 3,
+        "users": 1407
+      },
+      {
+        "status": "insufficient_evidence",
+        "cluster_id": null,
+        "users": 2
+      }
+    ],
+    "profiles": [
+      {
+        "cluster_id": 0,
+        "genres": 18,
+        "sum_mean": 1.0,
+        "min_n_users": 2478,
+        "max_n_users": 2478
+      },
+      {
+        "cluster_id": 1,
+        "genres": 18,
+        "sum_mean": 0.9999999999999999,
+        "min_n_users": 1393,
+        "max_n_users": 1393
+      },
+      {
+        "cluster_id": 2,
+        "genres": 18,
+        "sum_mean": 1.0,
+        "min_n_users": 760,
+        "max_n_users": 760
+      },
+      {
+        "cluster_id": 3,
+        "genres": 18,
+        "sum_mean": 1.0000000000000002,
+        "min_n_users": 1407,
+        "max_n_users": 1407
+      }
+    ],
+    "top_movie": [
+      2858,
+      3428
+    ],
+    "rollup": [
+      [
+        "month",
+        35,
+        "1000209",
+        "3582313"
+      ],
+      [
+        "quarter",
+        12,
+        "1000209",
+        "3582313"
+      ],
+      [
+        "year",
+        4,
+        "1000209",
+        "3582313"
+      ]
+    ],
+    "q3_2000": 324864,
+    "animation_2001q1": {
+      "rating_count": 1715,
+      "previous_rating_count": 20068,
+      "qoq_pct": "-91.4540562088897748",
+      "genre_assignment_total": "63335",
+      "genre_share_pct": "2.7078234783295176",
+      "eligible_for_ranking": true
+    }
+  },
+  "clone_acl_ownership": {
+    "relations": [
+      [
+        "analytics.cluster_genre_profile",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.model_registry",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.user_cluster",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_active_cluster_genre_profile",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_active_user_cluster",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_olap_genre_age_gender",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_genre_quarter",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "analytics.v_olap_kpi",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_movie_day_segment",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_movie_metrics",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "analytics.v_olap_time_rollup",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.bridge_movie_genre",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_date",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_date_date_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_genre",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_genre_genre_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_movie",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_movie_movie_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_user",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.dim_user_user_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.fact_rating",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "dw.fact_rating_rating_key_seq",
+        "S",
+        "postgres",
+        null
+      ],
+      [
+        "dw.v_ml_movie_genres",
+        "v",
+        "postgres",
+        null
+      ],
+      [
+        "dw.v_ml_movies",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.v_ml_ratings",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "dw.v_ml_users",
+        "v",
+        "postgres",
+        "{postgres=arwdDxtm/postgres,movielens_bi_reader=r/postgres}"
+      ],
+      [
+        "staging.movies_raw",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "staging.ratings_raw",
+        "r",
+        "postgres",
+        null
+      ],
+      [
+        "staging.users_raw",
+        "r",
+        "postgres",
+        null
+      ]
+    ],
+    "schemas": [
+      [
+        "analytics",
+        "postgres",
+        "{postgres=UC/postgres,movielens_bi_reader=U/postgres}"
+      ],
+      [
+        "dw",
+        "postgres",
+        "{postgres=UC/postgres,movielens_bi_reader=U/postgres}"
+      ],
+      [
+        "staging",
+        "postgres",
+        null
+      ]
+    ],
+    "database_role_settings": []
+  },
+  "clone_database": {
+    "database": "movielens_btl_restore_20261021_2856ed49",
+    "role": "postgres",
+    "server_version": "17.11",
+    "bytes": 256194227,
+    "owner": "postgres",
+    "encoding": "UTF8",
+    "lc_collate": "English_United States.1258",
+    "lc_ctype": "English_United States.1258",
+    "locale_provider": "c",
+    "locale": null,
+    "marker": "BTL P1 S12A-PREP RESTORE TEST; source=movielens_btl; run_id=2856ed49e9ba494090e2acae73b41b9a; dump_sha256=ac3f16548a4ffa9299dc4434927f929bff3f353cf63843f5986ed05c28b8f1c4",
+    "database_acl": null
+  },
+  "source_after": {
+    "staging.users_raw": {
+      "rows": 6040,
+      "ordered_row_md5": "c1af5c46a4fb0f81e5780bf0ec62ee57"
+    },
+    "staging.movies_raw": {
+      "rows": 3883,
+      "ordered_row_md5": "7fa412e6dbb52a9113db43fe123eb189"
+    },
+    "staging.ratings_raw": {
+      "rows": 1000209,
+      "ordered_row_md5": "f74f6b9fd3bd2037da402ea6065df8a7"
+    },
+    "dw.dim_user": {
+      "rows": 6040,
+      "ordered_row_md5": "e32f0ba13fba2a67ef10b03d02044391"
+    },
+    "dw.dim_movie": {
+      "rows": 3883,
+      "ordered_row_md5": "217e5f5d28c41baf012ec8abebb305af"
+    },
+    "dw.dim_date": {
+      "rows": 1040,
+      "ordered_row_md5": "3bd645df05ae4891eef8a9b95f99346d"
+    },
+    "dw.dim_genre": {
+      "rows": 18,
+      "ordered_row_md5": "5f78788297123aaf0a9e9ef156eaa689"
+    },
+    "dw.bridge_movie_genre": {
+      "rows": 6408,
+      "ordered_row_md5": "35e8aaa9fb1ab8d4e655c78a27bee3bc"
+    },
+    "dw.fact_rating": {
+      "rows": 1000209,
+      "ordered_row_md5": "a7a5f998a9e34a22055483954bbb8725"
+    },
+    "analytics.model_registry": {
+      "rows": 1,
+      "ordered_row_md5": "d94c6b466e81255f05456fcc993d5227"
+    },
+    "analytics.user_cluster": {
+      "rows": 6040,
+      "ordered_row_md5": "b62117f5d57737daf73b7beb7fccf4fc"
+    },
+    "analytics.cluster_genre_profile": {
+      "rows": 72,
+      "ordered_row_md5": "df637acede96a66bfe4fe14b3fe48cc2"
+    },
+    "view_definitions_sha256": "4fe20111623a45b8805d6f94592c1f2e7297aee9087aab6a567d6e6052743a36",
+    "sequences": {
+      "dim_date_date_key_seq": [
+        1040,
+        true
+      ],
+      "dim_genre_genre_key_seq": [
+        18,
+        true
+      ],
+      "dim_movie_movie_key_seq": [
+        3883,
+        true
+      ],
+      "dim_user_user_key_seq": [
+        6040,
+        true
+      ],
+      "fact_rating_rating_key_seq": [
+        1000209,
+        true
+      ]
+    }
+  },
+  "superset_metadata_backup": {
+    "exit_code": 0,
+    "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\superset_metadata.dump",
+    "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\metadata_dump.stderr.log",
+    "sha256": "43665b8c70c13d295ad7c6f3f9289a41750ce536ae28c94435213fdda5141236",
+    "bytes": 342955,
+    "scope": "Production Superset metadata only; encrypted connection metadata may exist, local only",
+    "metadata_restore_tested": false,
+    "toc": {
+      "exit_code": 0,
+      "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\metadata_toc.stdout.log",
+      "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\metadata_toc.stderr.log"
+    },
+    "archive_readability": {
+      "exit_code": 0,
+      "raw_stdout_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\metadata_archive_read.stdout.log",
+      "raw_stderr_local": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a\\metadata_archive_read.stderr.log"
+    },
+    "private_config_files_preserved": [
+      ".env",
+      ".env.bi",
+      "superset_config.py",
+      "compose.yaml",
+      "Dockerfile",
+      "init_metadata.py"
+    ],
+    "config_secret_hashes_published": false
+  },
+  "duration_seconds": 252.891,
+  "private_backup_directory": "backups\\p1_s12a_20261021_2856ed49e9ba494090e2acae73b41b9a",
+  "source_data_model_preserved": true,
+  "object_owners_and_acl_preserved": true,
+  "global_roles_in_dump": false,
+  "database_level_acl_reapplied": false,
+  "database_comment_policy": "Clone uses unique safety marker; source marker unchanged",
+  "full_refresh_executed": false,
+  "requirements_merged": false,
+  "step12a_completed": false
+}

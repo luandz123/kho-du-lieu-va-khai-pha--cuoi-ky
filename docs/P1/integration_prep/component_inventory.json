@@ -1,0 +1,116 @@
+{
+  "at_utc": "2026-10-21T08:43:10.184858+00:00",
+  "client_date": "2026-10-21",
+  "base_commit": "0692822ceb5cba0e523ec45629bdea31a0d45562",
+  "branch": "codex/p1-s12a-prep",
+  "integration_candidate_commit": null,
+  "requirements_merged": false,
+  "step12a_started_or_complete": false,
+  "python_runtime": "3.12.14",
+  "local_p1_versions": {
+    "psycopg2-binary": "2.9.10",
+    "pandas": "2.3.3",
+    "numpy": "2.0.2",
+    "python-dotenv": "1.1.1"
+  },
+  "producer_commit_for_active_g3": "bab0b4049d4e0b1724418b8a92d8afbeda4bc775",
+  "components": [
+    {
+      "component": "Nguồn MovieLens/G1",
+      "artifact": "data/source_manifest.json",
+      "last_committed_artifact_change": "7a284b9f108dd64b030305cf51b8614b770a2296",
+      "safe_reference_command_or_url": "python mining/source_fetcher.py --help",
+      "status": "G1 đã merge; raw files không nạp lại trong lượt này"
+    },
+    {
+      "component": "Schema đã duyệt",
+      "artifact": "database/schema.sql",
+      "last_committed_artifact_change": "a4f0cb944b8c70babe3a59266cd0ecea9ff0ed63",
+      "safe_reference_command_or_url": "Không chạy lại schema.sql; kiểm catalog chỉ đọc",
+      "status": "S04/S05 đã triển khai"
+    },
+    {
+      "component": "Staging/full refresh ETL",
+      "artifact": "etl/run_etl.py",
+      "last_committed_artifact_change": "4fa9cf17aa41e5ff84d4490886eeac27971e46f6",
+      "safe_reference_command_or_url": "python -m etl.run_etl verify --env-file .env",
+      "status": "6D/G2 đã duyệt; CHƯA kiểm full refresh sau S07/G3"
+    },
+    {
+      "component": "Bốn view DW/G2",
+      "artifact": "results/warehouse/dw_manifest.json",
+      "last_committed_artifact_change": "4fa9cf17aa41e5ff84d4490886eeac27971e46f6",
+      "safe_reference_command_or_url": "Băm bốn view bằng mining.data_io trên connection READ ONLY",
+      "status": "P2 intake G2 NOT_CONFIRMED"
+    },
+    {
+      "component": "OLAP",
+      "artifact": "olap/queries.sql",
+      "last_committed_artifact_change": "94565740cf40cff92ce6b1af553eec110316ae0e",
+      "safe_reference_command_or_url": "SELECT trên sáu analytics.v_olap_*; tham số theo query",
+      "status": "S07 đã merge; không cài lại view"
+    },
+    {
+      "component": "G3 producer",
+      "artifact": "mining/clustering.py",
+      "last_committed_artifact_change": "53e2f6034e5a5cf16e306dd078e8b94bf8ae787f",
+      "safe_reference_command_or_url": "Chỉ tái tạo từ checkout producer bab0b404… khi được giao; không dùng HEAD mới dưới model_version cũ",
+      "status": "11B đã merge; gói active không tái tạo",
+      "active_package_producer_commit": "bab0b4049d4e0b1724418b8a92d8afbeda4bc775",
+      "last_commit_note": "Current file includes later P2 comment changes; not the producer identity of the accepted active package."
+    },
+    {
+      "component": "G3 intake/loader",
+      "artifact": "etl/load_g3.py",
+      "last_committed_artifact_change": "f663dcb4143202dac0835e4d5168e1b8558a6463",
+      "safe_reference_command_or_url": "python -m etl.load_g3 --package <gói-cũ-local> --report <đường-dẫn-mới> (mặc định dry-run)",
+      "status": "Đã apply/NO-OP ở11B-2; không chạy lại apply"
+    },
+    {
+      "component": "Superset Tổng quan",
+      "artifact": "dashboard/overview/object_ids.json",
+      "last_committed_artifact_change": "5915702d414f0385208b696329a2aed215db8762",
+      "safe_reference_command_or_url": "http://127.0.0.1:8089/superset/dashboard/1/",
+      "status": "11A đã merge"
+    },
+    {
+      "component": "Superset Xu hướng",
+      "artifact": "dashboard/trends/object_ids.json",
+      "last_committed_artifact_change": "bdb14fce8deb830999bcb4c17655100a72e6514e",
+      "safe_reference_command_or_url": "http://127.0.0.1:8089/superset/dashboard/2/",
+      "status": "11C đã merge"
+    },
+    {
+      "component": "Superset Sở thích",
+      "artifact": "dashboard/preferences/object_ids.json",
+      "last_committed_artifact_change": "4cc9ca8518f55c9e2683d3e8a58f9d9558296fe4",
+      "safe_reference_command_or_url": "http://127.0.0.1:8089/superset/dashboard/3/",
+      "status": "11B đã merge"
+    },
+    {
+      "component": "Export/restore Superset",
+      "artifact": "dashboard/restore/import_bundle.py",
+      "last_committed_artifact_change": "e49c3b26721be09bd98ba56e73e62263006e7a55",
+      "safe_reference_command_or_url": "Chỉ target rỗng: ZIP + snapshot + mapping + REST layout script",
+      "status": "Không ZIP import một bước; 8091 hiện dừng255, không khởi động lại lượt này"
+    },
+    {
+      "component": "CF/CLI/evaluation cuối P2",
+      "artifact": "mining/evaluation.py",
+      "last_committed_artifact_change": "53e2f6034e5a5cf16e306dd078e8b94bf8ae787f",
+      "safe_reference_command_or_url": "CHỜ lệnh/lối vào cuối được P2 chốt",
+      "status": "CF/Bước10 chưa chốt, không đủ tiền đề12A"
+    }
+  ],
+  "pending": [
+    "CF/CLI/evaluation cuối và Bước10 P2",
+    "P2 intake G2 NOT_CONFIRMED",
+    "Full refresh tích hợp sau S07/G3 chưa kiểm",
+    "Không chốt requirements tổng hoặc commit ứng viên/G4"
+  ],
+  "missing_planned_file_observed": "docs/integration_checklist.md absent at start; preliminary checklist supplied separately, not a final integration approval",
+  "preparation_result": "Backup/restore DW verified; preparation WAITING_REVIEW, not 12A approval",
+  "backup_run_id": "2856ed49e9ba494090e2acae73b41b9a",
+  "restore_target": "movielens_btl_restore_20261021_2856ed49",
+  "metadata_backup_restore_tested": false
+}

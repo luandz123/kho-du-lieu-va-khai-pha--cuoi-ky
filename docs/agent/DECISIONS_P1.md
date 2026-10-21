@@ -1,5 +1,21 @@
 # Quyết định P1
 
+## D114 — Công bố phần chuẩn bị, không chốt12A/G4
+
+Điều phối chấp nhận phạm vi chuẩn bị và giao công bố trên codex/p1-s12a-prep. Stage chọn lọc đúng P1, bảo toàn P2/kế hoạch/FAIL; không chạy lại dump/restore. Main có PR20 CF10A và baseline fix: tích hợp theo nội dung, không tự coi CF/CLI cuối đã được nghiệm thu. Không hợp nhất requirements, chọn/gửi candidate hoặc merge PR.
+
+## D111–D113 — chuẩn bị metadata restore, 21/10/2026
+
+- D111: Theo lệnh điều phối, checkpoint cục bộ phần DW/kiểm kê đã review; phần metadata mới giữ chưa commit/push/PR.
+- D112: Restore metadata bằng pg_restore vào project/volume/DB thử riêng8092, cùng image6.1.0 và SECRET_KEY/config backup; không init/upgrade, sửa trực tiếp metadata hoặc áp ZIP repair. Chỉ đổi app label/cookie phiên thử, không thay kết nối được khôi phục.
+- D113: Phân biệt metadata restore, DW restore và ZIP import. Chỉ kiểm cùng máy/version/DW hiện hữu; 12A/G4 và P2 intake không được suy thành đạt. Giữ nguyên tài nguyên production/8091/DW clone.
+
+P1-D108 (21/10/2026): PR18 MERGED0692822ceb5cba0e523ec45629bdea31a0d45562 được GitHub xác minh, agent khôngmerge; giữOPENhistory. Lệnhmới chỉ địnhcodex/p1-s12a-prep nên dùngđúngtênnày thayquyướcprefixchungcũ. Chỉchuẩnbịtrước12A,CF/Bước10P2chưachốt,khôngcandidate/requirements/G4/P2intake hoặcfullrefresh.
+
+P1-D109: BackupDWcustom bằngpg_dump17.11 snapshotMVCCexport vàsourceREADONLY/sharedlock; restore vàoDBmớitrongrun2856ed49… đúngguardname/marker/dumpSHA/TOC,transactionđơn/exit-on-error,khôngclean/drop/đổiDDLnguồn. Productionguardkhôngđổi/vẫntừchốiclone. Objectowners/ACLpreserved;DBACL/comment/settings/globalskhôngcoilàtựrestore,clone dùngdefaultDBACL/markersafety,khôngGRANTmới.
+
+P1-D110: MetadataSupersetbackup riêng quaofficialpg_dump,TOC/fullarchivereadđạt nhưngmetadata_restore_tested=false; giữsecret/configlocalignored,khônghash/côngbốsecretfile. DumpDW/metadatadump/ZIPba phạmvi khác nhau; khôngtuyênbốdistributedstackbackup. GiữDBclone/dumpđểreview,cùngmáyPG17.11/roleshiệnhữu,khôngxóanguồn. PhầnchuẩnbịWAITING_REVIEW,chưacommitpushPR/12A/báocáocuối.
+
 P1-D106: Điều phối chấpnhận11B-4đúngphạmviRESTlayoutrestore8091/cùngDW,giaoPRtoàn11B-1→4. ChỉZIPb5a9c987…938f6faeđúngđườngdẫnđượcGit;policyphasecôngbốkhácignoredhistory. GiữZIP/source snapshot/UUIDmapping/RESTscriptđủbộ;khôngZIPtựimporthoànchỉnh/DWbackup/hai máy. Chưamerge/12A.
 
 P1-D107: Main9fae38bđổiP2clusteringdoc/comments→guardHEADcũP2_CODE_PROVENANCEthật. SửaP1guardpinblobproducerbab0b404…đãduyệt/ancestry,giữlocalP2khớpHEAD;LFCRLFchỉcode,khôngnguồnCSV. Khôngsửamanifest/payload/metadataactivemodel.41unitcompat đạttrongcheckouttáchbiệt,FAILtrướcsửagiữ;test-onlypackagepathchốngthiếudữliệuignored,nokhôngtáitạo.

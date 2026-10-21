@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "at_utc": "2026-10-21T14:20:17.693983+00:00",
+  "phase": "static_image_header_check",
+  "cause": "Checker assumed PNG bytes solely from filename; original browser screenshots are JPEG bytes with historical .png names.",
+  "resolution": "Recognize actual JPEG/PNG headers, document mismatch; keep accepted image bytes/hashes unchanged. No business/runtime code changes."
+}

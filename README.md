@@ -1,5 +1,25 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Hiện hành — PR #21 OPEN, WAITING_REVIEW PR
+
+Đã công bố [PR #21](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21) vào main, nhánh `codex/p1-s12a-prep`. GitHub đã xác minh OPEN/merged=false; agent không merge. Code công bố/tái tạo tại `a32dfcb407009fd5d404035d6c82d787e0411505` (đã tích hợp main `9efa05379fc8323f1b656632e140ac5a3a4354ea`); commit hồ sơ sau đó không đổi code/runtime. Quan sát remote từng thời điểm và danh sách file tại docs/P1/pre12a_publication/remote_observation.json; HEAD đó là snapshot lịch sử trước commit hồ sơ, không gán vào run cũ.
+
+Điều phối đã chấp nhận chức năng chuẩn bị DW/kiểm kê/metadata restore. **PR WAITING_REVIEW, chưa MERGED; chưa PR chốt12A/G4.** Giữ giới hạn database-level ACL clone khác nguồn; cùng máy/version/DW hiện hữu; ZIP import vẫn cần REST layout. Chưa kiểm full refresh sauS07/G3, nghiệm thu CF/CLI cuối, P2 intakeG2, requirements tổng hoặc candidate. Dump/env/key/config private/rawlogs/user-level và kế hoạch ngoài phạm vi không Git. Giữ FAIL/lịch sử metadata chưa restore; kết quả metadata đạt ghi trong receipt mới riêng. Không tạo lại tài nguyên để công bố.
+
+## Công bố phần chuẩn bị tích hợp — 21/10/2026
+
+Điều phối chấp nhận backup/restore DW, kiểm kê và metadata restore riêng8092; đang đóng gói PR trên `codex/p1-s12a-prep`, **chưa phải PR chốt12A/G4**. [Runbook DW/kiểm kê](docs/P1/integration_prep/README.md), [metadata restore](dashboard/metadata_restore/README.md) và receipt mới phân biệt với ZIP import/REST layout. Giữ nguyên báo cáo lịch sử. Database-level ACL DW clone khác nguồn; giới hạn same-host/version/DW hiện hữu vẫn áp dụng. Chưa full refresh tích hợp, nghiệm thu CF/CLI cuối, P2 intake G2, requirements/candidate.
+
+## Chuẩn bị tiếp: metadata restore 8092 — WAITING_REVIEW, 21/10/2026
+
+Phần backup/restore DW và kiểm kê trước 12A đã được điều phối chấp nhận, lưu checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231`. Đã restore metadata Superset 6.1.0 vào instance riêng 8092 bằng pg_restore, dùng bản SECRET_KEY/config đã backup. [Runbook và bằng chứng metadata restore](dashboard/metadata_restore/README.md) phân biệt rõ metadata restore với DW restore và ZIP import cần REST layout. Hồ sơ trước ghi metadata chưa restore được giữ nguyên làm lịch sử. **Chưa chốt 12A/G4**, CF/Bước10 P2 còn chờ, P2 intake G2 NOT_CONFIRMED. Không full refresh, hợp nhất requirements, chọn candidate hoặc push/PR.
+
+## Chuẩn bị trước 12A — WAITING_REVIEW, 21/10/2026
+
+PR18 đã xác minh MERGED tại `0692822ceb5cba0e523ec45629bdea31a0d45562`; báo cáo OPEN bên dưới giữ lịch sử. Đang trên `codex/p1-s12a-prep`, **chưa đủ tiền đề/chưa hoàn thành12A/G4**, chưa chọn commit ứng viên hoặc hợp nhất requirements. CF/CLI/evaluation cuối/Bước10P2 đang chờ; P2intakeG2NOT_CONFIRMED; chưa fullrefresh tích hợp sauS07/G3.
+
+[README chuẩn bị và inventory](docs/P1/integration_prep/README.md), [checklist sơ bộ](docs/integration_checklist.md), [bằng chứng backup/restore](results/warehouse/s12a_prep/): DW đã pg_dump nhất quán vàrestore vàoDBthửmới, bốncanonical/catalog/model/OLAP khớp. MetadataSuperset mớibackup/kiểmarchive, **chưarestoremetadata**. Dump/rawlog/secretconfig chỉ nằmlocalignored; không chạy lại--apply đểreview, không dùngguardproductiontrênclone. ZIPdashboard vẫn cần snapshot+UUIDmapping+RESTlayout, không phảiDWbackup. GiữDBcloneđểreview; chưacommit/push/PRlượtchuẩnbị, chưa12A/cuốibáocáo.
+
 ## Công bố toàn bộ 11B — được điều phối chấp nhận, chờ review PR
 
 [PR #18](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/18) **OPEN**, chưa merge. Code tái lập `050b601c916b7b4f6be476640673c9978e0ba979`; [snapshot kiểm remote lúc mở](docs/P1/11b_publication_remote.json) và [danh sách toàn PR](docs/P1/11b_pr_files.json). Commit hồ sơ mới không thay hash runtime lịch sử.

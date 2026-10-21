@@ -1,5 +1,31 @@
 # Hồ sơ duyệt P1
 
+## Công bố thực tế — PR21 OPEN, chờ review
+
+[PR #21](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21) đã mở và xác minh remote. Điều phối đã chấp nhận chức năng phần chuẩn bị; PR chưa merge, không có lời duyệt 12A/G4. Code công bố a32dfcb407009fd5d404035d6c82d787e0411505; bằng chứng runtime không gán lại commit này.
+
+## Review điều phối cho công bố phần chuẩn bị trước 12A — 21/10/2026
+
+Thông điệp điều phối qua người dùng chấp nhận DW backup/restore, kiểm kê và metadata restore riêng; giao commit/push/PR vào main. Ghi nhận APPROVED chức năng trong phạm vi chuẩn bị, không duyệt12A/G4 hoặc quyền merge. Giữ FAIL và report runtime lịch sử. PR WAITING_REVIEW sau khi mở thực tế; link/commit được ghi trong quan sát công bố riêng, không gán commit mới cho run cũ.
+
+## 21/10/2026 — review qua điều phối và giao chuẩn bị tiếp
+
+Nguồn: thông điệp điều phối do người dùng chuyển trong chat: “Điều phối chấp nhận phần backup/restore DW và kiểm kê trước 12A.” Đây là review của điều phối, không đổi thành lời duyệt trực tiếp của người dùng cho 12A.
+
+Phần được chấp nhận đã checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231`. Phần mới restore metadata 8092 là **WAITING_REVIEW**, chưa được tự duyệt, chưa commit/push/PR. API/SQL/UI và guard được ghi riêng trong dashboard/metadata_restore/evidence/; lịch sử trước không sửa.
+
+## PR18 MERGED, giao chuẩn bị trước12A —21/10/2026
+
+Nguồn người dùng chuyển, nguyên văn:
+
+> Điều phối xác nhận PR18 đã merge:
+> 0692822ceb5cba0e523ec45629bdea31a0d45562.
+> Công bố toàn bộ 11B được chấp nhận.
+
+APIxácminhclosed/merged/actorhungvu205/mergehashđúng; agentkhôngmerge. Đây là chấpnhậncôngbố11B, **không phải phêduyệt12A hoặcphầnchuẩnbịmới**. GiữOPENreport cũ, observationriêngpr18_merged_observation.json.
+
+Được backupDW/restoreDBthửmới/backupmetadata khôngrestoremetadata. Run2856ed49…252.891s đạt: bốncanonical/catalog/model/OLAP/ACLobject/sourcepreservation;9unitguard/BIreaderclone/production32object/45protectedfileđạt. GiữkhácbiệtDBACL/comment/globals,metadatabackupchưarestore. **ChuẩnbịWAITING_REVIEW**,CF/Bước10chờP2/P2intakeNOT_CONFIRMED/12Achưachốt,chưarequirementscandidateG4commitpushPR.
+
 ## Công bố PR18 — chờ review PR,20/10/2026
 
 GitHubAPI xác minh PR18 OPEN/merged=false;116file/blobsnapshotlúcmởkhớpremoteGit,ZIPbyteSHAđúnghashđượcduyệt. Code050b601c916b7b4f6be476640673c9978e0ba979/base9fae38b2f69d75d0bb5861fb0a8bc0dbfd38aa48. Đây làquan sátcôngbố,khôngphảilờiduyệtPR/agentmerge. Commithồsơsau đókiểmHEADremote riêng. **PRWAITING_REVIEW**, dừng/chưa12A;giữphạmvilayoutAPI/cùngDW/P2intakeG2NOT_CONFIRMED.

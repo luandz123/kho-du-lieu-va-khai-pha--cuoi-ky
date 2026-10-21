@@ -1,5 +1,17 @@
 # Nguồn prompt P1
 
+## P-P1-38 — Công bố phần chuẩn bị trước12A,21/10/2026
+
+Điều phối chấp nhận DW backup/restore, kiểm kê và metadata restore riêng; giao rà toàn diff/JSON/Python/YAML/ignore/bí mật/artifact, commit/push và mở PR “Chuẩn bị tích hợp: backup/restore DW và metadata Superset”. Giữ báo cáo lịch sử và tài nguyên thử; xác minh HEAD/base/mọi file/blob remote; chưa merge/full refresh/requirements/candidate hoặc báo cáo cuối.
+
+## P-P1-37 — chuẩn bị tiếp metadata restore, 21/10/2026
+
+Điều phối chấp nhận DW backup/restore và kiểm kê; giao checkpoint cục bộ phần đó, restore metadata trên instance mới tương thích6.1.0/cổng trống8092, dùng backup SECRET_KEY/config, guard đích, official PostgreSQL restore và API/UI/SQL ba dashboard. Bảo toàn production/DW/model/ACL/8091/clone; không full refresh, requirements/candidate/P2handoff hoặc công bố phần mới. Kết thúc chuẩn bị tiếp WAITING_REVIEW.
+
+## P-P1-36 — Chuẩn bị trước12A: DWbackup/restore + kiểm kê,21/10/2026
+
+Điều phối xác nhậnPR18merge0692822…/côngbố11Bđượcchấpnhận. Giaođồngbộmainantoàn/tạocodex/p1-s12a-prep/bảotoàndởdangplanP2/mergeobservationriênggiữOPENhistory;kiểmkêsource→schema→stagingETL→DW→OLAP→G3→Supersetcommitlệnhstatus. CFCLIevaluationcuốiP2/Bước10chờ,P2intakeG2NOT_CONFIRMED/fullrefreshS07G3chưakiểm/ZIPcầnRESTlayout;chưarequirementscandidate. Choofficialpg_dumpmovielens_btlconsistent snapshot,kiểmtools/disk/source,dumprawlogdữliệulocalignored/hashsizeversiontime. ChotạorestoreDBthửmới/kiểmchưatồntại/chọnnewkhôngdropcleanoverwrite/guardtừchốisourcevàmỗidbngoàiđíchthử;officialrestore/hậukiểmREADONLYcatalog4hashcountregistryactivevalid6040user72profileclustersinsufficientactiveviewsOLAPACLownershipthực/khôngyếuproductionguard. BackupmetadataSupersetproductionriêng,secretconfiglocalignored/khôngrestoređè80898091/khôngclaimrestoremetadatađạt. BàngiaoinventoryREADMEprepcommandsan toànhashđíchchecks/nguồnproductiongiữnguyên/filescodehashGit;PREPWAITING_REVIEW,chưa12AđủtiềnđềG4/candidateP2/fullrefresh/báocáocuối/commitpushPR. Đây làtómtắtlệnh,khôngtạolờiduyệt.
+
 ## P-P1-35 — Công bố toàn11B theođiềuphối,20/10/2026
 
 Chấpnhận11B-4vớiphạmvinguồnexportthật/importchínhthức/RESTlayoutrestore8091/cùngDW,giaođónggóicommitpushmộtPRmain11B-1intake,11B-2transactionNOOP,11B-3dashboard,11B-4exportrestoremapping/source snapshots/scripts. Bảotoànplan/P2/FAIL,khôngaddall. ChoZIPduynhấtdashboard/superset_export.zipb5a9c987e7d1e7f56b21f92785370cdb9089a4d1efc01c128568127d938f6fae,rásecrettrướcstage,ngoạilệignoređúngpath/khôngmởmọiZIP,checkerphânbiệthistoricalignoredvàapprovedpublication. READMEđủZIP+snapshot+UUIDmapping+script/khôngZIPtựimporthoànchỉnh/giới hạncùngmáyversionDW/chưabackupDW/P2intake. Ràfullbranchvsmainmới/JSONPythondependencyignoresecrethash/checkouttáchbiệtnếucần;provenanceproducergiữnguyênkhôngrecreateactive;compatibilitylỗiphảibáorõtrướckhẳngđịnhđạt. KhôngcầnapplyETLimportlại;đổilogicphảikiểmphầnbịảnhhưởng. CommitphầncònlạipushmởPRfull11B,verifyfullHEAD/vàmọifileblobremote,giữ8091volume. BàngiaoURLHEADbasefilesZIPchecksWT,dừngreview,chưamerge12Afullrefreshquyềnfirewall. Đây làtómtắtlệnh,khôngtạolờiduyệt.

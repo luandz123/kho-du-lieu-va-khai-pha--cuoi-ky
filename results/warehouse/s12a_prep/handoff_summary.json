@@ -1,0 +1,39 @@
+{
+  "at_utc": "2026-10-21T08:53:19.726365+00:00",
+  "status": "PREPARATION_WAITING_REVIEW",
+  "step12a_completed": false,
+  "branch": "codex/p1-s12a-prep",
+  "head_base_commit": "0692822ceb5cba0e523ec45629bdea31a0d45562",
+  "code_state": "WORKING_TREE_NOT_IN_BASE_COMMIT",
+  "runtime_code_sha256": "6986b021ca96b73fe151141352ad3af0ec47a2ec7a8e8bdccf35f3b4ee4409f1",
+  "run_id": "2856ed49e9ba494090e2acae73b41b9a",
+  "restore_database": "movielens_btl_restore_20261021_2856ed49",
+  "unit_guard_tests_passed": 9,
+  "protected_files_unchanged": 45,
+  "static_text_files_checked": 18,
+  "private_files_confirmed_ignored": 19,
+  "known_secret_literals_and_credential_uri_scan": "PASS",
+  "ast_json_whitespace_check": "PASS",
+  "tracked_private_paths": [],
+  "index_empty": true,
+  "outside_plan_unchanged": true,
+  "metadata_restore_tested": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "cf_step10": "WAITING_FOR_P2_FINALIZATION",
+  "integration_candidate": null,
+  "requirements_merged": false,
+  "full_refresh_after_s07_g3_tested": false,
+  "no_commit_push_pr": true,
+  "dump_hashes": {
+    "dw.dump": "ac3f16548a4ffa9299dc4434927f929bff3f353cf63843f5986ed05c28b8f1c4",
+    "superset_metadata.dump": "43665b8c70c13d295ad7c6f3f9289a41750ce536ae28c94435213fdda5141236"
+  },
+  "limits": [
+    "same host/cluster and existing roles",
+    "database-level ACL differs; object ownership/ACL preserved",
+    "metadata archive checked, not restored",
+    "DW and metadata snapshots separate; no whole-stack atomic snapshot",
+    "ZIP requires REST layout restoration",
+    "8091 remains stopped; 8089 restarted and healthy at postflight"
+  ]
+}

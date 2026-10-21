@@ -1,0 +1,38 @@
+{
+  "at_utc": "2026-10-21T14:24:12.310779+00:00",
+  "status": "PASS_PUBLICATION_CHECKS",
+  "head_observed": "a32dfcb407009fd5d404035d6c82d787e0411505",
+  "base_main_observed": "9efa05379fc8323f1b656632e140ac5a3a4354ea",
+  "branch": "codex/p1-s12a-prep",
+  "files_scanned": 59,
+  "validation_counts": {
+    "python": 10,
+    "json": 32,
+    "yaml": 1,
+    "images": 6,
+    "text": 10
+  },
+  "image_byte_formats": {
+    "dashboard/metadata_restore/evidence/ui_overview_all.png": "JPEG",
+    "dashboard/metadata_restore/evidence/ui_overview_q3.png": "JPEG",
+    "dashboard/metadata_restore/evidence/ui_preferences_all.png": "JPEG",
+    "dashboard/metadata_restore/evidence/ui_preferences_filtered.png": "JPEG",
+    "dashboard/metadata_restore/evidence/ui_trends_animation.png": "JPEG",
+    "dashboard/metadata_restore/evidence/ui_trends_review.png": "JPEG"
+  },
+  "image_filename_note": "Historical .png screenshot filenames contain original JPEG bytes returned by browser; bytes/hashes preserved, no image conversion.",
+  "private_paths_ignored": 29,
+  "accepted_metadata_artifacts_verified": 31,
+  "known_secrets_uri_password_hash_scan": "PASS",
+  "tracked_private_paths": [],
+  "outside_plan_preserved": true,
+  "historical_runtime_reports_unchanged": true,
+  "yaml_parser": "existing Superset container PyYAML; no installation",
+  "unit_tests_observed": "14/14 backup+metadata guard tests PASS; 0.042s",
+  "step12a_completed": false,
+  "cf_final_acceptance": "NOT_CONFIRMED",
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "full_refresh_after_s07_g3_tested": false,
+  "requirements_merged": false,
+  "integration_candidate": null
+}
