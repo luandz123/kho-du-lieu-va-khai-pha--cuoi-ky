@@ -1,0 +1,23 @@
+{
+  "run_id": "301bfdfabc984c2b8ec61cb41ed9e79c",
+  "at_utc": "2026-10-21T11:20:41.720409+00:00",
+  "status": "RESTORED_AWAITING_FUNCTIONAL_CHECK",
+  "target_project": "btl-movielens-s12a-metadata",
+  "metadata_database": "superset_metadata",
+  "port": 8092,
+  "dump_sha256": "43665b8c70c13d295ad7c6f3f9289a41750ce536ae28c94435213fdda5141236",
+  "base_commit": "d3f00cc6a068868662a7040459a51ff46e49e231",
+  "code_state": "WORKING_TREE_NOT_IN_CHECKPOINT",
+  "code_sha256": "ef06d4447112856f9f073722cb6a707853b80accb6d8adf93e2e7140b314e729",
+  "private_logs": "backups/metadata_restore_301bfdfabc984c2b8ec61cb41ed9e79c",
+  "production_metadata_restored_into": false,
+  "layout_repair_applied": false,
+  "zip_import_performed": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "toc_entries": 529,
+  "metadata_public_table_count": 53,
+  "superset_version": "6.1.0",
+  "image_id": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+  "finished_utc": "2026-10-21T11:21:06.553510+00:00",
+  "target_retained": true
+}

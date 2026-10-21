@@ -1,5 +1,11 @@
 # Chuẩn bị trước 12A — WAITING_REVIEW, 21/10/2026
 
+## Cập nhật 21/10/2026 — metadata restore riêng 8092
+
+Phần DW/kiểm kê bên dưới đã được điều phối chấp nhận và lưu checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231`. [Runbook metadata restore mới](../../../dashboard/metadata_restore/README.md) và bằng chứng riêng ghi việc restore chính thức metadata vào instance8092, dùng key/config backup, không import ZIP hoặc sửa layout. Nội dung “metadata chưa restore” phía dưới là quan sát lịch sử của lượt backup trước, không bị ghi đè.
+
+**Chuẩn bị tiếp WAITING_REVIEW; 12A/G4 chưa chốt.** Cùng máy/version, DW hiện hữu; chưa full refresh sau S07/G3, CF/Bước10P2 còn chờ và P2 intake G2 NOT_CONFIRMED. Không hợp nhất requirements/chọn candidate/push/PR phần mới.
+
 Đây là kiểm backup/restore DW và kiểm kê sơ bộ được điều phối giao riêng. **12A chưa đủ tiền đề, chưa hoàn thành; chưa chọn commit ứng viên/G4 hoặc hợp nhất requirements.** CF/CLI/evaluation cuối và Bước10 của P2 còn chờ. P2 intake G2 vẫn **NOT_CONFIRMED**. Ngày bảo vệ27/10/2026 không thay các điều kiện này.
 
 Main đã đồng bộ an toàn tại **0692822ceb5cba0e523ec45629bdea31a0d45562**, nhánh **codex/p1-s12a-prep** theo tên chỉ định riêng lần này. [Quan sát PR18 MERGED](../pr18_merged_observation.json) ghi actorhungvu205/agentkhôngmerge; reportOPEN cũ giữ nguyên. Base này chỉ là checkout làm việc, **không phải commit ứng viên tích hợp**. Kế hoạch untracked ngoài phạm vi/P2 giữ nguyên.

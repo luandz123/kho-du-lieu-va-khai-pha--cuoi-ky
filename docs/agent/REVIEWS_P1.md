@@ -1,5 +1,15 @@
 # Hồ sơ duyệt P1
 
+## Review điều phối cho công bố phần chuẩn bị trước 12A — 21/10/2026
+
+Thông điệp điều phối qua người dùng chấp nhận DW backup/restore, kiểm kê và metadata restore riêng; giao commit/push/PR vào main. Ghi nhận APPROVED chức năng trong phạm vi chuẩn bị, không duyệt12A/G4 hoặc quyền merge. Giữ FAIL và report runtime lịch sử. PR WAITING_REVIEW sau khi mở thực tế; link/commit được ghi trong quan sát công bố riêng, không gán commit mới cho run cũ.
+
+## 21/10/2026 — review qua điều phối và giao chuẩn bị tiếp
+
+Nguồn: thông điệp điều phối do người dùng chuyển trong chat: “Điều phối chấp nhận phần backup/restore DW và kiểm kê trước 12A.” Đây là review của điều phối, không đổi thành lời duyệt trực tiếp của người dùng cho 12A.
+
+Phần được chấp nhận đã checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231`. Phần mới restore metadata 8092 là **WAITING_REVIEW**, chưa được tự duyệt, chưa commit/push/PR. API/SQL/UI và guard được ghi riêng trong dashboard/metadata_restore/evidence/; lịch sử trước không sửa.
+
 ## PR18 MERGED, giao chuẩn bị trước12A —21/10/2026
 
 Nguồn người dùng chuyển, nguyên văn:

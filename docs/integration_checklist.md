@@ -1,5 +1,11 @@
 # Checklist tích hợp sơ bộ — chuẩn bị trước 12A, 21/10/2026
 
+## Cập nhật chuẩn bị tiếp — 21/10/2026
+
+Phần DW backup/restore đã được điều phối chấp nhận, checkpoint cục bộ d3f00cc6a068868662a7040459a51ff46e49e231. Metadata Superset được restore riêng vào8092 bằng PostgreSQL tools, dùng SECRET_KEY/config backup; kiểm chức năng ở [runbook metadata restore](../dashboard/metadata_restore/README.md). Phần mới WAITING_REVIEW, chưa chốt12A/G4. Các mục đang chờ P2/full refresh/requirements/candidate vẫn giữ nguyên.
+
+Bảng bên dưới giữ snapshot của lượt chuẩn bị DW trước; dòng metadata “chưa restore” là lịch sử, không thay cho quan sát mới tại dashboard/metadata_restore/evidence/.
+
 Tài liệu mới vì file kế hoạch này chưa tồn tại lúc khảo sát. Đây là checklist nội bộ sơ bộ theo lệnh điều phối, **không xác nhận 12A/G4 đủ tiền đề hoặc hoàn thành**; không thay rubric hay chính sách nhóm đã duyệt.
 
 | Hạng mục | Hiện trạng / bằng chứng | Cần chốt trước khi thực hiện 12A |

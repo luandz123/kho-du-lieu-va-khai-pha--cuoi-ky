@@ -1,5 +1,13 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Công bố phần chuẩn bị tích hợp — 21/10/2026
+
+Điều phối chấp nhận backup/restore DW, kiểm kê và metadata restore riêng8092; đang đóng gói PR trên `codex/p1-s12a-prep`, **chưa phải PR chốt12A/G4**. [Runbook DW/kiểm kê](docs/P1/integration_prep/README.md), [metadata restore](dashboard/metadata_restore/README.md) và receipt mới phân biệt với ZIP import/REST layout. Giữ nguyên báo cáo lịch sử. Database-level ACL DW clone khác nguồn; giới hạn same-host/version/DW hiện hữu vẫn áp dụng. Chưa full refresh tích hợp, nghiệm thu CF/CLI cuối, P2 intake G2, requirements/candidate.
+
+## Chuẩn bị tiếp: metadata restore 8092 — WAITING_REVIEW, 21/10/2026
+
+Phần backup/restore DW và kiểm kê trước 12A đã được điều phối chấp nhận, lưu checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231`. Đã restore metadata Superset 6.1.0 vào instance riêng 8092 bằng pg_restore, dùng bản SECRET_KEY/config đã backup. [Runbook và bằng chứng metadata restore](dashboard/metadata_restore/README.md) phân biệt rõ metadata restore với DW restore và ZIP import cần REST layout. Hồ sơ trước ghi metadata chưa restore được giữ nguyên làm lịch sử. **Chưa chốt 12A/G4**, CF/Bước10 P2 còn chờ, P2 intake G2 NOT_CONFIRMED. Không full refresh, hợp nhất requirements, chọn candidate hoặc push/PR.
+
 ## Chuẩn bị trước 12A — WAITING_REVIEW, 21/10/2026
 
 PR18 đã xác minh MERGED tại `0692822ceb5cba0e523ec45629bdea31a0d45562`; báo cáo OPEN bên dưới giữ lịch sử. Đang trên `codex/p1-s12a-prep`, **chưa đủ tiền đề/chưa hoàn thành12A/G4**, chưa chọn commit ứng viên hoặc hợp nhất requirements. CF/CLI/evaluation cuối/Bước10P2 đang chờ; P2intakeG2NOT_CONFIRMED; chưa fullrefresh tích hợp sauS07/G3.

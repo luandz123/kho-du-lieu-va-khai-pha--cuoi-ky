@@ -1,0 +1,29 @@
+{
+  "at_utc": "2026-10-21T11:33:24.061338+00:00",
+  "status": "PASS_WAITING_REVIEW",
+  "checkpoint_commit": "d3f00cc6a068868662a7040459a51ff46e49e231",
+  "branch": "codex/p1-s12a-prep",
+  "new_code_uncommitted": true,
+  "index_empty": true,
+  "secret_literal_and_uri_scan": "PASS",
+  "ast_json_whitespace": "PASS",
+  "private_files_confirmed_ignored": 26,
+  "protected_files_unchanged": 45,
+  "outside_plan_unchanged": true,
+  "dw_clone_retained_guard_verified": "movielens_btl_restore_20261021_2856ed49",
+  "unit_guard_tests": {
+    "tests": 5,
+    "status": "PASS",
+    "command": "python tests/warehouse/test_metadata_restore_guards.py"
+  },
+  "failed_observations_preserved": [
+    "postflight_FAIL_encoding.json",
+    "postflight_FAIL_ui_snapshot.json"
+  ],
+  "metadata_restore_tested": true,
+  "step12a_completed": false,
+  "p2_intake_status": "NOT_CONFIRMED",
+  "candidate": null,
+  "requirements_merged": false,
+  "new_work_committed_pushed_pr": false
+}

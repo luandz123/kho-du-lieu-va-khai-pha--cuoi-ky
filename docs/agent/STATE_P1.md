@@ -1,5 +1,23 @@
 # Trạng thái P1
 
+## Công bố phần chuẩn bị trước 12A — điều phối chấp nhận, đang đóng gói PR
+
+Nguồn review: thông điệp điều phối qua người dùng ngày 21/10/2026: “Điều phối chấp nhận phần chuẩn bị trước 12A: backup/restore DW, kiểm kê và restore metadata Superset riêng.” Đây là review của điều phối, không tạo lời duyệt trực tiếp của người dùng cho 12A/G4. Được giao commit/push/PR phần chuẩn bị; không được merge.
+
+Hai cơ chế đã kiểm: DW restore vào `movielens_btl_restore_20261021_2856ed49`; metadata Superset restore riêng trên8092, giữ key/config backup và layout/ID/UUID. ZIP import vẫn là quy trình khác, cần snapshot/mapping/REST phục hồi layout. Database-level ACL clone DW khác nguồn, dù owner/object ACL được giữ; chi tiết ở runbook. Receipt “metadata chưa restore” cũ được giữ làm lịch sử; kết quả mới tại dashboard/metadata_restore/evidence/final_observation.json.
+
+Chỉ công bố code, cấu hình không bí mật, test, hướng dẫn và bằng chứng tổng hợp. Dump/env/key/config private/raw log/user-level không Git. Không chạy lại restore/ETL/UI để công bố. Chưa xác nhận full refresh tích hợp sau S07/G3, CF/CLI cuối, P2 intake G2, requirements tổng hoặc candidate/G4 hoàn thành. Main remote hiện có PR20/CF10A nhưng chưa suy thành nghiệm thu cuối P2. Phần chuẩn bị được chấp nhận chức năng; PR sẽ WAITING_REVIEW, chưa MERGED.
+
+## Hiện hành — chuẩn bị tiếp metadata restore WAITING_REVIEW, 21/10/2026
+
+Điều phối chấp nhận phần backup/restore DW và kiểm kê trước 12A; checkpoint cục bộ `d3f00cc6a068868662a7040459a51ff46e49e231` gồm đúng 20 file, không chứa kế hoạch ngoài phạm vi. Giữ nhánh `codex/p1-s12a-prep`; code/bằng chứng metadata restore mới chưa commit/push/PR. Không sửa P2.
+
+Metadata restore run `301bfdfabc984c2b8ec61cb41ed9e79c`, đích project `btl-movielens-s12a-metadata`, DB `superset_metadata` trong volume riêng, cổng 127.0.0.1:8092; Superset6.1.0 cùng image nguồn và PostgreSQL17.11. Dump SHA `43665b8c70c13d295ad7c6f3f9289a41750ce536ae28c94435213fdda5141236` giữ nguyên. Guard tên/label/run/volume/marker/đích rỗng và TOC đạt; official pg_restore single-transaction/exit-on-error, không init/upgrade/ZIP import/REST repair hoặc sửa trực tiếp bảng metadata.
+
+Đã đăng nhập bằng tài khoản khôi phục. API/SQL run `e606cfd1830c4a1cab53c1d06b0ea6fa`, 94.203 giây, 23/23 chart query thành công, engine BI reader/UTC; toàn kỳ/Q3=1000209/324864; Animation=1715/prev20068/QoQ−91.454056%; assigned6038/170, baseline6038, insufficient2. ID/UUID/layout/filter/metric/SQL đối chiếu nguyên bản, không áp bước sửa layout ZIP. Bằng chứng UI và hậu kiểm riêng tại dashboard/metadata_restore/evidence/; không sửa báo cáo lịch sử.
+
+Nguồn DW/model/ACL và 32 object nghiệp vụ 8089 giữ nguyên; 8091 vẫn stopped255, DW clone trước giữ review. Hai volume/network mới tách biệt; giữ tài nguyên 8092 để review. Secret/config/dump/raw logs local ignored; không công bố password hash/URI. Giới hạn cùng máy/version, DW hiện hữu, chưa phục hồi toàn hệ thống máy mới. **Chuẩn bị tiếp WAITING_REVIEW; 12A/G4 chưa hoàn thành, P2 intake NOT_CONFIRMED, CF/Bước10 chưa chốt, chưa full refresh sau S07/G3 hoặc hợp nhất requirements/candidate.**
+
 ## Hiện hành — chuẩn bị trước 12A WAITING_REVIEW, 21/10/2026
 
 Điều phối xác nhận công bố 11B được chấp nhận. GitHub đã kiểm PR18 MERGED, merge **0692822ceb5cba0e523ec45629bdea31a0d45562**, actor hungvu205; agent không merge. Quan sát mới tại docs/P1/pr18_merged_observation.json; giữ báo cáo OPEN cũ. Main fast-forward an toàn rồi tạo **codex/p1-s12a-prep** theo tên chỉ định lần này; kế hoạch untracked ngoài phạm vi giữ nguyên, không reset/stash/ghi đè.

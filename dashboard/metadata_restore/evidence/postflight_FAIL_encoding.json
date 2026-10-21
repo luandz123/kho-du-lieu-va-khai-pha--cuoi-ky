@@ -1,0 +1,8 @@
+{
+  "at_utc": "2026-10-21T11:28:03.785804+00:00",
+  "status": "FAIL",
+  "phase": "read_local_business_snapshot",
+  "error_category": "UnicodeDecodeError_CP1258_default",
+  "database_writes": false,
+  "fix": "Explicit UTF-8 decoding for local JSON. No SQL/metric/filter/restore changes."
+}
