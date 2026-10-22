@@ -258,12 +258,15 @@ def test_real_data_cf_validation_artifact():
     prov = res["provenance"]
     assert "split_manifest_sha256" in prov
     assert "cf_code_sha256" in prov
+    assert "cf_code_git_blob_sha1" in prov
+    assert "code_provenance" in prov
     assert "config_hash" in prov
     assert prov["matrix_dtype"] == "float32"
     assert prov["batch_size"] == 500
     assert "timing_breakdown" in prov
     assert "matrix_fit_seconds" in prov["timing_breakdown"]
     assert "neighbor_build_seconds" in prov["timing_breakdown"]
+    assert "pipeline_runtime_seconds" in prov["timing_breakdown"]
     assert "libraries" in prov
     assert prov["libraries"]["scipy"] == "1.14.1"
     assert "scikit_learn" in prov["libraries"]
@@ -318,3 +321,94 @@ def test_real_data_cf_validation_artifact():
     assert comp["best_cf_metrics"]["total_hits"] == 424
     assert comp["best_cf_metrics"]["macro_precision_at_5"] > comp["baseline_metrics"]["macro_precision_at_5"]
     assert comp["best_cf_metrics"]["macro_recall_at_5"] < comp["baseline_metrics"]["macro_recall_at_5"]
+
+
+def test_real_data_cf_code_provenance_and_newline_integrity():
+    """
+    Provenance regression test verifying exact hash match of mining/cf.py:
+    - Verifies canonical LF SHA-256 and Git blob SHA-1 match artifact provenance.
+    - Verifies cross-platform invariance under Windows CRLF line endings.
+    - Verifies tamper detection (modified code produces mismatch).
+    """
+    import tempfile
+
+    assert DEFAULT_CF_OUTPUT.exists(), f"Missing {DEFAULT_CF_OUTPUT}"
+    with open(DEFAULT_CF_OUTPUT, "r", encoding="utf-8") as f:
+        res = json.load(f)
+
+    prov = res["provenance"]
+    cf_path = REPO_ROOT / "mining" / "cf.py"
+    compute_code_hashes = cf_mod.compute_code_hashes
+
+    # 1. Exact match with active codebase
+    live_hashes = compute_code_hashes(cf_path)
+    assert prov["cf_code_sha256"] == live_hashes["cf_code_sha256"], (
+        f"Code SHA-256 drift: artifact {prov['cf_code_sha256']} != live {live_hashes['cf_code_sha256']}"
+    )
+    assert prov["cf_code_git_blob_sha1"] == live_hashes["cf_code_git_blob_sha1"], (
+        f"Git blob SHA-1 drift: artifact {prov['cf_code_git_blob_sha1']} != live {live_hashes['cf_code_git_blob_sha1']}"
+    )
+    assert prov["code_provenance"]["runtime_bytes_sha256"] == live_hashes["runtime_bytes_sha256"]
+
+    # 2. Cross-platform CRLF normalization test
+    orig_bytes = cf_path.read_bytes()
+    crlf_bytes = orig_bytes.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+        tmp.write(crlf_bytes)
+        tmp_path = Path(tmp.name)
+
+    try:
+        crlf_hashes = compute_code_hashes(tmp_path)
+        assert crlf_hashes["runtime_newline_format"] == "CRLF"
+        # Canonical hashes MUST remain invariant across CRLF vs LF
+        assert crlf_hashes["cf_code_sha256"] == live_hashes["cf_code_sha256"]
+        assert crlf_hashes["cf_code_git_blob_sha1"] == live_hashes["cf_code_git_blob_sha1"]
+    finally:
+        if tmp_path.exists():
+            tmp_path.unlink()
+
+    # 3. Tamper detection test (modifying code detects change)
+    tampered_bytes = orig_bytes + b"\n# audit tamper marker\n"
+    with tempfile.NamedTemporaryFile(delete=False) as tmp:
+        tmp.write(tampered_bytes)
+        tmp_tampered_path = Path(tmp.name)
+
+    try:
+        tampered_hashes = compute_code_hashes(tmp_tampered_path)
+        assert tampered_hashes["cf_code_sha256"] != prov["cf_code_sha256"]
+        assert tampered_hashes["cf_code_git_blob_sha1"] != prov["cf_code_git_blob_sha1"]
+    finally:
+        if tmp_tampered_path.exists():
+            tmp_tampered_path.unlink()
+
+
+def test_real_data_cf_timing_breakdown_isolation():
+    """
+    Verifies timing isolation between pure algorithm execution and CLI I/O:
+    - pipeline_runtime_seconds strictly measures algorithmic execution.
+    - cli_total_wall_seconds covers end-to-end execution including data loading and verification.
+    - Loading and verification times are separated and non-zero when run via CLI.
+    """
+    assert DEFAULT_CF_OUTPUT.exists(), f"Missing {DEFAULT_CF_OUTPUT}"
+    with open(DEFAULT_CF_OUTPUT, "r", encoding="utf-8") as f:
+        res = json.load(f)
+
+    timing = res["provenance"]["timing_breakdown"]
+    assert "pipeline_runtime_seconds" in timing
+    assert "matrix_fit_seconds" in timing
+    assert "neighbor_build_seconds" in timing
+    assert "evaluation_runtime_seconds" in timing
+    assert "cli_total_wall_seconds" in timing
+    assert "cli_data_loading_seconds" in timing
+    assert "cli_verification_seconds" in timing
+
+    # Pipeline runtime should be strictly positive and smaller than CLI wall time
+    assert timing["pipeline_runtime_seconds"] > 0
+    assert timing["cli_total_wall_seconds"] >= timing["pipeline_runtime_seconds"]
+    assert timing["cli_data_loading_seconds"] > 0
+    assert timing["cli_verification_seconds"] > 0
+
+    # Explanation must document the boundary clearly
+    assert "pure algorithm" in timing["explanation"].lower()
+    assert "excludes disk data loading" in timing["explanation"].lower()
+

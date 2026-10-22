@@ -1,0 +1,156 @@
+================================================================================
+EVIDENCE 1: Targeted Step 10A Test Suite (9 tests, including Provenance & Timing Isolation)
+Command: .venv/bin/pytest tests/mining/test_cf.py -v
+================================================================================
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
+collecting ... collected 9 items
+
+tests/mining/test_cf.py::test_hand_calculated_cosine_similarity_properties PASSED [ 11%]
+tests/mining/test_cf.py::test_hand_calculated_seed_top_k_direction_and_scoring PASSED [ 22%]
+tests/mining/test_cf.py::test_hand_calculated_tie_breaking_and_popularity_fallback PASSED [ 33%]
+tests/mining/test_cf.py::test_hand_calculated_recall_denominator_includes_novel_items PASSED [ 44%]
+tests/mining/test_pipeline_strictly_rejects_non_top_5 PASSED [ 55%]
+tests/mining/test_cli_rejects_non_top_5_without_touching_output PASSED [ 66%]
+tests/mining/test_real_data_cf_validation_artifact PASSED    [ 77%]
+tests/mining/test_real_data_cf_code_provenance_and_newline_integrity PASSED [ 88%]
+tests/mining/test_real_data_cf_timing_breakdown_isolation PASSED [100%]
+
+============================== 9 passed in 3.75s ===============================
+
+================================================================================
+EVIDENCE 2: Core Mining Models & Recommendation Subset (41 tests)
+Command: .venv/bin/pytest tests/mining/test_clustering.py tests/mining/test_split_evaluation.py tests/mining/test_baseline.py tests/mining/test_cf.py -v
+================================================================================
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
+collecting ... collected 41 items
+
+tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [  2%]
+tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [  4%]
+tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [  7%]
+tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe PASSED [  9%]
+tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table PASSED [ 12%]
+tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package PASSED [ 14%]
+tests/mining/test_clustering.py::test_version_reuse_protection PASSED    [ 17%]
+tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 19%]
+tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 21%]
+tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 24%]
+tests/mining/test_figures_exist PASSED               [ 26%]
+tests/mining/test_clustering.py::test_export_preserves_existing_package_on_fingerprint_mismatch PASSED [ 29%]
+tests/mining/test_clustering.py::test_export_leaves_no_incomplete_package_when_validation_fails PASSED [ 31%]
+tests/mining/test_clustering.py::test_export_rejects_corrupted_existing_package_without_modifying PASSED [ 34%]
+tests/mining/test_clustering.py::test_export_reproduce_yields_exact_frozen_csv_hashes PASSED [ 36%]
+tests/mining/test_clustering.py::test_export_rejects_conflicting_payload_under_custom_model_version PASSED [ 39%]
+tests/mining/test_clustering.py::test_export_handles_simulated_io_failure_during_second_replace PASSED [ 41%]
+tests/mining/test_split_evaluation.py::test_temporal_split_tie_handling_and_boundary_integrity PASSED [ 43%]
+tests/mining/test_split_evaluation.py::test_real_data_temporal_split_properties PASSED [ 46%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_evaluation_cohort PASSED [ 48%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_candidate_universe_and_no_negative_sampling PASSED [ 51%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_precision_and_recall_denominator PASSED [ 53%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_tie_breaking_rules PASSED [ 56%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_relevant_outside_candidate_universe_and_macro_average PASSED [ 58%]
+tests/mining/test_split_evaluation.py::test_split_manifest_contract_and_structure PASSED [ 60%]
+tests/mining/test_baseline.py::test_hand_calculated_popularity_fit_and_ranking PASSED [ 63%]
+tests/mining/test_baseline.py::test_hand_calculated_user_recommendation_and_history_exclusion PASSED [ 65%]
+tests/mining/test_baseline.py::test_hand_calculated_short_candidate_universe_and_novel_items PASSED [ 68%]
+tests/mining/test_baseline.py::test_hand_calculated_pipeline_macro_metrics PASSED [ 70%]
+tests/mining/test_baseline.py::test_real_data_popularity_baseline_artifact PASSED [ 73%]
+tests/mining/test_baseline.py::test_pipeline_strictly_rejects_non_top_5 PASSED [ 75%]
+tests/mining/test_baseline.py::test_cli_rejects_non_top_5_without_touching_output PASSED [ 78%]
+tests/mining/test_cf.py::test_hand_calculated_cosine_similarity_properties PASSED [ 80%]
+tests/mining/test_cf.py::test_hand_calculated_seed_top_k_direction_and_scoring PASSED [ 82%]
+tests/mining/test_cf.py::test_hand_calculated_tie_breaking_and_popularity_fallback PASSED [ 85%]
+tests/mining/test_cf.py::test_hand_calculated_recall_denominator_includes_novel_items PASSED [ 87%]
+tests/mining/test_cf.py::test_pipeline_strictly_rejects_non_top_5 PASSED [ 90%]
+tests/mining/test_cf.py::test_cli_rejects_non_top_5_without_touching_output PASSED [ 92%]
+tests/mining/test_cf.py::test_real_data_cf_validation_artifact PASSED    [ 95%]
+tests/mining/test_cf.py::test_real_data_cf_code_provenance_and_newline_integrity PASSED [ 97%]
+tests/mining/test_cf.py::test_real_data_cf_timing_breakdown_isolation PASSED [100%]
+
+============================= 41 passed in 23.97s ==============================
+
+================================================================================
+EVIDENCE 3: Full Mining Component Test Suite (All 68 tests)
+Command: .venv/bin/pytest tests/mining/ -v
+================================================================================
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.2, pluggy-1.6.0 -- /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/luan/kho-du-lieu-va-khai-pha--cuoi-ky
+collecting ... collected 68 items
+
+tests/mining/test_baseline.py::test_hand_calculated_popularity_fit_and_ranking PASSED [  1%]
+tests/mining/test_baseline.py::test_hand_calculated_user_recommendation_and_history_exclusion PASSED [  2%]
+tests/mining/test_baseline.py::test_hand_calculated_short_candidate_universe_and_novel_items PASSED [  4%]
+tests/mining/test_baseline.py::test_hand_calculated_pipeline_macro_metrics PASSED [  5%]
+tests/mining/test_baseline.py::test_real_data_popularity_baseline_artifact PASSED [  7%]
+tests/mining/test_baseline.py::test_pipeline_strictly_rejects_non_top_5 PASSED [  8%]
+tests/mining/test_baseline.py::test_cli_rejects_non_top_5_without_touching_output PASSED [ 10%]
+tests/mining/test_canonical_data.py::test_canonical_manifest_structure PASSED [ 11%]
+tests/mining/test_canonical_data.py::test_users_table PASSED             [ 13%]
+tests/mining/test_canonical_data.py::test_movies_table PASSED            [ 14%]
+tests/mining/test_canonical_data.py::test_movie_genres_table PASSED      [ 16%]
+tests/mining/test_canonical_data.py::test_ratings_table PASSED           [ 17%]
+tests/mining/test_cf.py::test_hand_calculated_cosine_similarity_properties PASSED [ 19%]
+tests/mining/test_cf.py::test_hand_calculated_seed_top_k_direction_and_scoring PASSED [ 20%]
+tests/mining/test_cf.py::test_hand_calculated_tie_breaking_and_popularity_fallback PASSED [ 22%]
+tests/mining/test_cf.py::test_hand_calculated_recall_denominator_includes_novel_items PASSED [ 23%]
+tests/mining/test_cf.py::test_pipeline_strictly_rejects_non_top_5 PASSED [ 25%]
+tests/mining/test_cf.py::test_cli_rejects_non_top_5_without_touching_output PASSED [ 26%]
+tests/mining/test_cf.py::test_real_data_cf_validation_artifact PASSED    [ 27%]
+tests/mining/test_cf.py::test_real_data_cf_code_provenance_and_newline_integrity PASSED [ 29%]
+tests/mining/test_cf.py::test_real_data_cf_timing_breakdown_isolation PASSED [ 30%]
+tests/mining/test_clustering.py::test_kmeans_experiments_table_structure PASSED [ 32%]
+tests/mining/test_clustering.py::test_model_stability_evaluation PASSED  [ 33%]
+tests/mining/test_clustering.py::test_synthetic_computation_label_mapping_and_profile PASSED [ 35%]
+tests/mining/test_clustering.py::test_input_verification_mismatch_detected_on_mutated_dataframe PASSED [ 36%]
+tests/mining/test_clustering.py::test_input_verification_missing_manifest_or_table PASSED [ 38%]
+tests/mining/test_clustering.py::test_cli_rejects_mutated_data_without_exporting_package PASSED [ 39%]
+tests/mining/test_clustering.py::test_version_reuse_protection PASSED    [ 41%]
+tests/mining/test_clustering.py::test_g3_user_cluster_contract PASSED    [ 42%]
+tests/mining/test_clustering.py::test_g3_cluster_genre_profile_contract PASSED [ 44%]
+tests/mining/test_clustering.py::test_g3_manifest_contract PASSED        [ 45%]
+tests/mining/test_figures_exist PASSED               [ 47%]
+tests/mining/test_clustering.py::test_export_preserves_existing_package_on_fingerprint_mismatch PASSED [ 48%]
+tests/mining/test_clustering.py::test_export_leaves_no_incomplete_package_when_validation_fails PASSED [ 50%]
+tests/mining/test_clustering.py::test_export_rejects_corrupted_existing_package_without_modifying PASSED [ 51%]
+tests/mining/test_clustering.py::test_export_reproduce_yields_exact_frozen_csv_hashes PASSED [ 52%]
+tests/mining/test_clustering.py::test_export_rejects_conflicting_payload_under_custom_model_version PASSED [ 54%]
+tests/mining/test_clustering.py::test_export_handles_simulated_io_failure_during_second_replace PASSED [ 55%]
+tests/mining/test_data_io.py::test_table_schemas_and_columns PASSED      [ 57%]
+tests/mining/test_data_io.py::test_raw_csv_byte_equivalence PASSED       [ 58%]
+tests/mining/test_id_uniqueness_and_foreign_keys PASSED [ 60%]
+tests/mining/test_data_io.py::test_rated_at_utc_formatting PASSED        [ 61%]
+tests/mining/test_data_io.py::test_multi_genre_movies_do_not_multiply_ratings PASSED [ 63%]
+tests/mining/test_data_io.py::test_dw_error_handling_when_offline PASSED [ 64%]
+tests/mining/test_data_io.py::test_dw_mock_interface_with_connection PASSED [ 66%]
+tests/mining/test_data_io.py::test_dw_ratings_timezone_aware_and_timestamp_validation PASSED [ 67%]
+tests/mining/test_data_io.py::test_dw_exception_does_not_leak_credentials PASSED [ 69%]
+tests/mining/test_data_io.py::test_cli_exit_code_and_output_on_dw_failure PASSED [ 70%]
+tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence PASSED [ 72%]
+tests/mining/test_data_io.py::test_cli_exit_code_on_verify_equivalence_failure PASSED [ 73%]
+tests/mining/test_env.py::test_python_version PASSED                     [ 75%]
+tests/mining/test_env.py::test_core_libraries_imported PASSED            [ 76%]
+tests/mining/test_env.py::test_sparse_matrix_and_similarity PASSED       [ 77%]
+tests/mining/test_env.py::test_kmeans_execution PASSED                   [ 79%]
+tests/mining/test_features.py::test_hand_calculated_synthetic_fixture PASSED [ 80%]
+tests/mining/test_features.py::test_full_dataset_feature_matrix_properties PASSED [ 82%]
+tests/mining/test_features.py::test_zero_division_guard_edge_case PASSED [ 83%]
+tests/mining/test_features.py::test_raw_csv_feature_extraction_equivalence PASSED [ 85%]
+tests/mining/test_source_manifest.py::test_source_manifest_structure PASSED [ 86%]
+tests/mining/test_source_manifest.py::test_raw_files_checksums_and_counts PASSED [ 88%]
+tests/mining/test_split_evaluation.py::test_temporal_split_tie_handling_and_boundary_integrity PASSED [ 89%]
+tests/mining/test_split_evaluation.py::test_real_data_temporal_split_properties PASSED [ 91%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_evaluation_cohort PASSED [ 92%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_candidate_universe_and_no_negative_sampling PASSED [ 94%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_precision_and_recall_denominator PASSED [ 95%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_tie_breaking_rules PASSED [ 97%]
+tests/mining/test_split_evaluation.py::test_hand_calculated_relevant_outside_candidate_universe_and_macro_average PASSED [ 98%]
+tests/mining/test_split_evaluation.py::test_split_manifest_contract_and_structure PASSED [100%]
+
+======================== 68 passed in 115.63s (0:01:55) ========================
