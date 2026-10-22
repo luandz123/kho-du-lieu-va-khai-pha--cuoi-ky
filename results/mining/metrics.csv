@@ -1,0 +1,7 @@
+model_name,evaluation_phase,neighbor_k,recommendation_top_n,macro_precision_at_5,macro_recall_at_5,total_hits,eligible_cohort_size,fallback_users_count,fallback_rate_percentage,training_cutoff_timestamp,evaluation_cutoff_timestamp,run_id
+popularity_baseline,validation,None,5,0.169851,0.031261,400,471,0,0.0,974862386,976422051,val_baseline_official
+item_based_collaborative_filtering,validation,20,5,0.17707,0.02856537,417,471,0,0.0,974862386,976422051,val_cf_experiments_official
+item_based_collaborative_filtering,validation,40,5,0.180042,0.03007556,424,471,0,0.0,974862386,976422051,val_cf_experiments_official
+item_based_collaborative_filtering,validation,80,5,0.184289,0.02866586,434,471,0,0.0,974862386,976422051,val_cf_experiments_official
+popularity_baseline,test,None,5,0.201733,0.02712408,1164,1154,0,0.0,976422051,976422051,test_run_s10b_official_20261022_034458
+item_based_collaborative_filtering,test,40,5,0.231023,0.03530289,1333,1154,2,0.1733,976422051,976422051,test_run_s10b_official_20261022_034458

@@ -1,0 +1,116 @@
+{
+  "run_id": "test_run_s10b_official_20261022_034458",
+  "execution_start_timestamp_utc": "2026-10-22T03:44:49Z",
+  "execution_finish_timestamp_utc": "2026-10-22T03:45:02Z",
+  "status": "OFFICIAL_COMPLETED",
+  "hashes": {
+    "cf_code_sha256": "323541c16020b9de31bad8a4223718423da968500cd4f65a2be27b0b37896ad7",
+    "cf_code_git_blob_sha1": "4545fec9576b910787072c69b93d1a92e4a59020",
+    "eval_code_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "eval_code_git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+    "config_hash": "52d55f919a247e5b8a2531923fc202d9c6972dc49506f471f3dfb3a515cb7984",
+    "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "ratings_canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+    "canonical_table_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "source_hashes": {
+      "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+    }
+  },
+  "training_manifest": {
+    "model_version": "item_based_cf_k40_eval_v1",
+    "training_history_description": "train + validation (timestamp <= t2 = 976422051)",
+    "training_cutoff_timestamp": 976422051,
+    "training_cutoff_utc": "2000-12-10T04:20:51Z",
+    "training_ratings_count": 850177,
+    "training_catalog_size": 3669,
+    "unique_training_users": 5715,
+    "sparse_matrix_shape": [3669, 5715],
+    "sparse_matrix_nnz": 850177,
+    "matrix_dtype": "float32",
+    "batch_size": 500,
+    "seed_rating_threshold": 4
+  },
+  "frozen_configuration": {
+    "neighbor_k": 40,
+    "recommendation_top_n": 5,
+    "matrix_dtype": "float32",
+    "cosine_normalization": "L2 unit norm",
+    "seed_rating_threshold": 4,
+    "self_similarity": 0.0,
+    "positive_similarity_only": true,
+    "ranking_tie_breaking": "score DESC, train_popularity DESC, movie_id ASC",
+    "fallback_mechanism": "popularity_fallback if < 5 CF items"
+  },
+  "cohort": {
+    "cohort_size": 1154,
+    "cohort_hash": "8cdc8ea49454e6451a0d87629a0d2b8b6ba7df5e933a7d82fee2b9075c931bb8",
+    "evaluation_parity": "Both models evaluated on the exact same 1,154-user cohort and candidate universe",
+    "candidate_universe_stats": {
+      "formula": "train_catalog - user_train_history",
+      "training_catalog_size": 3669,
+      "min_candidates_per_user": 1941,
+      "max_candidates_per_user": 3664,
+      "average_candidates_per_user": 3448.45
+    },
+    "excluded_users_diagnostics": {
+      "total_active_test_users": 1512,
+      "total_excluded": 358,
+      "insufficient_train_ratings": 332,
+      "no_positives_in_test": 26
+    },
+    "novel_movies_diagnostics": {
+      "novel_movies_in_test": 37,
+      "novel_positive_movies_in_test": 19,
+      "novel_positive_movies_in_cohort": 16,
+      "novel_positive_cohort_movie_ids": [
+        396, 398, 578, 584, 701, 1360, 1364, 1930, 2299, 3229, 3245, 3748, 3756, 3862, 3888, 3905
+      ],
+      "recall_denominator_rule": "Recall@5 denominator strictly includes all positive movies of user in test period, including novel items outside training catalog."
+    }
+  },
+  "metrics_comparison": {
+    "popularity_baseline": {
+      "macro_precision_at_5": 0.201733,
+      "macro_recall_at_5": 0.02712408,
+      "macro_recall_at_5_unrounded": 0.027124083079144427,
+      "macro_precision_at_5_percentage": 20.1733,
+      "macro_recall_at_5_percentage": 2.712408,
+      "total_hits": 1164,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.0049
+    },
+    "item_based_cf_k40": {
+      "frozen_k": 40,
+      "macro_precision_at_5": 0.231023,
+      "macro_recall_at_5": 0.03530289,
+      "macro_recall_at_5_unrounded": 0.03530288852963812,
+      "macro_precision_at_5_percentage": 23.1023,
+      "macro_recall_at_5_percentage": 3.530289,
+      "total_hits": 1333,
+      "fallback_users_count": 2,
+      "fallback_rate_percentage": 0.1733,
+      "evaluation_runtime_seconds": 0.5723
+    },
+    "delta_cf_minus_baseline": {
+      "precision_points": 2.9289,
+      "recall_points": 0.817881,
+      "hits_difference": 169
+    }
+  },
+  "official_conclusion": "Trong lượt đánh giá test đã chốt, CF cao hơn baseline trên Precision@5 và Recall@5.",
+  "honest_assessment_notes": "Kết quả trên được ghi nhận trong lượt đánh giá test đã chốt; nhóm nghiên cứu không suy diễn thành sự vượt trội mang tính tổng quát trong mọi bối cảnh hoặc có ý nghĩa thống kê khi chưa kiểm định. Báo rõ tỷ lệ fallback là 2/1154 ≈ 0.1733%.",
+  "anti_overwrite_protection": {
+    "mechanism": "Pre-execution check rejects execution if receipt file already exists, raising FileExistsError",
+    "receipt_sha256_checksum": "9d49e76823ba1cba69217abff43fc6cfcc017461ac49ea8e1f87078db6fec050",
+    "cryptographic_notice": "Lưu ý: receipt_sha256_checksum là giá trị băm kiểm tra toàn vẹn (checksum digest), không phải chữ ký số xác thực (digital signature) và không được coi là bằng chứng tuyệt đối chưa từng chạy lại."
+  }
+}

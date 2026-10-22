@@ -1,0 +1,193 @@
+{
+  "contract_version": 2,
+  "model_name": "item_based_collaborative_filtering",
+  "evaluation_phase": "test",
+  "recommendation_cutoff": 5,
+  "recommendation_top_n": 5,
+  "frozen_neighbor_k": 40,
+  "training_cutoff_timestamp": 976422051,
+  "training_cutoff_utc": "2000-12-10T04:20:51Z",
+  "evaluation_threshold_timestamp": 976422051,
+  "thresholds": {
+    "t1": 974862386,
+    "t1_utc": "2000-11-22T03:06:26Z",
+    "t2": 976422051,
+    "t2_utc": "2000-12-10T04:20:51Z"
+  },
+  "run_id": "test_run_s10b_official_20261022_034458",
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "source_hashes": {
+    "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+    "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+    "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+    "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+  },
+  "pipeline_runtime_seconds": 3.7079,
+  "model_manifest": {
+    "model_version": "item_based_cf_k40_eval_v1",
+    "training_history_description": "train + validation (timestamp <= t2 = 976422051)",
+    "training_ratings_count": 850177,
+    "training_catalog_size": 3669,
+    "unique_training_users": 5715,
+    "sparse_matrix_shape": [
+      3669,
+      5715
+    ],
+    "sparse_matrix_nnz": 850177,
+    "matrix_dtype": "float32",
+    "batch_size": 500,
+    "frozen_neighbor_k": 40,
+    "recommendation_top_n": 5,
+    "seed_rating_threshold": 4,
+    "cf_code_sha256": "323541c16020b9de31bad8a4223718423da968500cd4f65a2be27b0b37896ad7",
+    "cf_code_git_blob_sha1": "4545fec9576b910787072c69b93d1a92e4a59020",
+    "eval_code_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "eval_code_git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+    "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "config_hash": "52d55f919a247e5b8a2531923fc202d9c6972dc49506f471f3dfb3a515cb7984",
+    "libraries": {
+      "scipy": "1.14.1",
+      "scikit_learn": "1.5.2",
+      "numpy": "2.0.2",
+      "pandas": "2.3.3"
+    },
+    "id_mappings": {
+      "unique_movies_mapped": 3669,
+      "unique_users_mapped": 5715
+    }
+  },
+  "cohort": {
+    "evaluation_phase": "test",
+    "eligible_cohort_size": 1154,
+    "eligible_user_ids_hash": "8cdc8ea49454e6451a0d87629a0d2b8b6ba7df5e933a7d82fee2b9075c931bb8",
+    "total_active_eval_users": 1512,
+    "excluded_users_count": 358,
+    "exclusion_rate_percentage": 23.6772,
+    "excluded_insufficient_train_count": 332,
+    "excluded_no_positives_in_eval_count": 26,
+    "candidate_universe_stats": {
+      "formula": "train_catalog - user_train_history",
+      "training_catalog_size": 3669,
+      "min_candidates_per_user": 1941,
+      "max_candidates_per_user": 3664,
+      "average_candidates_per_user": 3448.45
+    }
+  },
+  "novel_movies_breakdown": {
+    "novel_movies_in_test_count": 37,
+    "novel_positive_movies_in_test_count": 19,
+    "novel_positive_movies_in_cohort_count": 16,
+    "novel_positive_movies_in_cohort_ids": [
+      396,
+      398,
+      578,
+      584,
+      701,
+      1360,
+      1364,
+      1930,
+      2299,
+      3229,
+      3245,
+      3748,
+      3756,
+      3862,
+      3888,
+      3905
+    ],
+    "recall_denominator_note": "Recall@5 strictly includes all novel relevant items of each user in test."
+  },
+  "metrics": {
+    "top_n": 5,
+    "neighbor_k": 40,
+    "total_evaluated_users": 1154,
+    "macro_precision_at_5": 0.231023,
+    "macro_recall_at_5": 0.03530289,
+    "macro_recall_at_5_unrounded": 0.03530288852963812,
+    "macro_precision_at_5_percentage": 23.1023,
+    "macro_recall_at_5_percentage": 3.530289,
+    "total_hits": 1333,
+    "fallback_users_count": 2,
+    "fallback_rate_percentage": 0.1733,
+    "evaluation_runtime_seconds": 0.5723
+  },
+  "baseline_comparison": {
+    "baseline_model": "popularity",
+    "baseline_metrics": {
+      "macro_precision_at_5": 0.201733,
+      "macro_recall_at_5": 0.02712408,
+      "macro_recall_at_5_unrounded": 0.027124083079144427,
+      "macro_precision_at_5_percentage": 20.1733,
+      "macro_recall_at_5_percentage": 2.712408,
+      "total_hits": 1164,
+      "fallback_users_count": 0,
+      "fallback_rate_percentage": 0.0,
+      "evaluation_runtime_seconds": 0.0049
+    },
+    "best_cf_metrics": {
+      "frozen_k": 40,
+      "macro_precision_at_5": 0.231023,
+      "macro_recall_at_5": 0.03530289,
+      "macro_recall_at_5_unrounded": 0.03530288852963812,
+      "macro_precision_at_5_percentage": 23.1023,
+      "macro_recall_at_5_percentage": 3.530289,
+      "total_hits": 1333,
+      "fallback_users_count": 2,
+      "fallback_rate_percentage": 0.1733
+    },
+    "delta_cf_minus_baseline": {
+      "precision_points": 2.9289,
+      "recall_points": 0.817881,
+      "hits_difference": 169
+    },
+    "honest_technical_assessment": "Trong lượt đánh giá test đã chốt, CF cao hơn baseline trên Precision@5 và Recall@5 (Precision@5: 0.231023 vs 0.201733, +2.9290 điểm phần trăm; Recall@5: 0.03530289 vs 0.02712408, +0.817881 điểm phần trăm; tổng hits: 1,333 vs 1,164, +169 hits). Kết quả này được ghi nhận trong lượt đánh giá test đã chốt; nhóm nghiên cứu không suy diễn thành sự vượt trội mang tính tổng quát trong mọi bối cảnh hoặc có ý nghĩa thống kê khi chưa kiểm định. Tỷ lệ fallback ghi nhận ở mức 2/1,154 người dùng (~0.1733%), xác nhận 99.83% người dùng nhận đủ 5 phim từ tương đồng CF dương."
+  },
+  "provenance": {
+    "split_manifest_path": "results/mining/split_manifest.json",
+    "split_manifest_sha256": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "cf_code_sha256": "323541c16020b9de31bad8a4223718423da968500cd4f65a2be27b0b37896ad7",
+    "cf_code_git_blob_sha1": "4545fec9576b910787072c69b93d1a92e4a59020",
+    "eval_code_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "eval_code_git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+    "config_hash": "52d55f919a247e5b8a2531923fc202d9c6972dc49506f471f3dfb3a515cb7984",
+    "cohort_hash": "8cdc8ea49454e6451a0d87629a0d2b8b6ba7df5e933a7d82fee2b9075c931bb8",
+    "cohort_size": 1154,
+    "source_hashes": {
+      "users.dat": "1dc3a95300cb19f7c10e027daf29b8cdf1d908dab65b5edfb45950aa389a10a3",
+      "movies.dat": "0140fc2356357c1a851d0f52e893a1e4d3696df632c4141cea8d5bc3d621f0b9",
+      "ratings.dat": "506d64ca44484487c11dc2d9a28de5c54948213e6b96285e298afe28d6ea4e0f",
+      "README": "2d5ddce86ccbd247207456165827b4b9ddf27282bca93807d4c763e28414f133"
+    },
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "execution_context": {
+      "branch": "codex/p2-s10-provenance-fix",
+      "base_commit": "1ef14784a5948826cd63661c5dde18e985093bbb",
+      "platform": "Windows-11-10.0.26100-SP0",
+      "python_version": "3.12.6"
+    },
+    "timing_breakdown": {
+      "split_and_cohort_seconds": 0.496,
+      "popularity_fit_seconds": 0.017,
+      "matrix_fit_seconds": 0.2491,
+      "neighbor_build_seconds": 2.3856,
+      "baseline_evaluation_seconds": 0.0049,
+      "cf_evaluation_seconds": 0.5723,
+      "pipeline_runtime_seconds": 3.7079,
+      "explanation": "pipeline_runtime_seconds measures pure algorithmic training and evaluation execution inside run_cf_test_evaluation_pipeline (split, sparse matrix fit, neighbor build, and evaluations of baseline and CF on the 1,154-user test cohort). Excludes disk data loading and canonical hash verification.",
+      "data_loading_seconds": 0.3959,
+      "verification_seconds": 2.777,
+      "cli_total_wall_seconds": 7.3098
+    }
+  },
+  "cli_total_wall_seconds": 7.3098
+}

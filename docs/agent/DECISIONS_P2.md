@@ -107,3 +107,16 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   4. **Quy tắc chọn $k^*$ cố định:** Tiêu chí chọn $k^*$ là Macro-Recall@5 chưa làm tròn trên Validation cao nhất. Kết quả: $k=40$ đạt `0.03007556334371585` > $k=80$ (`0.02866586314500013`) > $k=20$ (`0.02856536704222439`). Chốt chọn $k^* = 40$. Giữ vững tiêu chí chọn theo quy tắc a priori, không đổi sang chọn theo Precision hay Hits dù baseline có Recall cao hơn.
   5. **Nguyên tắc diễn giải trung thực:** CF $k=40$ có Precision@5 cao hơn baseline (18.0042% vs 16.9851%, +24 hits), nhưng Recall@5 thấp hơn baseline (3.0076% vs 3.1261%). Recall@5 không phải là độ bao phủ danh mục (catalog coverage). Mọi nhận định về phim bom tấn hay ngách sở thích chỉ là giả thuyết làm việc nếu chưa có phân tích thực nghiệm riêng. Tuyệt đối không ép CF phải thắng baseline.
   6. **Bảo mật & Cục bộ:** Giữ toàn bộ gợi ý chi tiết và metric per-user ngoài Git; chỉ xuất bản kết quả tổng hợp `results/mining/cf_validation_experiments.json`.
+
+---
+
+### [DEC-P2-013] Đánh Giá Test Chính Thức 1 Lần, Cơ Chế Chống Chạy Đè & CLI (Tiểu Bước 10B)
+- **Bối cảnh**: Tiến hành đánh giá mô hình Item-based CF với siêu tham số đóng băng $k^*=40$ đối đầu Popularity Baseline trên tập Test đúng 1 lần duy nhất, xây dựng CLI gợi ý và đóng gói giao nộp.
+- **Quyết định**:
+  1. **Huấn luyện mô hình Test trên Train + Validation:** Huấn luyện trên toàn bộ tương tác trước mốc $t_2 = 976422051$ (850,177 ratings, 3,669 phim, 5,715 user). Giữ nguyên toàn bộ cấu hình đã đóng băng ($k=40$, top-5, float32, cosine L2, tie-breaking `score DESC, train_pop DESC, movie_id ASC`, fallback popularity).
+  2. **Đánh giá đúng 1 lần trên Test:** Đánh giá cả hai mô hình (Baseline và CF $k=40$) trên cùng cohort 1,154 user (mã băm cohort `8cdc8ea49454e6451a0d87629a0d2b8b6ba7df5e933a7d82fee2b9075c931bb8`) và cùng không gian candidate per-user. Mẫu số Recall@5 giữ nguyên tắc tính trên toàn bộ positive test ratings (bao gồm 16 phim mới trong cohort).
+  3. **Biên lai & Checksum chống chạy đè (Anti-Overwrite Protection):** Lưu `results/mining/cf_test_evaluation_receipt.json` và `cf_test_evaluation.json`. Chặn thực thi lại bằng `FileExistsError`. Ghi nhận rõ: giá trị băm `receipt_sha256_checksum` là checksum kiểm tra toàn vẹn, không phải chữ ký số xác thực (digital signature) và không được coi là bằng chứng tuyệt đối chưa từng chạy lại.
+  4. **Kết luận trung thực:** Sử dụng câu kết luận chuẩn xác: *“Trong lượt đánh giá test đã chốt, CF cao hơn baseline trên Precision@5 và Recall@5.”* (CF đạt Precision@5=0.231023, Recall@5=0.03530289, Hits=1333 vs Baseline 0.201733, 0.02712408, Hits=1164). Không suy diễn thành vượt trội tổng quát hay có ý nghĩa thống kê khi chưa kiểm định. Báo rõ tỷ lệ fallback: 2/1,154 ≈ 0.1733%.
+  5. **Tách biệt CLI Evaluation và Demo:** `mining/recommend.py` cung cấp `--mode evaluation` (sử dụng model train+validation $t_2$, seed $t_2$, không tự tính lại metric) và `--mode demo` (sử dụng full history, nhãn DEMO riêng, không dùng để đo metric offline).
+  6. **Bảo mật & Giữ ngoài Git:** Model binary, lịch sử chi tiết, per-user recommendations và per-user metrics giữ ngoài Git. Chỉ theo dõi mã nguồn, tài liệu và các bảng/receipt tổng hợp.
+
