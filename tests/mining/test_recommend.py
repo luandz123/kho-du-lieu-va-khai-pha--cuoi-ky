@@ -260,6 +260,74 @@ def test_recommend_demo_mode_has_distinct_manifest_and_offline_disclaimer(synthe
     assert "NEVER be used to evaluate or publish offline metrics" in res["manifest_metadata"]["offline_metrics_disclaimer"]
 
 
+def test_recommend_evaluation_mode_rejects_model_identity_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that evaluation mode strictly rejects execution when model identity mismatches expected version."""
+    dummy_receipt = tmp_path / "dummy_receipt.json"
+    manifest_data = {
+        "training_manifest": {
+            "model_version": "item_based_cf_k40_eval_v1",
+            "training_cutoff_timestamp": 976422051,
+            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
+        },
+        "frozen_configuration": {"neighbor_k": 40},
+        "hashes": {
+            "canonical_table_hashes": {
+                "ratings": "matching_hash",
+            }
+        },
+    }
+    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+    def mock_verify(tables, manifest_path=None):
+        return {"ratings": "matching_hash"}, {}, "commit_123"
+
+    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
+
+    with pytest.raises(ValueError, match="Model identity mismatch"):
+        recommend_movies(
+            user_id=1,
+            mode="evaluation",
+            tables=synthetic_mock_tables,
+            receipt_path=dummy_receipt,
+            skip_manifest_verification=False,
+            expected_model_version="item_based_cf_k80_mismatched_v2",
+        )
+
+
+def test_recommend_evaluation_mode_rejects_cutoff_timestamp_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that evaluation mode strictly rejects execution when cutoff timestamp mismatches expected cutoff."""
+    dummy_receipt = tmp_path / "dummy_receipt.json"
+    manifest_data = {
+        "training_manifest": {
+            "model_version": "item_based_cf_k40_eval_v1",
+            "training_cutoff_timestamp": 976422051,
+            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
+        },
+        "frozen_configuration": {"neighbor_k": 40},
+        "hashes": {
+            "canonical_table_hashes": {
+                "ratings": "matching_hash",
+            }
+        },
+    }
+    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+    def mock_verify(tables, manifest_path=None):
+        return {"ratings": "matching_hash"}, {}, "commit_123"
+
+    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
+
+    with pytest.raises(ValueError, match="Training cutoff timestamp mismatch"):
+        recommend_movies(
+            user_id=1,
+            mode="evaluation",
+            tables=synthetic_mock_tables,
+            receipt_path=dummy_receipt,
+            skip_manifest_verification=False,
+            expected_cutoff_timestamp=999999999,
+        )
+
+
 def test_recommend_cli_smoke(tmp_path):
     """Smoke test running recommend.py via subprocess on real data."""
     script = REPO_ROOT / "mining" / "recommend.py"

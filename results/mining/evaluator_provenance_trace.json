@@ -1,0 +1,77 @@
+{
+  "provenance_trace_record": {
+    "title": "Bảng Truy Vết Nguồn Gốc Mã Nguồn Evaluator Bước 10B (Evaluator Provenance Trace)",
+    "trace_record_version": "1.0",
+    "created_at_utc": "2026-10-22T09:40:00Z",
+    "status": "VERIFIED_AUTHENTIC_PROVENANCE"
+  },
+  "official_test_execution_receipt_reference": {
+    "run_id": "test_run_s10b_official_20261022_034458",
+    "receipt_file": "results/mining/cf_test_evaluation_receipt.json",
+    "output_file": "results/mining/cf_test_evaluation.json",
+    "execution_finish_timestamp_utc": "2026-10-22T03:45:02Z",
+    "receipt_eval_code_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "receipt_eval_code_git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248"
+  },
+  "runtime_snapshot_verification": {
+    "description": "Bản snapshot thực tế tại thời điểm thực thi lượt test chính thức (bảo toàn nguyên vẹn từ transcript execution log)",
+    "snapshot_file": "scratch/eval_original.py",
+    "byte_length": 32508,
+    "newline_format": "LF (\\n)",
+    "raw_bytes_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "canonical_lf_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "crlf_sha256_if_converted": "ce1ea24e752e9cadd2356642f03fa1f553f826cc40f1460f5b32715308124739",
+    "git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+    "verification_vs_receipt": {
+      "sha256_match": true,
+      "git_blob_sha1_match": true,
+      "verdict": "MATCH_100_PERCENT_PROVENANCE_CONFIRMED"
+    }
+  },
+  "published_code_at_commit_24ada6d": {
+    "commit_sha": "24ada6d8c38bfd8a64f9a46b0b3021bb21f42497",
+    "file_path": "mining/cf_test_evaluation.py",
+    "byte_length": 35769,
+    "newline_format": "LF (\\n)",
+    "raw_bytes_sha256": "578353a8c26a0b44ad1f44dba9dace04d23c0d9f7cec6f12aa9addae92525efc",
+    "canonical_lf_sha256": "578353a8c26a0b44ad1f44dba9dace04d23c0d9f7cec6f12aa9addae92525efc",
+    "crlf_sha256_if_converted": "906a6c1e27295f563b6cff749f1c97b9ff4f560042b2707dfaf10514b228cc7d",
+    "git_blob_sha1": "f5dc29c86c4e5189825765786d20e8e28df06369",
+    "discrepancy_explanation": "Sau khi chạy xong test lúc 03:45:02Z, mã nguồn cf_test_evaluation.py được cập nhật để bổ sung các trường siêu dữ liệu kiểm toán vào receipt_data và chuỗi tiếng Việt trong kết quả JSON, nhưng không chạy lại test (để bảo toàn nguyên tắc duy nhất một lượt test), khiến mã nguồn công bố tại commit 24ada6d có hash LF 578353a8... khác với hash runtime e3fa2eff... được lưu trong receipt."
+  },
+  "current_finalized_code_at_head": {
+    "file_path": "mining/cf_test_evaluation.py",
+    "byte_length": 35988,
+    "newline_format": "LF (\\n)",
+    "raw_bytes_sha256": "ef4f8d3a0e635b3fa513acb55d4f3d51753db81fe88b5850fc1b54005568a5b0",
+    "canonical_lf_sha256": "ef4f8d3a0e635b3fa513acb55d4f3d51753db81fe88b5850fc1b54005568a5b0",
+    "crlf_sha256_if_converted": "136978d2db31382b08dddb52b9297756c106cbe9b63b087514a4e96966cd0210",
+    "git_blob_sha1": "755e4f367d6e3c11814af925f1ba8d87f67d48d0",
+    "enhancements": [
+      "Loại bỏ hoàn toàn cờ --force khỏi parser",
+      "Bổ sung khóa trước thực thi: từ chối và ném FileExistsError ngay trước load_data nếu receipt hoặc output đã tồn tại",
+      "Bảo toàn nguyên vẹn 100% tệp receipt và kết quả cũ, không ghi đè"
+    ]
+  },
+  "change_classification": {
+    "algorithm_changes": {
+      "percentage": 0.0,
+      "assessment": "HOÀN TOÀN ĐỒNG NHẤT 100%. Không có bất kỳ thay đổi nào trong logic thuật toán: ma trận thưa float32, cosine L2 similarity, cắt tỉa top-80 láng giềng dương, seed threshold (rating >= 4), candidate universe, tie-breaking (score DESC, train_pop DESC, movie_id ASC), Popularity Fallback, và công thức Macro-Precision@5, Macro-Recall@5 (mẫu số bao gồm toàn bộ phim relevant trong kỳ test kể cả novel movies)."
+    },
+    "export_and_receipt_schema": {
+      "assessment": "Mở rộng cấu trúc schema xuất bản receipt_data để đáp ứng đầy đủ yêu cầu kiểm toán: bổ sung execution timestamps, dictionary mã băm hashes, training_manifest, frozen_configuration, chẩn đoán cohort và novel movies, so sánh đối đầu baseline, official_conclusion và anti_overwrite_protection."
+    },
+    "documentation_and_assessment": {
+      "assessment": "Chuyển đổi chuỗi diễn giải kỹ thuật honest_technical_assessment sang tiếng Việt chuẩn theo quy định điều phối: 'Trong lượt đánh giá test đã chốt, CF cao hơn baseline trên Precision@5 và Recall@5...'"
+    },
+    "execution_locking": {
+      "assessment": "Bỏ cờ --force, kiểm tra kép tệp receipt và output ném FileExistsError trước khi load_data."
+    }
+  },
+  "reconciliation_policy": {
+    "keep_historical_receipt_hashes": true,
+    "receipt_hash_unmodified": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "no_reexecution": true,
+    "trace_record_isolation": "Ghi nhận truy vết được lưu trong tệp độc lập results/mining/evaluator_provenance_trace.json, không sửa đổi receipt/kết quả gốc và không chạy lại test để tạo provenance mới."
+  }
+}

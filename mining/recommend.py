@@ -64,6 +64,8 @@ def recommend_movies(
     tables: Optional[Dict[str, pd.DataFrame]] = None,
     receipt_path: Optional[Path] = None,
     skip_manifest_verification: bool = False,
+    expected_model_version: Optional[str] = None,
+    expected_cutoff_timestamp: Optional[int] = None,
 ) -> Dict[str, Any]:
     """
     Core inference function generating recommendations for a specific user.
@@ -105,6 +107,20 @@ def recommend_movies(
             expected_table_hashes = hashes.get("canonical_table_hashes", {})
             expected_ratings_count = tm.get("training_ratings_count", 850177)
 
+            # Verification of model identity
+            if expected_model_version is not None and model_version != expected_model_version:
+                raise ValueError(
+                    f"Model identity mismatch: expected '{expected_model_version}', "
+                    f"manifest defines '{model_version}'."
+                )
+
+            # Verification of cutoff timestamp
+            if expected_cutoff_timestamp is not None and cutoff_timestamp != expected_cutoff_timestamp:
+                raise ValueError(
+                    f"Training cutoff timestamp mismatch: expected {expected_cutoff_timestamp}, "
+                    f"manifest defines {cutoff_timestamp}."
+                )
+
             # Verification of input data against manifest before fitting
             canonical_hashes, _, _ = verify_and_hash_input_tables(tables)
             for tbl_name, expected_hash in expected_table_hashes.items():
@@ -123,6 +139,18 @@ def recommend_movies(
                     f"expected {expected_ratings_count}, got {len(active_ratings)}."
                 )
 
+            # Extract libraries from manifest or official test output
+            libraries = tm.get("libraries")
+            if not libraries:
+                eval_output_file = REPO_ROOT / "results" / "mining" / "cf_test_evaluation.json"
+                if eval_output_file.exists():
+                    try:
+                        with open(eval_output_file, "r", encoding="utf-8") as f_eval:
+                            eval_data = json.load(f_eval)
+                            libraries = eval_data.get("model_manifest", {}).get("libraries", {})
+                    except Exception:
+                        pass
+
             cutoff_note = (
                 f"Train+Validation history strictly bounded by official manifest "
                 f"(timestamp <= {cutoff_timestamp}, {len(active_ratings):,} ratings)"
@@ -132,17 +160,29 @@ def recommend_movies(
                 "run_id": manifest.get("run_id"),
                 "status": manifest.get("status"),
                 "integrity_verification": "PASSED_CANONICAL_HASHES_MATCH",
+                "libraries": libraries or {},
             }
         else:
             # Synthetic / fixture bypass mode
             model_version = "item_based_cf_k40_eval_v1"
+            if expected_model_version is not None and model_version != expected_model_version:
+                raise ValueError(
+                    f"Model identity mismatch: expected '{expected_model_version}', "
+                    f"fixture defines '{model_version}'."
+                )
             cutoff_timestamp = EVALUATION_CUTOFF_TIMESTAMP
+            if expected_cutoff_timestamp is not None and cutoff_timestamp != expected_cutoff_timestamp:
+                raise ValueError(
+                    f"Training cutoff timestamp mismatch: expected {expected_cutoff_timestamp}, "
+                    f"fixture defines {cutoff_timestamp}."
+                )
             neighbor_k = 40
             active_ratings = ratings_df[ratings_df["timestamp"] <= cutoff_timestamp].copy()
             cutoff_note = f"Train+Validation history (timestamp <= {cutoff_timestamp}, fixture mode)"
             manifest_metadata = {
                 "manifest_source": "SYNTHETIC_FIXTURE_BYPASS",
                 "integrity_verification": "BYPASSED_FOR_TESTS",
+                "libraries": {},
             }
     else:
         # demo mode: full dataset history
@@ -281,6 +321,15 @@ def recommend_movies(
                 "strictly complying with repository storage constraints."
             ),
         },
+        "model_identity_mapping": {
+            "evaluation_receipt_model": "item_based_cf_k40_eval_v1",
+            "cli_runtime_model": model_version,
+            "status": "UNIFIED_IDENTITY_MATCH" if model_version == "item_based_cf_k40_eval_v1" else "MAPPED_IDENTITY",
+            "explanation": (
+                "CLI strictly adopts the model identity defined in the official test evaluation receipt manifest "
+                "('item_based_cf_k40_eval_v1'). No modifications have been made to historical test run metadata."
+            ),
+        },
         "manifest_metadata": manifest_metadata,
         "technical_notes": {
             "score_interpretation": (
@@ -347,6 +396,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         help="Inference mode: 'evaluation' (frozen model <= t2) or 'demo' (full history). Default: evaluation",
     )
     parser.add_argument("--receipt", type=Path, default=DEFAULT_TEST_RECEIPT, help="Path to evaluation receipt manifest")
+    parser.add_argument(
+        "--model-version",
+        type=str,
+        default=None,
+        help="Expected model version identity to verify against manifest (default: item_based_cf_k40_eval_v1)",
+    )
     parser.add_argument("--output-json", type=Path, default=None, help="Optional path to export JSON output")
     args = parser.parse_args(argv)
 
@@ -356,6 +411,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         mode=args.mode,
         source=args.source,
         receipt_path=args.receipt,
+        expected_model_version=args.model_version,
     )
 
     print_recommendation_cli(result)

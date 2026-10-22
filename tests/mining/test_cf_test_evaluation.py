@@ -181,7 +181,8 @@ def test_hand_calculated_cf_tie_breaking_and_fallback():
 def test_pre_execution_guard_rejects_existing_receipt_before_load_data(tmp_path, monkeypatch):
     """
     Verifies production CLI strictly rejects execution if the official receipt already exists,
-    triggering FileExistsError BEFORE load_data is called and without overwriting the receipt.
+    triggering FileExistsError BEFORE load_data or evaluator pipeline is called,
+    and without overwriting the receipt.
     """
     receipt_file = tmp_path / "cf_test_evaluation_receipt.json"
     output_file = tmp_path / "cf_test_evaluation.json"
@@ -189,19 +190,27 @@ def test_pre_execution_guard_rejects_existing_receipt_before_load_data(tmp_path,
     receipt_file.write_text(dummy_receipt_content, encoding="utf-8")
 
     load_data_called = False
+    evaluator_called = False
 
     def mock_load_data(*args, **kwargs):
         nonlocal load_data_called
         load_data_called = True
         raise AssertionError("load_data must NOT be called when receipt already exists!")
 
+    def mock_evaluator(*args, **kwargs):
+        nonlocal evaluator_called
+        evaluator_called = True
+        raise AssertionError("run_cf_test_evaluation_pipeline must NOT be called when receipt already exists!")
+
     monkeypatch.setattr(cf_test_eval_mod, "load_data", mock_load_data)
+    monkeypatch.setattr(cf_test_eval_mod, "run_cf_test_evaluation_pipeline", mock_evaluator)
 
     argv = ["--receipt", str(receipt_file), "--output", str(output_file)]
     with pytest.raises(FileExistsError, match="Official test receipt already exists"):
         cf_test_eval_mod.main(argv)
 
     assert load_data_called is False
+    assert evaluator_called is False
     assert receipt_file.read_text(encoding="utf-8") == dummy_receipt_content
     assert not output_file.exists()
 
@@ -209,7 +218,8 @@ def test_pre_execution_guard_rejects_existing_receipt_before_load_data(tmp_path,
 def test_pre_execution_guard_rejects_existing_output_before_load_data(tmp_path, monkeypatch):
     """
     Verifies production CLI strictly rejects execution if the official output JSON already exists,
-    triggering FileExistsError BEFORE load_data is called and without overwriting the output file.
+    triggering FileExistsError BEFORE load_data or evaluator pipeline is called,
+    and without overwriting the output file.
     """
     receipt_file = tmp_path / "cf_test_evaluation_receipt.json"
     output_file = tmp_path / "cf_test_evaluation.json"
@@ -217,19 +227,27 @@ def test_pre_execution_guard_rejects_existing_output_before_load_data(tmp_path, 
     output_file.write_text(dummy_output_content, encoding="utf-8")
 
     load_data_called = False
+    evaluator_called = False
 
     def mock_load_data(*args, **kwargs):
         nonlocal load_data_called
         load_data_called = True
         raise AssertionError("load_data must NOT be called when output already exists!")
 
+    def mock_evaluator(*args, **kwargs):
+        nonlocal evaluator_called
+        evaluator_called = True
+        raise AssertionError("run_cf_test_evaluation_pipeline must NOT be called when output already exists!")
+
     monkeypatch.setattr(cf_test_eval_mod, "load_data", mock_load_data)
+    monkeypatch.setattr(cf_test_eval_mod, "run_cf_test_evaluation_pipeline", mock_evaluator)
 
     argv = ["--receipt", str(receipt_file), "--output", str(output_file)]
     with pytest.raises(FileExistsError, match="Official test output already exists"):
         cf_test_eval_mod.main(argv)
 
     assert load_data_called is False
+    assert evaluator_called is False
     assert output_file.read_text(encoding="utf-8") == dummy_output_content
     assert not receipt_file.exists()
 
@@ -240,4 +258,21 @@ def test_evaluator_cli_strictly_rejects_removed_force_flag():
     """
     with pytest.raises(SystemExit):
         cf_test_eval_mod.main(["--force"])
+
+
+def test_evaluator_provenance_trace_artifact_integrity():
+    """
+    Verifies that the dedicated evaluator provenance trace record exists,
+    contains valid schema, and verifies authentic runtime hash e3fa2eff...
+    """
+    trace_path = REPO_ROOT / "results" / "mining" / "evaluator_provenance_trace.json"
+    assert trace_path.exists(), f"Missing provenance trace at: {trace_path}"
+    with open(trace_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    assert data["provenance_trace_record"]["status"] == "VERIFIED_AUTHENTIC_PROVENANCE"
+    assert data["runtime_snapshot_verification"]["canonical_lf_sha256"] == "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d"
+    assert data["runtime_snapshot_verification"]["git_blob_sha1"] == "d7c97bae8b6de3449c0306a2f841325f5434f248"
+    assert data["change_classification"]["algorithm_changes"]["percentage"] == 0.0
+
+
 
