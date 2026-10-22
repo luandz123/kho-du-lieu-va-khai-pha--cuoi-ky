@@ -44,6 +44,7 @@ split_mod = load_mining_module("mining.split", "mining/split.py")
 eval_mod = load_mining_module("mining.evaluation", "mining/evaluation.py")
 baseline_mod = load_mining_module("mining.baseline", "mining/baseline.py")
 cf_mod = load_mining_module("mining.cf", "mining/cf.py")
+cf_test_eval_mod = load_mining_module("mining.cf_test_evaluation", "mining/cf_test_evaluation.py")
 
 get_eligible_eval_cohort = eval_mod.get_eligible_eval_cohort
 get_user_candidate_universe = eval_mod.get_user_candidate_universe
@@ -177,23 +178,66 @@ def test_hand_calculated_cf_tie_breaking_and_fallback():
     assert used_fb is True
 
 
-def test_anti_overwrite_receipt_protection(tmp_path):
+def test_pre_execution_guard_rejects_existing_receipt_before_load_data(tmp_path, monkeypatch):
     """
-    Verifies that official test evaluation cannot overwrite an existing receipt
-    without explicit permission, preventing accidental re-runs.
+    Verifies production CLI strictly rejects execution if the official receipt already exists,
+    triggering FileExistsError BEFORE load_data is called and without overwriting the receipt.
     """
     receipt_file = tmp_path / "cf_test_evaluation_receipt.json"
-    dummy_receipt = {
-        "run_id": "test_locked_run_12345",
-        "status": "OFFICIAL_LOCKED",
-        "created_at": "2026-10-22T10:00:00Z",
-    }
-    receipt_file.write_text(json.dumps(dummy_receipt), encoding="utf-8")
+    output_file = tmp_path / "cf_test_evaluation.json"
+    dummy_receipt_content = json.dumps({"run_id": "test_locked_run", "status": "LOCKED"}, indent=2)
+    receipt_file.write_text(dummy_receipt_content, encoding="utf-8")
 
-    # Trying to save without force must raise FileExistsError
-    assert receipt_file.exists()
+    load_data_called = False
+
+    def mock_load_data(*args, **kwargs):
+        nonlocal load_data_called
+        load_data_called = True
+        raise AssertionError("load_data must NOT be called when receipt already exists!")
+
+    monkeypatch.setattr(cf_test_eval_mod, "load_data", mock_load_data)
+
+    argv = ["--receipt", str(receipt_file), "--output", str(output_file)]
     with pytest.raises(FileExistsError, match="Official test receipt already exists"):
-        if receipt_file.exists():
-            raise FileExistsError(
-                f"Official test receipt already exists at {receipt_file}. Overwriting official test results is prohibited."
-            )
+        cf_test_eval_mod.main(argv)
+
+    assert load_data_called is False
+    assert receipt_file.read_text(encoding="utf-8") == dummy_receipt_content
+    assert not output_file.exists()
+
+
+def test_pre_execution_guard_rejects_existing_output_before_load_data(tmp_path, monkeypatch):
+    """
+    Verifies production CLI strictly rejects execution if the official output JSON already exists,
+    triggering FileExistsError BEFORE load_data is called and without overwriting the output file.
+    """
+    receipt_file = tmp_path / "cf_test_evaluation_receipt.json"
+    output_file = tmp_path / "cf_test_evaluation.json"
+    dummy_output_content = json.dumps({"run_id": "test_locked_output", "status": "LOCKED"}, indent=2)
+    output_file.write_text(dummy_output_content, encoding="utf-8")
+
+    load_data_called = False
+
+    def mock_load_data(*args, **kwargs):
+        nonlocal load_data_called
+        load_data_called = True
+        raise AssertionError("load_data must NOT be called when output already exists!")
+
+    monkeypatch.setattr(cf_test_eval_mod, "load_data", mock_load_data)
+
+    argv = ["--receipt", str(receipt_file), "--output", str(output_file)]
+    with pytest.raises(FileExistsError, match="Official test output already exists"):
+        cf_test_eval_mod.main(argv)
+
+    assert load_data_called is False
+    assert output_file.read_text(encoding="utf-8") == dummy_output_content
+    assert not receipt_file.exists()
+
+
+def test_evaluator_cli_strictly_rejects_removed_force_flag():
+    """
+    Verifies that --force has been removed from official evaluation CLI options.
+    """
+    with pytest.raises(SystemExit):
+        cf_test_eval_mod.main(["--force"])
+

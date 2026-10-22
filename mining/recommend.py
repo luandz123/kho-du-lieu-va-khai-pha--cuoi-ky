@@ -38,9 +38,22 @@ from mining.cf import (
     compute_item_cosine_similarities_top_k,
     recommend_for_user_cf,
 )
+from mining.clustering import verify_and_hash_input_tables, InputDataIntegrityError
 from mining.data_io import load_data
 
+DEFAULT_TEST_RECEIPT = REPO_ROOT / "results" / "mining" / "cf_test_evaluation_receipt.json"
 EVALUATION_CUTOFF_TIMESTAMP = 976422051  # t2
+
+
+def load_evaluation_manifest(receipt_path: Path = DEFAULT_TEST_RECEIPT) -> Dict[str, Any]:
+    """Loads official evaluation receipt manifest to enforce configuration and hash bindings."""
+    if not receipt_path.exists():
+        raise FileNotFoundError(
+            f"Official evaluation receipt manifest not found at: {receipt_path}. "
+            "Evaluation mode requires a verified receipt manifest."
+        )
+    with open(receipt_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def recommend_movies(
@@ -49,9 +62,12 @@ def recommend_movies(
     mode: str = "evaluation",
     source: str = "csv",
     tables: Optional[Dict[str, pd.DataFrame]] = None,
+    receipt_path: Optional[Path] = None,
+    skip_manifest_verification: bool = False,
 ) -> Dict[str, Any]:
     """
     Core inference function generating recommendations for a specific user.
+    Binds strictly to evaluation manifest in 'evaluation' mode.
     """
     if top_n <= 0:
         raise ValueError(f"top_n must be positive, got {top_n}")
@@ -72,15 +88,73 @@ def recommend_movies(
         for mid, grp in movie_genres_df.groupby("movie_id"):
             movie_genres[int(mid)] = grp["genre_name"].tolist()
 
-    # Partition data based on mode
+    manifest_metadata: Dict[str, Any] = {}
+
+    # Partition data and bind configuration based on mode
     if mode == "evaluation":
-        model_version = "item_based_cf_k40_eval_frozen_v1"
-        active_ratings = ratings_df[ratings_df["timestamp"] <= EVALUATION_CUTOFF_TIMESTAMP].copy()
-        cutoff_note = f"Train+Validation history (timestamp <= {EVALUATION_CUTOFF_TIMESTAMP}, 2000-12-10 04:20:51 UTC)"
+        if not skip_manifest_verification:
+            manifest_file = receipt_path or DEFAULT_TEST_RECEIPT
+            manifest = load_evaluation_manifest(manifest_file)
+            tm = manifest.get("training_manifest", {})
+            fc = manifest.get("frozen_configuration", {})
+            hashes = manifest.get("hashes", {})
+
+            model_version = tm.get("model_version", "item_based_cf_k40_eval_v1")
+            cutoff_timestamp = tm.get("training_cutoff_timestamp", EVALUATION_CUTOFF_TIMESTAMP)
+            neighbor_k = fc.get("neighbor_k", 40)
+            expected_table_hashes = hashes.get("canonical_table_hashes", {})
+            expected_ratings_count = tm.get("training_ratings_count", 850177)
+
+            # Verification of input data against manifest before fitting
+            canonical_hashes, _, _ = verify_and_hash_input_tables(tables)
+            for tbl_name, expected_hash in expected_table_hashes.items():
+                actual_hash = canonical_hashes.get(tbl_name)
+                if actual_hash != expected_hash:
+                    raise ValueError(
+                        f"Input data verification failed for table '{tbl_name}': "
+                        f"expected {expected_hash}, got {actual_hash}. "
+                        "Input data does not match the official evaluation manifest."
+                    )
+
+            active_ratings = ratings_df[ratings_df["timestamp"] <= cutoff_timestamp].copy()
+            if len(active_ratings) != expected_ratings_count:
+                raise ValueError(
+                    f"Training ratings count mismatch under cutoff {cutoff_timestamp}: "
+                    f"expected {expected_ratings_count}, got {len(active_ratings)}."
+                )
+
+            cutoff_note = (
+                f"Train+Validation history strictly bounded by official manifest "
+                f"(timestamp <= {cutoff_timestamp}, {len(active_ratings):,} ratings)"
+            )
+            manifest_metadata = {
+                "manifest_source": str(manifest_file),
+                "run_id": manifest.get("run_id"),
+                "status": manifest.get("status"),
+                "integrity_verification": "PASSED_CANONICAL_HASHES_MATCH",
+            }
+        else:
+            # Synthetic / fixture bypass mode
+            model_version = "item_based_cf_k40_eval_v1"
+            cutoff_timestamp = EVALUATION_CUTOFF_TIMESTAMP
+            neighbor_k = 40
+            active_ratings = ratings_df[ratings_df["timestamp"] <= cutoff_timestamp].copy()
+            cutoff_note = f"Train+Validation history (timestamp <= {cutoff_timestamp}, fixture mode)"
+            manifest_metadata = {
+                "manifest_source": "SYNTHETIC_FIXTURE_BYPASS",
+                "integrity_verification": "BYPASSED_FOR_TESTS",
+            }
     else:
+        # demo mode: full dataset history
         model_version = "item_based_cf_k40_DEMO_full_history_v1"
+        neighbor_k = 40
         active_ratings = ratings_df.copy()
-        cutoff_note = "Full dataset history (DEMO mode: not for offline evaluation metrics)"
+        cutoff_note = "Full dataset history (DEMO mode: interactive exploration only; offline metrics forbidden)"
+        manifest_metadata = {
+            "demo_manifest": "DEMO_INTERACTIVE_V1",
+            "total_ratings": len(active_ratings),
+            "offline_metrics_disclaimer": "Demo mode uses full interaction history and must NEVER be used to evaluate or publish offline metrics.",
+        }
 
     # Check user existence in active data
     all_known_users = set(ratings_df["user_id"].unique())
@@ -198,6 +272,16 @@ def recommend_movies(
         "top_n": top_n,
         "used_fallback": used_fallback,
         "recommendations": formatted_recs,
+        "model_construction": {
+            "reconstruction_mode": "runtime_in_memory_fit",
+            "model_binary_persistence": "none_git_excluded",
+            "description": (
+                "CLI dynamically constructs in-memory sparse ratings matrix and item similarity matrix "
+                "from verified training ratings at runtime. Model binary is not persisted or loaded from disk, "
+                "strictly complying with repository storage constraints."
+            ),
+        },
+        "manifest_metadata": manifest_metadata,
         "technical_notes": {
             "score_interpretation": (
                 "CF score is a similarity-weighted ranking score (sum of cosine similarities from seed movies), "
@@ -249,7 +333,7 @@ def print_recommendation_cli(result: Dict[str, Any]) -> None:
     print("=" * 80)
 
 
-def main():
+def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         description="MovieLens 1M Q2 Item-based Collaborative Filtering Recommender CLI (Step 10B)"
     )
@@ -262,14 +346,16 @@ def main():
         default="evaluation",
         help="Inference mode: 'evaluation' (frozen model <= t2) or 'demo' (full history). Default: evaluation",
     )
+    parser.add_argument("--receipt", type=Path, default=DEFAULT_TEST_RECEIPT, help="Path to evaluation receipt manifest")
     parser.add_argument("--output-json", type=Path, default=None, help="Optional path to export JSON output")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     result = recommend_movies(
         user_id=args.user_id,
         top_n=args.top_n,
         mode=args.mode,
         source=args.source,
+        receipt_path=args.receipt,
     )
 
     print_recommendation_cli(result)
@@ -280,6 +366,8 @@ def main():
             json.dump(result, f, indent=2, ensure_ascii=False)
         print(f"\nJSON output saved to: {args.output_json}")
 
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

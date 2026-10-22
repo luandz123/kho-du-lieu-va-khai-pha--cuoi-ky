@@ -572,7 +572,7 @@ def export_metrics_csv(
             writer.writerow(r)
 
 
-def main():
+def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Official Test Evaluation Pipeline for Item-Based CF (Step 10B)")
     parser.add_argument("--source", choices=["raw", "csv", "dw"], default="csv", help="Input data source")
     parser.add_argument("--split-manifest", type=Path, default=DEFAULT_SPLIT_MANIFEST_PATH, help="Path to split_manifest.json")
@@ -581,17 +581,21 @@ def main():
     parser.add_argument("--metrics-csv", type=Path, default=DEFAULT_METRICS_CSV, help="Path to metrics.csv export")
     parser.add_argument("--top-n", type=int, default=5, choices=[5], help="Recommendation cutoff (strictly 5)")
     parser.add_argument("--neighbor-k", type=int, default=40, choices=[40], help="Frozen neighbor k (strictly 40)")
-    parser.add_argument("--force", action="store_true", help="Force overwrite existing receipt (use with caution)")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     cli_start_time = time.time()
     print("=== Step 10B: Item-Based CF Single Official Test Evaluation ===")
 
-    # Anti-overwrite check
-    if args.receipt.exists() and not args.force:
+    # Strict pre-execution lock: reject BEFORE load_data if either receipt or output already exists
+    if args.receipt.exists():
         raise FileExistsError(
             f"Official test receipt already exists at: {args.receipt}\n"
-            "Official evaluation must be run exactly once. To force re-run, provide --force flag."
+            "Official test evaluation is strictly locked and cannot be re-executed or overwritten."
+        )
+    if args.output.exists():
+        raise FileExistsError(
+            f"Official test output already exists at: {args.output}\n"
+            "Official test output is strictly locked and cannot be re-executed or overwritten."
         )
 
     t_load_start = time.time()

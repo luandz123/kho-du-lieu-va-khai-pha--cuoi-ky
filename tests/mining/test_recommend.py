@@ -94,7 +94,9 @@ def synthetic_mock_tables():
 
 
 def test_recommend_active_user_with_seeds(synthetic_mock_tables):
-    res = recommend_movies(user_id=1, top_n=3, mode="evaluation", tables=synthetic_mock_tables)
+    res = recommend_movies(
+        user_id=1, top_n=3, mode="evaluation", tables=synthetic_mock_tables, skip_manifest_verification=True
+    )
     assert res["user_id"] == 1
     assert res["user_status"] == "ACTIVE_CF_USER"
     assert res["seeds_count"] == 1
@@ -106,10 +108,13 @@ def test_recommend_active_user_with_seeds(synthetic_mock_tables):
     assert rec_ids[0] in [3, 4]  # High similarity from user 2 co-ratings
     assert res["recommendations"][0]["score_type"] == "cf"
     assert isinstance(res["recommendations"][0]["score"], float)
+    assert res["model_construction"]["reconstruction_mode"] == "runtime_in_memory_fit"
 
 
 def test_recommend_zero_seeds_user_triggers_fallback(synthetic_mock_tables):
-    res = recommend_movies(user_id=3, top_n=3, mode="evaluation", tables=synthetic_mock_tables)
+    res = recommend_movies(
+        user_id=3, top_n=3, mode="evaluation", tables=synthetic_mock_tables, skip_manifest_verification=True
+    )
     assert res["user_id"] == 3
     assert res["user_status"] == "ZERO_SEEDS_USER"
     assert res["seeds_count"] == 0
@@ -123,7 +128,9 @@ def test_recommend_zero_seeds_user_triggers_fallback(synthetic_mock_tables):
 
 
 def test_recommend_non_existent_user(synthetic_mock_tables):
-    res = recommend_movies(user_id=99999, top_n=3, mode="evaluation", tables=synthetic_mock_tables)
+    res = recommend_movies(
+        user_id=99999, top_n=3, mode="evaluation", tables=synthetic_mock_tables, skip_manifest_verification=True
+    )
     assert res["user_id"] == 99999
     assert res["user_status"] == "NON_EXISTENT_USER"
     assert res["seeds_count"] == 0
@@ -135,10 +142,122 @@ def test_recommend_non_existent_user(synthetic_mock_tables):
 
 def test_recommend_rejects_invalid_arguments(synthetic_mock_tables):
     with pytest.raises(ValueError, match="top_n must be positive"):
-        recommend_movies(user_id=1, top_n=0, tables=synthetic_mock_tables)
+        recommend_movies(user_id=1, top_n=0, tables=synthetic_mock_tables, skip_manifest_verification=True)
 
     with pytest.raises(ValueError, match="mode must be 'evaluation' or 'demo'"):
-        recommend_movies(user_id=1, mode="invalid_mode", tables=synthetic_mock_tables)
+        recommend_movies(user_id=1, mode="invalid_mode", tables=synthetic_mock_tables, skip_manifest_verification=True)
+
+
+def test_recommend_evaluation_mode_rejects_corrupted_input_hash(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that evaluation mode strictly rejects execution when input data hash mismatches manifest."""
+    dummy_receipt = tmp_path / "dummy_receipt.json"
+    manifest_data = {
+        "training_manifest": {
+            "model_version": "item_based_cf_k40_eval_v1",
+            "training_cutoff_timestamp": 976422051,
+            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
+        },
+        "frozen_configuration": {"neighbor_k": 40},
+        "hashes": {
+            "canonical_table_hashes": {
+                "ratings": "expected_valid_ratings_sha256_hash",
+            }
+        },
+    }
+    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+    # Mock verify_and_hash_input_tables returning mismatched hash
+    def mock_verify(tables, manifest_path=None):
+        return {"ratings": "corrupted_tampered_ratings_sha256_hash"}, {}, "commit_123"
+
+    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
+
+    with pytest.raises(ValueError, match="Input data verification failed for table 'ratings'"):
+        recommend_movies(
+            user_id=1,
+            mode="evaluation",
+            tables=synthetic_mock_tables,
+            receipt_path=dummy_receipt,
+            skip_manifest_verification=False,
+        )
+
+
+def test_recommend_evaluation_mode_rejects_cutoff_ratings_count_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that evaluation mode strictly rejects execution when active ratings count mismatches manifest."""
+    dummy_receipt = tmp_path / "dummy_receipt.json"
+    manifest_data = {
+        "training_manifest": {
+            "model_version": "item_based_cf_k40_eval_v1",
+            "training_cutoff_timestamp": 976422051,
+            "training_ratings_count": 999999,  # Mismatched expected count
+        },
+        "frozen_configuration": {"neighbor_k": 40},
+        "hashes": {
+            "canonical_table_hashes": {
+                "ratings": "matching_hash",
+            }
+        },
+    }
+    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+    def mock_verify(tables, manifest_path=None):
+        return {"ratings": "matching_hash"}, {}, "commit_123"
+
+    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
+
+    with pytest.raises(ValueError, match="Training ratings count mismatch under cutoff"):
+        recommend_movies(
+            user_id=1,
+            mode="evaluation",
+            tables=synthetic_mock_tables,
+            receipt_path=dummy_receipt,
+            skip_manifest_verification=False,
+        )
+
+
+def test_recommend_evaluation_mode_binds_model_identity_from_manifest(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that CLI evaluation mode takes model identity and cutoff strictly from receipt manifest."""
+    dummy_receipt = tmp_path / "dummy_receipt.json"
+    manifest_data = {
+        "training_manifest": {
+            "model_version": "item_based_cf_k40_eval_v1",
+            "training_cutoff_timestamp": 976422051,
+            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
+        },
+        "frozen_configuration": {"neighbor_k": 40},
+        "hashes": {
+            "canonical_table_hashes": {
+                "ratings": "matching_hash",
+            }
+        },
+    }
+    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+    def mock_verify(tables, manifest_path=None):
+        return {"ratings": "matching_hash"}, {}, "commit_123"
+
+    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
+
+    res = recommend_movies(
+        user_id=1,
+        mode="evaluation",
+        tables=synthetic_mock_tables,
+        receipt_path=dummy_receipt,
+        skip_manifest_verification=False,
+    )
+    assert res["model_version"] == "item_based_cf_k40_eval_v1"
+    assert res["model_construction"]["reconstruction_mode"] == "runtime_in_memory_fit"
+    assert res["manifest_metadata"]["integrity_verification"] == "PASSED_CANONICAL_HASHES_MATCH"
+
+
+def test_recommend_demo_mode_has_distinct_manifest_and_offline_disclaimer(synthetic_mock_tables):
+    """Verifies that demo mode carries DEMO identity and prohibits offline metric evaluation."""
+    res = recommend_movies(
+        user_id=1, mode="demo", tables=synthetic_mock_tables, skip_manifest_verification=True
+    )
+    assert res["model_version"] == "item_based_cf_k40_DEMO_full_history_v1"
+    assert "offline_metrics_disclaimer" in res["manifest_metadata"]
+    assert "NEVER be used to evaluate or publish offline metrics" in res["manifest_metadata"]["offline_metrics_disclaimer"]
 
 
 def test_recommend_cli_smoke(tmp_path):
@@ -169,3 +288,6 @@ def test_recommend_cli_smoke(tmp_path):
         data = json.load(f)
     assert data["user_id"] == 1
     assert len(data["recommendations"]) == 5
+    assert data["model_version"] == "item_based_cf_k40_eval_v1"
+    assert data["manifest_metadata"]["integrity_verification"] == "PASSED_CANONICAL_HASHES_MATCH"
+
