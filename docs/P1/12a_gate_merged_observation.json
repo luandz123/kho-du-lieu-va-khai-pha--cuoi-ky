@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-10-23T10:16:56.490990+00:00",
+  "pr24_merged": true,
+  "head_reviewed": "9ef301373ecbaa7e794215bd09465a87ac0fd363",
+  "merge_commit": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "base_commit": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "branch": "codex/p1-s12a-integration",
+  "historical_open_observation_preserved": true,
+  "candidate": null
+}

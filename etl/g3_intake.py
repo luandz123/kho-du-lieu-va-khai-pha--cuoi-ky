@@ -5,7 +5,8 @@ from dataclasses import dataclass
 from datetime import datetime,timezone
 from pathlib import Path
 from collections import Counter
-from etl.s05_staging import ROOT,SafeError,assert_project,catalog,config,connect,sha256
+from etl.s05_staging import ROOT,SafeError,catalog,config,connect,sha256
+from etl.integration_target import assert_warehouse as assert_project
 
 VERSION='kmeans_k4_seed42'
 APPROVED_PRODUCER_COMMIT='bab0b4049d4e0b1724418b8a92d8afbeda4bc775'

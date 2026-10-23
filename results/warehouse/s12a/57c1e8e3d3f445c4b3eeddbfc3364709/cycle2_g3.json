@@ -1,0 +1,31 @@
+{
+  "plan": "RELOAD_IDENTICAL_INVALIDATED_VERSION",
+  "transaction": "COMMITTED",
+  "rows_verified": 6112,
+  "checks": {
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "analytics_counts": {
+      "model_registry": 1,
+      "user_cluster": 0,
+      "cluster_genre_profile": 0
+    },
+    "plan": "RELOAD_IDENTICAL_INVALIDATED_VERSION"
+  },
+  "progress": {
+    "exclusive_etl_lock": true,
+    "sources_and_targets_locked": true,
+    "production_checks_same_connection": true,
+    "all_rows_and_active_state_verified": true
+  }
+}

@@ -3,6 +3,7 @@ import re
 from psycopg2 import sql
 from psycopg2.extras import Json,execute_values
 from etl.s05_staging import SafeError,assert_project
+from etl.integration_target import assert_warehouse as assert_project
 from etl.g3_intake import (REGISTRY_FIELDS,require,registry_metadata,existing_plan,validate_records,
                            validate_snapshot,check_dw,VERSION,PINNED)
 

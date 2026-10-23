@@ -1,5 +1,38 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Hiện hành — PR25 OPEN, WAITING_REVIEW PR12A
+
+Đã công bố [PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) vào main, nhánh codex/p1-s12a-integration. API xác minh OPEN/merged=false; agent không merge. Code công bố `3334ff8388cb0627c1af3d0b0c289f08f7e6e65e`, base main/PR24 `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Commit hồ sơ sau đó không đổi code; quan sát remote đầu và code_reference.json tại docs/P1/12a_publication/ ghi snapshot/version riêng, không gán commit công bố vào run cũ.
+
+Kỹ thuật12A run57c1e8e3d3f445c4b3eeddbfc3364709 đã được điều phối chấp nhận; runtime bundle3114721fd957a9c98da89b0bfcf615500ae6d6833bfdae31ad58111d23424e22/receipt/PASS/FAIL giữ nguyên. Kiểm công bố chỉ đọc file/Git/Docker inventory, không ETL/G3/dump/restore/evaluator lại. SourceP2/metric/SQLcontract/guardproduction gốc không đổi; P2intakeG2NOT_CONFIRMED, môi trường tổng Linux/P2 và DW-onlyapply riêng chưa được kiểm trênP1.
+
+**Candidate cuối chỉ là merge commit của PR12A sau review và merge; hiện CHƯA CHỌN, không dùng HEAD nhánh. G4 chưa hoàn thành.** 8089demo và8092review healthy,8091dừng; giữ DBtíchhợp/clone/backup/metadata/volume. Không commit kế hoạch untracked ngoài phạm vi hoặc credential/user-level/privateCLI/modelbinary. Dừng chờ review PR25.
+
+## Công bố12A — kỹ thuật được điều phối chấp nhận, PR đang chuẩn bị
+
+Điều phối chấp nhận phần kỹ thuật12A tại run `57c1e8e3d3f445c4b3eeddbfc3364709` và giao commit/push/PR. Đây là review kỹ thuật qua điều phối, không phải lời duyệt trực tiếp của người dùng choG4. Nhánh `codex/p1-s12a-integration`; nền PR24 đã merge `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Không chạy lại ETL/G3/dump/restore/evaluator để công bố.
+
+Giữ nguyên code hash thực chạy khi chưa commit, runtime report/PASS/FAIL/receipt test; commit công bố sẽ được ghi riêng. Lệnh DW-only cho P2 ở integration_runbook.md: plan-only đã chạy, apply riêng chưa chạy trênP1; chưa kiểmLinux/P2. Metric test chỉ tham chiếu receipt đã chốt, không phải metric vừa đánh giá lại từDW. P2intakeG2 **NOT_CONFIRMED**, G4 chưa hoàn thành.
+
+**Candidate cuối sẽ là merge commit của PR12A sau khi được review và merge. Chưa chọn HEAD nhánh làm candidate, chưa gửi mốcP2, không tự merge.** Chỉ stage phần12A đã rà; kế hoạch ngoài phạm vi/credential/backup/user-level/modelbinary/CLIprivate khôngGit. Tài nguyên giữ:DBtíchhợp,backup/clone cũ,8092đểreview;8089demo,8091dừng.
+
+## 12A tích hợp trên database thử — WAITING_REVIEW,23/10/2026
+
+PR24 đã MERGED, nhánh `codex/p1-s12a-integration`, base `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Hai chu trình trên `movielens_btl_int_20261023_57c1e8e3` đạt; source demo và config8089 giữ nguyên. **Chưa chọn/gửi candidate cuối hoặc chốtG4; P2 intakeG2 NOT_CONFIRMED.**
+
+Thứ tự tái lập:
+
+1. Tạo venv mới từ requirements tổng; tải nguồn chính thức và sohash.
+2. Tạo database thử mới, kiểm permit/tên/marker/owner rồi chạy schema đã duyệt.
+3. Nạp staging→full refresh dimension/bridge/fact trong một transaction.
+4. Kiểm bốn canonicalhash/count/khóa/UTC và model inactive sauETL.
+5. Dùng sáu view/truy vấn OLAP đã duyệt; đối soát SUM/COUNT, lưới quý/mẫu sốgenre.
+6. Chạy ML/CLI `--source dw` với manifest/cutoff/k40 frozen; không chạy lại evaluator test chính thức.
+7. Kiểm gói G3 frozen, loader transaction→active cuối; chạy lại NOOP và kiểm registry identity.
+8. Kết nối8092 bằng BIreader chỉđọc, force cache refresh và kiểm3dashboard/filter; không sửa8089/8091.
+
+[Lệnh và runbook đầy đủ](docs/P1/integration_runbook.md), [phiếu gói tích hợp chờ review](docs/P1/integration_candidate.md), [summary](results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), [hậu kiểm READONLY](results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/postflight.json). Các báo cáo cũ phía dưới giữ lịch sử. Không chạy lại apply chỉ để review; mọi lần apply tạo đíchthửmới.
+
 ## Hiện hành — PR #21 OPEN, WAITING_REVIEW PR
 
 Đã công bố [PR #21](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21) vào main, nhánh `codex/p1-s12a-prep`. GitHub đã xác minh OPEN/merged=false; agent không merge. Code công bố/tái tạo tại `a32dfcb407009fd5d404035d6c82d787e0411505` (đã tích hợp main `9efa05379fc8323f1b656632e140ac5a3a4354ea`); commit hồ sơ sau đó không đổi code/runtime. Quan sát remote từng thời điểm và danh sách file tại docs/P1/pre12a_publication/remote_observation.json; HEAD đó là snapshot lịch sử trước commit hồ sơ, không gán vào run cũ.

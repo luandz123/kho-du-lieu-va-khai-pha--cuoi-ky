@@ -15,8 +15,9 @@ from pathlib import Path
 
 from psycopg2 import sql
 
-from etl.s05_staging import (ROOT, SPECS, TARGET_DB, SafeError, assert_project, catalog, config,
+from etl.s05_staging import (ROOT, SPECS, TARGET_DB, SafeError, catalog, config,
                             connect, copy_staging, sha256, verify_sources, verify_staging)
+from etl.integration_target import assert_warehouse as assert_project
 from etl.s06a_dimensions import insert_dimensions, read_prepared, verify_dimensions, verify_two_view_hashes
 from etl.s06b_bridge import RAW, insert_bridge, read_bridge, verify_bridge, verify_bridge_view
 from etl.s06c_fact import insert_fact, read_mappings, source_rows, verify_ratings

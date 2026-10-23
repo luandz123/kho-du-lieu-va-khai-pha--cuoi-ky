@@ -1,0 +1,29 @@
+{
+  "at_utc": "2026-10-23T12:14:18.776346+00:00",
+  "status": "PASS_PUBLICATION_CHECKS",
+  "branch": "codex/p1-s12a-integration",
+  "head_observed": "3334ff8388cb0627c1af3d0b0c289f08f7e6e65e",
+  "base_main_observed": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "files_checked": 49,
+  "validation_counts": {
+    "python": 13,
+    "json": 22,
+    "text": 14
+  },
+  "private_files_ignored": 50,
+  "historical_run_artifacts_unchanged": 16,
+  "runtime_bundle_sha256": "3114721fd957a9c98da89b0bfcf615500ae6d6833bfdae31ad58111d23424e22",
+  "runtime_code_bytes_unchanged": true,
+  "official_test_receipt_and_report_unchanged": true,
+  "p2_original_production_guard_contract_schema_unchanged": true,
+  "outside_plan_preserved": true,
+  "known_secret_uri_password_hash_scan": "PASS",
+  "ast_json_whitespace": "PASS",
+  "technical_review_source": "Coordinator accepted12A run57c1e8e3; no pipeline/test evaluator rerun for publication",
+  "unit_test_evidence": "88 tests passed in technical run; not rerun by this static audit",
+  "pipeline_etl_g3_dump_restore_evaluator_called": false,
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "g4_complete": false,
+  "final_candidate_selected": false,
+  "final_candidate_policy": "Merge commit of12A PR after review+merge; never this branch HEAD"
+}

@@ -1,3 +1,10 @@
-# P1 environment only at S02; P2 pins stay in docs/P2/requirements-p2.txt.
-# Combined runtime will be reviewed at integration 12A.
+# 12A integration draft, Python3.12. Superset stays in its own container.
 -r docs/P1/requirements-p1.txt
+scipy==1.14.1
+scikit-learn==1.5.2
+joblib==1.6.0
+threadpoolctl==3.7.0
+pytest==8.4.2
+requests==2.32.5
+# P2 plotting; optional pyarrow/Parquet not required by CSV/DW.
+matplotlib==3.10.7

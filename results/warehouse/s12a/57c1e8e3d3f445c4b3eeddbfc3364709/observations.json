@@ -1,0 +1,7 @@
+{
+  "status": "OBSERVATION",
+  "venv_install_note": "One import probe ran while pip installation was still in progress and could not find pandas. After pip completed, all imports, pip check and88tests passed. Demo venv untouched.",
+  "git_note": "Initial switch main rejected to protect local agent docs; fast-forward on current checkout then new integration branch from correct origin/main kept all edits. No reset/stash/commit.",
+  "progress_report_note": "progress.json is a historical in-progress snapshot; summary.json is authoritative final PASS.",
+  "runtime_warning": "pandas DBAPI2 UserWarning; canonical bytes verified; no P2 source edits."
+}

@@ -1,5 +1,9 @@
 # Checklist tích hợp sơ bộ — chuẩn bị trước 12A, 21/10/2026
 
+## Cập nhật12A23/10/2026 — WAITING_REVIEW
+
+PR24 MERGED01d51a2, base12A01d51a2; venv Windowsmới/requirements tổng đã cài/import/pipcheck,88test mục tiêuđạt. Hai chu trình trên DBtíchhợpriêng đã kiểm fullrefresh sauS07/G3,modelinvalidate/reload/NOOP,MLDW/CLI và3dashboard8092; không fullrefresh demo. Hậu kiểmREADONLY nguồn/8089/ACL/guardBIđạt. [Phiếu gói](P1/integration_candidate.md), [runbook](P1/integration_runbook.md), [S12A](agent/steps/P1/S12A.md). Chưa P2intake/tái lậpvenvLinux, candidatecuối/G4 hoặccommit/push/PR12A. Bảng bên dưới là snapshot chuẩn bị cũ, không thay quan sát12A mới.
+
 ## Cập nhật chuẩn bị tiếp — 21/10/2026
 
 Phần DW backup/restore đã được điều phối chấp nhận, checkpoint cục bộ d3f00cc6a068868662a7040459a51ff46e49e231. Metadata Superset được restore riêng vào8092 bằng PostgreSQL tools, dùng SECRET_KEY/config backup; kiểm chức năng ở [runbook metadata restore](../dashboard/metadata_restore/README.md). Phần mới WAITING_REVIEW, chưa chốt12A/G4. Các mục đang chờ P2/full refresh/requirements/candidate vẫn giữ nguyên.
