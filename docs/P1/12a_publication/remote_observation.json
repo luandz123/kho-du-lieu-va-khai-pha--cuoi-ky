@@ -1,0 +1,260 @@
+{
+  "at_utc": "2026-10-23T12:13:26.479581+00:00",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25",
+  "state": "open",
+  "merged": false,
+  "head_observed": "3334ff8388cb0627c1af3d0b0c289f08f7e6e65e",
+  "base_observed": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "scope": "Verified snapshot before publication-record-only commit; not relabeled as finalHEAD",
+  "all_file_blobs_match": true,
+  "whole_git_tree_matches": true,
+  "tree_blobs": 513,
+  "file_count": 49,
+  "files": [
+    {
+      "path": ".env.example",
+      "blob": "2b68327d57eaf422c95f5fc321635f8760635c47",
+      "status": "modified"
+    },
+    {
+      "path": "README.md",
+      "blob": "72b9eca96ec5d13d65379e7f8563421c9d3d72da",
+      "status": "modified"
+    },
+    {
+      "path": "docs/P1/12a_execution_plan.md",
+      "blob": "f791ef2bf7b6b34c4107a150095bf97d8310e9b2",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_gate_merged_observation.json",
+      "blob": "6e04fa6fcf00cb3f62d9f2be1ad2c32e1f073eaa",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_gate_observation.json",
+      "blob": "e768497a8fdc4493334218236c456861602ef466",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_publication/README.md",
+      "blob": "49c5e9f32bd3f650c948b25802f350d95802dfc2",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_publication/artifact_manifest.json",
+      "blob": "8f0738042fb7fc11897ac5d8bbd67fef638e6698",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_publication/publication_audit.json",
+      "blob": "4d4241207d3f89b741a38c45ed7ed1f341b02956",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/12a_publication/resources_observation.json",
+      "blob": "7dab85f9c099fa0ff1b62a486595ff818bb647b9",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/integration_candidate.md",
+      "blob": "28c2f67b131316600874b61e95f7fc0a775cac64",
+      "status": "added"
+    },
+    {
+      "path": "docs/P1/integration_runbook.md",
+      "blob": "8b1407af4d711ef4e26fadea0b2f2d000357de59",
+      "status": "added"
+    },
+    {
+      "path": "docs/agent/DECISIONS_P1.md",
+      "blob": "b6795134b348b983479409e0d610b10803c36965",
+      "status": "modified"
+    },
+    {
+      "path": "docs/agent/PROMPTS_P1.md",
+      "blob": "e6be2e2960607291f0ad7909912bebe7d77db17f",
+      "status": "modified"
+    },
+    {
+      "path": "docs/agent/REVIEWS_P1.md",
+      "blob": "d2fd4b95b7da0ab8d5f1a84a66351f406730c64c",
+      "status": "modified"
+    },
+    {
+      "path": "docs/agent/STATE_P1.md",
+      "blob": "65ca78c108da6b03edd56885831973f090648fbd",
+      "status": "modified"
+    },
+    {
+      "path": "docs/agent/steps/P1/S12.md",
+      "blob": "e8542bfe6e25aa73c0339b35f5326edd44e7964d",
+      "status": "modified"
+    },
+    {
+      "path": "docs/agent/steps/P1/S12A.md",
+      "blob": "c73ad622b380d176f3da4bdc89fca3ece48b0377",
+      "status": "added"
+    },
+    {
+      "path": "docs/integration_checklist.md",
+      "blob": "f4b50b0e8bbe084d61bb61d1abada45200b2a4b1",
+      "status": "modified"
+    },
+    {
+      "path": "etl/g3_intake.py",
+      "blob": "b6beadce081747568bfd47d0e4975da2755edb4f",
+      "status": "modified"
+    },
+    {
+      "path": "etl/g3_transaction.py",
+      "blob": "2f380bfb7f65fa70529498b32252619bd398102b",
+      "status": "modified"
+    },
+    {
+      "path": "etl/integration_target.py",
+      "blob": "53786221f784de3b678d831dc36de0ac8a6cbb1a",
+      "status": "added"
+    },
+    {
+      "path": "etl/recreate_integration_dw.py",
+      "blob": "e692ae8af5a64a3d308203baba82c27ee7483b9e",
+      "status": "added"
+    },
+    {
+      "path": "etl/run_etl.py",
+      "blob": "a5e0395309ed29cf75ead59e9909208d334a3918",
+      "status": "modified"
+    },
+    {
+      "path": "etl/run_integration.py",
+      "blob": "00f4aec5357807e139c3e1cecfa78d9b51c07e33",
+      "status": "added"
+    },
+    {
+      "path": "etl/s06a_dimensions.py",
+      "blob": "ce2dae8ac9fcdffc6c0965c4d2253e66e43271b1",
+      "status": "modified"
+    },
+    {
+      "path": "etl/s06b_bridge.py",
+      "blob": "862a01c87356487d70fd4ed5e6ba59d973b302d0",
+      "status": "modified"
+    },
+    {
+      "path": "etl/s06c_fact.py",
+      "blob": "a12b513fd9a42239e066f84806529a9e722be32e",
+      "status": "modified"
+    },
+    {
+      "path": "olap/run_olap.py",
+      "blob": "22184e0c9c08121a598abdb372b0bb64f28e7277",
+      "status": "modified"
+    },
+    {
+      "path": "requirements.txt",
+      "blob": "cc7a725b0644305def21a9f3473e6043425d765c",
+      "status": "modified"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle1_dw_before_model.json",
+      "blob": "6684eab4a69050d88b30bf2d44febb4008e63b7b",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle1_etl.json",
+      "blob": "82604455e9bf29f847fecca4d5ffd604d54dfdd3",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle1_g3.json",
+      "blob": "c802ab1f6b013fd4c8490eb2b05b044a52452d78",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle2_dw_before_model.json",
+      "blob": "d34c866267dd2b06950abc09c5caa17539fce6e1",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle2_etl.json",
+      "blob": "aea003aff759a0369f9e5238a648612c38a46390",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/cycle2_g3.json",
+      "blob": "49ab1f8bb3dcb9670f69c207c47a8fe1fa4b17c1",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/environment.json",
+      "blob": "fec109afa5a1f24f9a21a02ed9b0fe321c24e9b9",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/handoff_audit.json",
+      "blob": "ceab41ed36868530057356059bac1ece34e6a2f4",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/handoff_manifest.json",
+      "blob": "b4089485c44864e2778e5a10099eb7a9a3d377b9",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/observations.json",
+      "blob": "8f3e68bdc6d634cd5c7dfc7577b5ce75b5cc8f0f",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/official_test_metrics_reference.json",
+      "blob": "5ef70656b9dca66012b695dec1dc1e097119793e",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/olap_all_six.json",
+      "blob": "1d24f0bebf5f9d82afdce95f24d3b58e2eb4c907",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/postflight.json",
+      "blob": "d319b25e507afa89c9cb3fed1de7c7b4f204158f",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/progress.json",
+      "blob": "467c62b5f11e8d2fe7e8fcfc0c23d148e039a4fe",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/resources.json",
+      "blob": "b32e6ae70d38d040b2d6c9efc21451fbc6e7ae82",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json",
+      "blob": "11d235aceda6fd6c5e40431f0afb5e6bdb86513d",
+      "status": "added"
+    },
+    {
+      "path": "results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/superset8092_before.json",
+      "blob": "2d9eaef95048bf6f9636c38393a054bea618f16f",
+      "status": "added"
+    },
+    {
+      "path": "tests/warehouse/check_integration_publication.py",
+      "blob": "4f545f5b8be4e90d26e93308b7654d175e68b20e",
+      "status": "added"
+    },
+    {
+      "path": "tests/warehouse/check_integration_result.py",
+      "blob": "99476bcce0baa696b1effa47a88dbf105f8835ec",
+      "status": "added"
+    },
+    {
+      "path": "tests/warehouse/test_integration_target.py",
+      "blob": "ae61289532a6b4fd4919e252fd48b31b10501d1d",
+      "status": "added"
+    }
+  ]
+}

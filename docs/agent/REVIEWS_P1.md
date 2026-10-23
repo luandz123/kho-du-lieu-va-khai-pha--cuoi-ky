@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Công bố thực tế12A — PR25 OPEN
+
+[PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) đã mở và xác minh file/blobremote tại codecommit3334ff8388cb0627c1af3d0b0c289f08f7e6e65e. APPROVED kỹ thuật qua điều phối khác PR25 WAITING_REVIEW/chưa MERGED. Không tự tạo lời duyệt G4 hoặc chọn candidateHEAD; candidatecuối chờ mergecommit sau review/merge. Sourcebase/runtimehash/receipt không sửa. Quan sát Git mới trong docs/P1/12a_publication/, không dùng thay bằng chứng chạy cũ.
+
 ## Review điều phối — kỹ thuật12A được chấp nhận,23/10/2026
 
 Nguồn: thông điệp điều phối qua người dùng: “Điều phối chấp nhận phần kỹ thuật 12A tại run 57c1e8e3d3f445c4b3eeddbfc3364709.” Được giao đóng gói/commit/push/PR, không merge hoặc chốtG4. APPROVED kỹ thuật không đồng nghĩa PR MERGED hoặc P2 intakeG2. Candidate cuối chờ merge commit PR12A sau review/merge; không lấy HEAD nhánh. Giữ báo cáo thực chạy/receipt lịch sử nguyên vẹn, không tạo lời duyệt khác.

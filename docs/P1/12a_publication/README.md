@@ -1,5 +1,13 @@
 # Công bố PR12A — gói tích hợp đã nghiệm thu kỹ thuật
 
+## Hiện hành — PR25 OPEN, WAITING_REVIEW PR12A
+
+Đã công bố [PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) vào main, nhánh codex/p1-s12a-integration. API xác minh OPEN/merged=false; agent không merge. Code công bố `3334ff8388cb0627c1af3d0b0c289f08f7e6e65e`, base main/PR24 `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Commit hồ sơ sau đó không đổi code; quan sát remote đầu và code_reference.json tại docs/P1/12a_publication/ ghi snapshot/version riêng, không gán commit công bố vào run cũ.
+
+Kỹ thuật12A run57c1e8e3d3f445c4b3eeddbfc3364709 đã được điều phối chấp nhận; runtime bundle3114721fd957a9c98da89b0bfcf615500ae6d6833bfdae31ad58111d23424e22/receipt/PASS/FAIL giữ nguyên. Kiểm công bố chỉ đọc file/Git/Docker inventory, không ETL/G3/dump/restore/evaluator lại. SourceP2/metric/SQLcontract/guardproduction gốc không đổi; P2intakeG2NOT_CONFIRMED, môi trường tổng Linux/P2 và DW-onlyapply riêng chưa được kiểm trênP1.
+
+**Candidate cuối chỉ là merge commit của PR12A sau review và merge; hiện CHƯA CHỌN, không dùng HEAD nhánh. G4 chưa hoàn thành.** 8089demo và8092review healthy,8091dừng; giữ DBtíchhợp/clone/backup/metadata/volume. Không commit kế hoạch untracked ngoài phạm vi hoặc credential/user-level/privateCLI/modelbinary. Dừng chờ review PR25.
+
 Điều phối chấp nhận run `57c1e8e3d3f445c4b3eeddbfc3364709` và giao commit/push/PR, không merge/G4. Base PR24 `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`, nhánh `codex/p1-s12a-integration`. Candidate cuối **chưa chọn**; sẽ là merge commit của PR12A sau khi được review và merge, không phải HEAD nhánh hoặc commit nền.
 
 ## Truy vết và tái lập
