@@ -1,5 +1,17 @@
 # Nguồn prompt P1
 
+## P-P1-41 — công bố12A sau nghiệm thu kỹ thuật
+
+Điều phối chấp nhận run57c1e8e3d3f445c4b3eeddbfc3364709, giao rà scope/bí mật/hash/hồsơ táilập, commit/push và mởPR12A vào main, xác minh HEAD/base/mọi fileblob. Không ETL/G3/dump/restore/evaluator lại. Bảo toànngoàiphạmvivi/tài nguyên/receipt; candidatecuối chỉ sau PRreview/merge và bằngmergecommit, chưaP2intake/G4.
+
+## P-P1-40 — tiếp tục12A sau xác minh merge
+
+Người dùng “đã merge ktra lại”; API PR24merged=true đúngHEAD9ef3013, nên tiếp tục phạmvi12A đã được giao: bảo toàn hồsơ,venvmới/requirements tổng,DBthửriêng hai chu trình ETL/OLAP/MLDW/G3/BI8092, bảo toànsource/production/P2, nộp WAITING_REVIEW; khôngcommit/push/PR hoặcchọn/gửi candidate/G4.
+
+## P-P1-39 —12A có gate merge PR24,23/10/2026
+
+Điều phối giao tích hợp trên DB thử riêng, venv mới, requirements tổng, hai chu trình ETL/OLAP/ML/G3 và BI8092; không đổi demo/thuật toán/receipt frozen, không evaluator test chính thức. Điều kiện đầu: PR24 MERGED; nếu OPEN chỉ chuẩn bị kế hoạch. API OPEN nên lượt này chỉ ghi kế hoạch/gate/hồ sơ mergePR21, chưa chạy phần thực thi hoặc commit/push/PR/candidate/G4.
+
 ## P-P1-38 — Công bố phần chuẩn bị trước12A,21/10/2026
 
 Điều phối chấp nhận DW backup/restore, kiểm kê và metadata restore riêng; giao rà toàn diff/JSON/Python/YAML/ignore/bí mật/artifact, commit/push và mở PR “Chuẩn bị tích hợp: backup/restore DW và metadata Superset”. Giữ báo cáo lịch sử và tài nguyên thử; xác minh HEAD/base/mọi file/blob remote; chưa merge/full refresh/requirements/candidate hoặc báo cáo cuối.

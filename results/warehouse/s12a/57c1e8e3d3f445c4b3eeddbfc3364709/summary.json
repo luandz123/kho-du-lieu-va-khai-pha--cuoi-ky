@@ -1,0 +1,227 @@
+{
+  "run_id": "57c1e8e3d3f445c4b3eeddbfc3364709",
+  "at_utc": "2026-10-23T10:16:58.548349+00:00",
+  "status": "PASS_WAITING_REVIEW",
+  "target": "movielens_btl_int_20261023_57c1e8e3",
+  "base_commit": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "code_state": "WORKING_TREE_NOT_COMMITTED",
+  "code_sha256": {
+    "etl/run_integration.py": "439f1271923fcd983c5770efd233e0f196ab11c8e4b712b9f41044042dd3b28b",
+    "etl/integration_target.py": "8577f6e07cdcca3261857b07c79568842dd57b2d1480c049df6d1eb691abbd32",
+    "etl/run_etl.py": "a3aefe1ced899ac169e4d6dca83abe1b24523c0dec29f074b306609888982361",
+    "etl/g3_intake.py": "e17c952ba36486a42f65dddb39dfc759692cacc7bf170caaf752726d55890655",
+    "etl/g3_transaction.py": "59f046a1f690af90d64d0280699030d43201638330d3f804886bc9e5793cd3f9",
+    "etl/s06a_dimensions.py": "50b38e7b9980779b693f70f40fda2d292a7224e5e0836fe1934c24f1881273af",
+    "etl/s06b_bridge.py": "b8067df6d7a97aca0e9dbad435021d490b7e3f165fc27e9cfc22173929ed2b12",
+    "etl/s06c_fact.py": "bccae8f68ae849ae13a92360c52059dcdc8dd839491d4e159f372882d017724b",
+    "olap/run_olap.py": "3780624237dcab49a6815a8cca0baf7d27eecc307ced720500e3d3f9e618aabf",
+    "database/schema.sql": "ebef448cd245c54cc50e2b02b34d382471daccb29e8a933b7078c19304f68250",
+    "database/views.sql": "c78f2dea7797d17f49c6979ef1e54e4c4a3c745da896e99e1781747f4957299f",
+    "mining/data_io.py": "12997a0afa0471006e76f3e1ad3b3ca24391c288568c6863811ae514c5201533",
+    "mining/recommend.py": "6191bec3be5b1fd1eee42f11d24e4791656272bdda7d646f741b6f39048b04ec",
+    "mining/cf.py": "5beae5af4aad918716317f1023dc7ee09ae1d2e00bcb30bbdcec1151a88e7d1d",
+    "requirements.txt": "bd7873006ef542652cde936cb5195ade37ef8b171d470829c3ddeb950a83fbee"
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "etl_transaction": "COMMITTED",
+      "etl_model_before": {
+        "registry_rows": 0,
+        "active": 0,
+        "valid": 0,
+        "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "etl_model_after": {
+        "registry_rows": 0,
+        "active": 0,
+        "valid": 0,
+        "metadata_except_flags_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "g3_plan": "INSERT_NEW_VERSION",
+      "g3_transaction": "COMMITTED",
+      "noop": "COMMITTED_NO_OP",
+      "registered_at": "2026-10-23 10:22:33.029031+00:00",
+      "after_g3": {
+        "canonical_hashes": {
+          "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+          "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+          "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+          "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+        },
+        "row_counts": {
+          "users": 6040,
+          "movies": 3883,
+          "movie_genres": 6408,
+          "ratings": 1000209
+        },
+        "analytics_counts": {
+          "model_registry": 1,
+          "user_cluster": 6040,
+          "cluster_genre_profile": 72
+        },
+        "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+      },
+      "ml_cli": [
+        {
+          "mode": "evaluation",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "77cbedb57305be137714200cc4a1de5db11a3cf24e1be1ee967daf8f7aaba618",
+          "model_version": "item_based_cf_k40_eval_v1",
+          "official_test_evaluator_called": false
+        },
+        {
+          "mode": "evaluation",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "731a96b0e7ec5649b0e353a2ebcfff69575f7809d3ba6b4fc6fc6e70c7194c9d",
+          "model_version": "item_based_cf_k40_eval_v1",
+          "official_test_evaluator_called": false
+        },
+        {
+          "mode": "demo",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "17ef98785659587410edeb0968565056c6f278be1e4e863ea5247db87692f37d",
+          "model_version": "item_based_cf_k40_DEMO_full_history_v1",
+          "official_test_evaluator_called": false
+        }
+      ],
+      "superset8092": {
+        "overview": [
+          1000209,
+          324864
+        ],
+        "animation": {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+          "rank_interpretation": "Hạng 1: giảm ít nhất",
+          "rating_count": 1715,
+          "previous_rating_count": 20068,
+          "genre_assignment_total": 63335,
+          "genre_share_pct": 2.7078234783295176,
+          "qoq_pct": -91.45405620888978,
+          "growth_rank": 1
+        },
+        "assigned_all_filtered": [
+          6038,
+          170
+        ],
+        "baseline": 6038,
+        "insufficient": 2,
+        "heatmap_cluster_only_cells": 18,
+        "force_cache_refresh": true
+      }
+    },
+    {
+      "cycle": 2,
+      "etl_transaction": "COMMITTED",
+      "etl_model_before": {
+        "registry_rows": 1,
+        "active": 1,
+        "valid": 1,
+        "metadata_except_flags_sha256": "7913bfd54a766a143a64fea71ee93dee3fdd0bb5112803f3d207a774da4248bf"
+      },
+      "etl_model_after": {
+        "registry_rows": 1,
+        "active": 0,
+        "valid": 0,
+        "metadata_except_flags_sha256": "7913bfd54a766a143a64fea71ee93dee3fdd0bb5112803f3d207a774da4248bf"
+      },
+      "g3_plan": "RELOAD_IDENTICAL_INVALIDATED_VERSION",
+      "g3_transaction": "COMMITTED",
+      "noop": "COMMITTED_NO_OP",
+      "registered_at": "2026-10-23 10:22:33.029031+00:00",
+      "after_g3": {
+        "canonical_hashes": {
+          "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+          "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+          "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+          "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+        },
+        "row_counts": {
+          "users": 6040,
+          "movies": 3883,
+          "movie_genres": 6408,
+          "ratings": 1000209
+        },
+        "analytics_counts": {
+          "model_registry": 1,
+          "user_cluster": 6040,
+          "cluster_genre_profile": 72
+        },
+        "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+      },
+      "ml_cli": [
+        {
+          "mode": "evaluation",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "77cbedb57305be137714200cc4a1de5db11a3cf24e1be1ee967daf8f7aaba618",
+          "model_version": "item_based_cf_k40_eval_v1",
+          "official_test_evaluator_called": false
+        },
+        {
+          "mode": "evaluation",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "731a96b0e7ec5649b0e353a2ebcfff69575f7809d3ba6b4fc6fc6e70c7194c9d",
+          "model_version": "item_based_cf_k40_eval_v1",
+          "official_test_evaluator_called": false
+        },
+        {
+          "mode": "demo",
+          "status": "CLI_EXIT_0",
+          "private_output_sha256": "17ef98785659587410edeb0968565056c6f278be1e4e863ea5247db87692f37d",
+          "model_version": "item_based_cf_k40_DEMO_full_history_v1",
+          "official_test_evaluator_called": false
+        }
+      ],
+      "superset8092": {
+        "overview": [
+          1000209,
+          324864
+        ],
+        "animation": {
+          "quarter_label": "2001 Q1",
+          "genre_name": "Animation",
+          "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+          "rank_interpretation": "Hạng 1: giảm ít nhất",
+          "rating_count": 1715,
+          "previous_rating_count": 20068,
+          "genre_assignment_total": 63335,
+          "genre_share_pct": 2.7078234783295176,
+          "qoq_pct": -91.45405620888978,
+          "growth_rank": 1
+        },
+        "assigned_all_filtered": [
+          6038,
+          170
+        ],
+        "baseline": 6038,
+        "insufficient": 2,
+        "heatmap_cluster_only_cells": 18,
+        "force_cache_refresh": true
+      }
+    }
+  ],
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "candidate_selected": false,
+  "package": {
+    "manifest_sha256": "630453504b71c6b3e38e022f760e2c37a2612a418d3dfdfbf448794c7297d0f0",
+    "payload_sha256": {
+      "user_cluster.csv": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+      "cluster_genre_profile.csv": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d"
+    },
+    "producer": {
+      "g1_canonical_code_commit": "7a284b9f108dd64b030305cf51b8614b770a2296",
+      "features_code_sha256": "cd288de8f13524826fa696f4b6fa76e35b5681ba360fffcc1525abf49a58f58b",
+      "clustering_code_sha256": "e6c08ffc8774e2aabc134d149c83d137e7887388b961583b47b6a17d4e56ce11"
+    },
+    "model_version": "kmeans_k4_seed42"
+  },
+  "duration_seconds": 833.922,
+  "source_dw_model_acl_preserved": true,
+  "production_8089_config_preserved": true,
+  "registered_at_preserved_across_refresh_reload": true,
+  "official_metric_source": "results/mining/cf_test_evaluation_receipt.json",
+  "official_metric_receipt_sha256": "57c16c3c45feea756b771d0b206cb6ec957135205736a4ae40cbb25255af4b50",
+  "official_test_evaluator_called": false
+}

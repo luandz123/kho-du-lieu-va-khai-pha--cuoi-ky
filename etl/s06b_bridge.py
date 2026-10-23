@@ -16,8 +16,9 @@ import pandas as pd
 from psycopg2 import sql
 from psycopg2.extras import execute_values
 
-from etl.s05_staging import (ROOT, TARGET_DB, SafeError, assert_project, catalog,
+from etl.s05_staging import (ROOT, TARGET_DB, SafeError, catalog,
                             config, connect, sha256, target_counts, verify_sources)
+from etl.integration_target import assert_warehouse as assert_project
 from etl.s06a_dimensions import (DIM_COLUMNS, integer, read_prepared, snapshot_check,
                                 verify_dimensions, verify_two_view_hashes)
 

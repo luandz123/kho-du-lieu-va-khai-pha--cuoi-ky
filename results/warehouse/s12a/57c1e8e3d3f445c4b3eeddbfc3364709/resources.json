@@ -1,0 +1,68 @@
+{
+  "at_utc": "2026-10-23T10:36:51.269141+00:00",
+  "databases": [
+    [
+      "movielens_btl",
+      279049907
+    ],
+    [
+      "movielens_btl_int_20261023_57c1e8e3",
+      278263475
+    ],
+    [
+      "movielens_btl_restore_20261021_2856ed49",
+      255997619
+    ]
+  ],
+  "services": [
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "state": "running",
+      "health": "healthy",
+      "volumes": [
+        "btl-movielens-superset_superset_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "state": "running",
+      "health": "healthy",
+      "volumes": [
+        "btl-movielens-superset_metadata_data"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s12a-metadata-web-1",
+      "state": "running",
+      "health": "healthy",
+      "volumes": [
+        "btl-movielens-s12a-metadata_restore_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s12a-metadata-metadata-1",
+      "state": "running",
+      "health": "healthy",
+      "volumes": [
+        "btl-movielens-s12a-metadata_restore_metadata"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-web-1",
+      "state": "exited",
+      "health": "starting",
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-metadata-1",
+      "state": "exited",
+      "health": "starting",
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_metadata"
+      ]
+    }
+  ],
+  "old_resources_deleted": false
+}

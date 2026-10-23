@@ -1,0 +1,37 @@
+{
+  "at_utc": "2026-10-23T10:29:50.364644+00:00",
+  "status": "PASS_READ_ONLY",
+  "target": "movielens_btl_int_20261023_57c1e8e3",
+  "checkpoint": "After cycle2 ETL, concurrent with inference; before G3 activation if active_users=0",
+  "active_users_at_start": 0,
+  "checks": {
+    "kpi_matches_g2": true,
+    "rollup_each_level_matches_fact": true,
+    "grid_quarters": 12,
+    "genre_grid_rows": 216,
+    "share_sums_100": true,
+    "fixed_threshold": 100,
+    "o6_fact_reference_count": 53541,
+    "o6_fact_reference_sum": 185726
+  },
+  "query_result_rows": {
+    "O1": 1,
+    "O2": 10,
+    "O3": 126,
+    "O4": 51,
+    "O5": 216,
+    "O6": 5032
+  },
+  "kpi": [
+    {
+      "catalog_users": 6040,
+      "catalog_movies": 3883,
+      "rated_users": 6040,
+      "rated_movies": 3706,
+      "rating_count": 1000209,
+      "rating_sum": 3582313,
+      "mean_rating": "3.5815644530293169"
+    }
+  ],
+  "all_six_definitions_from_approved_s07": true
+}

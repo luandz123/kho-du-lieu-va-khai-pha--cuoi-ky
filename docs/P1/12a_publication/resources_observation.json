@@ -1,0 +1,69 @@
+{
+  "at_utc": "2026-10-23T12:10:29.319974+00:00",
+  "scope": "Read-only Docker inventory during publication; no start/recreate/DB work",
+  "containers": [
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-superset_superset_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-superset_metadata_data"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s12a-metadata-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-s12a-metadata_restore_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s12a-metadata-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "state": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "volumes": [
+        "btl-movielens-s12a-metadata_restore_metadata"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-web-1",
+      "image": "sha256:dcfd9db7f3085ec5370aa867ace84a6efd893d89d6cf650e8e3f4620f0fa64c1",
+      "state": "exited",
+      "health": "starting",
+      "exit_code": 255,
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_home"
+      ]
+    },
+    {
+      "name": "/btl-movielens-s11b4-restore-metadata-1",
+      "image": "sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3",
+      "state": "exited",
+      "health": "starting",
+      "exit_code": 255,
+      "volumes": [
+        "btl-movielens-s11b4-restore_restore_metadata"
+      ]
+    }
+  ],
+  "integration_database_retained": "movielens_btl_int_20261023_57c1e8e3",
+  "prior_clone_retained": "movielens_btl_restore_20261021_2856ed49",
+  "backups_and_private_outputs_not_published": true
+}

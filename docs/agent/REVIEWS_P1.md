@@ -1,5 +1,17 @@
 # Hồ sơ duyệt P1
 
+## Review điều phối — kỹ thuật12A được chấp nhận,23/10/2026
+
+Nguồn: thông điệp điều phối qua người dùng: “Điều phối chấp nhận phần kỹ thuật 12A tại run 57c1e8e3d3f445c4b3eeddbfc3364709.” Được giao đóng gói/commit/push/PR, không merge hoặc chốtG4. APPROVED kỹ thuật không đồng nghĩa PR MERGED hoặc P2 intakeG2. Candidate cuối chờ merge commit PR12A sau review/merge; không lấy HEAD nhánh. Giữ báo cáo thực chạy/receipt lịch sử nguyên vẹn, không tạo lời duyệt khác.
+
+## 23/10/2026 —12A WAITING_REVIEW, chưa duyệt tích hợp
+
+Nguồn cho phép: lệnh12A qua điều phối, người dùng báo “đã merge ktra lại”; API xác minhPR24 MERGED01d51a2 vàHEAD9ef3013 đúng. Điều phối đã nghiệmthu10B củaP2, không suy thành đãreview12A. Kếtquả12A/P1hai chu trình vàhậukiểm được lập mới WAITING_REVIEW, không tựtạo lời duyệt/candidate/G4. Review trước vàreportOPEN/FAIL giữ nguyên.
+
+##23/10/2026 — nguồn review10B và trạng thái merge riêng
+
+Điều phối báo “Điều phối đã nghiệm thu kỹ thuật Bước10B của P2 tại HEAD PR24: 9ef301373ecbaa7e794215bd09465a87ac0fd363.” Ghi đúng nguồn qua điều phối, không tạo lời duyệt mới. API PR24 vẫn OPEN/merged=false nên chưa được thực thi12A. PR21 API xác nhận MERGED tại eeb351c44e6cc3223cbd56b722506f91a24f8b5a. Kế hoạch mới WAITING_REVIEW; thực thi12A NOT_STARTED, chưa có review tích hợp.
+
 ## Công bố thực tế — PR21 OPEN, chờ review
 
 [PR #21](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/21) đã mở và xác minh remote. Điều phối đã chấp nhận chức năng phần chuẩn bị; PR chưa merge, không có lời duyệt 12A/G4. Code công bố a32dfcb407009fd5d404035d6c82d787e0411505; bằng chứng runtime không gán lại commit này.

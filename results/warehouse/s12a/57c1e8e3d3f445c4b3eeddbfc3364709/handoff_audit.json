@@ -1,0 +1,27 @@
+{
+  "at_utc": "2026-10-23T10:36:53.646357+00:00",
+  "status": "PASS_HANDOFF_CHECKS",
+  "run_id": "57c1e8e3d3f445c4b3eeddbfc3364709",
+  "base_commit": "01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02",
+  "branch": "codex/p1-s12a-integration",
+  "code_uncommitted": true,
+  "runtime_bundle_sha256": "3114721fd957a9c98da89b0bfcf615500ae6d6833bfdae31ad58111d23424e22",
+  "index_empty": true,
+  "files_checked": 42,
+  "private_files_ignored": 20,
+  "p2_contract_schema_source_and_original_production_guard_unchanged": true,
+  "outside_plan_preserved": true,
+  "runtime_code_bytes_unchanged_across_cycles": true,
+  "known_secret_uri_scan": "PASS",
+  "ast_json_whitespace": "PASS",
+  "unit_tests": 88,
+  "unit_test_results": [
+    "34 passed in6.83s",
+    "54 passed in1.37s"
+  ],
+  "new_venv_pip_check_and_imports": "PASS",
+  "candidate_selected": false,
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "g4_complete": false,
+  "commit_push_pr_performed": false
+}

@@ -1,0 +1,126 @@
+{
+  "at_utc": "2026-10-23T10:32:20.835754+00:00",
+  "status": "PASS_READ_ONLY",
+  "run_id": "57c1e8e3d3f445c4b3eeddbfc3364709",
+  "target": "movielens_btl_int_20261023_57c1e8e3",
+  "canonical_and_model": {
+    "canonical_hashes": {
+      "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+    },
+    "row_counts": {
+      "users": 6040,
+      "movies": 3883,
+      "movie_genres": 6408,
+      "ratings": 1000209
+    },
+    "analytics_counts": {
+      "model_registry": 1,
+      "user_cluster": 6040,
+      "cluster_genre_profile": 72
+    },
+    "plan": "NO_OP_IDENTICAL_ACTIVE_VERSION"
+  },
+  "ordinary_production_guard_rejects_integration_db": true,
+  "production_source_fingerprint_matches_accepted_backup": true,
+  "bi_identity": [
+    "movielens_btl_int_20261023_57c1e8e3",
+    "movielens_bi_reader",
+    "on"
+  ],
+  "superset8092_actual_engine": {
+    "database": "movielens_btl_int_20261023_57c1e8e3",
+    "role": "movielens_bi_reader",
+    "timezone": "UTC"
+  },
+  "bi_selectable": [
+    "analytics.v_active_cluster_genre_profile",
+    "analytics.v_active_user_cluster",
+    "analytics.v_olap_genre_quarter",
+    "analytics.v_olap_time_rollup",
+    "dw.v_ml_movie_genres",
+    "dw.v_ml_movies",
+    "dw.v_ml_ratings",
+    "dw.v_ml_users"
+  ],
+  "bi_writeable": [],
+  "cli_sql_audit": [
+    {
+      "cycle": 1,
+      "mode": "evaluation",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "cf"
+      ],
+      "official_test_metrics_measured": false
+    },
+    {
+      "cycle": 1,
+      "mode": "evaluation",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "popularity_fallback"
+      ],
+      "official_test_metrics_measured": false
+    },
+    {
+      "cycle": 1,
+      "mode": "demo",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "cf"
+      ],
+      "official_test_metrics_measured": false
+    },
+    {
+      "cycle": 2,
+      "mode": "evaluation",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "cf"
+      ],
+      "official_test_metrics_measured": false
+    },
+    {
+      "cycle": 2,
+      "mode": "evaluation",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "popularity_fallback"
+      ],
+      "official_test_metrics_measured": false
+    },
+    {
+      "cycle": 2,
+      "mode": "demo",
+      "private_output_matches_runtime_hash": true,
+      "history_seed_cutoff_verified_by_dw_sql": true,
+      "recommendations_unique_unseen": true,
+      "recommendation_count": 5,
+      "score_types": [
+        "cf"
+      ],
+      "official_test_metrics_measured": false
+    }
+  ],
+  "runtime_code_bytes_unchanged": true,
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "candidate_selected": false
+}

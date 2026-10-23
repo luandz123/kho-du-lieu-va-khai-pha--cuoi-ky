@@ -12,7 +12,8 @@ from decimal import Decimal
 from pathlib import Path
 
 from etl.run_etl import atomic_json
-from etl.s05_staging import ROOT, SafeError, assert_project, catalog, config, connect, sha256
+from etl.s05_staging import ROOT, SafeError, catalog, config, connect, sha256
+from etl.integration_target import assert_warehouse as assert_project
 
 VIEWS = ["analytics.v_olap_" + s for s in ["kpi", "movie_metrics", "genre_age_gender", "time_rollup", "genre_quarter", "movie_day_segment"]]
 CODE = ["olap/run_olap.py", "olap/queries.sql", "database/views.sql", "etl/s05_staging.py"]

@@ -1,5 +1,17 @@
 # Quyết định P1
 
+## D119 — công bố12A và candidate sau merge
+
+Theo lệnh điều phối: công bố gói12A đã nghiệm thu kỹ thuật run57c1e8e3d3f445c4b3eeddbfc3364709, không chạy lại pipeline để cập nhật hồ sơ. Ghi commit công bố riêng với base/code hash khi chạy. Candidate cuối sẽ là merge commit của PR12A đã review/merge; không tự chọn HEAD nhánh. P2 intakeG2NOT_CONFIRMED/G4chưa hoàn thành, giữ giới hạn Linux/DW-onlyapply chưa kiểm riêng. Không tự merge hoặc thay tài nguyên.
+
+## D116–D118 —12A chờreview,23/10/2026
+
+D116: PR24 đãmerge đúngHEADnghiệmthu, được thực thi12A theo lệnh gốc; base không làcandidate. Táchcontext IntegrationConnection tên/marker/owner/run, dispatch quahelperP1; guardproductiongốc bytekhôngđổi. D117: Venvmới vàrequirements tổng cài thật; G3dùnggóifrozen cũ, khôngđổiprovenance/reproduce; CLIevaluationkhông gọi evaluator chínhthức. D118: Hai chu trình kiểmidentity/invalidate/reload/NOOP và8092DBthử; source/8089/8091/backupgiữ. P2intakechưaxácnhận, candidatecuối/G4chưachốt.
+
+## D115 — gate bắt đầu12A,23/10/2026
+
+Chỉ thực thi12A khi GitHub xác nhận PR24 MERGED; nghiệm thu kỹ thuật10B tại HEAD9ef3013 không thay điều kiện merge. API còn OPEN nên chỉ lập kế hoạch, giữ checkout/tài nguyên; không lấy merge_commit_sha của PR OPEN làm merge thật. Guard tích hợp riêng sẽ được thiết kế sau gate, không nới guard production. P2 intake/candidate/G4 giữ trạng thái chưa chốt.
+
 ## D114 — Công bố phần chuẩn bị, không chốt12A/G4
 
 Điều phối chấp nhận phạm vi chuẩn bị và giao công bố trên codex/p1-s12a-prep. Stage chọn lọc đúng P1, bảo toàn P2/kế hoạch/FAIL; không chạy lại dump/restore. Main có PR20 CF10A và baseline fix: tích hợp theo nội dung, không tự coi CF/CLI cuối đã được nghiệm thu. Không hợp nhất requirements, chọn/gửi candidate hoặc merge PR.

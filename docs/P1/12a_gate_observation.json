@@ -1,0 +1,32 @@
+{
+  "observed_at_utc": "2026-10-23T10:04:43.769090+00:00",
+  "client_date": "2026-10-23",
+  "source": "GitHub REST API, not inferred from coordinator message",
+  "prs": [
+    {
+      "number": 21,
+      "state": "closed",
+      "merged": true,
+      "merge_commit": "eeb351c44e6cc3223cbd56b722506f91a24f8b5a",
+      "head": "ae9677094fe3b630cf34c82a0fdd647d53c78828",
+      "base": "9efa05379fc8323f1b656632e140ac5a3a4354ea",
+      "merged_at": "2026-10-21T15:52:07Z"
+    },
+    {
+      "number": 24,
+      "state": "open",
+      "merged": false,
+      "merge_commit": "809c89581b0ba0642d8e4c43cb87720ea16b5a31",
+      "head": "9ef301373ecbaa7e794215bd09465a87ac0fd363",
+      "base": "5e4efad13c69b488ce9301c6773a47f5fc3beca9",
+      "merged_at": null
+    }
+  ],
+  "gate": "PR24_OPEN_EXECUTION_NOT_AUTHORIZED_YET",
+  "execution_started": false,
+  "checkout_head": "ae9677094fe3b630cf34c82a0fdd647d53c78828",
+  "checkout_branch": "codex/p1-s12a-prep",
+  "technical_review_head_reported_by_coordinator": "9ef301373ecbaa7e794215bd09465a87ac0fd363",
+  "candidate": null,
+  "p2_intake_g2": "NOT_CONFIRMED"
+}
