@@ -340,7 +340,7 @@ def test_real_data_cf_code_provenance_and_newline_integrity():
     cf_path = REPO_ROOT / "mining" / "cf.py"
     compute_code_hashes = cf_mod.compute_code_hashes
 
-    # 1. Exact match with active codebase
+    # 1. Exact match with active codebase (canonical LF SHA-256 & Git blob SHA-1)
     live_hashes = compute_code_hashes(cf_path)
     assert prov["cf_code_sha256"] == live_hashes["cf_code_sha256"], (
         f"Code SHA-256 drift: artifact {prov['cf_code_sha256']} != live {live_hashes['cf_code_sha256']}"
@@ -348,7 +348,12 @@ def test_real_data_cf_code_provenance_and_newline_integrity():
     assert prov["cf_code_git_blob_sha1"] == live_hashes["cf_code_git_blob_sha1"], (
         f"Git blob SHA-1 drift: artifact {prov['cf_code_git_blob_sha1']} != live {live_hashes['cf_code_git_blob_sha1']}"
     )
-    assert prov["code_provenance"]["runtime_bytes_sha256"] == live_hashes["runtime_bytes_sha256"]
+    # Raw runtime hash records the original execution environment;
+    # verify it is valid historical provenance, without forcing checkouts with different newlines to match.
+    assert isinstance(prov["code_provenance"]["runtime_bytes_sha256"], str)
+    assert len(prov["code_provenance"]["runtime_bytes_sha256"]) == 64
+    if live_hashes["runtime_newline_format"] == prov["code_provenance"]["runtime_newline_format"]:
+        assert prov["code_provenance"]["runtime_bytes_sha256"] == live_hashes["runtime_bytes_sha256"]
 
     # 2. Cross-platform CRLF normalization test
     orig_bytes = cf_path.read_bytes()

@@ -6,8 +6,8 @@
 - **Hệ điều hành**: Linux Ubuntu 24.04.1 LTS (Kernel `6.14.0-37-generic`, x86_64)
 - **Phần cứng**: 13th Gen Intel Core i7-13620H (16 vCPUs), 15GB RAM (~7.1GB free), Đĩa trống ~34GB
 - **Môi trường Python**: Python 3.12.3 tại `.venv/bin/python`
-- **Nhánh Git hiện tại**: `codex/p2-s10-provenance-fix`
-- **Thời điểm cập nhật**: 2026-10-22 12:05:00 +07:00
+- **Nhánh Git hiện tại**: `codex/p2-s10-finalization`
+- **Thời điểm cập nhật**: 2026-10-22 13:10:00 +07:00
 
 ---
 
@@ -24,7 +24,7 @@
 | **Bước 8B** | Q1: K-Means, Diễn giải & Gói cụm G3 | `MERGED` | PR [#12](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/12) đã được điều phối review và merge vào `main` (commit `be8c889`). 16/16 test clustering đạt. Đã chỉnh docstring cam kết xuất bản theo nguyên tử từng file. |
 | **Bước 9A** | Q2: Phép chia thời gian & Giao thức đánh giá | `MERGED` | PR [#16](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/16) đã merge vào `main` tại commit `afeeec0`. 52/52 tests passed. Rà soát độc lập khớp toàn bộ count, mốc UTC và cohort 471. |
 | **Bước 9B** | Q2: Popularity Baseline trên Validation | `MERGED` | PR [#17](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/17) và PR bổ sung [#19](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/19) đã merge vào `main` tại commit `6a0adbf`. |
-| **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `10A PROVENANCE_FIX_WAITING_REVIEW` | PR [#20](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/20) đã merge tại commit `9efa053`. Mở PR bổ sung từ nhánh `codex/p2-s10-provenance-fix` từ `main` mới nhất để hoàn thiện truy vết provenance (LF/CRLF cross-platform normalization, Git blob SHA-1 `4545fec9...`, canonical SHA-256 `323541c1...`, cô lập pipeline runtime 7.68s vs CLI wall time 14.60s, 9/9 CF tests passed, 68/68 full mining suite passed). Giữ nguyên metric và lựa chọn $k^*=40$. Dừng chờ review trước khi chuyển sang 10B. |
+| **Bước 10** | Q2: Item-based CF & Đánh giá Test đúng 1 lần & CLI | `10B WAITING_REVIEW` | PR [#23](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/23) đã mở trên nhánh `codex/p2-s10-finalization`. Tích hợp commit cherry-pick `4f087e6` (sửa provenance test `9f4a876`) cùng toàn bộ gói 10B. Kết quả đánh giá test duy nhất (`test_run_s10b_official_20261022_034458`: CF k*=40 đạt Precision@5=0.231023, Recall@5=0.03530289, Hits=1333 so với Baseline 0.201733, 0.02712408, Hits=1164) đã công bố đầy đủ trong `cf_test_evaluation.json`, `cf_test_evaluation_receipt.json`, `metrics.csv`. Đã khóa cứng evaluator (bỏ `--force`, chặn trước `load_data`/evaluator), truy vết khớp 100% hash snapshot gốc `eval_original.py`, lập tệp truy vết độc lập `results/mining/evaluator_provenance_trace.json`, ràng buộc CLI với manifest (chặn sai hash bảng, sai cutoff timestamp/count, sai identity) và đạt 27/27 CF tests PASS. Dừng chờ điều phối review. |
 
 
 ---
