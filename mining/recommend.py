@@ -94,37 +94,124 @@ def recommend_movies(
 
     # Partition data and bind configuration based on mode
     if mode == "evaluation":
+        if not skip_manifest_verification and top_n != 5:
+            raise ValueError(
+                f"In evaluation mode, recommendation_top_n is strictly frozen to 5 by official protocol, got {top_n}"
+            )
+
         if not skip_manifest_verification:
             manifest_file = receipt_path or DEFAULT_TEST_RECEIPT
             manifest = load_evaluation_manifest(manifest_file)
-            tm = manifest.get("training_manifest", {})
-            fc = manifest.get("frozen_configuration", {})
-            hashes = manifest.get("hashes", {})
+            if not isinstance(manifest, dict):
+                raise ValueError("Official evaluation receipt manifest must be a dictionary object.")
 
-            model_version = tm.get("model_version", "item_based_cf_k40_eval_v1")
-            cutoff_timestamp = tm.get("training_cutoff_timestamp", EVALUATION_CUTOFF_TIMESTAMP)
-            neighbor_k = fc.get("neighbor_k", 40)
-            expected_table_hashes = hashes.get("canonical_table_hashes", {})
-            expected_ratings_count = tm.get("training_ratings_count", 850177)
+            # 1. Status check: must be OFFICIAL_COMPLETED
+            status = manifest.get("status")
+            if status != "OFFICIAL_COMPLETED":
+                raise ValueError(
+                    f"Evaluation receipt manifest status must be 'OFFICIAL_COMPLETED', got '{status}'"
+                )
 
-            # Verification of model identity
+            # 2. Required sections check
+            for section in ("training_manifest", "frozen_configuration", "hashes"):
+                if section not in manifest or not isinstance(manifest[section], dict):
+                    raise ValueError(f"Evaluation receipt manifest missing required section: '{section}'")
+
+            tm = manifest["training_manifest"]
+            fc = manifest["frozen_configuration"]
+            hashes = manifest["hashes"]
+
+            # 3. Training manifest checks (no default fallbacks)
+            for req_tm in ("model_version", "training_cutoff_timestamp", "training_ratings_count"):
+                if req_tm not in tm or tm[req_tm] is None:
+                    raise ValueError(f"Evaluation receipt manifest missing required field '{req_tm}' in training_manifest")
+
+            model_version = tm["model_version"]
+            if model_version != "item_based_cf_k40_eval_v1":
+                raise ValueError(
+                    f"Evaluation manifest model_version mismatch: expected 'item_based_cf_k40_eval_v1', got '{model_version}'"
+                )
+
+            cutoff_timestamp = tm["training_cutoff_timestamp"]
+            if cutoff_timestamp != EVALUATION_CUTOFF_TIMESTAMP:
+                raise ValueError(
+                    f"Evaluation manifest cutoff timestamp mismatch: expected {EVALUATION_CUTOFF_TIMESTAMP}, got {cutoff_timestamp}"
+                )
+
+            expected_ratings_count = tm["training_ratings_count"]
+            if expected_ratings_count != 850177:
+                raise ValueError(
+                    f"Evaluation manifest training ratings count mismatch: expected 850177, got {expected_ratings_count}"
+                )
+
+            if tm.get("matrix_dtype") != "float32":
+                raise ValueError(
+                    f"Evaluation manifest matrix_dtype mismatch: expected 'float32', got '{tm.get('matrix_dtype')}'"
+                )
+            if tm.get("batch_size") != 500:
+                raise ValueError(
+                    f"Evaluation manifest batch_size mismatch: expected 500, got {tm.get('batch_size')}"
+                )
+            if tm.get("seed_rating_threshold") != 4:
+                raise ValueError(
+                    f"Evaluation manifest seed_rating_threshold mismatch: expected 4, got {tm.get('seed_rating_threshold')}"
+                )
+
+            # 4. Frozen configuration checks (no default fallbacks)
+            for req_fc in ("neighbor_k", "recommendation_top_n", "matrix_dtype", "seed_rating_threshold"):
+                if req_fc not in fc or fc[req_fc] is None:
+                    raise ValueError(f"Evaluation receipt manifest missing required field '{req_fc}' in frozen_configuration")
+
+            neighbor_k = fc["neighbor_k"]
+            if neighbor_k != 40:
+                raise ValueError(
+                    f"Evaluation manifest frozen neighbor_k mismatch: expected 40, got {neighbor_k}"
+                )
+
+            frozen_top_n = fc["recommendation_top_n"]
+            if frozen_top_n != 5:
+                raise ValueError(
+                    f"Evaluation manifest frozen recommendation_top_n mismatch: expected 5, got {frozen_top_n}"
+                )
+
+            if fc["matrix_dtype"] != "float32":
+                raise ValueError(
+                    f"Evaluation manifest frozen matrix_dtype mismatch: expected 'float32', got '{fc['matrix_dtype']}'"
+                )
+
+            if fc["seed_rating_threshold"] != 4:
+                raise ValueError(
+                    f"Evaluation manifest frozen seed_rating_threshold mismatch: expected 4, got {fc['seed_rating_threshold']}"
+                )
+
+            # 5. Hashes and canonical table hashes (no defaults)
+            if "canonical_table_hashes" not in hashes or not isinstance(hashes["canonical_table_hashes"], dict):
+                raise ValueError("Evaluation receipt manifest missing 'canonical_table_hashes' in hashes")
+
+            expected_table_hashes = hashes["canonical_table_hashes"]
+            required_canonical_tables = ("users", "movies", "movie_genres", "ratings")
+            for tbl_name in required_canonical_tables:
+                if tbl_name not in expected_table_hashes or not expected_table_hashes[tbl_name]:
+                    raise ValueError(f"Evaluation receipt manifest missing canonical hash for table '{tbl_name}'")
+
+            # 6. Verification of optional expected arguments (if provided by caller)
             if expected_model_version is not None and model_version != expected_model_version:
                 raise ValueError(
                     f"Model identity mismatch: expected '{expected_model_version}', "
                     f"manifest defines '{model_version}'."
                 )
 
-            # Verification of cutoff timestamp
             if expected_cutoff_timestamp is not None and cutoff_timestamp != expected_cutoff_timestamp:
                 raise ValueError(
                     f"Training cutoff timestamp mismatch: expected {expected_cutoff_timestamp}, "
                     f"manifest defines {cutoff_timestamp}."
                 )
 
-            # Verification of input data against manifest before fitting
+            # 7. Verification of input data against manifest before fitting
             canonical_hashes, _, _ = verify_and_hash_input_tables(tables)
-            for tbl_name, expected_hash in expected_table_hashes.items():
+            for tbl_name in required_canonical_tables:
                 actual_hash = canonical_hashes.get(tbl_name)
+                expected_hash = expected_table_hashes[tbl_name]
                 if actual_hash != expected_hash:
                     raise ValueError(
                         f"Input data verification failed for table '{tbl_name}': "

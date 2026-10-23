@@ -263,8 +263,11 @@ def test_evaluator_cli_strictly_rejects_removed_force_flag():
 def test_evaluator_provenance_trace_artifact_integrity():
     """
     Verifies that the dedicated evaluator provenance trace record exists,
-    contains valid schema, and verifies authentic runtime hash e3fa2eff...
+    contains valid schema, points to authentic repository snapshot docs/P2/provenance/eval_original.py,
+    and byte-verifies its size (32,508 bytes), LF newline format, SHA-256, and git blob SHA-1.
     """
+    import hashlib
+
     trace_path = REPO_ROOT / "results" / "mining" / "evaluator_provenance_trace.json"
     assert trace_path.exists(), f"Missing provenance trace at: {trace_path}"
     with open(trace_path, "r", encoding="utf-8") as f:
@@ -273,6 +276,21 @@ def test_evaluator_provenance_trace_artifact_integrity():
     assert data["runtime_snapshot_verification"]["canonical_lf_sha256"] == "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d"
     assert data["runtime_snapshot_verification"]["git_blob_sha1"] == "d7c97bae8b6de3449c0306a2f841325f5434f248"
     assert data["change_classification"]["algorithm_changes"]["percentage"] == 0.0
+
+    snapshot_rel_path = data["runtime_snapshot_verification"]["snapshot_file"]
+    assert snapshot_rel_path == "docs/P2/provenance/eval_original.py"
+    snapshot_path = REPO_ROOT / snapshot_rel_path
+    assert snapshot_path.exists(), f"Physical snapshot file missing at: {snapshot_path}"
+
+    with open(snapshot_path, "rb") as f_snap:
+        snap_bytes = f_snap.read()
+
+    assert len(snap_bytes) == 32508
+    assert b"\r\n" not in snap_bytes, "Snapshot must use LF newlines"
+    assert hashlib.sha256(snap_bytes).hexdigest() == "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d"
+    header = f"blob {len(snap_bytes)}\0".encode("ascii")
+    blob_sha1 = hashlib.sha1(header + snap_bytes).hexdigest()
+    assert blob_sha1 == "d7c97bae8b6de3449c0306a2f841325f5434f248"
 
 
 
