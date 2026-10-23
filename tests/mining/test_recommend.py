@@ -148,27 +148,198 @@ def test_recommend_rejects_invalid_arguments(synthetic_mock_tables):
         recommend_movies(user_id=1, mode="invalid_mode", tables=synthetic_mock_tables, skip_manifest_verification=True)
 
 
-def test_recommend_evaluation_mode_rejects_corrupted_input_hash(tmp_path, synthetic_mock_tables, monkeypatch):
-    """Verifies that evaluation mode strictly rejects execution when input data hash mismatches manifest."""
-    dummy_receipt = tmp_path / "dummy_receipt.json"
-    manifest_data = {
+def _make_valid_test_receipt(tmp_path, custom_updates=None):
+    """Creates a fully valid dummy receipt manifest matching required schema."""
+    receipt_data = {
+        "run_id": "test_mock_run",
+        "status": "OFFICIAL_COMPLETED",
         "training_manifest": {
             "model_version": "item_based_cf_k40_eval_v1",
             "training_cutoff_timestamp": 976422051,
-            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
+            "training_ratings_count": 850177,
+            "matrix_dtype": "float32",
+            "batch_size": 500,
+            "seed_rating_threshold": 4,
         },
-        "frozen_configuration": {"neighbor_k": 40},
+        "frozen_configuration": {
+            "neighbor_k": 40,
+            "recommendation_top_n": 5,
+            "matrix_dtype": "float32",
+            "seed_rating_threshold": 4,
+        },
         "hashes": {
             "canonical_table_hashes": {
-                "ratings": "expected_valid_ratings_sha256_hash",
+                "users": "hash_users",
+                "movies": "hash_movies",
+                "movie_genres": "hash_genres",
+                "ratings": "hash_ratings",
             }
         },
     }
-    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
+    if custom_updates:
+        for k, v in custom_updates.items():
+            if isinstance(v, dict) and k in receipt_data and isinstance(receipt_data[k], dict):
+                receipt_data[k].update(v)
+            else:
+                receipt_data[k] = v
+    p = tmp_path / "valid_test_receipt.json"
+    p.write_text(json.dumps(receipt_data), encoding="utf-8")
+    return p
+
+
+def test_recommend_evaluation_mode_rejects_missing_section(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path rejects receipt missing required sections without calling fit."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when receipt has missing section!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    # Missing training_manifest
+    receipt_path = tmp_path / "missing_tm.json"
+    receipt_path.write_text(json.dumps({"status": "OFFICIAL_COMPLETED", "frozen_configuration": {}, "hashes": {}}), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="missing required section: 'training_manifest'"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=receipt_path)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_invalid_status(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path rejects receipt with non-completed status without calling fit."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when status is invalid!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    bad_receipt = _make_valid_test_receipt(tmp_path, {"status": "INCOMPLETE_DRAFT"})
+    with pytest.raises(ValueError, match="status must be 'OFFICIAL_COMPLETED'"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=bad_receipt)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_invalid_model_version_default_path(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path rejects wrong model_version without caller passing expected_*."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when model_version is invalid!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    bad_receipt = _make_valid_test_receipt(tmp_path, {
+        "training_manifest": {"model_version": "item_based_cf_k80_unapproved"}
+    })
+    with pytest.raises(ValueError, match="model_version mismatch"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=bad_receipt)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_invalid_cutoff_default_path(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path rejects wrong cutoff timestamp without caller passing expected_*."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when cutoff timestamp is invalid!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    bad_receipt = _make_valid_test_receipt(tmp_path, {
+        "training_manifest": {"training_cutoff_timestamp": 999999999}
+    })
+    with pytest.raises(ValueError, match="cutoff timestamp mismatch"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=bad_receipt)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_k80(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path strictly rejects neighbor_k=80 in frozen configuration."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when neighbor_k is 80!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    bad_receipt = _make_valid_test_receipt(tmp_path, {
+        "frozen_configuration": {"neighbor_k": 80}
+    })
+    with pytest.raises(ValueError, match="frozen neighbor_k mismatch"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=bad_receipt)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_missing_canonical_table_hash(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies default evaluation path rejects manifest with missing table hash without defaults masking it."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when table hash is missing!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    bad_receipt = _make_valid_test_receipt(tmp_path)
+    with open(bad_receipt, "r", encoding="utf-8") as f:
+        r_data = json.load(f)
+    del r_data["hashes"]["canonical_table_hashes"]["ratings"]
+    bad_receipt.write_text(json.dumps(r_data), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="missing canonical hash for table 'ratings'"):
+        recommend_movies(user_id=1, mode="evaluation", tables=synthetic_mock_tables, receipt_path=bad_receipt)
+    assert not fit_called
+
+
+def test_recommend_evaluation_mode_rejects_corrupted_input_hash(tmp_path, synthetic_mock_tables, monkeypatch):
+    """Verifies that evaluation mode strictly rejects execution when input data hash mismatches manifest without calling fit."""
+    fit_called = False
+
+    def mock_fit(*args, **kwargs):
+        nonlocal fit_called
+        fit_called = True
+        raise AssertionError("Model fit must NOT be called when input hash is corrupted!")
+
+    monkeypatch.setattr(rec_mod, "build_sparse_ratings_matrix", mock_fit)
+    monkeypatch.setattr(rec_mod, "fit_popularity_model", mock_fit)
+
+    dummy_receipt = _make_valid_test_receipt(tmp_path, {
+        "hashes": {
+            "canonical_table_hashes": {
+                "users": "hash_users",
+                "movies": "hash_movies",
+                "movie_genres": "hash_genres",
+                "ratings": "expected_valid_ratings_sha256_hash",
+            }
+        }
+    })
 
     # Mock verify_and_hash_input_tables returning mismatched hash
     def mock_verify(tables, manifest_path=None):
-        return {"ratings": "corrupted_tampered_ratings_sha256_hash"}, {}, "commit_123"
+        return {
+            "users": "hash_users",
+            "movies": "hash_movies",
+            "movie_genres": "hash_genres",
+            "ratings": "corrupted_tampered_ratings_sha256_hash",
+        }, {}, "commit_123"
 
     monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
 
@@ -180,74 +351,23 @@ def test_recommend_evaluation_mode_rejects_corrupted_input_hash(tmp_path, synthe
             receipt_path=dummy_receipt,
             skip_manifest_verification=False,
         )
+    assert not fit_called
 
 
-def test_recommend_evaluation_mode_rejects_cutoff_ratings_count_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
-    """Verifies that evaluation mode strictly rejects execution when active ratings count mismatches manifest."""
-    dummy_receipt = tmp_path / "dummy_receipt.json"
-    manifest_data = {
-        "training_manifest": {
-            "model_version": "item_based_cf_k40_eval_v1",
-            "training_cutoff_timestamp": 976422051,
-            "training_ratings_count": 999999,  # Mismatched expected count
-        },
-        "frozen_configuration": {"neighbor_k": 40},
-        "hashes": {
-            "canonical_table_hashes": {
-                "ratings": "matching_hash",
-            }
-        },
-    }
-    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
-
-    def mock_verify(tables, manifest_path=None):
-        return {"ratings": "matching_hash"}, {}, "commit_123"
-
-    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
-
-    with pytest.raises(ValueError, match="Training ratings count mismatch under cutoff"):
-        recommend_movies(
-            user_id=1,
-            mode="evaluation",
-            tables=synthetic_mock_tables,
-            receipt_path=dummy_receipt,
-            skip_manifest_verification=False,
-        )
+def test_recommend_evaluation_mode_rejects_non_top_5_cli_flag(synthetic_mock_tables):
+    """Verifies that evaluation mode strictly forbids altering frozen top_n=5."""
+    with pytest.raises(ValueError, match="recommendation_top_n is strictly frozen to 5"):
+        recommend_movies(user_id=1, top_n=10, mode="evaluation", tables=synthetic_mock_tables, skip_manifest_verification=False)
 
 
-def test_recommend_evaluation_mode_binds_model_identity_from_manifest(tmp_path, synthetic_mock_tables, monkeypatch):
-    """Verifies that CLI evaluation mode takes model identity and cutoff strictly from receipt manifest."""
-    dummy_receipt = tmp_path / "dummy_receipt.json"
-    manifest_data = {
-        "training_manifest": {
-            "model_version": "item_based_cf_k40_eval_v1",
-            "training_cutoff_timestamp": 976422051,
-            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
-        },
-        "frozen_configuration": {"neighbor_k": 40},
-        "hashes": {
-            "canonical_table_hashes": {
-                "ratings": "matching_hash",
-            }
-        },
-    }
-    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
-
-    def mock_verify(tables, manifest_path=None):
-        return {"ratings": "matching_hash"}, {}, "commit_123"
-
-    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
-
-    res = recommend_movies(
-        user_id=1,
-        mode="evaluation",
-        tables=synthetic_mock_tables,
-        receipt_path=dummy_receipt,
-        skip_manifest_verification=False,
-    )
+def test_recommend_evaluation_mode_default_valid_receipt():
+    """Verifies that default evaluation path succeeds on official receipt and data without caller passing expected_*."""
+    res = recommend_movies(user_id=1, mode="evaluation")
+    assert res["user_id"] == 1
+    assert len(res["recommendations"]) == 5
     assert res["model_version"] == "item_based_cf_k40_eval_v1"
-    assert res["model_construction"]["reconstruction_mode"] == "runtime_in_memory_fit"
     assert res["manifest_metadata"]["integrity_verification"] == "PASSED_CANONICAL_HASHES_MATCH"
+    assert res["model_construction"]["reconstruction_mode"] == "runtime_in_memory_fit"
 
 
 def test_recommend_demo_mode_has_distinct_manifest_and_offline_disclaimer(synthetic_mock_tables):
@@ -258,74 +378,6 @@ def test_recommend_demo_mode_has_distinct_manifest_and_offline_disclaimer(synthe
     assert res["model_version"] == "item_based_cf_k40_DEMO_full_history_v1"
     assert "offline_metrics_disclaimer" in res["manifest_metadata"]
     assert "NEVER be used to evaluate or publish offline metrics" in res["manifest_metadata"]["offline_metrics_disclaimer"]
-
-
-def test_recommend_evaluation_mode_rejects_model_identity_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
-    """Verifies that evaluation mode strictly rejects execution when model identity mismatches expected version."""
-    dummy_receipt = tmp_path / "dummy_receipt.json"
-    manifest_data = {
-        "training_manifest": {
-            "model_version": "item_based_cf_k40_eval_v1",
-            "training_cutoff_timestamp": 976422051,
-            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
-        },
-        "frozen_configuration": {"neighbor_k": 40},
-        "hashes": {
-            "canonical_table_hashes": {
-                "ratings": "matching_hash",
-            }
-        },
-    }
-    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
-
-    def mock_verify(tables, manifest_path=None):
-        return {"ratings": "matching_hash"}, {}, "commit_123"
-
-    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
-
-    with pytest.raises(ValueError, match="Model identity mismatch"):
-        recommend_movies(
-            user_id=1,
-            mode="evaluation",
-            tables=synthetic_mock_tables,
-            receipt_path=dummy_receipt,
-            skip_manifest_verification=False,
-            expected_model_version="item_based_cf_k80_mismatched_v2",
-        )
-
-
-def test_recommend_evaluation_mode_rejects_cutoff_timestamp_mismatch(tmp_path, synthetic_mock_tables, monkeypatch):
-    """Verifies that evaluation mode strictly rejects execution when cutoff timestamp mismatches expected cutoff."""
-    dummy_receipt = tmp_path / "dummy_receipt.json"
-    manifest_data = {
-        "training_manifest": {
-            "model_version": "item_based_cf_k40_eval_v1",
-            "training_cutoff_timestamp": 976422051,
-            "training_ratings_count": len(synthetic_mock_tables["ratings"]),
-        },
-        "frozen_configuration": {"neighbor_k": 40},
-        "hashes": {
-            "canonical_table_hashes": {
-                "ratings": "matching_hash",
-            }
-        },
-    }
-    dummy_receipt.write_text(json.dumps(manifest_data), encoding="utf-8")
-
-    def mock_verify(tables, manifest_path=None):
-        return {"ratings": "matching_hash"}, {}, "commit_123"
-
-    monkeypatch.setattr(rec_mod, "verify_and_hash_input_tables", mock_verify)
-
-    with pytest.raises(ValueError, match="Training cutoff timestamp mismatch"):
-        recommend_movies(
-            user_id=1,
-            mode="evaluation",
-            tables=synthetic_mock_tables,
-            receipt_path=dummy_receipt,
-            skip_manifest_verification=False,
-            expected_cutoff_timestamp=999999999,
-        )
 
 
 def test_recommend_cli_smoke(tmp_path):
