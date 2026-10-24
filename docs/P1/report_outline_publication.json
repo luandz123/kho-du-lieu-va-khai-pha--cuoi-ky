@@ -1,0 +1,30 @@
+{
+  "at_utc": "2026-10-24T01:14:41.465467+00:00",
+  "scope": "13A outline publication only",
+  "base_sha": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "code_docs_commit_before_audit": "36d8d7db414ebaab263f9bea3b0c5c7ac87be602",
+  "paths_checked": 64,
+  "file_sha256": {
+    "docs/report_outline.md": "0eb9b136b33ab600d3acfce51cd6594cc9b6109bf3e8f3677ea97f85ddf6679e",
+    "docs/P1/report_evidence_index.md": "2f67e214aa57c8a359801488128eb1db8990fed821fe5c8fb7fc00cb11dac4c1",
+    "docs/P1/report_outline_audit.json": "bfe38ff5b0e6ba67dee0a6f5f6573c07ae317fe047e16e28564b1dc06813b342",
+    "docs/P1/pr25_merged_observation.json": "e8dae2ce961618b19c157f964aa915cd6f3626cb083041b05cb7ab64634c8411",
+    "docs/P1/p2_intake_reported_20261024.json": "143d74b640c5745867821983e70deb8c82599f9991d3903578b3e569bb05aba3",
+    "docs/P1/integration_candidate.md": "1af19ab66a883a75d3464555fd35a226c6d0220b0f1c6841199794fe28a69b68",
+    "docs/agent/STATE_P1.md": "9fb80f54d4fd4f0842da44eef03d0063fafbf6b54a0451c3c89ede87cff6d2b2",
+    "docs/agent/DECISIONS_P1.md": "779395fb0477294d5c6477d347db7effca892e3a00b7a2ac17a83be21a2fbf9b",
+    "docs/agent/REVIEWS_P1.md": "d3aef4ec448693cc61fed422a8b5bdaa086af66c6f37f6b2d157f58a1fe6791f",
+    "docs/agent/PROMPTS_P1.md": "e27599ccd13f851356fc023972f1efd3269034f88c996a3cb0ef118e283eca1c",
+    "docs/agent/steps/P1/S12A.md": "240f63bbf3c303e45a00ca032c9204be77cca6045c459e8b5cfde63f3508feb8",
+    "docs/agent/steps/P1/S13A.md": "a9cc443a47e2a668320d094ded3ce5b873121698dd21904921f5eb8e256fe1e0"
+  },
+  "scope_pass": true,
+  "no_p2_files_or_drafts": true,
+  "historical_report_outline_audit_preserved": true,
+  "old_audit_hashes_are_historical_not_current": true,
+  "p2_reported_g2": "CONFIRMED",
+  "p2_evidence_coordinator_review": "PENDING",
+  "linux_verified": false,
+  "g4_complete": false,
+  "runtime_rerun": false
+}
