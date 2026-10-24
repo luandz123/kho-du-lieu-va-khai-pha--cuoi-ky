@@ -1,5 +1,13 @@
 # Trạng thái P1
 
+## Hiện hành24/10/2026 — hai hình/checklist đã bổ sung vào PR27, WAITING_REVIEW diff mới
+
+Đã push bổ sung vào [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) hiện có, không tạo PR trùng. Mốc trước review `d018921be66b12dc275933e1de9c2e755b74241a`, commit nội dung bổ sung `30463d140aa71c9d691346061a29d3b110daa3b2`; base main `dad848eedcd11230559acfc01ee103be718289a2`. API xác minh PR OPEN/merged=false và mọi file/blob khớp lúc công bố. Commit hồ sơ tiếp theo không đổi chương, ảnh hoặc SQL; HEAD cuối được kiểm riêng khi bàn giao. Không tự merge.
+
+Chương4 có Hình4.3/4.4 từ hai ảnh gốc đã duyệt, caption8089/ngày24-10/filter, Bảng4.4 giữ nguyên. Scope dẫn SQL/API/reconciliation; checklist ghép và selected_manifest chỉ hai ảnh được công bố. Ledger ảnh/nguồn/hồ sơ tại preferences_supplement_publication.json và preferences_supplement_remote.json; audit cũ là snapshot trước commit, không sửa để gán HEAD mới.
+
+Diff sau d018921… chỉ phần bổ sung được giao và hồ sơ P1. Ảnh thử/DOM/fullcapturemanifest/receipt chuẩn bị cục bộ/kế hoạch ngoài phạm vi không được stage. Không gọi Superset hoặc start/sửa dịch vụ/dashboard, không pipeline/evaluator/dump/restore. Giữ8089demo và mọi tài nguyên. G4 vẫnchờ, chưaghépP2/DOCX/slide. Dừng chờreview riêngHEADmới/diffbổsung.
+
 ## Hiện hành 24/10/2026 — bổ sung checklist và hình vào PR27
 
 Điều phối duyệt checklist ghép và hai ảnh Sở thích, giao cập nhật chương4 rồi commit/push. API xác minh PR27 còn OPEN, merged=false, tại mốc `d018921be66b12dc275933e1de9c2e755b74241a`; dùng chính PR27, không mở PR trùng hoặc tự merge. HEAD mới và diff riêng sau mốc duyệt được xác minh sau push.

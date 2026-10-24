@@ -1,0 +1,43 @@
+{
+  "at_utc": "2026-10-24T04:08:59.860892+00:00",
+  "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27",
+  "state": "open",
+  "merged": false,
+  "head": "30463d140aa71c9d691346061a29d3b110daa3b2",
+  "base": "dad848eedcd11230559acfc01ee103be718289a2",
+  "approved_reference_head": "d018921be66b12dc275933e1de9c2e755b74241a",
+  "supplement_files": [
+    "docs/P1/report/captures/20261024_preferences/all_kpis.jpg",
+    "docs/P1/report/captures/20261024_preferences/cluster1_F_25_34_top.jpg",
+    "docs/P1/report/captures/20261024_preferences/selected_manifest.json",
+    "docs/P1/report/chapter_04.md",
+    "docs/P1/report/editorial_notes.md",
+    "docs/P1/report/merge_checklist.md",
+    "docs/P1/report/preferences_supplement_publication.json",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S13.md"
+  ],
+  "total_PR_files": 23,
+  "all_remote_blobs_match": true,
+  "new_duplicate_PR_created": false,
+  "observation_scope": "Initial supplement at content commit before record-only commit; final HEAD verified separately",
+  "artifact_sha256_after_record_update": {
+    "docs/P1/report/captures/20261024_preferences/all_kpis.jpg": "27d062ab667b2545bcb8d40f321361d22c3051d22c325735598045eabf925ddf",
+    "docs/P1/report/captures/20261024_preferences/cluster1_F_25_34_top.jpg": "1bbb3459ea50e6a2443d87a61f1486ba799700ca33a7de7704e67db7a9cbc02d",
+    "docs/P1/report/captures/20261024_preferences/selected_manifest.json": "6c5385eb0de2a4faf19f7ed10cf44b4a96285e21afde9f1fc07a31be8ecae0e1",
+    "docs/P1/report/chapter_04.md": "9fa6258e75acd93ab3e6996590d0a68df15ec68ccec28282f19af00447a96506",
+    "docs/P1/report/editorial_notes.md": "f8a3f5f08b8a81900be47e1fd471106002bde2372592ef85e3f78e2c2d2b452c",
+    "docs/P1/report/merge_checklist.md": "f6e5337bdda03fb6ac9c863c3dd656e3f0afe3ac317cd55cc7cc1e628fadb7d8",
+    "docs/P1/report/preferences_supplement_publication.json": "44c535fe665f23ca1bcb674a792897140cac37efca6d63f3c17d2f13813ac0a7",
+    "docs/agent/DECISIONS_P1.md": "7fb20ee82ce794a28a99ef633e7427de1fae258c06b6c9901a3bdcf6386fd137",
+    "docs/agent/PROMPTS_P1.md": "63b951084b8629fa940184ca8e7b7099fcc195a422b189ec7e44a7a6662abb30",
+    "docs/agent/REVIEWS_P1.md": "635b42f9de9b1b853a9a3789215eb84dc1693b346082ce07d82158415fef96fe",
+    "docs/agent/STATE_P1.md": "8f868a3999cace16f84aeaf093d93bcb75cf409875a0d63d10bac00b4c3cbee4",
+    "docs/agent/steps/P1/S13.md": "cb30ccf7263aeda3d3c34f774e2dd35c9bb8e210b292364ca28842a23d697065"
+  },
+  "ledger_self_excluded": true,
+  "chapters_images_and_SQL_changed_after_content_commit": false
+}
