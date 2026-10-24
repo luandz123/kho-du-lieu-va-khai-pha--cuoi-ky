@@ -61,3 +61,26 @@ Tài liệu này lưu trữ nguyên văn mọi phản hồi, phê duyệt từ N
   - Cập nhật Bước 3A thành `APPROVED` trong `STATE_P2.md`.
   - Bổ sung quyết định `[DEC-P2-007]` vào `DECISIONS_P2.md`.
   - Triển khai Bước 3B-P2 trên nhánh `p2-s03-eda`.
+
+
+## Nghiệm thu 12B / G4 và giao 13-P2 — 24/10/2026
+
+Nguồn: thông điệp điều phối do người dùng chuyển trong phiên giao Bước 13-P2. Lời nghiệm thu nguyên văn:
+
+> Điều phối đã nghiệm thu 12B và chốt G4 ĐẠT ngày 24/10/2026
+> trong phạm vi đã kiểm. Giao thực hiện Bước 13-P2:
+> viết chương 2, 5, 6 theo docs/report_outline.md.
+
+Ghi nhận G4 ĐẠT đúng phạm vi ma trận P1/P2 đã kiểm. Trạng thái Git kiểm riêng: origin/main đã chứa PR30 merge tại `67fd9eb6b98211485b713c99e829291bc3b50f57`. Không thay candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` hoặc sửa ngược receipt/snapshot P1.
+
+Phạm vi giao 13-P2: bản thảo chương 2/5/6 và references, cập nhật hồ sơ P2, WAITING_REVIEW; chưa commit/push/PR; không pipeline/evaluator, không thay receipt, không sửa phần P1, không DOCX tổng. G5/gói nộp chưa hoàn thành. Chưa có lời duyệt bản thảo 13-P2.
+
+
+## Chấp nhận nội dung 13-P2 và giao chỉnh biên tập/công bố — 24/10/2026
+
+Nguồn: thông điệp điều phối do người dùng chuyển trong phiên tiếp nối. Trích nguyên văn:
+
+> Điều phối chấp nhận nội dung chính chương 2/5/6.
+> Giao chỉnh biên tập và công bố PR phần báo cáo P2.
+
+Lệnh hiện hành cho phép commit/push nhánh `codex/p2-s13-report` và mở PR vào main sau chỉnh biên tập; không tự merge. Tạm bỏ PCA/tỷ lệ phương sai khỏi bản chính, giữ ảnh và mâu thuẫn trong editorial_notes; chuyển nhật ký review/trạng thái/việc ghép ra hồ sơ; sửa nhãn cohort; bỏ so sánh biểu diễn chưa có hỗ trợ. Không đổi công thức, metric, receipt, artifact, nguồn dẫn hoặc phần P1, không chạy mô hình/evaluator. G4 đạt đúng phạm vi, G5 chưa hoàn thành. Nội dung chính được chấp nhận không đồng nghĩa PR đã merge hoặc G5 hoàn thành.

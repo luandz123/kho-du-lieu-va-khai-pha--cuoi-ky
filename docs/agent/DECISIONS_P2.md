@@ -151,3 +151,17 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 
 
 Hồ sơ môi trường Bước 12-P2 công bố: [environment.json](../../results/mining/integration_p2/environment.json). `<workspace-root>` là đường dẫn do người chạy chọn; chi tiết đường dẫn cá nhân giữ cục bộ ngoài Git.
+
+
+### [DEC-P2-016] Bản thảo báo cáo 13-P2 sau nghiệm thu G4
+
+- Ngày 24/10/2026, điều phối qua người dùng nghiệm thu 12B/G4 trong phạm vi đã kiểm và giao chương 2/5/6 theo report_outline. Tách lời duyệt khỏi PR30 MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`; candidate thực kiểm vẫn `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`.
+- Bảo toàn workspace đang có untracked P1; fetch main rồi tạo worktree riêng/nhánh `codex/p2-s13-report` từ origin/main, không reset/stash hoặc chuyển nhánh checkout P1 đang dùng.
+- Chương 2 giải thích phương pháp/công thức với fixture giả; chương 5 dùng summary/receipt đã chốt và trình bày cả Recall validation CF thấp hơn baseline; chương 6 kết luận có giới hạn. Không chạy lại pipeline/evaluator/test hoặc thay receipt.
+- Dùng bảng profile/nhân khẩu học để tránh nhãn ảnh khó đọc; hai ảnh chính có caption về đơn vị/mẫu số. PCA dẫn nhãn ảnh 35,5%+24,9%, công khai khác số diễn giải cũ; không sửa ảnh nguồn. CSV thử nghiệm không có trong Git, lấy 14 dòng experiments_summary đã công bố. Không tái tính dữ liệu cá nhân.
+- Giữ phần P1 nguyên trạng, đánh dấu trạng thái cũ cần cập nhật lúc ghép. Bản thảo 13-P2 WAITING_REVIEW; chưa commit/push/PR, chưa DOCX tổng/G5.
+
+
+### [DEC-P2-017] Chỉnh biên tập và công bố phần báo cáo P2
+
+Ngày 24/10/2026, điều phối chấp nhận nội dung chính và cho phép commit/push/mở PR phần P2, thay chỉ thị dừng ở bản thảo trước. Tạm loại PCA/các tỷ lệ phương sai khỏi bản chính để không chọn giữa hai nguồn mâu thuẫn chưa xác minh; ghi đầy đủ ở editorial_notes.md, giữ ảnh gốc. Chuyển quản lý review/PR/ghép sang hồ sơ, sửa nhãn cohort và bỏ ưu thế biểu diễn chưa có đối chứng. Không đổi công thức/bảng số liệu/receipt/nguồn, không chạy mô hình/evaluator, không sửa P1. Giữ G4 đạt đúng phạm vi, G5 chưa hoàn thành; PR chờ review, không tự merge.
