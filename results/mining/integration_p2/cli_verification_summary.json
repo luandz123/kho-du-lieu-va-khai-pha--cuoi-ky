@@ -1,0 +1,49 @@
+{
+  "source": "dw",
+  "database": "movielens_btl_int_20261023_e7b2219c",
+  "cli_module": "mining.recommend",
+  "total_cases_tested": 3,
+  "cases": {
+    "case_1_evaluation_with_seeds": {
+      "mode": "evaluation",
+      "model_version": "item_based_cf_k40_eval_v1",
+      "cutoff_timestamp": 976422051,
+      "training_scope_ratings": 850177,
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "user_history_excluded": true,
+      "score_types_present": ["cf"],
+      "fallback_triggered": false,
+      "status": "PASS"
+    },
+    "case_2_evaluation_zero_seeds_fallback": {
+      "mode": "evaluation",
+      "model_version": "item_based_cf_k40_eval_v1",
+      "cutoff_timestamp": 976422051,
+      "training_scope_ratings": 850177,
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "user_history_excluded": true,
+      "score_types_present": ["popularity_fallback"],
+      "fallback_triggered": true,
+      "fallback_score_format": "N/A (Popularity Fallback)",
+      "status": "PASS"
+    },
+    "case_3_demo_full_history": {
+      "mode": "demo",
+      "model_version": "item_based_cf_k40_DEMO_full_history_v1",
+      "training_scope": "Full dataset history",
+      "offline_metrics_excluded": true,
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "user_history_excluded": true,
+      "score_types_present": ["cf"],
+      "fallback_triggered": false,
+      "status": "PASS"
+    }
+  },
+  "privacy_note": "This aggregate summary strictly omits user_ids, seed movies, user rating history, and recommended item titles/IDs."
+}

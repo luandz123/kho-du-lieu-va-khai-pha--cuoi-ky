@@ -1,0 +1,34 @@
+{
+  "source": "dw",
+  "database": "movielens_btl_int_20261023_e7b2219c",
+  "model_version": "kmeans_k4_seed42",
+  "algorithm": "KMeans",
+  "training_config": {
+    "k": 4,
+    "preprocessing": "raw",
+    "seed": 42,
+    "n_init": 10,
+    "total_assigned_users": 6038,
+    "insufficient_evidence_users": 2,
+    "total_users": 6040
+  },
+  "cluster_distribution": {
+    "cluster_0": 2478,
+    "cluster_1": 1393,
+    "cluster_2": 760,
+    "cluster_3": 1407
+  },
+  "exported_files": {
+    "user_cluster.csv": {
+      "row_count": 6040,
+      "sha256": "5812d961fab8cab72f3e9f2589b66619ba2b6a11f2b3f20d9e00ead2f7ab3b93",
+      "matches_frozen_fingerprint": true
+    },
+    "cluster_genre_profile.csv": {
+      "row_count": 72,
+      "sha256": "59f9237ee12e02992d09add9cb940808902a247fcefeda9dbcd72808c9ad533d",
+      "matches_frozen_fingerprint": true
+    }
+  },
+  "reproduction_status": "BIT_FOR_BIT_IDENTICAL"
+}

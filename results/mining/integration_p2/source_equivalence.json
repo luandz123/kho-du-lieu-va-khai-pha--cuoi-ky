@@ -1,0 +1,44 @@
+{
+  "contract_version": 2,
+  "tables": {
+    "users": {
+      "raw_rows": 6040,
+      "csv_rows": 6040,
+      "dw_rows": 6040,
+      "canonical_sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "dw_view": "dw.v_ml_users",
+      "columns": ["user_id", "gender", "age_group", "occupation"],
+      "equivalent": true
+    },
+    "movies": {
+      "raw_rows": 3883,
+      "csv_rows": 3883,
+      "dw_rows": 3883,
+      "canonical_sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "dw_view": "dw.v_ml_movies",
+      "columns": ["movie_id", "title", "release_year"],
+      "equivalent": true
+    },
+    "movie_genres": {
+      "raw_rows": 6408,
+      "csv_rows": 6408,
+      "dw_rows": 6408,
+      "canonical_sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "dw_view": "dw.v_ml_movie_genres",
+      "columns": ["movie_id", "genre_name"],
+      "equivalent": true
+    },
+    "ratings": {
+      "raw_rows": 1000209,
+      "csv_rows": 1000209,
+      "dw_rows": 1000209,
+      "canonical_sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+      "dw_view": "dw.v_ml_ratings",
+      "columns": ["user_id", "movie_id", "rating", "timestamp", "rated_at"],
+      "rated_at_utc_format": "ISO-8601 UTC (YYYY-MM-DDTHH:MM:SSZ)",
+      "equivalent": true
+    }
+  },
+  "overall_equivalence": true,
+  "p2_intake_g2": "CONFIRMED"
+}
