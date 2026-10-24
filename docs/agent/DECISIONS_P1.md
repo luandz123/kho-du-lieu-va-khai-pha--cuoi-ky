@@ -1,5 +1,13 @@
 # Quyết định P1
 
+## D121 — công bố13A, bản thảoP1 tách riêngPR,24/10/2026
+
+Theo điều phối duyệt13A: bảo toàn thay đổi bằng commit tài liệu có chọn lọc, tạo codex/p1-s13-report từmain hiện hành, chuyển phần tài liệu sang nhánh mới. Công bố dàn ý trước, sau đó bản thảochương1/3/4 chỉworkingtreeWAITING_REVIEW; khôngghépPRdàný. P2reportedG2CONFIRMED khác bằng chứng đãđiềuphốireview; khôngLinux/G4. Không bắt buộc sốtrang/thể thức khi thiếu rubric.
+
+## D120 — chuẩn bị13A song song12-P2,23/10/2026
+
+Nguồn: lệnh điều phối do người dùng chuyển trong chat. Cho phép dàn ý và chỉ mục bằng chứng trước12B, chưa viết báo cáo cuối hoặc thay điều kiệnG4. P1chương1/3/4, P2chương2/5/6, P1ghép sau hai phần được duyệt. PR25merge4546d5b… được API kiểm; candidate đang P2kiểm nhận. P2intakeG2NOT_CONFIRMED, giữOPENhistory và receipt chính thức; không chạy lại evaluator để lấy số cho tài liệu. Dàn ý và nguồn bằng chứng WAITING_REVIEW.
+
 ## D119 — công bố12A và candidate sau merge
 
 Theo lệnh điều phối: công bố gói12A đã nghiệm thu kỹ thuật run57c1e8e3d3f445c4b3eeddbfc3364709, không chạy lại pipeline để cập nhật hồ sơ. Ghi commit công bố riêng với base/code hash khi chạy. Candidate cuối sẽ là merge commit của PR12A đã review/merge; không tự chọn HEAD nhánh. P2 intakeG2NOT_CONFIRMED/G4chưa hoàn thành, giữ giới hạn Linux/DW-onlyapply chưa kiểm riêng. Không tự merge hoặc thay tài nguyên.

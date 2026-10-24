@@ -1,5 +1,13 @@
 # Hồ sơ duyệt P1
 
+## Review điều phối13A,24/10/2026
+
+Người dùng chuyển: “Điều phối duyệt dàn ý 13A và danh mục bằng chứng.” Ghi đúng nguồn điều phối, chấp nhận dàn ý/chỉ mục; không tạo lời duyệt trực tiếp của người dùng choG4. Được commit/push/mởPR13A, rồi viết bản thảoP1 chương1/3/4 chờreview riêng. P2báoG2CONFIRMED trênWindows3.12.6/PG17.4, bằng chứng công bố chờreview; khôngLinux/G4.
+
+## Tiếp nhận giao việc13A — chưa có review kết quả13A
+
+Điều phối qua thông điệp người dùng giao chuẩn bị dàn ý trong lúc12-P2 và ghi PR25merge4546d5b…; đã kiểm trạng thái MERGED thật bằngAPI. Đây là nguồn điều phối, không tạo lời duyệt người dùng choG4 hoặc báo cáo. 13Achuẩn bị WAITING_REVIEW; chưaAPPROVED, P2intakeNOT_CONFIRMED. Các review/OPENhistory giữ nguyên.
+
 ## Công bố thực tế12A — PR25 OPEN
 
 [PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) đã mở và xác minh file/blobremote tại codecommit3334ff8388cb0627c1af3d0b0c289f08f7e6e65e. APPROVED kỹ thuật qua điều phối khác PR25 WAITING_REVIEW/chưa MERGED. Không tự tạo lời duyệt G4 hoặc chọn candidateHEAD; candidatecuối chờ mergecommit sau review/merge. Sourcebase/runtimehash/receipt không sửa. Quan sát Git mới trong docs/P1/12a_publication/, không dùng thay bằng chứng chạy cũ.

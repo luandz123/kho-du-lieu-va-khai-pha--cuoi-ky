@@ -1,0 +1,15 @@
+{
+  "observed_at_utc": "2026-10-23T14:52:06.301333+00:00",
+  "pr_url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25",
+  "state": "closed",
+  "merged": true,
+  "merge_commit_sha": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "merged_at": "2026-10-23T12:30:29Z",
+  "merged_by": "hungvu205",
+  "head_sha": "e59026142da1b29c6324cc07cb19d23172ce4e83",
+  "candidate_status": "UNDER_P2_REVIEW_PER_COORDINATOR",
+  "p2_intake_g2": "NOT_CONFIRMED",
+  "g4_completed": false,
+  "local_head": "e59026142da1b29c6324cc07cb19d23172ce4e83",
+  "scope": "API observation only; no merge/fetch/checkout or runtime operations"
+}

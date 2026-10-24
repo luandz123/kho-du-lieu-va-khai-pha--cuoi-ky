@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-10-24T01:14:08.953912+00:00",
+  "source": "Coordinator instruction relayed by human user in chat on 2026-10-24",
+  "candidate": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "reported_platform": "independent Windows machine",
+  "reported_python": "3.12.6",
+  "reported_postgresql": "17.4",
+  "p2_reported_g2_intake": "CONFIRMED",
+  "publication_evidence_review_status": "WAITING_COORDINATOR_REVIEW",
+  "p1_independent_validation_of_p2_run": false,
+  "linux_verified": false,
+  "g4_complete": false,
+  "historical_NOT_CONFIRMED_snapshots_preserved": true
+}

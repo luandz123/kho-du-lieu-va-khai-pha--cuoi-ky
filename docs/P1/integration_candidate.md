@@ -1,5 +1,15 @@
 # Hồ sơ gói tích hợp12A — WAITING_REVIEW, chưa chọn candidate cuối
 
+## Cập nhật hiện hành 24/10/2026 — dàn ý được điều phối duyệt
+
+Điều phối duyệt dàn ý13A và danh mục bằng chứng, giao công bố riêng trước khi viết bản thảo P1 chương1/3/4. P2 **đã báo G2 CONFIRMED**, tái lập candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4. Nguồn là thông điệp điều phối qua người dùng, bằng chứng công bố của P2 **đang chờ điều phối review**; P1 chưa kiểm độc lập lượt P2. Không ghi đã kiểmLinux, **G4 chưa hoàn thành**. Chi tiết nguồn ở `docs/P1/p2_intake_reported_20261024.json`. Các mụcNOT_CONFIRMED/WAITING_REVIEW/OPEN bên dưới và audit13A là snapshot lịch sử, không sửa thành bằng chứng mới.
+
+Thiếu rubric/mẫu chính thức không chặn bản thảo; không tự áp số trang/thể thức bắt buộc. Dàn ý được duyệt khác PR đãmerge; bản thảo chương chỉWAITING_REVIEW, không ghép vào PR dàn ý, khôngDOCX/slide. Không pipeline/evaluator hoặc đổi tài nguyên.
+
+## Cập nhật hậu merge23/10/2026 — candidate đang P2 kiểm nhận
+
+PR25 đã MERGED, API xác minh merge commit `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` tại `docs/P1/pr25_merged_observation.json`. Theo điều phối đây là candidate đang12-P2 kiểm nhận; không phải HEAD nhánh e590261… và chưa là G4đạt. P2intakeG2NOT_CONFIRMED cho tới báo cáo thực tế. Tiêu đề và các đoạn OPEN/chưa chọn bên dưới giữ như hồ sơ lịch sử trước merge; cập nhật này có hiệu lực hiện hành. Không sửa code/run hash hoặc receipt cũ, không tự chốtG4.
+
 ## Hiện hành — PR25 OPEN, WAITING_REVIEW PR12A
 
 Đã công bố [PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) vào main, nhánh codex/p1-s12a-integration. API xác minh OPEN/merged=false; agent không merge. Code công bố `3334ff8388cb0627c1af3d0b0c289f08f7e6e65e`, base main/PR24 `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Commit hồ sơ sau đó không đổi code; quan sát remote đầu và code_reference.json tại docs/P1/12a_publication/ ghi snapshot/version riêng, không gán commit công bố vào run cũ.
