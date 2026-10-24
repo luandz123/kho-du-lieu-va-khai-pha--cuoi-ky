@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-10-24T02:08:39.466050+00:00",
+  "purpose": "Read-only capture of existing preference dashboard for report",
+  "instance_requested": "http://127.0.0.1:8089",
+  "dashboard_url": "http://127.0.0.1:8089/superset/dashboard/3/",
+  "browser_result": "net::ERR_CONNECTION_REFUSED",
+  "host_health_probe": "GET /health failed with HttpRequestException",
+  "new_screenshot_created": false,
+  "dashboard_filter_state_observed": false,
+  "cause_not_inferred": true,
+  "services_started_or_reconfigured": false,
+  "dashboard_data_acl_or_saved_filters_changed": false,
+  "fallback": "Keep verified aggregate table4.4; clearer preference screenshot remains editorial checklist item",
+  "history_preserved": true
+}

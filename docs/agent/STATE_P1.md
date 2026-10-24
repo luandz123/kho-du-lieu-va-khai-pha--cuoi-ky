@@ -1,5 +1,63 @@
 # Trạng thái P1
 
+## Hiện hành24/10/2026 — hai hình/checklist đã bổ sung vào PR27, WAITING_REVIEW diff mới
+
+Đã push bổ sung vào [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) hiện có, không tạo PR trùng. Mốc trước review `d018921be66b12dc275933e1de9c2e755b74241a`, commit nội dung bổ sung `30463d140aa71c9d691346061a29d3b110daa3b2`; base main `dad848eedcd11230559acfc01ee103be718289a2`. API xác minh PR OPEN/merged=false và mọi file/blob khớp lúc công bố. Commit hồ sơ tiếp theo không đổi chương, ảnh hoặc SQL; HEAD cuối được kiểm riêng khi bàn giao. Không tự merge.
+
+Chương4 có Hình4.3/4.4 từ hai ảnh gốc đã duyệt, caption8089/ngày24-10/filter, Bảng4.4 giữ nguyên. Scope dẫn SQL/API/reconciliation; checklist ghép và selected_manifest chỉ hai ảnh được công bố. Ledger ảnh/nguồn/hồ sơ tại preferences_supplement_publication.json và preferences_supplement_remote.json; audit cũ là snapshot trước commit, không sửa để gán HEAD mới.
+
+Diff sau d018921… chỉ phần bổ sung được giao và hồ sơ P1. Ảnh thử/DOM/fullcapturemanifest/receipt chuẩn bị cục bộ/kế hoạch ngoài phạm vi không được stage. Không gọi Superset hoặc start/sửa dịch vụ/dashboard, không pipeline/evaluator/dump/restore. Giữ8089demo và mọi tài nguyên. G4 vẫnchờ, chưaghépP2/DOCX/slide. Dừng chờreview riêngHEADmới/diffbổsung.
+
+## Hiện hành 24/10/2026 — bổ sung checklist và hình vào PR27
+
+Điều phối duyệt checklist ghép và hai ảnh Sở thích, giao cập nhật chương4 rồi commit/push. API xác minh PR27 còn OPEN, merged=false, tại mốc `d018921be66b12dc275933e1de9c2e755b74241a`; dùng chính PR27, không mở PR trùng hoặc tự merge. HEAD mới và diff riêng sau mốc duyệt được xác minh sau push.
+
+Chương4 thêm Hình4.3–4.4, caption ghi instance8089, ngày24/10, filter toàn bộ/cụm1-F-25–34. Hai ảnh gốc giữ nguyên byte, không cắt hoặc sửa số liệu. Bảng4.4 không đổi. Scope heatmap dẫn profile_dataset.sql, snapshot API dashboard_observed.json và reconciliation; không suy riêng từ screenshot. selected_manifest.json chỉ gồm hai ảnh đã duyệt, không ảnh thử/DOM/rawlog. Checklist được công bố nhưng các ô ghép vẫn là việc chưa thực hiện.
+
+Nhật ký khôi phục dịch vụ lượt trước giữ trong editorial_notes.md. Lượt công bố này không gọi UI/API Superset, khởi động thêm instance, sửa dashboard/quyền/dữ liệu hoặc chạy ETL/G3/evaluator/dump/restore. Giữ8089 demo và8091/8092 nguyên trạng. Ảnh thử, DOM và receipt chuẩn bị cục bộ không stage; kế hoạch ngoài phạm vi được bảo toàn.
+
+Phần bổ sung PR **WAITING_REVIEW** riêng theo diff từ d018921… đến HEAD mới. G4 vẫn chờ; không tự ghi đã kiểmLinux hoặc nghiệm thu P2. Chưa ghép phầnP2, tạo DOCX tổng hoặc slide.
+
+## Hiện hành24/10/2026 — PR27 nội dung được duyệt đúng HEAD; bổ sung cục bộ WAITING_REVIEW
+
+Điều phối duyệt nội dung PR27 tại HEAD `d018921be66b12dc275933e1de9c2e755b74241a`. Local và remote HEAD giữ nguyên; PR hiện `open`, merged=false, agent không merge/commit/push hoặc công bố bổ sung. Mọi file chương/phụ lục/nguồn đã duyệt vẫn nguyên vẹn; checklist/hình/hồ sơ mới chỉworkingtree.
+
+Đã tạo docs/P1/report/merge_checklist.md: sáu chương, thuật ngữ/ký hiệu, hình/bảng/nguồn/tham khảo, tránh lặp chương2/5, validation/Test/demo, mức bằng chứngP1/P2 và các vị trí cập nhật sauG4. Chưa ghépP2 hoặcDOCX/slide.
+
+Khảo sát8089: metadata vàweb hiện hữu exited255,OOMKilled=false, port127.0.0.1:8089→8088 đúng. Logs150dòng/container được đọc riêng; chưa xác định nguyên nhân gốc dừng, không quyHTTPException thành nguyên nhân. Theo quyền được giao, chỉ dockerstart metadata, đợihealthy rồistartweb; cùngID/volume, khôngrecreate/build/upgrade/xóa/đổi cấu hình. Cảhaihealthy,health200,loginAPIđạt. 8091/8092 vẫn dừng và giữID/trạng thái; không tác động.
+
+Ảnhmới lưu riêng docs/P1/report/captures/20261024_preferences/: all_kpis.jpg và cluster1_F_25_34_top.jpg thể hiện6038/170assigned,baseline6038,insufficient2; ảnhphụprofile/scope riêng. Chỉfilterxem,khôngSaveDashboard;15objectbusinessconfigvà4trườngdashboardđãduyệt khớp nguồn. Filtertrảtoànbộ,viewporttạmhoàntrả. Ảnhcũ/hashesgiữ; chưa tự thay hình trongchương. Manifest ghiảnhđượcchọnvàảnhthửkhôngchọn,nhãnđộrõ cầnreviewkhiđưavàobảncuối.
+
+Bằng chứng tổng hợp demo_8089_20261024.json; rawlogs/tmpignored không công bố. Khôngpipeline/ETL/G3/evaluator/dump/restore/quyền. Phần bổ sung **WAITING_REVIEW**, khôngstage/commit/push/PR. P2reportedG2CONFIRMED chưa đồng nghĩa reviewbằngchứng/G4; G4vẫnchờ.
+
+## Hiện hành 24/10/2026 — PR27 phần báo cáo P1 OPEN, WAITING_REVIEW PR
+
+Đã công bố [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) trên codex/p1-s13-chapters vào main, base `dad848eedcd11230559acfc01ee103be718289a2`. Nội dung chương1/3/4 và phụ lục đã được điều phối chấp nhận; phiên bản biên tập công bố `393322017890af82808851b1e2b8296a35fce7eb` tách nhánh Q1/G3 và Q2/CLI, giữ số liệu/mẫu số/phạm vi môi trường, bibliography và hồ sơ biên tập riêng. Commit hồ sơ sau đó không đổi nội dung chương. Agent không merge.
+
+API đã xác minh PR OPEN/merged=false, toàn bộ file/blob của commit công bố khớp. Quan sát ban đầu và hash hồ sơ hiện hành ở `docs/P1/report/publication_remote_observation.json`; đây là snapshot tại commit được ghi, không giả là fullHEAD sau commit hồ sơ. Bàn giao cuối kiểm lại HEAD cuối/remote/tất cả blob. PR không lặp dàn ý đã merge, không có phần P2, DOCX/slide, credential/dữ liệu riêng tư hoặc kế hoạch ngoài phạm vi.
+
+Kiểm biên tập:142liên kết hợp lệ,85hàng bảng giữ nguyên số liệu,6hình/12bảng đánh số nhất quán,7hashảnh và394file code/dữ liệu/bằng chứng được bảo toàn. Audit giai đoạn trước công bố giữ nguyên, ledger mới phân biệt hash file chỉnh hồ sơ. Không pipeline/evaluator/ETL/G3/dump/restore.
+
+ẢnhSởthích mới chưa có: browser8089 connection refused, GET/health cũng thất bại; không suy nguyên nhân hoặc tự bật/sửa service. Giữ bảng4.4 đã đối soát và checklist ảnh rõ. Hệ thống/tài nguyên không bị thay đổi trong lượt này. P2 báo G2CONFIRMED trên Windows3.12.6/PG17.4, bằng chứng chờ điều phối review; khôngLinux, **G4 chưa hoàn thành**. Dừng chờ reviewPR27, không tự merge/ghépP2/DOCX/slide.
+
+## Hiện hành24/10/2026 — nội dung P1 được điều phối chấp nhận; chuẩn bị PR phần chương
+
+Điều phối chấp nhận nội dung chương1/3/4 và phụ lục, giao chỉnh biên tập rồi commit/push/PR. Ghi đúng nguồn điều phối, chưa là nghiệm thuG4 hoặc quyền merge. Phiên bản biên tập P1-v2 tách sơ đồQ1/G3 vàQ2/CLI, rà khoảng trắng/thuật ngữ/số hiệu, chuyển review ảnh sang editorial_notes.md, giữ số liệu và phạm vi môi trường. Bỏ khẳng định ngưỡng đã được chọn trước xem kết quả khi chưa có căn cứ thời điểm độc lập. Thêm danh mục tham khảo references.md tách Rnguồnngoài và I/Eartifact nội bộ.
+
+PR26 đã API xác minh MERGED dad848eedcd11230559acfc01ee103be718289a2; quan sát mới docs/P1/pr26_merged_observation.json, giữ OPEN lịch sử. Nhánh codex/p1-s13-chapters tạo từ main này, chuyển checkpoint bản thảo có chọn lọc; không đưa lại diff dàn ý vào PR chương. Kế hoạch untracked và P2 giữ nguyên.
+
+Thử chụp dashboardSởthích8089 chỉ đọc bị connection refused; GET/health từ máy cũng không truy cập được. Không suy nguyên nhân/trạng thái container, không start/recreate hoặc sửa dashboard/quyền/dữ liệu. Không có ảnh mới; giữ bảng4.4, hình rõ còn chờ trong checklist. Không ETL/G3/evaluator/dump/restore; không DOCX/slide hoặc ghépP2. P2 báoG2CONFIRMED trên Windows3.12.6/PG17.4, bằng chứng chờ điều phối review; khôngLinux, G4chưa hoàn thành. PR phần chương WAITING_REVIEW sau công bố, không tựmerge.
+
+## Hiện hành 24/10/2026 — PR26 dàn ý OPEN; bản thảo P1 WAITING_REVIEW
+
+Dàn ý13A và danh mục bằng chứng đã được điều phối duyệt chức năng. Đã công bố [PR26](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/26) gồm13file, HEAD `981be3725dc192875ac361b53a39c13e370de97c`, base `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. Remote HEAD, từng blob và hash công bố đã kiểm; agent không merge. Checkpoint tài liệu21a6e80 giữ trên nhánh cũ; nhánh mới codex/p1-s13-report tạo từ origin/main, chuyển tài liệu bằng cherry-pick36d8d7d và commit audit981be37. Kế hoạch untracked ngoài phạm vi giữ nguyên.
+
+Sau khi mởPR, đã viết `docs/P1/report/chapter_01.md`, `chapter_03.md`, `chapter_04.md` cùng phụ lục và review hình. **Cả ba chương WAITING_REVIEW**, chưa được duyệt chức năng; chưa stage/commit/push hoặc ghép vào PR26. Nội dung có bảng, ERD, số liệu và dẫn nguồn. Chưa tạo DOCX/slide hoặc ghép phần P2. Kiểm tài liệu tại `docs/P1/report/draft_audit.json`; hồ sơ bước tại S13.md.
+
+P2 **đã báo G2 CONFIRMED** trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4, candidate4546d5b…; bằng chứng công bố đang chờ điều phối review. Đây là thông tin điều phối chuyển, chưa phải P1 kiểm độc lập lượt P2. Không ghi đã kiểm Linux; **G4 chưa hoàn thành**. Thiếu rubric không chặn bản thảo; không áp số trang/thể thức bắt buộc.
+
+Đã xem thực7ảnh: EDA rõ; Tổng quan có giới hạn viewport; Xu hướng dùng minh họa dấuQoQ/filter;3ảnh Sở thích mờ không dùng làm hình chính. Không chụp UI mới, chạy pipeline hoặc đổi dịch vụ; giữ demo và tài nguyên thử. Dừng chờ review riêng ba chương.
+
 ## Cập nhật hiện hành 24/10/2026 — dàn ý được điều phối duyệt
 
 Điều phối duyệt dàn ý13A và danh mục bằng chứng, giao công bố riêng trước khi viết bản thảo P1 chương1/3/4. P2 **đã báo G2 CONFIRMED**, tái lập candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4. Nguồn là thông điệp điều phối qua người dùng, bằng chứng công bố của P2 **đang chờ điều phối review**; P1 chưa kiểm độc lập lượt P2. Không ghi đã kiểmLinux, **G4 chưa hoàn thành**. Chi tiết nguồn ở `docs/P1/p2_intake_reported_20261024.json`. Các mụcNOT_CONFIRMED/WAITING_REVIEW/OPEN bên dưới và audit13A là snapshot lịch sử, không sửa thành bằng chứng mới.

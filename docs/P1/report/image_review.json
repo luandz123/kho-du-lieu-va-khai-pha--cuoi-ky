@@ -1,0 +1,62 @@
+{
+  "review_date_local": "2026-10-24",
+  "method": "Images actually viewed with view_image; no new UI capture, image editing or runtime tests",
+  "reviewer": "P1 agent",
+  "images": [
+    {
+      "path": "dashboard/overview/evidence/all_history_charts.jpg",
+      "sha256": "6c7b49ccb233b6b6f968f3a6eabdcd44e38264d40ebb0c1cd9817839616b358a",
+      "decision": "ACCEPT_WITH_CAPTION_LIMIT",
+      "observation": "KPI/Top10/stars readable; some first-row headings outside viewport; No filter visible. Technical account label only, no MovieLens user-level history or credential observed.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "dashboard/trends/evidence/three_genres_qoq.jpg",
+      "sha256": "0ca38c391524c584e645899c03bc5af02484567ae7ba0445146c01c82213a87b",
+      "decision": "ACCEPT_FOR_QOQ_ILLUSTRATION_ONLY",
+      "observation": "Animation/Horror/Western filters and QoQ sign readable. Quarter chips partially collapsed and right table columns clipped; exact values must cite artifact/table.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "dashboard/preferences/evidence/ui_demographic_baseline.jpg",
+      "sha256": "21c69994ca81e142804c8edac2a413cf7d89ed09845077f5e2025efcfeaf1aad",
+      "decision": "REJECT_AS_MAIN_REPORT_FIGURE",
+      "observation": "Text visibly blurred; selected cluster1/F/25-34 can be discerned but exact baseline/table text not reliably legible. Use verified aggregate table, request clearer capture at final preparation.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "dashboard/preferences/evidence/ui_all_top.jpg",
+      "sha256": "85753408eec5c9b1ba454cfa6d1240150e6698f5383b85aca81b2fa2f6390906",
+      "decision": "REJECT_AS_MAIN_REPORT_FIGURE",
+      "observation": "Dense explanation text blurred; not publication-quality.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "dashboard/preferences/evidence/ui_all_dashboard.jpg",
+      "sha256": "8f1bbe87961ed1ae4b1916b7feff0d044cd145ac9f79e42838d10810aa1b2da8",
+      "decision": "REJECT_AS_MAIN_REPORT_FIGURE",
+      "observation": "Profile colors/aggregate KPI visible but labels/tables blurred; use table and SQL/API receipts.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "results/eda/rating_distribution.png",
+      "sha256": "91658237ce8e6072d451a647ff54bcee9dd461026f54db284daa2a3b2313b1de",
+      "decision": "ACCEPT",
+      "observation": "Axes/labels/counts readable; aggregate only, no user-level data or secrets observed.",
+      "credential_or_user_history_observed": false
+    },
+    {
+      "path": "results/eda/quarterly_activity.png",
+      "sha256": "86655e8536de73bbb620f8fdf0263715fc694277ee07d946fcac2668e35e995d",
+      "decision": "ACCEPT_WITH_BOUNDARY_CAPTION",
+      "observation": "Axes/quarter counts readable; original image lacks boundary flags. Caption explicitly identifies first/last quarters as partial.",
+      "credential_or_user_history_observed": false
+    }
+  ],
+  "erd": "Mermaid derived from approved database/erd.md, editable source; no claim of newly rendered figure",
+  "limits": [
+    "Visual review is limited to visible screenshot content",
+    "Preference dashboard screenshots not approved as main final-report figures",
+    "Historical screenshots are not 12A/8092 runtime images"
+  ]
+}

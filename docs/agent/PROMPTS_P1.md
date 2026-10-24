@@ -1,5 +1,21 @@
 # Nguồn prompt P1
 
+## Giao công bố checklist và hình bổ sung,24/10/2026
+
+Điều phối duyệt checklist/ảnh Sở thích; giao chọn all_kpis.jpg và cluster1_F_25_34_top.jpg, ghi caption instance8089/ngày/filter, giữ Bảng4.4 và dẫn SQL/API cho scope. Có thể cắt bản riêng nhưng phải giữ gốc; chọn không cắt. PR27 OPEN thì bổ sung chính PR, nếuMERGED mới tạo nhánh/PR từmain. Chỉ stage ảnh cần dùng, manifest, tài liệu liên quan; kiểm hash/link/privacy, commit/push rồi báo HEAD mới và diff sau d018921…. Không merge, sửa service/dashboard, chạy pipeline/evaluator hoặc ghép DOCX tổng trước khi có phầnP2 được duyệt. Đây là tóm tắt lệnh trong chat, không tạo lời duyệt bổ sung.
+
+## Giao chuẩn bị ghép và kiểm demo8089,24/10/2026
+
+Sau duyệtPR27HEADd018921…, điều phối giao checklist sáu chương/thuậtngữ/nguồn/tránhlặp2-5/validation-Test-demo/vịtrísauG4. Được khảo sátcontainer/health/port/log chỉđọc,khôngcôngbốsecret; nếuchỉhai containerhiệnhữudừng thìstartđúngmetadata/web8089,khôngrecreate/build/upgrade/volumes/config/8091/8092. Chụp ảnhhiệnhữu toàn bộ vàcụm1/F/25–34,khôngsửadashboard/ETL/G3/evaluator; giữảnhcũ,ghiinstance/filter. Khôngmerge/DOCX hoặc côngbốbổsungtrướcreview. Đây làtómtắtphạmvitheolệnh trongchat.
+
+## Giao hoàn thiện/công bố phần chươngP1,24/10/2026
+
+Người dùng chuyển lệnh điều phối chấp nhận chương1/3/4 vàphụlục; chỉnh kiến trúc, chính tả/khoảngtrắng/thuậtngữ/sốhiệu, chuyển reviewảnh sangbiêntập, giữscope/chờG4. Được chụp dashboardSởthích hiện hữu chỉđọc; nếu chưa rõ giữbảng/checklist. Chuẩnbị bibliography chung; commit/push/PR nhánh codex/p1-s13-chapters từmain, không lặp dànýđãmerge hoặc sửaP2, khôngtựmerge/DOCX/slide/pipeline/evaluator. Đây là tóm tắtphạmvi; lịch sửchat giữlệnhđầyđủ.
+
+## Thực hiện pha viết sau công bố13A,24/10/2026
+
+Theo đúng lệnh điều phối hiện hành, sau khi PR26đãOPEN vàkiểmblob, viếtchương1/3/4riêngdocs/P1/report/. KhôngghépPRdàný,khôngstage/commitbảnthảo. Kiểmhìnhthựcbằngview_image;giữ3ảnhSởthíchmờngoàihìnhchính. Nội dungđủtheodàný,run/hash/lệnhdàiđưaphụlục,bằngchứngruntimekhôngchạylại.
+
 ## Giao công bố13A và bản thảoP1,24/10/2026
 
 Người dùng chuyển lệnh điều phối duyệt dàn ý/chỉ mục, giao nhánh codex/p1-s13-report, commit/push/PRdàn ý và hậumerge, rồi viết docs/P1/report/chapter_01.md, chapter_03.md, chapter_04.md. Các chươngchờreview, chưađưavàoPRdàný. NguồnP2báoWindows3.12.6/PG17.4/G2CONFIRMED trêncandidate4546d5b…, bằng chứng công bốchờreview, G4chưađạt. Ảnh cầnxemthật, khôngchỉkiểmfile; khôngruntime/DOCX/slide. Đây là tóm tắt lệnh, không lời duyệt bản thảo.
