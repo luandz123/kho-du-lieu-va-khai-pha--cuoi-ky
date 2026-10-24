@@ -1,0 +1,84 @@
+{
+  "step": "13-P2",
+  "date": "2026-10-24",
+  "phase": "Editorial publication after coordinator acceptance of main content",
+  "branch": "codex/p2-s13-report",
+  "base_main_sha": "67fd9eb6b98211485b713c99e829291bc3b50f57",
+  "tested_candidate_sha": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "checks": {
+    "formulas_unchanged_from_accepted_draft": true,
+    "chapter_2_and_5_tables_unchanged_except_cohort_label": true,
+    "chapter_6_q1_q2_q3_and_environment_rows_unchanged": true,
+    "chapter_6_table_editorial_changes": "Removed PR30/13-P2 metadata rows; scoped G4/G5 wording retained",
+    "internal_links": {
+      "status": "PASS",
+      "count": 79
+    },
+    "privacy_paths": "PASS for report Markdown and S13",
+    "table_numbering": {
+      "chapter_02.md": [
+        "2.1",
+        "2.2"
+      ],
+      "chapter_05.md": [
+        "5.1",
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5",
+        "5.6",
+        "5.7",
+        "5.8",
+        "5.9"
+      ],
+      "chapter_06.md": [
+        "6.1",
+        "6.2"
+      ]
+    },
+    "embedded_figures": {
+      "5.1": "results/mining/kmeans_elbow_silhouette.png"
+    },
+    "pca_figure_and_variance_removed_from_main_chapters": true,
+    "pca_conflict_retained_in_editorial_notes": true,
+    "23_source_git_blob_hashes_unchanged": true,
+    "p1_artifacts_receipt_models_tests_unchanged": true,
+    "p2_manifest": "6/6 match Git blob SHA-256 and byte size",
+    "whitespace": "PASS"
+  },
+  "source_sha256_git_blob": {
+    "mining/features.py": "e02851f985a0ce15dd6871b3bf04e0b8b96725b7a55e9fc5f6a6d2562582f8e6",
+    "mining/clustering.py": "8df716f0b0854e5ebba81ee933ae1a91b9eda60e15c759283db037072e0e7ab4",
+    "mining/cf.py": "323541c16020b9de31bad8a4223718423da968500cd4f65a2be27b0b37896ad7",
+    "mining/evaluation.py": "c9829af5048d977ec93c81b602f2d7d659c1278d7779a47a2e18959a547bb312",
+    "mining/baseline.py": "3854b4c17db5d34c74b58eb22b84a6e2dcddefde66f0af6609fe2ba5187a97c7",
+    "mining/split.py": "c1c03e3e08fbd672a15f240a651004e82148d819f1b3613478f31bcbe67c54a1",
+    "docs/report_outline.md": "7123b231ec978e112765e2ed86675bb01306dbd010c37e9227304cb5c1c8b28e",
+    "docs/P1/integration_acceptance.md": "2c7a6eda23bfa16e9dbb291fa756d17b484096afe287b65c4cb8f566c68fa13d",
+    "docs/P1/report/chapter_01.md": "e1d946c631060083b6a807b6cf8734d437b03f0fb0b7e28f171f54eb69739abf",
+    "docs/P1/report/chapter_03.md": "aae15e188ce4a1a3bf0560c36d9b65e6ef069ffb6c3a7fbfaacdba647939a354",
+    "docs/P1/report/chapter_04.md": "2859e4b0f7bb2de53dc5932c527a8878f9fb527fa521b97a86297a7d056a2274",
+    "docs/P1/report_evidence_index.md": "1bb0fd738a796a1644316135fdae34db03a9978b82dfb12968b23c1994f3785f",
+    "docs/P2/clustering_interpretation.md": "17b7c8b6cde72600f20caed279c8e02dbdd03df91d2b1841900c6665fb3f3d12",
+    "results/mining/clustering_summary.json": "86746db369b3cb19f91c00a5d1335541538f83a0e19f7dc7cd0a49b3f4d2ed7a",
+    "results/mining/split_manifest.json": "0fcbe1d8aa1737373f26d6fc86a2bbd4c91c0aeb16c72a847bb6df217d59024c",
+    "results/mining/cf_validation_experiments.json": "f6b21b17659c687348d6fae0304913fb99d5d014f550547bbd4ef99942ca1ff1",
+    "results/mining/baseline_popularity_validation.json": "783cbc30ee95bfac4febdf70f36444ce89d201358a623c09102d69595cad8400",
+    "results/mining/cf_test_evaluation_receipt.json": "5e2502af6b96b09cb35fa4e8a8ee7e0fdaf2648d49c44ea26978419105ef6d5f",
+    "results/mining/cf_test_evaluation.json": "acc1e574bafff95b2309e12d994842e4a45611d1e80a35b51f1fe301535ac0cf",
+    "results/mining/kmeans_elbow_silhouette.png": "181257025e5d4cca26a725593be264257afbac886180b74120a1aa100c5c1326",
+    "results/mining/cluster_genre_heatmap.png": "1ccb7dc4da77301436e425ae23e5679c2edc5be0595e9ccd35588a05ced19c32",
+    "results/mining/cluster_pca_2d.png": "19dd85a009e0b526c414cbb29523ea47a3d8311c7ceab86b62f0942a1c3bfda2",
+    "results/mining/cluster_demographics.png": "3ad3f5f50fe5ef937491038aadcd24d0441ffa6426db7d884b0aa79f7fdeef5d"
+  },
+  "g4": "Accepted within verified scope on 2026-10-24",
+  "g5": "Not completed",
+  "not_run": [
+    "model",
+    "pipeline",
+    "evaluator",
+    "tests",
+    "database queries"
+  ],
+  "publication": "Authorized commit/push/PR; no merge"
+}
