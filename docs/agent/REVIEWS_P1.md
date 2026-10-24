@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Điều phối chấp nhận nội dung chương P1,24/10/2026
+
+Người dùng chuyển nguyên câu: “Điều phối chấp nhận nội dung chương 1, 3, 4 và phụ lục.” Nguồn là review điều phối; không ghi thành lời duyệt trực tiếp người dùng choG4. Được chỉnh biên tập và công bố PR riêng, không tự merge. Những cập nhật WAITING_REVIEWbảnthảo bên dưới là lịch sử trước lần chấp nhận này. Chưa review/merge PR công bố phần chương.
+
 ## Bản thảochương1/3/4 — chưa review,24/10/2026
 
 Điều phối duyệt13Akhôngtựđộngduyệtbảnthảo. Ba chươngP1-v1ởdocs/P1/report/chapter_01.md,chapter_03.md,chapter_04.md đặtWAITING_REVIEW. Chưa ghépDOCX/slide/P2 hoặcPR26. Giới hạnảnhSởthích vàG4chờđượcghiđúng;khôngtạoxácnhậntừP2ngoàibáocáođiềuphốichuyển.

@@ -1,5 +1,9 @@
 # Nguồn prompt P1
 
+## Giao hoàn thiện/công bố phần chươngP1,24/10/2026
+
+Người dùng chuyển lệnh điều phối chấp nhận chương1/3/4 vàphụlục; chỉnh kiến trúc, chính tả/khoảngtrắng/thuậtngữ/sốhiệu, chuyển reviewảnh sangbiêntập, giữscope/chờG4. Được chụp dashboardSởthích hiện hữu chỉđọc; nếu chưa rõ giữbảng/checklist. Chuẩnbị bibliography chung; commit/push/PR nhánh codex/p1-s13-chapters từmain, không lặp dànýđãmerge hoặc sửaP2, khôngtựmerge/DOCX/slide/pipeline/evaluator. Đây là tóm tắtphạmvi; lịch sửchat giữlệnhđầyđủ.
+
 ## Thực hiện pha viết sau công bố13A,24/10/2026
 
 Theo đúng lệnh điều phối hiện hành, sau khi PR26đãOPEN vàkiểmblob, viếtchương1/3/4riêngdocs/P1/report/. KhôngghépPRdàný,khôngstage/commitbảnthảo. Kiểmhìnhthựcbằngview_image;giữ3ảnhSởthíchmờngoàihìnhchính. Nội dungđủtheodàný,run/hash/lệnhdàiđưaphụlục,bằngchứngruntimekhôngchạylại.

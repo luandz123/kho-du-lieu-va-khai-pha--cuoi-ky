@@ -1,14 +1,12 @@
 # Chương 1. Giới thiệu bài toán và phạm vi nghiên cứu
 
-> Bản thảo P1-v1, ngày 24/10/2026 — **WAITING_REVIEW**. Viết theo dàn ý13A đã được điều phối duyệt. Chưa ghép phần P2 hoặc chốt G4.
-
 ## 1.1. Bối cảnh và vấn đề đặt ra
 
 Dữ liệu đánh giá phim có thể hỗ trợ hai nhóm công việc: mô tả những gì đã xảy ra trong lịch sử và xây dựng gợi ý dựa trên lịch sử được phép sử dụng. Hai nhóm công việc này cần một nền dữ liệu nhất quán. Nếu báo cáo BI và mô hình khai phá tự chuẩn hóa nguồn theo những cách khác nhau, cùng một câu hỏi có thể cho kết quả khác nhau dù đều được gọi là phân tích MovieLens. Đồ án vì vậy kết hợp xây dựng kho dữ liệu, truy vấn OLAP và khai phá trên một hợp đồng dữ liệu chung, thay vì chỉ trình bày riêng từng công cụ. [Nguồn: E01, E04 trong [danh mục bằng chứng](../report_evidence_index.md).]
 
-Nguồn sử dụng là MovieLens 1M của GroupLens. Snapshot đã khảo sát gồm 6.040 hồ sơ người dùng, 3.883 phim trong danh mục và 1.000.209 bản ghi đánh giá, trong khoảng từ 25/04/2000 đến 28/02/2003 theo UTC. Đây là dữ liệu đánh giá lịch sử: một bản ghi thể hiện số sao người dùng gửi cho phim và thời điểm gửi đánh giá. Nguồn không cung cấp lượt xem, thời lượng xem hoặc doanh thu. Do đó, các đại lượng được báo cáo trong đồ án phải được diễn đạt là số đánh giá và điểm đánh giá. [Nguồn: [data_profile.csv](../../../results/eda/data_profile.csv), [source_manifest.json](../../../data/source_manifest.json), E02–E03.]
+Nguồn sử dụng là MovieLens 1M của GroupLens ([R01–R02](references.md)). Snapshot đã khảo sát gồm 6.040 hồ sơ người dùng, 3.883 phim trong danh mục và 1.000.209 bản ghi đánh giá, trong khoảng từ 25/04/2000 đến 28/02/2003 theo UTC. Đây là dữ liệu đánh giá lịch sử: một bản ghi thể hiện số sao người dùng gửi cho phim và thời điểm gửi đánh giá. Nguồn không cung cấp lượt xem, thời lượng xem hoặc doanh thu. Do đó, các đại lượng được báo cáo trong đồ án phải được diễn đạt là số đánh giá và điểm đánh giá. [Nguồn: [data_profile.csv](../../../results/eda/data_profile.csv), [source_manifest.json](../../../data/source_manifest.json), E02–E03.]
 
-Một khó khăn đặc trưng là phim có thể thuộc nhiều thể loại. Việc nối trực tiếp đánh giá với bảng thể loại rồi cộng số dòng sẽ làm một đánh giá xuất hiện nhiều lần. Khó khăn thứ hai là dữ liệu phân bố không đều theo thời gian và theo người dùng; phép tổng hợp cần ghi rõ mẫu số, còn đánh giá hệ gợi ý cần tách lịch sử huấn luyện với dữ liệu tương lai. Kiến trúc và cách kiểm chứng của đồ án được xây dựng để xử lý các vấn đề này trước khi diễn giải kết quả.
+Một khó khăn đặc trưng là phim có thể thuộc nhiều thể loại. Việc nối trực tiếp đánh giá với bảng thể loại rồi cộng số dòng sẽ làm một đánh giá xuất hiện nhiều lần. Khó khăn thứ hai là dữ liệu phân bố không đều theo thời gian và theo người dùng; phép tổng hợp cần ghi rõ mẫu số, còn đánh giá hệ gợi ý cần tách lịch sử huấn luyện với dữ liệu tương lai. Kiến trúc và các phép kiểm của đồ án xử lý trực tiếp những sai lệch có thể phát sinh này.
 
 ## 1.2. Mục tiêu và ba câu hỏi nghiên cứu
 
@@ -57,14 +55,23 @@ flowchart LR
     ST --> DW[DW: dimension, bridge, fact]
     DW --> V[Bốn view contract v2]
     DW --> O[Sáu phân tích OLAP]
-    V --> M[Python: K-Means, CF, baseline]
-    M --> G[Gói cụm G3 có phiên bản]
-    G --> A[Analytics: registry và active views]
     O --> B[Superset: Tổng quan và Xu hướng]
+    subgraph Q1["Q1: nhóm sở thích lịch sử"]
+        F[Tỷ lệ genre từ rating tích cực] --> K[K-Means]
+        K --> G[Gói cụm G3 có phiên bản]
+    end
+    V --> F
+    G --> A[Analytics: registry và active views]
     A --> P[Superset: Sở thích]
+    subgraph Q2["Q2: gợi ý và đánh giá"]
+        T["Lịch sử theo cutoff; demo tách riêng"] --> M[Item-based CF và Popularity Baseline]
+        M --> E[Validation và receipt Test đã chốt]
+        M --> C[CLI Top 5: evaluation hoặc demo]
+    end
+    V --> T
 ```
 
-*Hình 1.1. Kiến trúc luồng dữ liệu, biên tập từ [mapping](../../../database/source_to_target.md), [quy trình refresh](../../../database/refresh_and_reconciliation.md) và [hướng dẫn tích hợp](../integration_runbook.md). Nhánh CF trả gợi ý qua CLI; gói G3 trong hình là gói cụm Q1.*
+*Hình 1.1. Kiến trúc luồng dữ liệu, biên tập từ [mapping](../../../database/source_to_target.md), [quy trình refresh](../../../database/refresh_and_reconciliation.md) và [hướng dẫn tích hợp](../integration_runbook.md). Q1 bàn giao gói cụm G3 cho analytics/BI; Q2 cung cấp kết quả đánh giá và gợi ý qua CLI, không đi qua gói cụm. Lịch sử demo được tách khỏi lịch sử evaluation theo cutoff.*
 
 P1 phụ trách thiết kế DW, ETL, OLAP, Superset và tổng hợp tài liệu cuối. P2 phụ trách khảo sát/adapter dữ liệu, đặc trưng, K-Means, CF, baseline và đánh giá. Sự phân công dựa trên giao diện chung: P1 cung cấp bốn view đúng contract; P2 sử dụng cùng ID nguồn và serializer; kết quả cụm được P1 kiểm nhận trước khi đưa vào BI. Cách tổ chức này cho phép hai phần phát triển song song nhưng vẫn có các điểm đối soát rõ ràng. [Nguồn: [workflow](../../shared/github_workflow.md), E04/E08/E13.]
 
@@ -74,11 +81,11 @@ P1 phụ trách thiết kế DW, ETL, OLAP, Superset và tổng hợp tài liệ
 
 Kiểm chứng được tổ chức theo nhiều lớp. Lớp dữ liệu so nguồn, bảng canonical và view DW bằng schema, số dòng, khóa, miền, UTC và SHA-256 theo serializer chung. Lớp ETL dùng fixture tự tạo để kiểm lỗi và rollback, đồng thời so hai lần chạy trên cùng code/config. Lớp BI đối soát SQL với API/UI trên nhiều tổ hợp filter. Lớp khai phá giữ cố định giao thức validation/test và nguồn receipt, không chạy lại test để thay kết quả khi viết tài liệu. [Nguồn: E06–E18.]
 
-Trong phép kiểm tích hợp tại P1, hai chu trình trên database thử riêng đã hoàn thành với các checkpoint sau ETL và sau nạp G3 được phân biệt. Điều đó hỗ trợ kết luận về luồng đã kiểm trên máy P1, chưa tự động chứng minh tái lập trên mọi máy hoặc mọi hệ điều hành. Chi tiết kết quả và giới hạn được trình bày ở chương 4; run/hash/lệnh dài được đưa vào phụ lục truy vết của bản thảo. [Nguồn: [summary12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), E18.]
+Trong phép kiểm tích hợp tại P1, hai chu trình trên database thử riêng đã hoàn thành với các checkpoint sau ETL và sau nạp G3 được phân biệt. Điều đó hỗ trợ kết luận về luồng đã kiểm trên máy P1, chưa tự động chứng minh tái lập trên mọi máy hoặc mọi hệ điều hành. Chi tiết kết quả và giới hạn được trình bày ở chương 4; run/hash/lệnh dài được đưa vào phụ lục truy vết của bản thảo. [Nguồn: [summary 12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), E18.]
 
 Tại thời điểm viết ngày 24/10/2026, PR25 đã merge; merge commit của PR này là candidate đang kiểm nhận. Theo thông tin điều phối, P2 đã báo tái lập trên máy Windows độc lập, Python 3.12.6 và PostgreSQL 17.4, đồng thời báo G2 CONFIRMED. Bằng chứng công bố của P2 đang chờ điều phối review; đây chưa phải lượt P1 kiểm độc lập hoặc nghiệm thu G4. Không có cơ sở ghi đã kiểm Linux. [Nguồn: [ghi nhận P2](../p2_intake_reported_20261024.json), E20.]
 
-Các yêu cầu kỹ thuật được dùng hiện tại là tiêu chí nội bộ của nhóm. Rubric và mẫu trình bày chính thức chưa được xác minh bằng tài liệu đã nhận; việc thiếu chúng không ngăn viết bản thảo nhưng cần được bổ sung trước khi hoàn thiện bản nộp. Đồ án không tự đặt số trang hay thể thức bắt buộc để thay yêu cầu giảng viên. Phần kết luận tích hợp cuối sẽ được cập nhật sau báo cáo P2 được review và nghiệm thu 12B/G4.
+Các yêu cầu kỹ thuật được dùng hiện tại là tiêu chí nội bộ của nhóm, cần phân biệt với rubric chính thức của môn học. Phần kết luận tích hợp cuối chờ báo cáo P2 được review và nghiệm thu 12B/G4.
 
 ## 1.6. Bố cục báo cáo
 

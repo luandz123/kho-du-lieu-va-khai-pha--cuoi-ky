@@ -1,5 +1,9 @@
 # Quyết định P1
 
+## D123 — biên tập và PR chương P1,24/10/2026
+
+Theo điều phối: tách sơ đồQ1/G3 vàQ2/CLI, giữ số liệu/mẫu số/ngữ cảnh môi trường, bỏ suy ngược thời điểm quyết định trước thực nghiệm. Review hình/trạng thái công việc tách editorial_notes, phụ lục giữ identity/lệnh. Dashboard8089 không truy cập được nên giữ bảngSởthích đãđốisoát, không tựkhởi động/sửa; ảnh rõ là việc biên tập còn chờ. Bibliography phân biệt Rnguồnchínhthức/nghiêncứu với I/Eartifactnộibộ. Nhánh codex/p1-s13-chapters từmain đãmergePR26, không lặp diffdàný. G4chờ, khôngghépP2/DOCX/slide hoặcpipeline/evaluator.
+
 ## D122 — nguồn hình và trạng thái bản thảo,24/10/2026
 
 Thânchươngtrìnhbàyphươngpháp/quyếtđịnh/kếtquả,cònidentity/run/hash/lệnhdàiởappendix_sources.md. Chỉdùngảnhđãxem:EDA,Tổngquan,Xuhướngcókèmgiớihạnchúthích;3ảnhSởthíchmờkhôngchọnlàmhìnhchính,dùngbảngSQL/APIđãkiểm. Khôngảnhgiả/chạyUITestmới. Bảnthảo13P1chờreviewriêng,khôngcommitvàoPR26dàný.

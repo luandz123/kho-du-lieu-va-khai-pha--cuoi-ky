@@ -1,5 +1,13 @@
 # Trạng thái P1
 
+## Hiện hành24/10/2026 — nội dung P1 được điều phối chấp nhận; chuẩn bị PR phần chương
+
+Điều phối chấp nhận nội dung chương1/3/4 và phụ lục, giao chỉnh biên tập rồi commit/push/PR. Ghi đúng nguồn điều phối, chưa là nghiệm thuG4 hoặc quyền merge. Phiên bản biên tập P1-v2 tách sơ đồQ1/G3 vàQ2/CLI, rà khoảng trắng/thuật ngữ/số hiệu, chuyển review ảnh sang editorial_notes.md, giữ số liệu và phạm vi môi trường. Bỏ khẳng định ngưỡng đã được chọn trước xem kết quả khi chưa có căn cứ thời điểm độc lập. Thêm danh mục tham khảo references.md tách Rnguồnngoài và I/Eartifact nội bộ.
+
+PR26 đã API xác minh MERGED dad848eedcd11230559acfc01ee103be718289a2; quan sát mới docs/P1/pr26_merged_observation.json, giữ OPEN lịch sử. Nhánh codex/p1-s13-chapters tạo từ main này, chuyển checkpoint bản thảo có chọn lọc; không đưa lại diff dàn ý vào PR chương. Kế hoạch untracked và P2 giữ nguyên.
+
+Thử chụp dashboardSởthích8089 chỉ đọc bị connection refused; GET/health từ máy cũng không truy cập được. Không suy nguyên nhân/trạng thái container, không start/recreate hoặc sửa dashboard/quyền/dữ liệu. Không có ảnh mới; giữ bảng4.4, hình rõ còn chờ trong checklist. Không ETL/G3/evaluator/dump/restore; không DOCX/slide hoặc ghépP2. P2 báoG2CONFIRMED trên Windows3.12.6/PG17.4, bằng chứng chờ điều phối review; khôngLinux, G4chưa hoàn thành. PR phần chương WAITING_REVIEW sau công bố, không tựmerge.
+
 ## Hiện hành 24/10/2026 — PR26 dàn ý OPEN; bản thảo P1 WAITING_REVIEW
 
 Dàn ý13A và danh mục bằng chứng đã được điều phối duyệt chức năng. Đã công bố [PR26](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/26) gồm13file, HEAD `981be3725dc192875ac361b53a39c13e370de97c`, base `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. Remote HEAD, từng blob và hash công bố đã kiểm; agent không merge. Checkpoint tài liệu21a6e80 giữ trên nhánh cũ; nhánh mới codex/p1-s13-report tạo từ origin/main, chuyển tài liệu bằng cherry-pick36d8d7d và commit audit981be37. Kế hoạch untracked ngoài phạm vi giữ nguyên.
