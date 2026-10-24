@@ -17,6 +17,10 @@ Nguồn giao việc là thông điệp điều phối qua người dùng: “Đi
 
 API xác minh các PR nêu trên MERGED; `git merge-base --is-ancestor` xác minh cả candidate, PR28 và PR29 là tổ tiên của main nền12B. Quan sát và hash nguồn tại [integration_acceptance_sources.json](integration_acceptance_sources.json). Commit công bố tài liệu12B được ghi riêng khi xuất bản; **không gán commit đó vào run P1 hoặc P2 đã xảy ra trước**.
 
+### Quan sát công bố tài liệu12B
+
+Hồ sơ đã được công bố tại [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30), OPEN/merged=false tại lúc xác minh. Commit nội dung tài liệu `1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98`, base `d20d3bc382e603cc219bc4a742814bae793421ab`. Commit hồ sơ sau đó chỉ ghi kết quả công bố, không là một lượt chạy hoặc candidate mới. [integration_acceptance_remote.json](integration_acceptance_remote.json) ghi snapshot/head của từng lần quan sát; HEAD cuối được bàn giao sau khi kiểm remote. **12B vẫn WAITING_REVIEW và G4 vẫn là đề xuất**, không tự merge.
+
 ## 2. Phạm vi môi trường và cách đọc kết quả
 
 | Bên / nguồn | Môi trường đã có bằng chứng | Phạm vi thực chạy | Không được suy rộng |
