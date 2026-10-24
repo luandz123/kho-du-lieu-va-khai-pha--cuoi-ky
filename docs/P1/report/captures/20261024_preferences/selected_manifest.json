@@ -1,0 +1,165 @@
+{
+  "created_at_utc": "2026-10-24T04:04:51.308880+00:00",
+  "scope": "Only two approved report images; attempted screenshots and DOM logs excluded from publication",
+  "approved_reference_head": "d018921be66b12dc275933e1de9c2e755b74241a",
+  "images": [
+    {
+      "file": "all_kpis.jpg",
+      "figure": "4.3",
+      "sha256": "27d062ab667b2545bcb8d40f321361d22c3051d22c325735598045eabf925ddf",
+      "dimensions": [
+        1585,
+        1189
+      ],
+      "original_preserved": true,
+      "cropped": false,
+      "pixel_content_changed": false,
+      "instance": "http://127.0.0.1:8089",
+      "dashboard_id": 3,
+      "capture_date_local": "2026-10-24",
+      "model_version": "kmeans_k4_seed42",
+      "filters": {
+        "cluster": null,
+        "age_group": null,
+        "gender": null
+      },
+      "observed_kpis": {
+        "assigned": 6038,
+        "baseline": 6038,
+        "insufficient_evidence": 2
+      },
+      "privacy_review": "Only aggregate KPI/profile, technical account label; no password/token or per-user rating history observed",
+      "review_source": "Coordinator accepted supplementary preference screenshots in human-relayed instruction,2026-10-24"
+    },
+    {
+      "file": "cluster1_F_25_34_top.jpg",
+      "figure": "4.4",
+      "sha256": "1bbb3459ea50e6a2443d87a61f1486ba799700ca33a7de7704e67db7a9cbc02d",
+      "dimensions": [
+        1585,
+        1189
+      ],
+      "original_preserved": true,
+      "cropped": false,
+      "pixel_content_changed": false,
+      "instance": "http://127.0.0.1:8089",
+      "dashboard_id": 3,
+      "capture_date_local": "2026-10-24",
+      "model_version": "kmeans_k4_seed42",
+      "filters": {
+        "cluster": 1,
+        "age_group": "25-34",
+        "gender": "F"
+      },
+      "observed_kpis": {
+        "assigned": 170,
+        "baseline": 6038,
+        "insufficient_evidence": 2
+      },
+      "privacy_review": "Only aggregate KPI/profile, technical account label; no password/token or per-user rating history observed",
+      "review_source": "Coordinator accepted supplementary preference screenshots in human-relayed instruction,2026-10-24"
+    }
+  ],
+  "image_processing": "None; original JPEG bytes used, no crop files created",
+  "historical_images_preserved": true,
+  "scope_evidence_not_inferred_from_screenshots": {
+    "sql_path": "dashboard/preferences/profile_dataset.sql",
+    "sql_sha256": "9613dc5e780f12a179f9555ed386622d4ef4682418aac22bb7a380b9202e4621",
+    "api_snapshot_path": "dashboard/preferences/dashboard_observed.json",
+    "api_snapshot_sha256": "00aa0a99204360c8accef128cf8646066a0bf37455003264bbc51e110c85e15c",
+    "native_filter_configuration": [
+      {
+        "id": "NATIVE_FILTER-11B-CLUSTER",
+        "name": "Cụm · không lọc baseline / thiếu bằng chứng",
+        "scope": {
+          "rootPath": [
+            "ROOT_ID"
+          ],
+          "excluded": [
+            15,
+            16,
+            18,
+            21,
+            23
+          ]
+        },
+        "targets": [
+          {
+            "datasetId": 6,
+            "column": {
+              "name": "cluster_id"
+            }
+          }
+        ]
+      },
+      {
+        "id": "NATIVE_FILTER-11B-AGE",
+        "name": "Nhóm tuổi · không lọc heatmap",
+        "scope": {
+          "rootPath": [
+            "ROOT_ID"
+          ],
+          "excluded": [
+            15,
+            16,
+            18,
+            21,
+            23,
+            19
+          ]
+        },
+        "targets": [
+          {
+            "datasetId": 5,
+            "column": {
+              "name": "age_group"
+            }
+          }
+        ]
+      },
+      {
+        "id": "NATIVE_FILTER-11B-GENDER",
+        "name": "Giới tính · không lọc heatmap",
+        "scope": {
+          "rootPath": [
+            "ROOT_ID"
+          ],
+          "excluded": [
+            15,
+            16,
+            18,
+            21,
+            23,
+            19
+          ]
+        },
+        "targets": [
+          {
+            "datasetId": 5,
+            "column": {
+              "name": "gender"
+            }
+          }
+        ]
+      }
+    ],
+    "sql_api_reconciliation_path": "dashboard/preferences/evidence/reconciliation.json",
+    "sql_api_reconciliation_sha256": "07c8bf3f54ad4cef024fd8dc3f9ac7f1ed7816c50a0a4e627d7c88fccafb251e",
+    "reconciliation_run_id": "09782a8ea2094b6bbd7c32cc4a2cdb03"
+  },
+  "capture_session_configuration_preservation": {
+    "source": "Local supplementary diagnostic receipt,2026-10-24",
+    "saved_business_objects_unchanged": 15,
+    "approved_dashboard_fields_checked": [
+      "dashboard_title",
+      "slug",
+      "position_json",
+      "json_metadata"
+    ],
+    "scope_and_metrics_not_changed_for_captures": true
+  },
+  "publishes_raw_logs_or_dom_snapshots": false,
+  "no_dashboard_acl_or_data_changes_this_publication": true,
+  "no_pipeline_or_evaluator_rerun": true,
+  "g4_complete": false
+}

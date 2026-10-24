@@ -1,5 +1,13 @@
 # Quyết định P1
 
+## D125 — hai hình gốc và scope theo SQL/API,24/10/2026
+
+Dùng hai ảnh đã duyệt nguyên byte, không cắt vì KPI/filter đọc được. Caption có instance8089, ngày, filter và model. Bảng4.4 giữ nguyên; Hình4.3/4.4 tiếp sau4.1/4.2. Scope heatmap dẫn SQL profile, API exclusions chart19/15/16 và reconciliation, không suy từ screenshot. Chỉ stage hai ảnh, selected_manifest, checklist, chương4 và hồ sơ liên quan; không ảnh thử/DOM/rawlog/receipt cục bộ hoặc kế hoạch. PR27 OPEN nên bổ sung cùng PR; không service/pipeline/evaluator.
+
+## D124 — giữ HEADđãduyệt, khôi phục giới hạn và ảnh cục bộ,24/10/2026
+
+GiữPR27HEADd018921…khôngcommit/push. Container8089hiệnhữuđúngproject/service/port/volumeđượcxácminhexited; chỉstartmetadata→healthy→web,khôngcomposeup/init/rebuild hoặcđổicấu hình. Exit255/OOMfalse/logHTTPExceptionkhôngđủquynguyênnhândừng. Chụp bằngUIlọcchỉxem,khôngsavedashboard;trảfilterall/viewporttạm. Checklist/ảnh/receiptmớichờreview,khôngtựthayhìnhchươnghoặcchốtG4.
+
 ## D123 — biên tập và PR chương P1,24/10/2026
 
 Theo điều phối: tách sơ đồQ1/G3 vàQ2/CLI, giữ số liệu/mẫu số/ngữ cảnh môi trường, bỏ suy ngược thời điểm quyết định trước thực nghiệm. Review hình/trạng thái công việc tách editorial_notes, phụ lục giữ identity/lệnh. Dashboard8089 không truy cập được nên giữ bảngSởthích đãđốisoát, không tựkhởi động/sửa; ảnh rõ là việc biên tập còn chờ. Bibliography phân biệt Rnguồnchínhthức/nghiêncứu với I/Eartifactnộibộ. Nhánh codex/p1-s13-chapters từmain đãmergePR26, không lặp diffdàný. G4chờ, khôngghépP2/DOCX/slide hoặcpipeline/evaluator.

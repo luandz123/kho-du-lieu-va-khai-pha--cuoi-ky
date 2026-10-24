@@ -1,5 +1,13 @@
 # Hồ sơ duyệt P1
 
+## Điều phối duyệt checklist và ảnh Sở thích bổ sung,24/10/2026
+
+Người dùng chuyển nguyên câu: “Điều phối duyệt checklist ghép và ảnh Sở thích bổ sung.” Nguồn review là điều phối, không là lời duyệtG4. Được cập nhật Hình4.3/4.4 và checklist vào PR27 nếu cònOPEN; đã xác minh OPEN tại HEADd018921… nên dùng PR27. HEAD mới/diff bổ sung chờ review riêng, không tự merge.
+
+## Điều phối duyệt nội dung PR27 tại HEAD cố định,24/10/2026
+
+Thông điệp người dùng chuyển: “Điều phối duyệt nội dung PR27 tại HEAD: d018921be66b12dc275933e1de9c2e755b74241a.” Đây là nguồn review điều phối, không giả lời duyệtG4. HEADkhôngđổi,khôngtựmerge. Phần mới gồm checklist,khôi phụcđúngcontainer8089vàảnhbổsung chưađượcreview/côngbố; WAITING_REVIEWriêng.
+
 ## Điều phối chấp nhận nội dung chương P1,24/10/2026
 
 Người dùng chuyển nguyên câu: “Điều phối chấp nhận nội dung chương 1, 3, 4 và phụ lục.” Nguồn là review điều phối; không ghi thành lời duyệt trực tiếp người dùng choG4. Được chỉnh biên tập và công bố PR riêng, không tự merge. Những cập nhật WAITING_REVIEWbảnthảo bên dưới là lịch sử trước lần chấp nhận này. Chưa review/merge PR công bố phần chương.

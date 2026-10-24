@@ -1,0 +1,60 @@
+{
+  "at_utc": "2026-10-24T04:07:50.483075+00:00",
+  "scope": "Only approved supplementary preference figures/checklist and related records",
+  "approved_reference_head": "d018921be66b12dc275933e1de9c2e755b74241a",
+  "pr_before_change": {
+    "number": 27,
+    "state": "OPEN",
+    "merged": false,
+    "head": "d018921be66b12dc275933e1de9c2e755b74241a"
+  },
+  "intended_publication": "Update same PR27; do not create duplicate or merge",
+  "numeric_table_rows_unchanged_in_chapter4": 42,
+  "figures": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4"
+  ],
+  "tables": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "4.6"
+  ],
+  "local_links_checked": 69,
+  "images": 2,
+  "original_image_bytes_unchanged": true,
+  "scope_supported_by_SQL_and_API_artifacts": true,
+  "no_crops_or_image_processing": true,
+  "privacy_visual_and_pattern_review": "PASS",
+  "protected_tracked_files_unchanged": 394,
+  "official_test_receipt_and_outside_plan_preserved": true,
+  "no_superset_calls_or_service_changes_this_publication": true,
+  "no_pipeline_or_evaluator": true,
+  "g4_complete": false,
+  "file_sha256": {
+    "docs/P1/report/chapter_04.md": "9fa6258e75acd93ab3e6996590d0a68df15ec68ccec28282f19af00447a96506",
+    "docs/P1/report/editorial_notes.md": "f8a3f5f08b8a81900be47e1fd471106002bde2372592ef85e3f78e2c2d2b452c",
+    "docs/P1/report/merge_checklist.md": "f6e5337bdda03fb6ac9c863c3dd656e3f0afe3ac317cd55cc7cc1e628fadb7d8",
+    "docs/P1/report/captures/20261024_preferences/all_kpis.jpg": "27d062ab667b2545bcb8d40f321361d22c3051d22c325735598045eabf925ddf",
+    "docs/P1/report/captures/20261024_preferences/cluster1_F_25_34_top.jpg": "1bbb3459ea50e6a2443d87a61f1486ba799700ca33a7de7704e67db7a9cbc02d",
+    "docs/P1/report/captures/20261024_preferences/selected_manifest.json": "6c5385eb0de2a4faf19f7ed10cf44b4a96285e21afde9f1fc07a31be8ecae0e1",
+    "docs/agent/STATE_P1.md": "453f43cbed26af848d7f1a1d1af296abb0a422c81bd2069650a501e5a40d067d",
+    "docs/agent/steps/P1/S13.md": "ac1bd58a3ade99e8fdc3653636c7e070ad875dc6794da482c01b68a95548d123",
+    "docs/agent/DECISIONS_P1.md": "7fb20ee82ce794a28a99ef633e7427de1fae258c06b6c9901a3bdcf6386fd137",
+    "docs/agent/REVIEWS_P1.md": "635b42f9de9b1b853a9a3789215eb84dc1693b346082ce07d82158415fef96fe",
+    "docs/agent/PROMPTS_P1.md": "63b951084b8629fa940184ca8e7b7099fcc195a422b189ec7e44a7a6662abb30"
+  },
+  "excluded_from_stage": [
+    "All attempted/unselected screenshots",
+    "Full capture_manifest.json",
+    "DOM text snapshots",
+    "Local demo and preparation receipts",
+    "Raw logs/credential/data",
+    "docs/KE_HOACH_BTL_MOVIELENS.md"
+  ],
+  "audit_self_excluded": true
+}

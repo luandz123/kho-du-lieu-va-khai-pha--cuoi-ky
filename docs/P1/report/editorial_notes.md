@@ -1,5 +1,15 @@
 # Hồ sơ biên tập và checklist phần báo cáo P1
 
+## Cập nhật hình được duyệt — 24/10/2026
+
+Điều phối duyệt checklist ghép và ảnh Sở thích bổ sung. Chương4 bổ sung Hình4.3 (`all_kpis.jpg`) và Hình4.4 (`cluster1_F_25_34_top.jpg`), giữ nguyên byte ảnh gốc, không cắt/sửa số liệu. Caption ghi instance8089, ngày24/10 và filter toàn bộ/cụm1-F-25–34. Bảng4.4 giữ nguyên. Scope heatmap dẫn SQL profile, snapshot cấu hình API và reconciliation, không suy chỉ từ screenshot.
+
+Nhật ký dịch vụ: lượt trước chỉ start đúng metadata/web8089 hiện hữu sau khi xác minh chúng dừng. SameID/volume,health200;8091/8092 giữ nguyên. Khảo sát log chưa xác minh nguyên nhân gốc dừng. Thông tin này thuộc hồ sơ biên tập, không chèn vào thân chương. Lượt công bố hình không khởi động instance hoặc gọi dashboard/pipeline/evaluator.
+
+Đã có hai ảnh được điều phối duyệt; mục “chưa có ảnh rõ” và lần kết nối thất bại bên dưới là quan sát lịch sử trước khi khôi phục8089, không là trạng thái hiện hành. Ảnh thử/DOMlog/rawlog giữ cục bộ, không trong phần bổ sung. Manifest công bố chỉ có hai ảnh tại `captures/20261024_preferences/selected_manifest.json`.
+
+Phần ghép sáu chương/DOCX/P2 vẫn chờ đúng tiền đề. PR27 được kiểm OPEN tại HEADd018921… trước bổ sung; dùng chính PR27, không mở PR trùng và không tự merge. HEAD mới và diff riêng sau mốc duyệt được xác minh khi push.
+
 Ngày24/10/2026, phiên bản biên tập P1-v2. Nguồn giao việc: điều phối qua thông điệp người dùng đã chấp nhận nội dung chương1/3/4 và phụ lục, giao chỉnh rồi commit/push/mởPR phần chương. Đây là chấp nhận nội dung của điều phối, không là xác nhận G4 hoặc quyền tự merge.
 
 ## 1. Tách bản báo cáo khỏi hồ sơ công việc
@@ -42,7 +52,7 @@ Nếu có lượt chụp sau được giao, lưu ảnh mới vào thư mục ri�
 - [x] Rà khoảng trắng, thuật ngữ, bảng/hình theo từng chương; không đổi số liệu/mẫu số/miền môi trường.
 - [x] Chuẩn bị [references.md](references.md), tách nguồn ngoài và artifact nội bộ; Superset docs rolling/Next không được gọi là tài liệu version6.1.0.
 - [x] Giữ bảng Sở thích đã đối soát khi ảnh rõ chưa có.
-- [ ] Bổ sung ảnh Sở thích rõ khi instance có thể truy cập và có phạm vi thao tác phù hợp; ghi đúng filter/model/instance.
+- [x] Hai ảnh Sở thích được điều phối duyệt: Hình4.3–4.4, ghi filter/model/instance trong caption và selected_manifest.json; giữ ảnh lịch sử.
 - [ ] Xem lại kích thước/độ rõ hình khi ghép bản Word/PDF; hiện chưa tạo DOCX/slide.
 - [ ] Điều phối review bằng chứng tích hợp P2 và nghiệm thu12B/G4. P2 báo G2CONFIRMED trên Windows3.12.6/PG17.4; không có xác minh Linux.
 - [ ] Nhận phần chương2/5/6 của P2 đã được duyệt; chưa ghép trong PR này.

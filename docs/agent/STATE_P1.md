@@ -1,5 +1,27 @@
 # Trạng thái P1
 
+## Hiện hành 24/10/2026 — bổ sung checklist và hình vào PR27
+
+Điều phối duyệt checklist ghép và hai ảnh Sở thích, giao cập nhật chương4 rồi commit/push. API xác minh PR27 còn OPEN, merged=false, tại mốc `d018921be66b12dc275933e1de9c2e755b74241a`; dùng chính PR27, không mở PR trùng hoặc tự merge. HEAD mới và diff riêng sau mốc duyệt được xác minh sau push.
+
+Chương4 thêm Hình4.3–4.4, caption ghi instance8089, ngày24/10, filter toàn bộ/cụm1-F-25–34. Hai ảnh gốc giữ nguyên byte, không cắt hoặc sửa số liệu. Bảng4.4 không đổi. Scope heatmap dẫn profile_dataset.sql, snapshot API dashboard_observed.json và reconciliation; không suy riêng từ screenshot. selected_manifest.json chỉ gồm hai ảnh đã duyệt, không ảnh thử/DOM/rawlog. Checklist được công bố nhưng các ô ghép vẫn là việc chưa thực hiện.
+
+Nhật ký khôi phục dịch vụ lượt trước giữ trong editorial_notes.md. Lượt công bố này không gọi UI/API Superset, khởi động thêm instance, sửa dashboard/quyền/dữ liệu hoặc chạy ETL/G3/evaluator/dump/restore. Giữ8089 demo và8091/8092 nguyên trạng. Ảnh thử, DOM và receipt chuẩn bị cục bộ không stage; kế hoạch ngoài phạm vi được bảo toàn.
+
+Phần bổ sung PR **WAITING_REVIEW** riêng theo diff từ d018921… đến HEAD mới. G4 vẫn chờ; không tự ghi đã kiểmLinux hoặc nghiệm thu P2. Chưa ghép phầnP2, tạo DOCX tổng hoặc slide.
+
+## Hiện hành24/10/2026 — PR27 nội dung được duyệt đúng HEAD; bổ sung cục bộ WAITING_REVIEW
+
+Điều phối duyệt nội dung PR27 tại HEAD `d018921be66b12dc275933e1de9c2e755b74241a`. Local và remote HEAD giữ nguyên; PR hiện `open`, merged=false, agent không merge/commit/push hoặc công bố bổ sung. Mọi file chương/phụ lục/nguồn đã duyệt vẫn nguyên vẹn; checklist/hình/hồ sơ mới chỉworkingtree.
+
+Đã tạo docs/P1/report/merge_checklist.md: sáu chương, thuật ngữ/ký hiệu, hình/bảng/nguồn/tham khảo, tránh lặp chương2/5, validation/Test/demo, mức bằng chứngP1/P2 và các vị trí cập nhật sauG4. Chưa ghépP2 hoặcDOCX/slide.
+
+Khảo sát8089: metadata vàweb hiện hữu exited255,OOMKilled=false, port127.0.0.1:8089→8088 đúng. Logs150dòng/container được đọc riêng; chưa xác định nguyên nhân gốc dừng, không quyHTTPException thành nguyên nhân. Theo quyền được giao, chỉ dockerstart metadata, đợihealthy rồistartweb; cùngID/volume, khôngrecreate/build/upgrade/xóa/đổi cấu hình. Cảhaihealthy,health200,loginAPIđạt. 8091/8092 vẫn dừng và giữID/trạng thái; không tác động.
+
+Ảnhmới lưu riêng docs/P1/report/captures/20261024_preferences/: all_kpis.jpg và cluster1_F_25_34_top.jpg thể hiện6038/170assigned,baseline6038,insufficient2; ảnhphụprofile/scope riêng. Chỉfilterxem,khôngSaveDashboard;15objectbusinessconfigvà4trườngdashboardđãduyệt khớp nguồn. Filtertrảtoànbộ,viewporttạmhoàntrả. Ảnhcũ/hashesgiữ; chưa tự thay hình trongchương. Manifest ghiảnhđượcchọnvàảnhthửkhôngchọn,nhãnđộrõ cầnreviewkhiđưavàobảncuối.
+
+Bằng chứng tổng hợp demo_8089_20261024.json; rawlogs/tmpignored không công bố. Khôngpipeline/ETL/G3/evaluator/dump/restore/quyền. Phần bổ sung **WAITING_REVIEW**, khôngstage/commit/push/PR. P2reportedG2CONFIRMED chưa đồng nghĩa reviewbằngchứng/G4; G4vẫnchờ.
+
 ## Hiện hành 24/10/2026 — PR27 phần báo cáo P1 OPEN, WAITING_REVIEW PR
 
 Đã công bố [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) trên codex/p1-s13-chapters vào main, base `dad848eedcd11230559acfc01ee103be718289a2`. Nội dung chương1/3/4 và phụ lục đã được điều phối chấp nhận; phiên bản biên tập công bố `393322017890af82808851b1e2b8296a35fce7eb` tách nhánh Q1/G3 và Q2/CLI, giữ số liệu/mẫu số/phạm vi môi trường, bibliography và hồ sơ biên tập riêng. Commit hồ sơ sau đó không đổi nội dung chương. Agent không merge.

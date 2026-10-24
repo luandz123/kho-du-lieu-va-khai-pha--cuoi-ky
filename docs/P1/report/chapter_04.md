@@ -131,6 +131,16 @@ Ca lọc cụm 1/F/25–34 trả 170 assigned; baseline vẫn 6.038, insufficien
 
 Bảng 4.4 giữ tách biệt chỉ số đếm user, hồ sơ thể loại của cụm và các mẫu số cố định. Sự tách biệt này giúp bộ lọc tương tác không làm thay đổi ý nghĩa của profile đã được bàn giao.
 
+![Dashboard Sở thích toàn bộ cohort: assigned và baseline 6.038, thiếu bằng chứng 2](captures/20261024_preferences/all_kpis.jpg)
+
+*Hình 4.3. Dashboard Sở thích trên instance Superset 8089, chụp ngày 24/10/2026, không chọn cụm, tuổi hoặc giới tính. Mô hình `kmeans_k4_seed42`; assigned 6.038, baseline 6.038 và insufficient_evidence 2. Nguồn: ảnh UI gốc `all_kpis.jpg`, [manifest ảnh được chọn](captures/20261024_preferences/selected_manifest.json). Bảng 4.4 trình bày số chính xác và mẫu số.*
+
+![Dashboard Sở thích lọc cụm 1, F, 25–34: assigned 170, baseline 6.038, thiếu bằng chứng 2](captures/20261024_preferences/cluster1_F_25_34_top.jpg)
+
+*Hình 4.4. Cùng instance 8089 và ngày chụp 24/10/2026, chọn cụm 1, giới tính F, nhóm tuổi 25–34. Assigned còn 170; baseline vẫn 6.038 và insufficient_evidence vẫn 2. Nguồn: ảnh UI gốc `cluster1_F_25_34_top.jpg` và manifest ảnh. Đây là ca lọc người dùng, không phải kết quả huấn luyện lại hoặc profile thể loại được tính lại cho nhóm nhân khẩu học.*
+
+Scope của heatmap được xác định từ dữ liệu và cấu hình, không suy riêng từ hai ảnh. [SQL profile](../../../dashboard/preferences/profile_dataset.sql) đọc profile đã tính sẵn ở grain cụm × genre từ active view, không nối user hoặc trường tuổi/giới. Trong [snapshot cấu hình dashboard lấy qua API](../../../dashboard/preferences/dashboard_observed.json), `json_metadata.native_filter_configuration` loại chart 19 khỏi filter tuổi và giới, nhưng không loại nó khỏi filter cụm; chart 15 và 16 được loại khỏi cả ba filter nên hai KPI thiếu bằng chứng/baseline giữ cố định. [Đối soát SQL/API](../../../dashboard/preferences/evidence/reconciliation.json) cung cấp bằng chứng các tổ hợp lọc; phần scope/mẫu số vẫn theo bảng 4.4 và README 11B3. Vì vậy, chọn F/25–34 không biến heatmap thành profile đã tái tính cho nhóm này.
+
 ### 4.5.4. Tài khoản BI và tính nhất quán
 
 Superset truy vấn bằng movielens_bi_reader. Kiểm quyền phải xét thuộc tính role, membership và quyền hiệu lực trên object, không suy từ việc đặt session READ ONLY. Phạm vi cấp là SELECT các view cần thiết và USAGE schema, không cấp quyền ghi/quản trị hoặc SELECT toàn schema. Hậu kiểm 12A xác nhận engine 8092 thực dùng roleBI trên database thử, UTC, đọc các view cần thiết và không có DML/CREATE trên object dự án. Quyền PUBLIC TEMP còn được ghi như giới hạn, không che thành “tài khoản không thể thực hiện bất kỳ thao tác ghi nào”. [Nguồn: bi_reader evidence từng dashboard, [postflight 12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/postflight.json), E17–E18.]
