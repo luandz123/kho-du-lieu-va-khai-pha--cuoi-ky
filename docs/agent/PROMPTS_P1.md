@@ -1,5 +1,13 @@
 # Nguồn prompt P1
 
+## Giao công bố13A và bản thảoP1,24/10/2026
+
+Người dùng chuyển lệnh điều phối duyệt dàn ý/chỉ mục, giao nhánh codex/p1-s13-report, commit/push/PRdàn ý và hậumerge, rồi viết docs/P1/report/chapter_01.md, chapter_03.md, chapter_04.md. Các chươngchờreview, chưađưavàoPRdàný. NguồnP2báoWindows3.12.6/PG17.4/G2CONFIRMED trêncandidate4546d5b…, bằng chứng công bốchờreview, G4chưađạt. Ảnh cầnxemthật, khôngchỉkiểmfile; khôngruntime/DOCX/slide. Đây là tóm tắt lệnh, không lời duyệt bản thảo.
+
+## Giao việc hiện hành13A,23/10/2026
+
+Nguồn: người dùng chuyển lệnh điều phối trong chat, bắt đầu “Điều phối giao P1 chuẩn bị Bước 13A — dàn ý báo cáo chung, trong lúc P2 thực hiện 12-P2. Chưa chốt G4.” Phạm vi: xác minh PR25merge4546d5b…, ghi candidate đang P2 kiểm nhận; tạo docs/report_outline.md và docs/P1/report_evidence_index.md, phân côngP1chương1/3/4,P2chương2/5/6; chỉ chuẩn bị, chờreview, khôngcommit/push/PR hoặc runtime. Đây là trích câu mở đầu và tóm tắt phạm vi, không là lời duyệt kết quả13A. Lệnh đầy đủ giữ ở lịch sử chat.
+
 ## P-P1-41 — công bố12A sau nghiệm thu kỹ thuật
 
 Điều phối chấp nhận run57c1e8e3d3f445c4b3eeddbfc3364709, giao rà scope/bí mật/hash/hồsơ táilập, commit/push và mởPR12A vào main, xác minh HEAD/base/mọi fileblob. Không ETL/G3/dump/restore/evaluator lại. Bảo toànngoàiphạmvivi/tài nguyên/receipt; candidatecuối chỉ sau PRreview/merge và bằngmergecommit, chưaP2intake/G4.
