@@ -51,3 +51,7 @@ Nếu có lượt chụp sau được giao, lưu ảnh mới vào thư mục ri�
 ## 5. Kết quả kiểm công bố
 
 Kiểm file, liên kết, bảng số liệu so với bản chấp nhận, số hiệu hình/bảng, JSON, hash nguồn/receipt và phạm vi Git được ghi trong `publication_audit.json`. Không chạy lại evaluator Test, ETL/G3/dump/restore. Không kiểm quyền runtime hoặc sức khỏe hệ thống rộng hơn lần thử HTTP chỉ đọc trên.
+
+## 6. Quan sát công bố
+
+Đã mở [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27), OPEN/merged=false tại lúc kiểm. Commit nội dung `393322017890af82808851b1e2b8296a35fce7eb`, base `dad848eedcd11230559acfc01ee103be718289a2`. Commit hồ sơ tiếp theo chỉ ghi kết quả công bố, không thay chương, ảnh hoặc bằng chứng runtime. `publication_audit.json` là snapshot kiểm trước công bố; ledger mới trong `publication_remote_observation.json` ghi hash hồ sơ cập nhật, không sửa audit cũ. Chưa tự merge hoặc chốtG4.

@@ -1,5 +1,15 @@
 # Trạng thái P1
 
+## Hiện hành 24/10/2026 — PR27 phần báo cáo P1 OPEN, WAITING_REVIEW PR
+
+Đã công bố [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) trên codex/p1-s13-chapters vào main, base `dad848eedcd11230559acfc01ee103be718289a2`. Nội dung chương1/3/4 và phụ lục đã được điều phối chấp nhận; phiên bản biên tập công bố `393322017890af82808851b1e2b8296a35fce7eb` tách nhánh Q1/G3 và Q2/CLI, giữ số liệu/mẫu số/phạm vi môi trường, bibliography và hồ sơ biên tập riêng. Commit hồ sơ sau đó không đổi nội dung chương. Agent không merge.
+
+API đã xác minh PR OPEN/merged=false, toàn bộ file/blob của commit công bố khớp. Quan sát ban đầu và hash hồ sơ hiện hành ở `docs/P1/report/publication_remote_observation.json`; đây là snapshot tại commit được ghi, không giả là fullHEAD sau commit hồ sơ. Bàn giao cuối kiểm lại HEAD cuối/remote/tất cả blob. PR không lặp dàn ý đã merge, không có phần P2, DOCX/slide, credential/dữ liệu riêng tư hoặc kế hoạch ngoài phạm vi.
+
+Kiểm biên tập:142liên kết hợp lệ,85hàng bảng giữ nguyên số liệu,6hình/12bảng đánh số nhất quán,7hashảnh và394file code/dữ liệu/bằng chứng được bảo toàn. Audit giai đoạn trước công bố giữ nguyên, ledger mới phân biệt hash file chỉnh hồ sơ. Không pipeline/evaluator/ETL/G3/dump/restore.
+
+ẢnhSởthích mới chưa có: browser8089 connection refused, GET/health cũng thất bại; không suy nguyên nhân hoặc tự bật/sửa service. Giữ bảng4.4 đã đối soát và checklist ảnh rõ. Hệ thống/tài nguyên không bị thay đổi trong lượt này. P2 báo G2CONFIRMED trên Windows3.12.6/PG17.4, bằng chứng chờ điều phối review; khôngLinux, **G4 chưa hoàn thành**. Dừng chờ reviewPR27, không tự merge/ghépP2/DOCX/slide.
+
 ## Hiện hành24/10/2026 — nội dung P1 được điều phối chấp nhận; chuẩn bị PR phần chương
 
 Điều phối chấp nhận nội dung chương1/3/4 và phụ lục, giao chỉnh biên tập rồi commit/push/PR. Ghi đúng nguồn điều phối, chưa là nghiệm thuG4 hoặc quyền merge. Phiên bản biên tập P1-v2 tách sơ đồQ1/G3 vàQ2/CLI, rà khoảng trắng/thuật ngữ/số hiệu, chuyển review ảnh sang editorial_notes.md, giữ số liệu và phạm vi môi trường. Bỏ khẳng định ngưỡng đã được chọn trước xem kết quả khi chưa có căn cứ thời điểm độc lập. Thêm danh mục tham khảo references.md tách Rnguồnngoài và I/Eartifact nội bộ.
