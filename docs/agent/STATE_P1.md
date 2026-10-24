@@ -1,5 +1,15 @@
 # Trạng thái P1
 
+## Hiện hành 24/10/2026 — PR26 dàn ý OPEN; bản thảo P1 WAITING_REVIEW
+
+Dàn ý13A và danh mục bằng chứng đã được điều phối duyệt chức năng. Đã công bố [PR26](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/26) gồm13file, HEAD `981be3725dc192875ac361b53a39c13e370de97c`, base `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. Remote HEAD, từng blob và hash công bố đã kiểm; agent không merge. Checkpoint tài liệu21a6e80 giữ trên nhánh cũ; nhánh mới codex/p1-s13-report tạo từ origin/main, chuyển tài liệu bằng cherry-pick36d8d7d và commit audit981be37. Kế hoạch untracked ngoài phạm vi giữ nguyên.
+
+Sau khi mởPR, đã viết `docs/P1/report/chapter_01.md`, `chapter_03.md`, `chapter_04.md` cùng phụ lục và review hình. **Cả ba chương WAITING_REVIEW**, chưa được duyệt chức năng; chưa stage/commit/push hoặc ghép vào PR26. Nội dung có bảng, ERD, số liệu và dẫn nguồn. Chưa tạo DOCX/slide hoặc ghép phần P2. Kiểm tài liệu tại `docs/P1/report/draft_audit.json`; hồ sơ bước tại S13.md.
+
+P2 **đã báo G2 CONFIRMED** trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4, candidate4546d5b…; bằng chứng công bố đang chờ điều phối review. Đây là thông tin điều phối chuyển, chưa phải P1 kiểm độc lập lượt P2. Không ghi đã kiểm Linux; **G4 chưa hoàn thành**. Thiếu rubric không chặn bản thảo; không áp số trang/thể thức bắt buộc.
+
+Đã xem thực7ảnh: EDA rõ; Tổng quan có giới hạn viewport; Xu hướng dùng minh họa dấuQoQ/filter;3ảnh Sở thích mờ không dùng làm hình chính. Không chụp UI mới, chạy pipeline hoặc đổi dịch vụ; giữ demo và tài nguyên thử. Dừng chờ review riêng ba chương.
+
 ## Cập nhật hiện hành 24/10/2026 — dàn ý được điều phối duyệt
 
 Điều phối duyệt dàn ý13A và danh mục bằng chứng, giao công bố riêng trước khi viết bản thảo P1 chương1/3/4. P2 **đã báo G2 CONFIRMED**, tái lập candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4. Nguồn là thông điệp điều phối qua người dùng, bằng chứng công bố của P2 **đang chờ điều phối review**; P1 chưa kiểm độc lập lượt P2. Không ghi đã kiểmLinux, **G4 chưa hoàn thành**. Chi tiết nguồn ở `docs/P1/p2_intake_reported_20261024.json`. Các mụcNOT_CONFIRMED/WAITING_REVIEW/OPEN bên dưới và audit13A là snapshot lịch sử, không sửa thành bằng chứng mới.

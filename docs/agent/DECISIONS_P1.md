@@ -1,5 +1,9 @@
 # Quyết định P1
 
+## D122 — nguồn hình và trạng thái bản thảo,24/10/2026
+
+Thânchươngtrìnhbàyphươngpháp/quyếtđịnh/kếtquả,cònidentity/run/hash/lệnhdàiởappendix_sources.md. Chỉdùngảnhđãxem:EDA,Tổngquan,Xuhướngcókèmgiớihạnchúthích;3ảnhSởthíchmờkhôngchọnlàmhìnhchính,dùngbảngSQL/APIđãkiểm. Khôngảnhgiả/chạyUITestmới. Bảnthảo13P1chờreviewriêng,khôngcommitvàoPR26dàný.
+
 ## D121 — công bố13A, bản thảoP1 tách riêngPR,24/10/2026
 
 Theo điều phối duyệt13A: bảo toàn thay đổi bằng commit tài liệu có chọn lọc, tạo codex/p1-s13-report từmain hiện hành, chuyển phần tài liệu sang nhánh mới. Công bố dàn ý trước, sau đó bản thảochương1/3/4 chỉworkingtreeWAITING_REVIEW; khôngghépPRdàný. P2reportedG2CONFIRMED khác bằng chứng đãđiềuphốireview; khôngLinux/G4. Không bắt buộc sốtrang/thể thức khi thiếu rubric.

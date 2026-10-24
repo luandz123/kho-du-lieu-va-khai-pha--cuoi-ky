@@ -1,5 +1,9 @@
 # Nguồn prompt P1
 
+## Thực hiện pha viết sau công bố13A,24/10/2026
+
+Theo đúng lệnh điều phối hiện hành, sau khi PR26đãOPEN vàkiểmblob, viếtchương1/3/4riêngdocs/P1/report/. KhôngghépPRdàný,khôngstage/commitbảnthảo. Kiểmhìnhthựcbằngview_image;giữ3ảnhSởthíchmờngoàihìnhchính. Nội dungđủtheodàný,run/hash/lệnhdàiđưaphụlục,bằngchứngruntimekhôngchạylại.
+
 ## Giao công bố13A và bản thảoP1,24/10/2026
 
 Người dùng chuyển lệnh điều phối duyệt dàn ý/chỉ mục, giao nhánh codex/p1-s13-report, commit/push/PRdàn ý và hậumerge, rồi viết docs/P1/report/chapter_01.md, chapter_03.md, chapter_04.md. Các chươngchờreview, chưađưavàoPRdàný. NguồnP2báoWindows3.12.6/PG17.4/G2CONFIRMED trêncandidate4546d5b…, bằng chứng công bốchờreview, G4chưađạt. Ảnh cầnxemthật, khôngchỉkiểmfile; khôngruntime/DOCX/slide. Đây là tóm tắt lệnh, không lời duyệt bản thảo.

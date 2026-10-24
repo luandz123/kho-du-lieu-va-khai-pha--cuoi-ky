@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Bản thảochương1/3/4 — chưa review,24/10/2026
+
+Điều phối duyệt13Akhôngtựđộngduyệtbảnthảo. Ba chươngP1-v1ởdocs/P1/report/chapter_01.md,chapter_03.md,chapter_04.md đặtWAITING_REVIEW. Chưa ghépDOCX/slide/P2 hoặcPR26. Giới hạnảnhSởthích vàG4chờđượcghiđúng;khôngtạoxácnhậntừP2ngoàibáocáođiềuphốichuyển.
+
 ## Review điều phối13A,24/10/2026
 
 Người dùng chuyển: “Điều phối duyệt dàn ý 13A và danh mục bằng chứng.” Ghi đúng nguồn điều phối, chấp nhận dàn ý/chỉ mục; không tạo lời duyệt trực tiếp của người dùng choG4. Được commit/push/mởPR13A, rồi viết bản thảoP1 chương1/3/4 chờreview riêng. P2báoG2CONFIRMED trênWindows3.12.6/PG17.4, bằng chứng công bố chờreview; khôngLinux/G4.
