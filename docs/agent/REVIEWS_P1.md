@@ -1,5 +1,9 @@
 # Hồ sơ duyệt P1
 
+## Điều phối nghiệm thu12-P2 — chưa duyệt12B/G4,24/10/2026
+
+Người dùng chuyển nguyên câu: “Điều phối nghiệm thu 12-P2 sau khi kiểm PR28 và bản sửa PR29.” Đồng thời xác nhận P2intakeG2CONFIRMED trên Windows độc lập. Ghi đúng nguồn điều phối, không tạo lời duyệt12B/G4. API xác minh PR28/29MERGED đúngSHA; nhận bằng chứng P2 đã công bố để tổng hợp.12B WAITING_REVIEW và G4 chỉđềxuấtchờduyệt.
+
 ## Điều phối duyệt checklist và ảnh Sở thích bổ sung,24/10/2026
 
 Người dùng chuyển nguyên câu: “Điều phối duyệt checklist ghép và ảnh Sở thích bổ sung.” Nguồn review là điều phối, không là lời duyệtG4. Được cập nhật Hình4.3/4.4 và checklist vào PR27 nếu cònOPEN; đã xác minh OPEN tại HEADd018921… nên dùng PR27. HEAD mới/diff bổ sung chờ review riêng, không tự merge.

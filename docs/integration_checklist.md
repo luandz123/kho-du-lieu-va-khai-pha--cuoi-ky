@@ -1,5 +1,23 @@
 # Checklist tích hợp sơ bộ — chuẩn bị trước 12A, 21/10/2026
 
+## Hiện hành24/10/2026 — tổng hợp12B WAITING_REVIEW
+
+Điều phối đã nghiệm thu12-P2 sau PR28 và PR29. **P2 intake G2 = CONFIRMED trên máy P2/Windows độc lập.** Các bảng/mục “NOT_CONFIRMED”, “chưa hợp nhất”, “chưa full refresh” bên dưới là snapshot lịch sử chuẩn bị, không phải trạng thái hiện hành. Không sửa report/runtime/receipt cũ.
+
+Nguồn hiện hành: [ma trận12B](P1/integration_acceptance.md) và [audit nguồn](P1/integration_acceptance_sources.json). Candidate thực chạy trênP2 là4546d5b…, khác main nền d20d3bc… và commit công bố hồ sơ12B. Git xác minh main chứa candidate/PR28/PR29; P1 chỉ tổng hợp bằng chứng, không chạy lại pipeline.
+
+- [x] Main chứa candidate4546d5bbd8f9130a420518b77dc3ad894bc7f42b, PR28merge88c5c7b952553523f58e82ed6546179451eb6b65 và PR29merged20d3bc382e603cc219bc4a742814bae793421ab.
+- [x] Hai chu trình P1, invalidation/reload/NO-OP, rollback fixture và bốn canonical được đối chiếu artifact.
+- [x] P2 dựng DW độc lập, adapter raw/CSV/DW, tái lập hai CSV G3 và ML/CLI từ DW có bằng chứng đã được điều phối nghiệm thu.
+- [x] Ba dashboard/BI/restore có bằng chứng P1; phạm vi và giới hạn được giữ trong ma trận.
+- [x] Receipt Test giữ nguyên, chỉ tham chiếu; không evaluator/ETL/G3/dump/restore trong12B.
+- [x] WindowsP1/Python3.12.14/PG17.11 và WindowsP2/Python3.12.6/PG17.4 được phân biệt; khôngLinux/SupersetP2/toànstackmáymới.
+- [ ] Điều phối review hồ sơ12B và quyết định chốt G4. **Đề xuất đạt, chưa tự đánh dấu hoàn thành.**
+- [ ] PR12B được review/merge theo lệnh riêng; không tựmerge hoặc tag.
+- [ ] Các cập nhật sau G4 vào báo cáo tổng/README/demo và việc ghép phầnP2 thực hiện ở bước được giao riêng; chưa G5/DOCX/slide.
+
+Các giới hạn còn lại không được xóa: PUBLIC TEMP, DB-level ACL clone khác nguồn, ZIP cần REST layout, chỉ cùng máy/version khi restoremetadata; không BI hai máy hoặc Linux. Trong phạm vi ma trận I01–I15 chưa phát hiện lỗi chức năng bắt buộc còn mở; xem chi tiết ma trận, không diễn giải thành toàn dự án đã xong.
+
 ## Cập nhật12A23/10/2026 — WAITING_REVIEW
 
 PR24 MERGED01d51a2, base12A01d51a2; venv Windowsmới/requirements tổng đã cài/import/pipcheck,88test mục tiêuđạt. Hai chu trình trên DBtíchhợpriêng đã kiểm fullrefresh sauS07/G3,modelinvalidate/reload/NOOP,MLDW/CLI và3dashboard8092; không fullrefresh demo. Hậu kiểmREADONLY nguồn/8089/ACL/guardBIđạt. [Phiếu gói](P1/integration_candidate.md), [runbook](P1/integration_runbook.md), [S12A](agent/steps/P1/S12A.md). Chưa P2intake/tái lậpvenvLinux, candidatecuối/G4 hoặccommit/push/PR12A. Bảng bên dưới là snapshot chuẩn bị cũ, không thay quan sát12A mới.

@@ -1,5 +1,9 @@
 # Nguồn prompt P1
 
+## Giao12B tổng hợp nghiệm thu,24/10/2026
+
+Theo lệnh điều phối được người dùng chuyển: xác minh main chứa candidate4546d5b…, PR28merge88c5c7b…, PR29merged20d3bc…; lập integration_acceptance.md ma trận P1/P2/giới hạn/hash/count/cycles/ML/BI/restore/receipt. Cập nhật checklist/hồsơ,12BWAITING_REVIEW và đềxuấtG4đạt nếu không lỗi bắt buộc. Đượccommit/push/PR,khôngmerge. Không pipeline/ETL/G3/evaluator/dump/restore hoặc sửaP2/metric/receipt; giữdemo. Đây là tóm tắtphạmvi, không lời duyệt12B.
+
 ## Giao công bố checklist và hình bổ sung,24/10/2026
 
 Điều phối duyệt checklist/ảnh Sở thích; giao chọn all_kpis.jpg và cluster1_F_25_34_top.jpg, ghi caption instance8089/ngày/filter, giữ Bảng4.4 và dẫn SQL/API cho scope. Có thể cắt bản riêng nhưng phải giữ gốc; chọn không cắt. PR27 OPEN thì bổ sung chính PR, nếuMERGED mới tạo nhánh/PR từmain. Chỉ stage ảnh cần dùng, manifest, tài liệu liên quan; kiểm hash/link/privacy, commit/push rồi báo HEAD mới và diff sau d018921…. Không merge, sửa service/dashboard, chạy pipeline/evaluator hoặc ghép DOCX tổng trước khi có phầnP2 được duyệt. Đây là tóm tắt lệnh trong chat, không tạo lời duyệt bổ sung.
