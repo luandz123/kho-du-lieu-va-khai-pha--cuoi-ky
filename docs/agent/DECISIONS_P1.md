@@ -1,5 +1,9 @@
 # Quyết định P1
 
+## D126 — tổng hợp12B từ bằng chứng hiện có,24/10/2026
+
+Điều phối nghiệm thu12-P2 sau PR28/29, xác nhận intakeG2 trên Windows độc lập. Chỉ đọc artifact/Git/hash, không thực thi lại; candidate4546d5b khác nền hồ sơd20d3bc và commit công bố. P2manifest6artifact khớp blobGit; rawtextcheckout CRLF ghi riêng, không chuẩn hóa dữ liệu hoặc sửaP2. ĐềxuấtG4đạt nếu ma trận không còn lỗi bắt buộc;12B vẫnWAITING_REVIEW, không tựchốtG4/merge. KhôngLinux/SupersetP2/DRtoànstackmáymới.
+
 ## D125 — hai hình gốc và scope theo SQL/API,24/10/2026
 
 Dùng hai ảnh đã duyệt nguyên byte, không cắt vì KPI/filter đọc được. Caption có instance8089, ngày, filter và model. Bảng4.4 giữ nguyên; Hình4.3/4.4 tiếp sau4.1/4.2. Scope heatmap dẫn SQL profile, API exclusions chart19/15/16 và reconciliation, không suy từ screenshot. Chỉ stage hai ảnh, selected_manifest, checklist, chương4 và hồ sơ liên quan; không ảnh thử/DOM/rawlog/receipt cục bộ hoặc kế hoạch. PR27 OPEN nên bổ sung cùng PR; không service/pipeline/evaluator.

@@ -1,0 +1,40 @@
+{
+  "url": "https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30",
+  "number": 30,
+  "state": "open",
+  "merged": false,
+  "head": "1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98",
+  "base": "d20d3bc382e603cc219bc4a742814bae793421ab",
+  "all_PR_blobs_match": true,
+  "files": [
+    "docs/P1/integration_acceptance.md",
+    "docs/P1/integration_acceptance_publication.json",
+    "docs/P1/integration_acceptance_sources.json",
+    "docs/P1/integration_candidate.md",
+    "docs/agent/DECISIONS_P1.md",
+    "docs/agent/PROMPTS_P1.md",
+    "docs/agent/REVIEWS_P1.md",
+    "docs/agent/STATE_P1.md",
+    "docs/agent/steps/P1/S12A.md",
+    "docs/agent/steps/P1/S12B.md",
+    "docs/integration_checklist.md"
+  ],
+  "observation_scope": "Initial11file PR at content commit, before record-only commit; final HEAD verified separately",
+  "p2_intake_g2": "CONFIRMED",
+  "step12b_status": "WAITING_REVIEW",
+  "g4_complete": false,
+  "artifact_sha256_after_record_update": {
+    "docs/P1/integration_acceptance.md": "eccd3858beb2d0d5489a9b9eb21521b68b156a6e51271d2808667a21d9f71469",
+    "docs/P1/integration_acceptance_publication.json": "c4ab834ad02088c9449e2feb960724dc8ec9d3182dc0f054c8a06308f098f2d7",
+    "docs/P1/integration_acceptance_sources.json": "68c0ff37c20e6f267ce2c05a268b38ba69987d9c5ec82c926cacb37d52b76726",
+    "docs/P1/integration_candidate.md": "ab6e5357090b9a91ff6be0d75eee33dc2476c673069832ace6192570e6d1e268",
+    "docs/agent/DECISIONS_P1.md": "8b65b9620e448eaa265c32e18a39665ca89b32aee2429523d7f5262fed2bf1a6",
+    "docs/agent/PROMPTS_P1.md": "3f385faf4c32b937b453809a4fc384df9573fe491fb587cbad57be54cc5378ce",
+    "docs/agent/REVIEWS_P1.md": "68e5e4304838727cbaad19a909d1f1bb072b68e686dd37ffae3d85204732ac9a",
+    "docs/agent/STATE_P1.md": "6d80c7a1cf5e0975395535f9c21544e3884d3c6eea0b18cb6f6153e4e8a89e1b",
+    "docs/agent/steps/P1/S12A.md": "304ca0930ce96d8c0f042d77745540065c1822827dcb6786b8e382ac121801be",
+    "docs/agent/steps/P1/S12B.md": "8c3be0fe4ee5d5d36f849c971ab417b1224d4ed60bdb0e38e60e75290fd75bf1",
+    "docs/integration_checklist.md": "a39570032b0571f891fbae7c8d6ea1975d1b27553915bbc7952bdf18f3048ab7"
+  },
+  "self_excluded_from_hash_manifest": true
+}

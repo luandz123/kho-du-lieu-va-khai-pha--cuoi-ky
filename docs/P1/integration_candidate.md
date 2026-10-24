@@ -1,5 +1,11 @@
 # Hồ sơ gói tích hợp12A — WAITING_REVIEW, chưa chọn candidate cuối
 
+## Hiện hành12B,24/10/2026 — candidate đã P2 kiểm nhận, chờ chốtG4
+
+Candidate thực chạy của P2 vẫn `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`, không thay bằng main hồ sơ. Điều phối đã nghiệm thu12-P2 sau PR28merge88c5c7b… và PR29merged20d3bc…; P2intakeG2CONFIRMED trên Windows độc lập. [Ma trận12B](integration_acceptance.md) và [auditnguồn](integration_acceptance_sources.json) là cập nhật hiện hành; các đoạn “chờP2/NOT_CONFIRMED/chưa chọn” bên dưới giữ như lịch sử.
+
+12BWAITING_REVIEW, G4đềxuấtđạt nhưngchưahoànthành. P1 Windows/Python3.12.14/PG17.11, P2 Windows/Python3.12.6/PG17.4; khôngLinux/SupersetP2 hoặcDRtoànstackmáymới. Hồ sơ12B có commitcôngbốriêng, không gán vào runP1/P2 cũ. Khôngchạy lại pipeline hoặc thayprovenance.
+
 ## Cập nhật hiện hành 24/10/2026 — dàn ý được điều phối duyệt
 
 Điều phối duyệt dàn ý13A và danh mục bằng chứng, giao công bố riêng trước khi viết bản thảo P1 chương1/3/4. P2 **đã báo G2 CONFIRMED**, tái lập candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4. Nguồn là thông điệp điều phối qua người dùng, bằng chứng công bố của P2 **đang chờ điều phối review**; P1 chưa kiểm độc lập lượt P2. Không ghi đã kiểmLinux, **G4 chưa hoàn thành**. Chi tiết nguồn ở `docs/P1/p2_intake_reported_20261024.json`. Các mụcNOT_CONFIRMED/WAITING_REVIEW/OPEN bên dưới và audit13A là snapshot lịch sử, không sửa thành bằng chứng mới.

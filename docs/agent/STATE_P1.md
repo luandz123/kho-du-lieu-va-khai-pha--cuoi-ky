@@ -1,5 +1,25 @@
 # Trạng thái P1
 
+## Hiện hành24/10/2026 — PR30 OPEN,12B WAITING_REVIEW
+
+Đã công bố [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30) trên nhánh codex/p1-s12b-acceptance, base `d20d3bc382e603cc219bc4a742814bae793421ab`. Commit nội dung tài liệu12B `1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98`; candidate thực chạy củaP2 vẫn4546d5b…, không thay bằng commit tài liệu. API xác minh OPEN/merged=false và mọi file/blob khớp lúc công bố. Commit hồ sơ tiếp theo chỉ ghi quan sát, không chạy lại hoặc đổi bằng chứng. Agent không merge.
+
+12-P2 đã được điều phối nghiệm thu sau PR28/29, **P2 intake G2CONFIRMED**. Ma trận16dòng và audit45nguồn,6/6artifactP2 khớp blobGit,46liênkết đạt. 420file code/dữ liệu/bằng chứng/report được bảo toàn. Không phát hiện lỗi chức năng bắt buộc còn mở trong phạm vi ma trận; **12B WAITING_REVIEW, đề xuất G4đạt nhưng G4chưa hoàn thành**. Cần điều phối review/xác nhận, không tự chốt từ việc mởPR.
+
+Phạm vi P1 Windows/Python3.12.14/PG17.11; P2 Windows độc lập/Python3.12.6/PG17.4. KhôngLinux/SupersetP2/DRtoànstackmáymới; PUBLIC TEMP/ACLclone/ZIPRESTlayout giữ giới hạn. Mọi trạng tháiNOT_CONFIRMED/OPENcũ và runtime/receipt giữ lịch sử. Snapshot công bố và ledger cập nhật tại integration_acceptance_remote.json; HEAD cuối được kiểm riêng.
+
+Không ETL/G3/evaluator/dump/restore/test hoặc kết nốiDB/Superset trong12B. Giữdemo/tài nguyên. Không sửaP2/metric/receipt, ghépDOCX hoặcslide. Trackedworkingtree sẽđược kiểm sạch saucommit;10fileuntrackedngoàiphạmvigiữcục bộ,khôngstage. DừngchờreviewPR30.
+
+## Hiện hành 24/10/2026 — 12B WAITING_REVIEW;12-P2 đã nghiệm thu
+
+Điều phối qua người dùng nghiệm thu12-P2 sau PR28 và PR29, xác nhận **P2 intake G2 = CONFIRMED** trên máy P2/Windows độc lập. API/Git xác minh main nền `d20d3bc382e603cc219bc4a742814bae793421ab` chứa candidate4546d5b…, PR28merge88c5c7b… và PR29merge d20d3bc…. PR27 cũng đã merge03d9bc9…, agent không merge. Quan sát mới trong integration_acceptance_sources.json; các trạng thái OPEN/NOT_CONFIRMED trước giữ nguyên lịch sử.
+
+Nhánh codex/p1-s12b-acceptance tạo từ origin/main, bảo toàn10file untracked ngoài phạm vi. integration_acceptance.md có ma trận I01–I16, bốn canonical/count, hai checksumG3, hai chu trìnhP1 và tái lập DW/ML/CLI độc lậpP2. Audit45nguồn và6artifactP2 khớp blobGit/manifest; working copy CRLF chỉ khác xuống dòng văn bản. Không sửa fileP2, nguồn/canonical/G3 hoặc manifest để ép hash.
+
+P1 Windows/Python3.12.14/PostgreSQL17.11; P2 Windows/Python3.12.6/PostgreSQL17.4. Không Linux, SupersetP2 hoặc phục hồi toàn stack máy mới. **12B WAITING_REVIEW; đề xuất G4 đạt trong phạm vi ma trận, chưa G4 hoàn thành.** Không thấy lỗi chức năng bắt buộc còn mở qua đối chiếu. PR12B phải review/merge riêng; không tự merge.
+
+Lượt này chỉ đọc tệp/Git/API GitHub; không pipeline/ETL/G3/evaluator/dump/restore/test hoặc kết nốiDB/Superset. Giữ demo/tài nguyên, metric/receipt và kế hoạch. Chưa sửa các chương đã duyệt hoặc ghép DOCX/slide; cập nhật sauG4 theo bước riêng.
+
 ## Hiện hành24/10/2026 — hai hình/checklist đã bổ sung vào PR27, WAITING_REVIEW diff mới
 
 Đã push bổ sung vào [PR27](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/27) hiện có, không tạo PR trùng. Mốc trước review `d018921be66b12dc275933e1de9c2e755b74241a`, commit nội dung bổ sung `30463d140aa71c9d691346061a29d3b110daa3b2`; base main `dad848eedcd11230559acfc01ee103be718289a2`. API xác minh PR OPEN/merged=false và mọi file/blob khớp lúc công bố. Commit hồ sơ tiếp theo không đổi chương, ảnh hoặc SQL; HEAD cuối được kiểm riêng khi bàn giao. Không tự merge.
