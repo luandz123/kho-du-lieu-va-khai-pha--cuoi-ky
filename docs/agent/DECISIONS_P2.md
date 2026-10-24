@@ -5,8 +5,8 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 ---
 
 ### [DEC-P2-001] Xác định Workspace và Hệ điều hành thực tế
-- **Bối cảnh**: Prompt khởi tạo ghi đường dẫn mẫu `D:\BTL_Kho_Du_Lieu` (Windows), nhưng môi trường thực tế của Người 2 là Linux Ubuntu 24.04.1 LTS x86_64 tại `/home/luan/kho-du-lieu-va-khai-pha--cuoi-ky`.
-- **Quyết định**: Sử dụng toàn bộ đường dẫn thực tế theo chuẩn POSIX trên Linux (`/home/luan/kho-du-lieu-va-khai-pha--cuoi-ky`), cập nhật vào toàn bộ hồ sơ theo dõi cục bộ.
+- **Bối cảnh**: Prompt khởi tạo ghi đường dẫn mẫu `D:\BTL_Kho_Du_Lieu` (Windows), nhưng môi trường thực tế của Người 2 là Linux Ubuntu 24.04.1 LTS x86_64 tại `<workspace-root>`.
+- **Quyết định**: Sử dụng toàn bộ đường dẫn thực tế theo chuẩn POSIX trên Linux (`<workspace-root>`), cập nhật vào toàn bộ hồ sơ theo dõi cục bộ.
 
 ---
 
@@ -126,7 +126,7 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
 ---
 
 ### [DEC-P2-014] Xác Định Môi Trường Thực Tế Bước 12-P2 Trên Máy P2 / Windows
-- **Bối cảnh**: Tại các bước trước, một số tài liệu ghi nhận môi trường Linux Ubuntu (`/home/luan/...`). Hiện tại phiên làm việc thực tế của Người 2 đang vận hành trên máy P2 tại workspace `c:\Users\lenovo\kho-du-lieu-va-khai-pha--cuoi-ky`, chạy hệ điều hành Windows 11 (x86_64), dịch vụ PostgreSQL 17.4 cục bộ, độc lập hoàn toàn với máy và mạng của Người 1.
+- **Bối cảnh**: Tại các bước trước, một số tài liệu ghi nhận môi trường Linux Ubuntu (`<workspace-root>`). Hiện tại phiên làm việc thực tế của Người 2 đang vận hành trên máy P2 tại workspace `<workspace-root>`, chạy hệ điều hành Windows 11 (x86_64), dịch vụ PostgreSQL 17.4 cục bộ, độc lập hoàn toàn với máy và mạng của Người 1.
 - **Quyết định**:
   1. Ghi nhận trung thực môi trường thực tế hiện tại là **Windows 11 (x86_64)** trong toàn bộ hồ sơ (`STATE_P2.md`, `DECISIONS_P2.md`).
   2. Kết luận tái lập Bước 12-P2 sẽ ghi nhận là **“Tái lập trên máy P2 / Windows”**; tuyệt đối **không ghi nhận đã xác minh trên Linux**.
@@ -142,10 +142,12 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   3. **Kiểm nhận Mốc G2 & Tương đương 3 chiều**: Sử dụng adapter `load_dw_data()` nạp 4 view hợp đồng (`dw.v_ml_*`). Kết quả đối chiếu với RAW và CSV: 100% khớp schema, kiểu dữ liệu, thứ tự cột, định dạng ISO-8601 UTC và mã băm SHA-256 canonical. Chính thức xác nhận: **`P2 intake G2 = CONFIRMED`**.
   4. **Tái lập Pipeline Khai phá từ DW**:
      - Q1 Feature Extraction: Tạo ma trận $(6038, 18)$ và phân cụm K-Means ($K=4$, seed 42) xuất vào thư mục riêng `tmp/g3_reproduced_dw` ngoài Git. Cả hai tệp `user_cluster.csv` và `cluster_genre_profile.csv` khớp 100% từng byte mã băm SHA-256 với fingerprint đóng băng (`5812d961...` và `59f9237e...`).
-     - CLI Recommender: Chạy 3 ca kiểm thử từ DW gồm Evaluation có hạt giống (User 319), Evaluation zero-seed fallback (User 1) và Demo full history (User 1). Đảm bảo Top-5 duy nhất, không trùng lặp, loại bỏ lịch sử, tách biệt điểm CF và fallback. Tệp kết quả lưu cục bộ tại `tmp/` ngoài Git.
+     - CLI Recommender: Chạy 3 ca kiểm thử từ DW gồm evaluation có seed, evaluation fallback và demo. Đảm bảo Top-5 duy nhất, không trùng lặp, loại bỏ lịch sử, tách biệt điểm CF và fallback. Tệp kết quả lưu cục bộ tại `tmp/` ngoài Git.
   5. **Bảo toàn Đánh giá Test Chính thức**: Tuyệt đối không chạy evaluator test trên dữ liệu thật, không điều chỉnh $k$. 31/31 unit test CF, guard và recommender đạt PASS 100% trên môi trường mới.
-  6. **Bàn giao & Giới hạn**: Lập báo cáo đầy đủ tại `docs/P2/integration_report.md` và `docs/agent/steps/P2/S12.md`. Giữ nguyên tắc không đưa credential, dữ liệu người dùng hay binary model lên Git. Đặt trạng thái `12-P2 WAITING_REVIEW`, dừng chờ điều phối viên nghiệm thu, không tự chốt mốc G4.
+  6. **Bàn giao & Giới hạn**: Lập báo cáo đầy đủ tại `docs/P2/integration_report.md` và `docs/agent/steps/P2/S12.md`. Giữ nguyên tắc không đưa credential, dữ liệu người dùng hay binary model lên Git. Trạng thái trước công bố là `12-P2 WAITING_REVIEW`; hiện G2 đã được điều phối chấp nhận, PR #28 đã merge tại `88c5c7b952553523f58e82ed6546179451eb6b65`; G4 chưa chốt.
 
 
 
 
+
+Hồ sơ môi trường Bước 12-P2 công bố: [environment.json](../../results/mining/integration_p2/environment.json). `<workspace-root>` là đường dẫn do người chạy chọn; chi tiết đường dẫn cá nhân giữ cục bộ ngoài Git.
