@@ -1,0 +1,30 @@
+{
+  "candidate_commit_sha": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "step": "12-P2",
+  "artifacts": {
+    "environment.json": {
+      "byte_size": 1442,
+      "sha256": "a0861540e520bd8c3a82d6f3e103591a4e49b094ec94a5db9216c8d3ad04d0f3"
+    },
+    "dw_reconstruction.json": {
+      "byte_size": 713,
+      "sha256": "4c02f134a905a46bfd00de1d0854fa9f718e9ebeb2d3df93751d942fecc170fe"
+    },
+    "source_equivalence.json": {
+      "byte_size": 1434,
+      "sha256": "a9e8ffd7b72b669f5fdf7e1706019c1bcd95f57e7761e3c8cce9e57b7a41ac95"
+    },
+    "g3_reproduction.json": {
+      "byte_size": 908,
+      "sha256": "4f0e0aa924f7b464f357a86147f25fb5d7171c80dbdf2d438ca988711e42851a"
+    },
+    "cli_verification_summary.json": {
+      "byte_size": 1640,
+      "sha256": "5ba99190d4e9ef73ece87260986d6a72749a02e6cb5b8408409605b0f4fcb847"
+    },
+    "test_suite_log.txt": {
+      "byte_size": 606,
+      "sha256": "8474a2f2076a0772032a2294b3bbcf939ee69f260ac9dd2165262fff1262f1d6"
+    }
+  }
+}

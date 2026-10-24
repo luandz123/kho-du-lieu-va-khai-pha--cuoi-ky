@@ -123,4 +123,29 @@ Tài liệu này ghi nhận toàn bộ các quyết định kỹ thuật, kiến
   8. **Bảo mật & Giữ ngoài Git:** Model binary, lịch sử chi tiết, per-user recommendations và per-user metrics giữ ngoài Git.
   9. **Công bố Snapshot Tĩnh & Khóa Manifest Mặc Định trong CLI:** Đưa snapshot thực thi evaluator gốc vào `docs/P2/provenance/eval_original.py` (32,508 bytes, LF, SHA-256 `e3fa2eff...`, Git blob `d7c97bae...`) chỉ phục vụ kiểm toán tĩnh độc lập, không thực thi. Nâng cấp CLI `mining/recommend.py` ở chế độ mặc định tự kiểm tra trước fit: trạng thái `OFFICIAL_COMPLETED`, `model_version="item_based_cf_k40_eval_v1"`, `cutoff=976422051`, `training_count=850177`, `neighbor_k=40`, `frozen recommendation_top_n=5`, và đủ 4 canonical hashes không dùng default để che trường thiếu. Mọi vi phạm đều bị từ chối trước khi dựng similarity. Mở PR bổ sung vào `main` sau khi PR #23 đã merge.
 
+---
+
+### [DEC-P2-014] Xác Định Môi Trường Thực Tế Bước 12-P2 Trên Máy P2 / Windows
+- **Bối cảnh**: Tại các bước trước, một số tài liệu ghi nhận môi trường Linux Ubuntu (`/home/luan/...`). Hiện tại phiên làm việc thực tế của Người 2 đang vận hành trên máy P2 tại workspace `c:\Users\lenovo\kho-du-lieu-va-khai-pha--cuoi-ky`, chạy hệ điều hành Windows 11 (x86_64), dịch vụ PostgreSQL 17.4 cục bộ, độc lập hoàn toàn với máy và mạng của Người 1.
+- **Quyết định**:
+  1. Ghi nhận trung thực môi trường thực tế hiện tại là **Windows 11 (x86_64)** trong toàn bộ hồ sơ (`STATE_P2.md`, `DECISIONS_P2.md`).
+  2. Kết luận tái lập Bước 12-P2 sẽ ghi nhận là **“Tái lập trên máy P2 / Windows”**; tuyệt đối **không ghi nhận đã xác minh trên Linux**.
+  3. Bảo toàn nguyên trạng working tree, dữ liệu raw/canonical, receipt và virtual environment hiện có, không cài lại máy hay chuyển môi trường. Dừng chờ Điều phối viên cấp full merge commit SHA của PR 12A trước khi triển khai Phần B.
+
+---
+
+### [DEC-P2-015] Kiểm Nhận Handoff G2 Từ Kho Dữ Liệu & Tái Lập Pipeline Khai Phá (Bước 12-P2)
+- **Bối cảnh**: Điều phối viên giao P2 thực hiện Phần B — Bước 12-P2 tại merge commit ứng viên cố định `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` (PR #25) trên máy P2 / Windows 11 độc lập.
+- **Quyết định & Kết quả**:
+  1. **Tách biệt Checkout & Môi trường**: Tạo checkout tại `tmp/checkout_12a` tại đúng candidate SHA. Khởi tạo virtual environment sạch `tmp/venv_12a` với Python 3.12.6, cài đặt nguyên gốc `requirements.txt` (`No broken requirements found.`). Toàn bộ working tree và hồ sơ của P2 tại nhánh `main` được bảo toàn nguyên vẹn.
+  2. **Tái tạo CSDL DW-Only**: Chạy `etl/recreate_integration_dw.py` ở chế độ plan đạt, sau đó apply tạo CSDL `movielens_btl_int_20261023_e7b2219c` (Run ID `e7b2219c75e847e38005de5d0e2509a9`) trên PostgreSQL 17.4 cục bộ của P2. Toàn bộ 1,000,209 ratings, 6,040 users, 3,883 movies, 6,408 genres được nạp thành công với transaction `COMMITTED`.
+  3. **Kiểm nhận Mốc G2 & Tương đương 3 chiều**: Sử dụng adapter `load_dw_data()` nạp 4 view hợp đồng (`dw.v_ml_*`). Kết quả đối chiếu với RAW và CSV: 100% khớp schema, kiểu dữ liệu, thứ tự cột, định dạng ISO-8601 UTC và mã băm SHA-256 canonical. Chính thức xác nhận: **`P2 intake G2 = CONFIRMED`**.
+  4. **Tái lập Pipeline Khai phá từ DW**:
+     - Q1 Feature Extraction: Tạo ma trận $(6038, 18)$ và phân cụm K-Means ($K=4$, seed 42) xuất vào thư mục riêng `tmp/g3_reproduced_dw` ngoài Git. Cả hai tệp `user_cluster.csv` và `cluster_genre_profile.csv` khớp 100% từng byte mã băm SHA-256 với fingerprint đóng băng (`5812d961...` và `59f9237e...`).
+     - CLI Recommender: Chạy 3 ca kiểm thử từ DW gồm Evaluation có hạt giống (User 319), Evaluation zero-seed fallback (User 1) và Demo full history (User 1). Đảm bảo Top-5 duy nhất, không trùng lặp, loại bỏ lịch sử, tách biệt điểm CF và fallback. Tệp kết quả lưu cục bộ tại `tmp/` ngoài Git.
+  5. **Bảo toàn Đánh giá Test Chính thức**: Tuyệt đối không chạy evaluator test trên dữ liệu thật, không điều chỉnh $k$. 31/31 unit test CF, guard và recommender đạt PASS 100% trên môi trường mới.
+  6. **Bàn giao & Giới hạn**: Lập báo cáo đầy đủ tại `docs/P2/integration_report.md` và `docs/agent/steps/P2/S12.md`. Giữ nguyên tắc không đưa credential, dữ liệu người dùng hay binary model lên Git. Đặt trạng thái `12-P2 WAITING_REVIEW`, dừng chờ điều phối viên nghiệm thu, không tự chốt mốc G4.
+
+
+
 

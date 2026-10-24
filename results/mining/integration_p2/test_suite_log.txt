@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.6, pytest-8.4.2, pluggy-1.7.0
+rootdir: <workspace_root>
+collected 31 items
+
+tests/mining/test_cf_test_evaluation.py .......                          [ 22%]
+tests/mining/test_recommend.py ...............                           [ 70%]
+tests/mining/test_cf.py .........                                        [100%]
+
+============================= 31 passed in 34.74s =============================
+Sanitization Note: Absolute local filesystem paths and environment credentials have been stripped.

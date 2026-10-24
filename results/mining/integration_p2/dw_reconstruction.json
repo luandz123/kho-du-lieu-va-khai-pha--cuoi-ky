@@ -1,0 +1,21 @@
+{
+  "run_id": "e7b2219c75e847e38005de5d0e2509a9",
+  "database": "movielens_btl_int_20261023_e7b2219c",
+  "owner": "postgres",
+  "transaction": "COMMITTED",
+  "canonical_hashes": {
+    "users": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+    "movies": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+    "movie_genres": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+    "ratings": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf"
+  },
+  "row_counts": {
+    "users": 6040,
+    "movies": 3883,
+    "movie_genres": 6408,
+    "ratings": 1000209
+  },
+  "superset_required": false,
+  "p2_intake_g2": "CONFIRMED",
+  "g3_loaded": false
+}
