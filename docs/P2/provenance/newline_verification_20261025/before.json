@@ -1,0 +1,13 @@
+{
+  "phase": "before",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "core_autocrlf": "true (checkout command override and repository effective setting)",
+  "byte_size": 33179,
+  "crlf_count": 671,
+  "raw_sha256": "ce1ea24e752e9cadd2356642f03fa1f553f826cc40f1460f5b32715308124739",
+  "raw_git_blob_sha1": "f22853283c9e3faf99843e501fe7800a9c5cbdb0",
+  "git_blob_size": 32508,
+  "git_blob_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+  "normalized_lf_matches_git_blob": true,
+  "provenance_test_exit": 1
+}

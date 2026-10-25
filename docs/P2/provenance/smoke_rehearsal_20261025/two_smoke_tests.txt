@@ -1,0 +1,8 @@
+Phase: canonical data present and verified; Windows checkout with eol=lf and core.autocrlf=true
+Command (cwd LF checkout): <test-python> -m pytest tests/mining/test_recommend.py::test_recommend_evaluation_mode_default_valid_receipt tests/mining/test_recommend.py::test_recommend_cli_smoke -q --tb=short --color=no -p no:cacheprovider
+Exit code: 0
+
+..                                                                       [100%]
+2 passed in 30.67s
+
+Exact raw output retained privately; paths/newlines sanitized for publication.

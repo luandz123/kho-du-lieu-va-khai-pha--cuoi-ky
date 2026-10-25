@@ -165,3 +165,17 @@ Hồ sơ môi trường Bước 12-P2 công bố: [environment.json](../../resul
 ### [DEC-P2-017] Chỉnh biên tập và công bố phần báo cáo P2
 
 Ngày 24/10/2026, điều phối chấp nhận nội dung chính và cho phép commit/push/mở PR phần P2, thay chỉ thị dừng ở bản thảo trước. Tạm loại PCA/các tỷ lệ phương sai khỏi bản chính để không chọn giữa hai nguồn mâu thuẫn chưa xác minh; ghi đầy đủ ở editorial_notes.md, giữ ảnh gốc. Chuyển quản lý review/PR/ghép sang hồ sơ, sửa nhãn cohort và bỏ ưu thế biểu diễn chưa có đối chứng. Không đổi công thức/bảng số liệu/receipt/nguồn, không chạy mô hình/evaluator, không sửa P1. Giữ G4 đạt đúng phạm vi, G5 chưa hoàn thành; PR chờ review, không tự merge.
+
+
+### [DEC-P2-018] Kiểm đúng byte checkout snapshot Windows, phối hợp một bản sửa với P1
+
+Ngày 25/10/2026: nền a2021a9 (PR31 MERGED), không reset/clean hoặc sửa P1. P1 sở hữu attribute hẹp `docs/P2/provenance/eval_original.py text eol=lf`; P2 sao chép nguyên quy tắc chưa commit để kiểm hai checkout Windows autocrlf=true. Giữ FAIL trước (33179 byte/671 CRLF), kiểm sau trong fresh checkout đạt 32508 byte/0 CRLF và cả SHA-256/Git blob SHA-1 đã khóa; không chuẩn hóa trong assertion. Bản CRLF cũ giữ riêng; chỉ để Git tái xuất snapshot đã đối chiếu trong checkout chung, không đổi logic.
+
+Provenance 1 PASS; nguyên nhóm ba file có 29 PASS/2 FAIL do hai test inference cần CSV thật. Không cấp dữ liệu hoặc mock hash để ép 31/31 dưới lệnh cấm chạy mô hình thật; subset fixture/static đạt 29 PASS/2 deselected với tên rõ và giữ log lỗi. Không tuyên bố đã rerun 119 test hoặc Test chính thức. Bằng chứng mới đặt trong docs/P2/provenance/newline_verification_20261025; không sửa artifact/log lịch sử. Hồ sơ và bộ hỏi–đáp/kịch bản CLI tiếp tục WAITING_REVIEW, không mở PR trùng, G5 chưa hoàn thành.
+
+
+### [DEC-P2-019] Hoàn tất smoke test và tổng duyệt suy luận theo quyền mới
+
+Ngày 25/10/2026, điều phối chấp nhận LF/hỏi–đáp/kịch bản và cho dùng bốn canonical CSV kiểm hash ngoài Git trong checkout thử LF. P2 kiểm 4/4 hash, chạy hai smoke test đạt 2/2 rồi nguyên nhóm ba file đạt 31/31, không deselect/đổi assertion/mock checksum. Giữ log thiếu dữ liệu trước nguyên trạng. Tổng duyệt ba ca evaluation có seed, evaluation fallback và demo bằng source=csv đều PASS, 5/5 duy nhất/loại đúng lịch sử; model in-memory, output user-level giữ riêng. Không evaluator Test chính thức/metric/tune/receipt hoặc ETL.
+
+Kịch bản phân biệt source=csv với source=dw: PGHOST/PGPORT/PGDATABASE/PGUSER/PGPASSWORD phải cấu hình riêng cho adapter, mining.recommend không tự đọc .env; không công bố bí mật hoặc output cá nhân. Evidence mới tách ở docs/P2/provenance/smoke_rehearsal_20261025, không thay manifest/log lịch sử. Phối hợp P1 một PR LF; P2 không mở PR trùng hoặc tạo slide tổng. Kết quả bổ sung WAITING_REVIEW, G5 chưa hoàn thành.

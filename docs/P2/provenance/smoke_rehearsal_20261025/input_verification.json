@@ -1,0 +1,38 @@
+{
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "date": "2026-10-25",
+  "canonical_inputs": {
+    "users": {
+      "byte_size": 91901,
+      "sha256": "7fd7a662d8fd243983382ad87d83fa8be70dfe9f77c4a521b322ffbd585bbe6f",
+      "matches_canonical_manifest": true,
+      "outside_git": "data/processed ignored by project rule"
+    },
+    "movies": {
+      "byte_size": 137674,
+      "sha256": "154219ea4c70227bb993568931ee79ea788eca8c860624d3f5729b81c033245b",
+      "matches_canonical_manifest": true,
+      "outside_git": "data/processed ignored by project rule"
+    },
+    "movie_genres": {
+      "byte_size": 77588,
+      "sha256": "9a6b012d0df0929ddd2eac199f2419fc0c36d2b64a1c0317302067470e379dbf",
+      "matches_canonical_manifest": true,
+      "outside_git": "data/processed ignored by project rule"
+    },
+    "ratings": {
+      "byte_size": 42597936,
+      "sha256": "06860cbf2d36881c8eae37db14b5a32cfbfdfd2c384258603e720143291407cf",
+      "matches_canonical_manifest": true,
+      "outside_git": "data/processed ignored by project rule"
+    }
+  },
+  "all_four_ignored": true,
+  "physical_snapshot": {
+    "byte_size": 32508,
+    "crlf_count": 0,
+    "sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d"
+  },
+  "source": "Existing verified canonical files, copied byte-for-byte locally; no ETL/source regeneration",
+  "authorization": "Coordinator permitted inference-only models for missing smoke tests and CLI rehearsal; no official Test evaluation"
+}

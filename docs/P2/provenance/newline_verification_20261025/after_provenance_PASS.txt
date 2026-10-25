@@ -1,0 +1,8 @@
+Phase: AFTER P1 newline rule; fresh Windows checkout; core.autocrlf=true
+Command (cwd after checkout): <test-python> -m pytest tests/mining/test_cf_test_evaluation.py::test_evaluator_provenance_trace_artifact_integrity -q --tb=short --color=no -p no:cacheprovider
+Exit code: 0
+
+.                                                                        [100%]
+1 passed in 8.77s
+
+Publication note: checkout/interpreter paths and test-case ID are redacted; newlines normalized for reading. Exact raw log is retained privately outside Git.

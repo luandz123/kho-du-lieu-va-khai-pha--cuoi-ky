@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "run": "two_smoke_tests",
+      "targets": [
+        "tests/mining/test_recommend.py::test_recommend_evaluation_mode_default_valid_receipt",
+        "tests/mining/test_recommend.py::test_recommend_cli_smoke"
+      ],
+      "exit_code": 0,
+      "output": "two_smoke_tests.txt",
+      "deselected": 0
+    },
+    {
+      "run": "full_31_group",
+      "targets": [
+        "tests/mining/test_cf.py",
+        "tests/mining/test_cf_test_evaluation.py",
+        "tests/mining/test_recommend.py"
+      ],
+      "exit_code": 0,
+      "output": "full_31_group.txt",
+      "deselected": 0
+    }
+  ],
+  "two_smoke_tests_passed": 2,
+  "full_group_passed": 31,
+  "full_group_failed": 0,
+  "full_group_deselected": 0,
+  "prior_missing_data_logs_retained": true,
+  "full_119_test_suite_not_run": true,
+  "protected_working_bytes_before_after_sha256": {
+    "results/mining/cf_test_evaluation_receipt.json": "57c16c3c45feea756b771d0b206cb6ec957135205736a4ae40cbb25255af4b50",
+    "results/mining/cf_test_evaluation.json": "acc1e574bafff95b2309e12d994842e4a45611d1e80a35b51f1fe301535ac0cf",
+    "results/mining/cf_validation_experiments.json": "6c05a7ce1bc6d652612e658d84c7674b3ac3f8651c29df20023cdda08b905d6f",
+    "results/mining/evaluator_provenance_trace.json": "56db9db1d76f0ee511cf69ca11689b7c007ee7cbf817177c678713f097041e92",
+    "docs/P2/provenance/eval_original.py": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "tests/mining/test_cf_test_evaluation.py": "56b64870cb185c5cf98b5603e09966feb21b596bfe42d2625133865df44fd6d8",
+    "tests/mining/test_recommend.py": "963d195ed4c29dbef9dec42d7336af8a5750e137a2c96cd5521caa5fd1403db3",
+    "tests/mining/test_cf.py": "142f87e45e88e8dfde950154d7718f8bf4d5bca46f4f861cf9782c846085821e"
+  },
+  "all_protected_working_bytes_unchanged": true,
+  "official_Test_evaluator_not_called": true,
+  "note": "Tests may import evaluator module for guards/fixtures, but do not invoke official real-data evaluation; snapshot eval_original.py is not executed"
+}

@@ -1,0 +1,63 @@
+{
+  "step": "P2 Windows newline verification",
+  "date": "2026-10-25",
+  "status": "WAITING_REVIEW",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "checks": {
+    "internal_links": 42,
+    "privacy_scan": "PASS",
+    "protected_sources_unchanged": true,
+    "assertions_and_expected_checksums_unchanged": true,
+    "p1_rule": "One uncommitted rule, owner P1; mirrored byte-for-byte in isolated checkouts",
+    "snapshot_after": "32508 bytes, 0 CRLF, LF SHA256 and Git blob SHA1 match accepted values",
+    "test_scope": "before 1 FAIL; after provenance 1 PASS; full group 29 PASS 2 FAIL missing CSV; fixture/static subset 29 PASS 2 deselected",
+    "no_new_official_Test_metrics": true,
+    "git_diff_check": "PASS"
+  },
+  "artifacts": {
+    "after.json": {
+      "byte_size": 761,
+      "sha256": "c75fa1dd7dd48d487ec1d9b92962f3f84df31688db10b4003e25881b8fed8ee7"
+    },
+    "after_fixture_static_subset_PASS.txt": {
+      "byte_size": 748,
+      "sha256": "1bc05c946b1e660a073d24635a801a153bb8658524735a60098c44703fa1a09c"
+    },
+    "after_group_DATA_MISSING_FAIL.txt": {
+      "byte_size": 2991,
+      "sha256": "679ebcb1b2220badbc4dcd56dc8c9aeed21a7c00e6db8e28d99c14a6401e3b25"
+    },
+    "after_provenance_PASS.txt": {
+      "byte_size": 535,
+      "sha256": "e289af592ca71a87b22a03e8ed3040fa2b32c72fbb6cd6720bcd8ee028675640"
+    },
+    "before.json": {
+      "byte_size": 553,
+      "sha256": "5f4d4eca6c620f6082310d29ae9c9ca18fdbd59636928859461ccded3c26f63f"
+    },
+    "before_provenance_FAIL.txt": {
+      "byte_size": 1287,
+      "sha256": "1e82b6dce88e8b1a8f43a40cbe5f24148a2013a598bfdb2269f8abe57c7078b9"
+    },
+    "environment.json": {
+      "byte_size": 397,
+      "sha256": "e0b95eb21548ef0cc62f2eee6ad88994ba5559abe8db1da934fe51939aa8c115"
+    },
+    "p1_rule.json": {
+      "byte_size": 455,
+      "sha256": "c1d531871759dcedfa5a2292787cee34e71f6e7b87900ad0763d29a972149324"
+    },
+    "protected_sources.json": {
+      "byte_size": 1365,
+      "sha256": "6178cbbf6726c9cefe00f28614a02ff5c9d402557f40df2b59da8597107a5274"
+    },
+    "shared_checkout_after.json": {
+      "byte_size": 505,
+      "sha256": "27258fbdac85906fde1a44e4f435b630802611af33dc4c7555a35682871cd149"
+    },
+    "test_results.json": {
+      "byte_size": 1274,
+      "sha256": "095af20ef9ad8fffa2692ace486e7decad3e7082cac888dae7bdbc03344e1444"
+    }
+  }
+}

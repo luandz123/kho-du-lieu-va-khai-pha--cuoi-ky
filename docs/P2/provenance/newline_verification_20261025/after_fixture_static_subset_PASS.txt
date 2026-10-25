@@ -1,0 +1,8 @@
+Phase: AFTER P1 newline rule; fixture/static subset, 2 real-data inference tests explicitly deselected
+Command (cwd after checkout): <test-python> -m pytest tests/mining/test_cf.py tests/mining/test_cf_test_evaluation.py tests/mining/test_recommend.py -q --tb=short --color=no -p no:cacheprovider --deselect=tests/mining/test_recommend.py::test_recommend_evaluation_mode_default_valid_receipt --deselect=tests/mining/test_recommend.py::test_recommend_cli_smoke
+Exit code: 0
+
+.............................                                            [100%]
+29 passed, 2 deselected in 30.21s
+
+Publication note: checkout/interpreter paths and test-case ID are redacted; newlines normalized for reading. Exact raw log is retained privately outside Git.

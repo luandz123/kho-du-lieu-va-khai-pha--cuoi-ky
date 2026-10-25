@@ -1,0 +1,11 @@
+{
+  "scope": "Existing shared P1 checkout, one P2 snapshot path only",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "operation": "Preserved exact CRLF file privately, then Git checkout-index --force for only snapshot under P1 eol=lf rule",
+  "byte_size": 32508,
+  "crlf_count": 0,
+  "sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+  "git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+  "equals_git_blob": true,
+  "snapshot_git_diff_empty": true
+}
