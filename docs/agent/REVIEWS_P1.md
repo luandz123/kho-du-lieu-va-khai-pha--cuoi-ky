@@ -1,5 +1,24 @@
 # Hồ sơ duyệt P1
 
+## Công bố được giao ngày 25/10/2026
+
+Điều phối đã chấp nhận bản sửa LF, bằng chứng smoke/CLI bổ sung, runbook demo và báo cáo tổng đã chỉnh. Công bố thành hai PR độc lập: PR LF chứa đúng rule hẹp và hồ sơ P2 nguyên trạng; PR báo cáo chứa bản tổng, cập nhật G4, preflight và tài liệu bảo vệ. Không merge, không chạy lại ETL/G3/evaluator. Candidate thực chạy vẫn 4546d5bbd8f9130a420518b77dc3ad894bc7f42b; G4 ĐẠT I01–I15, G5 chưa hoàn thành. Các phần WAITING_REVIEW/chưa commit bên dưới là snapshot trước lần công bố, được giữ nguyên. Sau công bố được chuẩn bị slide nháp, thời lượng chưa xác nhận.
+
+
+## Chỉnh trước nộp — 25/10/2026
+
+Nguồn giao việc: điều phối qua người dùng, không có lời duyệt cho bản sửa mới. Bìa: người dùng trả lời nguyên văn “Cứ để trống”. Kết quả tự kiểm và báo cáoP2 không thay review điều phối; phần sửa25/10 WAITING_REVIEW.
+
+## Ghép báo cáo tổng — 24/10/2026
+
+Điều phối qua người dùng duyệt phần báo cáo P2 tại HEAD `f090eff8b5a58242f8391469772cb3bd329f43f4`. Đây là nguồn duyệt phần P2, không tự tạo lời duyệt cho bản tổng. PR31 đã merge a2021a9f591c56222f5ae16e169f278bf3cec5a7; agent chỉ xác minh. Bản tổng mới WAITING_REVIEW; tự kiểm tài liệu không thay review của điều phối.
+
+## Cập nhật G4 — 24/10/2026
+
+Nguồn: thông điệp điều phối qua người dùng, nguyên văn: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.”
+
+API/Git xác minh PR30 đã MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, HEAD được duyệt d8caa0037c39abd622b5b28e88f1b822719f0aa8. 12B APPROVED và PR MERGED là hai trạng thái riêng. Candidate thực chạy `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` giữ nguyên; G5 chưa hoàn thành. Chỉ cập nhật tài liệu hiện hành, chưa công bố; giữ receipt lịch sử, không chạy lại hệ thống. Ghép báo cáo chờ chương 2/5/6 P2 được duyệt. Nguồn mới: [ghi nhận G4](../P1/g4_acceptance_20261024.json).
+
 ## Điều phối nghiệm thu12-P2 — chưa duyệt12B/G4,24/10/2026
 
 Người dùng chuyển nguyên câu: “Điều phối nghiệm thu 12-P2 sau khi kiểm PR28 và bản sửa PR29.” Đồng thời xác nhận P2intakeG2CONFIRMED trên Windows độc lập. Ghi đúng nguồn điều phối, không tạo lời duyệt12B/G4. API xác minh PR28/29MERGED đúngSHA; nhận bằng chứng P2 đã công bố để tổng hợp.12B WAITING_REVIEW và G4 chỉđềxuấtchờduyệt.
@@ -377,3 +396,7 @@ Tích hợp origin/main có PR#2/P2 tại ff87081 bằng merge commit **f7614972
 Push -u origin p1-s02-env exit0, xác minh remote SHA khớp. Mở **PR#3** vào main: https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/3, GitHub API xác nhận OPEN/merged=false. PR đã gắn vào chat. Commit cập nhật hồ sơ công bố này tiếp tục cùng PR, không thay code/secret hoặc phạm vi.
 
 Chức năng S02 APPROVED; GitHub PR OPEN, chưa MERGED. Dừng chờ review/xác nhận merge cụ thể, không tự merge hoặc chuyển bước4. Các nhãn WAITING_REVIEW/chưa đẩy trước đây là lịch sử. DW view/roleBI/UI/dashboard và tái lập sạch vẫn giữ giới hạn đã nêu.
+
+### Bổ sung nhận bằng chứng P2 ngày 25/10
+
+P1 đã đọc sáu artifact trong `docs/P2/provenance/smoke_rehearsal_20261025/` và đối chiếu SHA-256 với manifest: 6/6 khớp; tám file nguồn/test/receipt được bảo vệ cũng khớp hash P2 ghi. Log mới do P2 chạy ghi 2/2 smoke PASS (30,67 giây), nhóm đầy đủ 31/31 PASS (54,85 giây), không deselect. Aggregate CLI do P2 cung cấp ghi ba ca CSV (evaluation seed, fallback, demo) PASS; không phải lượt DW mới hoặc đánh giá Test chính thức. Đây là kiểm bằng chứng do P2 cung cấp, P1 không chạy lại test/mô hình. Pha thiếu CSV 29 PASS/2 FAIL cũ vẫn được giữ nguyên. Canonical CSV và output theo user giữ ngoài Git. Phần bổ sung này cũng WAITING_REVIEW; chưa có quyền commit/push/PR mới.

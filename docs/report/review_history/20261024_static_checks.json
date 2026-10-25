@@ -1,0 +1,290 @@
+{
+  "static_checks": "PASS",
+  "page_count": 49,
+  "chapters": 6,
+  "figure_count": 9,
+  "numbered_tables": 25,
+  "reference_records": 15,
+  "automatic_toc_fields": 3,
+  "native_equations": 9,
+  "toc_caption_page_checks": [
+    {
+      "entry": "Chương 1.",
+      "cached_page": 8,
+      "actual_page": 8,
+      "match": true
+    },
+    {
+      "entry": "Chương 2.",
+      "cached_page": 12,
+      "actual_page": 12,
+      "match": true
+    },
+    {
+      "entry": "Chương 3.",
+      "cached_page": 17,
+      "actual_page": 17,
+      "match": true
+    },
+    {
+      "entry": "Chương 4.",
+      "cached_page": 24,
+      "actual_page": 24,
+      "match": true
+    },
+    {
+      "entry": "Chương 5.",
+      "cached_page": 34,
+      "actual_page": 34,
+      "match": true
+    },
+    {
+      "entry": "Chương 6.",
+      "cached_page": 40,
+      "actual_page": 40,
+      "match": true
+    },
+    {
+      "entry": "Hình 1.1.",
+      "cached_page": 10,
+      "actual_page": 10,
+      "match": true
+    },
+    {
+      "entry": "Hình 3.1.",
+      "cached_page": 19,
+      "actual_page": 19,
+      "match": true
+    },
+    {
+      "entry": "Hình 3.2.",
+      "cached_page": 20,
+      "actual_page": 20,
+      "match": true
+    },
+    {
+      "entry": "Hình 3.3.",
+      "cached_page": 21,
+      "actual_page": 21,
+      "match": true
+    },
+    {
+      "entry": "Hình 4.1.",
+      "cached_page": 28,
+      "actual_page": 28,
+      "match": true
+    },
+    {
+      "entry": "Hình 4.2.",
+      "cached_page": 29,
+      "actual_page": 29,
+      "match": true
+    },
+    {
+      "entry": "Hình 4.3.",
+      "cached_page": 30,
+      "actual_page": 30,
+      "match": true
+    },
+    {
+      "entry": "Hình 4.4.",
+      "cached_page": 31,
+      "actual_page": 31,
+      "match": true
+    },
+    {
+      "entry": "Hình 5.1.",
+      "cached_page": 35,
+      "actual_page": 35,
+      "match": true
+    },
+    {
+      "entry": "Bảng 1.1.",
+      "cached_page": 8,
+      "actual_page": 8,
+      "match": true
+    },
+    {
+      "entry": "Bảng 1.2.",
+      "cached_page": 9,
+      "actual_page": 9,
+      "match": true
+    },
+    {
+      "entry": "Bảng 2.1.",
+      "cached_page": 13,
+      "actual_page": 13,
+      "match": true
+    },
+    {
+      "entry": "Bảng 2.2.",
+      "cached_page": 15,
+      "actual_page": 15,
+      "match": true
+    },
+    {
+      "entry": "Bảng 3.1.",
+      "cached_page": 17,
+      "actual_page": 17,
+      "match": true
+    },
+    {
+      "entry": "Bảng 3.2.",
+      "cached_page": 18,
+      "actual_page": 18,
+      "match": true
+    },
+    {
+      "entry": "Bảng 3.3.",
+      "cached_page": 21,
+      "actual_page": 21,
+      "match": true
+    },
+    {
+      "entry": "Bảng 3.4.",
+      "cached_page": 22,
+      "actual_page": 22,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.1.",
+      "cached_page": 25,
+      "actual_page": 25,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.2.",
+      "cached_page": 26,
+      "actual_page": 26,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.3.",
+      "cached_page": 27,
+      "actual_page": 27,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.4.",
+      "cached_page": 29,
+      "actual_page": 29,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.5.",
+      "cached_page": 32,
+      "actual_page": 32,
+      "match": true
+    },
+    {
+      "entry": "Bảng 4.6.",
+      "cached_page": 32,
+      "actual_page": 32,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.1.",
+      "cached_page": 34,
+      "actual_page": 34,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.2.",
+      "cached_page": 35,
+      "actual_page": 35,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.3.",
+      "cached_page": 36,
+      "actual_page": 36,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.4.",
+      "cached_page": 36,
+      "actual_page": 36,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.5.",
+      "cached_page": 37,
+      "actual_page": 37,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.6.",
+      "cached_page": 37,
+      "actual_page": 37,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.7.",
+      "cached_page": 38,
+      "actual_page": 38,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.8.",
+      "cached_page": 38,
+      "actual_page": 38,
+      "match": true
+    },
+    {
+      "entry": "Bảng 5.9.",
+      "cached_page": 39,
+      "actual_page": 39,
+      "match": true
+    },
+    {
+      "entry": "Bảng 6.1.",
+      "cached_page": 40,
+      "actual_page": 40,
+      "match": true
+    },
+    {
+      "entry": "Bảng 6.2.",
+      "cached_page": 41,
+      "actual_page": 41,
+      "match": true
+    }
+  ],
+  "source_table_cell_preservation": {
+    "docs/P1/report/chapter_01.md": {
+      "rows": 11,
+      "all_source_table_cells_in_docx": true
+    },
+    "docs/P2/report/chapter_02.md": {
+      "rows": 12,
+      "all_source_table_cells_in_docx": true
+    },
+    "docs/P1/report/chapter_03.md": {
+      "rows": 26,
+      "all_source_table_cells_in_docx": true
+    },
+    "docs/P1/report/chapter_04.md": {
+      "rows": 36,
+      "all_source_table_cells_in_docx": true
+    },
+    "docs/P2/report/chapter_05.md": {
+      "rows": 56,
+      "all_source_table_cells_in_docx": true
+    },
+    "docs/P2/report/chapter_06.md": {
+      "rows": 10,
+      "all_source_table_cells_in_docx": true
+    }
+  },
+  "official_test_receipt_sha256": "57c16c3c45feea756b771d0b206cb6ec957135205736a4ae40cbb25255af4b50",
+  "files": {
+    "bao_cao_tong_hop.docx": "401f49add92f93f7cc232ffac5f2c15e3f272293cdcba366441b18e7cc274b93",
+    "bao_cao_tong_hop.md": "748ad617e423d02c869ba4b4c6da07b59645f437792e0e5b982ccf16e7ca2198",
+    "bao_cao_tong_hop.pdf": "fe37a044c51f271718d2f35a26d2c63a5a9cbcb4163f9d99680fec1a695cba53",
+    "build_report.py": "ad69625b7f3237625cc592b50e52b5ad1fe93c4ef4e309d9ce520ed8d95b8a2d",
+    "check_report.py": "26576a2f2f37e897f0423303a285827efa418c81b5c0d8c8af4f4ab171d02f3e",
+    "README.md": "34061f3058a7db59af1afe561e99d2e8c843f19901f5eac0306a9046acbfa565",
+    "render_report.ps1": "5ca5cb7dfd186e94886bd317378cc966f0c7792c64b8766e14fa2eb8fc6df831"
+  },
+  "runtime_rerun": false,
+  "visual_review": "Recorded separately in layout_review.json after inspection"
+}

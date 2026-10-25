@@ -1,0 +1,68 @@
+{
+  "client_date": "2026-10-25",
+  "demo_after_ui_containers": [
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "id": "7b33b1ca3a818a9e2604af6e7526bb673155ee9f7ac59cdd71fab118559f6c94",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "oom_killed": false,
+      "image": "postgres:17.11",
+      "started_at": "2026-10-25T08:18:28.429660878Z",
+      "finished_at": "2026-10-24T12:30:01.915719326Z"
+    },
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "id": "201b758a9005b9414daa21c2dd70c6d8a05c8ba8388c6372cd2fa52e239d0f4e",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "oom_killed": false,
+      "image": "btl-movielens-superset:6.1.0-local",
+      "started_at": "2026-10-25T08:18:29.025362406Z",
+      "finished_at": "2026-10-24T12:30:01.900615461Z"
+    }
+  ],
+  "business_config_sha256_after_ui": "04df217db4dffae5edf0f2719cf24425e2fd69dfe6dd6ee860c25a3891a730fc",
+  "business_config_unchanged": true,
+  "LF_rule_sha256": "05c5f8771328d6093f9b6868b4443a7537f24600c1f274f8d4ff5a96125b9110",
+  "shared_snapshot_bytes": 32508,
+  "shared_snapshot_CRLF": 0,
+  "shared_snapshot_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+  "snapshot_git_diff_empty": true,
+  "P2_test_results_source": "docs/P2/provenance/newline_verification_20261025/test_results.json",
+  "P2_test_results": {
+    "before_provenance": {
+      "exit_code": 1,
+      "failed": 1,
+      "reason": "CRLF physical snapshot 33179 bytes"
+    },
+    "after_provenance": {
+      "exit_code": 0,
+      "passed": 1
+    },
+    "after_full_requested_group": {
+      "exit_code": 1,
+      "passed": 29,
+      "failed": 2,
+      "reason": "Two existing recommender integration tests require canonical CSV and fit real-data model; CSV is absent from isolated checkout",
+      "log": "after_group_DATA_MISSING_FAIL.txt"
+    },
+    "after_fixture_static_subset": {
+      "exit_code": 0,
+      "passed": 29,
+      "deselected": 2,
+      "deselected_tests": [
+        "tests/mining/test_recommend.py::test_recommend_evaluation_mode_default_valid_receipt",
+        "tests/mining/test_recommend.py::test_recommend_cli_smoke"
+      ],
+      "log": "after_fixture_static_subset_PASS.txt"
+    },
+    "scope": "Evaluator tests use fixture/mock; checksum test remains unchanged; no official evaluator Test or real-data model/ETL run",
+    "reported_prior_full_suite": "118/119 reported by coordinator; P2 did not rerun 119-test full suite",
+    "new_complete_31_test_pass": false,
+    "raw_log_note": "Private original group raw file name contains PASS from intended phase name, but actual exit=1 and FAIL bytes are preserved; publication is named DATA_MISSING_FAIL"
+  },
+  "no_commit_push_PR": true
+}

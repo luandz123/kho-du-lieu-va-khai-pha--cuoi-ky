@@ -8,7 +8,7 @@ Phụ lục tập hợp identity, hash, nguồn kiểm chứng và lệnh dài c
 |---|---|---|
 | Base12A / PR24 merge | `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02` | Nền code trước lượt thực thi12A |
 | Code công bố12A | `3334ff8388cb0627c1af3d0b0c289f08f7e6e65e` | Commit công bố, khác hash code working tree lúc chạy |
-| Candidate | `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` | MergePR25; P2 báo tái lập, bằng chứng chờ review; chưa G4 |
+| Candidate | `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` | Merge PR25, candidate thực chạy đã được P2 kiểm nhận; điều phối nghiệm thu G4 ngày 24/10/2026, phạm vi I01–I15 |
 | Run12A | `57c1e8e3d3f445c4b3eeddbfc3364709` | Hai chu trình trên P1,833.922giây |
 | Database12A | `movielens_btl_int_20261023_57c1e8e3` | Database thử, khác movielens_btl demo |
 | Bundle runtime12A | `3114721fd957a9c98da89b0bfcf615500ae6d6833bfdae31ad58111d23424e22` | SHA256 JSON sortkeys của dictionary code_sha256 trong summary; code chưa commit lúc chạy |
@@ -43,7 +43,7 @@ python etl/run_integration.py
 python etl/recreate_integration_dw.py
 ```
 
-Helper DW-only tạo database mới, schema, ETL, đối soát và OLAP khi được apply. Trên P1, lệnh riêng này mới được kiểm plan-only; không mô tả apply riêng đã chạy. Lõi ETL đã được kiểm trong hai chu trình12A. P2 báo tái lập Windows là nguồn thông tin riêng đang chờ review:
+Helper DW-only tạo database mới, schema, ETL, đối soát và OLAP khi được apply. Trên P1, lệnh riêng này mới được kiểm plan-only; không mô tả apply riêng đã chạy. Lõi ETL đã được kiểm trong hai chu trình12A. P2 tái lập Windows bằng đường DW-only là nguồn riêng đã được điều phối nghiệm thu sau PR28/PR29, không phải lần apply riêng trên P1. Nguồn hiện hành: [ma trận 12B](../integration_acceptance.md), [ghi nhận G4](../g4_acceptance_20261024.json). Lệnh tái lập:
 
 ```text
 python etl/recreate_integration_dw.py --apply --raw-dir <local-ml-1m-dir> --env-file .env --date <YYYYMMDD> --report <new-local-report.json>

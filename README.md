@@ -1,5 +1,23 @@
 # BTL Kho dữ liệu và Khai phá dữ liệu
 
+## Hiện hành 25/10/2026 — bản tổng được duyệt, công bố chờ review PR
+
+Báo cáo tổng đã ghép và sửa Bảng5.5/5.7; DOCX/PDF49trang, bìa để trống theo người dùng. [Bàn giao và diff](docs/P1/pre_submit_20261025.md), [nguồn tái tạo](docs/report/README.md). Demo8089 đã khởi động đúng hai container hiện hữu và kiểm health/login/ba dashboard/SQL chỉ đọc; [checklist trước demo](docs/P1/demo_preflight.md). Một ruleLF hẹp phối hợp P2, không chuẩn hóa dữ liệu hoặc sửa receipt. G4 vẫn ĐẠT I01–I15; G5 chưa hoàn thành. Điều phối đã duyệt bản chỉnh và giao công bố hai PR độc lập; chưa nộp hoặc chốt G5. Không chạy lại ETL/G3/evaluator Test.
+
+## Báo cáo tổng đang chờ review
+
+Đã nhận đủ chương1–6 được điều phối duyệt; PR31 đã merge a2021a9f…. Bản ghép DOCX/PDF và nguồn tái tạo tại [docs/report](docs/report/README.md), trạng thái **WAITING_REVIEW**. G4 ĐẠT I01–I15; G5 chưa hoàn thành. Các ghi nhận chờ chươngP2 bên dưới là lịch sử trước lượt ghép. Candidate thực chạy4546d5b… giữ nguyên; không chạy lại pipeline/evaluator, chưa commit/push/PR/nộp hoặc tạo slide bản tổng.
+
+## Hiện hành — G4 ĐẠT ngày 24/10/2026
+
+Điều phối qua thông điệp người dùng xác nhận: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.” 12B được nghiệm thu chức năng; [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30) đã **MERGED** tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, bởi hungvu205; HEAD được duyệt `d8caa0037c39abd622b5b28e88f1b822719f0aa8` khớp PR. Agent chỉ xác minh, không thực hiện merge.
+
+Candidate thực chạy giữ nguyên `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`; merge tài liệu PR30 không là candidate mới hoặc một lượt chạy lại. [Ghi nhận nghiệm thu](docs/P1/g4_acceptance_20261024.json), [ma trận I01–I15](docs/P1/integration_acceptance.md). P2 intake G2 **CONFIRMED**. G4 đạt trong phạm vi đã công bố; **G5 chưa hoàn thành**.
+
+Phạm vi P1 Windows/Python 3.12.14/PostgreSQL 17.11; P2 Windows độc lập/Python 3.12.6/PostgreSQL 17.4. Không kiểm Linux, Superset trên máy P2 hoặc phục hồi toàn stack trên máy mới. PUBLIC TEMP, database-level ACL clone khác nguồn và ZIP cần REST phục hồi layout vẫn là giới hạn.
+
+Các phần OPEN/WAITING_REVIEW/NOT_CONFIRMED và đề xuất G4 bên dưới là **lịch sử trước nghiệm thu**, không phải trạng thái hiện hành. Giữ nguyên snapshot/receipt. Cập nhật tài liệu này chờ ghép vào đợt công bố tiếp theo, chưa commit/push/PR. Bản tổng sáu chương đã ghép và đang WAITING_REVIEW tại [docs/report](docs/report/README.md); không còn chờ nhận phần P2. Giữ demo, không chạy pipeline/evaluator.
+
 ## Hiện hành — PR25 OPEN, WAITING_REVIEW PR12A
 
 Đã công bố [PR #25](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/25) vào main, nhánh codex/p1-s12a-integration. API xác minh OPEN/merged=false; agent không merge. Code công bố `3334ff8388cb0627c1af3d0b0c289f08f7e6e65e`, base main/PR24 `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02`. Commit hồ sơ sau đó không đổi code; quan sát remote đầu và code_reference.json tại docs/P1/12a_publication/ ghi snapshot/version riêng, không gán commit công bố vào run cũ.

@@ -1,5 +1,11 @@
 # Danh mục bằng chứng báo cáo — chuẩn bị 13A v1
 
+## Hiện hành sau nghiệm thu G4 — 24/10/2026
+
+Điều phối đã nghiệm thu 12-P2 và12B, xác nhận **G4 ĐẠT** trong phạm vi I01–I15. PR30 MERGED `67fd9eb6b98211485b713c99e829291bc3b50f57`; candidate thực chạy vẫn `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. P2 intakeG2CONFIRMED trên Windows/Python3.12.6/PG17.4; P1 Windows/Python3.12.14/PG17.11. Không kiểm Linux/SupersetP2 hoặc phục hồi toàn stack máy mới. [Ma trận nghiệm thu](integration_acceptance.md), [ghi nhận mới](g4_acceptance_20261024.json).
+
+Các đoạn chờ P2/G4 bên dưới là snapshot lập dàn ý/chỉ mục trước nghiệm thu; không dùng làm trạng thái hiện hành. Nguồn bổ sung cho các mục E18/E20 và kết luận chương1/3/4/6 là ma trận/ghi nhận mới nêu trên. Chưa nhận đủ chương 2/5/6 P2 được duyệt để ghép; G5 chưa hoàn thành.
+
 ## Cập nhật hiện hành 24/10/2026 — dàn ý được điều phối duyệt
 
 Điều phối duyệt dàn ý13A và danh mục bằng chứng, giao công bố riêng trước khi viết bản thảo P1 chương1/3/4. P2 **đã báo G2 CONFIRMED**, tái lập candidate `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` trên máy Windows độc lập, Python3.12.6/PostgreSQL17.4. Nguồn là thông điệp điều phối qua người dùng, bằng chứng công bố của P2 **đang chờ điều phối review**; P1 chưa kiểm độc lập lượt P2. Không ghi đã kiểmLinux, **G4 chưa hoàn thành**. Chi tiết nguồn ở `docs/P1/p2_intake_reported_20261024.json`. Các mụcNOT_CONFIRMED/WAITING_REVIEW/OPEN bên dưới và audit13A là snapshot lịch sử, không sửa thành bằng chứng mới.
