@@ -235,6 +235,48 @@ def cover(doc):
     set_run_font(p.add_run(COVER["place_date"]), size=14, bold=True)
 
 
+def add_bookmark(p, name, bid):
+    """Đánh dấu cả đoạn để mục lục / danh mục nhảy tới được."""
+    start = OxmlElement("w:bookmarkStart")
+    start.set(qn("w:id"), str(bid))
+    start.set(qn("w:name"), name)
+    end = OxmlElement("w:bookmarkEnd")
+    end.set(qn("w:id"), str(bid))
+    p._p.insert(1 if p._p.pPr is not None else 0, start)
+    p._p.append(end)
+
+
+def field_run(p, kind=None, instr=None):
+    r = p.add_run()
+    if instr:
+        el = OxmlElement("w:instrText")
+        el.set(qn("xml:space"), "preserve")
+        el.text = instr
+    else:
+        el = OxmlElement("w:fldChar")
+        el.set(qn("w:fldCharType"), kind)
+    r._element.append(el)
+
+
+def setup_heading_styles(doc):
+    """Heading 1–3 kiểu Times New Roman đen, để Word/Google Docs nhận làm đề mục."""
+    for name, size, italic in (("Heading 1", 14, False), ("Heading 2", BODY_PT, False),
+                               ("Heading 3", BODY_PT, True)):
+        st = doc.styles[name]
+        st.font.name = FONT
+        st.font.size = Pt(size)
+        st.font.bold = True
+        st.font.italic = italic
+        st.font.color.rgb = RGBColor(0, 0, 0)
+        rfonts = st.element.rPr.find(qn("w:rFonts"))
+        for att in list(rfonts.attrib):
+            if att.endswith("Theme"):
+                del rfonts.attrib[att]
+        for att in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+            rfonts.set(qn(att), FONT)
+        st.paragraph_format.space_before = Pt(0)
+
+
 def fix_widths(t, widths):
     """Cố định độ rộng cột (Word và LibreOffice đều tôn trọng)."""
     t.autofit = False
@@ -264,6 +306,8 @@ class Builder:
         st.font.name = FONT
         st.font.size = Pt(BODY_PT)
         st.element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
+        setup_heading_styles(self.doc)
+        self.bm = 0
         self.page_map = page_map or {}
         self.toc, self.figs, self.tabs = [], [], []
         self.eq_dir = Path(tempfile.mkdtemp())
@@ -273,19 +317,25 @@ class Builder:
 
     # ---- các khối nội dung ----
     def title_center(self, text, toc_level=None, size=14, new_page=True, after=12):
-        p = self.doc.add_paragraph()
+        p = self.doc.add_paragraph(style="Heading 1" if toc_level else None)
         fmt_par(p, align=WD_ALIGN_PARAGRAPH.CENTER, first=0, before=0, after=after, line=1.3,
                 keep_next=True, page_break_before=new_page and not self.fresh)
         self.fresh = False
-        set_run_font(p.add_run(text), size=size, bold=True)
+        set_run_font(p.add_run(text), size=size, bold=True, color="000000")
         if toc_level:
+            self.mark(p, "_Toc", len(self.toc))
             self.toc.append((toc_level, text))
         return p
 
+    def mark(self, p, prefix, idx):
+        self.bm += 1
+        add_bookmark(p, f"{prefix}{100000 + idx}", self.bm)
+
     def heading(self, text, level):
-        p = self.doc.add_paragraph()
+        p = self.doc.add_paragraph(style=f"Heading {level}")
         fmt_par(p, align=WD_ALIGN_PARAGRAPH.JUSTIFY, first=0, before=6, after=3, keep_next=True)
-        set_run_font(p.add_run(text), size=BODY_PT, bold=True, italic=(level == 3))
+        set_run_font(p.add_run(text), size=BODY_PT, bold=True, italic=(level == 3), color="000000")
+        self.mark(p, "_Toc", len(self.toc))
         self.toc.append((level, text))
 
     def subhead(self, text):
@@ -315,7 +365,9 @@ class Builder:
         else:
             set_run_font(p.add_run(text), size=BODY_PT)
         if self.in_body:
-            (self.figs if kind == "fig" else self.tabs).append(text)
+            lst = self.figs if kind == "fig" else self.tabs
+            self.mark(p, "_Fig" if kind == "fig" else "_Tab", len(lst))
+            lst.append(text)
 
     def figure(self, path, cap, width):
         full = (HERE / path) if not Path(path).is_absolute() else Path(path)
@@ -403,29 +455,42 @@ class Builder:
         fmt_par(sp, first=0, after=2, line=1.0)
 
     # ---- danh mục ----
-    def toc_line(self, text, level, page, bold=False, indent_cm=0.0):
+    def toc_line(self, text, level, page, anchor, bold=False, indent_cm=0.0,
+                 field_begin=False, field_end=False):
         p = self.doc.add_paragraph()
         fmt_par(p, align=WD_ALIGN_PARAGRAPH.LEFT, first=0, left=indent_cm, after=2, line=1.3)
         p.paragraph_format.right_indent = Cm(0)
         p.paragraph_format.tab_stops.add_tab_stop(Cm(TEXT_WIDTH_CM), WD_TAB_ALIGNMENT.RIGHT,
                                                   WD_TAB_LEADER.DOTS)
-        # Dòng dài xuống dòng thì thụt treo cho đẹp
-        set_run_font(p.add_run(text + "\t" + str(page)), size=BODY_PT, bold=bold)
+        if field_begin:
+            field_run(p, "begin")
+            field_run(p, instr=' TOC \\o "1-3" \\h \\z \\u ')
+            field_run(p, "separate")
+        # Cả dòng là liên kết nội bộ tới đề mục (bookmark)
+        link = OxmlElement("w:hyperlink")
+        link.set(qn("w:anchor"), anchor)
+        link.set(qn("w:history"), "1")
+        r = p.add_run(text + "\t" + str(page))
+        set_run_font(r, size=BODY_PT, bold=bold)
+        r._element.getparent().remove(r._element)
+        link.append(r._element)
+        p._p.append(link)
+        if field_end:
+            field_run(p, "end")
 
     def front_lists(self, toc, figs, tabs):
         self.title_center("MỤC LỤC", new_page=True)
-        for level, text in toc:
+        last = len(toc) - 1
+        for i, (level, text) in enumerate(toc):
             pg = self.page_map.get(("h", text), "")
-            if level == 1:
-                self.toc_line(text, 1, pg, bold=True)
-            else:
-                self.toc_line(text, level, pg, indent_cm=0.5 * (level - 1))
+            self.toc_line(text, level, pg, f"_Toc{100000 + i}", bold=(level == 1),
+                          indent_cm=0.5 * (level - 1), field_begin=(i == 0), field_end=(i == last))
         self.title_center("DANH MỤC HÌNH VẼ", new_page=True)
-        for f in figs:
-            self.toc_line(f, 2, self.page_map.get(("f", f), ""))
+        for i, f in enumerate(figs):
+            self.toc_line(f, 2, self.page_map.get(("f", f), ""), f"_Fig{100000 + i}")
         self.title_center("DANH MỤC BẢNG BIỂU", new_page=True)
-        for t in tabs:
-            self.toc_line(t, 2, self.page_map.get(("t", t), ""))
+        for i, t in enumerate(tabs):
+            self.toc_line(t, 2, self.page_map.get(("t", t), ""), f"_Tab{100000 + i}")
 
 
 def parse_and_build(b, src, prepass):
@@ -551,14 +616,14 @@ def locate(pdf, b):
     body_start = next(i for i, t in enumerate(pages) if t.startswith("1mởđầu") or "1mởđầu" in t[:12])
     pm = {}
     cursor = body_start
-    for kind, items in (("h", [t for _, t in b.toc]), ):
-        for t in items:
-            key = norm(t)[:45]
-            for j in range(cursor, len(pages)):
-                if key in pages[j]:
-                    pm[(kind, t)] = j - body_start + 1
-                    cursor = j
-                    break
+    for level, t in b.toc:
+        key = norm(t)[:45]
+        for j in range(cursor, len(pages)):
+            text = re.sub(r"^\d+", "", pages[j])
+            if (text.startswith(key) if level == 1 else key in pages[j]):
+                pm[("h", t)] = j - body_start + 1
+                cursor = j
+                break
     for kind, items in (("f", b.figs), ("t", b.tabs)):
         cursor = body_start
         for t in items:
