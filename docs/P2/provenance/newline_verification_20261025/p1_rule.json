@@ -1,0 +1,9 @@
+{
+  "owner": "P1",
+  "source_state": "Uncommitted .gitattributes in shared P1 working tree, read-only copied into isolated P2 checkout for verification; not a merged fix",
+  "rule": "docs/P2/provenance/eval_original.py text eol=lf",
+  "source_byte_size": 48,
+  "source_raw_sha256": "05c5f8771328d6093f9b6868b4443a7537f24600c1f274f8d4ff5a96125b9110",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "copy_only_no_rule_changes_by_P2": true
+}

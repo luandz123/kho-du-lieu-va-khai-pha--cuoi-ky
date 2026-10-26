@@ -1,0 +1,12 @@
+{
+  "os": "Windows",
+  "release": "11",
+  "python": "3.12.14",
+  "pytest": "8.4.2",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "scipy": "1.14.1",
+  "scikit_learn": "1.5.2",
+  "interpreter_location": "Existing P1 s12a-venv, read-only reused; external to fresh checkouts; no install or environment mutation",
+  "tests_may_use_synthetic_matrices": "Fixture computations only; no real-data fitting"
+}

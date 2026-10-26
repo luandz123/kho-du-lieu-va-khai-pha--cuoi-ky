@@ -1,0 +1,17 @@
+{
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "candidate_integration_sha_unchanged": "4546d5bbd8f9130a420518b77dc3ad894bc7f42b",
+  "git_blob_sha256": {
+    "docs/P2/provenance/eval_original.py": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+    "mining/cf_test_evaluation.py": "ef4f8d3a0e635b3fa513acb55d4f3d51753db81fe88b5850fc1b54005568a5b0",
+    "tests/mining/test_cf_test_evaluation.py": "a6ffb6dd815ecddf5b840025292ff5f64dd2dcb88adda5d547c328720f05952c",
+    "tests/mining/test_cf.py": "b2d8bb628256aaf2aac6e6784eb7573394ae67094f2f0237bc8424725748f7e7",
+    "tests/mining/test_recommend.py": "daeb56781121170c83d749eafbe51d67f08cf15631489e52b8f08aaf9ebdddf9",
+    "results/mining/evaluator_provenance_trace.json": "0713a4715a6af53d8e597eb2f6347a7106bdc731265dba1df1caa4c104fc8f1f",
+    "results/mining/cf_test_evaluation_receipt.json": "5e2502af6b96b09cb35fa4e8a8ee7e0fdaf2648d49c44ea26978419105ef6d5f",
+    "results/mining/cf_test_evaluation.json": "acc1e574bafff95b2309e12d994842e4a45611d1e80a35b51f1fe301535ac0cf",
+    "results/mining/cf_validation_experiments.json": "f6b21b17659c687348d6fae0304913fb99d5d014f550547bbd4ef99942ca1ff1",
+    "results/mining/baseline_popularity_validation.json": "783cbc30ee95bfac4febdf70f36444ce89d201358a623c09102d69595cad8400"
+  },
+  "no_tracked_changes_in_protected_paths": true
+}

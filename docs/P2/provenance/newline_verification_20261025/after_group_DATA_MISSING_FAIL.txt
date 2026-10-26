@@ -1,0 +1,47 @@
+Phase: AFTER P1 newline rule; fresh Windows checkout; core.autocrlf=true
+Command (cwd after checkout): <test-python> -m pytest tests/mining/test_cf.py tests/mining/test_cf_test_evaluation.py tests/mining/test_recommend.py -q --tb=short --color=no -p no:cacheprovider
+Exit code: 1
+
+............................F.F                                          [100%]
+================================== FAILURES ===================================
+____________ test_recommend_evaluation_mode_default_valid_receipt _____________
+tests\mining\test_recommend.py:365: in test_recommend_evaluation_mode_default_valid_receipt
+    res = recommend_movies(user_id=<test-case>, mode="evaluation")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mining\recommend.py:80: in recommend_movies
+    tables = load_data(source=source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+mining\data_io.py:459: in load_data
+    return load_csv_data(processed_dir=processed_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+mining\data_io.py:317: in load_csv_data
+    raise FileNotFoundError(f"Missing canonical CSV file: {p}")
+E   FileNotFoundError: Missing canonical CSV file: data\processed\users.csv
+__________________________ test_recommend_cli_smoke ___________________________
+tests\mining\test_recommend.py:405: in test_recommend_cli_smoke
+    assert proc.returncode == 0, f"CLI error: {proc.stderr}"
+E   AssertionError: CLI error: Traceback (most recent call last):
+E       File "<after-checkout>\mining\recommend.py", line 516, in <module>
+E         sys.exit(main())
+E                  ^^^^^^
+E       File "<after-checkout>\mining\recommend.py", line 495, in main
+E         result = recommend_movies(
+E                  ^^^^^^^^^^^^^^^^^
+E       File "<after-checkout>\mining\recommend.py", line 80, in recommend_movies
+E         tables = load_data(source=source)
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^
+E       File "<after-checkout>\mining\data_io.py", line 459, in load_data
+E         return load_csv_data(processed_dir=processed_dir)
+E                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       File "<after-checkout>\mining\data_io.py", line 317, in load_csv_data
+E         raise FileNotFoundError(f"Missing canonical CSV file: {p}")
+E     FileNotFoundError: Missing canonical CSV file: data\processed\users.csv
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['<test-python>', '<after-checkout>...rror(f"Missing canonical CSV file: {p}")\nFileNotFoundError: Missing canonical CSV file: data\\processed\\users.csv\n').returncode
+=========================== short test summary info ===========================
+FAILED tests/mining/test_recommend.py::test_recommend_evaluation_mode_default_valid_receipt
+FAILED tests/mining/test_recommend.py::test_recommend_cli_smoke - AssertionEr...
+2 failed, 29 passed in 15.11s
+
+Publication note: checkout/interpreter paths and test-case ID are redacted; newlines normalized for reading. Exact raw log is retained privately outside Git.

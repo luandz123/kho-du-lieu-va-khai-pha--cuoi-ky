@@ -1,0 +1,16 @@
+Phase: BEFORE P1 newline rule; core.autocrlf=true
+Command (cwd verification checkout): <test-python> -m pytest tests/mining/test_cf_test_evaluation.py::test_evaluator_provenance_trace_artifact_integrity -q --tb=short --color=no -p no:cacheprovider
+Exit code: 1
+
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________ test_evaluator_provenance_trace_artifact_integrity ______________
+tests\mining\test_cf_test_evaluation.py:288: in test_evaluator_provenance_trace_artifact_integrity
+    assert len(snap_bytes) == 32508
+E   assert 33179 == 32508
+E    +  where 33179 = len(b'"""\r\nOfficial Test Evaluation Pipeline for Item-Based Collaborative Filtering (Step 10B).\r\nAccording to Data Con...\']} ({results[\'metrics\'][\'fallback_rate_percentage\']}%)")\r\n\r\n\r\nif __name__ == "__main__":\r\n    main()\r\n')
+=========================== short test summary info ===========================
+FAILED tests/mining/test_cf_test_evaluation.py::test_evaluator_provenance_trace_artifact_integrity
+1 failed in 3.77s
+
+Publication note: checkout/interpreter paths and test-case ID are redacted; newlines normalized for reading. Exact raw log is retained privately outside Git.

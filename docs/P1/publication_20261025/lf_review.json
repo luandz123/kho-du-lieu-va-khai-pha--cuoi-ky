@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-25",
+  "review_source": "Coordinator acceptance relayed by user; LF and supplemental smoke/CLI evidence accepted",
+  "base": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "scope": "One narrow checkout rule; P2 delivered files unchanged; no logic/assertion/checksum changes",
+  "checks": {
+    "parse_python_json_archive": "PASS",
+    "credential_pattern_scan": "PASS",
+    "forbidden_paths": []
+  },
+  "frozen_p2_working_byte_sha256": {
+    "docs/P2/provenance/newline_verification_20261025/after.json": "c75fa1dd7dd48d487ec1d9b92962f3f84df31688db10b4003e25881b8fed8ee7",
+    "docs/P2/provenance/newline_verification_20261025/after_fixture_static_subset_PASS.txt": "1bc05c946b1e660a073d24635a801a153bb8658524735a60098c44703fa1a09c",
+    "docs/P2/provenance/newline_verification_20261025/after_group_DATA_MISSING_FAIL.txt": "679ebcb1b2220badbc4dcd56dc8c9aeed21a7c00e6db8e28d99c14a6401e3b25",
+    "docs/P2/provenance/newline_verification_20261025/after_provenance_PASS.txt": "e289af592ca71a87b22a03e8ed3040fa2b32c72fbb6cd6720bcd8ee028675640",
+    "docs/P2/provenance/newline_verification_20261025/before.json": "5f4d4eca6c620f6082310d29ae9c9ca18fdbd59636928859461ccded3c26f63f",
+    "docs/P2/provenance/newline_verification_20261025/before_provenance_FAIL.txt": "1e82b6dce88e8b1a8f43a40cbe5f24148a2013a598bfdb2269f8abe57c7078b9",
+    "docs/P2/provenance/newline_verification_20261025/environment.json": "e0b95eb21548ef0cc62f2eee6ad88994ba5559abe8db1da934fe51939aa8c115",
+    "docs/P2/provenance/newline_verification_20261025/manifest.json": "c37cf78cd2e98b1ee2665bb70828ca601e6d9e132e1fe8f67fb8750a4e4cea94",
+    "docs/P2/provenance/newline_verification_20261025/p1_rule.json": "c1d531871759dcedfa5a2292787cee34e71f6e7b87900ad0763d29a972149324",
+    "docs/P2/provenance/newline_verification_20261025/protected_sources.json": "6178cbbf6726c9cefe00f28614a02ff5c9d402557f40df2b59da8597107a5274",
+    "docs/P2/provenance/newline_verification_20261025/shared_checkout_after.json": "27258fbdac85906fde1a44e4f435b630802611af33dc4c7555a35682871cd149",
+    "docs/P2/provenance/newline_verification_20261025/test_results.json": "095af20ef9ad8fffa2692ace486e7decad3e7082cac888dae7bdbc03344e1444",
+    "docs/P2/provenance/smoke_rehearsal_20261025/cli_aggregate.json": "582e44d0222e5f412df57d77a56b5b4ce28dba8d344fae3a2e073e29e60846a9",
+    "docs/P2/provenance/smoke_rehearsal_20261025/full_31_group.txt": "9e0cbfdbfcc21b687092f1ead7dbed5a4e99466151bd26b9cdb1abf88e27c80a",
+    "docs/P2/provenance/smoke_rehearsal_20261025/input_verification.json": "8b57845a65548ea961e3c6864b5ddca1cb861d48d7266a4d4a148573528b347c",
+    "docs/P2/provenance/smoke_rehearsal_20261025/manifest.json": "4f18a1c2f021b15992bc412891611ab92fbe3f2c5c4556880c905ed4ae5e5ab5",
+    "docs/P2/provenance/smoke_rehearsal_20261025/summary.md": "a9b3af1632b8aa49fbfe3b9eaefe36a8f3ab06a2334449cc12fc92938e0ce423",
+    "docs/P2/provenance/smoke_rehearsal_20261025/test_results.json": "ed63ba2481bec40ef5314eabf5d9d30b4ef90b4ec856d6188295f5217d4b24aa",
+    "docs/P2/provenance/smoke_rehearsal_20261025/two_smoke_tests.txt": "dd570a9fa7aee53278004ed725b45c7696701db48e5362076b1b953993d8b14c",
+    "docs/P2/provenance/windows_newline_verification.md": "34ef8ec0e2437fb4959617bf8628488fde3a780c578c029016e7abb4a572daab",
+    "docs/agent/DECISIONS_P2.md": "10c380e26abf45705578eb295c1e3cd6459567b4dd3033e5ecc79650bfa580af",
+    "docs/agent/REVIEWS_P2.md": "bda0fdea0a47e2a96aef10a920dfc3a1f90c23ac4424a7eeccdd4691c96a62e8",
+    "docs/agent/STATE_P2.md": "87f8c1250295f2b0932110ea842cf5cd0712d7c31953ed583547a30b24d08de6",
+    "docs/agent/steps/P2/S13.md": "bf3b25ae0edc31532af508d46ad7c3d985485452d3ebff7aa27d02ace06d4daa"
+  },
+  "snapshot_git_diff": "",
+  "historical_failures_preserved": true,
+  "official_Test_evaluator_rerun": false,
+  "G5_complete": false,
+  "diff_check_exception": {
+    "path": "docs/P2/provenance/newline_verification_20261025/after_group_DATA_MISSING_FAIL.txt",
+    "line": 39,
+    "reason": "Historical pytest FAIL line contains trailing whitespace; preserved exact P2-delivered evidence/hash per user instruction; no source formatting defect."
+  }
+}

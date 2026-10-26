@@ -84,3 +84,21 @@ Nguồn: thông điệp điều phối do người dùng chuyển trong phiên t
 > Giao chỉnh biên tập và công bố PR phần báo cáo P2.
 
 Lệnh hiện hành cho phép commit/push nhánh `codex/p2-s13-report` và mở PR vào main sau chỉnh biên tập; không tự merge. Tạm bỏ PCA/tỷ lệ phương sai khỏi bản chính, giữ ảnh và mâu thuẫn trong editorial_notes; chuyển nhật ký review/trạng thái/việc ghép ra hồ sơ; sửa nhãn cohort; bỏ so sánh biểu diễn chưa có hỗ trợ. Không đổi công thức, metric, receipt, artifact, nguồn dẫn hoặc phần P1, không chạy mô hình/evaluator. G4 đạt đúng phạm vi, G5 chưa hoàn thành. Nội dung chính được chấp nhận không đồng nghĩa PR đã merge hoặc G5 hoàn thành.
+
+
+## Giao kiểm snapshot LF trên Windows và chuẩn bị hỏi–đáp — 25/10/2026
+
+Nguồn: điều phối qua thông điệp người dùng. Lượt rà điều phối báo 118/119 test, lỗi test_evaluator_provenance_trace_artifact_integrity do CRLF; snapshot LF blob được nghiệm thu không sai nội dung. P1 được giao thêm attribute đúng đường dẫn, P2 kiểm fresh checkout autocrlf=true và test fixture/mock, giữ log trước/sau, không đổi logic/assertion/checksum/receipt/metric. Không ETL/mô hình dữ liệu thật/evaluator Test chính thức hoặc PR trùng.
+
+Người dùng xác nhận phần chương 2/5/6 đã được điều phối duyệt; trạng thái merge kiểm riêng từ Git: PR31 đã merge tại `a2021a9f591c56222f5ae16e169f278bf3cec5a7`. P2 ghi hiện hành APPROVED / PR31 MERGED, không sửa lịch sử thành lượt thực nghiệm mới. Phần LF/CRLF và hỏi–đáp/CLI hiện WAITING_REVIEW, chưa có lời nghiệm thu mới; G4 đạt trong phạm vi đã kiểm, G5 chưa hoàn thành.
+
+
+## Chấp nhận LF / hỏi–đáp và giao smoke test, tổng duyệt suy luận — 25/10/2026
+
+Nguồn: thông điệp điều phối do người dùng chuyển. Trích nguyên văn:
+
+> Điều phối chấp nhận bản sửa LF và nội dung hỏi–đáp/kịch bản CLI.
+
+Điều phối cho phép dùng bốn canonical CSV đã kiểm hash ngoài Git trong checkout LF để chạy hai test còn thiếu, được dựng mô hình suy luận trong bộ nhớ và tổng duyệt CLI evaluation/demo. Đây không phải đánh giá lại Test chính thức. Không gọi cf_test_evaluation.py/eval_original.py làm evaluator, không tính metric Test, tune k, sửa receipt/assertion hoặc mock checksum. Giữ log thiếu dữ liệu trước; chỉ báo 31/31 sau khi chạy đủ và đạt thật. Kịch bản DW phải ghi rõ PGHOST/PGPORT/PGDATABASE/PGUSER/PGPASSWORD cấu hình riêng cho adapter, không tự đọc .env, không công bố bí mật/output theo user.
+
+LF và nội dung hỏi–đáp/kịch bản đã được chấp nhận. Kết quả thực chạy bổ sung được ghi riêng tại docs/P2/provenance/smoke_rehearsal_20261025/ để điều phối review, không sửa log/checkpoint cũ. Phối hợp P1 một PR chung, P2 không mở PR trùng hoặc tạo slide tổng. G4 đạt đúng phạm vi, G5 chưa hoàn thành.

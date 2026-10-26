@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-25",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "source": "csv",
+  "execution_scope": "Authorized runtime in-memory inference rehearsal, not official Test evaluation",
+  "cases": [
+    {
+      "case": "evaluation_with_seed",
+      "mode": "evaluation",
+      "source": "csv",
+      "model_version": "item_based_cf_k40_eval_v1",
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "history_excluded": true,
+      "score_types": [
+        "cf"
+      ],
+      "fallback_used": false,
+      "evaluation_manifest_hash_verification": "PASSED_CANONICAL_HASHES_MATCH",
+      "training_scope": "timestamp <= 976422051; 850177 ratings",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "evaluation_fallback",
+      "mode": "evaluation",
+      "source": "csv",
+      "model_version": "item_based_cf_k40_eval_v1",
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "history_excluded": true,
+      "score_types": [
+        "popularity_fallback"
+      ],
+      "fallback_used": true,
+      "evaluation_manifest_hash_verification": "PASSED_CANONICAL_HASHES_MATCH",
+      "training_scope": "timestamp <= 976422051; 850177 ratings",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "demo",
+      "mode": "demo",
+      "source": "csv",
+      "model_version": "item_based_cf_k40_DEMO_full_history_v1",
+      "top_n_requested": 5,
+      "top_n_returned": 5,
+      "unique_items": true,
+      "history_excluded": true,
+      "score_types": [
+        "cf"
+      ],
+      "fallback_used": false,
+      "evaluation_manifest_hash_verification": "Not an evaluation run; canonical input files separately SHA256 verified",
+      "training_scope": "Full canonical history; offline metrics forbidden",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "user_level_output": "Retained privately outside Git, not published",
+  "published_fields_omit": [
+    "user IDs",
+    "per-user seed/rating counts",
+    "history",
+    "recommendation item IDs/titles",
+    "passwords/connection URI"
+  ],
+  "official_Test_metrics_not_computed": true,
+  "receipt_metric_snapshot_working_bytes_unchanged": true,
+  "protected_working_bytes_before_after_sha256": {
+    "results/mining/cf_test_evaluation_receipt.json": "57c16c3c45feea756b771d0b206cb6ec957135205736a4ae40cbb25255af4b50",
+    "results/mining/cf_test_evaluation.json": "acc1e574bafff95b2309e12d994842e4a45611d1e80a35b51f1fe301535ac0cf",
+    "results/mining/cf_validation_experiments.json": "6c05a7ce1bc6d652612e658d84c7674b3ac3f8651c29df20023cdda08b905d6f",
+    "docs/P2/provenance/eval_original.py": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d"
+  },
+  "DW_not_executed_in_this_rehearsal": true
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "after: fresh isolated checkout with P1 .gitattributes present before tracked files were checked out",
+  "base_commit": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "physical_byte_size": 32508,
+  "crlf_count": 0,
+  "lf_count": 671,
+  "physical_sha256": "e3fa2efff659de9b248e19d0cda526802113cf9b1ddb438cbad78c109ff5252d",
+  "physical_git_blob_sha1": "d7c97bae8b6de3449c0306a2f841325f5434f248",
+  "physical_bytes_equal_git_blob": true,
+  "core_autocrlf": "true",
+  "text_attribute": "set",
+  "eol_attribute": "lf",
+  "checkout_command": "git -c core.autocrlf=true checkout HEAD -- . (new empty detached worktree only)",
+  "no_manual_newline_conversion_used_for_fix": true,
+  "rule_commit_state": "P1 uncommitted working-tree rule; not yet merged"
+}
