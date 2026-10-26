@@ -1,0 +1,151 @@
+--- before_20261025/build_report.py
++++ docs/report/build_report.py
+@@ -68,6 +68,19 @@
+         s=replace(s,'Receipt duy nhất dùng cho bảng sau là run `test_run_s10b_official_20261022_034458`, status OFFICIAL_COMPLETED.','Bảng sau tham chiếu receipt Test chính thức OFFICIAL_COMPLETED; run và hash truy vết được ghi ở phụ lục.','Đưa run dài về phụ lục, không thay metric.')
+         s=replace(s,'Log 31 unit test là bằng chứng lịch sử, không phải test mới chạy khi viết báo cáo.','Hồ sơ tái lập độc lập ghi nhận 31 unit test; đó là bằng chứng của lượt kiểm trên P2.','Diễn đạt kết quả, bỏ nhật ký biên tập.')
+         s=replace(s,'sample hash `afc27da1977cf28e45417b7eaf9ff27faa6028dc4e670367a223c758078db485`','fingerprint mẫu được ghi tại phụ lục B','Đưa hash dài về phụ lục, giữ mẫu cố định và seed.')
++        # Approved presentation-only corrections; the reviewed P2 chapter is untouched.
++        for old,new in [('t≤974862386','t ≤ t₁'),('974862386<t≤976422051','t₁ < t ≤ t₂'),('t>976422051','t > t₂')]:
++            s=replace(s,old,new,'Bảng 5.5 dùng ký hiệu ngưỡng thay số dài; giữ nguyên giá trị trong giải thích dưới bảng.')
++        s=replace(s,'t₁=`2000-11-22T03:06:26Z`, t₂=`2000-12-10T04:20:51Z`','t là timestamp giây Unix; t₁=`974862386` (`2000-11-22T03:06:26Z`), t₂=`976422051` (`2000-12-10T04:20:51Z`)','Giữ đủ giây Unix và UTC của hai ngưỡng đóng băng ngoài ô điều kiện.')
++        table_start=s.index('| Mô hình | neighbor_k | Precision@5 | Recall@5 (công bố) |')
++        table_end=s.index('\n\n',table_start)
++        old=s[table_start:table_end]
++        rows=[parse_row(line) for line in old.splitlines()]
++        # Keep unrounded values verbatim in one unbroken code run each.
++        long_values=[(r[1],r[4]) for r in rows[2:] if r[0]=='CF']
++        compact='\n'.join('| '+' | '.join(r[:4]+r[5:])+' |' for r in rows)
++        note='\n\nRecall@5 chưa làm tròn của từng cấu hình được giữ nguyên tại phụ lục G để đọc trọn số; bảng này dùng giá trị công bố. Tiêu chí chọn k vẫn dựa trên Recall validation chưa làm tròn, không đổi theo cách trình bày.'
++        s=replace(s,old,compact+note,'Bảng 5.7 chuyển ba số Recall chưa làm tròn nguyên giá trị sang phụ lục G; không đổi tiêu chí chọn k.')
+     if n==6:
+         s=replace(s,'[S13](../../agent/steps/P2/S13.md), [REVIEWS_P2](../../agent/REVIEWS_P2.md)','[ghi nhận G4](../../P1/g4_acceptance_20261024.json)','Dẫn ghi nhận nghiệm thu thay nhật ký review trong thân báo cáo.')
+         s=replace(s,'Ổn định seed trên snapshot chưa chứng minh ổn định khi dữ liệu thay đổi; PCA không thay thế chỉ số toàn không gian.','Ổn định seed trên snapshot chưa chứng minh ổn định khi dữ liệu thay đổi.','Loại PCA khỏi bản chính, giữ giới hạn của bằng chứng seed.')
+@@ -103,6 +116,11 @@
+     rows=[('E01','Phạm vi và tiêu chí nội bộ','docs/project_spec.md; docs/acceptance.md'),('E02','Nguồn và hash gốc','data/source_manifest.json'),('E03','EDA và canonical','results/eda/data_profile.csv; eda_metrics.json; canonical_manifest.json'),('E04','Giao diện và serializer','docs/shared/data_contract.md; mining/data_io.py'),('E05','Thiết kế DW','database/schema.sql; erd.md; data_dictionary.md; source_to_target.md'),('E06','Staging và rollback','results/warehouse/s05_summary.json'),('E07','Full refresh và rollback toàn pipeline','results/warehouse/s06d_summary.json; s06d_rollback_5c9c553454e54e81953fded2d524877c.json'),('E08','Gói DW','results/warehouse/dw_manifest.json; docs/P1/dw_handoff.md'),('E09','SQL và fixture OLAP','olap/queries.sql; database/views.sql; tests/warehouse/'),('E10','O1–O4/O6','results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/report.json'),('E11','Q3 theo quý','docs/P1/olap_findings.md; dashboard/trends/evidence/reconciliation.json'),('E12','Đặc trưng và K-Means','mining/features.py; results/mining/clustering_summary.json; docs/P2/clustering_interpretation.md'),('E13','G3 và model active','results/warehouse/s11b2/handoff_summary.json; etl/g3_transaction.py'),('E14','Split và validation','results/mining/split_manifest.json; cf_validation_experiments.json; baseline_popularity_validation.json'),('E15','Test chính thức','results/mining/cf_test_evaluation_receipt.json; cf_test_evaluation.json; evaluator_provenance_trace.json'),('E16','CLI qua DW','results/mining/integration_p2/cli_verification_summary.json; docs/P2/integration_report.md'),('E17','Ba dashboard và filter','dashboard/overview/README.md; dashboard/trends/README.md; dashboard/preferences/README.md; evidence/reconciliation.json trong từng thư mục'),('E18','Hai chu trình P1','results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json; environment.json; postflight.json'),('E19','Ba cơ chế phục hồi','docs/P1/integration_prep/README.md; dashboard/metadata_restore/README.md; dashboard/restore/README.md'),('E20','Tái lập P2 và nghiệm thu G4','results/mining/integration_p2/manifest.json; docs/P2/integration_report.md; docs/P1/integration_acceptance.md; g4_acceptance_20261024.json')]
+     for a,b,c in rows:s+='| '+a+' | '+b+' | '+c+' |\n'
+     s+='\n## F. Nguồn chương và phiên bản tài liệu\n\nPhần P1 kế thừa chương 1/3/4 và phụ lục đã duyệt tại HEAD `d018921be66b12dc275933e1de9c2e755b74241a`, bổ sung hình/checklist đã merge cùng PR27 tại `03d9bc9932f7919c5eb5d04075f0235a1e0448fc` và cập nhật G4 cục bộ theo nghiệm thu ngày 24/10/2026. Phần P2 chương 2/5/6 lấy từ HEAD được duyệt `f090eff8b5a58242f8391469772cb3bd329f43f4`, PR31 merge `a2021a9f591c56222f5ae16e169f278bf3cec5a7`. Đây là nguồn biên tập, không thay candidate thực chạy.\n\nBản tổng WAITING_REVIEW; G4 ĐẠT trong phạm vi I01–I15, G5 chưa hoàn thành. Nguồn chương riêng được bảo toàn; mọi thay đổi biên tập bản tổng nằm trong editorial_manifest.json.\n'
++    s+='\n## G. Recall validation chưa làm tròn\n\nCác số dưới đây chép nguyên giá trị từ bảng 5.7 của chương P2 được duyệt và cf_validation_experiments.json; không phải kết quả chạy lại. Mẫu số/cohort giữ theo chương 2 và mục 5.5, 471 người đủ điều kiện.\n\n'
++    original=SOURCES[4].read_text(encoding='utf-8');start=original.index('| Mô hình | neighbor_k | Precision@5 | Recall@5 (công bố) |');end=original.index('\n\n',start)
++    for row in [parse_row(line) for line in original[start:end].splitlines()]:
++        if row[0]=='CF':s+='- neighbor_k='+row[1]+': `'+row[4]+'`.\n'
++    s+='\nBaseline: Không có trường này trong artifact baseline; không suy số chưa làm tròn từ giá trị công bố. Trong lưới CF, neighbor_k=40 có Recall validation chưa làm tròn cao nhất; hòa thì chọn k nhỏ hơn. Top-N=5 và các metric Test không thay đổi.\n'
+     return s
+ 
+ def font(size,bold=False): return ImageFont.truetype('C:/Windows/Fonts/'+('arialbd.ttf' if bold else 'arial.ttf'),size)
+@@ -304,14 +322,18 @@
+     doc.styles['Code Block'].font.name='Consolas'
+     sec.different_first_page_header_footer=True
+     p=sec.footer.paragraphs[0];p.alignment=WD_ALIGN_PARAGRAPH.CENTER;add_field(p,'PAGE')
+-    for line in ['[CẦN BỔ SUNG] TÊN TRƯỜNG','[CẦN BỔ SUNG] KHOA VÀ BỘ MÔN']:
++    for line in ['Trường: ........................................................', 'Khoa / Bộ môn: .............................................']:
+         p=doc.add_paragraph(line);p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+     doc.add_paragraph('\n')
+     p=doc.add_paragraph('BÁO CÁO BÀI TẬP LỚN',style='Subtitle');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+     p=doc.add_paragraph('KHO DỮ LIỆU VÀ KHAI PHÁ DỮ LIỆU',style='Title');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+     p=doc.add_paragraph('Phân tích đánh giá và gợi ý phim trên MovieLens 1M',style='Subtitle');p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+     doc.add_paragraph('\n')
+-    for s in ['Giảng viên hướng dẫn: [CẦN BỔ SUNG]','Sinh viên 1 — Họ tên và MSSV: [CẦN BỔ SUNG]','Sinh viên 2 — Họ tên và MSSV: [CẦN BỔ SUNG]','Lớp / nhóm: [CẦN BỔ SUNG]','Ngày bảo vệ: 27/10/2026']:
++    for s in ['Giảng viên hướng dẫn: ........................................................',
++              'Sinh viên 1 — Họ tên và MSSV: .............................................',
++              'Sinh viên 2 — Họ tên và MSSV: .............................................',
++              'Lớp / nhóm: ............................................................................',
++              'Ngày bảo vệ: 27/10/2026']:
+         doc.add_paragraph(s)
+     doc.add_paragraph('Tháng 10 năm 2026').alignment=WD_ALIGN_PARAGRAPH.CENTER
+     doc.add_page_break()
+--- before_20261025/check_report.py
++++ docs/report/check_report.py
+@@ -18,7 +18,19 @@
+     parsed=[b.parse_row(x) for x in rows]
+     parsed=[r for r in parsed if not all(re.fullmatch(r':?-+:?',c.replace(' ','')) for c in r)]
+     expected=[[' '.join(re.sub(r'`|\*\*','',v).split()) for v in r] for r in parsed]
+-    preserved[p.relative_to(b.ROOT).as_posix()]={'rows':len(expected),'all_source_table_cells_in_docx':all(r in all_cells for r in expected)}
++    edits=[]
++    if p.name=='chapter_05.md':
++        whole_text='\n'.join(para.text for para in d.paragraphs)
++        conditions={'t≤974862386':'t ≤ t₁','974862386<t≤976422051':'t₁ < t ≤ t₂','t>976422051':'t > t₂'}
++        for row in expected:
++            if len(row)==6 and row[1] in conditions:
++                row[1]=conditions[row[1]];edits.append('Table5.5 symbolic cutoff; exact epochs retained in prose')
++        for i,row in enumerate(expected):
++            if len(row)==7:
++                assert row[4] in whole_text,'UNROUNDED_RECALL_TEXT_MISSING'
++                expected[i]=row[:4]+row[5:];edits.append('Table5.7 unrounded column moved verbatim to note')
++        assert all(t in whole_text for t in ['974862386','976422051','0.02856536704222439','0.03007556334371585','0.02866586314500013'])
++    preserved[p.relative_to(b.ROOT).as_posix()]={'rows':len(expected),'approved_editorial_transformations':edits,'all_source_table_cells_in_docx':all(r in all_cells for r in expected)}
+     assert preserved[p.relative_to(b.ROOT).as_posix()]['all_source_table_cells_in_docx'],str(p)
+ body=md.split('# Phụ lục')[0]
+ assert 'PCA' not in body
+--- before_20261025/bao_cao_tong_hop.md
++++ docs/report/bao_cao_tong_hop.md
+@@ -622,11 +622,11 @@
+ 
+ | Tập | Điều kiện | Rating | % rating | Người | Phim |
+ |---|---|---:|---:|---:|---:|
+-| Train | t≤974862386 | 700148 | 70.0002 | 4870 | 3633 |
+-| Validation | 974862386<t≤976422051 | 150029 | 14.9998 | 1352 | 3426 |
+-| Test | t>976422051 | 150032 | 15.0001 | 1512 | 3482 |
+-
+-Nguồn: E14, [split_manifest.json](../../results/mining/split_manifest.json). t₁=`2000-11-22T03:06:26Z`, t₂=`2000-12-10T04:20:51Z`; 4 rating đúng t₁ thuộc Train, không có rating đúng t₂. Tỷ lệ làm tròn có thể không cộng đúng 100%; số dòng cộng đúng 1.000.209.
++| Train | t ≤ t₁ | 700148 | 70.0002 | 4870 | 3633 |
++| Validation | t₁ < t ≤ t₂ | 150029 | 14.9998 | 1352 | 3426 |
++| Test | t > t₂ | 150032 | 15.0001 | 1512 | 3482 |
++
++Nguồn: E14, [split_manifest.json](../../results/mining/split_manifest.json). t là timestamp giây Unix; t₁=`974862386` (`2000-11-22T03:06:26Z`), t₂=`976422051` (`2000-12-10T04:20:51Z`); 4 rating đúng t₁ thuộc Train, không có rating đúng t₂. Tỷ lệ làm tròn có thể không cộng đúng 100%; số dòng cộng đúng 1.000.209.
+ 
+ **Bảng 5.6. Cohort và candidate universe dùng chung cho CF/baseline.** Đơn vị người và phim distinct; mẫu số người bị loại là người hoạt động trong kỳ, không phải 6.040 toàn bộ.
+ 
+@@ -651,12 +651,14 @@
+ 
+ **Bảng 5.7. Validation Top-N=5 trên cùng 471 người.** Precision/Recall là macro tỷ lệ [0,1]; mỗi người trọng số 1/471, Precision mẫu số 5, Recall mẫu số relevant từng người. Hits là tổng cặp gợi ý đúng; fallback là số người có dùng bổ sung.
+ 
+-| Mô hình | neighbor_k | Precision@5 | Recall@5 (công bố) | Recall chưa làm tròn | Hits | Fallback/người |
+-|---|---:|---:|---:|---:|---:|---:|
+-| Popularity | — | 0.169851 | 0.031261 | Không có trường này trong artifact baseline | 400 | — |
+-| CF | 20 | 0.177070 | 0.02856537 | 0.02856536704222439 | 417 | 0 |
+-| CF | 40 | 0.180042 | 0.03007556 | 0.03007556334371585 | 424 | 0 |
+-| CF | 80 | 0.184289 | 0.02866586 | 0.02866586314500013 | 434 | 0 |
++| Mô hình | neighbor_k | Precision@5 | Recall@5 (công bố) | Hits | Fallback/người |
++| --- | ---: | ---: | ---: | ---: | ---: |
++| Popularity | — | 0.169851 | 0.031261 | 400 | — |
++| CF | 20 | 0.177070 | 0.02856537 | 417 | 0 |
++| CF | 40 | 0.180042 | 0.03007556 | 424 | 0 |
++| CF | 80 | 0.184289 | 0.02866586 | 434 | 0 |
++
++Recall@5 chưa làm tròn của từng cấu hình được giữ nguyên tại phụ lục G để đọc trọn số; bảng này dùng giá trị công bố. Tiêu chí chọn k vẫn dựa trên Recall validation chưa làm tròn, không đổi theo cách trình bày.
+ 
+ Nguồn: E14, [cf_validation_experiments.json](../../results/mining/cf_validation_experiments.json) và baseline_popularity_validation.json. Dấu — ở fallback baseline là không áp dụng cơ chế bổ sung CF; không tự tạo một kết quả đo chưa có trường riêng trong artifact baseline.
+ 
+@@ -861,6 +863,16 @@
+ 
+ Bản tổng WAITING_REVIEW; G4 ĐẠT trong phạm vi I01–I15, G5 chưa hoàn thành. Nguồn chương riêng được bảo toàn; mọi thay đổi biên tập bản tổng nằm trong editorial_manifest.json.
+ 
++## G. Recall validation chưa làm tròn
++
++Các số dưới đây chép nguyên giá trị từ bảng 5.7 của chương P2 được duyệt và cf_validation_experiments.json; không phải kết quả chạy lại. Mẫu số/cohort giữ theo chương 2 và mục 5.5, 471 người đủ điều kiện.
++
++- neighbor_k=20: `0.02856536704222439`.
++- neighbor_k=40: `0.03007556334371585`.
++- neighbor_k=80: `0.02866586314500013`.
++
++Baseline: Không có trường này trong artifact baseline; không suy số chưa làm tròn từ giá trị công bố. Trong lưới CF, neighbor_k=40 có Recall validation chưa làm tròn cao nhất; hòa thì chọn k nhỏ hơn. Top-N=5 và các metric Test không thay đổi.
++
+ 
+ # Tài liệu tham khảo
+ 
+--- before_20261025/README.md
++++ docs/report/README.md
+@@ -38,8 +38,12 @@
+ 
+ Nguồn chương riêng và bằng chứng lịch sử được giữ nguyên. Gộp nguồn Sarwar, PostgreSQL Transactions và silhouette trùng giữa hai danh mục; ánh xạ P2-R về R chung trong manifest. Chương 2 giải thích phương pháp và fixture; chương 5 trình bày cấu hình/kết quả. Nhật ký PR/review không nằm trong thân sáu chương; mốc nguồn và runtime dài chuyển phụ lục/hồ sơ biên tập. Bảng 4.4 giữ số chính xác bên cạnh ảnh Sở thích; scope heatmap dẫn SQL/API, không suy riêng từ ảnh.
+ 
+-Bìa còn `[CẦN BỔ SUNG]`: tên trường, khoa/bộ môn, giảng viên, họ tên/MSSV hai thành viên, lớp/nhóm. Chưa xác nhận mẫu/rubric chính thức. Không tự lấy tên tài khoản Git làm họ tên sinh viên. Thời hạn bảo vệ được giữ 27/10/2026.
++Theo trả lời của người dùng ngày 25/10/2026 “Cứ để trống”, bìa giữ nhãn và các dòng trống cho: tên trường, khoa/bộ môn, giảng viên, họ tên/MSSV hai thành viên, lớp/nhóm; không tự điền. Chưa xác nhận mẫu/rubric chính thức. Không tự lấy tên tài khoản Git làm họ tên sinh viên. Thời hạn bảo vệ được giữ 27/10/2026.
+ 
+ Giới hạn thực nghiệm không thay đổi: chỉ kiểm Windows P1/P2 với patch Python/PostgreSQL đã công bố; không kiểm Linux, Superset trên máy P2 hoặc phục hồi toàn stack trên máy mới. ZIP import cần bước layout REST; metadata restore và DW restore là hai cơ chế riêng; PUBLIC TEMP và ACL database clone giữ như hồ sơ.
+ 
+ Chưa commit/push/PR bản tổng, chưa nộp và chưa tạo slide. Việc tạo báo cáo không chạy ETL/G3/evaluator/dump/restore, không sửa metric, receipt, dữ liệu hoặc hệ thống demo.
++
++## Chỉnh trước nộp ngày 25/10/2026
++
++Bảng 5.5 dùng t₁/t₂; số giây Unix và UTC của hai ngưỡng giữ trong giải thích dưới bảng. Bảng 5.7 dùng sáu cột; ba số Recall chưa làm tròn chuyển nguyên giá trị sang phụ lục G, tránh ngắt chữ số và không đổi tiêu chí chọn k. Nguồn chương P2, metric và receipt không sửa. Bản 24/10 được bảo toàn tại review_history/ (metadata) và tmp/pre_submit_20261025/report_before/ (bản tài liệu cục bộ); đây là lịch sử, không ghi đè để gán thành kết quả mới.

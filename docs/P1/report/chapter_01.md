@@ -83,9 +83,9 @@ Kiểm chứng được tổ chức theo nhiều lớp. Lớp dữ liệu so ngu
 
 Trong phép kiểm tích hợp tại P1, hai chu trình trên database thử riêng đã hoàn thành với các checkpoint sau ETL và sau nạp G3 được phân biệt. Điều đó hỗ trợ kết luận về luồng đã kiểm trên máy P1, chưa tự động chứng minh tái lập trên mọi máy hoặc mọi hệ điều hành. Chi tiết kết quả và giới hạn được trình bày ở chương 4; run/hash/lệnh dài được đưa vào phụ lục truy vết của bản thảo. [Nguồn: [summary 12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), E18.]
 
-Tại thời điểm viết ngày 24/10/2026, PR25 đã merge; merge commit của PR này là candidate đang kiểm nhận. Theo thông tin điều phối, P2 đã báo tái lập trên máy Windows độc lập, Python 3.12.6 và PostgreSQL 17.4, đồng thời báo G2 CONFIRMED. Bằng chứng công bố của P2 đang chờ điều phối review; đây chưa phải lượt P1 kiểm độc lập hoặc nghiệm thu G4. Không có cơ sở ghi đã kiểm Linux. [Nguồn: [ghi nhận P2](../p2_intake_reported_20261024.json), E20.]
+Ngày 24/10/2026, điều phối đã nghiệm thu 12-P2 và 12B, xác nhận G4 đạt trong phạm vi ma trận I01–I15 và các giới hạn đã công bố. Candidate thực chạy là `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` (merge PR25), khác commit công bố hồ sơ nghiệm thu PR30. P2 intake G2 đã được xác nhận trên máy Windows độc lập, Python 3.12.6/PostgreSQL 17.4; P1 dùng Windows/Python 3.12.14/PostgreSQL 17.11. Không có bằng chứng kiểm Linux, Superset trên máy P2 hoặc phục hồi toàn stack trên máy mới. [Nguồn: [ma trận nghiệm thu](../integration_acceptance.md), [ghi nhận G4](../g4_acceptance_20261024.json), E20.]
 
-Các yêu cầu kỹ thuật được dùng hiện tại là tiêu chí nội bộ của nhóm, cần phân biệt với rubric chính thức của môn học. Phần kết luận tích hợp cuối chờ báo cáo P2 được review và nghiệm thu 12B/G4.
+Các yêu cầu kỹ thuật được dùng hiện tại là tiêu chí nội bộ của nhóm, cần phân biệt với rubric chính thức của môn học. Nghiệm thu G4 không thay cho nghiệm thu báo cáo, slide và gói nộp thuộc G5; bản tổng chỉ được ghép sau khi nhận đủ phần P2 được duyệt.
 
 ## 1.6. Bố cục báo cáo
 

@@ -1,5 +1,24 @@
 # Quyết định P1
 
+## Công bố được giao ngày 25/10/2026
+
+Điều phối đã chấp nhận bản sửa LF, bằng chứng smoke/CLI bổ sung, runbook demo và báo cáo tổng đã chỉnh. Công bố thành hai PR độc lập: PR LF chứa đúng rule hẹp và hồ sơ P2 nguyên trạng; PR báo cáo chứa bản tổng, cập nhật G4, preflight và tài liệu bảo vệ. Không merge, không chạy lại ETL/G3/evaluator. Candidate thực chạy vẫn 4546d5bbd8f9130a420518b77dc3ad894bc7f42b; G4 ĐẠT I01–I15, G5 chưa hoàn thành. Các phần WAITING_REVIEW/chưa commit bên dưới là snapshot trước lần công bố, được giữ nguyên. Sau công bố được chuẩn bị slide nháp, thời lượng chưa xác nhận.
+
+
+## Chỉnh trước nộp — 25/10/2026
+
+Chỉ sửa hiển thị bản tổng, không nguồn chương: ngưỡng t₁/t₂ và unrounded Recall vào phụ lụcG; bìa để trống theo người dùng. Khởi động đúng hai container8089 hiện hữu; không suy nguyên nhân exit255 hoặc dùngETL/restore chữaUI. Một rule LF hẹp doP1, test doP2; không chuẩn hóa hàng loạt.
+
+## Ghép báo cáo tổng — 24/10/2026
+
+Bản tổng kế thừa nguồn chương đã duyệt, không sửa nguồn P2/P1. Gộp nguồn trùng và ánh xạ P2-R sang R; loại PCA khỏi bản chính. Dùng Times New Roman12/A4 theo lựa chọn nhóm, không gọi là rubric chính thức. G4 giữ I01–I15; G5 chưa hoàn thành. Không lấy commit tài liệu thay candidate4546d5b. Thay đổi biên tập đáng kể ghi trong docs/report/editorial_manifest.json.
+
+## Cập nhật G4 — 24/10/2026
+
+Nguồn: thông điệp điều phối qua người dùng, nguyên văn: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.”
+
+API/Git xác minh PR30 đã MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, HEAD được duyệt d8caa0037c39abd622b5b28e88f1b822719f0aa8. 12B APPROVED và PR MERGED là hai trạng thái riêng. Candidate thực chạy `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` giữ nguyên; G5 chưa hoàn thành. Chỉ cập nhật tài liệu hiện hành, chưa công bố; giữ receipt lịch sử, không chạy lại hệ thống. Ghép báo cáo chờ chương 2/5/6 P2 được duyệt. Nguồn mới: [ghi nhận G4](../P1/g4_acceptance_20261024.json).
+
 ## D126 — tổng hợp12B từ bằng chứng hiện có,24/10/2026
 
 Điều phối nghiệm thu12-P2 sau PR28/29, xác nhận intakeG2 trên Windows độc lập. Chỉ đọc artifact/Git/hash, không thực thi lại; candidate4546d5b khác nền hồ sơd20d3bc và commit công bố. P2manifest6artifact khớp blobGit; rawtextcheckout CRLF ghi riêng, không chuẩn hóa dữ liệu hoặc sửaP2. ĐềxuấtG4đạt nếu ma trận không còn lỗi bắt buộc;12B vẫnWAITING_REVIEW, không tựchốtG4/merge. KhôngLinux/SupersetP2/DRtoànstackmáymới.

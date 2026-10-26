@@ -1,5 +1,15 @@
 # Hồ sơ gói tích hợp12A — WAITING_REVIEW, chưa chọn candidate cuối
 
+## Hiện hành — G4 ĐẠT ngày 24/10/2026
+
+Điều phối qua thông điệp người dùng xác nhận: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.” 12B được nghiệm thu chức năng; [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30) đã **MERGED** tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, bởi hungvu205; HEAD được duyệt `d8caa0037c39abd622b5b28e88f1b822719f0aa8` khớp PR. Agent chỉ xác minh, không thực hiện merge.
+
+Candidate thực chạy giữ nguyên `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`; merge tài liệu PR30 không là candidate mới hoặc một lượt chạy lại. [Ghi nhận nghiệm thu](g4_acceptance_20261024.json), [ma trận I01–I15](integration_acceptance.md). P2 intake G2 **CONFIRMED**. G4 đạt trong phạm vi đã công bố; **G5 chưa hoàn thành**.
+
+Phạm vi P1 Windows/Python 3.12.14/PostgreSQL 17.11; P2 Windows độc lập/Python 3.12.6/PostgreSQL 17.4. Không kiểm Linux, Superset trên máy P2 hoặc phục hồi toàn stack trên máy mới. PUBLIC TEMP, database-level ACL clone khác nguồn và ZIP cần REST phục hồi layout vẫn là giới hạn.
+
+Các phần OPEN/WAITING_REVIEW/NOT_CONFIRMED và đề xuất G4 bên dưới là **lịch sử trước nghiệm thu**, không phải trạng thái hiện hành. Giữ nguyên snapshot/receipt. Cập nhật tài liệu này chờ ghép vào đợt công bố tiếp theo, chưa commit/push/PR. Chưa ghép báo cáo tổng: cần nhận chương 2/5/6 của P2 được duyệt và lệnh ghép; giữ demo, không chạy pipeline/evaluator.
+
 ## Hiện hành12B,24/10/2026 — candidate đã P2 kiểm nhận, chờ chốtG4
 
 Candidate thực chạy của P2 vẫn `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`, không thay bằng main hồ sơ. Điều phối đã nghiệm thu12-P2 sau PR28merge88c5c7b… và PR29merged20d3bc…; P2intakeG2CONFIRMED trên Windows độc lập. [Ma trận12B](integration_acceptance.md) và [auditnguồn](integration_acceptance_sources.json) là cập nhật hiện hành; các đoạn “chờP2/NOT_CONFIRMED/chưa chọn” bên dưới giữ như lịch sử.

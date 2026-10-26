@@ -1,6 +1,6 @@
 # Checklist tích hợp sơ bộ — chuẩn bị trước 12A, 21/10/2026
 
-## Hiện hành24/10/2026 — tổng hợp12B WAITING_REVIEW
+## Hiện hành 24/10/2026 — 12B APPROVED, G4 ĐẠT
 
 Điều phối đã nghiệm thu12-P2 sau PR28 và PR29. **P2 intake G2 = CONFIRMED trên máy P2/Windows độc lập.** Các bảng/mục “NOT_CONFIRMED”, “chưa hợp nhất”, “chưa full refresh” bên dưới là snapshot lịch sử chuẩn bị, không phải trạng thái hiện hành. Không sửa report/runtime/receipt cũ.
 
@@ -12,9 +12,11 @@ Nguồn hiện hành: [ma trận12B](P1/integration_acceptance.md) và [audit ng
 - [x] Ba dashboard/BI/restore có bằng chứng P1; phạm vi và giới hạn được giữ trong ma trận.
 - [x] Receipt Test giữ nguyên, chỉ tham chiếu; không evaluator/ETL/G3/dump/restore trong12B.
 - [x] WindowsP1/Python3.12.14/PG17.11 và WindowsP2/Python3.12.6/PG17.4 được phân biệt; khôngLinux/SupersetP2/toànstackmáymới.
-- [ ] Điều phối review hồ sơ12B và quyết định chốt G4. **Đề xuất đạt, chưa tự đánh dấu hoàn thành.**
-- [ ] PR12B được review/merge theo lệnh riêng; không tựmerge hoặc tag.
-- [ ] Các cập nhật sau G4 vào báo cáo tổng/README/demo và việc ghép phầnP2 thực hiện ở bước được giao riêng; chưa G5/DOCX/slide.
+- [x] Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, phạm vi I01–I15 và giới hạn công bố; [ghi nhận mới](P1/g4_acceptance_20261024.json).
+- [x] PR30 đã MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, HEAD được duyệt d8caa003…; agent không merge. Candidate thực chạy vẫn4546d5b…; commit hồ sơ không là candidate mới.
+- [x] Cập nhật G4 trong README, chương 1/3/4, phụ lục và hồ sơ P1 hiện hành, giữ snapshot lịch sử.
+- [x] Nhận chương 2/5/6 P2 được duyệt từ PR31; đã ghép DOCX/PDF 49 trang và được điều phối chấp nhận bản chỉnh 25/10.
+- [ ] Slide tổng và gói nộp G5: chỉ được chuẩn bị bản nháp sau công bố, chưa hoàn thành.
 
 Các giới hạn còn lại không được xóa: PUBLIC TEMP, DB-level ACL clone khác nguồn, ZIP cần REST layout, chỉ cùng máy/version khi restoremetadata; không BI hai máy hoặc Linux. Trong phạm vi ma trận I01–I15 chưa phát hiện lỗi chức năng bắt buộc còn mở; xem chi tiết ma trận, không diễn giải thành toàn dự án đã xong.
 

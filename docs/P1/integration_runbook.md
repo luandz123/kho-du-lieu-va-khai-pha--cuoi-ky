@@ -1,6 +1,6 @@
 # Tái lập và kiểm tích hợp 12A
 
-Đích thử riêng, không chạy trên `movielens_btl` demo hoặc clone backup. Base12A là `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02` sau PR24 MERGED, không phải candidate đã nghiệm thu. Code12A đang working tree; hash thực chạy và trạng thái hai chu trình ở `results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/`. P2 intakeG2 NOT_CONFIRMED.
+Đích thử riêng, không chạy trên `movielens_btl` demo hoặc clone backup. Base lúc chạy12A là `01d51a2db91ea4e4b390da23f9c9ca2f0aebfc02` cộng code working tree tại thời điểm đó; hash thực chạy giữ trong `results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/`. Candidate thực chạy trên P2 là `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. Điều phối đã nghiệm thu12B/G4 ngày24/10/2026, phạm vi I01–I15; P2 intakeG2CONFIRMED. [Nguồn hiện hành](integration_acceptance.md), [ghi nhận G4](g4_acceptance_20261024.json). Không gán commit hồ sơ mới cho lần chạy cũ.
 
 ## 1. Môi trường và nguồn
 
@@ -62,14 +62,14 @@ Sau loader, cycleN_g3.json và summary phân biệt INSERT_NEW_VERSION, RELOAD_I
 
 ## 5. P2 tự tái tạo DW khi không nhận backup
 
-Checkout commit được nhóm chốt sau review (hiện chưa chọn candidate), tạo venv từ requirements tổng và điền env cục bộ. Tải nguồn chính thức, so source_manifest. Không cần dump hoặc Superset để dựng riêng DW:
+Checkout candidate kỹ thuật `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`, tạo venv từ requirements tổng và điền env cục bộ. Tải nguồn chính thức, so source_manifest. Không cần dump hoặc Superset để dựng riêng DW:
 
 ```text
 python etl/recreate_integration_dw.py
 python etl/recreate_integration_dw.py --apply --raw-dir <local-ml-1m-dir> --env-file .env --date 20261023 --report <new-local-report.json>
 ```
 
-Entry point DW-only dùng cùng permit/transaction/serializer, tạo DB mới, schema→staging/fullrefresh→bốn hash→OLAP; không nạp G3 hoặc truy cập8092. Default plan-only đã kiểm; đường apply DW-only riêng chưa được chạy thêm trên máy P1, các core transaction được kiểm trong hai chu trình chính. P2 phải lưu report thực của máy mình rồi xác nhận intake; P1 không tự đổi NOT_CONFIRMED. Thiếu CREATEDB thì chủ máy chuẩn bị quyền/DB phù hợp trước; không gửi mật khẩu vào chat.
+Entry point DW-only dùng cùng permit/transaction/serializer, tạo DB mới, schema→staging/fullrefresh→bốn hash→OLAP; không nạp G3 hoặc truy cập8092. Default plan-only đã kiểm; đường apply DW-only riêng chưa được chạy thêm trên máy P1, các core transaction được kiểm trong hai chu trình chính. P2 đã lưu report tái lập độc lập và được điều phối nghiệm thu sau PR28/PR29; intake G2 hiện CONFIRMED. Đây là nguồn riêng của P2, không đổi kết quả plan-only của P1. Thiếu CREATEDB thì chủ máy chuẩn bị quyền/DB phù hợp trước; không gửi mật khẩu vào chat.
 
 Linux cần endpoint PostgreSQL/driver thực phù hợp; host.docker.internal trong Compose trên Windows không mặc nhiên dùng được trên Linux. Superset cần mạng/service hoặc host-gateway do chủ máy xác minh khi được giao; không đổi firewall tự động. Không yêu cầu P2 có Superset để kiểm DW/ML.
 
@@ -77,4 +77,4 @@ Linux cần endpoint PostgreSQL/driver thực phù hợp; host.docker.internal t
 
 [DW backup/restore](integration_prep/README.md) khác [metadata restore](../../dashboard/metadata_restore/README.md); ZIP import còn cần snapshot/UUID mapping/REST layout riêng. Clone DW cũ có database-level ACL khác nguồn dù owner/object ACL được giữ, không dùng thay bằng chứng full refresh12A.
 
-Thư viện pandas cảnh báo DBAPI2 ngoài SQLAlchemy; lần chạy thực vẫn kiểm đủ canonical byte, không coi warning là lỗi dữ liệu. Hai chu trình không thay thuật toán/receipt/metric P2; same-host Windows/PG17.11/Superset6.1.0, chưa chứng minh máy P2/Linux hoặc phục hồi toàn stack máy mới. Chưa chọn/gửi candidate cuối, chốtG4, commit/push/PR12A hoặc viết báo cáo cuối.
+Thư viện pandas cảnh báo DBAPI2 ngoài SQLAlchemy; lần chạy thực vẫn kiểm đủ canonical byte, không coi warning là lỗi dữ liệu. Hai chu trình không thay thuật toán/receipt/metric P2; same-host Windows/PG17.11/Superset6.1.0, P2 đã kiểm DW/adapter/ML/CLI trên Windows độc lập/Python3.12.6/PG17.4. Không kiểm Linux, Superset trên P2 hoặc phục hồi toàn stack máy mới. G4 đã đạt phạm vi I01–I15; báo cáo/slide/gói nộp G5 chưa hoàn thành.

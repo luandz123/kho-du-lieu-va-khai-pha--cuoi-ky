@@ -1,10 +1,10 @@
 # Tổng hợp nghiệm thu tích hợp 12B
 
-Ngày 24/10/2026, phiên bản P1-12B-v1. **12B = WAITING_REVIEW**. **Đề xuất G4 đạt trong phạm vi tích hợp đã kiểm; chưa xác nhận G4 hoàn thành và không tự merge.** Lượt này chỉ đọc Git/artifact, kiểm hash và tổng hợp bằng chứng; không chạy lại ETL/G3/evaluator/dump/restore hoặc truy vấn hệ thống demo.
+Ngày 24/10/2026, cập nhật sau nghiệm thu. **12B = APPROVED; G4 = ĐẠT trong phạm vi I01–I15 và các giới hạn đã công bố.** PR30 MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`; [ghi nhận mới](g4_acceptance_20261024.json). Snapshot WAITING_REVIEW và receipt lịch sử được giữ nguyên. Lượt cập nhật này không chạy lại pipeline/evaluator hoặc thay hệ thống demo.
 
 ## 1. Căn cứ và các mốc phải phân biệt
 
-Nguồn giao việc là thông điệp điều phối qua người dùng: “Điều phối nghiệm thu 12-P2 sau khi kiểm PR28 và bản sửa PR29.” Theo xác nhận này và hồ sơ đã merge, **P2 intake G2 = CONFIRMED trên máy P2/Windows độc lập**. Đây không phải lời duyệt 12B/G4; trạng thái hai mốc đó vẫn chờ review của điều phối.
+Nguồn giao việc là thông điệp điều phối qua người dùng: “Điều phối nghiệm thu 12-P2 sau khi kiểm PR28 và bản sửa PR29.” Theo xác nhận này và hồ sơ đã merge, **P2 intake G2 = CONFIRMED trên máy P2/Windows độc lập**. Đây là nguồn nghiệm thu 12-P2 trước đó. Nguồn nghiệm thu 12B/G4 mới là thông điệp điều phối ngày 24/10/2026 được lưu riêng trong ghi nhận G4; không gán xác nhận mới cho receipt cũ.
 
 | Mốc | Commit | Ý nghĩa |
 |---|---|---|
@@ -19,7 +19,7 @@ API xác minh các PR nêu trên MERGED; `git merge-base --is-ancestor` xác min
 
 ### Quan sát công bố tài liệu12B
 
-Hồ sơ đã được công bố tại [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30), OPEN/merged=false tại lúc xác minh. Commit nội dung tài liệu `1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98`, base `d20d3bc382e603cc219bc4a742814bae793421ab`. Commit hồ sơ sau đó chỉ ghi kết quả công bố, không là một lượt chạy hoặc candidate mới. [integration_acceptance_remote.json](integration_acceptance_remote.json) ghi snapshot/head của từng lần quan sát; HEAD cuối được bàn giao sau khi kiểm remote. **12B vẫn WAITING_REVIEW và G4 vẫn là đề xuất**, không tự merge.
+Hồ sơ đã được công bố tại [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30), OPEN/merged=false tại lúc xác minh. Commit nội dung tài liệu `1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98`, base `d20d3bc382e603cc219bc4a742814bae793421ab`. Commit hồ sơ sau đó chỉ ghi kết quả công bố, không là một lượt chạy hoặc candidate mới. [integration_acceptance_remote.json](integration_acceptance_remote.json) ghi snapshot/head của từng lần quan sát; HEAD cuối được bàn giao sau khi kiểm remote. **Ở thời điểm công bố đó, 12B WAITING_REVIEW và G4 là đề xuất**; quan sát lịch sử này được giữ nguyên. Hiện PR30 đã merge và G4 được điều phối nghiệm thu như ghi nhận đầu tài liệu; agent không merge.
 
 ## 2. Phạm vi môi trường và cách đọc kết quả
 
@@ -115,6 +115,6 @@ Nguồn duy nhất cho bảng này là `metrics_comparison` trong [receipt Test]
 
 Manifest P2 chứa hash/kích thước của 6 artifact công bố. Cả 6 khớp chính xác blob Git tại main đã chứa PR29. Working tree Windows của P1 dùng CRLF nên hash/size byte cục bộ khác; audit ghi riêng raw working copy/Git blob và xác nhận chỉ khác xuống dòng. Đây là kiểm tệp văn bản chứng cứ, **không sửa file P2, manifest, nguồn MovieLens, canonical CSV hoặc hai CSV G3 để ép hash**. Hash canonical/G3 ở trên giữ đúng byte chuẩn đã chốt.
 
-Sau đối chiếu, **không phát hiện lỗi chức năng bắt buộc còn mở trong phạm vi ma trận I01–I15**. Đề xuất điều phối duyệt12B và chốt G4 đạt cho phạm vi Windows P1/P2 cùng BI/phục hồi ở P1 đã mô tả. Các giới hạn ở mục 7 và công việc tài liệu/G5 không bị xóa hoặc đổi thành đã hoàn thành.
+Sau đối chiếu, **không phát hiện lỗi chức năng bắt buộc còn mở trong phạm vi ma trận I01–I15**. Điều phối đã nghiệm thu 12B và xác nhận **G4 ĐẠT ngày 24/10/2026** trong phạm vi Windows P1/P2 cùng BI/phục hồi tại P1 đã mô tả. Giới hạn ở mục 7 giữ nguyên; công việc báo cáo/slide/gói nộp G5 chưa hoàn thành.
 
-**Trạng thái hiện hành:**12-P2 đã được điều phối nghiệm thu; P2 intake G2 CONFIRMED ; 12B = WAITING_REVIEW; G4 được đề xuất đạt nhưng **chưa được tự đánh dấu hoàn thành**. PR hồ sơ12B cũng phải phân biệt OPEN/APPROVED/MERGED. Chờ điều phối review và lệnh tiếp theo; không tự merge, tag hoặc ghép báo cáo tổng.
+**Trạng thái hiện hành:** 12-P2 đã nghiệm thu; P2 intake G2 CONFIRMED; 12B APPROVED; PR30 MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`; G4 ĐẠT trong phạm vi I01–I15. Candidate thực chạy vẫn `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`. Chưa ghép báo cáo tổng khi thiếu chương 2/5/6 P2 được duyệt; không tự merge, tag hoặc tuyên bố G5 hoàn thành.

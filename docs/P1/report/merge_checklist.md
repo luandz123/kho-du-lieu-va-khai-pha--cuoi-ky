@@ -1,6 +1,10 @@
+# Checklist ghép báo cáo chung
+
+Cập nhật hiện hành 25/10/2026: đã ghép đủ sáu chương, phụ lục và tham khảo trong [bản tổng](../../report/README.md); điều phối chấp nhận bản chỉnh 25/10. G4 ĐẠT I01–I15; G5 chưa hoàn thành. Checklist bên dưới là snapshot chuẩn bị 24/10, giữ để truy vết, không là trạng thái hiện tại.
+
 # Checklist ghép báo cáo chung — chuẩn bị cục bộ
 
-Điều phối đã duyệt checklist và hai ảnh Sở thích bổ sung ngày24/10/2026. Checklist được công bố cùng phần hình bổ sung để nhóm sử dụng; các ô ghép báo cáo bên dưới vẫn là việc chưa thực hiện, không tự đánh dấu hoàn thành. Không thay đổi kết luận G4 hoặc ghép DOCX tổng.
+Điều phối đã duyệt checklist và hai ảnh Sở thích bổ sung ngày24/10/2026. Checklist được công bố cùng phần hình bổ sung để nhóm sử dụng; các ô ghép báo cáo bên dưới vẫn là việc chưa thực hiện, không tự đánh dấu hoàn thành. G4 đã được điều phối nghiệm thu ngày24/10/2026 trong phạm vi I01–I15; [ghi nhận mới](../g4_acceptance_20261024.json). Chưa ghép DOCX tổng, chưa G5.
 
 Ngày 24/10/2026. **Điều phối đã duyệt checklist**. Chưa ghép báo cáo hoặc tạo DOCX tổng/slide. Công bố checklist và hình bổ sung theo lệnh riêng, chưa tự merge. Điều phối duyệt nội dung PR27 tại HEAD `d018921be66b12dc275933e1de9c2e755b74241a`; không tự merge hoặc thay HEAD này. Nếu có commit bổ sung sau review phải nêu riêng diff và xin review đúng phạm vi.
 
@@ -19,7 +23,7 @@ Ngày 24/10/2026. **Điều phối đã duyệt checklist**. Chưa ghép báo c�
 - [ ] Nhận các phụ lục và nguồn hình/bảng của P2; không tự sửa file P2 để ép khớp.
 - [ ] Kiểm hai phần được duyệt trước ghép bản tổng; P1 quản lý bản tổng duy nhất.
 - [ ] Xác minh trạng thái merge các PR thực tế; nội dung được duyệt khác PR MERGED.
-- [ ] Điều phối nghiệm thu12B/G4 trước khóa kết luận tích hợp. Việc chuẩn bị checklist không mở G4.
+- [x] Điều phối nghiệm thu 12B/G4 ngày24/10/2026, phạm vi I01–I15; PR30 đã merge67fd9eb…. Candidate thực chạy4546d5b… giữ nguyên.
 
 ## 2. Thuật ngữ, ký hiệu và phạm vi
 

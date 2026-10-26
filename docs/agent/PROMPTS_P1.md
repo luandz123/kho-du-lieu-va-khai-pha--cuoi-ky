@@ -1,5 +1,24 @@
 # Nguồn prompt P1
 
+## Công bố được giao ngày 25/10/2026
+
+Điều phối đã chấp nhận bản sửa LF, bằng chứng smoke/CLI bổ sung, runbook demo và báo cáo tổng đã chỉnh. Công bố thành hai PR độc lập: PR LF chứa đúng rule hẹp và hồ sơ P2 nguyên trạng; PR báo cáo chứa bản tổng, cập nhật G4, preflight và tài liệu bảo vệ. Không merge, không chạy lại ETL/G3/evaluator. Candidate thực chạy vẫn 4546d5bbd8f9130a420518b77dc3ad894bc7f42b; G4 ĐẠT I01–I15, G5 chưa hoàn thành. Các phần WAITING_REVIEW/chưa commit bên dưới là snapshot trước lần công bố, được giữ nguyên. Sau công bố được chuẩn bị slide nháp, thời lượng chưa xác nhận.
+
+
+## Chỉnh trước nộp — 25/10/2026
+
+Điều phối giaoA–E: bảo toàn, khôi phục demo8089 đúng hai container, runbook/chỉđọc, sửa Bảng5.5/5.7 và xuất kiểm DOCX/PDF, phối hợpLF. Người dùng trả lời thông tin bìa “Cứ để trống”. Khôngcommit/push/PR/nộp/chốtG5 hoặcETL/G3/evaluatorTest.
+
+## Ghép báo cáo tổng — 24/10/2026
+
+Nguồn: điều phối qua thông điệp người dùng duyệt phần P2 tại HEADf090eff8b5a58242f8391469772cb3bd329f43f4; chỉ sau PR31MERGED mới ghép. Giao đủ sáu chương/phụ lục/refs, DOCX/PDF và nguồn tái tạo, render xem từng trang; giữ source/chỉ số/receipt, khôngPCA, khôngcommit/push/PR/pipeline/demo/slide. Đã xác minh gate PR31, thực hiện đúng phần ghép; bản tổng WAITING_REVIEW.
+
+## Cập nhật G4 — 24/10/2026
+
+Nguồn: thông điệp điều phối qua người dùng, nguyên văn: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.”
+
+API/Git xác minh PR30 đã MERGED tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, HEAD được duyệt d8caa0037c39abd622b5b28e88f1b822719f0aa8. 12B APPROVED và PR MERGED là hai trạng thái riêng. Candidate thực chạy `4546d5bbd8f9130a420518b77dc3ad894bc7f42b` giữ nguyên; G5 chưa hoàn thành. Chỉ cập nhật tài liệu hiện hành, chưa công bố; giữ receipt lịch sử, không chạy lại hệ thống. Ghép báo cáo chờ chương 2/5/6 P2 được duyệt. Nguồn mới: [ghi nhận G4](../P1/g4_acceptance_20261024.json).
+
 ## Giao12B tổng hợp nghiệm thu,24/10/2026
 
 Theo lệnh điều phối được người dùng chuyển: xác minh main chứa candidate4546d5b…, PR28merge88c5c7b…, PR29merged20d3bc…; lập integration_acceptance.md ma trận P1/P2/giới hạn/hash/count/cycles/ML/BI/restore/receipt. Cập nhật checklist/hồsơ,12BWAITING_REVIEW và đềxuấtG4đạt nếu không lỗi bắt buộc. Đượccommit/push/PR,khôngmerge. Không pipeline/ETL/G3/evaluator/dump/restore hoặc sửaP2/metric/receipt; giữdemo. Đây là tóm tắtphạmvi, không lời duyệt12B.

@@ -1,5 +1,48 @@
 # Trạng thái P1
 
+## Công bố được giao ngày 25/10/2026
+
+Điều phối đã chấp nhận bản sửa LF, bằng chứng smoke/CLI bổ sung, runbook demo và báo cáo tổng đã chỉnh. Công bố thành hai PR độc lập: PR LF chứa đúng rule hẹp và hồ sơ P2 nguyên trạng; PR báo cáo chứa bản tổng, cập nhật G4, preflight và tài liệu bảo vệ. Không merge, không chạy lại ETL/G3/evaluator. Candidate thực chạy vẫn 4546d5bbd8f9130a420518b77dc3ad894bc7f42b; G4 ĐẠT I01–I15, G5 chưa hoàn thành. Các phần WAITING_REVIEW/chưa commit bên dưới là snapshot trước lần công bố, được giữ nguyên. Sau công bố được chuẩn bị slide nháp, thời lượng chưa xác nhận.
+
+
+## Chỉnh trước nộp và demo — 25/10/2026 — WAITING_REVIEW
+
+Nhánh giữ `codex/p1-s13-final-report`, HEAD `a2021a9f591c56222f5ae16e169f278bf3cec5a7`. Bảo toàn toàn bộ công việc G4/bản tổng/kế hoạch ngoài phạm vi; không reset/clean/commit/push/PR. P2 có thay đổi hồ sơ/test newline song song do P2 thực hiện, không gom thành thay đổi P1 hoặc ghi đè.
+
+Đã start đúng hai container metadata/web của8089 đang exited255, OOMKilled=false; cả hai healthy, healthHTTP200, loginAPI và UI ba dashboard đạt. SQL READ ONLY đối chiếu KPI toàn kỳ/Q3, Animation2001Q1 và Sở thích all/lọc; run `3ca533f8a35648e69245fb145f55c271` PASS. Cấu hình nghiệp vụ23chart/3dashboard trước/sau API và UI có cùng hash. Chưa xác định nguyên nhân dừng; log thô giữ ignored. Không recreate/build/upgrade, đổi volume/quyền/firewall hoặc tác động8091/8092. Runbook `docs/P1/demo_preflight.md`; bằng chứng tổng hợp `results/warehouse/demo_preflight_20261025/`.
+
+Bản tổng mới49trang: Bảng5.5 dùng t₁/t₂, giữ Unix/UTC dưới bảng; Bảng5.7 chuyển nguyên ba Recall chưa làm tròn sang phụ lụcG. Không đổi giá trị/tiêu chí chọnk/công thức/Testreceipt/nguồn chương. Theo trả lời nguyên văn “Cứ để trống”, bìa dùng dòng trống có nhãn cho trường/khoa, giảng viên, tên/MSSV/lớp. DOCX/PDF/nguồn cập nhật; Word cập nhật3mục lục,40/40entrykhớp; render so49trang,44tranggiốngpixelvà5trangđổiđãxem. Metadatareview24/10 giữ tại review_history; bản tài liệu cũ ở tmp ignored. Chi tiết `docs/report/layout_review.json` và diff `docs/P1/pre_submit_report_changes_20261025.diff`.
+
+P1 thêm đúng một rule .gitattributes cho eval_original.py text eol=lf. P2 kiểm trong checkout Windows autocrlf=true: provenance riêng1PASS; nhóm đầy đủ29PASS/2FAIL thiếuCSV, subsetfixture/static29PASS/2deselected; khôngclaim31/31/119/119. P1 đối chiếu file chung32508byte/0CRLF/SHAe3fa2eff…khớpGitblobvàsnapshotkhôngdiff. P2 phụ trách materialize đúng đường dẫn và hồ sơ riêng, P1 không sửa test/checksum/receipt hoặc mởPRtrùng. Chưa chạy mô hình thật để ép test qua.
+
+Cập nhật tiếp cùng ngày: đã nhận và kiểm hash 6/6 artifact bổ sung P2; log P2 ghi 2/2 smoke và 31/31 nhóm đầy đủ PASS, ba ca CLI CSV PASS. P1 chỉ rà bằng chứng, không chạy lại; giữ nguyên pha FAIL thiếu CSV lịch sử. Chi tiết trong S13 và bàn giao trước nộp.
+
+G4 vẫn ĐẠT I01–I15; G5 chưa hoàn thành. Chưa nộp, tạo slide hoặc công bố sửa mới. Dừng chờ review; giữ demo8089 đang chạy và tài nguyên thử.
+
+## Bản tổng sáu chương — WAITING_REVIEW ngày 24/10/2026
+
+Bản bàn giao cuối: **49 trang**, 6 chương, 9 hình,25 bảng đánh số,15 nguồn R; kiểm bố cục PASS theo `docs/report/layout_review.json`, static check PASS và40/40 mục chương/hình/bảng khớp số trang. DOCX/PDF/nguồn đã tạo, chưa stage/commit/push/PR.
+
+Đã xác minh PR31 MERGED tại `a2021a9f591c56222f5ae16e169f278bf3cec5a7`, HEAD `f090eff8b5a58242f8391469772cb3bd329f43f4` khớp phần P2 được điều phối duyệt. Agent không merge. Tạo nhánh `codex/p1-s13-final-report` từ origin/main tại merge này bằng thao tác switch an toàn; 20 tệp cập nhật G4 và 10 tệp untracked ngoài phạm vi được giữ nguyên trước ghép. Không reset/stash/commit/push hoặc thay file P2.
+
+Đầu vào P1 là chương1/3/4, phụ lục và refs đã duyệt HEADd018921…, bổ sung PR27 merge03d9bc9… và cập nhật G4 cục bộ đã được điều phối chấp nhận. P2 chương2/5/6 từ đúng HEADf090eff8… đã merge. Hash nguồn và thay đổi biên tập được ghi tại `docs/report/editorial_manifest.json`; nguồn chương riêng giữ nguyên. Candidate thực chạy4546d5b… không đổi; G4 ĐẠT I01–I15 ngày24/10/2026; G5 chưa hoàn thành.
+
+Đầu ra: `docs/report/bao_cao_tong_hop.docx`, `.pdf`, `.md`; `build_report.py`, `render_report.ps1`, `check_report.py`, `README.md`, hai hình sơ đồ trong assets, editorial_manifest/static_checks/layout_review JSON. Sáu chương, phụ lục, 15 nguồn R không trùng, 9 hình và25 bảng có số; mục lục và danh mục hình/bảng là ba trường tự động đã cập nhật. Chi tiết trang và kiểm bố cục theo layout_review.json của bản cuối, không dùng số trang của lượt render cũ.
+
+Chỉ biên tập bản tổng: thống nhất mã R, loại PCA khỏi bản chính, tách nhật ký Git/review khỏi thân sáu chương, đưa SHA dài vào phụ lục; không đổi metric/công thức hoặc receipt. Các dòng/ô bảng gốc được kiểm đối chiếu với DOCX, gồm ký tự phân cách genre. Renderer đóng gói thiếu LibreOffice; dùng Word native COM để cập nhật fields/xuấtPDF, Poppler bundled để render và xem từng trang. Lỗi dựng/render ban đầu được sửa trước bản cuối, không gọi đó là bằng chứng PASS.
+
+Thiếu thông tin bìa: trường/khoa, giảng viên, họ tên/MSSV hai sinh viên, lớp/nhóm; đã để [CẦN BỔ SUNG]. Chưa mẫu/rubric chính thức; bố cục học thuật là lựa chọn nhóm. Giữ giới hạn Windows/restore đã công bố. Không chạy ETL/G3/evaluator/dump/restore hoặc tác động demo. Gói tổng WAITING_REVIEW; chưa commit/push/PR/nộp/slide. Các snapshot cũ (kể cả hash tài liệu trong g4_acceptance_20261024.json trước ghép) được giữ như lịch sử, không gán lại theo STATE mới.
+
+## Hiện hành — G4 ĐẠT ngày 24/10/2026
+
+Điều phối qua thông điệp người dùng xác nhận: “Điều phối nghiệm thu 12B và xác nhận G4 ĐẠT ngày 24/10/2026, trong phạm vi ma trận I01–I15 và các giới hạn đã công bố.” 12B được nghiệm thu chức năng; [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30) đã **MERGED** tại `67fd9eb6b98211485b713c99e829291bc3b50f57`, bởi hungvu205; HEAD được duyệt `d8caa0037c39abd622b5b28e88f1b822719f0aa8` khớp PR. Agent chỉ xác minh, không thực hiện merge.
+
+Candidate thực chạy giữ nguyên `4546d5bbd8f9130a420518b77dc3ad894bc7f42b`; merge tài liệu PR30 không là candidate mới hoặc một lượt chạy lại. [Ghi nhận nghiệm thu](../P1/g4_acceptance_20261024.json), [ma trận I01–I15](../P1/integration_acceptance.md). P2 intake G2 **CONFIRMED**. G4 đạt trong phạm vi đã công bố; **G5 chưa hoàn thành**.
+
+Phạm vi P1 Windows/Python 3.12.14/PostgreSQL 17.11; P2 Windows độc lập/Python 3.12.6/PostgreSQL 17.4. Không kiểm Linux, Superset trên máy P2 hoặc phục hồi toàn stack trên máy mới. PUBLIC TEMP, database-level ACL clone khác nguồn và ZIP cần REST phục hồi layout vẫn là giới hạn.
+
+Các phần OPEN/WAITING_REVIEW/NOT_CONFIRMED và đề xuất G4 bên dưới là **lịch sử trước nghiệm thu**, không phải trạng thái hiện hành. Giữ nguyên snapshot/receipt. Cập nhật tài liệu này chờ ghép vào đợt công bố tiếp theo, chưa commit/push/PR. Chưa ghép báo cáo tổng: cần nhận chương 2/5/6 của P2 được duyệt và lệnh ghép; giữ demo, không chạy pipeline/evaluator.
+
 ## Hiện hành24/10/2026 — PR30 OPEN,12B WAITING_REVIEW
 
 Đã công bố [PR30](https://github.com/luandz123/kho-du-lieu-va-khai-pha--cuoi-ky/pull/30) trên nhánh codex/p1-s12b-acceptance, base `d20d3bc382e603cc219bc4a742814bae793421ab`. Commit nội dung tài liệu12B `1558919e0ffd83b0e4bcab5ebecd1bbdb596bc98`; candidate thực chạy củaP2 vẫn4546d5b…, không thay bằng commit tài liệu. API xác minh OPEN/merged=false và mọi file/blob khớp lúc công bố. Commit hồ sơ tiếp theo chỉ ghi quan sát, không chạy lại hoặc đổi bằng chứng. Agent không merge.

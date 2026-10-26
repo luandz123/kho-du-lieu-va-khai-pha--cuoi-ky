@@ -38,7 +38,7 @@ Các mục dưới do nhóm tạo trong repository, không phải nguồn học 
 
 **I04.** P2. [Clustering summary](../../../results/mining/clustering_summary.json), [split manifest](../../../results/mining/split_manifest.json), [receipt Test chính thức](../../../results/mining/cf_test_evaluation_receipt.json). Kết quả Q1/Q2 đã công bố; không chạy lại evaluator để viết báo cáo, tương ứng E12–E16.
 
-**I05.** P1. [Chỉ mục E01–E20](../report_evidence_index.md), [phụ lục truy vết](appendix_sources.md), [summary12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), [ghi nhận P2 qua điều phối](../p2_intake_reported_20261024.json). Phân biệt kết quả P1, thông tin P2 báo cáo và G4 chưa nghiệm thu.
+**I05.** P1. [Chỉ mục E01–E20](../report_evidence_index.md), [phụ lục truy vết](appendix_sources.md), [summary12A](../../../results/warehouse/s12a/57c1e8e3d3f445c4b3eeddbfc3364709/summary.json), [ghi nhận P2 qua điều phối](../p2_intake_reported_20261024.json). Phân biệt kết quả P1 với tái lập độc lập P2. Trạng thái hiện hành: [nghiệm thu 12B](../integration_acceptance.md), [G4 đạt ngày 24/10/2026](../g4_acceptance_20261024.json), phạm vi I01–I15; receipt cũ giữ nguyên lịch sử.
 
 ## D. Quy tắc dùng trong bản tổng
 

@@ -1,0 +1,127 @@
+{
+  "run_id": "3ca533f8a35648e69245fb145f55c271",
+  "recorded_at_utc": "2026-10-25T08:21:28.968742+00:00",
+  "client_date": "2026-10-25",
+  "status": "PASS",
+  "HEAD": "a2021a9f591c56222f5ae16e169f278bf3cec5a7",
+  "code_sha256": "50f55a728153274d330c927000594ca501841a1d706265ec547dcb01f4cb7fbe",
+  "scope": "READ_ONLY_SQL_AND_OFFICIAL_SUPERSET_QUERY_API",
+  "runtime_pipeline_rerun": false,
+  "containers": [
+    {
+      "name": "/btl-movielens-superset-metadata-1",
+      "id": "7b33b1ca3a818a9e2604af6e7526bb673155ee9f7ac59cdd71fab118559f6c94",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "oom_killed": false,
+      "image": "postgres:17.11",
+      "started_at": "2026-10-25T08:18:28.429660878Z",
+      "finished_at": "2026-10-24T12:30:01.915719326Z"
+    },
+    {
+      "name": "/btl-movielens-superset-web-1",
+      "id": "201b758a9005b9414daa21c2dd70c6d8a05c8ba8388c6372cd2fa52e239d0f4e",
+      "status": "running",
+      "health": "healthy",
+      "exit_code": 0,
+      "oom_killed": false,
+      "image": "btl-movielens-superset:6.1.0-local",
+      "started_at": "2026-10-25T08:18:29.025362406Z",
+      "finished_at": "2026-10-24T12:30:01.900615461Z"
+    }
+  ],
+  "health_http": 200,
+  "api_login": "PASS",
+  "business_config_sha256_before": "04df217db4dffae5edf0f2719cf24425e2fd69dfe6dd6ee860c25a3891a730fc",
+  "database": "movielens_btl",
+  "sql_transaction_read_only": true,
+  "overview": [
+    {
+      "case": "all",
+      "sql": {
+        "ratings": 1000209,
+        "sum": 3582313,
+        "users": 6040,
+        "movies": 3706
+      },
+      "api": {
+        "ratings": 1000209,
+        "mean": 3.581564453029317,
+        "users": 6040,
+        "movies": 3706,
+        "sum": 3582313
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "2000Q3",
+      "sql": {
+        "ratings": 324864,
+        "sum": 1167669,
+        "users": 2244,
+        "movies": 3465
+      },
+      "api": {
+        "ratings": 324864,
+        "mean": 3.5943317819148937,
+        "users": 2244,
+        "movies": 3465,
+        "sum": 1167669
+      },
+      "status": "PASS"
+    }
+  ],
+  "trends": {
+    "case": "Animation 2001 Q1",
+    "sql": {
+      "count": 1715,
+      "prev": 20068,
+      "denominator": 63335
+    },
+    "api": {
+      "quarter_label": "2001 Q1",
+      "genre_name": "Animation",
+      "ranking_status": "Đủ điều kiện xếp hạng (toàn bộ 18 genre)",
+      "rank_interpretation": "Hạng 1: giảm ít nhất",
+      "rating_count": 1715,
+      "previous_rating_count": 20068,
+      "genre_assignment_total": 63335,
+      "genre_share_pct": 2.7078234783295176,
+      "qoq_pct": -91.45405620888978,
+      "growth_rank": 1
+    },
+    "status": "PASS"
+  },
+  "preferences": [
+    {
+      "case": "all",
+      "assigned": 6038,
+      "fixed_baseline": 6038,
+      "insufficient": 2,
+      "heatmap_cells": 72,
+      "status": "PASS"
+    },
+    {
+      "case": "cluster1_F_25-34",
+      "assigned": 170,
+      "fixed_baseline": 6038,
+      "insufficient": 2,
+      "heatmap_cells": 18,
+      "status": "PASS"
+    }
+  ],
+  "engine_role": "movielens_bi_reader",
+  "business_config_sha256_after": "04df217db4dffae5edf0f2719cf24425e2fd69dfe6dd6ee860c25a3891a730fc",
+  "duration_seconds": 32.89,
+  "business_config_unchanged": true,
+  "cluster_sizes": {
+    "0": 2478,
+    "1": 1393,
+    "2": 760,
+    "3": 1407
+  },
+  "p2_intake_G2": "CONFIRMED",
+  "G4": "PASS_I01_I15",
+  "G5_complete": false
+}

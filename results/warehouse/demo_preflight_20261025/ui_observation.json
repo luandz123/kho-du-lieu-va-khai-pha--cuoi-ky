@@ -1,0 +1,39 @@
+{
+  "client_date": "2026-10-25",
+  "instance": 8089,
+  "session": "Existing logged-in BTL Admin UI; API login independently verified",
+  "dashboards_opened": [
+    1,
+    2,
+    3
+  ],
+  "overview_all_ui": {
+    "ratings": 1000209,
+    "sum": 3582313,
+    "users": 6040,
+    "rated_movies": 3706,
+    "catalog": 3883
+  },
+  "trends_native_filter": {
+    "quarter": "2001 Q1",
+    "genre": "Animation",
+    "count": 1715,
+    "previous": 20068,
+    "denominator": 63335,
+    "qoq": -91.45405620888978,
+    "rank": 1,
+    "interpretation": "giảm ít nhất"
+  },
+  "preferences_native_filter": {
+    "cluster": 1,
+    "age_group": "25-34",
+    "gender": "F",
+    "assigned_170_observed": true,
+    "baseline_6038_observed": true,
+    "insufficient_2_observed": true,
+    "heatmap_filter_badge": 1,
+    "user_filter_badge": 3
+  },
+  "dashboard_edit_or_save": false,
+  "viewport_limit": "App pane became narrow; screenshot is supplemented by AX values and SQL/API receipt"
+}

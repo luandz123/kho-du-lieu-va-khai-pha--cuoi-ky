@@ -1,5 +1,9 @@
 # Hồ sơ biên tập và checklist phần báo cáo P1
 
+## Cập nhật sau nghiệm thu G4 — 24/10/2026
+
+Đã cập nhật trạng thái hiện hành trong chương 1/3/4, phụ lục, danh mục nguồn và checklist; không đổi số liệu, ảnh, SQL/API hoặc receipt. Những ghi nhận trước nghiệm thu bên dưới giữ lịch sử. Chờ chương 2/5/6 P2 được duyệt để ghép khi được giao; chưa DOCX/slide/G5. Không thực hiện thao tác demo hoặc pipeline.
+
 ## Cập nhật hình được duyệt — 24/10/2026
 
 Điều phối duyệt checklist ghép và ảnh Sở thích bổ sung. Chương4 bổ sung Hình4.3 (`all_kpis.jpg`) và Hình4.4 (`cluster1_F_25_34_top.jpg`), giữ nguyên byte ảnh gốc, không cắt/sửa số liệu. Caption ghi instance8089, ngày24/10 và filter toàn bộ/cụm1-F-25–34. Bảng4.4 giữ nguyên. Scope heatmap dẫn SQL profile, snapshot cấu hình API và reconciliation, không suy chỉ từ screenshot.
@@ -54,7 +58,7 @@ Nếu có lượt chụp sau được giao, lưu ảnh mới vào thư mục ri�
 - [x] Giữ bảng Sở thích đã đối soát khi ảnh rõ chưa có.
 - [x] Hai ảnh Sở thích được điều phối duyệt: Hình4.3–4.4, ghi filter/model/instance trong caption và selected_manifest.json; giữ ảnh lịch sử.
 - [ ] Xem lại kích thước/độ rõ hình khi ghép bản Word/PDF; hiện chưa tạo DOCX/slide.
-- [ ] Điều phối review bằng chứng tích hợp P2 và nghiệm thu12B/G4. P2 báo G2CONFIRMED trên Windows3.12.6/PG17.4; không có xác minh Linux.
+- [x] Điều phối nghiệm thu 12-P2 và12B/G4 ngày24/10/2026, phạm vi I01–I15; PR30 MERGED67fd9eb…. P2 intakeG2CONFIRMED, Windows3.12.6/PG17.4; không kiểmLinux. [Ghi nhận mới](../g4_acceptance_20261024.json).
 - [ ] Nhận phần chương2/5/6 của P2 đã được duyệt; chưa ghép trong PR này.
 - [ ] Đối chiếu rubric/mẫu chính thức khi có; không tự đặt số trang/thể thức bắt buộc.
 
