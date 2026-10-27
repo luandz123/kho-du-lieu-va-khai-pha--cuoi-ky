@@ -81,3 +81,4 @@ htmlcov/
 !/results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/*.csv
 .DS_Store
 Thumbs.db
+dashboard/restore/backup_layout_*.json
