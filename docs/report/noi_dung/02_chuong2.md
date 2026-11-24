@@ -1,6 +1,6 @@
 @chapter CHƯƠNG 2. PHÂN TÍCH DỮ LIỆU VÀ THIẾT KẾ KHO DỮ LIỆU
 
-Chương này mô tả bộ dữ liệu MovieLens 1M, các kết quả phân tích khám phá dữ liệu (EDA) có ảnh hưởng tới thiết kế, kiến trúc tổng thể của hệ thống và thiết kế chi tiết kho dữ liệu.
+Chương này mô tả bộ dữ liệu MovieLens 1M, các kết quả phân tích khám phá dữ liệu (EDA) có ảnh hưởng tới thiết kế, kiến trúc tổng thể của hệ thống và thiết kế chi tiết kho dữ liệu ở bản nền tảng. Các nguồn dữ liệu bổ sung và kho dữ liệu mở rộng của bản nâng cấp được trình bày ở chương 5.
 
 ## 2.1. Bộ dữ liệu MovieLens 1M
 
@@ -82,7 +82,7 @@ Trong PostgreSQL, dữ liệu được chia thành ba schema có vai trò tách 
 - **dw:** bốn bảng chiều, một bảng cầu nối, một bảng sự kiện và bốn khung nhìn chuẩn cho phần khai phá.
 - **analytics:** sáu khung nhìn OLAP và ba bảng lưu kết quả phân cụm để hiển thị trên dashboard.
 
-Việc phần khai phá đọc dữ liệu qua bốn khung nhìn chuẩn thay vì đọc trực tiếp các bảng nội bộ giúp tách biệt hai phần: kho dữ liệu có thể thay đổi cấu trúc bên trong mà không ảnh hưởng tới mô hình, miễn là các khung nhìn giữ nguyên tên cột, kiểu dữ liệu và ý nghĩa.
+Việc phần khai phá đọc dữ liệu qua bốn khung nhìn chuẩn thay vì đọc trực tiếp các bảng nội bộ giúp tách biệt hai phần: kho dữ liệu có thể thay đổi cấu trúc bên trong mà không ảnh hưởng tới mô hình, miễn là các khung nhìn giữ nguyên tên cột, kiểu dữ liệu và ý nghĩa. Ở bản nâng cấp (mục 5.2), vùng staging được thay bằng data lake ba tầng và kiến trúc được mở rộng thêm tầng thu thập CDC, streaming và điều phối.
 
 ## 2.4. Thiết kế kho dữ liệu
 

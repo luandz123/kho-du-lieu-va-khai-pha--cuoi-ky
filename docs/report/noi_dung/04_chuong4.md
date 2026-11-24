@@ -185,6 +185,7 @@ Kết quả hai bài toán khai phá có thể được đối chiếu với nha
 - Popularity Baseline đạt kết quả khá cao (Precision@5 = 0,20 trên test), phù hợp với nhận xét ở mục 3.3.2 rằng các phim được đánh giá nhiều nhất cũng thường được đánh giá cao. Item-based CF vẫn cải thiện được kết quả vì tận dụng thông tin cá nhân của từng người.
 - Bốn cụm sở thích ở Q1 cho thấy người dùng có các khẩu vị khác biệt (Drama, Comedy, Action/Sci-Fi). Đây là lý do mô hình cá nhân hóa như CF có ưu thế hơn gợi ý chung cho mọi người.
 - Cả hai bài toán đều đọc dữ liệu từ bốn khung nhìn chuẩn của kho; việc so sánh mã băm bảo đảm kết quả khai phá dựa trên đúng dữ liệu đã được đối soát ở chương 3.
+- Hạn chế lớn nhất của item-based CF là không gợi ý được phim mới chưa có đánh giá. Mục 5.10 trình bày mô hình lai bổ sung thông tin nội dung phim từ Wikipedia và IMDb, được đánh giá theo đúng giao thức của mục này.
 
 ## 4.4. Kết luận chương 4
 

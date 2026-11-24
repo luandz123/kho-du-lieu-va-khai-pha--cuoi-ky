@@ -10,6 +10,7 @@ Cần python-docx, matplotlib và LibreOffice (soffice), poppler-utils (pdftotex
 """
 import copy
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -32,13 +33,13 @@ OUT_DOCX = HERE / "bao_cao_kho_du_lieu_khai_pha.docx"
 COVER = {
     "school": "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG",
     "institute": "VIỆN KHOA HỌC KỸ THUẬT BƯU ĐIỆN",
-    "report": "BÀI BÁO CÁO CUỐI KỲ MÔN HỌC",
+    "report": "BÁO CÁO CUỐI KỲ MÔN HỌC (BẢN NÂNG CẤP)",
     "course": "KHO DỮ LIỆU VÀ KHAI PHÁ DỮ LIỆU",
-    "topic": "XÂY DỰNG KHO DỮ LIỆU VÀ KHAI PHÁ DỮ LIỆU ĐÁNH GIÁ PHIM MOVIELENS 1M",
-    "lecturer": "……………………………",
+    "topic": "XÂY DỰNG KHO DỮ LIỆU VÀ KHAI PHÁ DỮ LIỆU ĐÁNH GIÁ PHIM MOVIELENS 1M — NÂNG CẤP THÀNH NỀN TẢNG DỮ LIỆU NHIỀU NGUỒN GẦN THỜI GIAN THỰC",
+    "lecturer": "Phan Lý Huỳnh",
     "course_code": "……………",
-    "students": [("Nguyễn Văn Luân", "B23DCCC106"), ("……………………………", "……………")],
-    "place_date": "Hà Nội, 10/2026",
+    "students": [("Nguyễn Văn Luân", "B23DCCC106"), ("Vũ Văn Hùng", "B23DCCC078")],
+    "place_date": "Hà Nội, 11/2026",
 }
 # -------------------------------------------------------------------------------------
 
@@ -595,9 +596,20 @@ def build(page_map, prepass):
 
 
 def to_pdf(docx):
-    subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(docx.parent),
-                    str(docx)], check=True, capture_output=True)
-    return docx.with_suffix(".pdf")
+    pdf = docx.with_suffix(".pdf")
+    if shutil.which("soffice"):
+        subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", str(docx.parent),
+                        str(docx)], check=True, capture_output=True)
+        return pdf
+    # Không có LibreOffice (Windows): xuất PDF bằng Microsoft Word qua COM.
+    before = pdf.stat().st_mtime if pdf.exists() else 0
+    ps = (f"$w = New-Object -ComObject Word.Application; $w.Visible = $false; "
+          f"$d = $w.Documents.Open('{docx}', $false, $true); "
+          f"$d.ExportAsFixedFormat('{pdf}', 17); $d.Close($false); try {{ $w.Quit() }} catch {{}}")
+    subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True)
+    if not pdf.exists() or pdf.stat().st_mtime <= before:
+        raise RuntimeError("Word không xuất được PDF")
+    return pdf
 
 
 def norm(s):
@@ -605,9 +617,14 @@ def norm(s):
 
 
 def page_texts(pdf):
-    out = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True,
-                         capture_output=True, text=True).stdout
-    return [norm(p) for p in out.split("\f")]
+    try:
+        import fitz  # PyMuPDF
+        with fitz.open(pdf) as doc:
+            return [norm(page.get_text()) for page in doc]
+    except ImportError:
+        out = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True,
+                             capture_output=True, text=True, encoding="utf-8").stdout
+        return [norm(p) for p in out.split("\f")]
 
 
 def locate(pdf, b):

@@ -1,0 +1,10 @@
+# Thư viện cho các bước pipeline chạy trong container (Airflow, consumer, producer).
+duckdb==1.2.2
+pyarrow==18.1.0
+s3fs==2024.10.0
+fsspec==2024.10.0
+confluent-kafka==2.6.1
+pandas==2.2.3
+python-dotenv==1.1.1
+requests==2.32.3
+psycopg2-binary==2.9.10

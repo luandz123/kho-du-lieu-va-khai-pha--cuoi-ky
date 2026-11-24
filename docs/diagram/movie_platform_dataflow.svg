@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1140" viewBox="0 0 2000 1140"><defs><marker id="aea580c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker><marker id="a7c3aed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker><marker id="a111827" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker><marker id="a2563eb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="a64748b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker><marker id="a334155" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="abe185d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#be185d"/></marker><marker id="a0d9488" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d9488"/></marker><marker id="a16a34a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker></defs><rect width="2000" height="1140" fill="#ffffff"/><text x="48" y="58" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700" fill="#111827" text-anchor="start">Movie Platform — luồng dữ liệu (bản nâng cấp)</text>
+<text x="48" y="92" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#4b5563" text-anchor="start">7 nguồn · 4 kiểu nạp (file, API, CDC, streaming) → Kafka / Airflow → MinIO (bronze → silver → gold) → kho Postgres + pgvector → Superset / Streamlit</text>
+<text x="85" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#374151" text-anchor="start">1 · NGUỒN</text>
+<text x="500" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#374151" text-anchor="start">2 · NẠP</text>
+<text x="810" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#374151" text-anchor="start">3 · DATA LAKE</text>
+<text x="1200" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#374151" text-anchor="start">4 · KHO DỮ LIỆU</text>
+<text x="1655" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#374151" text-anchor="start">5 · KHAI THÁC</text>
+<rect x="85" y="160" width="345" height="158" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="100" y="182" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" text-anchor="start">FILE · batch</text>
+<rect x="98" y="193" width="318" height="55" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+<text x="110" y="216" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">MovieLens 1M</text>
+<text x="110" y="236" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">rating lịch sử 2000–2003 · 1.000.209 rating</text>
+<rect x="98" y="255" width="318" height="55" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+<text x="110" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">IMDb datasets</text>
+<text x="110" y="298" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">TSV.gz · title.ratings tải lại hằng ngày</text>
+<rect x="85" y="333" width="345" height="224" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="100" y="355" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#0d9488" text-anchor="start">API · batch</text>
+<rect x="98" y="366" width="318" height="55" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.8"/>
+<text x="110" y="389" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Wikidata</text>
+<text x="110" y="409" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">SPARQL · IMDb ID ↔ bài Wikipedia</text>
+<rect x="98" y="428" width="318" height="55" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.8"/>
+<text x="110" y="451" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Wikipedia Pageviews</text>
+<text x="110" y="471" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">lượt xem theo ngày · 500 phim</text>
+<rect x="98" y="490" width="318" height="55" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.8"/>
+<text x="110" y="513" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Wikipedia API</text>
+<text x="110" y="533" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">MediaWiki · tóm tắt + poster</text>
+<rect x="85" y="572" width="345" height="132" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="100" y="594" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#ea580c" text-anchor="start">CDC · log-based</text>
+<rect x="98" y="605" width="170" height="88" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.8"/>
+<text x="110" y="628" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">App xem phim</text>
+<text x="110" y="648" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">Postgres · WAL</text>
+<text x="110" y="666" font-family="Consolas, Menlo, monospace" font-size="12" font-weight="400" fill="#4b5563" text-anchor="start">REPLICA IDENTITY FULL</text>
+<text x="110" y="684" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">bảng ratings, users</text>
+<rect x="285" y="605" width="131" height="88" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.8"/>
+<text x="297" y="628" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Debezium</text>
+<text x="297" y="648" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">pgoutput</text>
+<text x="297" y="666" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">slot debezium_app</text>
+<rect x="85" y="719" width="345" height="118" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="6 5"/>
+<text x="100" y="741" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="start">STREAMING · real-time</text>
+<rect x="98" y="752" width="170" height="74" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="110" y="775" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Wikimedia</text>
+<text x="110" y="795" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">EventStreams (SSE)</text>
+<rect x="285" y="752" width="131" height="74" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="297" y="775" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="start">Producer</text>
+<text x="297" y="795" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">lọc enwiki, viwiki</text>
+<text x="297" y="813" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="start">~1–3 sự kiện/s</text>
+<rect x="500" y="160" width="240" height="388" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+<text x="620" y="290" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#111827" text-anchor="middle">Task nạp</text>
+<text x="620" y="315" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#4b5563" text-anchor="middle">(Airflow)</text>
+<text x="620" y="355" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">batch theo lịch</text>
+<text x="620" y="374" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle"></text>
+<text x="620" y="393" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#4b5563" text-anchor="middle">movie_daily:</text>
+<text x="620" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">IMDb ratings, pageviews</text>
+<text x="620" y="431" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle"></text>
+<text x="620" y="450" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600" fill="#4b5563" text-anchor="middle">movie_bootstrap:</text>
+<text x="620" y="469" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">MovieLens, IMDb,</text>
+<text x="620" y="488" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">Wikidata, Wikipedia</text>
+<text x="620" y="507" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle"></text>
+<text x="620" y="526" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">ghi file gốc vào bronze</text>
+<rect x="500" y="565" width="240" height="230" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+<text x="620" y="597" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="middle">Kafka</text>
+<rect x="518" y="614" width="204" height="28" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+<text x="620" y="633" font-family="Consolas, Menlo, monospace" font-size="13.5" font-weight="400" fill="#ea580c" text-anchor="middle">app.public.ratings</text>
+<rect x="518" y="650" width="204" height="28" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+<text x="620" y="669" font-family="Consolas, Menlo, monospace" font-size="13.5" font-weight="400" fill="#ea580c" text-anchor="middle">app.public.users</text>
+<rect x="518" y="686" width="204" height="28" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="620" y="705" font-family="Consolas, Menlo, monospace" font-size="13.5" font-weight="400" fill="#7c3aed" text-anchor="middle">wiki.recentchange</text>
+<rect x="518" y="722" width="204" height="28" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="620" y="741" font-family="Consolas, Menlo, monospace" font-size="13.5" font-weight="400" fill="#7c3aed" text-anchor="middle">wiki.movie_edits</text>
+<text x="620" y="778" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="middle">3 partition / topic · UI :8080</text>
+<rect x="500" y="812" width="240" height="88" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+<text x="620" y="838" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#111827" text-anchor="middle">Consumer</text>
+<text x="620" y="862" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="middle">micro-batch 10 giây / 500 message</text>
+<text x="620" y="884" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="middle">commit offset SAU khi ghi lake</text>
+<rect x="810" y="160" width="322" height="740" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2.4"/>
+<text x="971" y="192" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#111827" text-anchor="middle">MinIO · bucket lake (S3)</text>
+<text x="971" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">xử lý bằng DuckDB · silver/gold lưu Parquet</text>
+<rect x="828" y="232" width="286" height="190" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<text x="846" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#c2410c" text-anchor="start">BRONZE</text>
+<text x="846" y="284" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">dữ liệu thô, giữ nguyên file gốc</text>
+<text x="846" y="305" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">DAT · CSV · TSV.gz · JSONL</text>
+<text x="846" y="326" font-family="Consolas, Menlo, monospace" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">app_cdc/ratings, app_cdc/users</text>
+<text x="846" y="347" font-family="Consolas, Menlo, monospace" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">wikimedia/recentchange, edits</text>
+<text x="846" y="368" font-family="Consolas, Menlo, monospace" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">.../ingest_date=YYYY-MM-DD/</text>
+<text x="846" y="389" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">→ xử lý lại được khi sai logic</text>
+<polyline points="971,422 971,449" fill="none" stroke="#64748b" stroke-width="2.4" marker-end="url(#a64748b)"/>
+<rect x="828" y="452" width="286" height="200" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="846" y="478" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#334155" text-anchor="start">SILVER</text>
+<text x="846" y="504" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">làm sạch, ép kiểu</text>
+<text x="846" y="525" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">CDC: bản mới nhất theo khóa + LSN</text>
+<text x="846" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">op = d → is_deleted (xóa mềm)</text>
+<text x="846" y="567" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">users: bỏ snapshot op = r</text>
+<text x="846" y="588" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">ghép phim ML ↔ IMDb (98%)</text>
+<text x="846" y="609" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">tóm tắt + poster Wikipedia</text>
+<polyline points="971,652 971,679" fill="none" stroke="#64748b" stroke-width="2.4" marker-end="url(#a64748b)"/>
+<rect x="828" y="682" width="286" height="200" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+<text x="846" y="708" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#a16207" text-anchor="start">GOLD</text>
+<text x="846" y="734" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">đúng hình dạng kho: dim_* / fact_*</text>
+<text x="846" y="755" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">khóa tự nhiên + changed_at</text>
+<text x="846" y="776" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">là chuẩn để đối soát với kho</text>
+<text x="846" y="797" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">(kiểm tra chất lượng)</text>
+<rect x="1200" y="160" width="385" height="580" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2.4"/>
+<text x="1392" y="192" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#16a34a" text-anchor="middle">Postgres + pgvector</text>
+<text x="1392" y="214" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">lược đồ sao · nạp tăng dần</text>
+<text x="1218" y="242" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#374151" text-anchor="start">DIMENSION</text>
+<rect x="1218" y="250" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="270" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">dim_user</text>
+<text x="1555" y="270" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#ea580c" text-anchor="end">SCD loại 2</text>
+<rect x="1218" y="286" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="306" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">dim_movie</text>
+<text x="1555" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#111827" text-anchor="end">SCD loại 1</text>
+<text x="1220" y="334" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">+ dim_date · dim_genre (bridge) · dim_source</text>
+<text x="1218" y="362" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#374151" text-anchor="start">FACT</text>
+<rect x="1218" y="370" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="390" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">fact_rating</text>
+<text x="1555" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#2563eb" text-anchor="end">trạng thái hiện tại</text>
+<rect x="1218" y="406" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="426" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">fact_imdb_rating_daily</text>
+<text x="1555" y="426" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#16a34a" text-anchor="end">snapshot ngày</text>
+<rect x="1218" y="442" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="462" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">fact_pageviews_daily</text>
+<text x="1555" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#16a34a" text-anchor="end">snapshot ngày</text>
+<rect x="1218" y="478" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="498" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">fact_wiki_edit</text>
+<text x="1555" y="498" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#7c3aed" text-anchor="end">streaming</text>
+<text x="1218" y="534" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#374151" text-anchor="start">ETL</text>
+<rect x="1218" y="542" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="562" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">etl.watermark</text>
+<text x="1555" y="562" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#111827" text-anchor="end">đọc lùi 1 giờ</text>
+<rect x="1218" y="578" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="598" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">etl.pipeline_run</text>
+<text x="1555" y="598" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#111827" text-anchor="end">nhật ký + 9 check</text>
+<text x="1220" y="628" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">ON CONFLICT DO UPDATE khi bản mới hơn</text>
+<text x="1220" y="645" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="start">→ chạy lại không nhân đôi</text>
+<text x="1218" y="674" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#374151" text-anchor="start">VECTOR</text>
+<rect x="1218" y="682" width="349" height="30" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.2"/>
+<text x="1230" y="702" font-family="Consolas, Menlo, monospace" font-size="14" font-weight="400" fill="#111827" text-anchor="start">movie_embedding</text>
+<text x="1555" y="702" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#be185d" text-anchor="end">HNSW · cosine</text>
+<rect x="1200" y="790" width="385" height="110" rx="10" fill="#fdf2f8" stroke="#be185d" stroke-width="2"/>
+<text x="1392" y="817" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#be185d" text-anchor="middle">Embedding · multilingual-e5-small</text>
+<text x="1392" y="840" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="middle">384 chiều · đọc silver: mô tả Wikipedia + IMDb</text>
+<text x="1392" y="861" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#4b5563" text-anchor="middle">“passage: …” / “query: …”</text>
+<text x="1392" y="884" font-family="Consolas, Menlo, monospace" font-size="12.5" font-weight="400" fill="#4b5563" text-anchor="middle">chạy tay: python -m ai.embeddings</text>
+<rect x="1655" y="160" width="295" height="155" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+<text x="1802" y="198" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#111827" text-anchor="middle">Superset</text>
+<text x="1802" y="228" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">dashboard movie-platform</text>
+<text x="1802" y="250" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="middle">8 chart · tự làm mới 60 giây</text>
+<text x="1802" y="280" font-family="Consolas, Menlo, monospace" font-size="13" font-weight="400" fill="#4b5563" text-anchor="middle">:8089</text>
+<rect x="1655" y="355" width="295" height="391" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2"/>
+<text x="1802" y="390" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#111827" text-anchor="middle">App Streamlit · 5 trang</text>
+<rect x="1672" y="410" width="262" height="58" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<text x="1686" y="433" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="start">Gợi ý</text>
+<text x="1686" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="start">hybrid CF + nội dung · lý do</text>
+<rect x="1672" y="476" width="262" height="58" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<text x="1686" y="499" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="start">Chấm điểm</text>
+<text x="1686" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="start">ghi app DB · xóa · đổi nghề</text>
+<rect x="1672" y="542" width="262" height="58" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<text x="1686" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="start">Người dùng mới</text>
+<text x="1686" y="586" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="start">cold-start · chọn 3 phim</text>
+<rect x="1672" y="608" width="262" height="58" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<text x="1686" y="631" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="start">Tìm phim</text>
+<text x="1686" y="652" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="start">câu tiếng Việt → pgvector</text>
+<rect x="1672" y="674" width="262" height="58" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.2"/>
+<text x="1686" y="697" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#111827" text-anchor="start">Pipeline</text>
+<text x="1686" y="718" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4b5563" text-anchor="start">chạy DAG · xem kho</text>
+<rect x="500" y="920" width="1085" height="80" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="2"/>
+<text x="518" y="951" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#4f46e5" text-anchor="start">Airflow · điều phối</text>
+<text x="712" y="951" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#111827" text-anchor="start">movie_incremental (15 phút): bronze → silver → gold → nạp kho → kiểm tra chất lượng (9 check)</text>
+<text x="518" y="980" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#4b5563" text-anchor="start">movie_daily (08:00): IMDb + pageviews · movie_bootstrap (chạy tay): MovieLens, IMDb, Wikidata, Wikipedia · UI :8081</text>
+<polyline points="416,220 497,220" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#a2563eb)"/>
+<polyline points="416,282 497,282" fill="none" stroke="#2563eb" stroke-width="2.4" marker-end="url(#a2563eb)"/>
+<polyline points="416,393 497,393" fill="none" stroke="#0d9488" stroke-width="2.4" marker-end="url(#a0d9488)"/>
+<polyline points="416,455 497,455" fill="none" stroke="#0d9488" stroke-width="2.4" marker-end="url(#a0d9488)"/>
+<polyline points="416,517 497,517" fill="none" stroke="#0d9488" stroke-width="2.4" marker-end="url(#a0d9488)"/>
+<polyline points="268,649 282,649" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#aea580c)"/>
+<polyline points="416,649 497,649" fill="none" stroke="#ea580c" stroke-width="2.4" marker-end="url(#aea580c)"/>
+<polyline points="268,789 282,789" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#a7c3aed)"/>
+<polyline points="416,789 455,789 455,720 497,720" fill="none" stroke="#7c3aed" stroke-width="2.4" marker-end="url(#a7c3aed)"/>
+<polyline points="620,795 620,809" fill="none" stroke="#111827" stroke-width="2.4" marker-end="url(#a111827)"/>
+<polyline points="740,320 807,320" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#a334155)"/>
+<polyline points="740,856 775,856 775,380 807,380" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#a334155)"/>
+<polyline points="1114,790 1160,790 1160,420 1197,420" fill="none" stroke="#16a34a" stroke-width="2.6" marker-end="url(#a16a34a)"/>
+<rect x="1147" y="591.0" width="26" height="178" rx="13" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.6"/>
+<text x="1165" y="680" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#16a34a" text-anchor="middle" transform="rotate(-90 1165 680)">nạp tăng dần · upsert</text>
+<polyline points="1114,560 1182,560 1182,845 1197,845" fill="none" stroke="#ffffff" stroke-width="9"/>
+<polyline points="1114,560 1182,560 1182,845 1197,845" fill="none" stroke="#be185d" stroke-width="2.4" marker-end="url(#abe185d)"/>
+<polyline points="1392,790 1392,715" fill="none" stroke="#be185d" stroke-width="2.4" marker-end="url(#abe185d)"/>
+<polyline points="1585,237 1652,237" fill="none" stroke="#16a34a" stroke-width="2.6" marker-end="url(#a16a34a)"/>
+<polyline points="1585,560 1652,560" fill="none" stroke="#16a34a" stroke-width="2.6" marker-end="url(#a16a34a)"/>
+<polyline points="971,920 971,903" fill="none" stroke="#64748b" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#a64748b)"/>
+<rect x="926.5" y="898" width="89" height="28" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="1.6"/>
+<text x="971" y="917" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#64748b" text-anchor="middle">điều phối</text>
+<polyline points="1800,746 1800,960 1588,960" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#aea580c)"/>
+<rect x="1721.5" y="836" width="157" height="28" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="1.6"/>
+<text x="1800" y="855" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#ea580c" text-anchor="middle">Chạy pipeline ngay</text>
+<polyline points="1915,746 1915,1048 48,1048 48,649 95,649" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-dasharray="7 6" marker-end="url(#aea580c)"/>
+<rect x="523.5" y="1034" width="933" height="28" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="1.6"/>
+<text x="990" y="1053" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#ea580c" text-anchor="middle">vòng demo: chấm điểm / xóa / đổi nghề trên app → Postgres → Debezium → Kafka → lake → kho → thấy lại trên app / Superset</text>
+<line x1="48" y1="1100" x2="78" y2="1100" stroke="#2563eb" stroke-width="3"/>
+<text x="88" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">file batch</text>
+<line x1="198" y1="1100" x2="228" y2="1100" stroke="#0d9488" stroke-width="3"/>
+<text x="238" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">API</text>
+<line x1="294" y1="1100" x2="324" y2="1100" stroke="#ea580c" stroke-width="3"/>
+<text x="334" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">CDC / thao tác demo</text>
+<line x1="512" y1="1100" x2="542" y2="1100" stroke="#7c3aed" stroke-width="3"/>
+<text x="552" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">streaming</text>
+<line x1="654" y1="1100" x2="684" y2="1100" stroke="#16a34a" stroke-width="3"/>
+<text x="694" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">kho → khai thác</text>
+<line x1="842" y1="1100" x2="872" y2="1100" stroke="#be185d" stroke-width="3"/>
+<text x="882" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">embedding</text>
+<line x1="984" y1="1100" x2="1014" y2="1100" stroke="#64748b" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="1024" y="1105" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#374151" text-anchor="start">nét đứt = điều phối / kích hoạt</text></svg>

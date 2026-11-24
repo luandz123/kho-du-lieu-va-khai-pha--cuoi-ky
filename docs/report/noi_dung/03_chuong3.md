@@ -1,6 +1,6 @@
 @chapter CHƯƠNG 3. XÂY DỰNG ETL, OLAP VÀ DASHBOARD
 
-Chương này trình bày quá trình hiện thực kho dữ liệu: quy trình ETL và đối soát, sáu truy vấn OLAP cùng kết quả trả lời câu hỏi Q3, ba dashboard trên Apache Superset, cơ chế sao lưu phục hồi và kiểm thử.
+Chương này trình bày quá trình hiện thực kho dữ liệu của bản nền tảng: quy trình ETL và đối soát, sáu truy vấn OLAP cùng kết quả trả lời câu hỏi Q3, ba dashboard trên Apache Superset, cơ chế sao lưu phục hồi và kiểm thử. Quy trình nạp tăng dần và dashboard thời gian thực của bản nâng cấp được trình bày ở chương 5.
 
 ## 3.1. Môi trường triển khai
 

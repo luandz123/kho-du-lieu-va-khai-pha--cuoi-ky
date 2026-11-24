@@ -1,0 +1,25 @@
+{
+  "name": "app-postgres",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "app-db",
+    "database.port": "5432",
+    "database.user": "app",
+    "database.password": "${APP_DB_PASSWORD}",
+    "database.dbname": "movie_app",
+    "topic.prefix": "app",
+    "table.include.list": "public.ratings,public.users",
+    "publication.name": "dbz_publication",
+    "publication.autocreate.mode": "disabled",
+    "slot.name": "debezium_app",
+    "snapshot.mode": "initial",
+    "decimal.handling.mode": "double",
+    "time.precision.mode": "connect",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "tombstones.on.delete": "false"
+  }
+}

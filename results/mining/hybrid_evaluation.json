@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-11-17T18:52:41.503402+00:00",
+  "protocol": "temporal split t1/t2 giống bản cũ; macro P@5, R@5; ứng viên = catalog train trừ lịch sử",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "validation_alpha_grid": [
+    {
+      "alpha": 1.0,
+      "users": 471,
+      "precision_at_5": 0.180042,
+      "recall_at_5": 0.030076
+    },
+    {
+      "alpha": 0.9,
+      "users": 471,
+      "precision_at_5": 0.181741,
+      "recall_at_5": 0.030246
+    },
+    {
+      "alpha": 0.8,
+      "users": 471,
+      "precision_at_5": 0.181316,
+      "recall_at_5": 0.029785
+    },
+    {
+      "alpha": 0.7,
+      "users": 471,
+      "precision_at_5": 0.183015,
+      "recall_at_5": 0.029758
+    },
+    {
+      "alpha": 0.6,
+      "users": 471,
+      "precision_at_5": 0.183439,
+      "recall_at_5": 0.029398
+    },
+    {
+      "alpha": 0.5,
+      "users": 471,
+      "precision_at_5": 0.183439,
+      "recall_at_5": 0.028936
+    },
+    {
+      "alpha": 0.3,
+      "users": 471,
+      "precision_at_5": 0.185138,
+      "recall_at_5": 0.02872
+    },
+    {
+      "alpha": 0.0,
+      "users": 471,
+      "precision_at_5": 0.176221,
+      "recall_at_5": 0.033553
+    }
+  ],
+  "chosen_alpha": 0.9,
+  "test": {
+    "cf_only": {
+      "alpha": 1.0,
+      "users": 1154,
+      "precision_at_5": 0.231023,
+      "recall_at_5": 0.035303
+    },
+    "content_only": {
+      "alpha": 0.0,
+      "users": 1154,
+      "precision_at_5": 0.217504,
+      "recall_at_5": 0.031752
+    },
+    "hybrid": {
+      "alpha": 0.9,
+      "users": 1154,
+      "precision_at_5": 0.231369,
+      "recall_at_5": 0.035166
+    }
+  },
+  "cold_start_3_ratings": {
+    "cf_only": {
+      "alpha": 1.0,
+      "users": 1154,
+      "precision_at_5": 0.105546,
+      "recall_at_5": 0.013359
+    },
+    "content_only": {
+      "alpha": 0.0,
+      "users": 1154,
+      "precision_at_5": 0.095147,
+      "recall_at_5": 0.013854
+    },
+    "hybrid": {
+      "alpha": 0.9,
+      "users": 1154,
+      "precision_at_5": 0.105893,
+      "recall_at_5": 0.013984
+    }
+  }
+}
