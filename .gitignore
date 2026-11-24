@@ -81,3 +81,13 @@ htmlcov/
 !/results/olap/s07_af6dbc20b40d4a47aa3ea71bde6fd107/*.csv
 .DS_Store
 Thumbs.db
+dashboard/restore/backup_layout_*.json
+
+# Video demo (lớn, sinh lại bằng docs/demo/record_demo.py)
+*.mp4
+*.webm
+docs/demo/build_longtieng/
+
+# Âm thanh trung gian khi dựng video (sinh lại được) và cấu hình cá nhân của Claude Code
+docs/demo/audio*/
+.claude/
